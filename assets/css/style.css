@@ -1,0 +1,48 @@
+body {
+  counter-reset: figures;
+}
+
+main {
+  min-height: calc(100vh - 165px);
+}
+
+figure {
+  counter-increment: figures;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+figure figcaption {
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+figure figcaption::before {
+  content: 'Figure ' counter(figures) ', ';
+}
+
+figure img {
+  max-width: 100%;
+}
+
+h1 {
+  color: #2B79A2;
+  text-align: center;
+}
+
+h2 {
+  color: #3D4552;
+}
+
+h3 {
+  color: #475562;
+}
+
+h4 {
+  color: #4F5B7B;
+}
+
+h5 {
+  color: #5E5C90;
+}

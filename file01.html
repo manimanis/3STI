@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini-projet n°1</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Mini-projet 1</h1>
+
+    <article>
+      <h2>Fiche d'information</h2>
+
+      <section>
+        <h3>Travail demandé</h3>
+
+        <p>Utiliser vos connaissances en HTML et en CSS pour vous présenter. Modèle du travail à réaliser. Le choix des
+          couleurs et le style des polices sont laissés à l'élève.</p>
+
+        <figure>
+          <img src="assets/miniprojet01/images/modele.jpg" alt="Modèle de fiche d'information">
+          <figcaption>Module de la fiche d'information</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Structure d'une page Web</h3>
+
+        <pre class="html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h4>Question</h4>
+        <p>Expliquer le rôle de chaque ligne du code précédent.</p>
+
+        <div class="d-none d-print-block">
+          <h4>Réponse</h4>
+          <pre class="html"><code>&lt;!DOCTYPE html&gt;</code></pre>
+          <p>Indique au navigateur la version HTML utilisée dans le document.</p>
+
+          <pre class="html"><code>&lt;html lang=&quot;fr&quot;&gt; ... &lt;/html&gt;</code></pre>
+          <p>Indiquent les limites du document HTML, l'attribut <code>lang=&quot;fr&quot;</code> indique la langue
+            utilisée dans le document lors d'une lecture à haute voix par un screen reader.</p>
+
+
+          <pre class="html"><code>&lt;head&gt; ... &lt;/head&gt;</code></pre>
+          <p>Dans l'entête du document on donne toutes les informations concernant l'encodage du document, les feuilles
+            de style utilisées, le titre qui apparait dans la barre du titre du navigateur, etc.</p>
+
+          <pre class="html"><code>&lt;body&gt; ... &lt;/body&gt;</code></pre>
+          <p>Le corps du document englobe toutes les balises qui seront rendues (affichées) par le navigateur : textes,
+            images, audio, vidéo, etc.</p>
+
+          <pre class="html"><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
+          <p>Indique l'encodage du document c'est-à-dire le nombre de bits utilisés pour représenter les caractères,
+            l'UTF-8 est un encodage variable qui peut s'étendre sur un à 4 octets par caractère, c'est en effet
+            l'encodage le plus utilisé car il supporte toutes les langues humaines.</p>
+
+          <pre
+            class="html"><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</code></pre>
+          <p>Cette balise est destinée au navigateur. Elle indique le moteur de rendu pour les pages HTML destinées à
+            IE.</p>
+
+          <pre
+            class="html"><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></pre>
+          <p>Empêche les navigateurs des smartphone de faire une mise à l'échelle d'un document HTML destiné,
+            initialement, à un affichage sur un grand écran.</p>
+
+          <pre class="html"><code>&lt;title&gt;Document&lt;/title&gt;</code></pre>
+          <p>Indique le titre affiché dans la barre du titre du navigateur.</p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Balises usuelles</h3>
+
+        <h4>Titres & Paragraphes</h4>
+        <pre class="html"><code>&lt;h1&gt;...&lt;/h1&gt;
+&lt;h2&gt;...&lt;/h2&gt;
+...
+&lt;h6&gt;...&lt;/h6&gt;</code></pre>
+        <p>Les titres sont classés par leurs niveaux de 1 à 6. Ils commencent toujours dans une nouvelle ligne et
+          possèdent une marge plus importante selon leurs niveaux.</p>
+
+        <pre class="html"><code>&lt;p&gt;...&lt;/p&gt;</code></pre>
+        <p>Les paragraphes sont des balises de bloc. Un nouveau paragraphe commence toujours dans une nouvelle ligne et
+          elle possède une marge par défaut.</p>
+
+        <p><strong>Les paragraphes et les titres ne peuvent pas être imbriqué. Un paragraphe ne peut pas contenir un
+            autre paragraphe ou un titre.</strong></p>
+
+        <h4>Conteneurs</h4>
+        <pre class="html"><code>&lt;div&gt;...&lt;/div&gt;</code></pre>
+        <p>Utilisé pour le groupement des éléments apparenant à une même entité sémantique. Un <code>div</code> commence
+          toujours sur une nouvelle ligne et n'a pas de marges.</p>
+
+        <pre class="html"><code>&lt;span&gt;...&lt;/span&gt;</code></pre>
+        <p>Utilisé pour le groupement des éléments apparenant à une même entité sémantique. Un <code>span</code> n'a pas
+          de marge et ne commence pas sur une nouvelle ligne.</p>
+
+        <p><strong>Les conteneurs peuvent être imbriqués, sans aucune limite, l'un dans l'autre.</strong></p>
+
+        <h4>Images</h4>
+        <pre
+          class="html"><code>&lt;img src=&quot;chemin de l&apos;image&quot; alt=&quot;texte de remplacement&quot;&gt;</code></pre>
+        <p>Utilisée pour insérer une image dans le document HTML. Le chemin de l'image doit être spécifié dans
+          l'attribut <code>src</code>. Lorsque le navigateur ne peut pas charger l'image il affiche le texte indiqué
+          dans l'attribut <code>alt</code>. Bien que ce dernier attribut <code>alt</code> soit optionnel il est vivement
+          conseillé de le mentionner.</p>
+        <p><strong>Cet attribut est aussi destiné aux mal-voyants utilisant un screen reader.</strong></p>
+
+        <h4>Liens hypertextes</h4>
+        <pre class="html"><code>&lt;a href=&quot;destination&quot;&gt;texte du lien&lt;/a&gt;</code></pre>
+        <p>Un texte souligné clickable qui permet de naviguer entre les pages Web.</p>
+      </section>
+
+      <section>
+        <h3>Feuille de style en cascade (CSS)</h3>
+
+        <p>Utilisé pour personnaliser la mise en forme d'un document HTML.</p>
+
+        <h4>Mise en forme du texte</h4>
+        <pre class="css"><code>font-family: &apos;Georgia&apos;;</code></pre>
+        <p>Choix de la police de caractères appliquée à un élement.</p>
+
+        <pre class="css"><code>font-size: 15px;</code></pre>
+        <p>Indique la taille de la police.</p>
+
+        <pre class="css"><code>font-style: italic;</code></pre>
+        <p>Indique si la police est oblique, italique ou normale.</p>
+
+        <pre class="css"><code>font-weight: bold;</code></pre>
+        <p>Indique si le texte est gras.</p>
+
+        <pre class="css"><code>text-align: center;</code></pre>
+        <p>Choix de l'alignement d'un paragraphe : gauche (<code>left</code>), droite (<code>right</code>), centré
+          (<code>center</code>) ou justifié (<code>justify</code>).</p>
+
+        <pre class="css"><code></code></pre>
+        <pre class="css"><code></code></pre>
+        <pre class="css"><code></code></pre>
+        <pre class="css"><code></code></pre>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
