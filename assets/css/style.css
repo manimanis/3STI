@@ -53,3 +53,21 @@ h5 {
   height: 16px;
   border: #000 solid 1px;
 }
+
+@media print {
+
+  aside,
+  footer {
+    display: none;
+  }
+
+  main.container {
+    margin: 0 !important;
+    width: initial !important;
+    max-width: initial !important;
+  }
+
+  .p-break {
+    page-break-before: always;
+  }
+}
