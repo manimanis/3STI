@@ -68,38 +68,37 @@
         <div class="d-none d-print-block">
           <h4>Réponse</h4>
           <pre class="html"><code>&lt;!DOCTYPE html&gt;</code></pre>
-          <p>Indique au navigateur la version HTML utilisée dans le document.</p>
-
-          <pre class="html"><code>&lt;html lang=&quot;fr&quot;&gt; ... &lt;/html&gt;</code></pre>
-          <p>Indiquent les limites du document HTML, l'attribut <code>lang=&quot;fr&quot;</code> indique la langue
-            utilisée dans le document lors d'une lecture à haute voix par un screen reader.</p>
+          <p>Indique au navigateur la version HTML utilisée dans le document. Ici, on utilise la version 5 du HTML.</p>
 
           <p class="p-break"></p>
+          <pre class="html"><code>&lt;html lang=&quot;fr&quot;&gt; ... &lt;/html&gt;</code></pre>
+          <p>Indiquent les limites du document HTML. L'attribut <code>lang=&quot;fr&quot;</code> est destiné aux
+            screen-readers et au correcteur orthographique intégré au navigateur.</p>
+
           <pre class="html"><code>&lt;head&gt; ... &lt;/head&gt;</code></pre>
-          <p>Dans l'entête du document on donne toutes les informations concernant l'encodage du document, les feuilles
-            de style utilisées, le titre qui apparait dans la barre du titre du navigateur, etc.</p>
+          <p>L'entête du document HTML comporte des informations sur l'encodage du document, les feuilles de style
+            utilisées, le titre du document qui apparait dans la barre du titre du navigateur, etc.</p>
 
           <pre class="html"><code>&lt;body&gt; ... &lt;/body&gt;</code></pre>
           <p>Le corps du document englobe toutes les balises qui seront rendues (affichées) par le navigateur : textes,
             images, audio, vidéo, etc.</p>
 
           <pre class="html"><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
-          <p>Indique l'encodage du document c'est-à-dire le nombre de bits utilisés pour représenter les caractères,
-            l'UTF-8 est un encodage variable qui peut s'étendre sur un à 4 octets par caractère, c'est en effet
+          <p>L'encodage du document est le nombre de bits utilisés pour représenter ses caractères.
+            L'UTF-8 est un encodage variable qui s'étend sur 1 à 4 octets par caractère. C'est, en effet,
             l'encodage le plus utilisé car il supporte toutes les langues humaines.</p>
 
           <pre
             class="html"><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</code></pre>
-          <p>Cette balise est destinée au navigateur. Elle indique le moteur de rendu pour les pages HTML destinées à
-            IE.</p>
+          <p>Elle indique le moteur de rendu pour les pages HTML destinées à IE.</p>
 
           <pre
             class="html"><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></pre>
-          <p>Empêche les navigateurs des smartphone de faire une mise à l'échelle d'un document HTML destiné,
-            initialement, à un affichage sur un grand écran.</p>
+          <p>Elle empêche le navigateur d'un smartphone de faire la mise à l'échelle d'un document HTML destiné,
+            initialement, à un grand écran.</p>
 
           <pre class="html"><code>&lt;title&gt;Document&lt;/title&gt;</code></pre>
-          <p>Indique le titre affiché dans la barre du titre du navigateur.</p>
+          <p>Elle indique le titre affiché dans la barre du titre du navigateur.</p>
         </div>
       </section>
 
@@ -109,27 +108,30 @@
 &lt;h2&gt;...&lt;/h2&gt;
 ...
 &lt;h6&gt;...&lt;/h6&gt;</code></pre>
-        <p>Les titres sont classés par leurs niveaux de 1 à 6. Ils commencent toujours dans une nouvelle ligne et
-          possèdent une marge plus importante selon leurs niveaux.</p>
+        <p>Les titres sont classés selon leurs importances et leurs tailles de 1 à 6, du plus important au moins
+          important, du plus grand au plus petit.</p>
+        <p>Ils commencent toujours dans une nouvelle ligne et possèdent une marge plus importante qui dépend de leurs
+          niveaux.</p>
 
         <pre class="html"><code>&lt;p&gt;...&lt;/p&gt;</code></pre>
         <p>Les paragraphes sont des balises de bloc. Un nouveau paragraphe commence toujours dans une nouvelle ligne et
           elle possède une marge par défaut.</p>
 
         <p><strong>Les paragraphes et les titres ne peuvent pas être imbriqué. Un paragraphe ne peut pas contenir un
-            autre paragraphe ou un titre.</strong></p>
+            autre paragraphe ou un titre, et inversement.</strong></p>
       </section>
 
       <section>
+        <p class="p-break"></p>
         <h3>Conteneurs</h3>
         <pre class="html"><code>&lt;div&gt;...&lt;/div&gt;</code></pre>
-        <p>Utilisé pour le groupement des éléments apparenant à une même entité sémantique. Un <code>div</code> commence
-          toujours sur une nouvelle ligne et n'a pas de marges.</p>
+        <p>Utilisé pour le groupement des éléments appartenant à une même entité sémantique.</p>
+        <p>Paar défaut, un <code>div</code> est un élément de bloc. Il commence toujours sur une nouvelle ligne et n'a
+          pas de marges.</p>
 
-        <p class="p-break"></p>
         <pre class="html"><code>&lt;span&gt;...&lt;/span&gt;</code></pre>
-        <p>Utilisé pour le groupement des éléments apparenant à une même entité sémantique. Un <code>span</code> n'a pas
-          de marge et ne commence pas sur une nouvelle ligne.</p>
+        <p>Utilisé pour le groupement des éléments apparenant à une même entité sémantique. Un <code>span</code> est un
+          élément inline. Il n'a pas de marge et ne commence pas sur une nouvelle ligne.</p>
 
         <p><strong>Les conteneurs peuvent être imbriqués, sans aucune limite, l'un dans l'autre.</strong></p>
       </section>
@@ -140,15 +142,14 @@
           class="html"><code>&lt;img src=&quot;chemin de l&apos;image&quot; alt=&quot;texte de remplacement&quot;&gt;</code></pre>
         <p>Utilisée pour insérer une image dans le document HTML. Le chemin de l'image doit être spécifié dans
           l'attribut <code>src</code>. Lorsque le navigateur ne peut pas charger l'image il affiche le texte indiqué
-          dans l'attribut <code>alt</code>. Bien que ce dernier attribut <code>alt</code> soit optionnel il est vivement
-          conseillé de le mentionner.</p>
-        <p><strong>Cet attribut est aussi destiné aux mal-voyants utilisant un screen reader.</strong></p>
+          dans l'attribut <code>alt</code>. Bien que ce dernier (attribut <code>alt</code>) soit optionnel il est
+          vivement conseillé de le mentionner, car il est destiné aux mal-voyants utilisant un screen reader.</p>
       </section>
 
       <section>
         <h3>Liens hypertextes</h3>
         <pre class="html"><code>&lt;a href=&quot;destination&quot;&gt;texte du lien&lt;/a&gt;</code></pre>
-        <p>Un texte souligné clickable qui permet de naviguer entre les pages Web.</p>
+        <p>C'est un texte souligné et clickable qui permet de naviguer entre les pages Web.</p>
       </section>
 
     </article>
@@ -158,9 +159,8 @@
 
       <section>
         <h3>Intégration</h3>
-
-        <p>Utilisé pour personnaliser la mise en forme d'un document HTML. Le style des éléments HTML peut être définit
-          de plusieurs manières :</p>
+        <p>Les feuilles de style en cascade sont utilisées pour personnaliser la mise en forme d'un document HTML. Elles
+          peuvent être intégrées de plusieurs manières :</p>
         <ul>
           <li><strong>Inline</strong> : indiquant le style désiré pour chaque élément.
             <pre
@@ -180,6 +180,46 @@ p { color: green; text-align: center; font-size: 22pt; }
       </section>
 
       <section>
+        <p class="p-break"></p>
+        <h3>Règles de style</h3>
+        <p>La feuille de style est composée de <strong>règles de style</strong>. Elles possèdent le format suivant :</p>
+        <pre class="css"><code>selecteur { 
+  propriété1: valeur1;
+  propriété2: valeur2;
+  ...
+}</code></pre>
+        <p>On modifie l'apparence d'un élément en modifiant les valeurs de ses propriétés.</p>
+      </section>
+
+      <section>
+        <h3>Sélecteurs</h3>
+        <p>Le sélecteur indique l'élément ou le groupe d'éléments concernés par une règle de style. Parmi les sélecteurs
+          les plus fréquemment utilisés on cite :</p>
+        <ul>
+          <li><strong>Le sélecteur d'élément</strong> : il est de la forme suivante et concerne tous les éléments d'une
+            balise donnée.
+            <pre class="css"><code>balise {
+  propriétés
+}</code></pre>
+            <p><code>balise</code> est le nom d'un élément. Exemples : <code>p</code>, <code>h1</code>, etc.</p>
+          </li>
+          <li><strong>Le sélecteur de classe</strong> : il est de la forme suivante et concerne tous les éléments qui
+            définissent l'attribut <code>class=&quot;classe&quot;</code>.
+
+            <pre class="css"><code>.classe {
+  propriétés
+}</code></pre>
+          </li>
+          <li><strong>Le sélecteur d'<code>id</code></strong> : il est de la forme suivante et concerne l'unique élément
+            qui a définit l'attribut <code>id=&quot;iden&quot;</code>.
+            <pre class="css"><code>#iden {
+  propriétés
+}</code></pre>
+          </li>
+        </ul>
+      </section>
+
+      <section>
         <h3>Mise en forme du texte</h3>
         <pre class="css"><code>font-family: &apos;Georgia&apos;;</code></pre>
         <p>Choix de la police de caractères appliquée à un élement.</p>
@@ -190,10 +230,10 @@ p { color: green; text-align: center; font-size: 22pt; }
         <pre class="css"><code>font-style: italic;</code></pre>
         <p>Indique si la police est oblique, italique ou normale.</p>
 
-        <p class="p-break"></p>
         <pre class="css"><code>font-weight: bold;</code></pre>
         <p>Indique si le texte est gras.</p>
 
+        <p class="p-break"></p>
         <pre class="css"><code>text-align: center;</code></pre>
         <p>Choix de l'alignement d'un paragraphe : gauche (<code>left</code>), droite (<code>right</code>), centré
           (<code>center</code>) ou justifié (<code>justify</code>).</p>
@@ -209,13 +249,15 @@ p { color: green; text-align: center; font-size: 22pt; }
               style="background-color: black;"></span>, pink <span class="color"
               style="background-color: pink;"></span>, green <span class="color"
               style="background-color: green;"></span>, etc.</li>
-          <li>Le code hexadécimal d'une couleur au format <code>#rrggbb</code> où <code>rr</code>, <code>gg</code> et
+          <li>Le code hexadécimal d'une couleur, sur 6 chiffres, au format <code>#rrggbb</code> où <code>rr</code>,
+            <code>gg</code> et
             <code>bb</code> indiquent l'intensité en hexadécimal de chacune des trois composantes. Exemple,
             <code>#123456</code> signifie que l'intensité du rouge est <code>18</code>, l'instensité du vert est
             <code>52</code> et celle du bleu est <code>86</code> ce qui donne : <span class="color"
               style="background-color: #123456;"></span>.
           </li>
-          <li>Le code hexadécimal d'une couleur au format <code>#rgb</code> où <code>r</code>, <code>g</code> et
+          <li>Le code hexadécimal d'une couleur, sur 3 chiffres, au format <code>#rgb</code> où <code>r</code>,
+            <code>g</code> et
             <code>b</code> indiquent l'intensité en hexadécimal de chacune des trois composantes. Ce format est un
             raccourci du format <code>#rrggbb</code>. Par exemple, le code <code>#356</code> signifie
             <code>#335566</code> : <span class="color" style="background-color: #356;"></span>.
@@ -226,7 +268,8 @@ p { color: green; text-align: center; font-size: 22pt; }
           </li>
           <li>L'intensité des trois composantes rouge, vert et bleu auxquelles s'ajoutent le degré de transparence de
             couleur <code>rgba(r, g, b, a)</code>. Exemple : <code>color: rgba(33, 144, 55, 0.5);</code> <span
-              class="color" style="background-color: rgba(33, 144, 55, 0.5);"></span>
+              class="color" style="background-color: rgba(33, 144, 55, 0.5);"></span>. La transparence varie de 0 à 1,
+            du transparent à l'opaque.
           </li>
         </ul>
 
@@ -234,8 +277,9 @@ p { color: green; text-align: center; font-size: 22pt; }
         <p>Choix de la couleur de l'arrière plan d'un élément.</p>
 
         <pre class="css"><code>background: linear-gradient(angle, col1, col2);</code></pre>
-        <p>Définit un dégradé linéaire de ayant un angle de <code>angle</code> degrées allant de <code>-180deg</code> à
-          <code>180deg</code> de la couleur <code>col1</code> à la couleur <code>col2</code>. Exemple :
+        <p>Elle définit un dégradé linéaire ayant un angle de <code>angle</code> degrées, allant de <code>-180deg</code>
+          à
+          <code>180deg</code>, de la couleur <code>col1</code> à la couleur <code>col2</code>. Exemple :
           <code>background: linear-gradient(45deg, white, red);</code> <span class="color"
             style="background: linear-gradient(45deg, white, red);"></span>
         </p>
@@ -243,7 +287,7 @@ p { color: green; text-align: center; font-size: 22pt; }
 
       <section>
         <h3>Modèle de boîte (box model)</h3>
-        <p>Toutes les balises de blocs peuvent être considérées comme des boîtes.</p>
+        <p>Toutes les balises de blocs sont considérées comme étant des boîtes.</p>
         <p>Une boîte est constituée par :</p>
         <ul>
           <li>Le contenu de l'élément HTML (content), qui possède une largeur <code>width</code> et une hauteur
@@ -262,20 +306,27 @@ p { color: green; text-align: center; font-size: 22pt; }
         <pre class="css"><code>width: taille;</code></pre>
         <p>La <code>taille</code> indique la largeur d'un élément HTML. Elle peut-être :</p>
         <ul>
-          <li><strong>Absolue</strong> : définie en pixels (<code>px</code>), en <code>cm</code>, en <code>mm</code>.
+          <li><strong>Absolue</strong> : définie en pixels (<code>px</code>), en points (<code>pt</code> = 1/72"), en
+            <code>cm</code>, en <code>mm</code>.
             Exemple : <code>width: 200px;</code> définit
-            la largeur d'un élément à 200 pixels.</li>
+            la largeur d'un élément à 200 pixels.
+          </li>
           <li><strong>Relative</strong> : définie en pourcent (<code>%</code>) ou en M <code>em</code>. Par exemple,
-            <code>width: 4em;</code> donne un élément de largeur qui a quatre fois l'hauteur de la lettre <span
+            <code>width: 4em;</code> la largeur de l'élément est de quatre fois l'hauteur de la lettre <span
               class="color" style="width: 4em; height: 1.2em; line-height: 1em;">MMMM</span>.
           </li>
         </ul>
 
         <pre class="css"><code>height: taille;</code></pre>
-        <p>La <code>taille</code> indique l'hauteur' d'un élément HTML.</p>
+        <p>La <code>taille</code> indique l'hauteur d'un élément HTML. Elle est semblable à la propriété
+          <code>width</code>.
+        </p>
 
-        <pre class="css"><code>padding: marges;</code></pre>
-        <p>Indique la <strong>marge interne</strong> d'un élément HTML, celle qui est entre le contenu de l'élement et
+        <pre class="css"><code>padding: top;
+padding: top right;
+padding: top right bottom;
+padding: top right bottom left;</code></pre>
+        <p>Indique la <strong>marge interne</strong> d'un élément HTML, entre le contenu de l'élement et
           sa bordure. Elle peut prendre plusieurs formes :</p>
         <ul>
           <li><strong>Une seule valeur</strong> :
@@ -311,6 +362,14 @@ p { color: green; text-align: center; font-size: 22pt; }
           <code>style</code>définit le style du trait (<code>solid</code>, <code>dotted</code>, etc) et la
           <code>taille</code> l'épaisseur du trait.
         </p>
+
+        <p class="p-break"></p>
+        <pre class="css"><code>margin: top;
+margin: top right;
+margin: top right bottom;
+margin: top right bottom left;</code></pre>
+        <p>Elle indique la marge extérieure d'un élément. C'est sa marge avec les éléments voisins. Tout comme la marge
+          interne <code>padding</code>, elle possède aussi plusieurs formes.</p>
       </section>
     </article>
   </main>
