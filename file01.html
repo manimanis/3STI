@@ -165,8 +165,38 @@
         <p>Choix de l'alignement d'un paragraphe : gauche (<code>left</code>), droite (<code>right</code>), centré
           (<code>center</code>) ou justifié (<code>justify</code>).</p>
 
-        <pre class="css"><code></code></pre>
-        <pre class="css"><code></code></pre>
+        <h4>Couleurs</h4>
+        <pre class="css"><code>color: couleur;</code></pre>
+        <p>Choix de la couleur du texte. <code>couleur</code> peut être :</p>
+        <ul>
+          <li>Le nom d'une couleur : red <span class="color" style="background-color: red;"></span>, white <span
+              class="color" style="background-color: white;"></span>, black <span class="color"
+              style="background-color: black;"></span>, pink <span class="color"
+              style="background-color: pink;"></span>, green <span class="color"
+              style="background-color: green;"></span>, etc.</li>
+          <li>Le code hexadécimal d'une couleur au format <code>#rrggbb</code> où <code>rr</code>, <code>gg</code> et
+            <code>bb</code> indiquent l'intensité en hexadécimal de chacune des trois composantes. Exemple,
+            <code>#123456</code> signifie que l'intensité du rouge est <code>18</code>, l'instensité du vert est
+            <code>52</code> et celle du bleu est <code>86</code> ce qui donne : <span class="color"
+              style="background-color: #123456;"></span>.
+          </li>
+          <li>Le code hexadécimal d'une couleur au format <code>#rgb</code> où <code>r</code>, <code>g</code> et
+            <code>b</code> indiquent l'intensité en hexadécimal de chacune des trois composantes. Ce format est un
+            raccourci du format <code>#rrggbb</code>. Par exemple, le code <code>#356</code> signifie
+            <code>#335566</code> : <span class="color" style="background-color: #356;"></span>.
+          </li>
+          <li>L'intensité des trois composantes rouge, vert et bleu <code>rgb(r, g, b)</code>. Exemple :
+            <code>rgb(33, 144, 55)</code> <span class="color" style="background-color: rgb(33, 144, 55);"></span>
+          </li>
+          <li>L'intensité des trois composantes rouge, vert et bleu auxquelles s'ajoutent le degré de transparence de
+            couleur <code>rgba(r, g, b, a)</code>. Exemple : <code>rgba(33, 144, 55, 0.5)</code> <span class="color"
+              style="background-color: rgba(33, 144, 55, 0.5);"></span>
+          </li>
+        </ul>
+
+        <pre class="css"><code>background-color: couleur;</code></pre>
+        <p>Choix de la couleur de l'arrière plan d'un élément.</p>
+
         <pre class="css"><code></code></pre>
         <pre class="css"><code></code></pre>
       </section>
