@@ -19,7 +19,7 @@ figure figcaption {
 }
 
 figure figcaption::before {
-  content: 'Figure ' counter(figures) ', ';
+  content: 'Figure 'counter(figures) ', ';
 }
 
 figure img {
@@ -69,5 +69,45 @@ h5 {
 
   .p-break {
     page-break-before: always;
+  }
+
+  img.im-h-1 {
+    height: 1cm !important;
+  }
+
+  img.im-h-2 {
+    height: 2cm !important;
+  }
+
+  img.im-h-3 {
+    height: 3cm !important;
+  }
+
+  img.im-h-4 {
+    height: 4cm !important;
+  }
+
+  img.im-h-5 {
+    height: 5cm !important;
+  }
+
+  img.im-h-6 {
+    height: 6cm !important;
+  }
+
+  img.im-h-7 {
+    height: 7cm !important;
+  }
+
+  img.im-h-8 {
+    height: 8cm !important;
+  }
+
+  img.im-h-9 {
+    height: 9cm !important;
+  }
+
+  img.im-h-10 {
+    height: 10cm !important;
   }
 }
