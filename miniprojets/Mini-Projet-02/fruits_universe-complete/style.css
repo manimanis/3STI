@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #333;
+  font-family: Georgia;
+}
+
+header {
+  width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+}
+
+header div {
+  width: 50%;
+}
+
+header a {
+  outline: none;
+  text-decoration: none;
+}
+
+header h1, header p {
+  font-size: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+header p {
+  font-size: 12px;
+}
+
+header h1 a {
+  color: #fff;
+}
+
+nav {
+  width: 960px;
+  background-color: #4C4C4E;
+  color: #fff;
+  border-bottom: 1px solid #D51D29;
+  margin: 0 auto;
+  padding: 15px;
+  font-size: 14px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+  text-transform: uppercase;
+}
+
+nav li a {
+  outline: none;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+nav li.active a {
+  color: #D51D29;
+}
+
+nav li a:hover {
+  color: #D51D29;
+}
+
+main {
+  width: 960px;
+  background-color: #fff;
+  color: #000;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+footer {
+  width: 960px;
+  margin: 0 auto;
+  color: #fff;
+  padding: 15px 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.8em;
+  font-style: italic;
+  text-align: center;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+table thead th {
+  border-top: #000 solid 1px;
+  border-bottom: #000 solid 3px;
+}
+
+table tbody td {
+  border-bottom: #333 solid 1px;
+}
+
+article h1 {
+  font-size: 2em;
+}
+
+article h2 {
+  font-size: 1.6em;
+}
+
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.intro .fruit-desc {
+  width: 705px;
+}
+
+.intro .fruit-image {
+  width: 225px;
+}
+
+.intro .fruit-image img {
+  width: 200px;
+}
+
+.gallery {
+  display: flex;
+}
+
+.gallery > .image {
+  width: 20%;
+}
+
+.gallery > .image > img {
+  height: 186px;
+  width: 186px;
+  background-size: cover;
+  position: relative;
+}
+
+.gallery > .image > span {
+  display: block;
+  text-align: center;
+  font-size: 0.8em;
+  font-style: italic;
+}
