@@ -39,15 +39,15 @@
           elles ne donnent aucune indication sur leurs contenus.</p>
         <p>Il existe deux catégories de balises sémantiques :</p>
         <ul>
-          <li>Les balises de structuration de page</li>
           <li>Les balises de structuration du contenu comme <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>,
             <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, etc.
           </li>
+          <li>Les balises de structuration de page, ajoutées en HTML 5</li>
         </ul>
       </section>
 
       <section>
-        <h3>Structure de page</h3>
+        <h3>Balises de structuration de page</h3>
 
         <p>Le HTML 5 définit plusieurs balises pour structrer une page web. La figure suivante propose une structuration
           visuelle de la page en utilisant des balises sémantiques.</p>
@@ -77,6 +77,138 @@
 
         <h4>Pied de page</h4>
         <p>Le pied de page est définit à l'aide de la balise <code>&lt;footer&gt;...&lt;/footer&gt;</code>.</p>
+
+        <h4>Exemple</h4>
+        <p>Résultat désiré</p>
+        <figure>
+          <img src="assets/miniprojet02/images/semantiques.png" alt="Structure d'une page Web">
+          <figcaption>Structure d'une page Web</figcaption>
+        </figure>
+
+        <p>Code HTML</p>
+        <pre class="html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Balises s&eacute;mantiques&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;Ent&ecirc;te&lt;/header&gt;
+  &lt;nav&gt;Barre de navigation&lt;/nav&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Contenu principal&lt;/h1&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Section&lt;/h2&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+  &lt;aside&gt;
+    &lt;h3&gt;En relation&lt;/h3&gt;
+  &lt;/aside&gt;
+  &lt;footer&gt;Pied de page&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>Code CSS</p>
+<pre class="css"><code>body {
+  width: 800px;
+  margin: 20px auto;
+  background-color: #a9a9a9;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header {
+  width: 100%;
+  height: 3em;
+  line-height: 3em;
+  color: #fff;
+  font-size: 2em;
+  font-family: cursive;
+  text-align: center;
+  border: #fff solid 1px;
+  margin: 0.15em 0;
+  position: relative;
+}
+
+header::after, nav::after, main::after, aside::after, footer::after {
+  content: "&lt;header&gt;";
+  display: inline-block;
+  position: absolute;
+  font-size: small;
+  background-color: #fff;
+  color: red;
+  line-height: initial;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  font-family: cursive;
+}
+
+nav {
+  background-color: #ff80ff;
+  text-align: center;
+  border: #fff solid 1px;
+  width: 100%;
+  height: 3em;
+  margin: 0.15em 0;
+  line-height: 3em;
+  position: relative;
+}
+
+nav::after {
+  content: "&lt;nav&gt;";
+}
+
+main {
+  background-color: #fff;
+  text-align: center;
+  border: #333 solid 1px;
+  width: 70%;
+  height: 15em;
+  margin: 0.15em 0;
+  position: relative;
+  padding-top: 2em;
+}
+
+main::after {
+  content: "&lt;main&gt;";
+  color: #fff;
+  background-color: #000;
+}
+
+aside {
+  background-color: #ff80ff;
+  text-align: center;
+  border: #fff solid 1px;
+  width: calc(30% - 0.3em - 4px);
+  height: 15em;
+  margin: 0.15em 0 0.15em 0.3em;
+  position: relative;
+  padding-top: 2em;
+}
+
+aside::after {
+  content: "&lt;aside&gt;";
+}
+
+footer {
+  background-color: #fff;
+  text-align: center;
+  border: #333 solid 1px;
+  width: 100%;
+  height: 3em;
+  line-height: 3em;
+  margin: 0.15em 0;
+  position: relative;
+}
+
+footer::after {
+  content: "&lt;footer&gt;";
+  color: #fff;
+  background-color: #000;
+}</code></pre>
       </section>
 
       <section>
@@ -92,6 +224,36 @@
         </figure>
 
         <p>Utiliser une feuille de style liée. Les couleurs sont laissées au libre choix de l'élève.</p>
+      </section>
+
+      <section>
+        <h3>Application 2</h3>
+        <p>Télécharger le site Web <strong>Fruits universe</strong> à compléter à traver le lien : <a
+            href="assets/miniprojet02/fruits_universe-todo.zip" target="_blank" rel="noopener noreferrer">Fruits
+            universe</a>.</p>
+        <ul>
+          <li>Décompresser le fichier,</li>
+          <li>Ouvrir le dossier à l'aide de Visual Studio Code,</li>
+          <li>Ajouter le fichier <strong>style.css</strong> pour mettre en forme le site comme suit : cliquer sur l'image pour l'agrandir.</li>
+        </ul>
+
+        <figure>
+          <a href="assets/miniprojet02/page01.png" target="_blank" rel="noopener noreferrer">
+            <img src="assets/miniprojet02/page01_thumb.png" alt="Strawberry page">
+          </a>
+          
+          <a href="assets/miniprojet02/page02.png" target="_blank" rel="noopener noreferrer">
+            <img src="assets/miniprojet02/page02_thumb.png" alt="Apples page" style="width: 30%;">
+          </a>
+          
+          <a href="assets/miniprojet02/page02.png" target="_blank" rel="noopener noreferrer">
+            <img src="assets/miniprojet02/page03_thumb.png" alt="Grapes page" style="width: 30%;">
+          </a>
+
+          <figcaption>Aperçu des pages</figcaption>
+        </figure>
+
+        <p>Le choix des couleurs et le style des polices sont laissés au libre choix de l'élève.</p>
       </section>
     </article>
   </main>
