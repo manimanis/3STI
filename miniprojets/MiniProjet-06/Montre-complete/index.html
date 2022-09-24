@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Montre Analogique</title>
+  <style>
+    .horloge {
+      width: 500px;
+      height: 500px;
+      border: #333 solid 2px;
+      margin: 50px auto;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .aiguille1 {
+      width: 10px;
+      height: 250px;
+      position: absolute;
+      background-color: #03a9f4;
+      transform-origin: 5px 245px;
+      transform: rotate(90deg);
+      animation-name: rotate-sec;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-delay: -0.5s;
+      left: 245px;
+      top: 5px;
+    }
+
+    .aiguille2 {
+      width: 10px;
+      height: 205px;
+      position: absolute;
+      background-color: #e91e63;
+      transform-origin: 5px 200px;
+      transform: rotate(90deg);
+      animation-name: rotate-sec;
+      animation-duration: 12s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-delay: -30s;
+      left: 245px;
+      top: 50px;
+    }
+
+    @keyframes rotate-sec {
+      0% {
+        transform: rotate(-180deg);
+      }
+
+      50% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(180deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="horloge">
+    <div class="aiguille1"></div>
+    <div class="aiguille2"></div>
+  </div>
+</body>
+
+</html>
