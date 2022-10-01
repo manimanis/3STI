@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Séance n°4</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Séance n°4</h1>
+
+    <article>
+      <h2>Formulaires</h2>
+
+      <section>
+        <h3>Présentation</h3>
+
+        <p>Les formulaires sont utilisés par les sites Web pour <strong>recueillir des informations de
+            l'utilisateur</strong>. Ils permettent à l'utilisateur <strong>d'envoyer des données au site web</strong>.
+          La plupart du temps, ces données sont envoyées à des serveurs web.</p>
+        <p>Un formulaire est formé par un ou plusieurs composants. Parmi ceux-ci on cite :</p>
+        <ul>
+          <li class="my-2"><strong>les champs de texte</strong> : <input type="text"></li>
+          <li class="my-2"><strong>les listes déroulantes</strong> : <select>
+              <option>Sélectionner</option>
+              <option value="Tunisie">Tunisie</option>
+              <option value="Algérie">Algérie</option>
+            </select></li>
+          <li class="my-2"><strong>les boutons</strong> : <button>Soumettre les donnée</button></li>
+          <li class="my-2"><strong>les case à cocher</strong> : Je veux : <label><input type="checkbox"> Une
+              pizza</label>
+            <label><input type="checkbox"> Des frites</label> <label><input type="checkbox"> Une boisson</label>
+          </li>
+          <li class="my-2"><strong>les boutons radio</strong> : Je suis : <label><input type="radio" name="genre"
+                value="g"> Un
+              garçon</label><label><input type="radio" name="genre" value="F"> Une fille</label></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Exemple 1 : Login</h3>
+
+        <p>On désire créer le formulaire suivant :</p>
+
+        <style>
+          #example01 {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 12pt;
+            display: flex;
+            width: 400px;
+            flex-wrap: wrap;
+            padding: 25px;
+            background-color: aliceblue;
+            border: cadetblue solid 1px;
+            margin: 25px auto;
+            border-radius: 5px;
+          }
+
+          #example01 input[type="text"],
+          #example01 input[type="password"],
+          #example01 label,
+          #example01 button {
+            width: 100%;
+            display: block;
+            margin: 5px 0;
+            font-size: 12pt;
+            padding: 5px;
+          }
+
+          #example01 button {
+            background-color: cadetblue;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+          }
+        </style>
+        <form id="example01" action="#" method="post">
+          <input type="text" name="login" placeholder="Login">
+          <input type="password" name="pass" placeholder="Password" autocomplete="new-password">
+          <label><input type="checkbox" name="rememberme" checked="true"> Remember me</label>
+          <button>Log me in</button>
+        </form>
+
+        <p><strong>Le code HTML correspondant est comme suit :</strong></p>
+        <pre class="html"><code>&lt;form id=&quot;example01&quot; action=&quot;#&quot; method=&quot;post&quot;&gt;
+  &lt;input type=&quot;text&quot; name=&quot;login&quot; placeholder=&quot;Login&quot;&gt;
+  &lt;input type=&quot;password&quot; name=&quot;pass&quot; placeholder=&quot;Password&quot; autocomplete=&quot;new-password&quot;&gt;
+  &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;rememberme&quot; checked=&quot;true&quot;&gt; Remember me&lt;/label&gt;
+  &lt;button&gt;Log me in&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <p><strong>Le code CSS correspondant est disponible ici : <a href="assets/miniprojet07/login.txt"
+              target="_blank" rel="noopener noreferrer">code CSS du formulaire de login</a>.</strong></p>
+
+        <h4>Exploration du code</h4>
+        <p>On remarque que ce formulaire :</p>
+        <ul>
+          <li>commence par la balise <code>&lt;form&gt;</code> et se termine par <code>&lt;/form&gt;</code>.</li>
+          <li>contient un <strong>champ de texte (text field)</strong> :
+            <code>&lt;input type=&quot;text&quot; name=&quot;login&quot; placeholder=&quot;Login&quot;&gt;</code>
+          </li>
+          <li>contient un <strong>champ de mot de passe (password field)</strong> :
+            <code>&lt;input type=&quot;password&quot; name=&quot;pass&quot; placeholder=&quot;Password&quot; autocomplete=&quot;new-password&quot;&gt;</code>
+          </li>
+          <li>contient une <strong>case à cocher (checkbox)</strong> :
+            <code>&lt;input type=&quot;checkbox&quot; name=&quot;rememberme&quot; checked=&quot;true&quot;&gt;</code>
+          </li>
+          <li>contient une <strong>étiquette (label)</strong> :
+            <code>&lt;label&gt;&lt;input ...&gt; Remember me&lt;/label&gt;</code>
+          </li>
+          <li>contient un <strong>bouton de soumission (submit button)</strong> :
+            <code>&lt;button&gt;Log me in&lt;/button&gt;</code>
+          </li>
+        </ul>
+
+        <h4>Travail demandé</h4>
+        <ol>
+          <li>Créer un fichier HTML nommé : <strong>login.html</strong></li>
+          <li>Copier le code HTML du formulaire, ci-dessus.</li>
+          <li>Ajouter la mise en forme CSS disponible à travers le lien hypertexte, précédent.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Balise form</h3>
+
+        <p>Le formulaire est délimité par
+          <code>&lt;form action=&quot;...&quot; method=&quot;...&quot;&gt;...&lt;/form&gt;</code>.
+        </p>
+        <p>Cette balise admet deux attributs principaux :</p>
+        <ul>
+          <li><code>action="..."</code> indique l'<strong>URL</strong> qui traite les données récupérées provenant du
+            formulaire.</li>
+          <li><code>method="..."</code> indique la <b><u>méthode HTTP</u></b> qui sera utilisée pour envoyer les données
+            au serveur.
+            <p>Les méthodes HTTP usuelles sont :</p>
+            <ul>
+              <li><strong>GET</strong> : les données sont ajoutées à l'adresse URL indiquée dans action, elles sont
+                <b><u>visibles</u></b> à l'utilisateur.
+              </li>
+              <li><strong>POST</strong> : les données sont envoyées dans le corps de la requête, donc
+                <b><u>invisibles</u></b> à l'utilisateur.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Exemple méthodes GET et HTTP</h3>
+        <p>On va comparer les deux méthodes HTTP (GET et POST) à l'aide des formulaires suivants.</p>
+
+        <style>
+          .login-form {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 12pt;
+            display: flex;
+            width: 300px;
+            flex-wrap: wrap;
+            padding: 25px;
+            background-color: aliceblue;
+            border: cadetblue solid 1px;
+            margin: 25px auto;
+            border-radius: 5px;
+          }
+
+          .login-form input[type="text"],
+          .login-form input[type="password"],
+          .login-form label,
+          .login-form button {
+            width: 100%;
+            display: block;
+            margin: 5px 0;
+            font-size: 12pt;
+            padding: 5px;
+          }
+
+          .login-form button {
+            background-color: cadetblue;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+          }
+
+          .login-form h4 {
+            width: 100%;
+            text-align: center;
+          }
+        </style>
+        <div class="row">
+          <div class="col-6">
+            <form class="login-form" action="assets/miniprojet07/loggedin.html" method="post">
+              <h4>Méthode POST</h4>
+              <input type="text" name="login" placeholder="Login" value="user">
+              <input type="password" name="pass" placeholder="Password" value="user">
+              <button>Login</button>
+            </form>
+          </div>
+          <div class="col-6">
+            <form class="login-form" action="assets/miniprojet07/loggedin.html" method="get">
+              <h4>Méthode GET</h4>
+              <input type="text" name="login" placeholder="Login" value="user">
+              <input type="password" name="pass" placeholder="Password" value="user">
+              <button>Login</button>
+            </form>
+          </div>
+        </div>
+
+        <h4>Méthode POST</h4>
+        <p>Ouvrir l'outil de développement <kbd>F12</kbd> du navigateur sur l'onglet réseau. Puis, cliquer sur le bouton
+          <strong>Login</strong> du formulaire qui utilise la méthode POST.
+        </p>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-post-01.png"
+            alt="Dans l'onglet Headers on observe bien que la méthode utilisée est POST">
+          <figcaption>Dans l'onglet Headers on observe bien que la méthode utilisée est POST</figcaption>
+        </figure>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-post-03.png"
+            alt="L'adresse URL affichée lorsqu'on utilise une méthode POST pour récupérer les données">
+          <figcaption>L'adresse URL affichée lorsqu'on utilise une méthode POST pour récupérer les données</figcaption>
+        </figure>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-post-02.png"
+            alt="Les données du formulaire sont disponibles dans la partie 'Request'">
+          <figcaption>Les données du formulaire sont disponibles dans la partie 'Request'</figcaption>
+        </figure>
+
+        <h4>Méthode GET</h4>
+        <p>Utiliser le lien <u>"return to course..."</u> pour retourner à la page des formulaires. Puis, cliquer sur le
+          bouton <strong>login</strong> du formulaire qui utilise la méthode GET.</p>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-get-02.png"
+            alt="Dans l'onglet Headers on vérifie, bien, que la méthode utilisée est GET">
+          <figcaption>Dans l'onglet Headers on vérifie, bien, que la méthode utilisée est GET</figcaption>
+        </figure>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-get-03.png"
+            alt="L'adresse URL affichée lorsqu'on utilise une méthode GET contient les données du formulaire">
+          <figcaption>L'adresse URL affichée lorsqu'on utilise une méthode GET contient les données du formulaire
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-get-01.png" alt="La partie 'Request' est vide">
+          <figcaption>La partie 'Request' est vide</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Composants standards</h3>
+
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Composant</th>
+              <th>Forme</th>
+              <th>Code HTML</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Champ de texte (text field)</td>
+              <td><input type="text" name="np" value="Mariem" placeholder="Nom & Prénom"></td>
+              <td>
+                <pre
+                  class="html"><code>&lt;input type=&quot;text&quot; name=&quot;np&quot; value=&quot;Mariem&quot; placeholder=&quot;Nom &amp; Pr&eacute;nom&quot;&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>Champ de mot de passe (password field)</td>
+              <td><input type="password" name="pwd" value="secret" placeholder="Mot de passe"></td>
+              <td>
+                <pre
+                  class="html"><code>&lt;input type=&quot;password&quot; name=&quot;pwd&quot; value=&quot;secret&quot; placeholder=&quot;Mot de passe&quot;&gt;</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

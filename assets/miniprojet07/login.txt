@@ -1,0 +1,35 @@
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 12pt;
+}
+
+#example01 {
+  display: flex;
+  width: 400px;
+  flex-wrap: wrap;
+  padding: 25px;
+  background-color: aliceblue;
+  border: cadetblue solid 1px;
+  margin: 25px auto;
+  border-radius: 5px;
+}
+
+#example01 input[type="text"],
+#example01 input[type="password"],
+#example01 label,
+#example01 button {
+  width: 100%;
+  display: block;
+  margin: 5px 0;
+  font-size: 12pt;
+  padding: 5px;
+}
+
+#example01 button {
+  background-color: cadetblue;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
