@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    form {
+      width: 480px;
+      margin: 50px auto;
+      padding: 10px;
+      font-family: sans-serif;
+      background-color: #280000;
+      color: white;
+    }
+
+    form>fieldset>div {
+      margin: 5px 0;
+    }
+
+    label[for] {
+      font-weight: bold;
+      color: #FDFFFF;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="tel"],
+    input[type="email"],
+    select,
+    textarea {
+      display: block;
+      width: 100%;
+      padding: 5px;
+      font-size: 12pt;
+    }
+
+    form > div {
+      text-align: center;
+      margin: 5px 0;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #DE7C5A;
+      color: #FDFFFF;
+      font-size: 12pt;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="#" method="post">
+    <fieldset>
+      <legend>Informations personnelles</legend>
+      <div>
+        <label for="np">Nom & Prénom *</label>
+        <input type="text" id="np" name="np" required>
+      </div>
+      <div>
+        <label for="genre-garcon">Genre *</label>
+        <label><input type="radio" name="genre" id="genre-garcon" value="g" required> Garçon</label>
+        <label><input type="radio" name="genre" id="genre-fille" value="f"> Fille</label>
+      </div>
+      <div>
+        <label for="dn">Date de naissance *</label>
+        <input type="date" name="dn" id="dn" min="2000-01-01" max="2008-01-01" required>
+      </div>
+      <div>
+        <label for="phone">GSM *</label>
+        <input type="tel" name="phone" id="phone" pattern="[2459][0-9]{7}" required>
+      </div>
+      <div>
+        <label for="mail">Email *</label>
+        <input type="email" name="mail" id="mail" required>
+      </div>
+      <div>
+        <label for="adr">Adresse postale</label>
+        <textarea name="adr" id="adr" cols="30" rows="3"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Informations professionnelles</legend>
+      <div>
+        <label for="po">Poste actuel *</label>
+        <select id="po" name="po" required>
+          <option>Sélectionner</option>
+          <optgroup label="Web">
+            <option value="front">Frontend developer</option>
+            <option value="back">Backend developer</option>
+            <option value="full">Fullstack developer</option>
+          </optgroup>
+          <optgroup label="Data Science">
+            <option value="data">Datascience engineer</option>
+          </optgroup>
+          <optgroup label="Autres">
+            <option value="python">Python developer</option>
+            <option value="C++">C++ developer</option>
+          </optgroup>
+        </select>
+      </div>
+      <div>
+        <label for="lan-web">Langages</label>
+        <label><input type="checkbox" name="lang" id="lang-web" value="web"> HTML / CSS / JavaScript</label>
+        <label><input type="checkbox" name="lang" id="lang-web" value="web"> Python</label>
+        <label><input type="checkbox" name="lang" id="lang-web" value="web"> SQL</label>
+      </div>
+    </fieldset>
+    <div>
+      <button>Soumettre ma candidature</button>
+      <button type="reset">Effacer</button>
+    </div>
+  </form>
+</body>
+
+</html>
