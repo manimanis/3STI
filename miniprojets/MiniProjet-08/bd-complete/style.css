@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  width: 960px;
+  margin: 15px auto;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.image {
+  text-align: center;
+}
