@@ -110,8 +110,8 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-<p>Code CSS</p>
-<pre class="css"><code>body {
+        <p>Code CSS</p>
+        <pre class="css"><code>body {
   width: 800px;
   margin: 20px auto;
   background-color: #a9a9a9;
@@ -120,8 +120,7 @@
 }
 
 header {
-  width: 100%;
-  height: 3em;
+  width: 100%; height: 3em;
   line-height: 3em;
   color: #fff;
   font-size: 2em;
@@ -132,82 +131,44 @@ header {
   position: relative;
 }
 
-header::after, nav::after, main::after, aside::after, footer::after {
-  content: "&lt;header&gt;";
-  display: inline-block;
-  position: absolute;
-  font-size: small;
-  background-color: #fff;
-  color: red;
-  line-height: initial;
-  padding: 10px;
-  top: 0;
-  left: 0;
-  font-family: cursive;
-}
-
 nav {
   background-color: #ff80ff;
   text-align: center;
   border: #fff solid 1px;
-  width: 100%;
-  height: 3em;
+  width: 100%; height: 3em;
   margin: 0.15em 0;
   line-height: 3em;
   position: relative;
-}
-
-nav::after {
-  content: "&lt;nav&gt;";
 }
 
 main {
   background-color: #fff;
   text-align: center;
   border: #333 solid 1px;
-  width: 70%;
-  height: 15em;
+  width: 70%; height: 15em;
   margin: 0.15em 0;
   position: relative;
   padding-top: 2em;
-}
-
-main::after {
-  content: "&lt;main&gt;";
-  color: #fff;
-  background-color: #000;
 }
 
 aside {
   background-color: #ff80ff;
   text-align: center;
   border: #fff solid 1px;
-  width: calc(30% - 0.3em - 4px);
-  height: 15em;
+  width: calc(30% - 0.3em - 4px); height: 15em;
   margin: 0.15em 0 0.15em 0.3em;
   position: relative;
   padding-top: 2em;
-}
-
-aside::after {
-  content: "&lt;aside&gt;";
 }
 
 footer {
   background-color: #fff;
   text-align: center;
   border: #333 solid 1px;
-  width: 100%;
-  height: 3em;
+  width: 100%; height: 3em;
   line-height: 3em;
   margin: 0.15em 0;
   position: relative;
-}
-
-footer::after {
-  content: "&lt;footer&gt;";
-  color: #fff;
-  background-color: #000;
 }</code></pre>
       </section>
 
@@ -227,25 +188,26 @@ footer::after {
       </section>
 
       <section>
-        <h3>Application 2</h3>
+        <h3 class="p-break">Application 2</h3>
         <p>Télécharger le site Web <strong>Fruits universe</strong> à compléter à traver le lien : <a
             href="assets/miniprojet02/fruits_universe-todo.zip" target="_blank" rel="noopener noreferrer">Fruits
             universe</a>.</p>
         <ul>
           <li>Décompresser le fichier,</li>
           <li>Ouvrir le dossier à l'aide de Visual Studio Code,</li>
-          <li>Ajouter le fichier <strong>style.css</strong> pour mettre en forme le site comme suit : cliquer sur l'image pour l'agrandir.</li>
+          <li>Ajouter le fichier <strong>style.css</strong> pour mettre en forme le site comme suit : cliquer sur
+            l'image pour l'agrandir.</li>
         </ul>
 
         <figure>
           <a href="assets/miniprojet02/page01.png" target="_blank" rel="noopener noreferrer">
             <img src="assets/miniprojet02/page01_thumb.png" alt="Strawberry page">
           </a>
-          
+
           <a href="assets/miniprojet02/page02.png" target="_blank" rel="noopener noreferrer">
             <img src="assets/miniprojet02/page02_thumb.png" alt="Apples page" style="width: 30%;">
           </a>
-          
+
           <a href="assets/miniprojet02/page02.png" target="_blank" rel="noopener noreferrer">
             <img src="assets/miniprojet02/page03_thumb.png" alt="Grapes page" style="width: 30%;">
           </a>

@@ -34,7 +34,7 @@
       <section>
         <h3>Problématique</h3>
 
-        <p>On veut créer les indicateurs de téléchargement ci-dessous :</p>
+        <p>On veut créer les <strong>barres de progression</strong> ci-dessous :</p>
         <div class="d-print-none">
           <video controls>
             <source src="assets/miniprojet04/images/loader.webm" type="video/webm">
@@ -44,8 +44,8 @@
         </div>
         <div class="d-none d-print-block">
           <figure>
-            <img src="assets/miniprojet04/images/loader.png" alt="Indicateur de téléchargement">
-            <figcaption>Indicateur de téléchargement</figcaption>
+            <img src="assets/miniprojet04/images/loader.png" alt="Barres de progression">
+            <figcaption>Barres de progression</figcaption>
           </figure>
         </div>
 
@@ -64,11 +64,9 @@
   &lt;div class=&quot;loader animation1&quot;&gt;
     &lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
-
   &lt;div class=&quot;loader animation2&quot;&gt;
     &lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
-
   &lt;div class=&quot;loader animation3&quot;&gt;
     &lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
@@ -79,7 +77,7 @@
 
         <h4>Code CSS</h4>
 
-        <p>Commençons par définir le cadre des indicateurs :</p>
+        <p>Commençons par définir le cadre des barres de progression :</p>
         <ul>
           <li>Dimensions : 320px &times; 16px</li>
           <li>Marges verticales: 5px</li>
@@ -149,7 +147,7 @@
 }
 
 .anim01 {
-  width: 100px;
+  width: 100px; 
   height: 100px;
   background-color: red;
   animation-name: anim01;
@@ -186,8 +184,7 @@
 }
 
 .anim01 {
-  width: 100px;
-  height: 100px;
+  width: 100px; height: 100px;
   background-color: red;
   animation-name: anim01;
   animation-duration: 4s;
@@ -594,7 +591,8 @@
 }</code></pre>
             <p>Quel est le résultat de ce code ?</p>
           </li>
-          <li>Déplacer le rectangle rouge de gauche à droite, puis de gauche à droite une infinité de fois. Pour faire,
+          <li class="p-break">Déplacer le rectangle rouge de gauche à droite, puis de gauche à droite une infinité de
+            fois. Pour faire,
             utiliser la propriété CSS <code>left</code>.
             <div class="d-none d-print-block">
               <p><strong>Code CSS</strong></p>
@@ -637,8 +635,9 @@
           <li>Ajouter le code CSS du sélecteur <code>.animation3 .progress-bar</code> :
             <ul>
               <li>Dimensions : 100% &times; 100%, positionnement : <code>absolute</code></li>
-              <li>Nom de l'animation : animation3, durée : 2.5s, répétition : infini</li>
-              <li>Direction : alternée</li>
+              <li>Nom de l'animation : <code>animation3</code>, durée : <code>2.5s</code>, répétition :
+                <code>infinite</code></li>
+              <li>Direction : <code>alternate</code></li>
               <li>Fonction de timing : <code>ease-in-out</code></li>
             </ul>
             <div class="d-none d-print-block">
@@ -659,11 +658,11 @@
       </section>
 
       <section>
-        <h3>Application 5 : Smiley</h3>
+        <h3 class="p-break">Application 5 : Smiley</h3>
 
         <p>On désire créer le smiley suivant :</p>
         <figure>
-          <img src="assets/miniprojet05/images/smiley.png" alt="Forme initiale du smiley">
+          <img src="assets/miniprojet05/images/smiley.png" alt="Forme initiale du smiley" class="im-h-6">
           <figcaption>Forme initiale du smiley</figcaption>
         </figure>
 
@@ -697,11 +696,11 @@
         <p>On désire créer une montre analogique comportant deux aiguilles, comme suit.</p>
 
         <figure>
-          <img src="assets/miniprojet06/images/montre.png" alt="Montre analogique à deux aiguilles">
+          <img src="assets/miniprojet06/images/montre.png" alt="Montre analogique à deux aiguilles" class="im-h-6">
           <figcaption>Montre analogique à deux aiguilles</figcaption>
         </figure>
 
-        <h4>Travail demandé</h4>
+        <h4 class="p-break">Travail demandé</h4>
         <ol>
           <li>Copier le code HTML. Faire la mise en forme des deux aiguilles.
             <pre class="html"><code>&lt;div class=&quot;horloge&quot;&gt;
@@ -714,6 +713,46 @@
             La montre tourne indéfiniment sans s'arrêter.
           </li>
         </ol>
+      </section>
+
+      <section>
+        <h3>Exercice de rappel</h3>
+        <p>Créer une animation comme suit :</p>
+        <figure>
+          <img src="assets/miniprojet06/images/animation01.png" alt="Animation carrés">
+          <figcaption>Animation carrés</figcaption>
+        </figure>
+
+        <h4>Code HTML</h4>
+        <p>On donne le code HTML suivant :</p>
+        <pre class="html"><code>&lt;div class=&quot;gcarre&quot;&gt;
+  &lt;div class=&quot;carre carre1&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;carre carre2&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;carre carre3&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;carre carre4&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <h4>Code CSS</h4>
+        <p>On code CSS suivant, qui permet de dessiner les carrés :</p>
+        <pre class="css"><code>.gcarre {
+  width: 200px;  height: 200px;
+  position: relative;
+  margin: calc(50vh - 100px) auto;
+}
+.gcarre > .carre {
+  width: 100px;  height: 100px;
+  position: absolute;
+}
+.carre1 { background-color: black; top: 0; left: 0; }
+.carre2 { background-color: red;   top: 0; left: 100px; }
+.carre3 { background-color: blue;  top: 100px; left: 0; }
+.carre4 { background-color: green; top: 100px; left: 100px; }</code></pre>
+
+        <h4>Travail demandé</h4>
+        <p>Utiliser les propriétés CSS vue dans ce cours pour animer ces carrés selon le cycle indiqué dans l'image :
+          <code>@keyframes</code>, <code>animation-name</code>, <code>animation-duration</code>,
+          <code>animation-iteration-count</code> et <code>animation-timing-function</code>.
+        </p>
       </section>
     </article>
   </main>
