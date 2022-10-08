@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Séance n°5</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Séance n°5</h1>
+
+    <article>
+      <h2>JavaScript</h2>
+
+      <section>
+        <h3>Intégration</h3>
+
+        <p>Un script <strong>JavaScript</strong> peut être intégré de deux façons différentes :</p>
+        <ul>
+          <li>En écrivant le code directement dans la balise :
+            <code>&lt;script&gt;/* Code JavaScript */&lt;/script&gt;</code>
+            <p><strong>Code HTML</strong></p>
+            <pre class="javascript"><code>&lt;!-- Exemple JavaScript --&gt;
+&lt;script&gt;console.log(&quot;Hello JavaScript!&quot;);&lt;/script&gt;</code></li>
+<li>En tapant le code dans un fichier à part, puis l'intégrer à l'aide de la balise : <code>&lt;script src=&quot;URL/fichier.js&quot;&gt;&lt;/script&gt;</code>
+<p><strong>Code HTML</strong></p>
+<pre class="html"><code>&lt;script src=&quot;welcome.js&quot;&gt;&lt;/script&gt;</code></pre>
+            <p><strong>Code JavaScript (dans le fichier <em>welcome.js</em>)</strong></p>
+            <pre class="javascript"><code>// Exemple JavaScript
+console.log(&quot;Hello JavaScript!&quot;);</code></pre>
+          </li>
+        </ul>
+
+        <h4>Activité 1</h4>
+        <ul>
+          <li>Créer un fichier HTML nommé <strong>javascript01.html</strong> contenant le code suivant :
+            <pre
+              class="html"><code>&lt;script&gt;console.log(&quot;Hello JavaScript!&quot;);&lt;/script&gt;</code></pre>
+          </li>
+          <li>Ouvrir la page dans le navigateur. Puis ouvrir l'outil de développement (DevTools).
+            <figure>
+              <img src="assets/miniprojet09/images/javascript-console-01.png" alt="Résultat du code JavaScript">
+              <figcaption>Résultat du code JavaScript</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <h4>Activité 2</h4>
+        <ul>
+          <li>Créer un fichier JavaScript nommé <strong>jscript01.js</strong> contenant le code suivant :
+            <pre class="javascript"><code>console.log("Hello from console.log inside an external file");</code></pre>
+          </li>
+          <li>Intégrer ce code dans le fichier <strong>javascript01.html</strong> à l'aide de la balise :
+            <pre class="html"><code>&lt;script src=&quot;jscript01.js&quot;&gt;&lt;/script&gt;</code></pre>
+          </li>
+          <li>Recharger la page dans le navigateur, appuyer <kbd>F5</kbd>.
+            <figure>
+              <img src="assets/miniprojet09/images/javascript-console-02.png" alt="Résultat du code JavaScript">
+              <figcaption>Résultat du code JavaScript dans un fichier externe</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Affichage</h3>
+
+        <p>JavaScript permet d'afficher les résultats des traitements de plusieurs façons :</p>
+        <ul>
+          <li>Dans la <b>console</b> de l'outil de développement (Devtools),</li>
+          <li>Dans une <b>boîte d'alerte</b>,</li>
+          <li>Dans le <b>document HTML</b>,</li>
+          <li>Dans le <b>DOM</b>,</li>
+          <li>Dans un <b>composant d'un formulaire</b>,</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Affichage : console.log</h3>
+        <p>L'affichage dans la <strong>console</strong> sert à débugger les scripts JavaScript. Il sert principalement à
+          traquer les éventuelles erreurs dans un script.</p>
+        <p><strong>Exemple</strong></p>
+        <pre class="javascript"><code>&lt;script&gt;
+  // Calcul de l&apos;hypot&eacute;nus d&apos;un triangle rectangle
+  let a = 3;
+  let b = 4;
+  // L&apos;hypot&eacute;nus est calcul&eacute; en utilisant la formule :
+  // c = racine(a^2+b^2)
+  let c = Math.sqrt(a + a);
+  // c doit &ecirc;tre &eacute;gal &agrave; 5
+  console.log(&quot;a = &quot;, a, &quot; - b = &quot;, b, &quot; - c = &quot;, c);
+&lt;/script&gt;</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/javascript-console-03.png"
+            alt="Débuggage d'un script qui contient des erreurs">
+          <figcaption>Débuggage d'un script qui contient des erreurs</figcaption>
+        </figure>
+
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Créer un fichier HTML nommé <strong>javascript02.html</strong>.</li>
+          <li>Copier le code précédent puis le tester dans la console du navigateur.</li>
+          <li>Corriger l'erreur.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Affichage : boîte d'alerte (alert)</h3>
+        <p>La boîte d'alerte <strong>alert</strong> surgit afin d'attirer l'attention de l'utilisateur et de l'alerter
+          sur une exception dans le script.</p>
+        <p><strong>Exemple</strong></p>
+        <p>On suppose qu'un utilisateur a tapé deux mots de passes différents dans les champs suivants :</p>
+        <figure>
+          <img src="assets/miniprojet09/images/javascript-login-form.png" alt="Confirmation d'un mot de passe">
+          <figcaption>Confirmation d'un mot de passe</figcaption>
+        </figure>
+        <p>La page doit alerter l'utilisateur de l'erreur.</p>
+        <figure>
+          <img src="assets/miniprojet09/images/javascript-alert.png" alt="Message d'erreur">
+          <figcaption>Message d'erreur</figcaption>
+        </figure>
+        <p>Le message précédent est obtenu en utilisant la fonction <code>alert("Message")</code>.</p>
+        <pre class="javascript"><code>alert("Les mots de passes sont différents!");</code></pre>
+        <p><strong>Travail demandé</strong></p>
+        <p>Copier le code JavaScript précédent dans la console puis appuyer sur la touche <kbd>Enter</kbd>.</p>
+        <figure>
+          <img src="assets/miniprojet09/images/javascript-alert-02.png"
+            alt="Afficher une boîte d'alerte à l'aide de la console">
+          <figcaption>Afficher une boîte d'alerte à l'aide de la console</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Affichage : Document HTML (document.writeln)</h3>
+        <p>Il est possible d'afficher le résultat d'un traitement directement dans la page en utilisant la fonction
+          <code>document.writeln("message");</code>. Cette fonction permet aussi d'insérer un code HTML dans la page et
+          de
+          l'exécuter.
+        </p>
+        <p><strong>Exemple</strong></p>
+        <div class="row">
+          <div class="col-8">Code HTML
+            <pre class="javascript"><code>&lt;script&gt;
+  let a = 5;
+  let b = 6;
+  document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;+&quot;, b, &quot;=&quot;, a + b, &quot;&lt;/p&gt;&quot;);
+  document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;*&quot;, b, &quot;=&quot;, a * b, &quot;&lt;/p&gt;&quot;);
+  document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;-&quot;, b, &quot;=&quot;, a - b, &quot;&lt;/p&gt;&quot;);
+  document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, a / b, &quot;&lt;/p&gt;&quot;);
+&lt;/script&gt;</code></pre>
+          </div>
+          <div class="col-4">Code CSS
+            <pre class="css3"><code>p:nth-child(odd) { color: red; }
+p:nth-child(even) { color: blue; }</code></pre>
+          </div>
+        </div>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/document-writeln.png"
+            alt="Utilisation de la fonction document.writeln()">
+          <figcaption>Utilisation de la fonction document.writeln()</figcaption>
+        </figure>
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Créer un fichier HTML nommé <strong>javascript04.html</strong>.</li>
+          <li>Copier le code HTML et le code CSS ci-dessus.</li>
+          <li>Tester dans le navigateur.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Affichage : DOM (Document Object Model)</h3>
+        <p>Une page web possède une structure formée par ses éléments appelée DOM. Le langage JavaScript offre plusieurs
+          fonctions pour accéder au DOM, notamment :</p>
+        <ul>
+          <li><code>document.getElementByID("id")</code> : retrourne une référence à un élément de la page connaissant
+            son
+            <code>id</code>.
+          </li>
+          <li><code>document.querySelector("css_selector")</code> : retourne une référence au premier élément de la page
+            en fonction du sélecteur CSS donné.</li>
+        </ul>
+        <p>L'obtention d'une référence à un élément a pour objectif de manipuler ses propriétés à l'aide de JavaScript.
+        </p>
+        <p><strong>Exemple</strong></p>
+        <div class="row">
+          <div class="col-8">Code HTML
+            <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;np&quot;&gt;Nom &amp; Pr&eacute;nom&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;np&quot; id=&quot;np&quot; value=&quot;Yassine&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;dn&quot;&gt;Date de naissance&lt;/label&gt;
+    &lt;input type=&quot;date&quot; name=&quot;dn&quot; id=&quot;dn&quot; value=&quot;2022-10-08&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;button type=&quot;submit&quot;&gt;Confirmer&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+  const np = document.getElementById(&quot;np&quot;);
+  const dn = document.getElementById(&quot;dn&quot;);
+
+  document.writeln(&quot;&lt;p&gt;Bonjour &quot;, np.value, &quot;&lt;/p&gt;&quot;);
+  document.writeln(&quot;&lt;p&gt;Vous &ecirc;tes n&eacute; le &quot;, dn.value, &quot;&lt;/p&gt;&quot;);
+&lt;/script&gt;</code></pre>
+          </div>
+          <div class="col-4">Code CSS
+            <pre class="css"><code>* { box-sizing: border-box; }
+
+form {
+  width: 300px;
+  background-color: #fffeb8;
+  margin: 50px auto;
+  border: #807d00 1px solid;
+  padding: 15px;
+}
+
+input[type="text"],
+input[type="date"],
+button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px;
+  font-size: 12pt;
+}</code></pre>
+          </div>
+        </div>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/dom-01.png" alt="Manipulation du DOM">
+          <figcaption>Manipulation du DOM</figcaption>
+        </figure>
+
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Créer un fichier HTML nommé <strong>javascript05.html</strong>.</li>
+          <li>Copier le code HTML et CSS précédents.</li>
+          <li>Tester dans le navigateur.</li>
+          <li>Ajouter un champ intervalle <strong>type="range"</strong> avec lequel l'utilisateur peut sélectionner le
+            nombre d'articles à acheter de 1 à 7. La valeur par défaut du champ est 3.</li>
+          <li>Ajouter un code JavaScript qui affiche la valeur de ce dernier champ.
+            <figure>
+              <img src="assets/miniprojet09/images/dom-02.png" alt="Résultat à obtenir">
+              <figcaption>Résultat à obtenir</figcaption>
+            </figure>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Affichage : Formulaire</h3>
+        <p>Un formulaire permet de recuillir les information de l'utilisateur, pour les soumettre à un serveur ou pour
+          les manipuler localement à l'aide de JavaScript.</p>
+        <p>En récupérant la référence d'un composant du formulaire à l'aide de
+          <code>const elem = document.getElementByID("elemid")</code>, il est possible de modifier sa valeur via
+          l'instruction : <code>elem.value = "Nouvelle valeur";</code>
+        </p>
+        <p><strong>Exemple</strong></p>
+        <div class="row">
+          <div class="col-8">Code HTML
+            <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
+  &lt;div&gt;&lt;label for=&quot;a&quot;&gt;a&lt;/label&gt;
+      &lt;input type=&quot;number&quot; name=&quot;a&quot; id=&quot;a&quot; value=&quot;9&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;b&quot;&gt;b&lt;/label&gt;
+      &lt;input type=&quot;number&quot; name=&quot;b&quot; id=&quot;b&quot; value=&quot;8&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;op&quot;&gt;Op&eacute;ration&lt;/label&gt;
+      &lt;select id=&quot;op&quot; name=&quot;op&quot;&gt;
+        &lt;option value=&quot;+&quot;&gt;+&lt;/option&gt;&lt;option value=&quot;-&quot;&gt;-&lt;/option&gt;
+        &lt;option value=&quot;*&quot;&gt;*&lt;/option&gt;&lt;option value=&quot;/&quot;&gt;/&lt;/option&gt;
+      &lt;/select&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;res&quot;&gt;R&eacute;sultat&lt;/label&gt;
+      &lt;input type=&quot;number&quot; name=&quot;res&quot; id=&quot;res&quot; readonly&gt;&lt;/div&gt;
+  &lt;button type=&quot;submit&quot;&gt;Calculer&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+  const a = document.getElementById(&quot;a&quot;);
+  const b = document.getElementById(&quot;b&quot;);
+  const op = document.getElementById(&quot;op&quot;);
+  const res = document.getElementById(&quot;res&quot;);
+  res.value = eval(a.value + op.value + b.value);
+&lt;/script&gt;</code></pre>
+          </div>
+          <div class="col-4">Code CSS
+            <pre class="css"><code>* {
+  box-sizing: border-box;
+}
+
+form {
+  width: 300px;
+  background-color: #fffeb8;
+  margin: 50px auto;
+  border: #807d00 1px solid;
+  padding: 15px;
+}
+
+input[type="number"],
+select,
+button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px;
+  font-size: 12pt;
+}</code></pre>
+          </div>
+        </div>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/forms-01.png" alt="Affichage dans le formulaire">
+          <figcaption>Affichage dans le formulaire</figcaption>
+        </figure>
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Créer un fichier HTML nommé <strong>javascript06.html</strong>.</li>
+          <li>Copier le code HTML et CSS ci-dessus.</li>
+          <li>Tester dans le navigateur.</li>
+          <li>Ajouter un troisième champ nombre nommé c.</li>
+          <li>Modifier le code précédent pour qu'il calcule : a + b + c, a - b - c, a * b * c ou a / b / c.
+            <figure>
+              <img src="assets/miniprojet09/images/forms-02.png" alt="Résultat à obtenir">
+              <figcaption>Résultat à obtenir</figcaption>
+            </figure>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Variables / Constantes</h3>
+        <p>On peut déclarer des variables en JavaScript en utilisant les mots clés <code>var</code> et <code>let</code>.
+          Les variables peuvent être initialisées lors de leurs déclaration. Une variable non initialisée contient la
+          valeur : <code>undefined</code>.
+        </p>
+        <p>Le nom d'une variable doit commencer par une lettre ou par le caractère de soulignement (_). Les caractères
+          suivants peuvent être des lettres, des chiffres et/ou le caractère de soulignement.</p>
+        <p>Contrairement à une variable dont la valeur peut changer au cours de l'exécution du script, la valeur d'une
+          constante reste inchangée après sa déclaration.</p>
+        <p class="text-danger"><strong>Remarque 1</strong> : Il est vivement conseillé d'utiliser le mot clé
+          <code>let</code>. Le mot clé <code>var</code> est à éviter.
+        </p>
+        <p class="text-danger"><strong>Remarque 2</strong> : JavaScript est sensible à la casse.</p>
+        <p><strong>Exemple 1</strong> : Déclaration d'une variable</p>
+        <pre class="javascript"><code>// Déclaration de variables sans initialisation
+var x;
+let y;
+// Déclaration de variables avec initialisation
+var nom = "Ahmed";
+let age = 16;
+console.log(x, y);
+console.log(nom, age);</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/variables-01.png" alt="Déclaration des variables">
+          <figcaption>Déclaration des variables</figcaption>
+        </figure>
+        <p><strong>Exemple 2</strong> : Sensibilité à la casse</p>
+        <pre class="javascript"><code>let x = 6;
+console.log(X); // Affiche une erreur : X is not defined
+console.log(x);</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/variables-02.png" alt="Les noms des variables sont sensibles à la casse">
+          <figcaption>Les noms des variables sont sensibles à la casse</figcaption>
+        </figure>
+        <p><strong>Exemple 3 : Constantes vs Variables</strong></p>
+        <pre class="javascript"><code>// variable
+let x = 4;
+x = x + 2;
+x = x * 5;
+console.log(x);
+// constante
+const y = 5;
+y = y + 2;
+console.log(y);</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/variables-03.png" alt="Constante vs Variable">
+          <figcaption>Constante vs Variable</figcaption>
+        </figure>
+        <p><strong>Travail demandé</strong></p>
+        <p>Utiliser la console pour tester les trois exemples précédents.</p>
+      </section>
+
+      <section>
+        <h3>Types prédéfinis</h3>
+        <p>JavaScript supporte six classes de variables prédéfinis :</p>
+        <ul>
+          <li><code>number</code> : Pour les nombres entiers et réels,</li>
+          <li><code>string</code> : Pour les chaînes de caractères,</li>
+          <li><code>boolean</code> : Pour les expressions qui renvoient <code>true</code> ou <code>false</code>,</li>
+          <li><code>object</code> : Pour les tableaux et les objets définis par l'utilisateur,</li>
+          <li><code>function</code> : Pour les fonctions,</li>
+          <li><code>undefined</code> : Pour les variables déclarées sans initialisation.</li>
+        </ul>
+        <p>Le mot clé <code>typeof v</code> retourne le type de v. v est soit une constante ou une variable.</p>
+        <p><strong>Exemple</strong></p>
+        <pre class="javascript"><code>console.log(typeof 5.6); // 'number'
+console.log(typeof 17);
+console.log(typeof Number.NaN);
+
+console.log(typeof "ayoub"); // 'string'
+
+console.log(typeof (5 > 6)); // 'boolean'
+
+console.log(typeof [1, 2, 3]); // 'object'
+console.log(typeof null);
+
+let x;
+console.log(typeof x); // 'undefined'
+
+console.log(typeof Math.abs); // 'function'</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/types-02.png" alt="Types prédéfinis">
+          <figcaption>Types prédéfinis</figcaption>
+        </figure>
+        <p><strong>Travail demandé</strong></p>
+        <p>Tester les commandes précédentes dans la console du navigateur.</p>
+      </section>
+
+      <section>
+        <h3>Les opérateurs</h3>
+        <p>Les opérateurs sont classés en catégories :</p>
+        <h4>Les opérateurs de calcul</h4>
+        <table class="table table-sm table-bordered border-dark n5-col-eq">
+          <thead>
+            <tr>
+              <th>Addition</th>
+              <th>Soustration</th>
+              <th>Multiplication</th>
+              <th>Division</th>
+              <th>Modulo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>c = a + b;</td>
+              <td>d = a - b;</td>
+              <td>e = a * b;</td>
+              <td>f = a / b;</td>
+              <td>g = a % b;</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Exemple 1</strong></p>
+        <pre class="javascript"><code>let a = 15;
+let b = 6;
+let c = a + b; console.log(c); // 21
+let d = a - b; console.log(d); // 9
+let e = a * b; console.log(e); // 90
+let f = a / b; console.log(f); // 2.5
+let g = a % b; console.log(g); // 3</code></pre>
+
+        <h4>Les opérateurs assosiatifs</h4>
+        <p>Il s'agit d'une forme plus courte des opérateurs arithmétiques.</p>
+        <table class="table table-sm table-bordered border-dark n5-col-eq">
+          <thead>
+            <tr>
+              <th>Addition</th>
+              <th>Soustration</th>
+              <th>Multiplication</th>
+              <th>Division</th>
+              <th>Modulo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>a += b;<br><b>Equivalente à :</b><br>a = a + b;</td>
+              <td>a -= b;<br><b>Equivalente à :</b><br>a = a - b;</td>
+              <td>a *= b;<br><b>Equivalente à :</b><br>a = a * b;</td>
+              <td>a /= b;<br><b>Equivalente à :</b><br>a = a / b;</td>
+              <td>a %= b;<br><b>Equivalente à :</b><br>a = a % b;</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Exemple 2</strong></p>
+        <pre class="javascript"><code>let a = 15;
+let b = 6;
+a += b; console.log(a); // 15 + 6 = 21
+a -= b; console.log(a); // 21 - 6 = 15
+a *= b; console.log(a); // 15 * 6 = 90
+a /= b; console.log(a); // 80 / 6 = 15
+a %= b; console.log(a); // 15 % 6 = 3</code></pre>
+
+        <h4>Les opérateurs d'incrémention</h4>
+        <p>Il s'agit d'une forme plus courte des opérateurs arithmétiques.</p>
+        <table class="table table-sm table-bordered border-dark n4-col-eq">
+          <thead>
+            <tr>
+              <th>Pré-incrémentation</th>
+              <th>Post-incrémentation</th>
+              <th>Pré-décrémentation</th>
+              <th>Post-décrémentation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>++a;<br><b>Equivalente à :</b><br>a = a + 1;</td>
+              <td>a++;<br><b>Equivalente à :</b><br>a = a + 1;</td>
+              <td>--a;<br><b>Equivalente à :</b><br>a = a - 1;</td>
+              <td>a--;<br><b>Equivalente à :</b><br>a = a - 1;</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Exemple 3</strong></p>
+        <pre class="javascript"><code>let a = 8;
+// Pré-incrémentation
+console.log(++a); // 9
+console.log(a);   // 9
+// Post-incrémentation
+console.log(a++); // 9
+console.log(a);   // 10
+// Pré-décrémentation
+console.log(--a); // 9
+console.log(a);   // 9
+// Post-décrémentation
+console.log(a--); // 9
+console.log(a);   // 8</code></pre>
+
+        <h4>Les opérateurs de comparaison</h4>
+        <table class="table table-sm table-bordered border-dark n9-col-eq">
+          <thead>
+            <tr>
+              <th>Supérieur</th>
+              <th>Supérieur ou égal</th>
+              <th>Inférieur</th>
+              <th>Inférieur ou égal</th>
+              <th>Même valeur</th>
+              <th>Valeur différente</th>
+              <th>Même type et même valeur</th>
+              <th>Type ou valeur différents</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>a &gt; b</td>
+              <td>a &gt;= b</td>
+              <td>a &lt; b</td>
+              <td>a &lt; b</td>
+              <td>a == b</td>
+              <td>a != b</td>
+              <td>a === b</td>
+              <td>a !== b</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Exemple 4</strong></p>
+        <pre class="javascript"><code>let a = 8;
+let b = "8";
+let c = 9;
+// Supérieur
+console.log(c, "&gt;", a, "=>", c &gt; a);  // true
+console.log(b, "&gt;", a, "=>", b &gt; a);  // false
+// Supérieur ou égal
+console.log(c, "&gt;=", a, "=>", c &gt;= a); // true
+console.log(a, "&gt;=", b, "=>", a &gt;= b); // true
+// Inférieur
+console.log(c, "&lt;", a, "=>", c &lt; a);  // false
+console.log(b, "&lt;", a, "=>", b &lt; a);  // false
+// Inférieur ou égal
+console.log(c, "&lt;=", a, "=>", c &lt;= a); // false
+console.log(a, "&lt;=", b, "=>", a &lt;= b); // true
+// Même valeur
+console.log(c, "==", a, "=>", c == a);  // false
+console.log(b, "==", a, "=>", b == a);  // true
+// Valeur différente
+console.log(c, "!=", a, "=>", c != a);  // true
+console.log(b, "!=", a, "=>", b != a);  // false
+// Même type et même valeur
+console.log(c, "===", a, "=>", c === a);  // false
+console.log(b, "===", a, "=>", b === a);  // false
+// Type ou valeur différents
+console.log(c, "!==", a, "=>", c !== a);  // true
+console.log(b, "!==", a, "=>", b !== a);  // true</code></pre>
+
+        <h4>Les opérateurs logiques</h4>
+        <table class="table table-sm table-bordered border-dark n3-col-eq">
+          <thead>
+            <tr>
+              <th>Et logique</th>
+              <th>Ou logique</th>
+              <th>Non logique</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>a && b</td>
+              <td>a || b</td>
+              <td>!a</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Exemple 5</strong></p>
+        <pre class="javascript"><code>let a = 8;
+let b = 6;
+let c = 4;
+console.log(a, "&gt;", b, "&&", b, "&gt;", c, (a &gt; b && b &gt; c)) // true
+console.log(a, "&lt;", b, "||", b, "&gt;", c, (a &lt; b || b &gt; c)) // true
+console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

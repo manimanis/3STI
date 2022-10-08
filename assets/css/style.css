@@ -54,6 +54,56 @@ h5 {
   border: #000 solid 1px;
 }
 
+table.n2-col-eq th,
+table.n3-col-eq th,
+table.n4-col-eq th,
+table.n5-col-eq th,
+table.n6-col-eq th,
+table.n7-col-eq th,
+table.n8-col-eq th,
+table.n9-col-eq th {
+  text-align: center;
+}
+
+table.n2-col-eq th, table.n2-col-eq td {
+  width: calc(100% / 2);
+  vertical-align: middle;
+}
+
+table.n3-col-eq th, table.n3-col-eq td {
+  width: calc(100% / 3);
+  vertical-align: middle;
+}
+
+table.n4-col-eq th, table.n4-col-eq td {
+  width: calc(100% / 4);
+  vertical-align: middle;
+}
+
+table.n5-col-eq th, table.n5-col-eq td {
+  width: calc(100% / 5);
+  vertical-align: middle;
+}
+
+table.n6-col-eq th, table.n6-col-eq td {
+  width: calc(100% / 6);
+  vertical-align: middle;
+}
+
+table.n7-col-eq th, table.n7-col-eq td {
+  width: calc(100% / 7);
+  vertical-align: middle;
+}
+
+table.n8-col-eq th, table.n8-col-eq td {
+  width: calc(100% / 8);
+}
+
+table.n9-col-eq th, table.n9-col-eq td {
+  width: calc(100% / 9);
+  vertical-align: middle;
+}
+
 @media print {
 
   aside,
