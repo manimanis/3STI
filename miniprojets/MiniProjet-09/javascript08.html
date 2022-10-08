@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+</head>
+
+<body>
+  <input type="text" id="np" name="np" value="Salah">
+  <script>
+    const np = document.getElementById("np");
+    document.writeln("Bonjour ", np.value);
+  </script>
+
+  <script>
+    const reponse = confirm("Voulez-vous supprimer cet élément ? ");
+    if (reponse) {
+      alert("L'élément a été supprimé !");
+    } else {
+      alert("Vous avez annulé l'opération !");
+    }
+  </script>
+
+  <div id="operation"></div>
+  <script>
+    const op = document.getElementById("operation");
+
+    let a = prompt("Donner a ?", "5");
+    let b = prompt("Donner b ?", "7");
+    let s = a + b;
+    op.textContent = a + " + " + b + " = " + s;
+  </script>
+</body>
+
+</html>

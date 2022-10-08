@@ -193,7 +193,7 @@ p:nth-child(even) { color: blue; }</code></pre>
         <p>Une page web possède une structure formée par ses éléments appelée DOM. Le langage JavaScript offre plusieurs
           fonctions pour accéder au DOM, notamment :</p>
         <ul>
-          <li><code>document.getElementByID("id")</code> : retrourne une référence à un élément de la page connaissant
+          <li><code>document.getElementById("id")</code> : retrourne une référence à un élément de la page connaissant
             son
             <code>id</code>.
           </li>
@@ -202,7 +202,17 @@ p:nth-child(even) { color: blue; }</code></pre>
         </ul>
         <p>L'obtention d'une référence à un élément a pour objectif de manipuler ses propriétés à l'aide de JavaScript.
         </p>
-        <p><strong>Exemple</strong></p>
+        <ul>
+          <li>On peut, par exemple, récupérer la référence d'un champ dans un formulaire à l'aide de son <i>#elem_id</i>
+            <code>const elem = document.getElementById("elem_id")</code>. Puis, on peut soit modifier sa valeur en
+            utilisant
+            : <code>elem.value = "Une nouvelle valeur";</code>.
+          </li>
+          <li>On peut, même, changer le contenu d'un élément en utilisant la propriété :
+            <code>elem.innerHTML = "&lt;p&gt;Code HTML&lt;/p&gt;";</code>.
+          </li>
+        </ul>
+        <p><strong>Exemple 1</strong> : Accès aux propriétés d'un formulaire</p>
         <div class="row">
           <div class="col-8">Code HTML
             <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
@@ -267,6 +277,51 @@ button {
             </figure>
           </li>
         </ol>
+
+        <p><strong>Exemple 2</strong> : Modification du contenu d'un élément</p>
+        <div class="row">
+          <div class="col-8">Code HTML
+            <pre class="html"><code>&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // récéupérer une référence du div
+  const msg = document.getElementById(&quot;message&quot;);
+
+  // ajouter un contenu à ce div
+  msg.innerHTML = &apos;&lt;p class=&quot;erreur&quot;&gt;Bienvenue dans JavaScript!&lt;/p&gt;&apos;;
+&lt;/script&gt;</code></pre>
+          </div>
+          <div class="col-4">Code CSS
+            <pre class="css"><code>#message { 
+  width: 500px; 
+  margin: 10px auto; }
+.erreur {
+  background-color: red; 
+  color: white;
+  font-weight: bold;
+  padding: 15px; }</code></pre>
+          </div>
+        </div>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/inner-html-01.PNG" alt="Exemple d'utilisation de innerHTML">
+          <figcaption>Exemple d'utilisation de innerHTML</figcaption>
+        </figure>
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Copier les codes HTML et CSS de l'exemple précédent dans un fichier HTML nommé :
+            <strong>javascript07.html</strong>
+          </li>
+          <li>Tester dans un navigateur.</li>
+          <li>Ajouter la balise suivante dans la partie HTML du document :
+            <code>&lt;div id=&quot;greeting&quot;&gt;&lt;/div&gt;</code>
+          </li>
+          <li>Ajouter le code JavaScript nécessaire pour obtenir l'affichage suivant :
+            <figure>
+              <img src="assets/miniprojet09/images/inner-html-02.png" alt="Résultat à obtenir">
+              <figcaption>Résultat à obtenir</figcaption>
+            </figure>
+          </li>
+        </ol>
       </section>
 
       <section>
@@ -274,7 +329,7 @@ button {
         <p>Un formulaire permet de recuillir les information de l'utilisateur, pour les soumettre à un serveur ou pour
           les manipuler localement à l'aide de JavaScript.</p>
         <p>En récupérant la référence d'un composant du formulaire à l'aide de
-          <code>const elem = document.getElementByID("elemid")</code>, il est possible de modifier sa valeur via
+          <code>const elem = document.getElementById("elemid")</code>, il est possible de modifier sa valeur via
           l'instruction : <code>elem.value = "Nouvelle valeur";</code>
         </p>
         <p><strong>Exemple</strong></p>
@@ -619,6 +674,67 @@ let c = 4;
 console.log(a, "&gt;", b, "&&", b, "&gt;", c, (a &gt; b && b &gt; c)) // true
 console.log(a, "&lt;", b, "||", b, "&gt;", c, (a &lt; b || b &gt; c)) // true
 console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
+      </section>
+
+      <section>
+        <h3>Les entrées</h3>
+        <p>Il est possible de récupérer les données de l'utilisateur en utilisant diverses méthodes :</p>
+        <ul>
+          <li>Depuis un formulaire en utilisant la propriété : <code>elem.value</code> d'un champ.</li>
+          <li>Depuis une <strong>boîte d'invite (prompt)</strong>.</li>
+          <li>Depuis une <strong>boîte de confirmation</strong>.</li>
+        </ul>
+
+        <p><strong>Exemple 1</strong> : récupérer une donnée depuis un champ d'un formulaire</p>
+        <pre class="html"><code>&lt;input type=&quot;text&quot; id=&quot;np&quot; name=&quot;np&quot; value=&quot;Salah&quot;&gt;
+&lt;script&gt;
+  const np = document.getElementById(&quot;np&quot;);
+  document.writeln(&quot;Bonjour &quot;, np.value);
+&lt;/script&gt;</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/input-01.png"
+            alt="Récupération des données à partir d'un champ d'un formulaire">
+          <figcaption>Récupération des données à partir d'un champ d'un formulaire</figcaption>
+        </figure>
+
+        <p><strong>Exemple 2</strong> : récupérer une donnée à partir d'une boîte d'invite</p>
+        <pre class="html"><code>&lt;div id=&quot;operation&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  const op = document.getElementById(&quot;operation&quot;);
+
+  let a = prompt(&quot;Donner a ?&quot;, &quot;5&quot;);
+  let b = prompt(&quot;Donner b ?&quot;, &quot;7&quot;);
+  let s = a + b;
+  op.textContent = a + &quot; + &quot; + b + &quot; = &quot; + s;
+&lt;/script&gt;</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/input-02.png" alt="Boîte d'invite, demander la valeur de a"
+            class="im-h-4">
+          <img src="assets/miniprojet09/images/input-03.png" alt="Boîte d'invite, demander la valeur de b"
+            class="im-h-4">
+          <figcaption>Boîte d'invite, demander la valeur de a et b</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/miniprojet09/images/input-04.png" alt="Résultat du script">
+          <figcaption>Résultat du script</figcaption>
+        </figure>
+
+        <p><strong>Exemple 3</strong> : récupérer une confirmation</p>
+        <pre class="html"><code>&lt;script&gt;
+  const reponse = confirm(&quot;Voulez-vous supprimer cet &eacute;l&eacute;ment ? &quot;);
+  if (reponse) {
+    alert(&quot;L&apos;&eacute;l&eacute;ment a &eacute;t&eacute; supprim&eacute; !&quot;);
+  } else {
+    alert(&quot;Vous avez annul&eacute; l&apos;op&eacute;ration !&quot;);
+  }
+&lt;/script&gt;</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/input-05.PNG" alt="Exemple d'utilisation d'une boîte de confirmation">
+          <figcaption>Exemple d'utilisation d'une boîte de confirmation</figcaption>
+        </figure>
       </section>
     </article>
   </main>
