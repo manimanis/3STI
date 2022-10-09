@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures itératives</title>
+  <style>
+    #echiquier {
+      width: 600px;
+      height: 600px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #echiquier .carre {
+      width: 25%;
+      height: 25%;
+      font-size: 64pt;
+      text-align: center;
+      line-height: 170%;
+    }
+
+    #echiquier .carre.black {
+      background-color: black;
+      color: white;
+    }
+
+    #echiquier .carre.gray {
+      background-color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="echiquier">
+    <script>
+      for (let i = 0; i < 16; i++) {
+        let x = Math.floor(i / 4);
+        let y = i % 4;
+        let cls = (x + y) % 2 == 0 ? "black" : "gray";
+        document.writeln('<div id="carre-', i + 1, '" class="carre ', cls, '">',
+          y, ",", x, "</div>");
+      }
+    </script>
+  </div>
+</body>
+
+</html>
