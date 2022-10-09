@@ -881,7 +881,121 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
         <pre class="javascript"><code>for (initialisation; condition; increment) {
   // traitement
 }</code></pre>
+        <p><strong>Exemple</strong></p>
+        <pre class="html"><code>&lt;!-- afficher les nombres pairs entre 0 et 15 --&gt;
+&lt;p&gt;&lt;b&gt;Nombres pairs :&lt;/b&gt;
+  &lt;script&gt;
+    for (let i = 0; i &lt; 16; i++) {
+      if (i % 2 == 0) {
+        document.writeln(i);
+      }
+    }
+  &lt;/script&gt;
+&lt;/p&gt;</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/for-01.png" alt="Affichage des nombres pairs dans l'intervalle 0 à 15">
+          <figcaption>Affichage des nombres pairs dans l'intervalle 0 à 15</figcaption>
+        </figure>
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Copier le code précédent dans un fichier HTML nommé : <strong>javascript13.html</strong>.</li>
+          <li>Tester dans le navigateur.</li>
+          <li>Insérer dans le code précédent un script qui a pour rôle d'afficher tous les nombres de deux chiffres dont
+            le chiffre des dizaines est multiple du chiffre des unités ou le contraire.
+            <figure>
+              <img src="assets/miniprojet09/images/for-02.PNG"
+                alt="Nombres dont le chiffres des dizaines est multiple ou diviseur du chiffre des unités">
+              <figcaption>Nombres dont le chiffres des dizaines est multiple ou diviseur du chiffre des unités
+              </figcaption>
+            </figure>
+          </li>
+        </ol>
+
+        <h4>Boucle while</h4>
+        <p><strong>Forme générale</strong></p>
+        <pre class="javascript"><code>while (condition) {
+  // traitement
+}</code></pre>
+        <p><strong>Exemple</strong></p>
+        <p>Calculons le PGCD en utilisant la formule d'Euclide.</p>
+        <p>PGCD(a, b) = PGCD(b, a mod b); si b &ne; 0 <br> PGCD(a, b) = a; si b = 0</p>
+        <pre class="html"><code>&lt;p&gt;&lt;b&gt;Calcul du PGCD : &lt;/b&gt;
+  &lt;script&gt;
+    let a = parseInt(prompt(&quot;Donner a ? &quot;));
+    let b = parseInt(prompt(&quot;Donner b ? &quot;));
+
+    /* Calcul du PGCD : Algorithme d&apos;Euclide */
+    let a1 = a, b1 = b;
+    while (b1 != 0) {
+      let r = a1 % b1;
+      a1 = b1;
+      b1 = r;
+    }
+
+    document.writeln(&quot;PGCD(&quot;, a, &quot;, &quot;, b, &quot;) = &quot;, a1);
+  &lt;/script&gt;
+&lt;/p&gt;</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/while-01.png" alt="Résultat du calcul de PGCD pour a = 25 et b = 35">
+          <figcaption>Résultat du calcul de PGCD pour a = 25 et b = 35</figcaption>
+        </figure>
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Copier le code précédent dans le fichier HTML nommé <strong>javascript13.html</strong>.</li>
+          <li>Tester dans le navigateur.</li>
+          <li>Ajouter le code qui permet de calculer le PPCM de a et b en utilisant la méthode des additions. Qui
+            consiste, comme le montre l'exemple dans le tableau suivant, à incrémenter la valeur de <code>a</code> de
+            <code>a</code> tant qu'elle n'est pas divisible par <code>b</code>.
+            <table class="w25 table-sm table-bordered border-dark n3-col-eq mx-auto">
+              <thead>
+                <tr>
+                  <th>a</th>
+                  <th>b</th>
+                  <th>a mod b &ne; 0</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="text-center">
+                  <td>35<br>70<br>105</td>
+                  <td>15<br>15<br>15</td>
+                  <td>true<br>true<br>false</td>
+                </tr>
+              </tbody>
+            </table>
+            <figure>
+              <img src="assets/miniprojet09/images/while-02.png" alt="Résultat du calcul du PPCM(35, 15)">
+              <figcaption>Résultat du calcul du PPCM(35, 15)</figcaption>
+            </figure>
+          </li>
+        </ol>
+
+        <h4>Boucle do ... while</h4>
+        <p>Cette boucle est semblable à sa s&oelig;ur ainée <code>while</code>. La seule diffférence est que le
+          traitement est exécuté au moins une fois avant que la <code>condition</code> n'est évaluée.</p>
+        <p><strong>Forme générale</strong></p>
+        <pre class="javascript"><code>do {
+  // traitement
+} while (condition);</code></pre>
 <p><strong>Exemple</strong></p>
+<pre class="html"><code>&lt;script&gt;
+  let a = Math.floor(Math.random() * 10);
+  let b, u;
+
+  document.writeln(&quot;&lt;p&gt;Cherchons un nombre ayant un chiffre d&apos;unit&eacute;s = &quot;, a, &quot;&lt;/p&gt;&quot;)
+
+  do {
+    b = Math.floor(Math.random() * 100);
+    u = b % 10;
+    if (u == a) {
+      document.writeln(b, &quot; Accept&eacute;&quot;);
+    } else {
+      document.writeln(b, &quot; Rejet&eacute;&quot;);
+    }
+    document.writeln(&quot;&lt;br&gt;&quot;);
+  } while (u != a);
+&lt;/script&gt;</code></pre>
       </section>
     </article>
   </main>
