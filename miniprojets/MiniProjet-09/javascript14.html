@@ -16,7 +16,7 @@
     document.writeln("<p>Cherchons un nombre ayant un chiffre d'unités = ", a, "</p>")
 
     do {
-      b = Math.floor(Math.random() * 100);
+      b = Math.floor(Math.random() * 90) + 10;
       u = b % 10;
       if (u == a) {
         document.writeln(b, " Accepté");
@@ -25,6 +25,28 @@
       }
       document.writeln("<br>");
     } while (u != a);
+
+    {
+      let a = Math.floor(Math.random() * 10);
+      let b = Math.floor(Math.random() * 10);
+      let c, sc, pa, pb;
+
+      document.writeln("<p>Cherchons un nombre contenant les chiffres ", a, " et ", b, "</p>");
+
+      do {
+        c = Math.floor(Math.random() * 9000) + 1000;
+        sc = c.toString();
+        pa = sc.indexOf(a);
+        pb = sc.indexOf(b);
+
+        if (a == b || pa == -1 || pb == -1) {
+          document.writeln(c, " Rejeté");
+        } else {
+          document.writeln(c, " Accepté");
+        }
+        document.writeln("<br>");
+      } while (a == b || pa == -1 || pb == -1);
+    }
   </script>
 </body>
 

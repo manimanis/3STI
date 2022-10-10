@@ -882,8 +882,8 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
   // traitement
 }</code></pre>
         <p><strong>Exemple</strong></p>
-        <pre class="html"><code>&lt;!-- afficher les nombres pairs entre 0 et 15 --&gt;
-&lt;p&gt;&lt;b&gt;Nombres pairs :&lt;/b&gt;
+        <p>Afficher les nombres pairs entre 0 et 15.</p>
+        <pre class="html"><code>&lt;p&gt;&lt;b&gt;Nombres pairs :&lt;/b&gt;
   &lt;script&gt;
     for (let i = 0; i &lt; 16; i++) {
       if (i % 2 == 0) {
@@ -978,15 +978,17 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
         <pre class="javascript"><code>do {
   // traitement
 } while (condition);</code></pre>
-<p><strong>Exemple</strong></p>
-<pre class="html"><code>&lt;script&gt;
+        <p><strong>Exemple</strong></p>
+        <p>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre choisi.
+        </p>
+        <pre class="html"><code>&lt;script&gt;
   let a = Math.floor(Math.random() * 10);
   let b, u;
 
   document.writeln(&quot;&lt;p&gt;Cherchons un nombre ayant un chiffre d&apos;unit&eacute;s = &quot;, a, &quot;&lt;/p&gt;&quot;)
 
   do {
-    b = Math.floor(Math.random() * 100);
+    b = Math.floor(Math.random() * 90) + 10;
     u = b % 10;
     if (u == a) {
       document.writeln(b, &quot; Accept&eacute;&quot;);
@@ -996,6 +998,99 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
     document.writeln(&quot;&lt;br&gt;&quot;);
   } while (u != a);
 &lt;/script&gt;</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/do-while-01.png"
+            alt="Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre choisi.">
+          <figcaption>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le
+            chiffre choisi.</figcaption>
+        </figure>
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Copier le code précédent dans un fichier HTML nommé : <strong>javascript14.html</strong>.</li>
+          <li>Tester dans le navigateur.</li>
+          <li>Modifier le script comme suit :
+            <ul>
+              <li>On choisit deux chiffres au hasard <strong>a</strong> et <strong>b</strong>.</li>
+              <li>On cherche un nombre de quatre chiffres au hasard <strong>c</strong> contenant les deux chiffres
+                <strong>a</strong> et <strong>b</strong>.
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <figure>
+          <img src="assets/miniprojet09/images/do-while-02.png" alt="Exemple de résultat">
+          <img src="assets/miniprojet09/images/do-while-03.png" alt="Exemple de résultat">
+          <figcaption>Exemple du résultat attendu</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Fonctions</h3>
+        <p>L'utilisation des fonctions permet de réduire la complexité d'un problème en le décomposant en des
+          sous-problèmes moins compliqués.</p>
+        <p>Les fonctions en JavaScript sont des citoyens de première classe. Elle peut être déclarée comme une variable
+          et passée en tant que paramètre à une autre fonction. Une fonction peut-être déclarée de
+          plusieurs façons :</p>
+        <ul>
+          <li>&Agrave; l'aide du mot clé : <code>function</code>.</li>
+          <li>Comme une variable ou constante à l'aide de <code>const</code>, <code>let</code> ou <code>var</code>.</li>
+          <li>Comme une fonction anonyme.</li>
+        </ul>
+
+        <h4>Déclaration</h4>
+        <p><strong>Forme générale</strong></p>
+        <pre class="javascript"><code>/* fonction ordinaire */
+function nom_fonction(par1, par2, ..., parN) {
+  // traitement
+
+  /* La fonction peut retourner, ou non, un résultat à son appelant */
+  [return résultat;]
+}
+
+/* fonctions anonymes */
+const nom_fct2 = function (par1, par2, ..., parM) {
+  // traitement
+  [return resultat;]
+};
+
+const nom_fct3 = (par1, par2, ..., parM) =&gt; résultat;</code></pre>
+
+        <p><strong>Exemple</strong></p>
+        <p>L'exemple suivant présente plusieurs façons pour décalrer une fonction.</p>
+        <pre class="javascript"><code>let a = 5, b = 10;
+
+/* D&eacute;claration d&apos;une fonction : M&eacute;thode 1 */
+function somme(a, b) {
+  return a + b;
+}
+document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;+&quot;, b, &quot;=&quot;, somme(a, b), &quot;&lt;/p&gt;&quot;);
+
+/* D&eacute;claration d&apos;une fonction : M&eacute;thode 2 */
+const produit = function (a, b) {
+  return a * b;
+}
+document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;*&quot;, b, &quot;=&quot;, produit(a, b), &quot;&lt;/p&gt;&quot;);
+
+/* D&eacute;claration d&apos;une fonction : M&eacute;thode 3 */
+const alea = (a, b) =&gt; {
+  return Math.floor(Math.random() * (b - a)) + a;
+}
+document.writeln(&quot;&lt;p&gt;alea(&quot;, a, &quot;, &quot;, b, &quot;) = &quot;, alea(a, b), &quot;&lt;/p&gt;&quot;);
+
+// Le premier paramètre de calc est une fonction
+function calc(fn, a, b) {
+  return fn(a, b);
+}
+
+/* D&eacute;claration d&apos;une fonction : M&eacute;thode 4 */
+const res = calc((x, y) =&gt; x / y, a, b);
+document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res, &quot;&lt;/p&gt;&quot;);</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/function-01.png" alt="Différentes méthodes pour déclarer une fonction">
+          <figcaption>Différentes méthodes pour déclarer une fonction</figcaption>
+        </figure>
       </section>
     </article>
   </main>
