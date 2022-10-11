@@ -1091,6 +1091,63 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
           <img src="assets/miniprojet09/images/function-01.png" alt="Différentes méthodes pour déclarer une fonction">
           <figcaption>Différentes méthodes pour déclarer une fonction</figcaption>
         </figure>
+        <p><strong>Travail demandé</strong></p>
+        <ul>
+          <li>Copier le code précédent dans un fichier HTML nommé <strong>javascript15.html</strong>.</li>
+          <li>Tester dans un navigateur.</li>
+          <li>Ecrire une fonction <code>max(a, b)</code> qui calcule le maximum de deux nombres <code>a</code> et
+            <code>b</code>. Puis, l'appeler.
+          </li>
+        </ul>
+      </section>
+    </article>
+
+    <article>
+      <h2>&Eacute;vènements</h2>
+
+      <section>
+        <h3>Présentation</h3>
+        <p>JavaScript est un langage évènementiel, chaque n&oelig;ud du DOM génère des évènements. Un évènement est
+          déclenché, <u>automatiquement</u>, par le navigateur lorsque :</p>
+        <ul>
+          <li>Le contenu de la page est chargé.</li>
+          <li>L'utilisateur clique sur un bouton dans la page.</li>
+          <li>L'utilisateur modifie le contenu d'un champ dans un formulaire.</li>
+          <li>L'utilisateur glisse un objet au dessus d'un élément.</li>
+          <li>etc.</li>
+        </ul>
+        <p>JavaScript permet d'<strong>écouter un évènement</strong> et d'y attacher, par conséquence, <strong>un
+            gestionnaire d'évènement</strong>. Par exemple, pour répondre au clic d'un bouton on peut écrire :</p>
+        <p><strong>Exemple 1</strong></p>
+        <p>Définir l'attribut <code>onclick</code> de la balise <code>&lt;button&gt;</code>. Le clic sur ce bouton
+          appelle la fonction <code>clic01()</code>.</p>
+        <pre class="html"><code>&lt;button type=&quot;button&quot; onclick=&quot;clic01()&quot;&gt;Cliquez-moi&lt;/button&gt;
+&lt;script&gt;
+  function clic01() {
+    alert(&quot;Good luck!&quot;);
+  }
+&lt;/script&gt;</code></pre>
+        <p><strong>Exemple 2</strong></p>
+        <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis attacher l'évènement
+          <code>onclick</code> dans JavaScript.
+        </p>
+        <pre class="html"><code>&lt;button id=&quot;bouton&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
+&lt;script&gt;
+  const bouton = document.getElementById(&quot;bouton&quot;);
+  bouton.onclick = () =&gt; {
+    alert(&quot;You are the best of the best!&quot;);
+  };
+&lt;/script&gt;</code></pre>
+        <p><strong>Exemple 3</strong></p>
+        <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis utiliser la méthode
+          <code>addEventListener</code> pour attacher une fonction à l'évènement <code>click</code>.</p>
+        <pre class="html"><code>&lt;button id=&quot;btn-2&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
+&lt;script&gt;
+  const btn2 = document.getElementById(&quot;btn-2&quot;);
+  btn2.addEventListener(&quot;click&quot;, () =&gt; {
+    alert(&quot;Wish you success and happiness!&quot;);
+  });
+&lt;/script&gt;</code></pre>
       </section>
     </article>
   </main>
