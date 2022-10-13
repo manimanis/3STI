@@ -1163,7 +1163,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
       </section>
 
       <section>
-        <h3>L'évènement click</h3>
+        <h3>&Eacute;vènement click</h3>
         <p>L'évènement click est déclenché lorsqu'on clique sur un élément du DOM.</p>
         <p><strong>Forme générale</strong></p>
         <p><code>elem</code> est une référence à un élément du DOM.</p>
@@ -1172,7 +1172,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
   /* Traitement */
 
   /* Arrêter la propagation de l'évènement */
-  e.preventDefault();
+  // e.preventDefault();
 });</code></pre>
         <p><strong>Exemple</strong></p>
         <pre class="html"><code>&lt;p&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;defi&quot; id=&quot;defi&quot;&gt; Cochez-moi si vous le pouvez &#x1F600;.&lt;/label&gt;&lt;/p&gt;
@@ -1189,6 +1189,51 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
           <li>Tester dans le navigateur.</li>
           <li>Modifier le code pour qu'il retrouve son fonctionnement normal.</li>
           <li>Modifier le code pour que le bouton soit coché au troisième clic.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>&Eacute;vènement change</h3>
+        <p>L'évènement <strong>change</strong> est déclenché lorsque la valeur d'un champ dans un formulaire a changé.
+        </p>
+        <p><strong>Forme générale</strong></p>
+        <p><code>elem</code> est une référence à un élément du DOM.</p>
+        <pre class="javascript"><code>elem.addEventListener("change", () => { 
+  /* Traitements */
+});</code></pre>
+        <p><strong>Exemple</strong></p>
+        <p>L'exemple suivant demande à un utilisateur d'entrer son nom dans un champ de texte <code>nom</code>, puis il
+          affiche tous les changements effectués dans le div <code>#message</code>.</p>
+        <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;nom&quot; id=&quot;nom&quot; placeholder=&quot;Votre nom&quot;&gt;&lt;/p&gt;
+&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  const nom = document.getElementById(&quot;nom&quot;);
+  const msg = document.getElementById(&quot;message&quot;);
+  let nom_actuel = nom.value;
+  nom.addEventListener(&quot;change&quot;, () =&gt; {
+    const nouv_nom = nom.value;
+    msg.innerHTML += &quot;Le nom est chang&eacute; de &apos;&quot; + nom_actuel + &quot;&apos; &agrave; &apos;&quot; + nouv_nom + &quot;&apos;&lt;br&gt;&quot;;
+    nom_actuel = nouv_nom;
+  });
+&lt;/script&gt;</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/on-change-01.png" alt="Exemple d'exploitation de l'évènement change">
+          <figcaption>Exemple d'exploitation de l'évènement change</figcaption>
+        </figure>
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Copier le code précédent dans un fichier HTML nommé <strong>javascript18.html</strong></li>
+          <li>Tester dans le navigateur.</li>
+          <li>Créer un formulaire qui affiche la valeur maximale, la valeur minimale et la moyenne de deux nombres dès
+            que l'utilisateur finit de les taper.</li>
+          <figure>
+            <img src="assets/miniprojet09/images/on-change-05.png" alt="Formulaire vide">
+            <img src="assets/miniprojet09/images/on-change-04.png" alt="Formulaire un seul champ rempli">
+            <img src="assets/miniprojet09/images/on-change-03.png" alt="Formulaire un seul champ rempli">
+            <img src="assets/miniprojet09/images/on-change-02.png" alt="Formulaire les deux champs remplis">
+            <figcaption>Résultats attendus</figcaption>
+          </figure>
         </ol>
       </section>
     </article>
