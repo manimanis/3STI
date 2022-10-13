@@ -1117,8 +1117,19 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
           <li>etc.</li>
         </ul>
         <p>JavaScript permet d'<strong>écouter un évènement</strong> et d'y attacher, par conséquence, <strong>un
-            gestionnaire d'évènement</strong>. Par exemple, pour répondre au clic d'un bouton on peut écrire :</p>
+            gestionnaire d'évènement</strong>.</p>
+      </section>
+
+      <section>
+        <h3>Réponse à un évènement</h3>
+        <p>Il est possible de répondre aux évènements de plusieurs manières. Par exemple, pour répondre au clic d'un
+          bouton on peut écrire :</p>
         <p><strong>Exemple 1</strong></p>
+        <p>Définir l'attribut <code>onclick</code> de la balise <code>&lt;button&gt;</code>. Le clic sur ce bouton
+          exécute le code JavaScript.</p>
+        <pre
+          class="html"><code>&lt;button type=&quot;button&quot; onclick=&quot;alert(&apos;You\&apos;re welcome!&apos;)&quot;&gt;Cliquez-moi&lt;/button&gt;</code></pre>
+        <p><strong>Exemple 2</strong></p>
         <p>Définir l'attribut <code>onclick</code> de la balise <code>&lt;button&gt;</code>. Le clic sur ce bouton
           appelle la fonction <code>clic01()</code>.</p>
         <pre class="html"><code>&lt;button type=&quot;button&quot; onclick=&quot;clic01()&quot;&gt;Cliquez-moi&lt;/button&gt;
@@ -1127,7 +1138,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
     alert(&quot;Good luck!&quot;);
   }
 &lt;/script&gt;</code></pre>
-        <p><strong>Exemple 2</strong></p>
+        <p><strong>Exemple 3</strong></p>
         <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis attacher l'évènement
           <code>onclick</code> dans JavaScript.
         </p>
@@ -1138,9 +1149,10 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
     alert(&quot;You are the best of the best!&quot;);
   };
 &lt;/script&gt;</code></pre>
-        <p><strong>Exemple 3</strong></p>
+        <p><strong>Exemple 4</strong></p>
         <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis utiliser la méthode
-          <code>addEventListener</code> pour attacher une fonction à l'évènement <code>click</code>.</p>
+          <code>addEventListener</code> pour attacher une fonction à l'évènement <code>click</code>.
+        </p>
         <pre class="html"><code>&lt;button id=&quot;btn-2&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
 &lt;script&gt;
   const btn2 = document.getElementById(&quot;btn-2&quot;);
@@ -1148,6 +1160,36 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
     alert(&quot;Wish you success and happiness!&quot;);
   });
 &lt;/script&gt;</code></pre>
+      </section>
+
+      <section>
+        <h3>L'évènement click</h3>
+        <p>L'évènement click est déclenché lorsqu'on clique sur un élément du DOM.</p>
+        <p><strong>Forme générale</strong></p>
+        <p><code>elem</code> est une référence à un élément du DOM.</p>
+        <p><code>e.preventDefault()</code> permet d'annuler l'effet de l'évènement et d'arrêter sa propagation.</p>
+        <pre class="javascript"><code>elem.addEventListener("click", (e) => {
+  /* Traitement */
+
+  /* Arrêter la propagation de l'évènement */
+  e.preventDefault();
+});</code></pre>
+        <p><strong>Exemple</strong></p>
+        <pre class="html"><code>&lt;p&gt;&lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;defi&quot; id=&quot;defi&quot;&gt; Cochez-moi si vous le pouvez &#x1F600;.&lt;/label&gt;&lt;/p&gt;
+&lt;script&gt;
+  const defi = document.getElementById(&quot;defi&quot;);
+  defi.addEventListener(&quot;click&quot;, (e) =&gt; {
+    alert(&quot;D&eacute;sol&eacute;! Essayez encore une fois!&quot;);
+    e.preventDefault();
+  });
+&lt;/script&gt;</code></pre>
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Copier le code précédent dans un fichier HTML nommé : <strong>javascript17.html</strong></li>
+          <li>Tester dans le navigateur.</li>
+          <li>Modifier le code pour qu'il retrouve son fonctionnement normal.</li>
+          <li>Modifier le code pour que le bouton soit coché au troisième clic.</li>
+        </ol>
       </section>
     </article>
   </main>
