@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>input</title>
+</head>
+
+<body>
+  <p><input type="range" name="volume" id="volume" min="0" max="100" value="50" step="5"> Volume <span id="msg"></span></p>
+  <p><input type="range" name="volume2" id="volume2" min="0" max="100" value="50" step="5"> Volume <span id="msg2"></span></p>
+  <script>
+    const volume = document.getElementById("volume");
+    const volume2 = document.getElementById("volume2");
+    const msg = document.getElementById("msg");
+    const msg2 = document.getElementById("msg2");
+
+    function showVolume() {
+      msg.textContent = volume.value;
+    }
+
+    function setVolume() {
+      volume2.value = volume.value;
+      msg2.textContent = volume.value;
+    }
+
+    volume.addEventListener("input", showVolume);
+    volume.addEventListener("change", setVolume);
+    showVolume();
+    setVolume();
+  </script>
+</body>
+
+</html>

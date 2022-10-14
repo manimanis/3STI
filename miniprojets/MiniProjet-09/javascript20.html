@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeyUp / KeyDown / KeyPress</title>
+</head>
+
+<body>
+  <p><input type="text" name="name" id="name" placeholder="Your name"></p>
+  <p id="msg"></p>
+  <script>
+    const name = document.getElementById("name");
+    const msg = document.getElementById("msg");
+    name.addEventListener("keydown", (e) => {
+      msg.innerHTML += "Keydown '" + e.key + "'<br>";
+    });
+    name.addEventListener("keyup", (e) => {
+      msg.innerHTML += "Keyup '" + e.key + "'<br>";
+    });
+    name.addEventListener("keypress", (e) => {
+      msg.innerHTML += "Keypress '" + e.key + "'<br>";
+    });
+  </script>
+</body>
+
+</html>

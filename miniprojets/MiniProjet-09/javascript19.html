@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>focus/blur</title>
+</head>
+
+<body>
+  <p><input type="number" name="guess" id="guess" min="1" max="99"></p>
+  <p id="msg"></p>
+  <script>
+    const guess = document.getElementById("guess");
+    const msg = document.getElementById("msg");
+    const secret = Math.floor(Math.random() * 99) + 1;
+    guess.addEventListener("focus", () => {
+      msg.textContent = "Guess my number between 1 - 99";
+    });
+    guess.addEventListener("blur", () => {
+      const num = parseInt(guess.value);
+      if (num > secret) {
+        msg.textContent = "Lesser then " + num;
+      } else if (num < secret) {
+        msg.textContent = "Greater than " + num;
+      } else {
+        msg.textContent = "Great! You guessed. It's " + num +"!";
+      }
+    });
+  </script>
+</body>
+
+</html>

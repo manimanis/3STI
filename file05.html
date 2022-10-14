@@ -1236,6 +1236,150 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
           </figure>
         </ol>
       </section>
+
+      <section>
+        <h3>&Eacute;vènements focus/blur</h3>
+        <p>L'évènement <strong>focus</strong> est déclenché par un champ d'un formulaire lorsque celui-ci devient
+          l'élément actif.</p>
+        <p>L'évènement <strong>blur</strong> est déclenché par un champ d'un formulaire perd le focus et n'est plus
+          l'élément actif.</p>
+        <p><strong>Exemple</strong></p>
+        <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;number&quot; name=&quot;guess&quot; id=&quot;guess&quot; min=&quot;1&quot; max=&quot;99&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;msg&quot;&gt;&lt;/p&gt;
+&lt;script&gt;
+  const guess = document.getElementById(&quot;guess&quot;);
+  const msg = document.getElementById(&quot;msg&quot;);
+  const secret = Math.floor(Math.random() * 99) + 1;
+  guess.addEventListener(&quot;focus&quot;, () =&gt; {
+    msg.textContent = &quot;Guess my number between 1 - 99&quot;;
+  });
+  guess.addEventListener(&quot;blur&quot;, () =&gt; {
+    msg.textContent = &quot;Great! You guessed.!&quot;;
+  });
+&lt;/script&gt;</code></pre>
+        <p><strong>Résultat</strong></p>
+        <div class="row">
+          <div class="col-6">
+            <figure>
+              <img src="assets/miniprojet09/images/on-focus-01.png" alt="Le champ reçoit le focus">
+              <figcaption>Le champ reçoit le focus</figcaption>
+            </figure>
+          </div>
+          <div class="col-6">
+            <figure>
+              <img src="assets/miniprojet09/images/on-blur-03.png" alt="Le champ perd le focus">
+              <figcaption>Le champ perd le focus</figcaption>
+            </figure>
+          </div>
+        </div>
+        <p><strong>Travail demandé</strong></p>
+        <ul>
+          <li>Copier le code précédent dans un fichier HTML nommé <strong>javascript19.html</strong>.</li>
+          <li>Tester dans le navigateur.</li>
+          <li>La constante <code>secret</code> contient un nombre aléatoire de 1 à 99. Modifier le code précédent pour
+            qu'il affiche :
+            <ul>
+              <li><code>Lesser than xx</code> si le nombre <code>secret &lt; xx</code></li>
+              <li><code>Greater than xx</code> si le nombre <code>secret &gt; xx</code></li>
+              <li><code>Great! You guessed. It's xx!</code></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>&Eacute;vènements keyup / keydown / keypress</h3>
+        <p>Lorsque l'utilisateur appuie sur une touche du clavier le navigateur déclenche l'évènement
+          <strong>keydown</strong> suivi de l'évènement <strong>keypress</strong>. Ces deux évènement sont redéclenchés
+          périodiquement si l'utilisateur maintien la touche appuyée.
+        </p>
+        <p>Une fois que l'utilisateur décide de relacher cette touche le navigateur déclenche l'évènement
+          <strong>keyup</strong>.
+        </p>
+        <p>Ces évènements passent au gestionnaire d'évènement, un objet nommé par exemple <code>ev</code>, qui définit
+          les propriétés suivantes :</p>
+        <ul>
+          <li><code>ev.altKey</code> indique la touche <kbd>Alt</kbd> est appuyée.</li>
+          <li><code>ev.ctrlKey</code> indique la touche <kbd>Ctrl</kbd> est appuyée.</li>
+          <li><code>ev.metaKey</code> indique la touche <kbd>Windows</kbd> est appuyée.</li>
+          <li><code>ev.shiftKey</code> indique la touche <kbd>Shift</kbd> est appuyée.</li>
+          <li><code>ev.key</code> indique la touche du clavier appuyée.</li>
+          <li><code>ev.code</code> indique le code de la touche appuyée.</li>
+          <li><code>ev.keyCode</code> indique le code numérique de la touche appuyée.</li>
+        </ul>
+        <p><strong>Exemple</strong></p>
+        <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; placeholder=&quot;Your name&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;msg&quot;&gt;&lt;/p&gt;
+&lt;script&gt;
+  const name = document.getElementById(&quot;name&quot;);
+  const msg = document.getElementById(&quot;msg&quot;);
+  name.addEventListener(&quot;keydown&quot;, (e) =&gt; {
+    msg.innerHTML += &quot;Keydown &apos;&quot; + e.key + &quot;&apos;&lt;br&gt;&quot;;
+  });
+  name.addEventListener(&quot;keyup&quot;, (e) =&gt; {
+    msg.innerHTML += &quot;Keyup &apos;&quot; + e.key + &quot;&apos;&lt;br&gt;&quot;;
+  });
+  name.addEventListener(&quot;keypress&quot;, (e) =&gt; {
+    msg.innerHTML += &quot;Keypress &apos;&quot; + e.key + &quot;&apos;&lt;br&gt;&quot;;
+  });
+&lt;/script&gt;</code></pre>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/on-keypress.png" alt="Test des évènements keyup / keydown / keypress">
+          <figcaption>Test des évènements keyup / keydown / keypress</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>&Eacute;vènement input</h3>
+        <p>Le changement de la valeur d'un champ d'un formulaire déclenche l'évènement <strong>input</strong>. Cet
+          évènement est déclenché à chaque fois que la valeur du champ change et ce à l'inverse de l'évènement
+          <strong>change</strong> qui est déclenché une seule fois lorsque l'utilisateur a fini de changer la valeur
+          d'un champ.
+        </p>
+        <p><strong>Exemple</strong></p>
+        <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;range&quot; name=&quot;volume&quot; id=&quot;volume&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;50&quot; step=&quot;5&quot;&gt; Volume &lt;span id=&quot;msg&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type=&quot;range&quot; name=&quot;volume2&quot; id=&quot;volume2&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;50&quot; step=&quot;5&quot;&gt; Volume &lt;span id=&quot;msg2&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;script&gt;
+  const volume = document.getElementById(&quot;volume&quot;);
+  const volume2 = document.getElementById(&quot;volume2&quot;);
+  const msg = document.getElementById(&quot;msg&quot;);
+  const msg2 = document.getElementById(&quot;msg2&quot;);
+
+  function showVolume() {
+    msg.textContent = volume.value;
+  }
+
+  function setVolume() {
+    volume2.value = volume.value;
+    msg2.textContent = volume.value;
+  }
+
+  volume.addEventListener(&quot;input&quot;, showVolume);
+  volume.addEventListener(&quot;change&quot;, setVolume);
+  showVolume();
+  setVolume();
+&lt;/script&gt;</code></pre>
+        <p><strong>Résultat</strong></p>
+        <div class="row">
+          <div class="col-6">
+            <figure>
+              <img src="assets/miniprojet09/images/on-input-01.png"
+                alt="Déclenchement de l'évènement input à chaque fois que l'utilisateur change la valeur du champ">
+              <figcaption>Déclenchement de l'évènement input à chaque fois que l'utilisateur change la valeur du champ
+              </figcaption>
+            </figure>
+          </div>
+          <div class="col-6">
+            <figure>
+              <img src="assets/miniprojet09/images/on-input-02.png"
+                alt="Déclenchement de l'évènement change lorsque l'utilisateur a fini de changer la valeur du champ">
+              <figcaption>Déclenchement de l'évènement change lorsque l'utilisateur a fini de changer la valeur du champ
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
     </article>
   </main>
 
