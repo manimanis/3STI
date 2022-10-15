@@ -125,20 +125,26 @@ console.log(&quot;Hello JavaScript!&quot;);</code></pre>
       </section>
 
       <section>
-        <h3>Affichage : boîte d'alerte (alert)</h3>
+        <h3 class="p-break">Affichage : boîte d'alerte (alert)</h3>
         <p>La boîte d'alerte <strong>alert</strong> surgit afin d'attirer l'attention de l'utilisateur et de l'alerter
           sur une exception dans le script.</p>
         <p><strong>Exemple</strong></p>
-        <p>On suppose qu'un utilisateur a tapé deux mots de passes différents dans les champs suivants :</p>
-        <figure>
-          <img src="assets/miniprojet09/images/javascript-login-form.png" alt="Confirmation d'un mot de passe">
-          <figcaption>Confirmation d'un mot de passe</figcaption>
-        </figure>
-        <p>La page doit alerter l'utilisateur de l'erreur.</p>
-        <figure>
-          <img src="assets/miniprojet09/images/javascript-alert.png" alt="Message d'erreur">
-          <figcaption>Message d'erreur</figcaption>
-        </figure>
+        <p>On suppose qu'un utilisateur a tapé deux mots de passes différents dans les champs suivants. La page doit
+          l'alerter de son erreur.</p>
+        <div class="row">
+          <div class="col-6">
+            <figure>
+              <img src="assets/miniprojet09/images/javascript-login-form.png" alt="Confirmation d'un mot de passe">
+              <figcaption>Confirmation d'un mot de passe</figcaption>
+            </figure>
+          </div>
+          <div class="col-6">
+            <figure>
+              <img src="assets/miniprojet09/images/javascript-alert.png" alt="Message d'erreur">
+              <figcaption>Message d'erreur</figcaption>
+            </figure>
+          </div>
+        </div>
         <p>Le message précédent est obtenu en utilisant la fonction <code>alert("Message")</code>.</p>
         <pre class="javascript"><code>alert("Les mots de passes sont différents!");</code></pre>
         <p><strong>Travail demandé</strong></p>
@@ -174,7 +180,7 @@ console.log(&quot;Hello JavaScript!&quot;);</code></pre>
 p:nth-child(even) { color: blue; }</code></pre>
           </div>
         </div>
-        <p><strong>Résultat</strong></p>
+        <p class="p-break"><strong>Résultat</strong></p>
         <figure>
           <img src="assets/miniprojet09/images/document-writeln.png"
             alt="Utilisation de la fonction document.writeln()">
@@ -257,9 +263,9 @@ button {
 }</code></pre>
           </div>
         </div>
-        <p><strong>Résultat</strong></p>
+        <p class="p-break"><strong>Résultat</strong></p>
         <figure>
-          <img src="assets/miniprojet09/images/dom-01.png" alt="Manipulation du DOM">
+          <img src="assets/miniprojet09/images/dom-01.png" alt="Manipulation du DOM" class="im-h-8">
           <figcaption>Manipulation du DOM</figcaption>
         </figure>
 
@@ -272,7 +278,7 @@ button {
             nombre d'articles à acheter de 1 à 7. La valeur par défaut du champ est 3.</li>
           <li>Ajouter un code JavaScript qui affiche la valeur de ce dernier champ.
             <figure>
-              <img src="assets/miniprojet09/images/dom-02.png" alt="Résultat à obtenir">
+              <img src="assets/miniprojet09/images/dom-02.png" alt="Résultat à obtenir" class="im-h-9">
               <figcaption>Résultat à obtenir</figcaption>
             </figure>
           </li>
@@ -381,7 +387,7 @@ button {
 }</code></pre>
           </div>
         </div>
-        <p><strong>Résultat</strong></p>
+        <p class="p-break"><strong>Résultat</strong></p>
         <figure>
           <img src="assets/miniprojet09/images/forms-01.png" alt="Affichage dans le formulaire">
           <figcaption>Affichage dans le formulaire</figcaption>
@@ -402,7 +408,7 @@ button {
       </section>
 
       <section>
-        <h3>Variables / Constantes</h3>
+        <h3 class="p-break">Variables / Constantes</h3>
         <p>On peut déclarer des variables en JavaScript en utilisant les mots clés <code>var</code> et <code>let</code>.
           Les variables peuvent être initialisées lors de leurs déclaration. Une variable non initialisée contient la
           valeur : <code>undefined</code>.
@@ -429,7 +435,7 @@ console.log(nom, age);</code></pre>
           <img src="assets/miniprojet09/images/variables-01.png" alt="Déclaration des variables">
           <figcaption>Déclaration des variables</figcaption>
         </figure>
-        <p><strong>Exemple 2</strong> : Sensibilité à la casse</p>
+        <p class="p-break"><strong>Exemple 2</strong> : Sensibilité à la casse</p>
         <pre class="javascript"><code>let x = 6;
 console.log(X); // Affiche une erreur : X is not defined
 console.log(x);</code></pre>
@@ -450,7 +456,7 @@ y = y + 2;
 console.log(y);</code></pre>
         <p><strong>Résultat</strong></p>
         <figure>
-          <img src="assets/miniprojet09/images/variables-03.png" alt="Constante vs Variable">
+          <img src="assets/miniprojet09/images/variables-03.png" alt="Constante vs Variable" class="im-h-9">
           <figcaption>Constante vs Variable</figcaption>
         </figure>
         <p><strong>Travail demandé</strong></p>
@@ -469,8 +475,9 @@ console.log(y);</code></pre>
           <li><code>undefined</code> : Pour les variables déclarées sans initialisation.</li>
         </ul>
         <p>Le mot clé <code>typeof v</code> retourne le type de v. v est soit une constante ou une variable.</p>
-        <p><strong>Exemple</strong></p>
-        <pre class="javascript"><code>console.log(typeof 5.6); // 'number'
+        <div class="d-print-none">
+          <p><strong>Exemple</strong></p>
+          <pre class="javascript"><code>console.log(typeof 5.6); // 'number'
 console.log(typeof 17);
 console.log(typeof Number.NaN);
 
@@ -485,17 +492,47 @@ let x;
 console.log(typeof x); // 'undefined'
 
 console.log(typeof Math.abs); // 'function'</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/types-02.png" alt="Types prédéfinis">
-          <figcaption>Types prédéfinis</figcaption>
-        </figure>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/types-02.png" alt="Types prédéfinis">
+            <figcaption>Types prédéfinis</figcaption>
+          </figure>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple</strong></p>
+              <pre class="javascript"><code>console.log(typeof 5.6); // 'number'
+console.log(typeof 17);
+console.log(typeof Number.NaN);
+
+console.log(typeof "ayoub"); // 'string'
+
+console.log(typeof (5 > 6)); // 'boolean'
+
+console.log(typeof [1, 2, 3]); // 'object'
+console.log(typeof null);
+
+let x;
+console.log(typeof x); // 'undefined'
+
+console.log(typeof Math.abs); // 'function'</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Résultat</strong></p>
+              <figure>
+                <img src="assets/miniprojet09/images/types-02.png" alt="Types prédéfinis">
+                <figcaption>Types prédéfinis</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
         <p><strong>Travail demandé</strong></p>
         <p>Tester les commandes précédentes dans la console du navigateur.</p>
       </section>
 
       <section>
-        <h3>Les opérateurs</h3>
+        <h3 class="p-break">Les opérateurs</h3>
         <p>Les opérateurs sont classés en catégories :</p>
         <h4>Les opérateurs de calcul</h4>
         <table class="table table-sm table-bordered border-dark n5-col-eq">
@@ -684,22 +721,44 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
           <li>Depuis une <strong>boîte d'invite (prompt)</strong>.</li>
           <li>Depuis une <strong>boîte de confirmation</strong>.</li>
         </ul>
-
-        <p><strong>Exemple 1</strong> : récupérer une donnée depuis un champ d'un formulaire</p>
-        <pre class="html"><code>&lt;input type=&quot;text&quot; id=&quot;np&quot; name=&quot;np&quot; value=&quot;Salah&quot;&gt;
+        <div class="d-print-none">
+          <p><strong>Exemple 1</strong> : récupérer une donnée depuis un champ d'un formulaire</p>
+          <pre class="html"><code>&lt;input type=&quot;text&quot; id=&quot;np&quot; name=&quot;np&quot; value=&quot;Salah&quot;&gt;
 &lt;script&gt;
   const np = document.getElementById(&quot;np&quot;);
   document.writeln(&quot;Bonjour &quot;, np.value);
 &lt;/script&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/input-01.png"
-            alt="Récupération des données à partir d'un champ d'un formulaire">
-          <figcaption>Récupération des données à partir d'un champ d'un formulaire</figcaption>
-        </figure>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/input-01.png"
+              alt="Récupération des données à partir d'un champ d'un formulaire">
+            <figcaption>Récupération des données à partir d'un champ d'un formulaire</figcaption>
+          </figure>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple 1</strong> : récupérer une donnée depuis un champ d'un formulaire</p>
+              <pre class="html"><code>&lt;input type=&quot;text&quot; id=&quot;np&quot; name=&quot;np&quot; value=&quot;Salah&quot;&gt;
+&lt;script&gt;
+  const np = document.getElementById(&quot;np&quot;);
+  document.writeln(&quot;Bonjour &quot;, np.value);
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Résultat</strong></p>
+              <figure>
+                <img src="assets/miniprojet09/images/input-01.png"
+                  alt="Récupération des données à partir d'un champ d'un formulaire">
+                <figcaption>Récupération des données à partir d'un champ d'un formulaire</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
 
-        <p><strong>Exemple 2</strong> : récupérer une donnée à partir d'une boîte d'invite</p>
-        <pre class="html"><code>&lt;div id=&quot;operation&quot;&gt;&lt;/div&gt;
+        <div class="d-print-none">
+          <p><strong>Exemple 2</strong> : récupérer une donnée à partir d'une boîte d'invite</p>
+          <pre class="html"><code>&lt;div id=&quot;operation&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   const op = document.getElementById(&quot;operation&quot;);
 
@@ -708,21 +767,52 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
   let s = a + b;
   op.textContent = a + &quot; + &quot; + b + &quot; = &quot; + s;
 &lt;/script&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/input-02.png" alt="Boîte d'invite, demander la valeur de a"
-            class="im-h-4">
-          <img src="assets/miniprojet09/images/input-03.png" alt="Boîte d'invite, demander la valeur de b"
-            class="im-h-4">
-          <figcaption>Boîte d'invite, demander la valeur de a et b</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/miniprojet09/images/input-04.png" alt="Résultat du script">
-          <figcaption>Résultat du script</figcaption>
-        </figure>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/input-02.png" alt="Boîte d'invite, demander la valeur de a"
+              class="im-h-4">
+            <img src="assets/miniprojet09/images/input-03.png" alt="Boîte d'invite, demander la valeur de b"
+              class="im-h-4">
+            <figcaption>Boîte d'invite, demander la valeur de a et b</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/miniprojet09/images/input-04.png" alt="Résultat du script">
+            <figcaption>Résultat du script</figcaption>
+          </figure>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple 2</strong> : récupérer une donnée à partir d'une boîte d'invite</p>
+              <pre class="html"><code>&lt;div id=&quot;operation&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  const op = document.getElementById(&quot;operation&quot;);
 
-        <p><strong>Exemple 3</strong> : récupérer une confirmation</p>
-        <pre class="html"><code>&lt;script&gt;
+  let a = prompt(&quot;Donner a ?&quot;, &quot;5&quot;);
+  let b = prompt(&quot;Donner b ?&quot;, &quot;7&quot;);
+  let s = a + b;
+  op.textContent = a + &quot; + &quot; + b + &quot; = &quot; + s;
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Résultat</strong></p>
+              <figure>
+                <img src="assets/miniprojet09/images/input-02.png" alt="Boîte d'invite, demander la valeur de a"
+                  class="im-h-4">
+                <img src="assets/miniprojet09/images/input-03.png" alt="Boîte d'invite, demander la valeur de b"
+                  class="im-h-4">
+                <figcaption>Boîte d'invite, demander la valeur de a et b</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/miniprojet09/images/input-04.png" alt="Résultat du script">
+                <figcaption>Résultat du script</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="d-print-none">
+          <p><strong>Exemple 3</strong> : récupérer une confirmation</p>
+          <pre class="html"><code>&lt;script&gt;
   const reponse = confirm(&quot;Voulez-vous supprimer cet &eacute;l&eacute;ment ? &quot;);
   if (reponse) {
     alert(&quot;L&apos;&eacute;l&eacute;ment a &eacute;t&eacute; supprim&eacute; !&quot;);
@@ -730,15 +820,39 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
     alert(&quot;Vous avez annul&eacute; l&apos;op&eacute;ration !&quot;);
   }
 &lt;/script&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/input-05.PNG" alt="Exemple d'utilisation d'une boîte de confirmation">
-          <figcaption>Exemple d'utilisation d'une boîte de confirmation</figcaption>
-        </figure>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/input-05.PNG" alt="Exemple d'utilisation d'une boîte de confirmation">
+            <figcaption>Exemple d'utilisation d'une boîte de confirmation</figcaption>
+          </figure>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple 3</strong> : récupérer une confirmation</p>
+              <pre class="html"><code>&lt;script&gt;
+  const reponse = confirm(&quot;Supprimer cet &eacute;l&eacute;ment ? &quot;);
+  if (reponse) {
+    alert(&quot;L&apos;&eacute;l&eacute;ment a &eacute;t&eacute; supprim&eacute; !&quot;);
+  } else {
+    alert(&quot;Vous avez annul&eacute; l&apos;op&eacute;ration !&quot;);
+  }
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Résultat</strong></p>
+              <figure>
+                <img src="assets/miniprojet09/images/input-05.PNG"
+                  alt="Exemple d'utilisation d'une boîte de confirmation">
+                <figcaption>Exemple d'utilisation d'une boîte de confirmation</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section>
-        <h3>Structures conditionnelles</h3>
+        <h3 class="p-break">Structures conditionnelles</h3>
 
         <p>JavaScript offre une variété de structures conditionnelles :</p>
         <ul>
@@ -754,8 +868,9 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
 } else {
   // autre traitement
 }</code></pre>
-        <p><strong>Exemple</strong></p>
-        <pre class="html"><code>&lt;script&gt;
+        <div class="d-print-none">
+          <p><strong>Exemple</strong></p>
+          <pre class="html"><code>&lt;script&gt;
   let a = prompt(&quot;Donner a ? &quot;, &quot;0&quot;);
   let b = prompt(&quot;Donner b ? &quot;, &quot;0&quot;);
   let res = &quot;&quot;;
@@ -773,13 +888,48 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
 
   alert(res);
 &lt;/script&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/if-01.png" alt="Donner a ?">
-          <img src="assets/miniprojet09/images/if-02.png" alt="Donner b ?">
-          <img src="assets/miniprojet09/images/if-03.png" alt="Affichage du résultat">
-          <figcaption>Exemple d'exécution du script</figcaption>
-        </figure>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/if-01.png" alt="Donner a ?">
+            <img src="assets/miniprojet09/images/if-02.png" alt="Donner b ?">
+            <img src="assets/miniprojet09/images/if-03.png" alt="Affichage du résultat">
+            <figcaption>Exemple d'exécution du script</figcaption>
+          </figure>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple</strong></p>
+              <pre class="html"><code>&lt;script&gt;
+  let a = prompt(&quot;Donner a ? &quot;, &quot;0&quot;);
+  let b = prompt(&quot;Donner b ? &quot;, &quot;0&quot;);
+  let res = &quot;&quot;;
+
+  a = parseInt(a);
+  b = parseInt(b);
+
+  if (a &gt; b) {
+    res = a + &quot; &gt; &quot; + b;
+  } else if (a &lt; b) {
+    res = a + &quot; &lt; &quot; + b;
+  } else {
+    res = a + &quot; = &quot; + b;
+  }
+
+  alert(res);
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Résultat</strong></p>
+              <figure>
+                <img src="assets/miniprojet09/images/if-01.png" alt="Donner a ?">
+                <img src="assets/miniprojet09/images/if-02.png" alt="Donner b ?">
+                <img src="assets/miniprojet09/images/if-03.png" alt="Affichage du résultat">
+                <figcaption>Exemple d'exécution du script</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
         <p><strong>Travail demandé</strong></p>
         <ol>
           <li>Copier le script précédent dans un fichier HTML nommé <strong>javascript09.html</strong>.</li>
@@ -790,7 +940,7 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
             les données sont invalides.</li>
         </ol>
 
-        <h4>L'instruction switch</h4>
+        <h4 class="p-break">L'instruction switch</h4>
         <p><strong>Forme générale</strong></p>
         <pre class="javascript"><code>switch (variable) {
   case valeur1:
@@ -802,8 +952,9 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
   default:
     // traitement par défaut
 }</code></pre>
-        <p><strong>Exemple</strong></p>
-        <pre class="javascript"><code>let j2 = Math.floor(Math.random() * 3), cj2;
+        <div class="d-print-none">
+          <p><strong>Exemple</strong></p>
+          <pre class="javascript"><code>let j2 = Math.floor(Math.random() * 3), cj2;
 let j1, cj1;
 let g, res;
 
@@ -819,11 +970,41 @@ cj1 = cj2;
 res = &quot;Partie nulle&quot;;
 
 alert(cj1 + &quot; contre &quot; + cj2 + &quot; =&gt; &quot; + res);</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/switch-01.png" alt="Résultat du script">
-          <figcaption>Résultat du script</figcaption>
-        </figure>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/switch-01.png" alt="Résultat du script">
+            <figcaption>Résultat du script</figcaption>
+          </figure>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple</strong></p>
+              <pre class="javascript"><code>let j2 = Math.floor(Math.random() * 3), cj2;
+let j1, cj1;
+let g, res;
+
+switch (j2) {
+  case 0: cj2 = &quot;Pierre&quot;; break;
+  case 1: cj2 = &quot;Feuille&quot;; break;
+  case 2: cj2 = &quot;Ciseaux&quot;; break;
+  default: cj2 = &quot;Aucun&quot;;
+}
+
+j1 = j2
+cj1 = cj2;
+res = &quot;Partie nulle&quot;;
+
+alert(cj1 + &quot; contre &quot; + cj2 + &quot; =&gt; &quot; + res);</code></pre>
+            </div>
+            <div class="col-6">
+              <figure>
+                <img src="assets/miniprojet09/images/switch-01.png" alt="Résultat du script">
+                <figcaption>Résultat du script</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
         <p><strong>Travail demandé</strong></p>
         <ol>
           <li>Copier le code précédent dans un fichier HTML nommé <strong>javascript01.html</strong>.</li>
@@ -844,15 +1025,13 @@ alert(cj1 + &quot; contre &quot; + cj2 + &quot; =&gt; &quot; + res);</code></pre
         <pre class="javascript"><code>(condition) ? valeur1 : valeur2</code></pre>
         <p><strong>Exemple</strong></p>
         <pre class="javascript"><code>let v1 = Math.floor(Math.random() * 2);
-let v2 = Math.floor(Math.random() * 2);
-
+let v2 = Math.floor(Math.random() * 2);s
 let res = (v1 == v2) ? &quot;Egaux&quot; : &quot;Diff&eacute;rents&quot;;
-
 alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
         <p><strong>Résultats</strong></p>
         <figure>
-          <img src="assets/miniprojet09/images/ternaire-01.png" alt="Deux nombres différents">
-          <img src="assets/miniprojet09/images/ternaire-02.png" alt="Deux nombres égaux">
+          <img src="assets/miniprojet09/images/ternaire-01.png" alt="Deux nombres différents" class="im-h-3">
+          <img src="assets/miniprojet09/images/ternaire-02.png" alt="Deux nombres égaux" class="im-h-3">
           <figcaption>Résultat de la comparaison de deux nombres choisis au hasard</figcaption>
         </figure>
         <p><strong>Travail demandé</strong></p>
@@ -881,9 +1060,10 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
         <pre class="javascript"><code>for (initialisation; condition; increment) {
   // traitement
 }</code></pre>
-        <p><strong>Exemple</strong></p>
-        <p>Afficher les nombres pairs entre 0 et 15.</p>
-        <pre class="html"><code>&lt;p&gt;&lt;b&gt;Nombres pairs :&lt;/b&gt;
+        <div class="d-print-none">
+          <p><strong>Exemple</strong></p>
+          <p>Afficher les nombres pairs entre 0 et 15.</p>
+          <pre class="html"><code>&lt;p&gt;&lt;b&gt;Nombres pairs :&lt;/b&gt;
   &lt;script&gt;
     for (let i = 0; i &lt; 16; i++) {
       if (i % 2 == 0) {
@@ -892,11 +1072,37 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
     }
   &lt;/script&gt;
 &lt;/p&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/for-01.png" alt="Affichage des nombres pairs dans l'intervalle 0 à 15">
-          <figcaption>Affichage des nombres pairs dans l'intervalle 0 à 15</figcaption>
-        </figure>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/for-01.png" alt="Affichage des nombres pairs dans l'intervalle 0 à 15">
+            <figcaption>Affichage des nombres pairs dans l'intervalle 0 à 15</figcaption>
+          </figure>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple</strong></p>
+              <p>Afficher les nombres pairs entre 0 et 15.</p>
+              <pre class="html"><code>&lt;p&gt;&lt;b&gt;Nombres pairs :&lt;/b&gt;
+  &lt;script&gt;
+    for (let i = 0; i &lt; 16; i++) {
+      if (i % 2 == 0) {
+        document.writeln(i);
+      }
+    }
+  &lt;/script&gt;
+&lt;/p&gt;</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Résultat</strong></p>
+              <figure>
+                <img src="assets/miniprojet09/images/for-01.png"
+                  alt="Affichage des nombres pairs dans l'intervalle 0 à 15">
+                <figcaption>Affichage des nombres pairs dans l'intervalle 0 à 15</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
         <p><strong>Travail demandé</strong></p>
         <ol>
           <li>Copier le code précédent dans un fichier HTML nommé : <strong>javascript13.html</strong>.</li>
@@ -917,10 +1123,11 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
         <pre class="javascript"><code>while (condition) {
   // traitement
 }</code></pre>
-        <p><strong>Exemple</strong></p>
-        <p>Calculons le PGCD en utilisant la formule d'Euclide.</p>
-        <p>PGCD(a, b) = PGCD(b, a mod b); si b &ne; 0 <br> PGCD(a, b) = a; si b = 0</p>
-        <pre class="html"><code>&lt;p&gt;&lt;b&gt;Calcul du PGCD : &lt;/b&gt;
+        <div class="d-print-none">
+          <p><strong>Exemple</strong></p>
+          <p>Calculons le PGCD en utilisant la formule d'Euclide.</p>
+          <p>PGCD(a, b) = PGCD(b, a mod b); si b &ne; 0 <br> PGCD(a, b) = a; si b = 0</p>
+          <pre class="html"><code>&lt;p&gt;&lt;b&gt;Calcul du PGCD : &lt;/b&gt;
   &lt;script&gt;
     let a = parseInt(prompt(&quot;Donner a ? &quot;));
     let b = parseInt(prompt(&quot;Donner b ? &quot;));
@@ -936,41 +1143,104 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
     document.writeln(&quot;PGCD(&quot;, a, &quot;, &quot;, b, &quot;) = &quot;, a1);
   &lt;/script&gt;
 &lt;/p&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/while-01.png" alt="Résultat du calcul de PGCD pour a = 25 et b = 35">
-          <figcaption>Résultat du calcul de PGCD pour a = 25 et b = 35</figcaption>
-        </figure>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Copier le code précédent dans le fichier HTML nommé <strong>javascript13.html</strong>.</li>
-          <li>Tester dans le navigateur.</li>
-          <li>Ajouter le code qui permet de calculer le PPCM de a et b en utilisant la méthode des additions. Qui
-            consiste, comme le montre l'exemple dans le tableau suivant, à incrémenter la valeur de <code>a</code> de
-            <code>a</code> tant qu'elle n'est pas divisible par <code>b</code>.
-            <table class="w25 table-sm table-bordered border-dark n3-col-eq mx-auto">
-              <thead>
-                <tr>
-                  <th>a</th>
-                  <th>b</th>
-                  <th>a mod b &ne; 0</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="text-center">
-                  <td>35<br>70<br>105</td>
-                  <td>15<br>15<br>15</td>
-                  <td>true<br>true<br>false</td>
-                </tr>
-              </tbody>
-            </table>
-            <figure>
-              <img src="assets/miniprojet09/images/while-02.png" alt="Résultat du calcul du PPCM(35, 15)">
-              <figcaption>Résultat du calcul du PPCM(35, 15)</figcaption>
-            </figure>
-          </li>
-        </ol>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/while-01.png" alt="Résultat du calcul de PGCD pour a = 25 et b = 35">
+            <figcaption>Résultat du calcul de PGCD pour a = 25 et b = 35</figcaption>
+          </figure>
+          <p><strong>Travail demandé</strong></p>
+          <ol>
+            <li>Copier le code précédent dans le fichier HTML nommé <strong>javascript13.html</strong>.</li>
+            <li>Tester dans le navigateur.</li>
+            <li>Ajouter le code qui permet de calculer le PPCM de a et b en utilisant la méthode des additions. Qui
+              consiste, comme le montre l'exemple dans le tableau suivant, à incrémenter la valeur de <code>a</code> de
+              <code>a</code> tant qu'elle n'est pas divisible par <code>b</code>.
+              <table class="w25 table-sm table-bordered border-dark n3-col-eq mx-auto">
+                <thead>
+                  <tr>
+                    <th>a</th>
+                    <th>b</th>
+                    <th>a mod b &ne; 0</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center">
+                    <td>35<br>70<br>105</td>
+                    <td>15<br>15<br>15</td>
+                    <td>true<br>true<br>false</td>
+                  </tr>
+                </tbody>
+              </table>
+              <figure>
+                <img src="assets/miniprojet09/images/while-02.png" alt="Résultat du calcul du PPCM(35, 15)">
+                <figcaption>Résultat du calcul du PPCM(35, 15)</figcaption>
+              </figure>
+            </li>
+          </ol>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple</strong></p>
+              <p>Calculons le PGCD en utilisant la formule d'Euclide.</p>
+              <p>PGCD(a, b) = PGCD(b, a mod b); si b &ne; 0 <br> PGCD(a, b) = a; si b = 0</p>
+              <pre class="html"><code>&lt;p&gt;&lt;b&gt;Calcul du PGCD : &lt;/b&gt;
+  &lt;script&gt;
+    let a = parseInt(prompt(&quot;Donner a ? &quot;));
+    let b = parseInt(prompt(&quot;Donner b ? &quot;));
 
+    /* Calcul du PGCD : Algorithme d&apos;Euclide */
+    let a1 = a, b1 = b;
+    while (b1 != 0) {
+      let r = a1 % b1;
+      a1 = b1;
+      b1 = r;
+    }
+
+    document.writeln(&quot;PGCD(&quot;, a, &quot;, &quot;, b, &quot;) = &quot;, a1);
+  &lt;/script&gt;
+&lt;/p&gt;</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Résultat</strong></p>
+              <figure>
+                <img src="assets/miniprojet09/images/while-01.png"
+                  alt="Résultat du calcul de PGCD pour a = 25 et b = 35">
+                <figcaption>Résultat du calcul de PGCD pour a = 25 et b = 35</figcaption>
+              </figure>
+              <p><strong>Travail demandé</strong></p>
+              <ol>
+                <li>Copier le code précédent dans le fichier HTML nommé <strong>javascript13.html</strong>.</li>
+                <li>Tester dans le navigateur.</li>
+                <li>Ajouter le code qui permet de calculer le PPCM de a et b en utilisant la méthode des additions. Qui
+                  consiste, comme le montre l'exemple dans le tableau suivant, à incrémenter la valeur de <code>a</code>
+                  de
+                  <code>a</code> tant qu'elle n'est pas divisible par <code>b</code>.
+                  <table class="w25 table-sm table-bordered border-dark n3-col-eq mx-auto">
+                    <thead>
+                      <tr>
+                        <th>a</th>
+                        <th>b</th>
+                        <th>a mod b &ne; 0</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <td>35<br>70<br>105</td>
+                        <td>15<br>15<br>15</td>
+                        <td>true<br>true<br>false</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <figure>
+                    <img src="assets/miniprojet09/images/while-02.png" alt="Résultat du calcul du PPCM(35, 15)">
+                    <figcaption>Résultat du calcul du PPCM(35, 15)</figcaption>
+                  </figure>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
         <h4>Boucle do ... while</h4>
         <p>Cette boucle est semblable à sa s&oelig;ur ainée <code>while</code>. La seule diffférence est que le
           traitement est exécuté au moins une fois avant que la <code>condition</code> n'est évaluée.</p>
@@ -978,10 +1248,12 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
         <pre class="javascript"><code>do {
   // traitement
 } while (condition);</code></pre>
-        <p><strong>Exemple</strong></p>
-        <p>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre choisi.
-        </p>
-        <pre class="html"><code>&lt;script&gt;
+        <div class="d-print-none">
+          <p><strong>Exemple</strong></p>
+          <p>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre
+            choisi.
+          </p>
+          <pre class="html"><code>&lt;script&gt;
   let a = Math.floor(Math.random() * 10);
   let b, u;
 
@@ -998,13 +1270,51 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
     document.writeln(&quot;&lt;br&gt;&quot;);
   } while (u != a);
 &lt;/script&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/do-while-01.png"
-            alt="Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre choisi.">
-          <figcaption>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le
-            chiffre choisi.</figcaption>
-        </figure>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/do-while-01.png"
+              alt="Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre choisi.">
+            <figcaption>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le
+              chiffre choisi.</figcaption>
+          </figure>
+        </div>
+        <div class="d-none d-print-block p-break">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple</strong></p>
+              <p>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre
+                choisi.
+              </p>
+              <pre class="html"><code>&lt;script&gt;
+  let a = Math.floor(Math.random() * 10);
+  let b, u;
+
+  document.writeln(&quot;&lt;p&gt;Cherchons un nombre ayant un " +
+                   &quot;chiffre d&apos;unit&eacute;s = &quot;, a, &quot;&lt;/p&gt;&quot;)
+
+  do {
+    b = Math.floor(Math.random() * 90) + 10;
+    u = b % 10;
+    if (u == a) {
+      document.writeln(b, &quot; Accept&eacute;&quot;);
+    } else {
+      document.writeln(b, &quot; Rejet&eacute;&quot;);
+    }
+    document.writeln(&quot;&lt;br&gt;&quot;);
+  } while (u != a);
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Résultat</strong></p>
+              <figure>
+                <img src="assets/miniprojet09/images/do-while-01.png"
+                  alt="Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre choisi.">
+                <figcaption>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le
+                  chiffre choisi.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
         <p><strong>Travail demandé</strong></p>
         <ol>
           <li>Copier le code précédent dans un fichier HTML nommé : <strong>javascript14.html</strong>.</li>
@@ -1026,7 +1336,7 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
       </section>
 
       <section>
-        <h3>Fonctions</h3>
+        <h3 class="p-break">Fonctions</h3>
         <p>L'utilisation des fonctions permet de réduire la complexité d'un problème en le décomposant en des
           sous-problèmes moins compliqués.</p>
         <p>Les fonctions en JavaScript sont des citoyens de première classe. Elle peut être déclarée comme une variable
@@ -1065,20 +1375,23 @@ function somme(a, b) {
   return a + b;
 }
 document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;+&quot;, b, &quot;=&quot;, somme(a, b), &quot;&lt;/p&gt;&quot;);
+</code></pre>
 
-/* D&eacute;claration d&apos;une fonction : M&eacute;thode 2 */
+        <pre class="javascript"><code>/* D&eacute;claration d&apos;une fonction : M&eacute;thode 2 */
 const produit = function (a, b) {
   return a * b;
 }
 document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;*&quot;, b, &quot;=&quot;, produit(a, b), &quot;&lt;/p&gt;&quot;);
+</code></pre>
 
-/* D&eacute;claration d&apos;une fonction : M&eacute;thode 3 */
+        <pre class="javascript"><code>/* D&eacute;claration d&apos;une fonction : M&eacute;thode 3 */
 const alea = (a, b) =&gt; {
   return Math.floor(Math.random() * (b - a)) + a;
 }
 document.writeln(&quot;&lt;p&gt;alea(&quot;, a, &quot;, &quot;, b, &quot;) = &quot;, alea(a, b), &quot;&lt;/p&gt;&quot;);
+</code></pre>
 
-// Le premier paramètre de calc est une fonction
+        <pre class="javascript p-break"><code>// Le premier paramètre de calc est une fonction
 function calc(fn, a, b) {
   return fn(a, b);
 }
@@ -1103,7 +1416,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
     </article>
 
     <article>
-      <h2>&Eacute;vènements</h2>
+      <h2 class="p-break">&Eacute;vènements</h2>
 
       <section>
         <h3>Présentation</h3>
@@ -1138,32 +1451,67 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
     alert(&quot;Good luck!&quot;);
   }
 &lt;/script&gt;</code></pre>
-        <p><strong>Exemple 3</strong></p>
-        <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis attacher l'évènement
-          <code>onclick</code> dans JavaScript.
-        </p>
-        <pre class="html"><code>&lt;button id=&quot;bouton&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
+        <div class="d-print-none">
+          <p><strong>Exemple 3</strong></p>
+          <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis attacher
+            l'évènement
+            <code>onclick</code> dans JavaScript.
+          </p>
+          <pre class="html"><code>&lt;button id=&quot;bouton&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
 &lt;script&gt;
   const bouton = document.getElementById(&quot;bouton&quot;);
   bouton.onclick = () =&gt; {
     alert(&quot;You are the best of the best!&quot;);
   };
 &lt;/script&gt;</code></pre>
-        <p><strong>Exemple 4</strong></p>
-        <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis utiliser la méthode
-          <code>addEventListener</code> pour attacher une fonction à l'évènement <code>click</code>.
-        </p>
-        <pre class="html"><code>&lt;button id=&quot;btn-2&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
+          <p><strong>Exemple 4</strong></p>
+          <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis utiliser la méthode
+            <code>addEventListener</code> pour attacher une fonction à l'évènement <code>click</code>.
+          </p>
+          <pre class="html"><code>&lt;button id=&quot;btn-2&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
 &lt;script&gt;
   const btn2 = document.getElementById(&quot;btn-2&quot;);
   btn2.addEventListener(&quot;click&quot;, () =&gt; {
     alert(&quot;Wish you success and happiness!&quot;);
   });
 &lt;/script&gt;</code></pre>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple 3</strong></p>
+              <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis attacher
+                l'évènement
+                <code>onclick</code> dans JavaScript.
+              </p>
+              <pre class="html"><code>&lt;button id=&quot;bouton&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
+&lt;script&gt;
+  const bouton = document.getElementById(&quot;bouton&quot;);
+  bouton.onclick = () =&gt; {
+    alert(&quot;You are the best of the best!&quot;);
+  };
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Exemple 4</strong></p>
+              <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis utiliser la
+                méthode
+                <code>addEventListener</code> pour attacher une fonction à l'évènement <code>click</code>.
+              </p>
+              <pre class="html"><code>&lt;button id=&quot;btn-2&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
+&lt;script&gt;
+  const btn2 = document.getElementById(&quot;btn-2&quot;);
+  btn2.addEventListener(&quot;click&quot;, () =&gt; {
+    alert(&quot;Wish you success and happiness!&quot;);
+  });
+&lt;/script&gt;</code></pre>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section>
-        <h3>&Eacute;vènement click</h3>
+        <h3 class="p-break">&Eacute;vènement click</h3>
         <p>L'évènement click est déclenché lorsqu'on clique sur un élément du DOM.</p>
         <p><strong>Forme générale</strong></p>
         <p><code>elem</code> est une référence à un élément du DOM.</p>
@@ -1193,7 +1541,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
       </section>
 
       <section>
-        <h3>&Eacute;vènement change</h3>
+        <h3 class="p-break">&Eacute;vènement change</h3>
         <p>L'évènement <strong>change</strong> est déclenché lorsque la valeur d'un champ dans un formulaire a changé.
         </p>
         <p><strong>Forme générale</strong></p>
@@ -1201,10 +1549,11 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
         <pre class="javascript"><code>elem.addEventListener("change", () => { 
   /* Traitements */
 });</code></pre>
-        <p><strong>Exemple</strong></p>
-        <p>L'exemple suivant demande à un utilisateur d'entrer son nom dans un champ de texte <code>nom</code>, puis il
-          affiche tous les changements effectués dans le div <code>#message</code>.</p>
-        <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;nom&quot; id=&quot;nom&quot; placeholder=&quot;Votre nom&quot;&gt;&lt;/p&gt;
+        <div class="d-print-none">
+          <p><strong>Exemple</strong></p>
+          <p>L'exemple suivant demande à un utilisateur d'entrer son nom dans un champ de texte <code>nom</code>, puis
+            il affiche tous les changements effectués dans le div <code>#message</code>.</p>
+          <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;nom&quot; id=&quot;nom&quot; placeholder=&quot;Votre nom&quot;&gt;&lt;/p&gt;
 &lt;div id=&quot;message&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   const nom = document.getElementById(&quot;nom&quot;);
@@ -1216,11 +1565,45 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
     nom_actuel = nouv_nom;
   });
 &lt;/script&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/on-change-01.png" alt="Exemple d'exploitation de l'évènement change">
-          <figcaption>Exemple d'exploitation de l'évènement change</figcaption>
-        </figure>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/on-change-01.png" alt="Exemple d'exploitation de l'évènement change">
+            <figcaption>Exemple d'exploitation de l'évènement change</figcaption>
+          </figure>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple</strong></p>
+              <p>L'exemple suivant demande à un utilisateur d'entrer son nom dans un champ de texte <code>nom</code>,
+                puis
+                il affiche tous les changements effectués dans le div <code>#message</code>.</p>
+              <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;nom&quot; id=&quot;nom&quot; 
+          placeholder=&quot;Votre nom&quot;&gt;&lt;/p&gt;
+&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  const nom = document.getElementById(&quot;nom&quot;);
+  const msg = document.getElementById(&quot;message&quot;);
+  let nom_actuel = nom.value;
+  nom.addEventListener(&quot;change&quot;, () =&gt; {
+    const nouv_nom = nom.value;
+    msg.innerHTML += &quot;Le nom est chang&eacute; de &apos;&quot; + 
+                     nom_actuel + &quot;&apos; &agrave; &apos;&quot; + 
+                     nouv_nom + &quot;&apos;&lt;br&gt;&quot;;
+    nom_actuel = nouv_nom;
+  });
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Résultat</strong></p>
+              <figure>
+                <img src="assets/miniprojet09/images/on-change-01.png"
+                  alt="Exemple d'exploitation de l'évènement change">
+                <figcaption>Exemple d'exploitation de l'évènement change</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
         <p><strong>Travail demandé</strong></p>
         <ol>
           <li>Copier le code précédent dans un fichier HTML nommé <strong>javascript18.html</strong></li>
@@ -1238,13 +1621,14 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
       </section>
 
       <section>
-        <h3>&Eacute;vènements focus/blur</h3>
+        <h3 class="p-break">&Eacute;vènements focus/blur</h3>
         <p>L'évènement <strong>focus</strong> est déclenché par un champ d'un formulaire lorsque celui-ci devient
           l'élément actif.</p>
         <p>L'évènement <strong>blur</strong> est déclenché par un champ d'un formulaire perd le focus et n'est plus
           l'élément actif.</p>
-        <p><strong>Exemple</strong></p>
-        <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;number&quot; name=&quot;guess&quot; id=&quot;guess&quot; min=&quot;1&quot; max=&quot;99&quot;&gt;&lt;/p&gt;
+        <div class="d-print-none">
+          <p><strong>Exemple</strong></p>
+          <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;number&quot; name=&quot;guess&quot; id=&quot;guess&quot; min=&quot;1&quot; max=&quot;99&quot;&gt;&lt;/p&gt;
 &lt;p id=&quot;msg&quot;&gt;&lt;/p&gt;
 &lt;script&gt;
   const guess = document.getElementById(&quot;guess&quot;);
@@ -1257,19 +1641,58 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
     msg.textContent = &quot;Great! You guessed.!&quot;;
   });
 &lt;/script&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <div class="row">
-          <div class="col-6">
-            <figure>
-              <img src="assets/miniprojet09/images/on-focus-01.png" alt="Le champ reçoit le focus">
-              <figcaption>Le champ reçoit le focus</figcaption>
-            </figure>
+          <p><strong>Résultat</strong></p>
+          <div class="row">
+            <div class="col-6">
+              <figure>
+                <img src="assets/miniprojet09/images/on-focus-01.png" alt="Le champ reçoit le focus">
+                <figcaption>Le champ reçoit le focus</figcaption>
+              </figure>
+            </div>
+            <div class="col-6">
+              <figure>
+                <img src="assets/miniprojet09/images/on-blur-03.png" alt="Le champ perd le focus">
+                <figcaption>Le champ perd le focus</figcaption>
+              </figure>
+            </div>
           </div>
-          <div class="col-6">
-            <figure>
-              <img src="assets/miniprojet09/images/on-blur-03.png" alt="Le champ perd le focus">
-              <figcaption>Le champ perd le focus</figcaption>
-            </figure>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple</strong></p>
+              <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;number&quot; name=&quot;guess&quot; id=&quot;guess&quot; 
+          min=&quot;1&quot; max=&quot;99&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;msg&quot;&gt;&lt;/p&gt;
+&lt;script&gt;
+  const guess = document.getElementById(&quot;guess&quot;);
+  const msg = document.getElementById(&quot;msg&quot;);
+  const secret = Math.floor(Math.random() * 99) + 1;
+  guess.addEventListener(&quot;focus&quot;, () =&gt; {
+    msg.textContent = &quot;Guess my number between 1 - 99&quot;;
+  });
+  guess.addEventListener(&quot;blur&quot;, () =&gt; {
+    msg.textContent = &quot;Great! You guessed.!&quot;;
+  });
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Résultat</strong></p>
+              <div class="row">
+                <div class="col-12">
+                  <figure>
+                    <img src="assets/miniprojet09/images/on-focus-01.png" alt="Le champ reçoit le focus">
+                    <figcaption>Le champ reçoit le focus</figcaption>
+                  </figure>
+                </div>
+                <div class="col-12">
+                  <figure>
+                    <img src="assets/miniprojet09/images/on-blur-03.png" alt="Le champ perd le focus">
+                    <figcaption>Le champ perd le focus</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <p><strong>Travail demandé</strong></p>
@@ -1307,8 +1730,9 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
           <li><code>ev.code</code> indique le code de la touche appuyée.</li>
           <li><code>ev.keyCode</code> indique le code numérique de la touche appuyée.</li>
         </ul>
-        <p><strong>Exemple</strong></p>
-        <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; placeholder=&quot;Your name&quot;&gt;&lt;/p&gt;
+        <div class="d-print-none">
+          <p><strong>Exemple</strong></p>
+          <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; placeholder=&quot;Your name&quot;&gt;&lt;/p&gt;
 &lt;p id=&quot;msg&quot;&gt;&lt;/p&gt;
 &lt;script&gt;
   const name = document.getElementById(&quot;name&quot;);
@@ -1323,11 +1747,43 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
     msg.innerHTML += &quot;Keypress &apos;&quot; + e.key + &quot;&apos;&lt;br&gt;&quot;;
   });
 &lt;/script&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/on-keypress.png" alt="Test des évènements keyup / keydown / keypress">
-          <figcaption>Test des évènements keyup / keydown / keypress</figcaption>
-        </figure>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/on-keypress.png" alt="Test des évènements keyup / keydown / keypress">
+            <figcaption>Test des évènements keyup / keydown / keypress</figcaption>
+          </figure>
+        </div>
+        <div class="d-none d-print-block p-break">
+          <div class="row">
+            <div class="col-6">
+              <p><strong>Exemple</strong></p>
+              <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; 
+          placeholder=&quot;Your name&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;msg&quot;&gt;&lt;/p&gt;
+&lt;script&gt;
+  const name = document.getElementById(&quot;name&quot;);
+  const msg = document.getElementById(&quot;msg&quot;);
+  name.addEventListener(&quot;keydown&quot;, (e) =&gt; {
+    msg.innerHTML += &quot;Keydown &apos;&quot; + e.key + &quot;&apos;&lt;br&gt;&quot;;
+  });
+  name.addEventListener(&quot;keyup&quot;, (e) =&gt; {
+    msg.innerHTML += &quot;Keyup &apos;&quot; + e.key + &quot;&apos;&lt;br&gt;&quot;;
+  });
+  name.addEventListener(&quot;keypress&quot;, (e) =&gt; {
+    msg.innerHTML += &quot;Keypress &apos;&quot; + e.key + &quot;&apos;&lt;br&gt;&quot;;
+  });
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="col-6">
+              <p><strong>Résultat</strong></p>
+              <figure>
+                <img src="assets/miniprojet09/images/on-keypress.png"
+                  alt="Test des évènements keyup / keydown / keypress">
+                <figcaption>Test des évènements keyup / keydown / keypress</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section>
@@ -1337,9 +1793,14 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
           <strong>change</strong> qui est déclenché une seule fois lorsque l'utilisateur a fini de changer la valeur
           d'un champ.
         </p>
-        <p><strong>Exemple</strong></p>
-        <pre class="html"><code>&lt;p&gt;&lt;input type=&quot;range&quot; name=&quot;volume&quot; id=&quot;volume&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;50&quot; step=&quot;5&quot;&gt; Volume &lt;span id=&quot;msg&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;input type=&quot;range&quot; name=&quot;volume2&quot; id=&quot;volume2&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;50&quot; step=&quot;5&quot;&gt; Volume &lt;span id=&quot;msg2&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+        <div class="d-print-none">
+          <p><strong>Exemple</strong></p>
+          <pre class="html"><code>&lt;p&gt;
+  &lt;input type=&quot;range&quot; name=&quot;volume&quot; id=&quot;volume&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;50&quot; step=&quot;5&quot;&gt; 
+  Volume &lt;span id=&quot;msg&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;input type=&quot;range&quot; name=&quot;volume2&quot; id=&quot;volume2&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;50&quot; step=&quot;5&quot;&gt; 
+  Volume &lt;span id=&quot;msg2&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;script&gt;
   const volume = document.getElementById(&quot;volume&quot;);
   const volume2 = document.getElementById(&quot;volume2&quot;);
@@ -1360,25 +1821,186 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
   showVolume();
   setVolume();
 &lt;/script&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <div class="row">
-          <div class="col-6">
-            <figure>
-              <img src="assets/miniprojet09/images/on-input-01.png"
-                alt="Déclenchement de l'évènement input à chaque fois que l'utilisateur change la valeur du champ">
-              <figcaption>Déclenchement de l'évènement input à chaque fois que l'utilisateur change la valeur du champ
-              </figcaption>
-            </figure>
-          </div>
-          <div class="col-6">
-            <figure>
-              <img src="assets/miniprojet09/images/on-input-02.png"
-                alt="Déclenchement de l'évènement change lorsque l'utilisateur a fini de changer la valeur du champ">
-              <figcaption>Déclenchement de l'évènement change lorsque l'utilisateur a fini de changer la valeur du champ
-              </figcaption>
-            </figure>
+          <p><strong>Résultat</strong></p>
+          <div class="row">
+            <div class="col-6">
+              <figure>
+                <img src="assets/miniprojet09/images/on-input-01.png"
+                  alt="Déclenchement de l'évènement input à chaque fois que l'utilisateur change la valeur du champ">
+                <figcaption>Déclenchement de l'évènement input à chaque fois que l'utilisateur change la valeur du champ
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-6">
+              <figure>
+                <img src="assets/miniprojet09/images/on-input-02.png"
+                  alt="Déclenchement de l'évènement change lorsque l'utilisateur a fini de changer la valeur du champ">
+                <figcaption>Déclenchement de l'évènement change lorsque l'utilisateur a fini de changer la valeur du
+                  champ
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-7">
+              <p><strong>Exemple</strong></p>
+              <pre class="html"><code>&lt;p&gt;
+  &lt;input type=&quot;range&quot; name=&quot;volume&quot; id=&quot;volume&quot; 
+         min=&quot;0&quot; max=&quot;100&quot; value=&quot;50&quot; step=&quot;5&quot;&gt; 
+  Volume &lt;span id=&quot;msg&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;input type=&quot;range&quot; name=&quot;volume2&quot; id=&quot;volume2&quot; 
+         min=&quot;0&quot; max=&quot;100&quot; value=&quot;50&quot; step=&quot;5&quot;&gt; 
+  Volume &lt;span id=&quot;msg2&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;script&gt;
+  const volume = document.getElementById(&quot;volume&quot;);
+  const volume2 = document.getElementById(&quot;volume2&quot;);
+  const msg = document.getElementById(&quot;msg&quot;);
+  const msg2 = document.getElementById(&quot;msg2&quot;);
+
+  function showVolume() {
+    msg.textContent = volume.value;
+  }
+
+  function setVolume() {
+    volume2.value = volume.value;
+    msg2.textContent = volume.value;
+  }
+
+  volume.addEventListener(&quot;input&quot;, showVolume);
+  volume.addEventListener(&quot;change&quot;, setVolume);
+  showVolume();
+  setVolume();
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="col-5">
+              <p><strong>Résultat</strong></p>
+              <div class="row">
+                <div class="col-12">
+                  <figure>
+                    <img src="assets/miniprojet09/images/on-input-01.png"
+                      alt="Déclenchement de l'évènement input à chaque fois que l'utilisateur change la valeur du champ">
+                    <figcaption>Déclenchement de l'évènement input à chaque fois que l'utilisateur change la valeur du
+                      champ
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="col-12">
+                  <figure>
+                    <img src="assets/miniprojet09/images/on-input-02.png"
+                      alt="Déclenchement de l'évènement change lorsque l'utilisateur a fini de changer la valeur du champ">
+                    <figcaption>Déclenchement de l'évènement change lorsque l'utilisateur a fini de changer la valeur du
+                      champ
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="p-break">&Eacute;vènement submit / reset</h3>
+        <p>L'évènement <strong>submit</strong> est déclenché lorsque l'utilisateur désire soumettre les données d'un
+          formulaire.</p>
+        <p>L'évènement <strong>reset</strong> est déclenché lorsque l'utilisateur souhaite réinitialiser le contenu d'un
+          formulaire.</p>
+        <div class="d-print-none">
+          <p><strong>Exemple</strong></p>
+          <pre class="html"><code>&lt;form id=&quot;student&quot; action=&quot;#&quot; method=&quot;post&quot;&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;np&quot;&gt;Nom &amp; Pr&eacute;nom&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;np&quot; name=&quot;np&quot; placeholder=&quot;Ex : Salah Korbaa&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;cl&quot;&gt;Classe&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;cl&quot; name=&quot;cl&quot; placeholder=&quot;Ex : 4T1&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button type=&quot;submit&quot;&gt;Envoyer&lt;/button&gt;
+    &lt;button type=&quot;reset&quot;&gt;R&eacute;initialiser&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+&lt;script&gt;
+  const form = document.getElementById(&quot;student&quot;);
+  const np = document.getElementById(&quot;np&quot;);
+  const cl = document.getElementById(&quot;cl&quot;);
+
+  form.addEventListener(&quot;submit&quot;, (e) =&gt; {
+    alert(&quot;You cannot send any data till now !&quot;);
+    e.preventDefault();
+  });
+
+  form.addEventListener(&quot;reset&quot;, (e) =&gt; {
+    if (np.value == &quot;&quot; || cl.value == &quot;&quot;) {
+      alert(&quot;You have to type something before resetting this form!&quot;);
+      e.preventDefault();
+    }
+  });
+&lt;/script&gt;</code></pre>
+          <p><strong>Résultat</strong></p>
+          <figure>
+            <img src="assets/miniprojet09/images/submit-reset-01.png" alt="Formulaire élève">
+            <figcaption>Formulaire élève</figcaption>
+          </figure>
+        </div>
+        <div class="d-none d-print-block">
+          <div class="row">
+            <div class="col-7">
+              <p><strong>Exemple</strong></p>
+              <pre class="html"><code>&lt;form id=&quot;student&quot; action=&quot;#&quot; method=&quot;post&quot;&gt;
+&lt;div&gt;
+  &lt;label for=&quot;np&quot;&gt;Nom &amp; Pr&eacute;nom&lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;np&quot; name=&quot;np&quot; 
+         placeholder=&quot;Ex : Salah Korbaa&quot;&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;label for=&quot;cl&quot;&gt;Classe&lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;cl&quot; name=&quot;cl&quot; placeholder=&quot;Ex : 4T1&quot;&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;button type=&quot;submit&quot;&gt;Envoyer&lt;/button&gt;
+  &lt;button type=&quot;reset&quot;&gt;R&eacute;initialiser&lt;/button&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+&lt;script&gt;
+  const form = document.getElementById(&quot;student&quot;);
+  const np = document.getElementById(&quot;np&quot;);
+  const cl = document.getElementById(&quot;cl&quot;);
+
+  form.addEventListener(&quot;submit&quot;, (e) =&gt; {
+    alert(&quot;You cannot send any data till now !&quot;);
+    e.preventDefault();
+  });
+
+  form.addEventListener(&quot;reset&quot;, (e) =&gt; {
+    if (np.value == &quot;&quot; || cl.value == &quot;&quot;) {
+      alert(&quot;You have to type something before resetting!&quot;);
+      e.preventDefault();
+    }
+  });
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="col-5">
+              <p><strong>Résultat</strong></p>
+              <figure>
+                <img src="assets/miniprojet09/images/submit-reset-01.png" alt="Formulaire élève">
+                <figcaption>Formulaire élève</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <p><strong>Travail demandé</strong></p>
+        <ul>
+          <li>Copier le code ci-dessus dans un fichier HTML nommé <strong>javascript22.html</strong>.</li>
+          <li>Tester le code dans le navigateur.</li>
+          <li>Modifier le code pour qu'il transforme le nom et la classe en majuscules avant de soumettre le formulaire.
+          </li>
+          <li>Modifier le code pour que le bouton reset transforme le nom en miniscules.</li>
+        </ul>
       </section>
     </article>
   </main>
