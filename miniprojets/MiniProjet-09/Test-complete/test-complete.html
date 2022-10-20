@@ -72,25 +72,36 @@
     </div>
   </form>
   <script>
-    const form = document.querySelector("form#test");
+    /*     const form = document.querySelector("#test");
+    
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          let score = 0;
+          if (form.ex1.value == "2") score++;
+          if (form.ex2.value == "mod") score++;
+          if (form.esx3[0].value == "3") score++;
+          if (form.ex3[1].value == "2") score++;
+          if (form.ex3[3].value == "4") score++;
+          alert("Votre score est " + score + " / 5");
+        }); */
+
+    const frm = document.getElementById("test");
     const ex1 = document.getElementById("ex1");
-    const ex3 = form.querySelectorAll('input[name="ex3"]');
+    const ex2_r3 = document.getElementById("ex2-r3");
+    const ex3_r1 = document.getElementById("ex3-r1");
+    const ex3_r2 = document.getElementById("ex3-r2");
+    const ex3_r4 = document.getElementById("ex3-r4");
 
-    function radioValue(radio) {
-      const ex2 = form.querySelector('input[name="' + radio + '"]:checked');
-      return ex2.value;
-    }
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+    frm.onsubmit = (e) => {
       let score = 0;
       if (ex1.value == "2") score++;
-      if (radioValue("ex2") == "mod") score++;
-      if (ex3[0].value == "3") score++;
-      if (ex3[1].value == "2") score++;
-      if (ex3[3].value == "4") score++;
+      if (ex2_r3.checked) score++;
+      if (ex3_r1.value == "3") score++;
+      if (ex3_r2.value == "2") score++;
+      if (ex3_r4.value == "4") score++;
       alert("Votre score est " + score + " / 5");
-    });
+      e.preventDefault();
+    };
   </script>
 </body>
 
