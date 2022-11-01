@@ -7,7 +7,7 @@
   <meta name="description" content="Description du site du restaurant">
   <meta name="keywords" content="chawarma, tunisie, ariana, lablabi, plat tunisien">
   <meta name="author" content="Hanen Kassas">
-  <title>House Kitchen | Bienvenue</title>
+  <title>House Kitchen | Accueil</title>
   <link rel="stylesheet" href="fonts/google_fonts.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -20,113 +20,34 @@
     <nav>
       <ul>
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="#">À propos</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="inscription.html">S'inscrire</a></li>
+        <li><a href="commandes.html">Commande</a></li>
       </ul>
     </nav>
   </header>
 
-
-  <section id="premiere-section">
-    <div id="premiere-section-texte">
-      <h2 class="section-titre">Notre Spécialité</h2>
-      <p class="section-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error fugiat quasi,
-        repudiandae aut ullam repellat
-        qui expedita laudantium exercitationem, ipsum optio? Voluptate aliquam repudiandae iure quas sapiente
-        atque
-        dolor vitae?</p>
-      <blockquote id="premiere-section-quote">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita odio cum enim debitis temporibus in
-        consequatur.
-      </blockquote>
-      <button class="bouton-blanc">Points de vente</button>
+  <main>
+    <div class="conteneur">
+      <div class="texte">
+        <h2>Notre Charte</h2>
+        <p>Opérant depuis 1990 dans le domaine de restauration publique <strong>House
+            Kitchen</strong> vous présente ses meilleurs plâts qui feront couler votre salive et vous plairont par leurs
+          odeurs exquise.</p>
+        <blockquote id="premiere-section-quote">Je fréquente ce restaurant depuis une décennie. Sa nourriture est
+          délicieuse, appétisante et dans les règles de l'hygiène.</blockquote>
+      </div>
+      <div class="image">
+        <img src="images/sandwich.png" alt="">
+      </div>
     </div>
-    <div id="premiere-section-image">
-      <img src="images/sandwich.png" alt="">
-    </div>
-  </section> <!-- deuxième-section : fin-->
+  </main>
 
-  <section id="deuxieme-section">
-    <form nam="f">
-      <div class="conteneur">
-        <div class="plat">
-          <img src="./images/plat01.png">
-          <h3>Palt Tunisien</h3>
-          <h3>Prix: 5d500</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet
-            ultricies</p>
-          <input type="text" class="chmpcmd" id="qtpt" placeholder="EntrezQuantité" value=0>
-        </div>
-        <div class="plat">
-          <img src="./images/plat02.png">
-          <h3>Lablabi</h3>
-          <h3>Prix: 3d500</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet
-            ultricies</p>
-          <input type="text" class="chmpcmd" id="qtlb" placeholder="Entrez Quantité" value="0">
-        </div>
-        <div class="plat">
-          <img src="./images/plat03.png">
-          <h3>Hargma</h3>
-          <h3>Prix: 7d000</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet
-            ultricies</p>
-          <input type="text" class="chmpcmd" id="qthg" placeholder="Entrez Quantité" value=0>
-        </div>
-      </div>
-      <div class="btb">
-        <input type="button" class="bouton-blanc" id="cmd" value="Commander">
-      </div>
-    </form>
-
-    <section id="sectionFacture">
-      <div id="facture">
-        <h2 class="section-titre"> Votre Facture: </h2>
-        <table>
-          <tr>
-            <th>Plat</th>
-            <th>Prix Unitaire</th>
-            <th>Quantité</th>
-            <th>Prix Total</th>
-          </tr>
-          <tr>
-            <td>Plat Tunisien</td>
-            <td>5.500 DT</td>
-            <td id="qpt"></td>
-            <td id="tpt"></td>
-          </tr>
-          <tr>
-            <td>Lablebi</td>
-            <td>3.500 DT</td>
-            <td id="qlb"></td>
-            <td id="tlb"></td>
-          </tr>
-          <tr>
-            <td>Harguma</td>
-            <td>7.000 DT</td>
-            <td id="qhg"></td>
-            <td id="thg"></td>
-          </tr>
-          <tr>
-            <td colspan="2" style="text-align: right;">Total:</td>
-            <td id="nb"></td>
-            <td id="total"></td>
-          </tr>
-        </table>
-        <h2 class="section-titre"> Merci Pour Votre Confiance...</h2>
-      </div>
-
-    </section>
-  </section> <!-- deuxieme-section : fin-->
-
-  <footer id="footer">
-    <a href="#"><img class="footer-reseaux-sociaux" src="images/Facebook.png" alt="Facebook"></a>
-    <a href="#"><img class="footer-reseaux-sociaux" src="images/Twitter.png" alt="Twitter"></a>
-    <a href="#"><img class="footer-reseaux-sociaux" src="images/Linkedin.png" alt="Linkedin"></a>
-    <a href="#"><img class="footer-reseaux-sociaux" src="images/Pinterest.png" alt="Pinterest"></a>
-    <a href="#"><img class="footer-reseaux-sociaux" src="images/Website.png" alt="Website"></a>
-  </footer><!-- footer : fin-->
+  <footer>
+    <a href="#"><img class="sociaux" src="images/Facebook.png" alt="Facebook"></a>
+    <a href="#"><img class="sociaux" src="images/Twitter.png" alt="Twitter"></a>
+    <a href="#"><img class="sociaux" src="images/Linkedin.png" alt="Linkedin"></a>
+    <a href="#"><img class="sociaux" src="images/Pinterest.png" alt="Pinterest"></a>
+    <a href="#"><img class="sociaux" src="images/Website.png" alt="Website"></a>
+  </footer>
 </body>
 
 </html>

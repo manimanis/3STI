@@ -29,20 +29,20 @@ header nav ul {
 }
 
 header nav li {
-	display: inline-block;
-	text-transform: uppercase;
-	font-family: Lato, sans-serif;
-	font-size: 14px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: Lato, sans-serif;
+  font-size: 14px;
 }
 
 header nav a {
-	display: inline-block;
+  display: inline-block;
   font-weight: bold;
-	padding: 5px 10px;
-	text-decoration: none;
-	color: #fff;
-	transition: 0.3s;
-	margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+  margin: 0 5px;
 }
 
 header nav a:hover {
@@ -50,35 +50,30 @@ header nav a:hover {
   color: #4eacdd;
 }
 
-/* Section accueil Fin */
-/**********************************************************/
-/* Première Section Début */
-
-#premiere-section {
+main {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: rgb(244, 244, 244);
   padding: 12%;
-  box-sizing: border-box;
-  overflow: hidden;
+  font-family: 'Lato';
 }
 
-#premiere-section-texte {
+.conteneur>.texte,
+.conteneur>.image {
   width: 50%;
-  display: inline-block;
   vertical-align: top;
 }
 
-.section-titre {
+.texte h2 {
   font-family: Lato, sans-serif;
   font-size: 42px;
   font-weight: 300;
-  color: rgb(84, 84, 84);
+  color: #545454;
   margin: 0;
   padding: 5px;
 }
 
-.section-description {
+.texte p {
   line-height: 1.5;
   color: rgb(126, 126, 126);
   font-family: Lato, sans-serif;
@@ -87,25 +82,19 @@ header nav a:hover {
   margin-top: 24px;
 }
 
-#premiere-section-quote {
+.texte blockquote {
   font-family: Lato, sans-serif;
   font-style: italic;
   font-size: 16.5px;
-  color: rgb(126, 126, 126);
+  color: #7e7e7e;
   line-height: 1.5;
-  border-left: 8px solid rgb(78, 172, 221);
+  border-left: 8px solid #4eacdd;
   padding-left: 20px;
   margin: 0 0 20px;
 }
 
-.chmpcmd {
-
-  background-color: rgb(126, 137, 235);
-  color: black;
-  width: 110px;
-  font-weight: bold;
-  text-align: center;
-
+.image img {
+  max-width: 100%;
 }
 
 .bouton-blanc {
@@ -124,28 +113,32 @@ header nav a:hover {
   color: #fff;
 }
 
-#premiere-section-image {
-  display: inline-block;
-  width: 49%;
-  text-align: end;
+.conteneur {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* Première Section Fin */
-/**********************************************************/
-/* deuxième Section Début */
-#deuxieme-section {
-  width: 100%;
-  height: 200vh;
-  padding: 10% 10% 0;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-#deuxieme-section .plat {
-  float: left;
-  text-align: center;
-  width: 30%;
+.conteneur .plat {
+  width: 33.3%;
   padding: 10px;
+  text-align: center;
+}
+
+.plat img {
+  max-width: 100%;
+  height: 150px;
+}
+
+.plat input[type="number"] {
+  width: 100%;
+  font-family: 'Lato';
+  padding: 5px;
+}
+
+.entete {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #affiche {
@@ -154,47 +147,19 @@ header nav a:hover {
   text-align: center;
 }
 
-#sectionFacture {
-  display: none;
-}
-
-#facture {
-
-  padding: 50px;
-  margin: 50px;
-  background-color: rgb(244, 244, 244);
-}
-
-table, th, td {
-  border: 1px solid rgb(78, 172, 221);
-  border-collapse: collapse;
-  font-family: Lato, sans-serif;
-  color: rgb(78, 172, 221);
-  vertical-align: center;
-  width: 600px;
-}
-
-/* deuxième Section Fin */
-/**********************************************************/
-/* Footer Début */
-#footer {
+footer {
   width: 100%;
-  background-color: rgb(244, 244, 244);
-  padding: 20px;
-  box-sizing: border-box;
+  background-color: #4eacdd;
   text-align: center;
-  border-top: 10px solid rgb(78, 172, 221);
 }
 
-.footer-reseaux-sociaux {
-  width: 50px;
-  margin: 25px;
+.sociaux {
+  width: 32px;
+  margin: 10px 16px;
   opacity: 0.6;
-  transition: 0.7s;
+  transition: 1s;
 }
 
-.footer-reseaux-sociaux:hover {
+.sociaux:hover {
   opacity: 1;
 }
-
-/* Footer Fin */
