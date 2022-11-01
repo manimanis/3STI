@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+
+header {
+  width: 100%;
+  background-color: #4eacdd;
+  position: fixed;
+  opacity: 0.9;
+  padding: 5px 10%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#img-logo {
+  cursor: pointer;
+  height: 50px;
+  padding-top: 10px;
+}
+
+header nav ul {
+  list-style: none;
+}
+
+header nav li {
+	display: inline-block;
+	text-transform: uppercase;
+	font-family: Lato, sans-serif;
+	font-size: 14px;
+}
+
+header nav a {
+	display: inline-block;
+  font-weight: bold;
+	padding: 5px 10px;
+	text-decoration: none;
+	color: #fff;
+	transition: 0.3s;
+	margin: 0 5px;
+}
+
+header nav a:hover {
+  background-color: #fff;
+  color: #4eacdd;
+}
+
+/* Section accueil Fin */
+/**********************************************************/
+/* Première Section Début */
+
+#premiere-section {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(244, 244, 244);
+  padding: 12%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#premiere-section-texte {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.section-titre {
+  font-family: Lato, sans-serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: rgb(84, 84, 84);
+  margin: 0;
+  padding: 5px;
+}
+
+.section-description {
+  line-height: 1.5;
+  color: rgb(126, 126, 126);
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  margin-top: 24px;
+  margin-top: 24px;
+}
+
+#premiere-section-quote {
+  font-family: Lato, sans-serif;
+  font-style: italic;
+  font-size: 16.5px;
+  color: rgb(126, 126, 126);
+  line-height: 1.5;
+  border-left: 8px solid rgb(78, 172, 221);
+  padding-left: 20px;
+  margin: 0 0 20px;
+}
+
+.chmpcmd {
+
+  background-color: rgb(126, 137, 235);
+  color: black;
+  width: 110px;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.bouton-blanc {
+  background-color: transparent;
+  color: rgb(78, 172, 221);
+  border: 1px solid rgb(78, 172, 221);
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 32px;
+}
+
+.bouton-blanc:hover {
+  background-color: rgb(78, 172, 221);
+  color: #fff;
+}
+
+#premiere-section-image {
+  display: inline-block;
+  width: 49%;
+  text-align: end;
+}
+
+/* Première Section Fin */
+/**********************************************************/
+/* deuxième Section Début */
+#deuxieme-section {
+  width: 100%;
+  height: 200vh;
+  padding: 10% 10% 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#deuxieme-section .plat {
+  float: left;
+  text-align: center;
+  width: 30%;
+  padding: 10px;
+}
+
+#affiche {
+  color: gray;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+
+#sectionFacture {
+  display: none;
+}
+
+#facture {
+
+  padding: 50px;
+  margin: 50px;
+  background-color: rgb(244, 244, 244);
+}
+
+table, th, td {
+  border: 1px solid rgb(78, 172, 221);
+  border-collapse: collapse;
+  font-family: Lato, sans-serif;
+  color: rgb(78, 172, 221);
+  vertical-align: center;
+  width: 600px;
+}
+
+/* deuxième Section Fin */
+/**********************************************************/
+/* Footer Début */
+#footer {
+  width: 100%;
+  background-color: rgb(244, 244, 244);
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  border-top: 10px solid rgb(78, 172, 221);
+}
+
+.footer-reseaux-sociaux {
+  width: 50px;
+  margin: 25px;
+  opacity: 0.6;
+  transition: 0.7s;
+}
+
+.footer-reseaux-sociaux:hover {
+  opacity: 1;
+}
+
+/* Footer Fin */
