@@ -7,21 +7,43 @@ body {
   margin: 0;
 }
 
+h2 {
+  font-family: Lato, sans-serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: #545454;
+  margin: 0;
+  padding: 5px;
+}
+
+p {
+  line-height: 1.5;
+  color: #7e7e7e;
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  margin-top: 24px;
+  margin-top: 24px;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
 
 header {
-  width: 100%;
   background-color: #4eacdd;
-  position: fixed;
   opacity: 0.9;
-  padding: 5px 10%;
-  display: flex;
-  justify-content: space-between;
 }
 
 #img-logo {
   cursor: pointer;
   height: 50px;
   padding-top: 10px;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
 }
 
 header nav ul {
@@ -51,35 +73,21 @@ header nav a:hover {
 }
 
 main {
-  width: 100%;
   min-height: 100vh;
-  background-color: rgb(244, 244, 244);
-  padding: 12%;
+  background-color: #f4f4f4;
   font-family: 'Lato';
+  padding: 64px 8px;
 }
 
-.conteneur>.texte,
-.conteneur>.image {
+.multicols {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container>.texte,
+.container>.image {
   width: 50%;
   vertical-align: top;
-}
-
-.texte h2 {
-  font-family: Lato, sans-serif;
-  font-size: 42px;
-  font-weight: 300;
-  color: #545454;
-  margin: 0;
-  padding: 5px;
-}
-
-.texte p {
-  line-height: 1.5;
-  color: rgb(126, 126, 126);
-  font-family: Lato, sans-serif;
-  font-size: 16px;
-  margin-top: 24px;
-  margin-top: 24px;
 }
 
 .texte blockquote {
@@ -113,12 +121,12 @@ main {
   color: #fff;
 }
 
-.conteneur {
+.plats {
   display: flex;
   flex-wrap: wrap;
 }
 
-.conteneur .plat {
+.plats .plat {
   width: 33.3%;
   padding: 10px;
   text-align: center;
@@ -130,15 +138,59 @@ main {
 }
 
 .plat input[type="number"] {
-  width: 100%;
+  max-width: 50%;
+  width: 100px;
   font-family: 'Lato';
   padding: 5px;
+  text-align: center;
 }
 
-.entete {
+.plat:first-of-type {
+  animation: animation1 1.5s linear;
+  position: relative;
+}
+
+.plat:last-of-type {
+  animation: animation2 1.5s linear;
+  position: relative;
+}
+
+.plat:nth-of-type(2) {
+  animation: animation3 1.5s linear;
+  position: relative;
+}
+
+@keyframes animation1 {
+  from { left: 100%; opacity: 0; }
+  to { left: 0; opacity: 1;}
+}
+
+@keyframes animation2 {
+  from { left: -100%; opacity: 0; }
+  to { left: 0; opacity: 1;}
+}
+
+@keyframes animation3 {
+  from { top: 100%; opacity: 0; }
+  to { top: 0; opacity: 1;}
+}
+
+.entete, .quantite {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.entete h3, .entete p {
+  margin: 10px 0;
+  line-height: 22px;
+  color: black;
+}
+
+.quantite p {
+  line-height: 30px;
+  margin: 0 10px 0 0;
+  color: black;
 }
 
 #affiche {
@@ -156,8 +208,8 @@ footer {
 .sociaux {
   width: 32px;
   margin: 10px 16px;
-  opacity: 0.6;
-  transition: 1s;
+  opacity: 0.4;
+  transition: 0.5s;
 }
 
 .sociaux:hover {
