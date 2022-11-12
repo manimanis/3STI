@@ -1,0 +1,73 @@
+body {
+  font-size: 20pt;
+}
+
+p {
+  border: #0f0 solid 1px;
+  padding: 25px 5px 5px;
+  position: relative;
+  margin: 5px 0;
+}
+
+p::after {
+  content: "Paragraphe";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0f0;
+  padding: 3px 10px;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #fff;
+}
+
+#msg {
+  border: #f00 solid 1px;
+  padding: 25px 5px 5px;
+  position: relative;
+}
+
+#msg::after {
+  content: "<div id=\"msg\">";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f00;
+  padding: 3px 10px;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #fff;
+}
+
+#msg>p {
+  border-color: blue;
+}
+
+#msg>p:after {
+  background-color: blue;
+}
+
+form {
+  border: #0ff solid 1px;
+  padding: 25px 5px 5px;
+  margin: 5px 0;
+  position: relative;
+}
+
+form::after {
+  content: "<form name=\"f\">";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0ff;
+  padding: 3px 10px;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #006;
+}

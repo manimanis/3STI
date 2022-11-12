@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="javascript-01.css">
+</head>
+
+<body>
+  <div id="msg"></div>
+  <form name="f"><input type="text" id="res" name="res"></form>
+  <script>
+    /* On demande de calculer la longueur de l'hypoténuse d'un triangle rectangle ABC */
+
+    // Déclarer les variables
+    let a = 3;
+    let b = 4;
+
+    // Calculer l'hypoténuse
+    let c = Math.sqrt(a * a + b ** 2);
+
+    /*
+       Méthodes d'affichage
+    */
+
+    // (1) Afficher le résultat dans la console
+    console.log("a =", a, "- b =", b, "- c =", c);
+
+    // (2) Afficher le résultat dans le document
+    document.writeln("<p>a = ", a, " - b = ", b, " - c = ", c, "</p>");
+
+    // (3) Afficher le résultat sous forme d'une notification dans une boîte d'alerte
+    alert("a = " + a + " - b = " + b + " - c = " + c);
+
+    // (4) Afficher le résultat dans un élément de la page
+    const msg = document.getElementById("msg");
+    msg.innerHTML = "<p>a = " + a + " - b = " + b + " - c = " + c + "</p>";
+
+    // (5) Afficher le résultat dans un champ du formulaire
+    document.f.res.value = "a = " + a + " - b = " + b + " - c = " + c;
+  </script>
+</body>
+
+</html>
