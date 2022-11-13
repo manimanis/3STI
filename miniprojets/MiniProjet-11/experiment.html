@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a, .b, .c {
+            border: solid 1px;
+            padding: 5px;
+            background-color: green;
+        }
+
+        .b {
+            width: 212px;
+        }
+
+        .a .c {
+            background-color: red;
+            width: 100px;
+            height: 50px;
+        }
+
+        .a > .c {
+            background-color: blue;
+            width: 200px;
+            height: 100px;
+        }
+
+        #container {
+            width: 840px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .image {
+            width: 200px;
+            height: 150px;
+            margin: 5px;
+            border: #f00 solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="b">
+            <div id="c1" class="c"></div>
+        </div>
+        <div id="c2" class="c"></div>
+    </div>
+
+    <div id="container">
+        <div class="image"><img src="https://dummyimage.com/200x150/777/fff.png" alt="Dummy"></div>
+        <div class="image"><img src="https://dummyimage.com/200x150/777/fff.png" alt="Dummy"></div>
+        <div class="image"><img src="https://dummyimage.com/200x150/777/fff.png" alt="Dummy"></div>
+        <div class="image"><img src="https://dummyimage.com/200x150/777/fff.png" alt="Dummy"></div>
+    </div>
+</body>
+</html>
