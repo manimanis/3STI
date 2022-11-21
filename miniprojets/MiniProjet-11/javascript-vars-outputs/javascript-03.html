@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lancement de dés</title>
+</head>
+
+<body>
+  <div id="des"></div>
+  <script>
+    const des = document.getElementById("des");
+
+    const nb1 = Math.floor(Math.random() * 6 + 1);
+    const nb2 = Math.floor(Math.random() * 6 + 1);
+
+    des.innerHTML = '<img src="../../../assets/miniprojet09/images-act/de' + nb1 + '.jpg" alt="Dé' + nb1 + '"> ' +
+    '<img src="../../../assets/miniprojet09/images-act/de' + nb2 + '.jpg" alt="Dé' + nb2 + '">';
+  </script>
+</body>
+
+</html>
