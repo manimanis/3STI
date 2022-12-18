@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+#game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 500px;
+  height: 500px;
+  margin: 50px auto;
+}
+
+.box {
+  width: 160px;
+  height: 160px;
+  border: #0D5D56 solid 5px;
+  font-size: 160px;
+  line-height: 160px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.emptycolor {
+  background-color: #8FD5A6;
+}
+
+.Xcolor {
+  background-color: #0C8346;
+}
+
+.Ocolor {
+  background-color: #329F5B;
+}
