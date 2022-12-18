@@ -40,6 +40,20 @@
   line-height: 94px;
 }
 
+.cols7 {
+  width: 81px;
+  height: 81px;
+  font-size: 81px;
+  line-height: 81px;
+}
+
+.cols8 {
+  width: 71px;
+  height: 71px;
+  font-size: 71px;
+  line-height: 71px;
+}
+
 .box {
   border: #0D5D56 solid 5px;
   text-align: center;

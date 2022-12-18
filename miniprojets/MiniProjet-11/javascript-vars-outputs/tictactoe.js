@@ -27,7 +27,7 @@ function getDiag1(content, nSize, num) {
 }
 
 function getDiag2(content, nSize, num) {
-  return concatSpaced(content, nSize - Math.abs(num), (num < 0) ? (nSize * -num + 4) : (nSize - num - 1), nSize - 1);
+  return concatSpaced(content, nSize - Math.abs(num), ((num < 0) ? (nSize * (1 - num)) : (nSize - num)) - 1, nSize - 1);
 }
 
 function getWinner(val, nWinSize) {
@@ -107,8 +107,8 @@ function boxClicked(e) {
   letter = (letter == "O") ? "X" : "O";
 }
 
-let nSize = 6;
-let nWinSize = 3;
+let nSize = 8;
+let nWinSize = 4;
 const game = document.getElementById("game");
 resetGame(game, nSize);
 
