@@ -116,7 +116,8 @@ function changeGameSize() {
   nSize = +game_size_inp.value;
   win_size_inp.max = nSize;
   win_size_inp.value = Math.min(nSize, +win_size_inp.value);
-  resetGame(game, nSize);
+  refreshSizes();
+  changeWinSize();
 }
 
 function changeWinSize() {
