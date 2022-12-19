@@ -33,6 +33,16 @@
       return [r, g, b];
     }
 
+
+    function toHexa(val) {
+      const hexaChars = "0123456789ABCDEF";
+      return hexaChars[Math.floor(val / 16)] + hexaChars[val % 16];
+    }
+
+    function decimalToHexa(r, g, b) {
+      return "#" + toHexa(r) + toHexa(g) + toHexa(b);
+    }
+
     function colorGradient(color1, color2, count) {
       const grad = [];
       const col1 = hexaColorToDecimal(color1);
@@ -46,11 +56,17 @@
       return grad;
     }
 
+    function colorComplement(r, g, b) {
+      return [255 - r, 255 - g, 255 - b];
+    }
+
     function drawGradient(elem, firstColor, secondColor) {
       const colors = colorGradient(firstColor, secondColor, 5);
       let html = "";
       for (let i = 0; i < colors.length; i++) {
-        html += `<div class="color" style="background-color: rgb(${colors[i][0]}, ${colors[i][1]}, ${colors[i][2]})">rgb(${colors[i][0]}, ${colors[i][1]}, ${colors[i][2]})</div>`;
+        const col = colors[i];
+        const colComp = colorComplement(...col);
+        html += `<div class="color" style="background-color: rgb(${col[0]}, ${col[1]}, ${col[2]});color: rgb(${colComp[0]}, ${colComp[1]}, ${colComp[2]})">${decimalToHexa(colors[i][0], colors[i][1], colors[i][2])}</div>`;
       }
       elem.innerHTML = html;
     }
@@ -64,6 +80,7 @@
     const col2 = document.getElementById("col2");
     col1.addEventListener("change", changeHandler);
     col2.addEventListener("change", changeHandler);
+    drawGradient(gradcolors, col1.value, col2.value);
   </script>
 </body>
 

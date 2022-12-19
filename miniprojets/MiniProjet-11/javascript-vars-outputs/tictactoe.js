@@ -107,9 +107,36 @@ function boxClicked(e) {
   letter = (letter == "O") ? "X" : "O";
 }
 
-let nSize = 8;
-let nWinSize = 4;
+function refreshSizes() {
+  game_size_span.textContent = game_size_inp.value;
+  win_size_span.textContent = win_size_inp.value;
+}
+
+function changeGameSize() {
+  nSize = +game_size_inp.value;
+  win_size_inp.max = nSize;
+  win_size_inp.value = Math.min(nSize, +win_size_inp.value);
+  resetGame(game, nSize);
+}
+
+function changeWinSize() {
+  nWinSize = +win_size_inp.value;
+  resetGame(game, nSize);
+}
+
 const game = document.getElementById("game");
+const game_size_inp = document.getElementById("game_size");
+const game_size_span = document.getElementById("game_size_val");
+const win_size_inp = document.getElementById("win_size");
+const win_size_span = document.getElementById("win_size_val");
+
+let nSize = +game_size_inp.value;
+let nWinSize = +win_size_inp.value;
+
 resetGame(game, nSize);
+game_size_inp.addEventListener("input", refreshSizes);
+game_size_inp.addEventListener("change", changeGameSize);
+win_size_inp.addEventListener("input", refreshSizes);
+win_size_inp.addEventListener("change", changeWinSize);
 
 
