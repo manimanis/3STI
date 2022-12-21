@@ -9,11 +9,13 @@ class Book {
 const app = new Vue({
   'el': "#app",
   data: {
-    mode: 'listbooks',
+    mode: 'allbooks',
     lastNum: -1,
     authors: [],
     books: [],
+    filteredBooks: [],
     newBook: {},
+    filterBook: new Book({ num: -1 }),
     idxBook: -1,
     copyBook: null
   },
@@ -57,6 +59,18 @@ const app = new Vue({
       this.idxBook = idxBook;
       this.copyBook = new Book(this.books[idxBook]);
     },
+    deleteBook: function (idxbook) {
+      const book = this.books[idxbook];
+      const ans = confirm("هل تريد فعلا حذف هذا الكتاب؟" +
+        "\nالكتاب: " + book.bookTitle +
+        "\nالمؤلف: " + book.authorName +
+        "\nرقم الكتاب: " + book.num);
+      if (ans) {
+        this.books.splice(idxbook, 1);
+        this.saveData();
+        document.querySelector("#author-name-input").focus();
+      }
+    },
     updateBook: function () {
       this.books[this.idxBook] = this.copyBook;
       this.idxBook = -1;
@@ -66,6 +80,35 @@ const app = new Vue({
     sortBooksByNum: function () {
       this.books.sort((b1, b2) => b1.num - b2.num);
       this.saveData();
+    },
+    sortBy: function (sortColumn) {
+      if (this.mode == 'allbooks') {
+        this.books.sort((b1, b2) => (b1[sortColumn] > b2[sortColumn]) - (b1[sortColumn] < b2[sortColumn]));
+      } else {
+        this.filteredBooks.sort((b1, b2) => (b1[sortColumn] > b2[sortColumn]) - (b1[sortColumn] < b2[sortColumn]));
+      }
+    },
+    filterListOfBooks: function () {
+      if ((this.filterBook.num == -1 || this.filterBook.num == '') &&
+        this.filterBook.bookTitle == '' &&
+        this.filterBook.authorName == '') {
+        this.mode = "allbooks";
+      } else {
+        this.mode = "filterbooks";
+        this.filteredBooks = this.books.filter(book => {
+          let cond = true;
+          if (this.filterBook.num != -1) {
+            cond &&= ("" + book.num).indexOf(this.filterBook.num) != -1;
+          }
+          if (cond && this.filterBook.bookTitle != -1) {
+            cond &&= book.bookTitle.indexOf(this.filterBook.bookTitle) != -1;
+          }
+          if (cond && this.filterBook.authorName != -1) {
+            cond &&= book.authorName.indexOf(this.filterBook.authorName) != -1;
+          }
+          return cond;
+        });
+      }
     }
   }
 });
