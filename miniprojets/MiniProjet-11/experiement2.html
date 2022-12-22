@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let noms = ["Boujnah", "Rabhi", "Majdoub", "Sallami"];
+    let prenoms = ["Mohamed", "Aya", "Sarra", "Imen"];
+    let matieres = ["Anglais", "Français", "Informatique"];
+    let devoirs = ["Contrôle", "Synthèse"];
+    let eleves = [];
+    let idx = 1;
+    for (let i = 0; i < noms.length; i++) {
+      let objEleve = {
+        nom: noms[i],
+        prenom: prenoms[i],
+      };
+      for (let j = 0; j < matieres.length; j++) {
+        let copieEleve = { ...objEleve };
+        copieEleve['idEleve'] = idx;
+        copieEleve["matiere"] = matieres[j];
+        for (let k = 0; k < devoirs.length; k++) {
+          copieEleve[devoirs[k]] = Math.floor(Math.random() * 80) / 4;
+        }
+        eleves.push(copieEleve);
+        idx++;
+      }
+    }
+
+    document.writeln('<table>');
+    document.writeln('<tr>');
+    for (let key of Object.keys(eleves[0])) {
+      document.writeln('<th>', key, '</th>');
+    }
+    for (let eleve of eleves) {
+      document.writeln('<tr>');
+      for (let key of Object.keys(eleve)) {
+        document.writeln('<td>', eleve[key], '</td>');
+      }
+      document.writeln('</tr>');
+    }
+    document.writeln('</tr>');
+    document.writeln('</table>');
+  </script>
+</body>
+
+</html>
