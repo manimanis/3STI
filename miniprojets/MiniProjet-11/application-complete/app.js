@@ -28,6 +28,7 @@ const app = new Vue({
     loadData: function () {
       this.books = JSON.parse(window.localStorage.getItem("books") || "[]")
         .map(book => new Book(book));
+      this.sortBy('num');
       this.lastNum = this.books.length ? this.books[this.books.length - 1].num : 0;
       this.createNewBook();
       this.updateAuthorsList();
