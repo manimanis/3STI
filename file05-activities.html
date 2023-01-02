@@ -409,11 +409,75 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot; et &quot;, b, &quot; &quot;,
   &quot; premiers entre eux.&lt;/p&gt;&quot;);</code></pre>
         </div>
       </section>
+    </article>
+    <article>
+      <h2 class="p-break">Séance 4</h2>
+      <section>
+        <h3>Les fonctions & les évènements</h3>
+        <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;TP sur les fonctions et les &eacute;v&egrave;nements&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button id=&quot;button1&quot;&gt;Afficher un message&lt;/button&gt;
+  &lt;button id=&quot;button2&quot;&gt;Afficher un autre message&lt;/button&gt;
+  &lt;p id=&quot;message&quot;&gt;&lt;/p&gt;
+  &lt;form&gt;
+    &lt;label for=&quot;input&quot;&gt;Entrez votre nom :&lt;/label&gt;&lt;br&gt;
+    &lt;input type=&quot;text&quot; id=&quot;input&quot;&gt;&lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Envoyer&quot;&gt;
+  &lt;/form&gt;
+  &lt;script src=&quot;events.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<pre><code class="javascript">// R&eacute;cup&eacute;rer les champs du formulaire
+const msgDiv = document.getElementById(&apos;message&apos;);
+const nameInput = document.getElementById(&apos;input&apos;);
+const btn1 = document.getElementById(&apos;button1&apos;);
+const btn2 = document.getElementById(&apos;button2&apos;);
+const form = document.querySelector(&apos;form&apos;);
 
+// D&eacute;finition de la fonction qui affiche un message
+function showMessage(message) {
+  msgDiv.innerHTML = message;
+}
+
+// D&eacute;finition de la fonction qui g&egrave;re l&apos;&eacute;v&egrave;nement click sur le premier bouton
+function handleButton1Click() {
+  showMessage(&apos;Vous avez cliqu&eacute; sur le premier bouton&apos;);
+}
+
+// D&eacute;finition de la fonction qui g&egrave;re l&apos;&eacute;v&egrave;nement click sur le deuxi&egrave;me bouton
+function handleButton2Click() {
+  showMessage(&apos;Vous avez cliqu&eacute; sur le deuxi&egrave;me bouton&apos;);
+}
+
+// D&eacute;finition de la fonction qui g&egrave;re l&apos;&eacute;v&egrave;nement submit sur le formulaire
+function handleFormSubmit(event) {
+  // Annulation de l&apos;envoi du formulaire
+  event.preventDefault();
+
+  // R&eacute;cup&eacute;ration de la valeur du champ de formulaire
+  var inputValue = nameInput.value;
+
+  // Affichage de la valeur du champ de formulaire dans le paragraphe
+  showMessage(&apos;Vous vous appelez &apos; + inputValue);
+}
+
+// Ajout de l&apos;&eacute;v&egrave;nement click sur le premier bouton
+btn1.addEventListener(&apos;click&apos;, handleButton1Click);
+
+// Ajout de l&apos;&eacute;v&egrave;nement click sur le deuxi&egrave;me bouton
+btn2.addEventListener(&apos;click&apos;, handleButton2Click);
+
+// Ajout de l&apos;&eacute;v&egrave;nement submit sur le formulaire
+form.addEventListener(&apos;submit&apos;, handleFormSubmit);</code></pre>
+      </section>
     </article>
 
     <article>
-      <h2 class="p-break">Séance 3</h2>
+      <h2 class="p-break">Séance Annulée</h2>
       <section>
         <h3>Déclaration des objets en JavaScript</h3>
         <p><b>Copier le code suivant dans la console du navigateur, puis indiquer son résultat.</b></p>

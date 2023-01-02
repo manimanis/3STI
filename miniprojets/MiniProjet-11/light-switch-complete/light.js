@@ -4,7 +4,7 @@ const lightSwitch = document.getElementById("light-switch");
 
 function changeLightStatus() {
   if (lightSwitch.checked) {
-    lightStatus.textContent = 'on';
+    lightStatus.textContent = 'on 💡';
     switchStatus.textContent = 'off';
     document.body.className = 'lighton';
   } else {
