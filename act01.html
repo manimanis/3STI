@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Méthodes de sorties</h2>
+      <section>
+        <h3>Méthodes de sortie en JavaScript</h3>
+        <p>Il existe cinq méthodes pour afficher un résultat en JavaScript</p>
+        <pre><code class="html">&lt;div id=&quot;msg&quot;&gt;&lt;/div&gt;
+&lt;form name=&quot;f&quot;&gt;&lt;input type=&quot;text&quot; id=&quot;res&quot; name=&quot;res&quot;&gt;&lt;/form&gt;
+&lt;script&gt;
+  /* On demande de calculer la longueur de l&apos;hypot&eacute;nuse d&apos;un triangle rectangle ABC */
+
+  // D&eacute;clarer les variables
+  let a = 3;
+  let b = 4;
+
+  // Calculer l&apos;hypot&eacute;nuse
+  let c = Math.sqrt(a * a + b ** 2);
+
+  /*
+      M&eacute;thodes d&apos;affichage
+  */
+
+  // (1) Afficher le r&eacute;sultat dans la console
+  console.log(&quot;a =&quot;, a, &quot;- b =&quot;, b, &quot;- c =&quot;, c);
+
+  // (2) Afficher le r&eacute;sultat dans le document
+  document.writeln(&quot;&lt;p&gt;a = &quot;, a, &quot; - b = &quot;, b, &quot; - c = &quot;, c, &quot;&lt;/p&gt;&quot;);
+
+  // (3) Afficher le r&eacute;sultat sous forme d&apos;une notification dans une bo&icirc;te d&apos;alerte
+  alert(&quot;a = &quot; + a + &quot; - b = &quot; + b + &quot; - c = &quot; + c);
+
+  // (4) Afficher le r&eacute;sultat dans un &eacute;l&eacute;ment de la page
+  const msg = document.getElementById(&quot;msg&quot;);
+  msg.innerHTML = &quot;&lt;p&gt;a = &quot; + a + &quot; - b = &quot; + b + &quot; - c = &quot; + c + &quot;&lt;/p&gt;&quot;;
+
+  // (5) Afficher le r&eacute;sultat dans un champ du formulaire
+  document.f.res.value = &quot;a = &quot; + a + &quot; - b = &quot; + b + &quot; - c = &quot; + c;
+&lt;/script&gt;</code></pre>
+      </section>
+
+      <section>
+        <h3>Activité d'application</h3>
+        <p>Afficher la somme, la différence, le produit, le quotient de deux entiers <code>a</code> et <code>b</code>,
+          sélectionnés aléatoirement.
+        </p>
+        <figure>
+          <img src="assets/miniprojet09/images-act/app01-capture.png" alt="Affichage du résultat" class="im-h-4">
+          <figcaption>Résultat de l'exercice</figcaption>
+        </figure>
+        <p><strong>Code JavaScript</strong></p>
+        <pre><code class="javascript">const a = Math.floor(Math.random() * 90 + 10);
+const b = Math.floor(Math.random() * 90 + 10);
+
+const s = a + b;
+const d = a - b;
+const p = a * b;
+const q = a / b;
+
+document.writeln(&apos;&lt;p&gt;&lt;span class=&quot;color1&quot;&gt;&apos;, a,
+  &apos;&lt;/span&gt; + &lt;span class=&quot;color2&quot;&gt;&apos;, b,
+  &apos;&lt;/span&gt; = &lt;span class=&quot;color3&quot;&gt;&apos;, s, &apos;&lt;/span&gt;&lt;/p&gt;&apos;);
+document.writeln(&apos;&lt;p&gt;&lt;span class=&quot;color1&quot;&gt;&apos;, a,
+  &apos;&lt;/span&gt; - &lt;span class=&quot;color2&quot;&gt;&apos;, b,
+  &apos;&lt;/span&gt; = &lt;span class=&quot;color3&quot;&gt;&apos;, d, &apos;&lt;/span&gt;&lt;/p&gt;&apos;);
+document.writeln(&apos;&lt;p&gt;&lt;span class=&quot;color1&quot;&gt;&apos;, a,
+  &apos;&lt;/span&gt; * &lt;span class=&quot;color2&quot;&gt;&apos;, b, &apos;&lt;/span&gt; = &lt;span class=&quot;color3&quot;&gt;&apos;, p, &apos;&lt;/span&gt;&lt;/p&gt;&apos;);
+document.writeln(&apos;&lt;p&gt;&lt;span class=&quot;color1&quot;&gt;&apos;, a,
+  &apos;&lt;/span&gt; / &lt;span class=&quot;color2&quot;&gt;&apos;, b, &apos;&lt;/span&gt; = &lt;span class=&quot;color3&quot;&gt;&apos;, q, &apos;&lt;/span&gt;&lt;/p&gt;&apos;);
+</code></pre>
+        <p><strong>Code CSS</strong></p>
+        <pre><code class="css">body { font-size: 20pt; }
+.color1 { color: red; }
+.color2 { color: green; }
+.color3 { color: blue; }</code></pre>
+      </section>
+    </article>
+
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

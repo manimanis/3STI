@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Méthodes d'entrées</h2>
+
+      <section>
+        <h3>Exercice de rappel</h3>
+        <ol>
+          <li>Générer un nombre aléatoire entre 5 et 25.</li>
+          <li>Simuler le lancement de deux dés à six faces.</li>
+          <li>Améliorer votre programme pour qu'il utilise des images au lieu des nombres.
+            <p><b>Résultat attendus</b></p>
+            <figure>
+              <img src="assets/miniprojet09/images-act/des-capture-01.png" alt="Capture d'un exemple de résultat"
+                class="im-h-1">
+              <img src="assets/miniprojet09/images-act/des-capture-02.png" alt="Capture d'un exemple de résultat"
+                class="im-h-1">
+              <figcaption>Capture d'un exemple de résultat</figcaption>
+            </figure>
+          </li>
+        </ol>
+        <p><strong>Télécharger les images dans votre dossier de travail.</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images-act/de1.jpg" alt="Dé 1" class="im-h-1">
+          <img src="assets/miniprojet09/images-act/de2.jpg" alt="Dé 2" class="im-h-1">
+          <img src="assets/miniprojet09/images-act/de3.jpg" alt="Dé 3" class="im-h-1">
+          <img src="assets/miniprojet09/images-act/de4.jpg" alt="Dé 4" class="im-h-1">
+          <img src="assets/miniprojet09/images-act/de5.jpg" alt="Dé 5" class="im-h-1">
+          <img src="assets/miniprojet09/images-act/de6.jpg" alt="Dé 6" class="im-h-1">
+          <figcaption>Images des dés à utiliser sans cet exercice</figcaption>
+        </figure>
+        <div class="d-none d-print-block">
+          <h4>Question n°1 - réponse</h4>
+          <pre><code class="html">&lt;script&gt;
+  // G&eacute;n&egrave;re un nombre al&eacute;atoire dans l&apos;intervalle [a, b]
+  function randint(a, b) {
+    return Math.floor(Math.random() * (b - a + 1)) + a;
+  }
+  // G&eacute;n&eacute;rer un nombre puis l&apos;afficher
+  let v = randint(5, 25);
+  document.writeln(&quot;&lt;p&gt;Nombre al&eacute;atoire [5, 25] : &quot;, v, &quot;&lt;/p&gt;&quot;);
+&lt;/script&gt;</code></pre>
+          <h4>Question n°2 - réponse</h4>
+          <pre><code class="html">&lt;div id=&quot;des&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // Fonction randint
+  ...
+  // Récupérer l'élément 
+  const des = document.getElementById(&quot;des&quot;);
+  let nb1 = randint(1, 6);
+  let nb2 = randint(1, 6);
+  des.innerHTML = &quot;Lancement de d&eacute;s : &quot; + nb1 + &quot; - &quot; + nb2;
+&lt;/script&gt;</code></pre>
+          <h4>Question n°3 - réponse</h4>
+          <pre><code class="html">&lt;div id=&quot;des&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // Même code précédent 
+  ...
+  des.innerHTML = &apos;&lt;img src=&quot;de&apos; + nb1 + &apos;.jpg&quot; alt=&quot;D&eacute;&apos; + nb1 + &apos;&quot;&gt; &apos; +
+    &apos;&lt;img src=&quot;de&apos; + nb2 + &apos;.jpg&quot; alt=&quot;D&eacute;&apos; + nb2 + &apos;&quot;&gt;&apos;;
+&lt;/script&gt;</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Méthodes d'entrées en JavaScript</h3>
+        <h4>Méthode 1 : boîte d'invite</h4>
+        <p><b>Exemple</b></p>
+        <pre><code class="javascript">let name = prompt("Your name ?", "Mohamed");</code></pre>
+        <p><b>Application</b></p>
+        <p>Ecrire un script qui saisit puis affiche la somme de deux nombres en utilisant la boite d'invite.</p>
+        <div class="d-none d-print-block">
+          <pre><code class="html">&lt;div id=&quot;msg&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // M&eacute;thode 1 : bo&icirc;te d&apos;invite
+  let a1 = Number(prompt(&quot;Donner a ? &quot;, &quot;6&quot;));
+  let b1 = Number(prompt(&quot;Donner b ? &quot;, &quot;6&quot;));
+  let s1 = a1 + b1;
+  const msg = document.getElementById(&quot;msg&quot;);
+  msg.innerHTML = a1 + &quot; + &quot; + b1 + &quot; = &quot; + s1;
+&lt;/script&gt;</code></pre>
+        </div>
+
+        <h4>Méthode 2 : Formulaire</h4>
+        <p><b>Exemple</b></p>
+        <div class="row">
+          <div class="col-4">
+            <p>Soit le formulaire suivant :</p>
+            <figure>
+              <img src="assets/miniprojet09/images-act/user_form.png" alt="Formulaire exemple">
+              <figcaption>Exemple de formulaire</figcaption>
+            </figure>
+          </div>
+          <div class="col-8">
+            <p>Pour accéder à ces champs on peut écrire :</p>
+            <pre><code class="javascript">let nom_prenom = document.getElementById("np").value; // (1)
+let age = document.f.age.value;                       // (2)</code></pre>
+          </div>
+        </div>
+        <p><b>Application</b></p>
+        <p>Ecrire un script qui lit la valeur de deux champs numériques a et b, puis affiche leurs sommes.</p>
+        <div class="row">
+          <div class="col-4">
+            <p>Le formulaire est comme suit :</p>
+            <figure>
+              <img src="assets/miniprojet09/images-act/sum_form.png" alt="Formulaire somme">
+              <figcaption>Formulaire d'application</figcaption>
+            </figure>
+          </div>
+          <div class="col-8">
+            <div class="d-none d-print-block">
+              <pre><code class="html">&lt;form action=&quot;#&quot; method=&quot;post&quot; name=&quot;f&quot;&gt;
+  &lt;div&gt;&lt;label for=&quot;a&quot;&gt;A&lt;/label&gt;
+    &lt;input type=&quot;number&quot; name=&quot;a&quot; id=&quot;a&quot; value=&quot;9&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;b&quot;&gt;B&lt;/label&gt;
+    &lt;input type=&quot;number&quot; name=&quot;b&quot; id=&quot;b&quot; value=&quot;16&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;r&quot;&gt;R&eacute;sultat&lt;/label&gt;
+    &lt;input type=&quot;number&quot; name=&quot;r&quot; id=&quot;r&quot; disabled&gt;&lt;/div&gt;
+&lt;/form&gt;
+&lt;script&gt;
+  let a = Number(document.f.a.value);
+  let b = Number(document.f.b.value);
+  let s = a + b;
+  document.f.r.value = s;
+&lt;/script&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <h4>Méthode 3 : Boîte de confirmation</h4>
+        <p><b>Exemple</b></p>
+        <pre><code class="javascript">let adult = confirm("Are you over 16 ? ")</code></pre>
+        <p><b>Application</b></p>
+        <p>Ecrire un script qui demande à l'utilisateur s'il est stressé ou non ?</p>
+        <ul>
+          <li>Si l'utilisateur est stressé : il lui demande de manger du chocolat,</li>
+          <li>Si l'utilisateur n'est pas stressé : il lui demande de contiuner de sourire.</li>
+        </ul>
+        <div class="d-none d-print-block">
+          <pre><code class="html">&lt;script&gt;
+const stressed = confirm(&quot;Are you stressed ? &quot;);
+if (stressed) {
+  alert(&quot;Eat chocolate&quot;);
+} else {
+  alert(&quot;Keep smiling&quot;);
+}
+&lt;/script&gt;</code></pre>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
