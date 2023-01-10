@@ -3,6 +3,8 @@ const inpB = document.getElementById("b");
 const inpRes = document.getElementById("res");
 const btn = document.getElementById("calc");
 const btnSelNum = document.getElementById("sel-num");
+const radAmis = document.getElementById('nbre-amis');
+const radParfait = document.getElementById('nbre-parfait');
 
 function sommeDiv(n) {
     let sd = 1;
@@ -28,14 +30,44 @@ function calcAmi(a) {
     return -1;
 }
 
-function calcAmis() {
-    const a = Number(inpA.value);
-    const b = Number(inpB.value);
-    inpRes.value = "";
+function calcAmis(a, b) {
+    const t = [];
     for (let i = a; i <= b; i++) {
         const ami = calcAmi(i);
         if (ami != -1 && ami > i && ami >= a && ami <= b) {
-            inpRes.value += i + ", " + ami + "\n";
+            t.push(i + ", " + ami);
+        }
+    }
+    return t;
+}
+
+function calcParfaits(a, b) {
+    const t = [];
+    for (let i = a; i <= b; i++) {
+        const sd = sommeDiv(i);
+        if (sd == i) {
+            t.push(i);
+        }
+    }
+    return t;
+}
+
+function btnCalcClicked() {
+    const a = Number(inpA.value);
+    const b = Number(inpB.value);
+    const type = (radAmis.checked) ? "amis" : "parfaits";
+    let t = [];
+    inpRes.value = "Liste de nombres " + type + "\n";
+    if (type == "amis") {
+        t = calcAmis(a, b);
+    } else {
+        t = calcParfaits(a, b);
+    }
+    if (t.length == 0) {
+        inpRes.value += "Aucun nombre trouvé dans l'intervalle [" + a + ", " + b + "].";
+    } else {
+        for (let i = 0; i < t.length; i++) {
+            inpRes.value += t[i] + '\n';
         }
     }
 }
@@ -54,4 +86,4 @@ function selectNumbers() {
 
 selectNumbers();
 btnSelNum.addEventListener('click', selectNumbers);
-btn.addEventListener('click', calcAmis);
+btn.addEventListener('click', btnCalcClicked);
