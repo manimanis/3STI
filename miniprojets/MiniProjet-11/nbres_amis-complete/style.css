@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12pt;
+}
+
+legend {
+    text-align: center;
+}
+
+fieldset {
+    width: 500px;
+    margin: 50px auto;
+}
+
+fieldset>div {
+    margin: 10px auto;
+}
+
+label[for] {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="number"],
+textarea {
+    width: 100%;
+    font-size: 12pt;
+}
