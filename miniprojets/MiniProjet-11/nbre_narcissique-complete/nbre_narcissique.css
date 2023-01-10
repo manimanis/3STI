@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12pt;
+}
+
+body {
+    background-color: #9D44B5;
+}
+
+legend {
+    text-align: center;
+    color: #525252;
+    background-color: #B5446E;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 0 20px;
+}
+
+fieldset {
+    width: 600px;
+    margin: 50px auto;
+    background-color: #B5446E;
+    border-color: #525252;
+    color: white;
+}
+
+fieldset>div {
+    margin: 10px auto;
+}
+
+label[for] {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="number"] {
+    width: 100%;
+    font-size: 12pt;
+}
+
+form p {
+    font-size: 0.9em;
+}

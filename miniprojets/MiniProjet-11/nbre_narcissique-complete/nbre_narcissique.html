@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="nbre_narcissique.css">
+</head>
+
+<body>
+  <form action="#">
+    <fieldset>
+      <legend>Nombre narcissique</legend>
+      <p>Les nombres suivants sont des nombres narcissiques.</p>
+      <script>
+        const nbres = [153, 370, 1634, 8208, 92727, 93084];
+        let nbchiff = 0;
+        document.write('<p>');
+        for (let nbre of nbres) {
+          const s = "" + nbre;
+          if (nbchiff != s.length) {
+            document.writeln('<p>Nombres de ', s.length, ' chiffres</p>');
+            if (nbchiff != 0) {
+              document.write('</p><p>');
+            }
+            nbchiff = s.length;
+          } else {
+            document.writeln(" - ");
+          }
+          for (let i = 0; i < s.length; i++) {
+            if (i > 0) document.write('+');
+            document.write(s[i], '<sup>', s.length, '</sup>')
+          }
+          document.writeln('=', nbre);
+        }
+        document.write('</p>');
+      </script>
+      <h4>Liste de nombres narcissiques</h4>
+      <p>1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407, 1634, 8208, 9474, 54748, 92727, 93084, 548834, 1741725, 4210818,
+        9800817, 9926315, 24678050, 24678051, 88593477, 146511208, 472335975, 534494836, 912985153, 4679307774,
+        32164049650, 32164049651</p>
+      <div>
+        <label for="nbre">Nombre*</label>
+        <input type="number" name="nbre" id="nbre" min="1" placeholder="Entier entre 1 et 9999999">
+      </div>
+      <div>
+        <button type="button" id="calc">Vérifier</button>
+      </div>
+      <div id="res"></div>
+    </fieldset>
+  </form>
+  <script src="nbre_narcissique.js"></script>
+</body>
+
+</html>
