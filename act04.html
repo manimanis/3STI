@@ -127,35 +127,33 @@ console.log(dist(dist_manhattan, 1, 2, 7, 8));   // => 12
     alert(&quot;Good luck!&quot;);
   }
 &lt;/script&gt;</code></pre>
-        <div class="d-print-none">
-          <p><strong>Exemple 3</strong></p>
-          <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis attacher
-            l'évènement
-            <code>onclick</code> dans JavaScript.
-          </p>
-          <pre><code class="html">&lt;button id=&quot;bouton&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
+        <p class="p-break"><strong>Exemple 3</strong></p>
+        <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis attacher
+          l'évènement
+          <code>onclick</code> dans JavaScript.
+        </p>
+        <pre><code class="html">&lt;button id=&quot;bouton&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
 &lt;script&gt;
   const bouton = document.getElementById(&quot;bouton&quot;);
   bouton.onclick = () =&gt; {
     alert(&quot;You are the best of the best!&quot;);
   };
 &lt;/script&gt;</code></pre>
-          <p><strong>Exemple 4</strong></p>
-          <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis utiliser la méthode
-            <code>addEventListener</code> pour attacher une fonction à l'évènement <code>click</code>.
-          </p>
-          <pre><code class="html">&lt;button id=&quot;btn-2&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
+        <p><strong>Exemple 4</strong></p>
+        <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis utiliser la méthode
+          <code>addEventListener</code> pour attacher une fonction à l'évènement <code>click</code>.
+        </p>
+        <pre><code class="html">&lt;button id=&quot;btn-2&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
 &lt;script&gt;
   const btn2 = document.getElementById(&quot;btn-2&quot;);
   btn2.addEventListener(&quot;click&quot;, () =&gt; {
     alert(&quot;Wish you success and happiness!&quot;);
   });
 &lt;/script&gt;</code></pre>
-        </div>
       </section>
 
       <section>
-        <h3 class="p-break">Exemple avec les évènements click et submit</h3>
+        <h3>Exemple avec les évènements click et submit</h3>
         <p><strong>Fichier HTML "click_n_submit.html"</strong></p>
         <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -172,7 +170,7 @@ console.log(dist(dist_manhattan, 1, 2, 7, 8));   // => 12
   &lt;script src=&quot;events.js&quot;&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-        <p><strong>Fichier JavaScript "events.js"</strong></p>
+        <p class="p-break"><strong>Fichier JavaScript "events.js"</strong></p>
         <pre><code class="javascript">// R&eacute;cup&eacute;rer les champs du formulaire
 const msgDiv = document.getElementById(&apos;message&apos;);
 const nameInput = document.getElementById(&apos;input&apos;);
