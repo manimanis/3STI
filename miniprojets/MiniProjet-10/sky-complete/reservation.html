@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="page">
+    <header>
+      <img src="images/Flag_of_Tunisia.svg.png" alt="Tunisian flag">
+      <h1>Welcome To Tunisia</h1>
+      <p>Les vacances de rêves</p>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="sousse.html">Sousse</a></li>
+        <li><a href="monastir.html">Monastir</a></li>
+        <li><a href="mahdia.html">Mahdia</a></li>
+        <li><a href="reservation.html">Réservation</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h1>Réservation</h1>
+
+      <form action="#">
+        <fieldset>
+          <legend>Réservation</legend>
+          <div>
+            <label for="da">Date d'arrivée *</label>
+            <input type="date" name="da" id="da" required>
+          </div>
+          <div>
+            <label for="duree">Nuitées *</label>
+            <input type="number" name="duree" id="duree" min="1" max="30" placeholder="Nombre de nuits, ex : 3"
+              required>
+          </div>
+          <div>
+            <label for="type-c1">Type chambre *</label>
+            <label><input type="radio" name="type" id="type-c1" value="single" required> Single</label>
+            <label><input type="radio" name="type" id="type-c2" value="double" required> Double</label>
+            <label><input type="radio" name="type" id="type-c3" value="multiple" required> Multiple</label>
+          </div>
+          <div>
+            <label for="nbr">Nombre de personnes *</label>
+            <input type="number" name="nbr" id="nbr" min="1" max="10" placeholder="Nombre de personnes, ex : 1"
+              required>
+          </div>
+          <div>
+            <label for="region">Région</label>
+            <select name="region" id="region">
+              <option value="">Sélectionner</option>
+              <option value="Sousse">Sousse</option>
+              <option value="Monastir">Monastir</option>
+              <option value="Mahdia">Mahdia</option>
+            </select></div>
+        </fieldset>
+        <div>
+          <button type="submit">Vérifier</button>
+          <button type="reset">Effacer</button>
+        </div>
+      </form>
+    </main>
+    <footer>
+      <p>&copy; Tous droits réservés</p>
+    </footer>
+  </div>
+</body>
+
+</html>

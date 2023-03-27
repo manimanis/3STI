@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Fonctions & évènements</h2>
+      <section>
+        <h3>Les fonctions</h3>
+        <p>L'utilisation des fonctions permet de réduire la complexité d'un problème en le décomposant en des
+          sous-problèmes moins compliqués.</p>
+        <p>Les fonctions en JavaScript sont des <strong>citoyens de première classe</strong>.</p>
+        <p>Une fonction peut être déclarée de plusieurs façons. Elle peut être déclarée comme une variable et passée en
+          tant que paramètre à une autre fonction.</p>
+        <p>Une fonction est déclarée :</p>
+        <ul>
+          <li>À l'aide du mot clé : <code>function</code>.</li>
+          <li>Comme une variable ou constante à l'aide de <code>const</code>, <code>let</code> ou <code>var</code>.</li>
+          <li>Comme une fonction anonyme.</li>
+        </ul>
+        <h4>Forme générale</h4>
+        <pre class="javascript"><code>/* fonction ordinaire */
+function nom_fonction(par1, par2, ..., parN) {
+  // traitement
+
+  /* La fonction peut retourner, ou non, un résultat à son appelant */
+  [return résultat;]
+}
+
+/* fonctions anonymes */
+const nom_fct2 = function (par1, par2, ..., parM) {
+  // traitement
+  [return resultat;]
+};
+
+const nom_fct3 = (par1, par2, ..., parM) =&gt; résultat;</code></pre>
+        <h4>Exemples</h4>
+        <p>On veut calculer la distance entre deux points A(x<sub>a</sub>, y<sub>a</sub>) et B(x<sub>b</sub>,
+          y<sub>b</sub>) dans un plan munit d'un repère orthonormé. Il existe plusieurs méthodes de calculs :</p>
+        <ul>
+          <li>Distance de Manhattan,</li>
+          <li>Distance euclidienne.</li>
+        </ul>
+        <p>Le script suivant définit trois fonctions permettant de calculer la distance entre deus points en utilisant
+          les deux méthodes.</p>
+        <figure>
+          <img src="assets/miniprojet09/images-act/Manhattan_distance.svg" alt="Type de distances" class="im-h-3">
+          <figcaption>Le chemin en vert indique la distance euclidienne, les autres chemins (rouge, bleu et jaune)
+            indiquent la distance de Manhattan</figcaption>
+        </figure>
+        <pre class="javascript"><code>/* fonction ordinaire */
+function dist_euclidienne(xa, ya, xb, yb) {
+  return Math.sqrt((xb - xa)**2 + (yb - ya)**2);
+}
+
+/* fonctions anonymes */
+const dist_manhattan = function (xa, ya, xb, yb) {
+  return Math.abs(xb - xa) + Math.abs(yb - ya);
+};
+
+const dist = (fn, xa, ya, xb, yb) =&gt; fn(xa, ya, xb, yb);
+
+/* Afficher la distance entre les deux points A(1, 2) et B(7, 8) */
+console.log(dist_euclidienne(1, 2, 7, 8));       // => 8.48528137423857
+console.log(dist_manhattan(1, 2, 7, 8));         // => 12
+
+console.log(dist(dist_euclidienne, 1, 2, 7, 8)); // => 8.48528137423857
+console.log(dist(dist_manhattan, 1, 2, 7, 8));   // => 12
+</code></pre>
+      </section>
+
+      <section>
+        <h3>Les évènements</h3>
+        <p>JavaScript est un langage évènementiel, chaque nœud du DOM génère des évènements. Un évènement est
+          déclenché, <u>automatiquement</u>, par le navigateur lorsque :</p>
+        <ul>
+          <li>Le contenu de la page est chargé.</li>
+          <li>L'utilisateur clique sur un bouton dans la page.</li>
+          <li>L'utilisateur modifie le contenu d'un champ dans un formulaire.</li>
+          <li>L'utilisateur glisse un objet au dessus d'un élément.</li>
+          <li>etc.</li>
+        </ul>
+        <p>JavaScript permet d'<strong>écouter un évènement</strong> et d'y attacher, par conséquence, <strong>un
+            gestionnaire d'évènement</strong>.</p>
+      </section>
+
+      <section>
+        <h3>Réponse à un évènement</h3>
+        <p>Il est possible de répondre aux évènements de plusieurs manières.</p>
+        <p>Par exemple, pour répondre au clic d'un
+          bouton on peut écrire :</p>
+        <p><strong>Exemple 1</strong></p>
+        <p>Définir l'attribut <code>onclick</code> de la balise <code>&lt;button&gt;</code>. Le clic sur ce bouton
+          exécute le code JavaScript.</p>
+        <pre><code class="html">&lt;button type=&quot;button&quot; onclick=&quot;alert(&apos;You\&apos;re welcome!&apos;)&quot;&gt;Cliquez-moi&lt;/button&gt;</code></pre>
+        <p><strong>Exemple 2</strong></p>
+        <p>Définir l'attribut <code>onclick</code> de la balise <code>&lt;button&gt;</code>. Le clic sur ce bouton
+          appelle la fonction <code>clic01()</code>.</p>
+        <pre><code class="html">&lt;button type=&quot;button&quot; onclick=&quot;clic01()&quot;&gt;Cliquez-moi&lt;/button&gt;
+&lt;script&gt;
+  function clic01() {
+    alert(&quot;Good luck!&quot;);
+  }
+&lt;/script&gt;</code></pre>
+        <p class="p-break"><strong>Exemple 3</strong></p>
+        <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis attacher
+          l'évènement
+          <code>onclick</code> dans JavaScript.
+        </p>
+        <pre><code class="html">&lt;button id=&quot;bouton&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
+&lt;script&gt;
+  const bouton = document.getElementById(&quot;bouton&quot;);
+  bouton.onclick = () =&gt; {
+    alert(&quot;You are the best of the best!&quot;);
+  };
+&lt;/script&gt;</code></pre>
+        <p><strong>Exemple 4</strong></p>
+        <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis utiliser la méthode
+          <code>addEventListener</code> pour attacher une fonction à l'évènement <code>click</code>.
+        </p>
+        <pre><code class="html">&lt;button id=&quot;btn-2&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
+&lt;script&gt;
+  const btn2 = document.getElementById(&quot;btn-2&quot;);
+  btn2.addEventListener(&quot;click&quot;, () =&gt; {
+    alert(&quot;Wish you success and happiness!&quot;);
+  });
+&lt;/script&gt;</code></pre>
+      </section>
+
+      <section>
+        <h3>Exemple avec les évènements click et submit</h3>
+        <p><strong>Fichier HTML "click_n_submit.html"</strong></p>
+        <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;TP sur les fonctions et les &eacute;v&egrave;nements&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;button id=&quot;button1&quot;&gt;Afficher un message&lt;/button&gt;
+  &lt;button id=&quot;button2&quot;&gt;Afficher un autre message&lt;/button&gt;
+  &lt;p id=&quot;message&quot;&gt;&lt;/p&gt;
+  &lt;form&gt;
+    &lt;label for=&quot;input&quot;&gt;Entrez votre nom :&lt;/label&gt;&lt;br&gt;
+    &lt;input type=&quot;text&quot; id=&quot;input&quot;&gt;&lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Envoyer&quot;&gt;
+  &lt;/form&gt;
+  &lt;script src=&quot;events.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <p class="p-break"><strong>Fichier JavaScript "events.js"</strong></p>
+        <pre><code class="javascript">// R&eacute;cup&eacute;rer les champs du formulaire
+const msgDiv = document.getElementById(&apos;message&apos;);
+const nameInput = document.getElementById(&apos;input&apos;);
+const btn1 = document.getElementById(&apos;button1&apos;);
+const btn2 = document.getElementById(&apos;button2&apos;);
+const form = document.querySelector(&apos;form&apos;);
+
+// Afficher un message dans l'élément #message
+function showMessage(message) {
+  msgDiv.innerHTML = message;
+}
+
+// Les fonctions qui g&egrave;rent l&apos;&eacute;v&egrave;nement click sur les deux boutons
+function handleButton1Click() {
+  showMessage(&apos;Vous avez cliqu&eacute; sur le premier bouton&apos;);
+}
+
+function handleButton2Click() {
+  showMessage(&apos;Vous avez cliqu&eacute; sur le deuxi&egrave;me bouton&apos;);
+}
+
+// La fonction qui g&egrave;re l&apos;&eacute;v&egrave;nement submit sur le formulaire
+function handleFormSubmit(event) {
+  event.preventDefault();              // Annuler l&apos;envoi du formulaire
+  const inputValue = nameInput.value;  // R&eacute;cup&eacute;rer la valeur du champ #input
+
+  // Affichage de la valeur du champ de formulaire dans le paragraphe
+  showMessage(&apos;Vous vous appelez &apos; + inputValue);
+}
+
+// Ajouts des écouteurs des &eacute;v&egrave;nements
+btn1.addEventListener(&apos;click&apos;, handleButton1Click);
+btn2.addEventListener(&apos;click&apos;, handleButton2Click);
+form.addEventListener(&apos;submit&apos;, handleFormSubmit);</code></pre>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

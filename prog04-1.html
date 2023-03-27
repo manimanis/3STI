@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Tic-Tac-Toe</h2>
+      <section>
+        <h3>Progression dans le Jeu Tic-Tac-Toe</h3>
+        
+        <p><strong>Fichier HTML</strong></p>
+        <pre><code class="html">&lt;div id=&quot;game&quot;&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<p><strong>Fichier CSS</strong></p>
+<pre><code class="css">#game {
+  width: 498px;
+  height: 498px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  border: #F0B67F solid 3px;
+  background-color: #C7EFCF;
+  font-size: 150px;
+  line-height: 155px;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+}</code></pre>
+
+<p><strong>Fichier JavaScript</strong></p>
+<pre><code class="javascript">const boxes = [...document.querySelectorAll('.box')];
+function boxClick(e) {
+  const idxBox = boxes.indexOf(e.target);
+  boxes[idxBox].textContent = letter;
+  letter = (letter == 'X') ? 'O' : 'X';
+}
+boxes.forEach(box => box.addEventListener('click', boxClick));
+let letter = 'X';</code></pre>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 30pt;
+  background-color: #000;
+  color: #fff;
+  height: 100vh;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+input[type="checkbox"]+span {
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+  border: antiquewhite solid 5px;
+  background-color: red;
+  border-radius: 11px;
+  position: relative;
+}
+
+input[type="checkbox"]+span::after {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  top: 2px;
+  left: 2px;
+  background-color: antiquewhite;
+  border-radius: 50%;
+}
+
+input[type="checkbox"]:checked+span {
+  border: #000 solid 5px;
+  background-color: green;
+}
+
+input[type="checkbox"]:checked+span::after {
+  left: 22px;
+}
+
+.lighton {
+  background: transparent url(chambre.jpg) left center no-repeat;
+  background-size: cover;
+  background-color: yellow;
+  color: #000;
+}
+
+#switch-panel {
+  width: 350px;
+  height: 250px;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 40px 0 0 40px;
+  background-color: #4448;
+}
+
+.lighton #switch-panel {
+  background-color: #0008;
+  color: #fff;
+}

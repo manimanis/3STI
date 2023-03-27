@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fonctions</title>
+</head>
+
+<body>
+  <script>
+    let a = 5, b = 10;
+
+    /* Déclaration d'une fonction : Méthode 1 */
+    function somme(a, b) {
+      return a + b;
+    }
+    document.writeln("<p>", a, "+", b, "=", somme(a, b), "</p>");
+
+    /* Déclaration d'une fonction : Méthode 2 */
+    const produit = function (a, b) {
+      return a * b;
+    }
+    document.writeln("<p>", a, "*", b, "=", produit(a, b), "</p>");
+
+    /* Déclaration d'une fonction : Méthode 3 */
+    const alea = (a, b) => {
+      return Math.floor(Math.random() * (b - a)) + a;
+    }
+    document.writeln("<p>alea(", a, ", ", b, ") = ", alea(a, b), "</p>");
+
+    function calc(fn, a, b) {
+      return fn(a, b)
+    }
+
+    /* Déclaration d'une fonction : Méthode 4 */
+    const res = calc((x, y) => x / y, a, b);
+    document.writeln("<p>", a, "/", b, "=", res, "</p>");
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+#frame {
+  width: 720px;
+  height: 400px;
+  border: #333 solid 6px;
+  position: relative;
+  margin: auto;
+}
+
+#vertical {
+  position: absolute;
+  top: -9px;
+  left: -32px;
+  writing-mode: lr-bt;
+  -webkit-appearance: slider-vertical;
+  width: 8px;
+  height: 400px;
+  padding: 0 5px;
+}
+
+#horizontal {
+	position: absolute;
+	bottom: -32px;
+	left: -8px;
+	width: 720px;
+}
+
+#ball {
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle, red, blue);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures itératives</title>
+</head>
+
+<body>
+  <script>
+    let a = Math.floor(Math.random() * 10);
+    let b, u;
+
+    document.writeln("<p>Cherchons un nombre ayant un chiffre d'unités = ", a, "</p>")
+
+    do {
+      b = Math.floor(Math.random() * 90) + 10;
+      u = b % 10;
+      if (u == a) {
+        document.writeln(b, " Accepté");
+      } else {
+        document.writeln(b, " Rejeté");
+      }
+      document.writeln("<br>");
+    } while (u != a);
+
+    {
+      let a = Math.floor(Math.random() * 10);
+      let b = Math.floor(Math.random() * 10);
+      let c, sc, pa, pb;
+
+      document.writeln("<p>Cherchons un nombre contenant les chiffres ", a, " et ", b, "</p>");
+
+      do {
+        c = Math.floor(Math.random() * 9000) + 1000;
+        sc = c.toString();
+        pa = sc.indexOf(a);
+        pb = sc.indexOf(b);
+
+        if (a == b || pa == -1 || pb == -1) {
+          document.writeln(c, " Rejeté");
+        } else {
+          document.writeln(c, " Accepté");
+        }
+        document.writeln("<br>");
+      } while (a == b || pa == -1 || pb == -1);
+    }
+  </script>
+</body>
+
+</html>

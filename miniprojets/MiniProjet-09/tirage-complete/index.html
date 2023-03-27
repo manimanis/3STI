@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tirage au sort</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <div id="prix">
+      <h1>Prix à gagner</h1>
+      <div id="cagnote">
+        <div id="pc-gamer">
+          <img src="images/pc-gamer.jpg" alt="PC Gamer">
+          <p>PC Gamer</p>
+        </div>
+        <div id="smart-tv">
+          <img src="images/tv-64_pouces.jpg" alt="Smart TV 64&quot;">
+          <p>Smart TV 64"</p>
+        </div>
+        <div id="iphone-13">
+          <img src="images/iphone.png" alt="iPhone 13">
+          <p>iPhone 13</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="participants">
+      <h1>Liste des participants</h1>
+      <div id="liste">
+        <h2>Participants</h2>
+        <form action="#">
+          <select name="part" id="part" size="10">
+            <option>Salim Ghali</option>
+            <option>Sofiene Salhi</option>
+            <option>Eya Akrmi</option>
+            <option>Imen Akrout</option>
+          </select>
+        </form>
+        <button type="button" id="new" title="Nouveau participant">+</button>
+      </div>
+      <div id="controls">
+        <div id="add-form">
+          <h2>Nouveau participant</h2>
+          <div>
+            <input type="text" name="np" id="np" placeholder="Nom & Prénom">
+          </div>
+          <div>
+            <button type="button" id="add-btn">Ajouter</button>
+            <button type="button" id="cancel-btn">Annuler</button>
+          </div>
+        </div>
+
+        <div id="edit-form">
+          <h2>Editer participant</h2>
+          <div>
+            <input type="text" name="np2" id="np2" placeholder="Nom & Prénom">
+          </div>
+          <div>
+            <button type="button" id="edit-btn">Modifier</button>
+            <button type="button" id="del-btn">Supprimer</button>
+            <button type="button" id="cancel-btn2">Annuler</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="gagnants">
+      <h2>Liste des gagnants</h2>
+      <div class="gagnant">
+        <img src="images/member.webp" alt="Gagnant PC Gamer">
+        <p></p>
+      </div>
+      <div class="gagnant">
+        <img src="images/member.webp" alt="Gagnant Smart TV 64&quot;">
+        <p></p>
+      </div>
+      <div class="gagnant">
+        <img src="images/member.webp" alt="iPhone 13">
+        <p></p>
+      </div>
+      <div class="tirage">
+        <button type="button" id="tirage-btn">Tirage au sort</button>
+      </div>
+    </div>
+  </main>
+<script>
+  const add_form = document.getElementById("add-form");
+  const edit_form = document.getElementById("edit-form");
+
+  const btn_new = document.getElementById("new");
+
+  const btn_add = document.getElementById("add-btn");
+  const btn_cancel = document.getElementById("cancel-btn");
+
+  const btn_edit = document.getElementById("edit-btn");
+  const btn_del = document.getElementById("del-btn");
+  const btn_cancel2 = document.getElementById("cancel-btn2");
+
+  const part = document.getElementById("part");
+  const np = document.getElementById("np");
+  const np2 = document.getElementById("np2");
+
+  const gagnants = document.querySelectorAll("#gagnants .gagnant > p");
+  const btn_tirage = document.getElementById("tirage-btn");
+  
+  let editing = false, selectedIdx = -1;
+
+  function showAddForm(display) {
+    if (display) {
+      btn_new.setAttribute("disabled", "true");
+      part.setAttribute("disabled", "true");
+      add_form.style.display = "block";
+    } else {
+      btn_new.removeAttribute("disabled");
+      part.removeAttribute("disabled");
+      add_form.style.display = "";
+      part.selectedIndex = -1;
+    }
+    editing = display;
+  }
+
+  function showEditForm(display) {
+    if (display) {
+      btn_new.setAttribute("disabled", "true");
+      part.setAttribute("disabled", "true");
+      edit_form.style.display = "block";
+      selectedIdx = part.selectedIndex;
+    } else {
+      btn_new.removeAttribute("disabled");
+      part.removeAttribute("disabled");
+      edit_form.style.display = "";
+      part.selectedIndex = -1;
+    }
+    editing = display;
+  }
+
+  function nameIndex(name) {
+    for (let i = 0; i < part.options.length; i++) {
+      const option = part.options[i];
+      if (option.value.toUpperCase() == name.toUpperCase()) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  btn_new.addEventListener("click", () => {
+    if (editing) return;
+    showAddForm(true);
+    np.value = "";
+  });
+
+  btn_cancel.addEventListener("click", () => {
+    if (!editing) return;
+    showAddForm(false);
+  });
+
+  btn_add.addEventListener("click", () => {
+    const name = np.value.trim();
+    if (name == "") {
+      alert("Nom vide!");
+      return;
+    }
+    if (nameIndex(name) != -1) {
+      alert("\"" + name + "\" existe déjà!");
+      return;
+    }
+    part.add(new Option(name, name));
+    showAddForm(false);
+  });
+
+  part.addEventListener("change", (e) => {
+    if (editing) return;
+    showEditForm(true);
+    np2.value = part.value;
+  });
+
+  btn_cancel2.addEventListener("click", (e) => {
+    if (!editing) return;
+    showEditForm(false);
+  });
+
+  btn_edit.addEventListener("click", (e) => {
+    const name = np2.value.trim();
+    const ni = nameIndex(name);
+    if (name == "") {
+      alert("Nom vide!");
+      return;
+    }
+    if (ni != -1 && ni != selectedIdx) {
+      alert("\"" + name + "\" existe déjà!");
+      return;
+    }
+    part.options[selectedIdx].value = name;
+    part.options[selectedIdx].text = name;
+    showEditForm(false);
+  });
+
+  btn_del.addEventListener("click", (e) => {
+    if (confirm("Êtes-vous sûr de vouloir supprimer \"" + part.options[selectedIdx].value + "\" ? ")) {
+      part.options.remove(selectedIdx);
+      showEditForm(false);
+    }
+  });
+
+  btn_tirage.addEventListener("click", (e) => {
+    if (part.options.length < 3) {
+      alert("Il faut avoir au moins trois participants au tirage au sort!");
+      return;
+    }
+    const ga = [];
+    for (let i = 0; i < 3; i++) {
+      let g;
+      do {
+        g = part.options[Math.floor(Math.random() * part.options.length)].value;
+      } while (ga.includes(g));
+      ga.push(g);
+      gagnants[i].textContent = g;
+    }
+  });
+</script>
+
+</body>
+
+</html>

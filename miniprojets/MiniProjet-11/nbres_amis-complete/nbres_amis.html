@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nombres amis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <form action="#">
+    <fieldset>
+      <legend>Nombres amis & Nombres parfaits</legend>
+      <div>
+        <label><input type="radio" name="type_op" id="nbre-amis" checked> Nombres amis</label>
+        <label><input type="radio" name="type_op" id="nbre-parfait"> Nombres parfaits</label>
+      </div>
+      <div>
+        <button type="button" id="sel-num">Nombres au hasard</button>
+      </div>
+      <div>
+        <label for="a">A*</label>
+        <input type="number" name="a" id="a" min="100" max="99999" placeholder="Entier entre 100 et 99999">
+      </div>
+      <div>
+        <label for="b">B*</label>
+        <input type="number" name="b" id="b" min="100" max="99999" placeholder="Entier entre 100 et 99999">
+      </div>
+      <div>
+        <button type="button" id="calc">Calculer</button>
+      </div>
+      <div>
+        <textarea name="res" id="res" cols="30" rows="8" placeholder="Résultats de calcul" readonly></textarea>
+      </div>
+    </fieldset>
+  </form>
+  <script src="nbres_amis.js"></script>
+</body>
+
+</html>

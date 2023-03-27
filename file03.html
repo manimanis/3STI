@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Séance n°3</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Séance n°3</h1>
+
+    <article>
+      <h2>Animation CSS</h2>
+
+      <section>
+        <h3>Problématique</h3>
+
+        <p>On veut créer les <strong>barres de progression</strong> ci-dessous :</p>
+        <div class="d-print-none">
+          <video controls>
+            <source src="assets/miniprojet04/images/loader.webm" type="video/webm">
+            <source src="assets/miniprojet04/images/loader.ogg" type="video/ogg">
+            <source src="assets/miniprojet04/images/loader.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="d-none d-print-block">
+          <figure>
+            <img src="assets/miniprojet04/images/loader.png" alt="Barres de progression">
+            <figcaption>Barres de progression</figcaption>
+          </figure>
+        </div>
+
+        <h4>Squelette de la page</h4>
+
+        <p>On donne le code HTML correspondant :</p>
+        <pre class="html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Animation&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;loader animation1&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;loader animation2&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;loader animation3&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <p>Le chargement du fichier dans le navigateur n'affiche rien. Il faudra écrire le code CSS.</p>
+
+        <h4>Code CSS</h4>
+
+        <p>Commençons par définir le cadre des barres de progression :</p>
+        <ul>
+          <li>Dimensions : 320px &times; 16px</li>
+          <li>Marges verticales: 5px</li>
+          <li>Bordure : couleur <span class="color" style="background-color: #333;"></span> #333, épaisseur 1px</li>
+        </ul>
+
+        <p>La barre de progression est définie comme suit :</p>
+        <ul>
+          <li>Dimensions : 100% &times; 100%</li>
+          <li>Arrière plan : Un dégradé linéaire de <span class="color" style="background-color: #007700;"></span>
+            #007700 à <span class="color" style="background-color: #65ff65;"></span> #65ff65, de gauche à droite</li>
+        </ul>
+
+        <pre class="css"><code>.loader {
+  width: 320px;
+  height: 16px;
+  margin: 5px 0;
+  border: #333 solid 1px;
+  position: relative;
+}
+
+.animation1 .progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #007700, #65ff65);
+}</code></pre>
+
+        <p>Ce code permet d'obtenir un rectangle remplit par un dégradé de vert comme suit :</p>
+        <figure>
+          <img src="assets/miniprojet04/images/loader02.png"
+            alt="Implémentation partielle de l'indicateur de téléchargement">
+          <figcaption>Implémentation partielle de l'indicateur de téléchargement</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Présentation</h3>
+        <p>Une animation permet à un élément de passer progressivement d'un style à un autre. Pour animer un élément, il
+          faut définir les images clés (keyframes) de l'animation. Les images clés contiennent les styles que l'élément
+          aura à certains moments.</p>
+
+        <h4>La règle @keyframes</h4>
+        <p>La règle <code>@keyframes</code> définit les moments auxquels l'animation passe du style actuel à un nouveau
+          style.</p>
+        <p>Pour fonctionner les images clés <code>@keyframes</code> doivent être liés à un élément de la page.</p>
+        <p>Dans l'example suivant l'animation <code>anim01</code> est liée à l'élément ayant comme classe
+          <code>.anim01</code>. L'animation dure 4 secondes et fait changer l'arrière plan de l'élément du
+          <span class="color" style="background-color: red;"></span> rouge au <span class="color"
+            style="background-color: yellow;"></span> jaune.
+        </p>
+        <p>La propriété <code> animation-duration</code> définit la durée d'exécution de l'animation. Si elle n'est pas
+          spécifiée, aucune animation ne se produit, car la valeur par défaut est 0s.</p>
+
+        <p>Dans cet exemple, les moments quand le style changera en utilisant les mots clés <code>from</code> et
+          <code>to</code>.
+        </p>
+        <ul>
+          <li><code>from</code> : représente le style au début de l'animation (0%)</li>
+          <li><code>to</code> : représente le style à la fin de l'animation (100%)</li>
+        </ul>
+
+        <div class="row d-print-none">
+          <div class="col-sm-9">
+            <pre class="css"><code>@keyframes anim01 {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+.anim01 {
+  width: 100px; 
+  height: 100px;
+  background-color: red;
+  animation-name: anim01;
+  animation-duration: 4s;
+}</code></pre>
+          </div>
+          <div class="col-sm-3">
+            <style>
+              @keyframes anim01 {
+                from {
+                  background-color: red;
+                }
+
+                to {
+                  background-color: yellow;
+                }
+              }
+
+              .anim01 {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                animation-name: anim01;
+                animation-duration: 4s;
+              }
+            </style>
+            <div class="anim01"></div>
+          </div>
+        </div>
+        <div class="d-none d-print-block">
+          <pre class="css"><code>@keyframes anim01 {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+.anim01 {
+  width: 100px; height: 100px;
+  background-color: red;
+  animation-name: anim01;
+  animation-duration: 4s;
+}</code></pre>
+        </div>
+
+        <p>A la place des mots clés <code>from</code> et <code>to</code>, il est possible d'utiliser le poucentage de
+          progression de l'animation &laquo; <strong>animation progression in percent</strong> &raquo; :</p>
+        <ul>
+          <li><code>0%</code> représente le début de l'animation,</li>
+          <li><code>x%</code> avec <code>x</code> est un nombre de 0 à 100 qui représente la progression de l'animation,
+          </li>
+          <li><code>100%</code> représente la fin de l'animation</li>
+        </ul>
+
+        <p><strong>Exemple 1</strong> : L'exemple suivant modifie la couleur d'arrière-plan de la classe
+          <code>.anim02</code> :
+        </p>
+        <ul>
+          <li>de <code>0%</code> à <code>25%</code> : couleur d'arrière-plan <span class="color"
+              style="background-color: red;"></span> rouge</li>
+          <li>de <code>25%</code> à <code>50%</code> : couleur d'arrière-plan <span class="color"
+              style="background-color: yellow;"></span> jaune</li>
+          <li>de <code>50%</code> à <code>75%</code> : couleur d'arrière-plan <span class="color"
+              style="background-color: blue;"></span> bleue</li>
+          <li>de <code>75%</code> à <code>100%</code> : couleur d'arrière-plan <span class="color"
+              style="background-color: green;"></span> verte</li>
+        </ul>
+        <div class="row d-print-none">
+          <div class="col-sm-9">
+            <pre class="css"><code>@keyframes anim02 {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+
+.anim02 {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: anim02;
+  animation-duration: 4s;
+}</code></pre>
+          </div>
+          <div class="col-sm-3">
+            <style>
+              @keyframes anim02 {
+                0% {
+                  background-color: red;
+                }
+
+                25% {
+                  background-color: yellow;
+                }
+
+                50% {
+                  background-color: blue;
+                }
+
+                100% {
+                  background-color: green;
+                }
+              }
+
+              .anim02 {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                animation-name: anim02;
+                animation-duration: 4s;
+              }
+            </style>
+            <div class="anim02"></div>
+          </div>
+        </div>
+
+        <div class="d-none d-print-block">
+          <pre class="css"><code>@keyframes anim02 {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+
+.anim02 {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: anim02;
+  animation-duration: 4s;
+}</code></pre>
+        </div>
+
+        <p><strong>Exemple 2</strong> : L'exemple suiavnt modifie la couleur et la position de l'élément dont la classe
+          est <code>.anim03</code>.</p>
+        <div class="row d-print-none">
+          <div class="col-sm-9">
+            <pre class="css"><code>@keyframes anim03 {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+
+.anim03 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: anim03;
+  animation-duration: 4s;
+}</code></pre>
+          </div>
+          <div class="col-sm-3">
+            <style>
+              @keyframes anim03 {
+                0% {
+                  background-color: red;
+                  left: 0px;
+                  top: 0px;
+                }
+
+                25% {
+                  background-color: yellow;
+                  left: 200px;
+                  top: 0px;
+                }
+
+                50% {
+                  background-color: blue;
+                  left: 200px;
+                  top: 200px;
+                }
+
+                75% {
+                  background-color: green;
+                  left: 0px;
+                  top: 200px;
+                }
+
+                100% {
+                  background-color: red;
+                  left: 0px;
+                  top: 0px;
+                }
+              }
+
+              .anim03 {
+                width: 100px;
+                height: 100px;
+                position: relative;
+                background-color: red;
+                animation-name: anim03;
+                animation-duration: 4s;
+              }
+            </style>
+            <div class="anim03"></div>
+          </div>
+        </div>
+
+        <div class="d-none d-print-block">
+          <pre class="css"><code>@keyframes anim03 {
+            0%   {background-color:red; left:0px; top:0px;}
+            25%  {background-color:yellow; left:200px; top:0px;}
+            50%  {background-color:blue; left:200px; top:200px;}
+            75%  {background-color:green; left:0px; top:200px;}
+            100% {background-color:red; left:0px; top:0px;}
+          }
+          
+          .anim03 {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: red;
+            animation-name: anim03;
+            animation-duration: 4s;
+          }</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Propriétés d'une animation</h3>
+        <p>Une animation possède les propriétés suivantes :</p>
+        <ul>
+          <li><code>animation-name</code> nom donné aux images clés (<code>@keyframes</code>)</li>
+          <li><code>animation-duration</code> durée de l'animation en secondes</li>
+          <li><code>animation-delay</code> permet de lancer l'animation avec un retard donné</li>
+          <li><code>animation-iteration-count</code> nombre de répétition de l'animation</li>
+          <li><code>animation-direction</code> indique le sens d'évolution de l'animation de 0% vers 100% ou le
+            contraire.</li>
+          <li><code>animation-timing-function</code> indique la vitesse d'évolution de l'animation</li>
+          <li><code>animation</code> est un raccourci à l'ensemble des propriétés précédentes dans une seule propriété :
+            <pre
+              class="css"><code>animation: name duration timing-function delay iteration-count direction;</code></pre>
+          </li>
+        </ul>
+
+        <p><strong>Exemple 1</strong> : </p>
+        <div class="row d-print-none">
+          <div class="col-sm-9">
+            <pre class="css"><code>.anim04 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: anim04;
+  animation-duration: 10s;
+  animation-delay: 5s;
+  animation-iteration-count: 6;
+  animation-direction: alternate;
+}
+
+@keyframes anim04 {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; border-radius: 50%; left:200px; top:0px;}
+  50%  {background-color:blue; border-radius: 0%; left:200px; top:200px;}
+  75%  {background-color:green; border-radius: 50%; left:0px; top:200px;}
+  100% {background-color:red; border-radius: 0%; left:0px; top:0px;}
+}</code></pre>
+          </div>
+          <div class="col-sm-3">
+            <style>
+              .anim04 {
+                width: 100px;
+                height: 100px;
+                position: relative;
+                background-color: red;
+                animation-name: anim04;
+                animation-duration: 10s;
+                animation-delay: 5s;
+                animation-iteration-count: 6;
+                animation-direction: alternate;
+              }
+
+              @keyframes anim04 {
+                0% {
+                  background-color: red;
+                  left: 0px;
+                  top: 0px;
+                }
+
+                25% {
+                  background-color: yellow;
+                  border-radius: 50%;
+                  left: 200px;
+                  top: 0px;
+                }
+
+                50% {
+                  background-color: blue;
+                  border-radius: 0%;
+                  left: 200px;
+                  top: 200px;
+                }
+
+                75% {
+                  background-color: green;
+                  border-radius: 50%;
+                  left: 0px;
+                  top: 200px;
+                }
+
+                100% {
+                  background-color: red;
+                  border-radius: 0%;
+                  left: 0px;
+                  top: 0px;
+                }
+              }
+            </style>
+            <div class="anim04"></div>
+          </div>
+        </div>
+
+        <div class="row d-none d-print-block">
+          <pre class="css"><code>.anim04 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: anim04;
+  animation-duration: 10s;
+  animation-delay: 5s;
+  animation-iteration-count: 6;
+  animation-direction: alternate;
+}
+
+@keyframes anim04 {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; border-radius: 50%; left:200px; top:0px;}
+  50%  {background-color:blue; border-radius: 0%; left:200px; top:200px;}
+  75%  {background-color:green; border-radius: 50%; left:0px; top:200px;}
+  100% {background-color:red; border-radius: 0%; left:0px; top:0px;}
+}</code></pre>
+        </div>
+
+        <p><strong>Exemple 2</strong> : </p>
+        <div class="row d-print-none">
+          <div class="col-sm-9">
+            <pre class="css"><code>.anim05 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation: anim05 4s linear 5s 7 alternate;
+}</code></pre>
+          </div>
+          <div class="col-sm-3">
+            <style>
+              .anim05 {
+                width: 100px;
+                height: 100px;
+                position: relative;
+                background-color: red;
+                animation: anim05 4s linear 5s 7 alternate;
+              }
+
+              @keyframes anim05 {
+                0% {
+                  background-color: red;
+                  left: 0px;
+                  top: 0px;
+                }
+
+                25% {
+                  background-color: yellow;
+                  border-radius: 50%;
+                  left: 200px;
+                  top: 0px;
+                }
+
+                50% {
+                  background-color: blue;
+                  border-radius: 0%;
+                  left: 200px;
+                  top: 200px;
+                }
+
+                75% {
+                  background-color: green;
+                  border-radius: 50%;
+                  left: 0px;
+                  top: 200px;
+                }
+
+                100% {
+                  background-color: red;
+                  border-radius: 0%;
+                  left: 0px;
+                  top: 0px;
+                }
+              }
+            </style>
+            <div class="anim05"></div>
+          </div>
+        </div>
+
+        <div class="row d-none d-print-block">
+          <pre class="css"><code>.anim05 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation: anim05 4s linear 5s 7 alternate;
+}</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Application 4 : Progress bar</h3>
+
+        <h4>Travail demandé</h4>
+        <ol>
+          <li>Ajouter une animation qui fait varier la largeur du <code>.progress-bar</code> de la première animation
+            <code>.animation1</code> de <code>0%</code> à <code>100%</code> :
+            <ul>
+              <li>Nommer l'animation <code>animation1</code>.</li>
+              <li>Fixer la durée de l'animation à <code>5s</code>.</li>
+              <li>Utiliser <code>linear</code> comme <code>timing-function</code>.</li>
+              <li>Répéter l'animation une infinité de fois <code>infinite</code>.</li>
+            </ul>
+            <p><strong>Code CSS</strong></p>
+            <pre class="css"><code>.animation1 .progress-bar {
+  /* ajouter les lignes suivantes */
+  animation-name: animation1;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animation1 {
+  from { width: 0%; }
+  to   { width: 100%; }
+}</code></pre>
+          </li>
+          <li>Copier le code CSS de <code>.animation2 .progress-bar</code> :
+            <pre class="css"><code>.animation2 .progress-bar {
+  width: 64px;
+  height: 100%;
+  background: linear-gradient(to left, #f00, #fd5353);
+  position: absolute;
+}</code></pre>
+            <p>Quel est le résultat de ce code ?</p>
+          </li>
+          <li class="p-break">Déplacer le rectangle rouge de gauche à droite, puis de gauche à droite une infinité de
+            fois. Pour faire,
+            utiliser la propriété CSS <code>left</code>.
+            <div class="d-none d-print-block">
+              <p><strong>Code CSS</strong></p>
+              <pre class="css"><code>.animation2 .progress-bar {
+  width: 64px;
+  height: 100%;
+  background: linear-gradient(to left, #f00, #fd5353);
+  position: absolute;
+
+  animation-name: animation2;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animation2 {
+  from { left: 0;}
+  to { left: 256px;}
+}</code></pre>
+            </div>
+          </li>
+          <li>Copier le code CSS des images clés de l'animation <code>animation3</code> :
+            <pre class="css"><code>@keyframes animation3 {
+  0% {
+    background: linear-gradient(to left, #00f, #000070);
+    width: 0;
+  }
+
+  50% {
+    background: linear-gradient(to left, #ff9900, #ffba53);
+    width: 50%;
+  }
+
+  100% {
+    background: linear-gradient(to left, #f00, #fd5353);
+    width: 100%;
+  }
+}</code></pre>
+          </li>
+          <li>Ajouter le code CSS du sélecteur <code>.animation3 .progress-bar</code> :
+            <ul>
+              <li>Dimensions : 100% &times; 100%, positionnement : <code>absolute</code></li>
+              <li>Nom de l'animation : <code>animation3</code>, durée : <code>2.5s</code>, répétition :
+                <code>infinite</code></li>
+              <li>Direction : <code>alternate</code></li>
+              <li>Fonction de timing : <code>ease-in-out</code></li>
+            </ul>
+            <div class="d-none d-print-block">
+              <pre class="css"><code>.animation3 .progress-bar {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  animation-name: animation3;
+  animation-duration: 2.5s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}</code></pre>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3 class="p-break">Application 5 : Smiley</h3>
+
+        <p>On désire créer le smiley suivant :</p>
+        <figure>
+          <img src="assets/miniprojet05/images/smiley.png" alt="Forme initiale du smiley" class="im-h-6">
+          <figcaption>Forme initiale du smiley</figcaption>
+        </figure>
+
+        <h4>Travail demandé</h4>
+        <ol>
+          <li>
+            <p>Copier le code HTML suivant et faire la mise en forme du smiley à l'aide du CSS.</p>
+            <pre class="html"><code>&lt;div id=&quot;tete&quot;&gt;
+  &lt;div id=&quot;yeux&quot;&gt;
+    &lt;div class=&quot;oeil&quot;&gt;
+      &lt;div class=&quot;iris&quot;&gt;
+        &lt;div class=&quot;pupille&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;oeil&quot;&gt;
+      &lt;div class=&quot;iris&quot;&gt;
+        &lt;div class=&quot;pupille&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;bouche&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </li>
+          <li>Animer les yeux du smiley et sa bouche.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Application 6 : Montre Analogique</h3>
+
+        <p>On désire créer une montre analogique comportant deux aiguilles, comme suit.</p>
+
+        <figure>
+          <img src="assets/miniprojet06/images/montre.png" alt="Montre analogique à deux aiguilles" class="im-h-6">
+          <figcaption>Montre analogique à deux aiguilles</figcaption>
+        </figure>
+
+        <h4 class="p-break">Travail demandé</h4>
+        <ol>
+          <li>Copier le code HTML. Faire la mise en forme des deux aiguilles.
+            <pre class="html"><code>&lt;div class=&quot;horloge&quot;&gt;
+  &lt;div class=&quot;aiguille1&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;aiguille2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </li>
+          <li>Placer les aiguilles au centre de la montre.</li>
+          <li>Animer les aiguilles de la montre : la petite aiguille doit être 12 fois moins lente que la plus longue.
+            La montre tourne indéfiniment sans s'arrêter.
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Exercice de rappel</h3>
+        <p>Créer une animation comme suit :</p>
+        <figure>
+          <img src="assets/miniprojet06/images/animation01.png" alt="Animation carrés">
+          <figcaption>Animation carrés</figcaption>
+        </figure>
+
+        <h4>Code HTML</h4>
+        <p>On donne le code HTML suivant :</p>
+        <pre class="html"><code>&lt;div class=&quot;gcarre&quot;&gt;
+  &lt;div class=&quot;carre carre1&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;carre carre2&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;carre carre3&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;carre carre4&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <h4>Code CSS</h4>
+        <p>On code CSS suivant, qui permet de dessiner les carrés :</p>
+        <pre class="css"><code>.gcarre {
+  width: 200px;  height: 200px;
+  position: relative;
+  margin: calc(50vh - 100px) auto;
+}
+.gcarre > .carre {
+  width: 100px;  height: 100px;
+  position: absolute;
+}
+.carre1 { background-color: black; top: 0; left: 0; }
+.carre2 { background-color: red;   top: 0; left: 100px; }
+.carre3 { background-color: blue;  top: 100px; left: 0; }
+.carre4 { background-color: green; top: 100px; left: 100px; }</code></pre>
+
+        <h4>Travail demandé</h4>
+        <p>Utiliser les propriétés CSS vue dans ce cours pour animer ces carrés selon le cycle indiqué dans l'image :
+          <code>@keyframes</code>, <code>animation-name</code>, <code>animation-duration</code>,
+          <code>animation-iteration-count</code> et <code>animation-timing-function</code>.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

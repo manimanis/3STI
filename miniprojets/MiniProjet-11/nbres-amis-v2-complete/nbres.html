@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nombres parfaits / Nombres amis</title>
+  <link rel="stylesheet" href="nbres.css">
+</head>
+
+<body>
+  <form>
+    <div>
+      <label><input type="radio" id="som-div" name="choix" value="1" checked> Somme diviseurs</label>
+      <label><input type="radio" id="nbr-par" name="choix" value="2"> Nombres parfaits</label>
+      <label><input type="radio" id="nbr-amis" name="choix" value="3"> Nombres amis</label>
+    </div>
+    <div>
+      <label for="a">A</label><input type="number" id="a" name="a" min="1" max="99999"
+        placeholder="Nombre entre 1 et 99999">
+    </div>
+    <div>
+      <label for="b">B</label><input type="number" id="b" name="b" min="1" max="99999"
+        placeholder="Nombre entre 1 et 99999">
+    </div>
+    <div>
+      <button type="button" id="calc">Calculer</button>
+    </div>
+    <div>
+      <label for="res">Résultat</label>
+      <textarea id="res" name="b" rows="8" readonly></textarea>
+    </div>
+  </form>
+  <script src="nbres.js"></script>
+<!--
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+  <script src="../../../assets/js/components.js"></script>
+-->
+</body>
+
+</html>

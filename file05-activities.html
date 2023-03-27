@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Séance n°5 - activités</h1>
+
+    <article>
+      <h2>Séance1</h2>
+      <section>
+        <h3>Méthodes de sortie en JavaScript</h3>
+        <p>Il existe cinq méthodes pour afficher un résultat en JavaScript</p>
+        <pre><code class="html">&lt;div id=&quot;msg&quot;&gt;&lt;/div&gt;
+&lt;form name=&quot;f&quot;&gt;&lt;input type=&quot;text&quot; id=&quot;res&quot; name=&quot;res&quot;&gt;&lt;/form&gt;
+&lt;script&gt;
+  /* On demande de calculer la longueur de l&apos;hypot&eacute;nuse d&apos;un triangle rectangle ABC */
+
+  // D&eacute;clarer les variables
+  let a = 3;
+  let b = 4;
+
+  // Calculer l&apos;hypot&eacute;nuse
+  let c = Math.sqrt(a * a + b ** 2);
+
+  /*
+      M&eacute;thodes d&apos;affichage
+  */
+
+  // (1) Afficher le r&eacute;sultat dans la console
+  console.log(&quot;a =&quot;, a, &quot;- b =&quot;, b, &quot;- c =&quot;, c);
+
+  // (2) Afficher le r&eacute;sultat dans le document
+  document.writeln(&quot;&lt;p&gt;a = &quot;, a, &quot; - b = &quot;, b, &quot; - c = &quot;, c, &quot;&lt;/p&gt;&quot;);
+
+  // (3) Afficher le r&eacute;sultat sous forme d&apos;une notification dans une bo&icirc;te d&apos;alerte
+  alert(&quot;a = &quot; + a + &quot; - b = &quot; + b + &quot; - c = &quot; + c);
+
+  // (4) Afficher le r&eacute;sultat dans un &eacute;l&eacute;ment de la page
+  const msg = document.getElementById(&quot;msg&quot;);
+  msg.innerHTML = &quot;&lt;p&gt;a = &quot; + a + &quot; - b = &quot; + b + &quot; - c = &quot; + c + &quot;&lt;/p&gt;&quot;;
+
+  // (5) Afficher le r&eacute;sultat dans un champ du formulaire
+  document.f.res.value = &quot;a = &quot; + a + &quot; - b = &quot; + b + &quot; - c = &quot; + c;
+&lt;/script&gt;</code></pre>
+      </section>
+
+      <section>
+        <h3>Activité d'application</h3>
+        <p>Afficher la somme, la différence, le produit, le quotient de deux entiers <code>a</code> et <code>b</code>,
+          sélectionnés aléatoirement.
+        </p>
+        <figure>
+          <img src="assets/miniprojet09/images-act/app01-capture.png" alt="Affichage du résultat" class="im-h-4">
+          <figcaption>Résultat de l'exercice</figcaption>
+        </figure>
+        <p><strong>Code JavaScript</strong></p>
+        <pre><code class="javascript">const a = Math.floor(Math.random() * 90 + 10);
+const b = Math.floor(Math.random() * 90 + 10);
+
+const s = a + b;
+const d = a - b;
+const p = a * b;
+const q = a / b;
+
+document.writeln(&apos;&lt;p&gt;&lt;span class=&quot;color1&quot;&gt;&apos;, a,
+  &apos;&lt;/span&gt; + &lt;span class=&quot;color2&quot;&gt;&apos;, b,
+  &apos;&lt;/span&gt; = &lt;span class=&quot;color3&quot;&gt;&apos;, s, &apos;&lt;/span&gt;&lt;/p&gt;&apos;);
+document.writeln(&apos;&lt;p&gt;&lt;span class=&quot;color1&quot;&gt;&apos;, a,
+  &apos;&lt;/span&gt; - &lt;span class=&quot;color2&quot;&gt;&apos;, b,
+  &apos;&lt;/span&gt; = &lt;span class=&quot;color3&quot;&gt;&apos;, d, &apos;&lt;/span&gt;&lt;/p&gt;&apos;);
+document.writeln(&apos;&lt;p&gt;&lt;span class=&quot;color1&quot;&gt;&apos;, a,
+  &apos;&lt;/span&gt; * &lt;span class=&quot;color2&quot;&gt;&apos;, b, &apos;&lt;/span&gt; = &lt;span class=&quot;color3&quot;&gt;&apos;, p, &apos;&lt;/span&gt;&lt;/p&gt;&apos;);
+document.writeln(&apos;&lt;p&gt;&lt;span class=&quot;color1&quot;&gt;&apos;, a,
+  &apos;&lt;/span&gt; / &lt;span class=&quot;color2&quot;&gt;&apos;, b, &apos;&lt;/span&gt; = &lt;span class=&quot;color3&quot;&gt;&apos;, q, &apos;&lt;/span&gt;&lt;/p&gt;&apos;);
+</code></pre>
+        <p><strong>Code CSS</strong></p>
+        <pre><code class="css">body { font-size: 20pt; }
+.color1 { color: red; }
+.color2 { color: green; }
+.color3 { color: blue; }</code></pre>
+      </section>
+    </article>
+
+    <article>
+      <h2 class="p-break">Séance 2</h2>
+
+      <section>
+        <h3>Exercice de rappel</h3>
+        <ol>
+          <li>Générer un nombre aléatoire entre 5 et 25.</li>
+          <li>Simuler le lancement de deux dés à six faces.</li>
+          <li>Améliorer votre programme pour qu'il utilise des images au lieu des nombres.
+            <p><b>Résultat attendus</b></p>
+            <figure>
+              <img src="assets/miniprojet09/images-act/des-capture-01.png" alt="Capture d'un exemple de résultat"
+                class="im-h-1">
+              <img src="assets/miniprojet09/images-act/des-capture-02.png" alt="Capture d'un exemple de résultat"
+                class="im-h-1">
+              <figcaption>Capture d'un exemple de résultat</figcaption>
+            </figure>
+          </li>
+        </ol>
+        <p><strong>Télécharger les images dans votre dossier de travail.</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images-act/de1.jpg" alt="Dé 1" class="im-h-1">
+          <img src="assets/miniprojet09/images-act/de2.jpg" alt="Dé 2" class="im-h-1">
+          <img src="assets/miniprojet09/images-act/de3.jpg" alt="Dé 3" class="im-h-1">
+          <img src="assets/miniprojet09/images-act/de4.jpg" alt="Dé 4" class="im-h-1">
+          <img src="assets/miniprojet09/images-act/de5.jpg" alt="Dé 5" class="im-h-1">
+          <img src="assets/miniprojet09/images-act/de6.jpg" alt="Dé 6" class="im-h-1">
+          <figcaption>Images des dés à utiliser sans cet exercice</figcaption>
+        </figure>
+        <div class="d-none d-print-block">
+          <h4>Question n°1 - réponse</h4>
+          <pre><code class="html">&lt;script&gt;
+  // G&eacute;n&egrave;re un nombre al&eacute;atoire dans l&apos;intervalle [a, b]
+  function randint(a, b) {
+    return Math.floor(Math.random() * (b - a + 1)) + a;
+  }
+  // G&eacute;n&eacute;rer un nombre puis l&apos;afficher
+  let v = randint(5, 25);
+  document.writeln(&quot;&lt;p&gt;Nombre al&eacute;atoire [5, 25] : &quot;, v, &quot;&lt;/p&gt;&quot;);
+&lt;/script&gt;</code></pre>
+          <h4>Question n°2 - réponse</h4>
+          <pre><code class="html">&lt;div id=&quot;des&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // Fonction randint
+  ...
+  // Récupérer l'élément 
+  const des = document.getElementById(&quot;des&quot;);
+  let nb1 = randint(1, 6);
+  let nb2 = randint(1, 6);
+  des.innerHTML = &quot;Lancement de d&eacute;s : &quot; + nb1 + &quot; - &quot; + nb2;
+&lt;/script&gt;</code></pre>
+          <h4>Question n°3 - réponse</h4>
+          <pre><code class="html">&lt;div id=&quot;des&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // Même code précédent 
+  ...
+  des.innerHTML = &apos;&lt;img src=&quot;de&apos; + nb1 + &apos;.jpg&quot; alt=&quot;D&eacute;&apos; + nb1 + &apos;&quot;&gt; &apos; +
+    &apos;&lt;img src=&quot;de&apos; + nb2 + &apos;.jpg&quot; alt=&quot;D&eacute;&apos; + nb2 + &apos;&quot;&gt;&apos;;
+&lt;/script&gt;</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Méthodes d'entrées en JavaScript</h3>
+        <h4>Méthode 1 : boîte d'invite</h4>
+        <p><b>Exemple</b></p>
+        <pre><code class="javascript">let name = prompt("Your name ?", "Mohamed");</code></pre>
+        <p><b>Application</b></p>
+        <p>Ecrire un script qui saisit puis affiche la somme de deux nombres en utilisant la boite d'invite.</p>
+        <div class="d-none d-print-block">
+          <pre><code class="html">&lt;div id=&quot;msg&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // M&eacute;thode 1 : bo&icirc;te d&apos;invite
+  let a1 = Number(prompt(&quot;Donner a ? &quot;, &quot;6&quot;));
+  let b1 = Number(prompt(&quot;Donner b ? &quot;, &quot;6&quot;));
+  let s1 = a1 + b1;
+  const msg = document.getElementById(&quot;msg&quot;);
+  msg.innerHTML = a1 + &quot; + &quot; + b1 + &quot; = &quot; + s1;
+&lt;/script&gt;</code></pre>
+        </div>
+
+        <h4>Méthode 2 : Formulaire</h4>
+        <p><b>Exemple</b></p>
+        <div class="row">
+          <div class="col-4">
+            <p>Soit le formulaire suivant :</p>
+            <figure>
+              <img src="assets/miniprojet09/images-act/user_form.png" alt="Formulaire exemple">
+              <figcaption>Exemple de formulaire</figcaption>
+            </figure>
+          </div>
+          <div class="col-8">
+            <p>Pour accéder à ces champs on peut écrire :</p>
+            <pre><code class="javascript">let nom_prenom = document.getElementById("np").value; // (1)
+let age = document.f.age.value;                       // (2)</code></pre>
+          </div>
+        </div>
+        <p><b>Application</b></p>
+        <p>Ecrire un script qui lit la valeur de deux champs numériques a et b, puis affiche leurs sommes.</p>
+        <div class="row">
+          <div class="col-4">
+            <p>Le formulaire est comme suit :</p>
+            <figure>
+              <img src="assets/miniprojet09/images-act/sum_form.png" alt="Formulaire somme">
+              <figcaption>Formulaire d'application</figcaption>
+            </figure>
+          </div>
+          <div class="col-8">
+            <div class="d-none d-print-block">
+              <pre><code class="html">&lt;form action=&quot;#&quot; method=&quot;post&quot; name=&quot;f&quot;&gt;
+  &lt;div&gt;&lt;label for=&quot;a&quot;&gt;A&lt;/label&gt;
+    &lt;input type=&quot;number&quot; name=&quot;a&quot; id=&quot;a&quot; value=&quot;9&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;b&quot;&gt;B&lt;/label&gt;
+    &lt;input type=&quot;number&quot; name=&quot;b&quot; id=&quot;b&quot; value=&quot;16&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;r&quot;&gt;R&eacute;sultat&lt;/label&gt;
+    &lt;input type=&quot;number&quot; name=&quot;r&quot; id=&quot;r&quot; disabled&gt;&lt;/div&gt;
+&lt;/form&gt;
+&lt;script&gt;
+  let a = Number(document.f.a.value);
+  let b = Number(document.f.b.value);
+  let s = a + b;
+  document.f.r.value = s;
+&lt;/script&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <h4>Méthode 3 : Boîte de confirmation</h4>
+        <p><b>Exemple</b></p>
+        <pre><code class="javascript">let adult = confirm("Are you over 16 ? ")</code></pre>
+        <p><b>Application</b></p>
+        <p>Ecrire un script qui demande à l'utilisateur s'il est stressé ou non ?</p>
+        <ul>
+          <li>Si l'utilisateur est stressé : il lui demande de manger du chocolat,</li>
+          <li>Si l'utilisateur n'est pas stressé : il lui demande de contiuner de sourire.</li>
+        </ul>
+        <div class="d-none d-print-block">
+          <pre><code class="html">&lt;script&gt;
+const stressed = confirm(&quot;Are you stressed ? &quot;);
+if (stressed) {
+  alert(&quot;Eat chocolate&quot;);
+} else {
+  alert(&quot;Keep smiling&quot;);
+}
+&lt;/script&gt;</code></pre>
+        </div>
+      </section>
+    </article>
+
+    <article>
+      <h2 class="p-break">Séance 3</h2>
+
+      <section>
+        <h3>Structures conditionnelles</h3>
+
+        <h4>Structure if</h4>
+        <p><strong>Exemple</strong></p>
+        <pre><code class="javascript">// Comparaison de deux entiers a et b
+if (a > b) {
+  res = a + " > " + b;
+} else if (a &lt; b) {
+  res = a + " &lt; " + b;
+} else {
+  res = a + " = " + b;
+}</code></pre>
+        <p><strong>Application</strong></p>
+        <p>Ecrire un script qui saisit trois nombres distincts <code>a</code>, <code>b</code> et <code>c</code> puis
+          affiche l'entier qui sera au milieu si les trois entiers ont été ordonnés.</p>
+        <p><strong>Exemple : </strong> a = 5, b = 16 et c = 10, le nombre au milieu est <span
+            class="text-danger">10</span> car 5 &lt; <span class="text-danger">10</span> &lt; 16</p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">let a = Number(prompt(&quot;Donner a ?&quot;, &quot;5&quot;));
+let b = Number(prompt(&quot;Donner b ?&quot;, &quot;16&quot;));
+let c = Number(prompt(&quot;Donner c ?&quot;, &quot;10&quot;));
+
+let mid;
+if ((a &gt; b &amp;&amp; b &gt; c) || (a &lt; b &amp;&amp; b &lt; c)) {
+  mid = b;
+} else if ((b &gt; a &amp;&amp; a &gt; c) || (b &lt; a &amp;&amp; a &lt; c)) {
+  mid = a;
+} else {
+  mid = c;
+}
+
+alert(&quot;Nombre au milieu : &quot; + mid);</code></pre>
+        </div>
+
+        <h4>Structure switch</h4>
+        <p><strong>Exemple</strong></p>
+        <pre><code class="javascript">// Chiffres romains
+// I (1), V (5), X (10), L (50), C (100), D (500), M (1000)
+switch (car) {
+  case "I": val = 1; break;
+  case "V": val = 5; break;
+  case "X": val = 10; break;
+  case "L": val = 50; break;
+  case "C": val = 100; break;  
+  case "D": val = 500; break;  
+  case "M": val = 1000; break;
+  default: val = -1;
+}</code></pre>
+        <p><strong>Application</strong></p>
+        <p>Le prix des fruits est comme suit :</p>
+        <ul>
+          <li>Orange : 1.30$/Kg,</li>
+          <li>Pomme : 0.66$/Kg,</li>
+          <li>Banane : 1.05$/Kg,</li>
+          <li>Cerise : 6.61$/Kg,</li>
+          <li>Mangue / Papaye : 6.15$/Kg,</li>
+          <li>Autres fruits non disponibles.</li>
+        </ul>
+        <p>Ecrire un script qui demande le nom d'un fruit, puis affiche son prix en utilisant la structure switch.</p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">let fruit = prompt(&quot;Que voulez vous acheter ? &quot;, &quot;Banane&quot;);
+let price;
+switch (fruit) {
+  case &quot;Orange&quot; : price = 1.30; break;
+  case &quot;Pomme&quot; :  price = 0.66; break;
+  case &quot;Banane&quot; : price = 1.05; break;
+  case &quot;Cerise&quot; : price = 6.61; break;
+  case &quot;Mangue&quot; :
+  case &quot;Papaye&quot; : price = 6.15; break;
+  default:        price = -1;
+}</code></pre>
+        </div>
+
+        <h4>Opérateur ternaire</h4>
+        <p><strong>Exemple</strong></p>
+        <pre><code class="javascript">// Maximum de deux nombres
+let sup = a > b ? a : b;</code></pre>
+        <p><strong>Application</strong></p>
+        <p>Ecrire un script qui convertit un nombre de secondes en <code>h:mm:ss</code>. Les <code>mm</code> et
+          <code>ss</code> doivent être sur deux chiffres : "9:07:05" et non pas <del>"9:7:5"</del>.
+        </p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">// 32825s = 9:07:05
+let s = Number(prompt(&quot;Nombre de secondes ? &quot;, 32825);
+let hh = Math.floor(s / 3600);
+let mm = Math.floor((s % 3600) / 60);
+let ss = Math.floor(s % 60);
+let heure = hh + &quot;:&quot; +
+  (mm &lt; 10 ? &quot;0&quot; : &quot;&quot;) + mm + &quot;:&quot; +
+  (mm &lt; 10 ? &quot;0&quot; : &quot;&quot;) + ss;
+alert(s + &quot;s = &quot; + heure);</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="p-break">Structures itératives</h3>
+        <h4>Instruction for</h4>
+        <p><strong>Exemple</strong></p>
+        <pre><code class="javascript">// Afficher les nombres de deux chiffres divisibles par 2 ou 3
+for (let i = 10; i &lt; 100; i++) {
+  if (i % 2 == 0 || i % 3 == 0) {
+    document.writeln(i);
+  }
+}</code></pre>
+        <p><strong>Application</strong></p>
+        <p>Un nombre est dit premier si et seulement s'il est divisible exactement par deux nombres distincts 1 et lui
+          même. Ecrire un script qui affiche tous les nombres premiers inférieurs à 100.</p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">document.writeln(&quot;&lt;p&gt;Nombre premiers &lt; 100 :&quot;);
+for (let i = 0; i &lt; 100; i++) {
+  let nbd = 0;
+  for (let j = 1; j &lt;= i; j++) {
+    if (i % j == 0) {
+      nbd++;
+    }
+  }
+  if (nbd == 2) {
+    document.writeln(i, &quot;, &quot;);
+  }
+}
+document.writeln(&quot;&lt;/p&gt;&quot;);</code></pre>
+        </div>
+
+        <h4>Instruction while</h4>
+        <p><strong>Exemple</strong></p>
+        <pre><code class="javascript">// D&eacute;terminer si une cha&icirc;ne est palindr&ocirc;me
+// Exemples : AZIZA, RADAR, RESSASSER
+let ch = "RESSASSER";
+let i = 0, j = ch.length - 1;
+while (j &gt; i &amp;&amp; ch[i] == ch[j]) {
+  i++; j--;
+}
+document.writeln(&quot;&lt;p&gt;&quot;, ch, &quot; est &quot;, (i &gt;= j ? &quot;palindr&ocirc;me&quot; : &quot;non palindr&ocirc;me&quot;), &quot;&lt;/p&gt;&quot;);</code></pre>
+        <p><strong>Application</strong></p>
+        <p>Deux nombres <code>a</code> et <code>b</code> sont premiers entre eux si et seulement si
+          <code>PGCD(a, b) = 1</code>. Ecrire un script qui détermine si deux entiers sont premiers entre eux.
+        </p>
+        <p>PGCD(a, b) = PGCD(b, a mod b) ; si b &ne; 0<br>PGCD(a, b) = a ; si b = 0</p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">let a = Number(prompt(&quot;Donner a ? &quot;, &quot;35&quot;));
+let b = Number(prompt(&quot;Donner b ? &quot;, &quot;12&quot;));
+let a1 = a, b1 = b;
+while (b1 != 0) {
+  let r = a1 % b1;
+  a1 = b1;
+  b1 = r;
+}
+document.writeln(&quot;&lt;p&gt;&quot;, a, &quot; et &quot;, b, &quot; &quot;, 
+  (a1 == 1 ? &quot;sont&quot; : &quot;ne sont pas&quot;), 
+  &quot; premiers entre eux.&lt;/p&gt;&quot;);</code></pre>
+        </div>
+      </section>
+    </article>
+    <article>
+      <h2 class="p-break">Séance 4</h2>
+      <section>
+        <h3>Les fonctions & les évènements</h3>
+        <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;TP sur les fonctions et les &eacute;v&egrave;nements&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button id=&quot;button1&quot;&gt;Afficher un message&lt;/button&gt;
+  &lt;button id=&quot;button2&quot;&gt;Afficher un autre message&lt;/button&gt;
+  &lt;p id=&quot;message&quot;&gt;&lt;/p&gt;
+  &lt;form&gt;
+    &lt;label for=&quot;input&quot;&gt;Entrez votre nom :&lt;/label&gt;&lt;br&gt;
+    &lt;input type=&quot;text&quot; id=&quot;input&quot;&gt;&lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Envoyer&quot;&gt;
+  &lt;/form&gt;
+  &lt;script src=&quot;events.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<pre><code class="javascript">// R&eacute;cup&eacute;rer les champs du formulaire
+const msgDiv = document.getElementById(&apos;message&apos;);
+const nameInput = document.getElementById(&apos;input&apos;);
+const btn1 = document.getElementById(&apos;button1&apos;);
+const btn2 = document.getElementById(&apos;button2&apos;);
+const form = document.querySelector(&apos;form&apos;);
+
+// D&eacute;finition de la fonction qui affiche un message
+function showMessage(message) {
+  msgDiv.innerHTML = message;
+}
+
+// D&eacute;finition de la fonction qui g&egrave;re l&apos;&eacute;v&egrave;nement click sur le premier bouton
+function handleButton1Click() {
+  showMessage(&apos;Vous avez cliqu&eacute; sur le premier bouton&apos;);
+}
+
+// D&eacute;finition de la fonction qui g&egrave;re l&apos;&eacute;v&egrave;nement click sur le deuxi&egrave;me bouton
+function handleButton2Click() {
+  showMessage(&apos;Vous avez cliqu&eacute; sur le deuxi&egrave;me bouton&apos;);
+}
+
+// D&eacute;finition de la fonction qui g&egrave;re l&apos;&eacute;v&egrave;nement submit sur le formulaire
+function handleFormSubmit(event) {
+  // Annulation de l&apos;envoi du formulaire
+  event.preventDefault();
+
+  // R&eacute;cup&eacute;ration de la valeur du champ de formulaire
+  var inputValue = nameInput.value;
+
+  // Affichage de la valeur du champ de formulaire dans le paragraphe
+  showMessage(&apos;Vous vous appelez &apos; + inputValue);
+}
+
+// Ajout de l&apos;&eacute;v&egrave;nement click sur le premier bouton
+btn1.addEventListener(&apos;click&apos;, handleButton1Click);
+
+// Ajout de l&apos;&eacute;v&egrave;nement click sur le deuxi&egrave;me bouton
+btn2.addEventListener(&apos;click&apos;, handleButton2Click);
+
+// Ajout de l&apos;&eacute;v&egrave;nement submit sur le formulaire
+form.addEventListener(&apos;submit&apos;, handleFormSubmit);</code></pre>
+      </section>
+    </article>
+
+    <article>
+      <h2 class="p-break">Séance Annulée</h2>
+      <section>
+        <h3>Déclaration des objets en JavaScript</h3>
+        <p><b>Copier le code suivant dans la console du navigateur, puis indiquer son résultat.</b></p>
+        <pre><code class="javascript">console.log("x =", x, "- y =", y);</code></pre>
+        <p><b>Comment corriger ce problème ?</b><br><code>x</code> est une constante qui contient la valeur 5 et
+          <code>y</code>
+          est une variable non initialisée.
+        </p>
+        <p><b>Quelle est la valeur d'une variable non initialisée en JavaScript ?</b></p>
+        <p><b>Affecter le double de <code>x</code> dans <code>y</code>, puis les afficher.</b></p>
+        <p><b>Permuter les valeurs de <code>x</code> et <code>y</code> en utilisant la méthode d'addition et de
+            soustraction.</b></p>
+        <pre><code class="algorithm">// permutation de deux entier
+b &larr; a + b
+a &larr; b - a
+b &larr; b - a</code></pre>
+      </section>
+
+      <section>
+        <h3 class="p-break">Méthodes d'entrée en JavaScript</h3>
+        <p>Copier le code HTML suivant dans votre fichier de travail.</p>
+        <pre><code class="html">&lt;form action=&quot;#&quot; name=&quot;f&quot;&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;val_a&quot;&gt;Valeur de A&lt;/label&gt;
+    &lt;input type=&quot;range&quot; id=&quot;val_a&quot; name=&quot;val_a&quot; min=&quot;0&quot; max=&quot;50&quot; value=&quot;20&quot;&gt;
+    &lt;span id=&quot;val_rng&quot;&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;val_b&quot;&gt;Valeur de B&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;val_b&quot; name=&quot;val_b&quot; min=&quot;0&quot; max=&quot;50&quot;&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;val_c&quot;&gt;&lt;/div&gt;&lt;div id=&quot;operation&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;res&quot;&gt;&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+        <p><strong>Copier le code JavaScript, puis le compléter progressivement.</strong></p>
+        <pre><code class="javascript">// récupérer les éléments ayant les id suivants :
+// val_a, val_rng, val_b, val_c, operation, res
+const val_a = document.getElementById("val_a");
+/* TODO1 */
+// Méthode (1) : récuprérer la valeur du champ "val_a"
+/* TODO 2 */
+// Méthode (2) : récupérer une valeur depuis une boîte d'invite (prompt)
+/* TODO 3 */
+// Méthode (3) : demander la confirmation de l'utilisateur (confirm)
+// s'il veut caluler le plus grand ou le plus des nombres
+/* TODO 4 */
+// Afficher la valeur de "val_a" dans l'élément "val_rng"
+/* TODO 5 */
+// choisir un nombre au hasard 
+/* TODO 6 */
+// Affecter le nombre aléatoire au champ "val_b"
+/* TODO 7 */
+// Afficher la valeur récuprérée depuis la boîte d'invite dans l'élément "val_c"
+/* TODO 8 */
+// Afficher le type de l'opération choisie
+let resultat;
+if (/* TODO 9 */) {
+  // Afficher le type d'opération choisie dans l'élément "operation"
+  /* TODO 10 */
+  // calculer le maximum de a, b et c
+  resultat = Math.max(a, b, c);
+} else {
+  // Afficher le type d'opération choisie dans l'élément "operation"
+  /* TODO 10 */
+  // calculer le minimum de a, b et c
+  resultat = Math.min(a, b, c);
+}
+// Afficher le résultat de l'opération dans l'élément "res"
+/* TODO 11 */</code></pre>
+      </section>
+
+      <section>
+        <h3>Application</h3>
+        <p>&Eacute;crire un script qui saisit deux entiers <code>a</code> et <code>b</code> puis calcule leurs PGCD et
+          leurs PPCM.</p>
+        <p><strong>Exemple</strong></p>
+        <p class="text-center">PGCD(25, 10) = 5 - PPCM(25, 10) = 50</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

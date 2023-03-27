@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="pwd.css">
+</head>
+
+<body>
+  <form action="#">
+    <h1>Générateur de mots de passes</h1>
+    <div>
+      <label for="dummy">Mot de passe composé de :</div>
+      <label><input type="checkbox" name="opt[]" id="upper" checked> Majuscules</label>
+      <label><input type="checkbox" name="opt[]" id="lower" checked> Minuscules</label>
+      <label><input type="checkbox" name="opt[]" id="digit" checked> Chiffres</label>
+      <label><input type="checkbox" name="opt[]" id="symbols"> Symboles</label>
+    </div>
+    <div>
+      <label for="len">Force</label>
+      <input type="number" name="len" id="len" min="3" max="20" value="8">
+    </div>
+    <div>
+      <label for="nbre">Nombre de mots de passes</label>
+      <input type="number" name="nbre" id="nbre" min="1" max="20" value="5">
+    </div>
+    <div>
+      <button id="gen">Générer</button>
+    </div>
+    <div>
+      <label for="passwords">Mots de passes</label>
+      <div id="passwords"></div>
+    </div>
+  </form>  
+  <script src="pwd.js"></script>
+<!--   <link rel="stylesheet" href="../../../assets/css/components.css">
+  <script src="../../../assets/js/components.js"></script>
+  <style>.frm-ctrl::before {
+    left: 5em;
+  }</style> -->
+</body>
+
+</html>

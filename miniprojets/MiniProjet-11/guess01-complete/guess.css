@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 600px;
+  margin: 20px auto;
+  text-align: center;
+  background-color: #ECE2D0;
+  color: #582C4D;
+}
+
+#game {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+#game div {
+  background-color: #A26769;
+  color: #fff;
+  padding: 35px 10px 5px 10px;
+  font-size: 20pt;
+  width: 150px;
+  border-radius: 10px;
+  position: relative;
+}
+
+#game div::before {
+  color: #A26769;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: block;
+  font-size: 0.7em;
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
+  padding: 3px 0;
+}
+
+#num_guess::before {
+  content: "# Tries";
+}
+
+#comp_number::before {
+  content: "My Guess";
+}
+
+button {
+  font-size: 15pt;
+  padding: 10px 30px;
+  background-color: #582C4D;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 130px;
+}
+
+#msg {
+	margin: 16px 0;
+	font-size: 20pt;
+	background-color: #BFB5AF;
+	padding: 10px;
+	border-radius: 10px;
+}

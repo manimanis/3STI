@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evènement click</title>
+</head>
+
+<body>
+  <h1>&Eacute;vènement click</h1>
+  <p>L'évènement click concerne tous les éléments du DOM.</p>
+  <p><label><input type="checkbox" name="defi" id="defi"> Cochez-moi si vous le pouvez 😀.</label></p>
+  <script>
+    const defi = document.getElementById("defi");
+    let nb_clics = 0;
+    /*
+    defi.addEventListener("click", (e) => {
+      alert("Désolé! Essayez encore une fois!");
+      e.preventDefault();
+    });
+    */
+    defi.addEventListener("click", (e) => {
+      if (defi.checked) {
+        nb_clics = (nb_clics + 1) % 3;
+        if (nb_clics != 0) {
+          alert("Désolé! Encore " + (3 - nb_clics) + " clics.");
+          e.preventDefault();
+        } else {
+          alert("Finalement!");
+        }
+      }
+    });
+  </script>
+  <div><label><input type="checkbox" name="act" id="act"> Activer le lien</label></div>
+  <p>Ouvrir la page <a href="https://google.com" id="google-link">Google.com</a></p>
+  <script>
+    const act_chk = document.getElementById("act");
+    const google_link = document.getElementById("google-link");
+
+    act_chk.addEventListener("click", (e) => {
+      if (act_chk.checked) {
+        alert("Le lien est activé!")
+      } else {
+        alert("Le lien est désactivé!");
+      }
+    });
+
+    google_link.addEventListener("click", (e) => {
+      if (!act_chk.checked) {
+        alert("Lien désactivé!\n" +
+          "Cocher la case à cocher pour l'activer");
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+
+</html>

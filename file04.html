@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Séance n°4</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Séance n°4</h1>
+
+    <article>
+      <h2>Formulaires</h2>
+
+      <section>
+        <h3>Présentation</h3>
+
+        <p>Les formulaires sont utilisés par les sites Web pour <strong>recueillir des informations de
+            l'utilisateur</strong>. Ils permettent à l'utilisateur <strong>d'envoyer des données au site web</strong>.
+          La plupart du temps, ces données sont envoyées à des serveurs web.</p>
+        <p>Un formulaire est formé par un ou plusieurs composants. Parmi ceux-ci on cite :</p>
+        <ul>
+          <li class="my-2"><strong>les champs de texte</strong> : <input type="text"></li>
+          <li class="my-2"><strong>les listes déroulantes</strong> : <select>
+              <option>Sélectionner</option>
+              <option value="Tunisie">Tunisie</option>
+              <option value="Algérie">Algérie</option>
+            </select></li>
+          <li class="my-2"><strong>les boutons</strong> : <button>Soumettre les donnée</button></li>
+          <li class="my-2"><strong>les case à cocher</strong> : Je veux : <label><input type="checkbox"> Une
+              pizza</label>
+            <label><input type="checkbox"> Des frites</label> <label><input type="checkbox"> Une boisson</label>
+          </li>
+          <li class="my-2"><strong>les boutons radio</strong> : Je suis : <label><input type="radio" name="genre"
+                value="g"> Un
+              garçon</label><label><input type="radio" name="genre" value="F"> Une fille</label></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Exemple 1 : Login</h3>
+
+        <p>On désire créer le formulaire suivant :</p>
+
+        <style>
+          #example01 {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 12pt;
+            display: flex;
+            width: 400px;
+            flex-wrap: wrap;
+            padding: 25px;
+            background-color: aliceblue;
+            border: cadetblue solid 1px;
+            margin: 25px auto;
+            border-radius: 5px;
+          }
+
+          #example01 input[type="text"],
+          #example01 input[type="password"],
+          #example01 label,
+          #example01 button {
+            width: 100%;
+            display: block;
+            margin: 5px 0;
+            font-size: 12pt;
+            padding: 5px;
+          }
+
+          #example01 button {
+            background-color: cadetblue;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+          }
+        </style>
+        <form id="example01" action="#" method="post">
+          <input type="text" name="login" placeholder="Login">
+          <input type="password" name="pass" placeholder="Password" autocomplete="new-password">
+          <label><input type="checkbox" name="rememberme" checked="true"> Remember me</label>
+          <button>Log me in</button>
+        </form>
+
+        <p><strong>Le code HTML correspondant est comme suit :</strong></p>
+        <pre class="html"><code>&lt;form id=&quot;example01&quot; action=&quot;#&quot; method=&quot;post&quot;&gt;
+  &lt;input type=&quot;text&quot; name=&quot;login&quot; placeholder=&quot;Login&quot;&gt;
+  &lt;input type=&quot;password&quot; name=&quot;pass&quot; placeholder=&quot;Password&quot; autocomplete=&quot;new-password&quot;&gt;
+  &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;rememberme&quot; checked=&quot;true&quot;&gt; Remember me&lt;/label&gt;
+  &lt;button&gt;Log me in&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <p><strong>Le code CSS correspondant est disponible ici : <a href="assets/miniprojet07/login.txt"
+              target="_blank" rel="noopener noreferrer">code CSS du formulaire de login</a>.</strong></p>
+
+        <h4>Exploration du code</h4>
+        <p>On remarque que ce formulaire :</p>
+        <ul>
+          <li>commence par la balise <code>&lt;form&gt;</code> et se termine par <code>&lt;/form&gt;</code>.</li>
+          <li>contient un <strong>champ de texte (text field)</strong> :
+            <code>&lt;input type=&quot;text&quot; name=&quot;login&quot; placeholder=&quot;Login&quot;&gt;</code>
+          </li>
+          <li>contient un <strong>champ de mot de passe (password field)</strong> :
+            <code>&lt;input type=&quot;password&quot; name=&quot;pass&quot; placeholder=&quot;Password&quot; autocomplete=&quot;new-password&quot;&gt;</code>
+          </li>
+          <li>contient une <strong>case à cocher (checkbox)</strong> :
+            <code>&lt;input type=&quot;checkbox&quot; name=&quot;rememberme&quot; checked=&quot;true&quot;&gt;</code>
+          </li>
+          <li>contient une <strong>étiquette (label)</strong> :
+            <code>&lt;label&gt;&lt;input ...&gt; Remember me&lt;/label&gt;</code>
+          </li>
+          <li>contient un <strong>bouton de soumission (submit button)</strong> :
+            <code>&lt;button&gt;Log me in&lt;/button&gt;</code>
+          </li>
+        </ul>
+
+        <h4 class="p-break">Travail demandé</h4>
+        <ol>
+          <li>Créer un fichier HTML nommé : <strong>login.html</strong></li>
+          <li>Copier le code HTML du formulaire, ci-dessus.</li>
+          <li>Ajouter la mise en forme CSS disponible à travers le lien hypertexte, précédent.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Balise form</h3>
+
+        <p>Le formulaire est délimité par
+          <code>&lt;form action=&quot;...&quot; method=&quot;...&quot;&gt;...&lt;/form&gt;</code>.
+        </p>
+        <p>Cette balise admet deux attributs principaux :</p>
+        <ul>
+          <li><code>action="..."</code> indique l'<strong>URL</strong> qui traite les données récupérées provenant du
+            formulaire.</li>
+          <li><code>method="..."</code> indique la <b><u>méthode HTTP</u></b> qui sera utilisée pour envoyer les données
+            au serveur.
+            <p>Les méthodes HTTP usuelles sont :</p>
+            <ul>
+              <li><strong>GET</strong> : les données sont ajoutées à l'adresse URL indiquée dans action, elles sont
+                <b><u>visibles</u></b> à l'utilisateur.
+              </li>
+              <li><strong>POST</strong> : les données sont envoyées dans le corps de la requête, donc
+                <b><u>invisibles</u></b> à l'utilisateur.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Exemple 2 : méthodes GET et HTTP</h3>
+        <p>On va comparer les deux méthodes HTTP (GET et POST) à l'aide des formulaires suivants.</p>
+
+        <style>
+          .login-form {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 12pt;
+            display: flex;
+            width: 300px;
+            flex-wrap: wrap;
+            padding: 25px;
+            background-color: aliceblue;
+            border: cadetblue solid 1px;
+            margin: 25px auto;
+            border-radius: 5px;
+          }
+
+          .login-form input[type="text"],
+          .login-form input[type="password"],
+          .login-form label,
+          .login-form button {
+            width: 100%;
+            display: block;
+            margin: 5px 0;
+            font-size: 12pt;
+            padding: 5px;
+          }
+
+          .login-form button {
+            background-color: cadetblue;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+          }
+
+          .login-form h4 {
+            width: 100%;
+            text-align: center;
+          }
+        </style>
+        <div class="row">
+          <div class="col-6">
+            <form class="login-form" action="assets/miniprojet07/loggedin.html" method="post">
+              <h4>Méthode POST</h4>
+              <input type="text" name="login" placeholder="Login" value="user">
+              <input type="password" name="pass" placeholder="Password" value="user">
+              <button>Login</button>
+            </form>
+          </div>
+          <div class="col-6">
+            <form class="login-form" action="assets/miniprojet07/loggedin.html" method="get">
+              <h4>Méthode GET</h4>
+              <input type="text" name="login" placeholder="Login" value="user">
+              <input type="password" name="pass" placeholder="Password" value="user">
+              <button>Login</button>
+            </form>
+          </div>
+        </div>
+
+        <h4>Méthode POST</h4>
+        <p>Ouvrir l'outil de développement <kbd>F12</kbd> du navigateur sur l'onglet réseau. Puis, cliquer sur le bouton
+          <strong>Login</strong> du formulaire qui utilise la méthode POST.
+        </p>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-post-01.png" class="im-h-10"
+            alt="Dans l'onglet Headers on observe bien que la méthode utilisée est POST">
+          <figcaption>Dans l'onglet Headers on observe bien que la méthode utilisée est POST</figcaption>
+        </figure>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-post-03.png"
+            alt="L'adresse URL affichée lorsqu'on utilise une méthode POST pour récupérer les données">
+          <figcaption>L'adresse URL affichée lorsqu'on utilise une méthode POST pour récupérer les données</figcaption>
+        </figure>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-post-02.png" class="im-h-10"
+            alt="Les données du formulaire sont disponibles dans la partie 'Request'">
+          <figcaption>Les données du formulaire sont disponibles dans la partie 'Request'</figcaption>
+        </figure>
+
+        <h4>Méthode GET</h4>
+        <p>Utiliser le lien <u>"return to course..."</u> pour retourner à la page des formulaires. Puis, cliquer sur le
+          bouton <strong>login</strong> du formulaire qui utilise la méthode GET.</p>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-get-02.png" class="im-h-10"
+            alt="Dans l'onglet Headers on vérifie, bien, que la méthode utilisée est GET">
+          <figcaption>Dans l'onglet Headers on vérifie, bien, que la méthode utilisée est GET</figcaption>
+        </figure>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-get-03.png"
+            alt="L'adresse URL affichée lorsqu'on utilise une méthode GET contient les données du formulaire">
+          <figcaption>L'adresse URL affichée lorsqu'on utilise une méthode GET contient les données du formulaire
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="assets/miniprojet07/images/method-get-01.png" class="im-h-10" alt="La partie 'Request' est vide">
+          <figcaption>La partie 'Request' est vide</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3 class="p-break">Composants standards</h3>
+
+        <table class="table table-bordered table-sm border-dark">
+          <thead>
+            <tr>
+              <th>Composant / Forme</th>
+              <th>Code HTML</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>Bouton radio (radio button)</p>
+                <label><input type="radio" name="se" value="x86"> Windows 32bits</label><br>
+                <label><input type="radio" name="se" value="x64" checked> Windows 64bits</label><br>
+                <label><input type="radio" name="se" value="Linux"> Linux distribution</label>
+              </td>
+              <td>
+                <pre class="html"><code>&lt;label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;se&quot; value=&quot;x86&quot;&gt; Windows 32bits
+&lt;/label&gt;&lt;br&gt;
+&lt;label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;se&quot; value=&quot;x64&quot; checked&gt; Windows 64bits
+&lt;/label&gt;&lt;br&gt;
+&lt;label&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;se&quot; value=&quot;Linux&quot;&gt; Linux distribution
+&lt;/label&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Case à cocher (checkbox)</p>
+                <label><input type="checkbox" name="media" value="Livre" checked> Livre</label><br>
+                <label><input type="checkbox" name="media" value="Magazine" checked> Magazine</label><br>
+                <label><input type="checkbox" name="media" value="Roman"> Roman</label><br>
+                <label><input type="checkbox" name="media" value="Encyclopédie"> Encyclopédie</label>
+              </td>
+              <td>
+                <pre class="html"><code>&lt;label&gt;
+  &lt;input type=&quot;checkbox&quot; name=&quot;media&quot; value=&quot;Livre&quot; checked&gt; Livre
+&lt;/label&gt;&lt;br&gt;
+&lt;label&gt;
+  &lt;input type=&quot;checkbox&quot; name=&quot;media&quot; value=&quot;Magazine&quot; checked&gt; Magazine
+&lt;/label&gt;&lt;br&gt;
+&lt;label&gt;
+  &lt;input type=&quot;checkbox&quot; name=&quot;media&quot; value=&quot;Roman&quot;&gt; Roman
+&lt;/label&gt;&lt;br&gt;
+&lt;label&gt;
+  &lt;input type=&quot;checkbox&quot; name=&quot;media&quot; value=&quot;Encyclop&eacute;die&quot;&gt; Encyclop&eacute;die
+&lt;/label&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Champ de texte (text field)</p>
+                <input type="text" name="np" value="Mariem" placeholder="Nom & Prénom">
+              </td>
+              <td>
+                <pre
+                  class="html"><code>&lt;input type=&quot;text&quot; name=&quot;np&quot; value=&quot;Mariem&quot; placeholder=&quot;Nom &amp; Pr&eacute;nom&quot;&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Zone de texte (text area)</p>
+                <textarea name="histoire" cols="20" rows="4" placeholder="Raconter votre histoire"></textarea>
+              </td>
+              <td>
+                <pre class="html"><code>&lt;textarea name=&quot;histoire&quot; cols=&quot;20&quot; rows=&quot;4&quot; 
+          placeholder=&quot;Raconter votre histoire&quot;&gt;&lt;/textarea&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Champ de mot de passe (password field)</p>
+                <input type="password" name="pwd" value="secret" placeholder="Mot de passe">
+              </td>
+              <td>
+                <pre
+                  class="html"><code>&lt;input type=&quot;password&quot; name=&quot;pwd&quot; value=&quot;secret&quot; placeholder=&quot;Mot de passe&quot;&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Champ nombre (number field)</p>
+                <input type="number" name="note" value="10.0" min="0.0" max="20.0" step="0.25">
+              </td>
+              <td>
+                <pre class="html"><code>&lt;input type=&quot;number&quot; name=&quot;note&quot; value=&quot;10.0&quot; 
+       min=&quot;0.0&quot; max=&quot;20.0&quot; step=&quot;0.25&quot;&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Champ email (email field)</p>
+                <input type="email" name="mail" placeholder="Votre adresse mail">
+              </td>
+              <td>
+                <pre
+                  class="html"><code>&lt;input type=&quot;email&quot; name=&quot;mail&quot; placeholder=&quot;Votre adresse mail&quot;&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Champ téléphone (tel field)</p>
+                <input type="tel" name="phone" pattern="[2459][0-9] [0-9]{3} [0-9]{3}" placeholder="Votre téléphone">
+              </td>
+              <td>
+                <pre class="html"><code>&lt;input type=&quot;tel&quot; name=&quot;phone&quot; pattern=&quot;[2459][0-9] [0-9]{3} [0-9]{3}&quot; 
+       placeholder=&quot;Votre t&eacute;l&eacute;phone&quot;&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Champ date (date field)</p>
+                <input type="date" name="voyage" value="2022-10-01" min="2022-01-01" max="2022-12-31">
+              </td>
+              <td>
+                <pre class="html"><code>&lt;input type=&quot;date&quot; name=&quot;voyage&quot; value=&quot;2022-10-01&quot; 
+       min=&quot;2022-01-01&quot; max=&quot;2022-12-31&quot;&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Champ heure (time field)</p>
+                <input type="time" name="appt" min="08:00" max="18:00" step="900" value="14:00">
+              </td>
+              <td>
+                <pre class="html"><code>&lt;input type=&quot;time&quot; name=&quot;appt&quot; 
+       min=&quot;08:00&quot; max=&quot;18:00&quot; step=&quot;900&quot; value=&quot;14:00&quot;&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Champ date et heure (datetime field)</p>
+                <input type="datetime-local" name="exam" min="2022-09-15" max="2023-06-30" value="2022-09-15T08:00">
+              </td>
+              <td>
+                <pre class="html"><code>&lt;input type=&quot;datetime-local&quot; name=&quot;exam&quot; 
+       min=&quot;2022-09-15&quot; max=&quot;2023-06-30&quot; value=&quot;2022-09-15T08:00&quot;&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Champ intervalle (range field)</p>
+                <input type="range" name="volume" min="0" max="100" step="5" list="ticks">
+                <datalist id="ticks">
+                  <option value="0" label="0%"></option>
+                  <option value="25" label="25%"></option>
+                  <option value="50" label="50%"></option>
+                  <option value="75" label="75%"></option>
+                  <option value="100" label="100%"></option>
+                </datalist>
+              </td>
+              <td>
+                <pre class="html"><code>&lt;input type=&quot;range&quot; name=&quot;volume&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;5&quot; list=&quot;ticks&quot;&gt;
+&lt;!-- afficher les ticks --&gt;
+&lt;datalist id=&quot;ticks&quot;&gt;
+  &lt;option value=&quot;0&quot; label=&quot;0%&quot;&gt;&lt;/option&gt;
+  &lt;option value=&quot;25&quot; label=&quot;25%&quot;&gt;&lt;/option&gt;
+  &lt;option value=&quot;50&quot; label=&quot;50%&quot;&gt;&lt;/option&gt;
+  &lt;option value=&quot;75&quot; label=&quot;75%&quot;&gt;&lt;/option&gt;
+  &lt;option value=&quot;100&quot; label=&quot;100%&quot;&gt;&lt;/option&gt;
+&lt;/datalist&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Liste déroulante</p>
+                <select name="fruit">
+                  <optgroup label="Fruits locaux">
+                    <option value="pomme">Pomme</option>
+                    <option value="fraise" selected>Fraise</option>
+                    <option value="orange">Orange</option>
+                    <option value="raisin">Raisin</option>
+                  </optgroup>
+                  <optgroup label="Fruits importés">
+                    <option value="banane">Banane</option>
+                    <option value="avocat">Avocat</option>
+                    <option value="kiwi">Kiwi</option>
+                  </optgroup>
+                </select>
+              </td>
+              <td>
+                <pre class="html"><code>&lt;select name=&quot;fruit&quot;&gt;
+  &lt;optgroup label=&quot;Fruits locaux&quot;&gt;
+    &lt;option value=&quot;pomme&quot;&gt;Pomme&lt;/option&gt;
+    &lt;option value=&quot;fraise&quot; selected&gt;Fraise&lt;/option&gt;
+    &lt;option value=&quot;orange&quot;&gt;Orange&lt;/option&gt;
+    &lt;option value=&quot;raisin&quot;&gt;Raisin&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label=&quot;Fruits import&eacute;s&quot;&gt;
+    &lt;option value=&quot;banane&quot;&gt;Banane&lt;/option&gt;
+    &lt;option value=&quot;avocat&quot;&gt;Avocat&lt;/option&gt;
+    &lt;option value=&quot;kiwi&quot;&gt;Kiwi&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Liste à choix multiples</p>
+                <select name="fruits" size="8" multiple>
+                  <optgroup label="Fruits locaux">
+                    <option value="pomme">Pomme</option>
+                    <option value="fraise" selected>Fraise</option>
+                    <option value="orange">Orange</option>
+                    <option value="raisin">Raisin</option>
+                  </optgroup>
+                  <optgroup label="Fruits importés">
+                    <option value="banane" selected>Banane</option>
+                    <option value="avocat">Avocat</option>
+                    <option value="kiwi" selected>Kiwi</option>
+                  </optgroup>
+                </select>
+              </td>
+              <td>
+                <pre class="html"><code>&lt;select name=&quot;fruits&quot; size=&quot;8&quot; multiple&gt;
+  &lt;optgroup label=&quot;Fruits locaux&quot;&gt;
+    &lt;option value=&quot;pomme&quot;&gt;Pomme&lt;/option&gt;
+    &lt;option value=&quot;fraise&quot; selected&gt;Fraise&lt;/option&gt;
+    &lt;option value=&quot;orange&quot;&gt;Orange&lt;/option&gt;
+    &lt;option value=&quot;raisin&quot;&gt;Raisin&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label=&quot;Fruits import&eacute;s&quot;&gt;
+    &lt;option value=&quot;banane&quot; selected&gt;Banane&lt;/option&gt;
+    &lt;option value=&quot;avocat&quot;&gt;Avocat&lt;/option&gt;
+    &lt;option value=&quot;kiwi&quot; selected&gt;Kiwi&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Boutons (buttons)</p>
+                <form action="#">
+                  <div class="my-2">
+                    <label for="champ">Modifier ce texte</label>
+                    <input type="text" id="champ" name="champ" value="ahmed">
+                  </div>
+                  <button type="button">Rien</button>
+                  <button type="submit">Envoi</button>
+                  <button type="reset">RAZ</button>
+                </form>
+              </td>
+              <td>
+                <pre class="html"><code>&lt;button type=&quot;button&quot;&gt;Rien&lt;/button&gt;
+&lt;button type=&quot;submit&quot;&gt;Envoi&lt;/button&gt;
+&lt;button type=&quot;reset&quot;&gt;RAZ&lt;/button&gt;</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3 class="p-break">Application 7 : Formulaire de contact</h3>
+        <p>Créer le formulaire de contact suivant :</p>
+        <figure>
+          <img src="assets/miniprojet07/images/contact.png" alt="Formulaire de contacts développeur">
+          <figcaption>Formulaire de contacts développeur</figcaption>
+        </figure>
+        <p>Les champs obligatoires sont suivis par un astérisque (*).</p>
+        <p>Les <b>postes actuels</b> disponibles sont :</p>
+        <ul>
+          <li>Web<ul>
+              <li>Frontend developer</li>
+              <li>Backend developer</li>
+              <li>Fullstack developer</li>
+            </ul>
+          </li>
+          <li>Data science <ul>
+              <li>Datascience engineer</li>
+            </ul>
+          </li>
+          <li>Autres<ul>
+              <li>Python developer</li>
+              <li>C++ developer</li>
+            </ul>
+          </li>
+        </ul>
+        <p>Utiliser le CSS pour mettre en forme le formulaire.</p>
+      </section>
+
+      <section>
+        <h3 class="p-break">Application 8 : Personnages de bandes dessinées</h3>
+
+        <p>Réaliser un formulaire de personnages de bandes dessinées composé de cinq questions.</p>
+
+        <p><a href="assets/miniprojet08/bd-todo.zip">Télécharger les images</a></p>
+
+        <h4>Question 1</h4>
+        <figure>
+          <img src="assets/miniprojet08/images/bandes_dessinees-01.png" alt="Question 1">
+          <figcaption>Question 1</figcaption>
+        </figure>
+        <ol>
+          <li>Les images des personnages sont des étiquettes (labels) qui permettent de sélectionner la zone de liste en
+            dessous de chaque image.</li>
+          <li>Les éléments de la zone de liste sont montrés dans la figure suivante :
+            <p class="text-center"><img src="assets/miniprojet08/images/bd-select-q1.png"
+                alt="Options disponibles dans la zone de liste"></p>
+          </li>
+          <li>L'utilisateur doit obligatoirement remplir chacune des listes.</li>
+        </ol>
+
+        <h4>Question 2</h4>
+        <figure>
+          <img src="assets/miniprojet08/images/bandes_dessinees-02.png" alt="Question 2">
+          <figcaption>Question 2</figcaption>
+        </figure>
+        <ol>
+          <li>Les images des personnages sont des étiquettes (labels) qui permettent de sélectionner le bouton radio au
+            dessus de chaque image.</li>
+          <li>La valeur respective de chaque bouton radio est : a, b et c.</li>
+          <li>L'utilisateur doit obligatoirement choisir une réponse parmi les trois propositions.</li>
+        </ol>
+
+        <h4>Question 3</h4>
+        <figure>
+          <img src="assets/miniprojet08/images/bandes_dessinees-03.png" alt="Question 3">
+          <figcaption>Question 3</figcaption>
+        </figure>
+        <ol>
+          <li>Le champ de texte est lié à une <code>datalist</code> qui contient les valeurs suivantes :
+            <ul>
+              <li>Spiderman</li>
+              <li>Superman</li>
+              <li>Batman</li>
+              <li>Megaman</li>
+              <li>Catman</li>
+            </ul>
+          </li>
+          <li>L'utilisateur doit obligatoirement répondre à cette question.</li>
+        </ol>
+
+        <h4>Question 4</h4>
+        <figure>
+          <img src="assets/miniprojet08/images/bandes_dessinees-04.png" alt="Question 4">
+          <figcaption>Question 4</figcaption>
+        </figure>
+        <ol class="p-break">
+          <li>Les images des personnages sont des étiquettes (labels) qui permettent de sélectionner la case à cocher
+            (checkbox) en dessous de chaque image.</li>
+          <li>La valeur respective de chaque bouton radio est : a, b, c et d.</li>
+          <li>La réponse n'est pas obligatoire à cette question.</li>
+        </ol>
+
+        <h4>Question 5</h4>
+        <figure>
+          <img src="assets/miniprojet08/images/bandes_dessinees-05.png" alt="Question 5">
+          <figcaption>Question 5</figcaption>
+        </figure>
+        <ol>
+          <li>Le champ affiché est de type numérique (number).</li>
+          <li>Les valeurs acceptées dans ce champ sont comprises entre 1 et 20. Le champ affiche la valeur 5, par
+            défaut.</li>
+          <li>La réponse à cette question est obligatoire.</li>
+        </ol>
+
+        <p><strong>Le formulaire fournit deux boutons : <code>submit</code> et <code>reset</code></strong></p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

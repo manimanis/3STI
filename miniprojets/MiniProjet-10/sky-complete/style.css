@@ -1,0 +1,170 @@
+:root {
+  --color-white: #FEFCFB;
+  --color-cg-blue: #1282A2;
+  --color-indigo-die: #034078;
+  --color-royal-blue: #001F54;
+  --color-oxford-blue: #0A1128;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(0deg, #FEFCFB, #1282A2) no-repeat;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+#page {
+  width: 960px;
+  margin: 50px auto;
+}
+
+header {
+  background-color: #0a1128;
+  color: #FEFCFB;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+header h1, header p {
+  margin: 0;
+}
+
+header img {
+  height: 58px;
+  float: left;
+  margin-right: 15px;
+}
+
+nav {
+  background-color: #001F54;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul a {
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FEFCFB;
+  font-weight: bold;
+  padding: 15px;
+}
+
+nav ul a:hover {
+  color: #f00;
+}
+
+main {
+  background-color: #FEFCFB;
+  padding: 15px;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.images .image {
+  width: 50%;
+  text-align: center;
+}
+
+.images.six .image {
+  width: 16.66%;
+}
+
+footer {
+  background-color: #034078;
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
+}
+
+footer p {
+  text-align: center;
+  color: #fff;
+  font-size: 10px;
+}
+
+#animation {
+  position: relative;
+  height: 500px;
+}
+
+.texte {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  animation-name: scroll;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes scroll {
+  0% {
+    top: 0;
+    left: 0;
+    color: #1282A2;
+  }
+
+  33% {
+    top: 0;
+    left: 250px;
+  }
+
+  66% {
+    top: 250px;
+    left: 250px;
+    color: #0a1128;
+  }
+
+  100% {
+    top: 250px;
+    left: 500px;
+  }
+}
+
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+fieldset > div {
+  width: calc(50% - 10px);
+  margin: 10px 5px;
+}
+
+fieldset label[for] {
+  display: block;
+  font-weight: bold;
+}
+
+fieldset input[type="number"],
+fieldset input[type="text"],
+fieldset input[type="date"],
+fieldset select {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+}
+
+button {
+  background-color:#0a1128;
+  color: #fff;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+}

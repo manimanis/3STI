@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paiement commande</title>
+  <link rel="stylesheet" href="paiement.css">
+</head>
+
+<body>
+  <form action="#" method="post">
+    <div>
+      <img src="images/clictopay-logo.png" alt="Clic to pay logo">
+    </div>
+    <div class="titre">
+      Numéro de la commande N°<span id="num-cmd"></span> &darr;
+    </div>
+    <div>
+      <label for="num-card">Numéro de la carte</label>
+      <input type="text" id="num-card" name="num_card" placeholder="**** **** **** **** ****" required>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="month">Valable jusqu'au</label>
+        <select name="month" id="month" required>
+          <option value="">-</option>
+          <option value="1">Janvier</option>
+          <option value="2">Février</option>
+          <option value="3">Mars</option>
+          <option value="4">Avril</option>
+          <option value="5">Mai</option>
+          <option value="6">Juin</option>
+          <option value="7">Juillet</option>
+          <option value="8">Août</option>
+          <option value="9">Septembre</option>
+          <option value="10">Octobre</option>
+          <option value="11">Novembre</option>
+          <option value="12">Décembre</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="year">&nbsp;</label>
+        <select name="year" id="year" required>
+          <option value="">-</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="CVV2">CVV2</label>
+        <input type="password" name="cvv2" id="CVV2" placeholder="***" required>
+      </div>
+    </div>
+    <div>
+      <label for="nom">Le nom du détenteur</label>
+      <input type="text" name="nom" id="nom" required>
+    </div>
+    <div>
+      <label for="mail">Adresse e-mail</label>
+      <input type="email" name="mail" id="mail" required>
+    </div>
+    <div>
+      <button type="button" id="paie">Paiement <span id="montant"></span> TND</button>
+    </div>
+  </form>
+  <script src="paiement.js"></script>
+</body>
+
+</html>

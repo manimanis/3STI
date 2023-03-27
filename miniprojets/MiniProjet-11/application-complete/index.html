@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <datalist id="authors">
+      <option v-for="author in authors" v-bind:value="author"></option>
+    </datalist>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th v-on:click="sortBy('authorName')">المؤلف</th>
+            <th v-on:click="sortBy('bookTitle')">الكتاب</th>
+            <th v-on:click="sortBy('num')">رقم الكتاب</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="d-print-none">
+            <td><input type="search" class="form-control" v-model="filterBook.authorName"
+                v-on:input="filterListOfBooks()" list="authors" placeholder="إبحث"></td>
+            <td><input type="search" class="form-control" v-model="filterBook.bookTitle"
+                v-on:input="filterListOfBooks()" placeholder="إبحث"></td>
+            <td><input type="search" class="form-control" v-model.number="filterBook.num"
+                v-on:input="filterListOfBooks()" placeholder="إبحث"></td>
+          </tr>
+          <tr v-for="book, idx in (mode == 'allbooks' ? books : filteredBooks)">
+            <template v-if="idx != idxBook">
+              <td>{{book.authorName}}</td>
+              <td>{{book.bookTitle}}</td>
+              <td>{{book.num}}</td>
+              <td v-if="mode == 'allbooks'" class="d-print-none">
+                <a href="#" v-on:click.prevent="editBook(idx)">تغيير</a>
+                <a href="#" v-on:click.prevent="deleteBook(idx)">حذف</a>
+              </td>
+            </template>
+            <template v-if="idx == idxBook">
+              <td><input type="text" class="form-control" v-model="copyBook.authorName" list="authors"></td>
+              <td><input type="text" class="form-control" v-model="copyBook.bookTitle"></td>
+              <td><input type="number" class="form-control" v-model.number="copyBook.num"></td>
+              <td><button v-on:click="updateBook()">تحديث</button></td>
+            </template>
+          </tr>
+          <tr class="d-print-none" v-if="mode == 'allbooks' && idxBook == -1">
+            <td><input type="text" class="form-control" id="author-name-input" v-model="newBook.authorName"
+                list="authors"></td>
+            <td><input type="text" class="form-control" v-model="newBook.bookTitle"></td>
+            <td><input type="number" class="form-control" v-model.number="newBook.num"></td>
+            <td><button class="btn btn-primary" v-on:click="saveBook()">إضافة</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="my-2 d-print-none">
+        عدد الكتب: {{books.length}} - عدد المؤلفين: {{authors.length}} - عدد الكتب المعروضة: {{mode == 'allbooks' ?
+        books.length : filteredBooks.length}}
+      </div>
+      <div class="my-2 d-print-none">
+        <button class="btn btn-secondary" v-on:click="sortBooksByNum()">ترتيب الكتب</button>
+      </div>
+    </div>
+  </div>
+  <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../assets/js/vue.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

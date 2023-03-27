@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>focus/blur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Tilt+Warp&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guesser.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Number Guess</h1>
+    <p>The computer selected a number between 1 and 99. You have 7 attempts to guess it.</p>
+    <p><input type="number" name="guess" id="guess" min="1" max="99"></p>
+    <div class="row">
+      <div class="box">
+        <div class="title"># attempts</div>
+        <div class="body" id="num-guess">0</div>
+      </div>
+      <div class="box">
+        <div class="title">3 # guesses</div>
+        <div class="body" id="last-guess">-</div>
+      </div>
+    </div>
+    <p id="msg"></p>
+  </div>
+
+  <script src="guesser.js"></script>
+</body>
+
+</html>

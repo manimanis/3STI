@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Somme diviseurs / Nombres parfaits / Nombres amis</h2>
+      <section>
+        <h3>Progression dans le TP</h3>
+        <p><strong>Fichier HTML</strong></p>
+<pre><code class="html">&lt;form&gt;
+  &lt;div&gt;
+    &lt;label&gt;
+      &lt;input type=&quot;radio&quot; id=&quot;som-div&quot; name=&quot;choix&quot; value=&quot;1&quot; checked&gt; Somme diviseurs
+    &lt;/label&gt;
+    &lt;label&gt;
+      &lt;input type=&quot;radio&quot; id=&quot;nbr-par&quot; name=&quot;choix&quot; value=&quot;2&quot;&gt; Nombres parfaits
+    &lt;/label&gt;
+    &lt;label&gt;
+      &lt;input type=&quot;radio&quot; id=&quot;nbr-amis&quot; name=&quot;choix&quot; value=&quot;3&quot;&gt; Nombres amis
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;a&quot;&gt;A&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;a&quot; name=&quot;a&quot; min=&quot;1&quot; max=&quot;99999&quot; placeholder=&quot;Nombre entre 1 et 99999&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;b&quot;&gt;B&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;b&quot; name=&quot;b&quot; min=&quot;1&quot; max=&quot;99999&quot; placeholder=&quot;Nombre entre 1 et 99999&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button type=&quot;button&quot; id=&quot;calc&quot;&gt;Calculer&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;res&quot;&gt;R&eacute;sultat&lt;/label&gt;
+    &lt;textarea id=&quot;res&quot; name=&quot;res&quot; readonly&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+<p><strong>Fichier CSS</strong></p>
+<pre><code class="css">* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FFD6C0;
+  font-family: sans-serif;
+  font-size: 12pt;
+}
+
+form {
+  width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #FFA5A5;
+  border-radius: 10px;
+}
+
+form > div {
+  margin: 10px 0;
+}
+
+label {
+  display: block;
+}
+
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #EC368D;
+  border: none;
+  color: #FFD6C0;
+  font-size: 12pt;
+}
+
+button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: #440381;
+  color: #FFD6C0;
+  font-size: 12pt;
+  font-weight: bold;
+}</code></pre>
+
+<p><strong>Code JavaScript (groupe 8h)</strong></p>
+<pre><code class="javascript">const radSomDiv = document.getElementById("som-div");
+const radNbrPar = document.getElementById("nbr-par");
+const radNbrAmis = document.getElementById("nbr-amis");
+const inpA = document.getElementById("a");
+const inpB = document.getElementById("b");
+const btnCalc = document.getElementById("calc");
+const inpRes = document.getElementById("res");
+
+// fonction appelée lorsqu'on clique sur le bouton Calculer
+function btnCalcClicked(e) {
+  const choix = radSomDiv.checked * 1 + radNbrPar.checked * 2 + radNbrAmis.checked * 3;
+  if (choix == 1) {
+    calcSommeDiv();
+  }
+  //
+  // à compléter
+  //
+}
+
+btnCalc.addEventListener("click", btnCalcClicked);
+
+// fonction qui calcule la somme de diviseur d'un nombre
+// sauf lui même
+function somdiv(n) {
+  let s = 0;
+  for (let i = 1; i <= n / 2; i++) {
+    if (n % i == 0) {
+      s += i;
+    }
+  }
+  return s;
+}
+
+// Récupère les données du formulaire 
+// Calcule la somme des diviseurs de A et de B
+// Puis les affiche
+function calcSommeDiv() {
+  const a = Number(inpA.value);
+  const b = Number(inpB.value);
+  const sda = somdiv(a);
+  const sdb = somdiv(b);
+  inpRes.value = "somdiv(" + a + ") = " + sda + "\nsomdiv(" + b + ") = " + sdb;
+}
+
+// Compléter le code précédent, ajouter les fonctions nécessaires pour :
+// - Calculer les nombres parfaits situés dans l'intervalle [a, b]
+// - Calculer les nombres amis situés dans l'intervalle [a, b]
+
+// NB : si somdiv(n) = n alors n est un nombre parfait
+// Exemple : somdiv(6) = 1+2+3 = 6 => 6 est un nombre parfait
+
+// NB : si somdiv(a) = b et somdiv(b) = a alors a, b sont deux nombres amis
+// Exemple : somdiv(220) = 284 et somdiv(284) = 220 => 220 et 284 sont deux nombres amis</code></pre>
+
+<p><strong>Code JavaScript (groupe 10h)</strong></p>
+<pre><code class="javascript">// fonction appelée lorsqu'on clique sur le bouton Calculer
+function btnCalcClicked(e) {
+  const choix = Number(document.f.choix.value);
+  if (choix == 1) {
+    calcSommeDiv();
+  }
+  //
+  // à compléter
+  //
+}
+
+document.f.calc.addEventListener("click", btnCalcClicked);
+
+// fonction qui calcule la somme de diviseur d'un nombre
+// sauf lui même
+function somdiv(n) {
+  let s = 0;
+  for (let i = 1; i <= n / 2; i++) {
+    if (n % i == 0) {
+      s += i;
+    }
+  }
+  return s;
+}
+
+// Récupère les données du formulaire 
+// Calcule la somme des diviseurs de A et de B
+// Puis les affiche
+function calcSommeDiv() {
+  const a = Number(document.f.a.value);
+  const b = Number(document.f.b.value);
+  const sda = somdiv(a);
+  const sdb = somdiv(b);
+  document.f.res.value = "somdiv(" + a + ") = " + sda + "\nsomdiv(" + b + ") = " + sdb;
+}
+
+// Compléter le code précédent, ajouter les fonctions nécessaires pour :
+// - Calculer les nombres parfaits situés dans l'intervalle [a, b]
+// - Calculer les nombres amis situés dans l'intervalle [a, b]
+
+// NB : si somdiv(n) = n alors n est un nombre parfait
+// Exemple : somdiv(6) = 1+2+3 = 6 => 6 est un nombre parfait
+
+// NB : si somdiv(a) = b et somdiv(b) = a alors a, b sont deux nombres amis
+// Exemple : somdiv(220) = 284 et somdiv(284) = 220 => 220 et 284 sont deux nombres amis</code></pre>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

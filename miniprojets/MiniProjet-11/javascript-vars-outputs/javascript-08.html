@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>milieu</title>
+</head>
+
+<body>
+  <script>
+    // instruction for
+    document.writeln("<p>Nombre premiers < 100 :");
+    for (let i = 0; i < 100; i++) {
+      let nbd = 0;
+      for (let j = 1; j <= i; j++) {
+        if (i % j == 0) {
+          nbd++;
+        }
+      }
+      if (nbd == 2) {
+        document.writeln(i, ", ");
+      }
+    }
+    document.writeln("</p>");
+
+    // palindrome
+    let ch = "RESSASSER";
+    let i = 0, j = ch.length - 1;
+    while (j > i && ch[i] == ch[j]) {
+      i++; j--;
+    }
+    document.writeln("<p>", ch, " est ", (i >= j ? "palindrôme" : "non palindrôme"), ".</p>");
+
+    // instruction while
+    let a = Number(prompt("Donner a ? ", "35"));
+    let b = Number(prompt("Donner b ? ", "12"));
+    let a1 = a, b1 = b;
+    while (b1 != 0) {
+      let r = a1 % b1;
+      a1 = b1;
+      b1 = r;
+    }
+    document.writeln("<p>", a, " et ", b, " ", (a1 == 1 ? "sont" : "ne sont pas"), " premiers entre eux.</p>");
+  </script>
+</body>
+
+</html>

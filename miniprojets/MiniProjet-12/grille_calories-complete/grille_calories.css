@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 12pt;
+  font-family: sans-serif;
+}
+
+h1 {
+  color: orange;
+  text-align: center;
+  width: 640px;
+  margin: 1em auto;
+}
+
+p {
+  text-align: center;
+  width: 640px;
+  margin: auto;
+}
+
+#res,
+#frm {
+  padding: 30px;
+  width: 640px;
+  margin: 25px auto;
+  border: #333 solid 1px;
+  border-radius: 8px;
+  background-color: #eee;
+}
+
+#frm > div {
+  margin: 10px 0;
+}
+
+label[for] {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+select,
+input[type="number"] {
+  font-size: 12pt;
+  width: 100%;
+  padding: 10px;
+}
+
+button {
+	font-size: 12pt;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	padding: 10px 30px;
+}
+
+#res {
+  font-size: 16pt;
+  text-align: center;
+  margin-top: 30px;
+}

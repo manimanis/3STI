@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <form id="test" action="#" method="post">
+    <h1>Test</h1>
+    <div class="exercice">
+      <h2>Exercice 1 (1 point)</h2>
+      <label for="ex1">Quels sont les opérateurs qui peuvent être utilisés avec les réels</label>
+      <p>
+        <select name="ex1" id="ex1" required>
+          <option value="">-</option>
+          <option value="1">AND, OR, NOT</option>
+          <option value="2">+, -, *, /</option>
+          <option value="3">DIV, MOD</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="exercice">
+      <h2>Exercice 2 (1 point)</h2>
+      <label for="ex2-r1">Quel est l'opérateur qui peut être utilisé dans l'expression suivante ?</label>
+      <pre><code>19 ... 3 = 1</code></pre>
+      <p>
+        <label><input type="radio" name="ex2" id="ex2-r1" value="div" required> DIV</label>
+        <label><input type="radio" name="ex2" id="ex2-r2" value="and"> AND</label>
+        <label><input type="radio" name="ex2" id="ex2-r3" value="mod"> MOD</label>
+      </p>
+    </div>
+
+    <div class="exercice">
+      <h2>Exercice 3 (3 points)</h2>
+      <label for="ex3-r1">Numéroter les étapes de l'algorithme suivant :</label>
+      <p>
+        <label>
+          <input type="number" name="ex3" id="ex3-r1" min="1" max="5" size="1" required>
+          somme &larr; a + b</label>
+      </p>
+      <p>
+        <label>
+          <input type="number" name="ex3" id="ex3-r2" min="1" max="5" size="1" required>
+          Lire(a, b)</label>
+      </p>
+      <p>
+        <label>
+          <input type="number" name="ex3" id="ex3-r3" min="1" max="5" size="1" value="5" required>
+          Fin calcul</label>
+      </p>
+      <p>
+        <label>
+          <input type="number" name="ex3" id="ex3-r4" min="1" max="5" size="1" required>
+          &Eacute;crire(somme)</label>
+      </p>
+      <p>
+        <label>
+          <input type="number" name="ex3" id="ex3-r5" min="1" max="5" size="1" value="1" required>
+          Début calcul</label>
+      </p>
+    </div>
+
+    <div class="submit">
+      <button type="submit">Envoyer</button>
+      <button type="reset">Effacer</button>
+    </div>
+  </form>
+  <script>
+    /*     const form = document.querySelector("#test");
+    
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          let score = 0;
+          if (form.ex1.value == "2") score++;
+          if (form.ex2.value == "mod") score++;
+          if (form.esx3[0].value == "3") score++;
+          if (form.ex3[1].value == "2") score++;
+          if (form.ex3[3].value == "4") score++;
+          alert("Votre score est " + score + " / 5");
+        }); */
+
+    const frm = document.getElementById("test");
+    const ex1 = document.getElementById("ex1");
+    const ex2_r3 = document.getElementById("ex2-r3");
+    const ex3_r1 = document.getElementById("ex3-r1");
+    const ex3_r2 = document.getElementById("ex3-r2");
+    const ex3_r4 = document.getElementById("ex3-r4");
+
+    frm.onsubmit = (e) => {
+      let score = 0;
+      if (ex1.value == "2") score++;
+      if (ex2_r3.checked) score++;
+      if (ex3_r1.value == "3") score++;
+      if (ex3_r2.value == "2") score++;
+      if (ex3_r4.value == "4") score++;
+      alert("Votre score est " + score + " / 5");
+      e.preventDefault();
+    };
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>milieu</title>
+</head>
+
+<body>
+  <script>
+    // opérateur ternaire
+    let s = Number(prompt("Nombre de secondes ? ", (9 * 3600 + 7 * 60 + 5)));
+    let hh = Math.floor(s / 3600);
+    let mm = Math.floor((s % 3600) / 60);
+    let ss = Math.floor(s % 60);
+    let heure = hh + ":" +
+      (mm < 10 ? "0" : "") + mm + ":" +
+      (mm < 10 ? "0" : "") + ss;
+    alert(s + "s = " + heure);
+    
+    // switch
+    let fruit = prompt("Que voulez vous acheter ? ", "Banane");
+    let price;
+    switch (fruit) {
+      case "Orange": price = 1.30; break;
+      case "Pomme": price = 0.66; break;
+      case "Banane": price = 1.05; break;
+      case "Cerise": price = 6.61; break;
+      case "Mangue":
+      case "Papaye": price = 6.15; break;
+      default: price = -1;
+    }
+
+    if (price < 0) {
+      alert(fruit + " non disponible.");
+    } else {
+      alert(fruit + " est à " + price + "$/Kg.");
+    }
+
+    // if
+    let a = Number(prompt("Donner a ?", "5"));
+    let b = Number(prompt("Donner b ?", "16"));
+    let c = Number(prompt("Donner c ?", "10"));
+
+    let mid;
+    if ((a > b && b > c) || (a < b && b < c)) {
+      mid = b;
+    } else if ((b > a && a > c) || (b < a && a < c)) {
+      mid = a;
+    } else {
+      mid = c;
+    }
+
+    alert("Nombre au milieu : " + mid);
+  </script>
+</body>
+
+</html>

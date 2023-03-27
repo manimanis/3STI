@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Classes</title>
+  <link rel="stylesheet" href="network.css">
+</head>
+
+<body>
+  <form action="#" method="post">
+    <div></div>
+    <h1>Classe d'une adresse IPV4</h1>
+    <div>
+      <label for="ip">Adresse IP</label>
+      <input type="text" name="ip" id="ip" placeholder="IP Address, example: 172.16.0.1">
+    </div>
+    <div>
+      <button type="button" id="verif">Vérifier</button>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p><strong>Adresse IP</strong></p>
+        <p id="address">&nbsp;</p>
+      </div>
+      <div class="col">
+        <p><strong>Adresse en binaire</strong></p>
+        <p id="bin">&nbsp;</p>
+      </div>
+      <div class="col">
+        <p><strong>Classe</strong></p>
+        <p id="class">&nbsp;</p>
+      </div>
+    </div>
+  </form>
+  <script src="network.js"></script>
+</body>
+
+</html>

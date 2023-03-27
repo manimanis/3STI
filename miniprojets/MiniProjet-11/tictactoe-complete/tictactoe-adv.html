@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="tictactoe-adv.css">
+  <title>Tic-Tac-Toe</title>
+</head>
+
+<body>
+  <form action="#" name="f">
+    <div>
+      <label for="range">Dimensions du jeu</label>
+      <input type="range" name="game_size" id="game_size" min="3" max="8" value="3">
+      <span id="game_size_val">3</span>
+    </div>
+    <div>
+      <label for="range">Carrés gagnants</label>
+      <input type="range" name="win_size" id="win_size" min="2" max="3" value="3">
+      <span id="win_size_val">3</span>
+    </div>
+  </form>
+  <div id="game"></div>
+  <script src="tictactoe-adv.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Séance n°2</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Séance n°2</h1>
+
+    <article>
+      <h2>Balises sémantiques</h2>
+
+      <section>
+        <h3>Définition</h3>
+
+        <p>Une balise sémantique est une balise qui donne une indication sur le contenu qu'elle entoure.</p>
+        <p>Les balises <code>&lt;div&gt;</code> et <code>&lt;span&gt;</code> ne sont pas des balises sémantiques car
+          elles ne donnent aucune indication sur leurs contenus.</p>
+        <p>Il existe deux catégories de balises sémantiques :</p>
+        <ul>
+          <li>Les balises de structuration du contenu comme <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>,
+            <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, etc.
+          </li>
+          <li>Les balises de structuration de page, ajoutées en HTML 5</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Balises de structuration de page</h3>
+
+        <p>Le HTML 5 définit plusieurs balises pour structrer une page web. La figure suivante propose une structuration
+          visuelle de la page en utilisant des balises sémantiques.</p>
+
+        <figure>
+          <img src="assets/miniprojet02/images/page_structure.png" alt="Structure de la page Web">
+          <figcaption>Structure de la page Web à l'aide de balises sémantiques</figcaption>
+        </figure>
+
+        <h4>L'entête</h4>
+        <p>L'entête de la page est définie à l'aide de la balise <code>&lt;header&gt;...&lt;/header&gt;</code>.</p>
+
+        <h4>Le menu de navigation</h4>
+        <p>Une page web présente souvent des liens vers les autres pages ou parties d'un site web. Ces liens sont
+          définis à l'intérieur de la balise <code>&lt;nav&gt;...&lt;/nav&gt;</code>.</p>
+
+        <h4>Le contenu principal</h4>
+        <p>La balise <code>&lt;main&gt;...&lt;/main&gt;</code> inclue le contenu principal d'une page web.</p>
+        <p>Cette balise peut contenir les balises <code>&lt;article&gt;...&lt;/article&gt;</code> et
+          <code>&lt;section&gt;...&lt;/section&gt;</code>. Ainsi, le contenu est découpé en <strong>articles</strong>
+          qui peuvent être découpés en <strong>sections</strong>.
+        </p>
+
+        <h4>Contenu annexe</h4>
+        <p>Certaines pages proposent un encart de contenu non relié directement au contenu principal de la page à l'aide
+          de la balise <code>&lt;aside&gt;...&lt;/aside&gt;</code>.</p>
+
+        <h4>Pied de page</h4>
+        <p>Le pied de page est définit à l'aide de la balise <code>&lt;footer&gt;...&lt;/footer&gt;</code>.</p>
+
+        <h4>Exemple</h4>
+        <p>Résultat désiré</p>
+        <figure>
+          <img src="assets/miniprojet02/images/semantiques.png" alt="Structure d'une page Web">
+          <figcaption>Structure d'une page Web</figcaption>
+        </figure>
+
+        <p>Code HTML</p>
+        <pre class="html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Balises s&eacute;mantiques&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;Ent&ecirc;te&lt;/header&gt;
+  &lt;nav&gt;Barre de navigation&lt;/nav&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Contenu principal&lt;/h1&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Section&lt;/h2&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+  &lt;aside&gt;
+    &lt;h3&gt;En relation&lt;/h3&gt;
+  &lt;/aside&gt;
+  &lt;footer&gt;Pied de page&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <p>Code CSS</p>
+        <pre class="css"><code>body {
+  width: 800px;
+  margin: 20px auto;
+  background-color: #a9a9a9;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header {
+  width: 100%; height: 3em;
+  line-height: 3em;
+  color: #fff;
+  font-size: 2em;
+  font-family: cursive;
+  text-align: center;
+  border: #fff solid 1px;
+  margin: 0.15em 0;
+  position: relative;
+}
+
+nav {
+  background-color: #ff80ff;
+  text-align: center;
+  border: #fff solid 1px;
+  width: 100%; height: 3em;
+  margin: 0.15em 0;
+  line-height: 3em;
+  position: relative;
+}
+
+main {
+  background-color: #fff;
+  text-align: center;
+  border: #333 solid 1px;
+  width: 70%; height: 15em;
+  margin: 0.15em 0;
+  position: relative;
+  padding-top: 2em;
+}
+
+aside {
+  background-color: #ff80ff;
+  text-align: center;
+  border: #fff solid 1px;
+  width: calc(30% - 0.3em - 4px); height: 15em;
+  margin: 0.15em 0 0.15em 0.3em;
+  position: relative;
+  padding-top: 2em;
+}
+
+footer {
+  background-color: #fff;
+  text-align: center;
+  border: #333 solid 1px;
+  width: 100%; height: 3em;
+  line-height: 3em;
+  margin: 0.15em 0;
+  position: relative;
+}</code></pre>
+      </section>
+
+      <section>
+        <h3>Application 1</h3>
+
+        <p>Utiliser les balises sémantiques pour structurer le site web <strong>computers</strong> disponible en
+          téléchargement à travers ce lien : <a href="assets/miniprojet02/computers-todo.zip" target="_blank"
+            rel="noopener noreferrer">Computers</a>.</p>
+        <p>Les pages possèdent la structure suivante :</p>
+        <figure>
+          <img src="assets/miniprojet02/images/computers_page_structure.png" alt="Structure de la page computers">
+          <figcaption>Structure de la page computers</figcaption>
+        </figure>
+
+        <p>Utiliser une feuille de style liée. Les couleurs sont laissées au libre choix de l'élève.</p>
+      </section>
+
+      <section>
+        <h3 class="p-break">Application 2</h3>
+        <p>Télécharger le site Web <strong>Fruits universe</strong> à compléter à traver le lien : <a
+            href="assets/miniprojet02/fruits_universe-todo.zip" target="_blank" rel="noopener noreferrer">Fruits
+            universe</a>.</p>
+        <ul>
+          <li>Décompresser le fichier,</li>
+          <li>Ouvrir le dossier à l'aide de Visual Studio Code,</li>
+          <li>Ajouter le fichier <strong>style.css</strong> pour mettre en forme le site comme suit : cliquer sur
+            l'image pour l'agrandir.</li>
+        </ul>
+
+        <figure>
+          <a href="assets/miniprojet02/page01.png" target="_blank" rel="noopener noreferrer">
+            <img src="assets/miniprojet02/page01_thumb.png" alt="Strawberry page">
+          </a>
+
+          <a href="assets/miniprojet02/page02.png" target="_blank" rel="noopener noreferrer">
+            <img src="assets/miniprojet02/page02_thumb.png" alt="Apples page" style="width: 30%;">
+          </a>
+
+          <a href="assets/miniprojet02/page02.png" target="_blank" rel="noopener noreferrer">
+            <img src="assets/miniprojet02/page03_thumb.png" alt="Grapes page" style="width: 30%;">
+          </a>
+
+          <figcaption>Aperçu des pages</figcaption>
+        </figure>
+
+        <p>Le choix des couleurs et le style des polices sont laissés au libre choix de l'élève.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

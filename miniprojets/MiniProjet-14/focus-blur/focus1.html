@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus / Blur</title>
+</head>
+<body>
+  <div><input type="text" id="txt" name="txt"></div>
+  <div id="msg"></div>
+  <script>
+    const inpTxt = document.getElementById("txt");
+    const divMsg = document.getElementById("msg");
+
+    function getFocus() {
+      divMsg.textContent = "J'ai reçu le focus!";
+      const code = Math.floor(97 + Math.random() * 26);
+      inpTxt.value += String.fromCharCode(code);
+    }
+
+    function lostFocus () {
+      divMsg.textContent = "J'ai perdu le focus!";
+      let txt = inpTxt.value;
+      txt = txt.toUpperCase();
+      txt = deleteSpaces(txt);
+      inpTxt.value = txt;
+    }
+
+    function deleteSpaces(ch) {
+      let ch1 = '';
+      const voyelles = 'OIYEAUoiyeau';
+      for (let i = 0; i < ch.length; i++) {
+        if (ch[i] != ' ' && voyelles.indexOf(ch[i]) == -1) {
+          ch1 = ch1 + ch[i];
+        }
+      }
+      return ch1;
+    }
+
+    inpTxt.addEventListener("focus", getFocus);
+    inpTxt.addEventListener("blur", lostFocus);
+  </script>
+</body>
+</html>

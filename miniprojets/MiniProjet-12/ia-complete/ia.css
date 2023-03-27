@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+	width: 960px;
+	height: 501px;
+	margin: 50px auto;
+	background-image: url(images/Reconnaissance-Faciale.jpg);
+	background-size: cover;
+	padding: 25px;
+	position: relative;
+	color: #fff;
+	border-radius: 20px;
+	box-shadow: 0 0 20px #000;
+}
+
+.form {
+  position: absolute;
+  right: 25px;
+  width: 350px;
+}
+
+.form h1 {
+	text-align: center;
+	margin: 0.25em 0;
+}
+
+form>div {
+  margin: 10px 0;
+}
+
+label[for] {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 3px;
+}
+
+input[type="number"], input[type="text"], select {
+  width: 100%;
+  padding: 5px;
+  font-size: 16pt;
+}
+
+button {
+  font-size: 16pt;
+  padding: 5px 15px;
+}

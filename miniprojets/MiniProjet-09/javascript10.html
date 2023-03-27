@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures conditionnelles</title>
+</head>
+
+<body>
+  <script>
+    let j2 = Math.floor(Math.random() * 3), cj2;
+    let j1, cj1;
+    let g, res;
+
+    switch (j2) {
+      case 0: cj2 = "Pierre"; break;
+      case 1: cj2 = "Feuille"; break;
+      case 2: cj2 = "Ciseaux"; break;
+      default: cj2 = "Aucun";
+    }
+
+    j1 = j2
+    cj1 = cj2;
+    res = "Partie nulle";
+
+    alert(cj1 + " contre " + cj2 + " => " + res);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Les évènements input et change</h2>
+
+      <section>
+        <h3>Révision</h3>
+        <h4>Question 1</h4>
+        <pre><code class="javascript">function isDigit(ch) {
+  let i = 0, valid = true;
+  while (i < ch.length && valid) {
+    valid = '0' <= ch[i] <= "9"; i++;
+  }
+  return valid;
+}
+console.log(isDigit("123")); // true
+console.log(isDigit("ABC")); // true</code></pre>
+        <p>La fonction <code>isDigit(ch)</code> retourne toujours <code>true</code> indépendamment de la valeur de
+          <code>ch</code>.
+        </p>
+        <p><strong>Comment corriger cette fonction en ne modifiant qu'une seule instruction ?</strong></p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">valid = ch[i] >= '0' && ch[i] <= '9';</code></pre>
+        </div>
+
+        <h4>Question 2</h4>
+        <pre><code class="javascript">function somme(t) {
+  const s = 0;
+  for (let i = 0; i < t.length; i++) s += t[i];
+  return s;
+}
+console.log(somme([])); // 0
+console.log(somme([1,2,3])); // invalid assignment to const 's'</code></pre>
+        <p>L'appel de la fonction <code>somme(t)</code> produit toujours l'erreur
+          <code>invalid assignment to const 's'</code> lorsque le tableau <code>t</code> n'est pas vide.
+        </p>
+        <p><strong>Comment corriger cette erreur en ne modifiant qu'une seule ligne ?</strong></p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">let s = 0;</code></pre>
+        </div>
+
+        <h4>Question 3</h4>
+        <pre><code class="javascript">function randint(a, b) {
+  return a + Math.random() * (b - a + 1);
+}
+console.log(randint(1, 6)); // 1.439311099391309
+console.log(randint(0, 9)); // 7.606718899286581</code></pre>
+        <p>La fonction <code>randint(a, b)</code> est supposée retourner un entier aléatoire dans l'intervalle [a, b].
+          Or, lors du test elle retourne un réel.
+        </p>
+        <p><strong>Comment corriger ce problème ?</strong></p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">return Math.floor(a + Math.random() * (b - a + 1));</code></pre>
+        </div>
+
+        <h4 class="p-break">Question 4</h4>
+        <pre><code class="javascript">function reverseString(ch) {
+  let i = 0, j = ch.length - 1;
+  while (j > i) {
+    const t = ch[i]; ch[i] = ch[j]; ch[j] = t;
+    i++; j--;
+  }
+  return ch;
+}
+console.log(reverseString("ahmed")); // "ahmed" au lieu de "demha"</code></pre>
+        <p>La fonction <code>reverseString(ch)</code> a pour fonction d'inverser l'ordre des caractères d'une chaîne.
+          L'opértion est réalisée par l'instruction : <code>const t = ch[i]; ch[i] = ch[j]; ch[j] = t;</code>.
+          Seulement, il y a un problème qui l'empêche de bien fonctionner.
+        </p>
+        <p><strong>Lequel ?</strong></p>
+        <div class="d-none d-print-block">
+          <p>L'écriture <code>ch[i] = ch[j]</code> est incorrecte car une chaine en JavaScript est immutable, il n'est
+            pas possible de modifier une portion de la chaine.</p>
+        </div>
+        <p><strong>Utiliser la méthode <code>ch.substring()</code> pour corriger cette instruction.</strong></p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">ch = ch.substring(0, i) + ch[j] + ch.substring(i+1, j) + ch[i] + ch.substring(j+1);</code></pre>
+        </div>
+
+        <h4>Question 5</h4>
+        <div class="row">
+          <div class="col-6">
+            <p>Soit le code HTML suivant :</p>
+            <pre><code class="html">&lt;div&gt;&lt;input type=&quot;text&quot; id=&quot;nom&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;res&quot;&gt;&lt;/div&gt;</code></pre>
+          </div>
+          <div class="col-6">
+            <p>et le code JavaScript suivant :</p>
+            <pre><code class="javascript">const inpNom = document.getElementById("Nom");
+const divRes = document.getElementById("res");
+function nomChanged() {
+  divRes.value = inpNom.value;
+}</code></pre>
+          </div>
+        </div>
+
+        <p>Le code précédent a été reproduit afin d'afficher le contenu du champ du texte <code>inpNom</code> dans le
+          div <code>divRes</code> lorsqu'on y tape un texte.</p>
+        <p>Bien que tout semble à première vue correct, la fonction <code>nomChanged()</code> n'est pas appelée
+          lorsqu'on saisit quelque chose dans le champ du texte <code>inpNom</code>.</p>
+        <p><strong>Comment résoudre ce problème et répondre à l'évènement <code>input</code> ?</strong></p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">inpNom.addEventListener("input", nomChanged);</code></pre>
+        </div>
+        <p>Après correction du problème précédent, un nouveau surgit. L'erreur suivante s'affiche dans la console dès
+          qu'on tape une touche du clavier : <code>inpNom is null</code>.</p>
+        <p><strong>Pourquoi <code>inpNom</code> est-il null ?</strong></p>
+        <div class="d-none d-print-block">
+          <p>Au lieu de taper l'id du champ de texte <code>nom</code> l'élève a tapé <code>Nom</code> qui ne correspond
+            à aucun élément HTML. L'id est sensible à la casse.</p>
+        </div>
+        <p>Après correction du problème, le script n'est pas fonctionnel bien que la fonction <code>nomChanged()</code>
+          soit appelée lorsqu'on tape un texte dans le champ. L'unique instruction de cette fonction semble contenir une
+          erreur.</p>
+        <p><strong>Laquelle ?</strong></p>
+        <div class="d-none d-print-block">
+          <p><code>divRes</code> n'a pas de propriété <code>value</code> car il s'agit d'un &lt;div&gt;. On devra soit
+            utiliser <code>divRes.textContent</code> ou bien <code>divRes.innerHTML</code></p>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="p-break">L'évènement change</h3>
+
+        <p>L'évènement <strong>change</strong> se produit lorsque la sélection, l'état coché ou le contenu d'un élément
+          ont changé.</p>
+        <p>Dans certains cas, cela ne se produit que lorsque l'élément perd le focus.</p>
+        <p>L'évènement <strong>change</strong> peut être utilisé avec les contrôles <code>&lt;input&gt;</code>,
+          <code>&lt;select&gt;</code> et <code>&lt;textarea&gt;</code>.
+        </p>
+
+        <h4>Exemple</h4>
+        <p><strong>Code HTML</strong></p>
+        <pre><code class="html">&lt;div&gt;&lt;input type=&quot;text&quot; name=&quot;nom&quot; id=&quot;nom&quot; placeholder=&quot;Votre nom&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;</code></pre>
+        <p><strong>Code JavaScript</strong></p>
+        <pre><code class="javascript">const nom = document.getElementById("nom");
+const msg = document.getElementById("message");
+let nom_actuel = nom.value;
+function nomValueChanged(e) {
+  const nouv_nom = nom.value;
+  msg.innerHTML += "Nom est changé de '" + nom_actuel + "' à '" + nouv_nom + "'&lt;br&gt;";
+  nom_actuel = nouv_nom;
+}
+nom.addEventListener("change",  nomValueChanged);</code></pre>
+      </section>
+
+      <section>
+        <h3>L'évènement input</h3>
+
+        <p>L'évènement <strong>input</strong> est utile pour détecter le changement d'un élément &lt;textarea&gt; ou
+          &lt;input&gt;.</p>
+        <p>A l'inverse de l'événement <strong>change</strong> qui se déclenche uniquement lorsque l'élément perd le
+          focus, l'évènement <strong>input</strong> se produit immédiatement après la modification.</p>
+
+        <h4>Exemple</h4>
+        <p><strong>Code HTML</strong></p>
+        <pre><code class="html">&lt;div&gt;&lt;input type=&quot;text&quot; name=&quot;nom&quot; id=&quot;nom&quot; placeholder=&quot;Votre nom&quot;&gt;&lt;/div&gt;
+&lt;p&gt;input Event&lt;/p&gt;
+&lt;div id=&quot;msg-input&quot;&gt;&lt;/div&gt;
+&lt;p&gt;change Event&lt;/p&gt;
+&lt;div id=&quot;msg-change&quot;&gt;&lt;/div&gt;</code></pre>
+        <p><strong>Code JavaScript</strong></p>
+        <pre><code class="javascript">const inpNom = document.getElementById("nom");
+const divMsgInput = document.getElementById("msg-input");
+const divMsgChange = document.getElementById("msg-change");
+function inputEvent(e) {
+  const nom = inpNom.value;
+  divMsgInput.innerHTML += "Nom est contient '" + nom + "'&lt;br&gt;";
+}
+function changeEvent(e) {
+  const nom = inpNom.value;
+  divMsgChange.innerHTML += "Nom est contient '" + nom + "'&lt;br&gt;";
+}
+nom.addEventListener("input",  inputEvent);
+nom.addEventListener("change",  changeEvent);</code></pre>
+      </section>
+    </article>
+
+    <article>
+      <h2 class="p-break">TP</h2>
+      <section>
+        <h3>Color Mixer</h3>
+
+        <p>On demande de créer la page suivante :</p>
+        <figure>
+          <img src="assets/miniprojet11/color-mixer.png" alt="Color Mixer" class="im-h-4">
+          <figcaption>Color Mixer</figcaption>
+        </figure>
+
+        <p>On donne le code HTML suivant :</p>
+        <pre><code class="html">&lt;div id=&quot;color-mixer&quot;&gt;
+  &lt;h1&gt;Color Mixer&lt;/h1&gt;
+  &lt;div id=&quot;left&quot;&gt;
+    &lt;div&gt;
+      &lt;label for=&quot;red&quot;&gt;Red&lt;/label&gt;
+      &lt;input type=&quot;range&quot; name=&quot;red&quot; id=&quot;red&quot; min=&quot;0&quot; max=&quot;255&quot; value=&quot;0&quot;&gt;&lt;span id=&quot;vred&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;label for=&quot;red&quot;&gt;Green&lt;/label&gt;
+      &lt;input type=&quot;range&quot; name=&quot;green&quot; id=&quot;green&quot; min=&quot;0&quot; max=&quot;255&quot; value=&quot;0&quot;&gt;&lt;span id=&quot;vgreen&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;label for=&quot;blue&quot;&gt;Blue&lt;/label&gt;
+      &lt;input type=&quot;range&quot; name=&quot;blue&quot; id=&quot;blue&quot; min=&quot;0&quot; max=&quot;255&quot; value=&quot;0&quot;&gt;&lt;span id=&quot;vblue&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;right&quot;&gt;
+    &lt;div id=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;rgb-color&quot;&gt;&lt;/div&gt;&lt;div id=&quot;html-color&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <p>Ainsi que le code CSS pour la mise en forme :</p>
+        <pre><code class="css">* { box-sizing: border-box; }
+
+body {
+  font-size: 18pt; font-family: sans-serif;
+  background: linear-gradient(to bottom, #0E0E52 259px, #78C0E0) no-repeat fixed;
+  color: #150578; height: 100%;
+}
+
+#color-mixer {
+  width: 600px; 
+  padding: 20px; margin: auto;
+  display: flex; flex-wrap: wrap; justify-content: space-between;
+  background-color: #78C0E0;
+  border-radius: 15px;
+}
+
+h1 {
+  text-align: center; text-transform: uppercase;
+  margin: 0.25em 0; width: 100%;
+}
+
+#left { width: 360px; }
+#right { width: 200px; text-align: center; }
+
+label { display: inline-block; width: 3em; font-weight: bold; }
+input { width: 220px; }
+
+#box { width: 200px; height: 84px; border: #333 solid 1px; }</code></pre>
+
+        <p>On demande de compléter le code JavaScript.</p>
+        <pre><code class="javascript">const inpRed = document.getElementById("red");
+const spanRed = document.getElementById("vred");
+const inpGreen = document.getElementById("green");
+const spanGreen = document.getElementById("vgreen");
+const inpBlue = document.getElementById("blue");
+const spanBlue = document.getElementById("vblue");
+const divBox = document.getElementById("box");
+const divRgbColor = document.getElementById("rgb-color");
+const divHtmlColor = document.getElementById("html-color");
+
+function sliderMoved() {
+  /* TODO */
+}
+
+function toHtmlColor(r, g, b) {
+  /* TODO */
+}
+
+function toHexa(v) {
+  /* TODO */
+}
+
+inpRed.addEventListener("input", sliderMoved);
+inpGreen.addEventListener("input", sliderMoved);
+inpBlue.addEventListener("input", sliderMoved);
+sliderMoved();</code></pre>
+        <h4>Travail demandé</h4>
+        <ol>
+          <li>Compléter la fonction <code>toHexa(v)</code>. <code>v</code> est un entier entre 0 et 255.
+            <p>Cette fonction convertit un nombre compris entre 0 et 255 de la base 10 à la base 16. Le résultat final
+              doit toujours comporter deux chiffres hexadécimaux.</p>
+          </li>
+          <li>Compléter la fonction <code>toHtmlColor(r, g, b)</code>. <code>r</code>, <code>g</code> et <code>b</code>
+            sont des entiers entre 0 et 255.
+            <p>Cette fonction prend les composantes Rouge, Verte et Bleue d'une couleur et la convertit au formal
+              hexadécimal <code>#RRGGBB</code> chaque nombre est représenté sur deux chiffres hexadécimaux.</p>
+          </li>
+          <li>Compléter la fonction <code>sliderMoved()</code>. Cette fonction :
+            <ul>
+              <li>Récupère les valeurs des trois sliders <code>inpRed</code>, <code>inpGreen</code> et
+                <code>inpBlue</code>.
+              </li>
+              <li>Convertit ces valeurs au formats <code>rgb(r, g, b)</code> et <code>#RRGGBB</code>.</li>
+              <li>Affiche les composantes <code>r</code>, <code>g</code> et <code>b</code> dans les spans correspodants
+                <code>spanGreen</code>, <code>spanRed</code> et <code>spanBlue</code>.
+              </li>
+              <li>Modifie la couleur d'arrière plan du <code>divBox</code>.</li>
+              <li>Affiche la couleur dans les <code>divRgbColor</code> et <code>divHtmlColor</code>.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3 class="p-break">Volume sliders</h3>
+
+        <p>On demande de réaliser le slider suivant :</p>
+        <iframe src="miniprojets/MiniProjet-13/sliders_complete/sliders.html" frameborder="0"></iframe>
+
+        <p>Le deuxième slider se déplace vers la position du premier lorsque cette dernière change.</p>
+        <p>Le troisième slider se déplace vers la position du premier lorsque ce slider a fini de se dépalcer.</p>
+
+        <p>On donne le code HTML de la page :</p>
+        <pre><code class="html">&lt;div&gt;&lt;input type=&quot;range&quot; id=&quot;vol1&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;&lt;span id=&quot;svol1&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;input type=&quot;range&quot; id=&quot;vol2&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;&lt;span id=&quot;svol2&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;input type=&quot;range&quot; id=&quot;vol3&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;&lt;span id=&quot;svol3&quot;&gt;&lt;/span&gt;&lt;/div&gt;</code></pre>
+        <p>On donne aussi le code JavaScript incomplet :</p>
+        <pre><code class="javascript">const inpVol1 = document.getElementById("vol1");
+const spanVol1 = document.getElementById("svol1");
+const inpVol2 = document.getElementById("vol2");
+const spanVol2 = document.getElementById("svol2");
+const inpVol3 = document.getElementById("vol3");
+const spanVol3 = document.getElementById("svol3");
+
+function refreshPositions() {
+  /* TODO 1 */
+  // afficher la valeur de inpVol1 dans spanVol1
+  // faire de même pour les autres sliders
+}
+
+function sliderMoved() {
+  /* TODO 2 : inpVol2 doit être à la même position que inpVol1 */
+  refreshPositions();
+}
+
+function sliderChangedPosition() {
+  /* TODO 3 :  inpVol3 doit être à la même position que inpVol1 */
+  refreshPositions();
+}
+
+refreshPositions();
+/* TODO 4 */
+// Attacher l'évènement input à la fonction sliderMoved
+// Attacher l'évènement change à la fonction sliderChangedPosition</code></pre>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

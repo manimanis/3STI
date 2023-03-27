@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  width: 960px;
+  margin: auto;
+  background-color: #D7E8BA;
+}
+
+h1 {
+  font-family: fantasy;
+  color: #611C35;
+  font-size: 40pt;
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+.gameboard {
+  border: #611C35 solid 1px;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.propositions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.proposition {
+  width: 20%;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #2E5077;
+  color: #fff;
+  text-align: center;
+  font-size: 50pt;
+  cursor: pointer;
+}
+
+.proposition.success {
+  background-color: darkgreen;
+}
+
+.proposition.wrong {
+  background-color: darkred;
+  text-decoration: line-through;
+}
+
+#resultat.success {
+  color: darkgreen;
+}
+
+#resultat.wrong {
+  color: darkred;
+}
+
+.operands, .message, #score, #resultat {
+  text-align: center;
+  font-size: 100pt;
+}
+
+.message, #score {
+  font-size: 30pt;
+}
+
+#operand1 {
+  color: #FFA630;
+}
+
+#operand2 {
+  color: #4DA1A9;
+}

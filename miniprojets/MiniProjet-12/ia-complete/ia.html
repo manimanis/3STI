@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reconnaissance Faciale</title>
+  <link rel="stylesheet" href="ia.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="form">
+      <h1>Ajout personne</h1>
+      <form action="#" method="post">
+        <div>
+          <label for="idpers">Identifiant</label>
+          <input type="number" name="idpers" id="idpers">
+        </div>
+        <div>
+          <label for="nomprenom">Nom & Prénom</label>
+          <input type="text" name="nomprenom" id="nomprenom">
+        </div>
+        <div>
+          <label for="">Genre</label>
+          <label><input type="radio" name="genre" id="genre1" value="M"> Male</label>
+          <label><input type="radio" name="genre" id="genre2" value="F"> Femelle</label>
+        </div>
+        <div>
+          <label for="qualite">Qualité</label>
+          <select name="qualite" id="qualite">
+            <option value="">-</option>
+            <option value="EL">Elève</option>
+            <option value="EN">Enseignant</option>
+            <option value="AU">Autres</option>
+          </select>
+        </div>
+        <div id="div-mat">
+          <label for="matiere">Matière</label>
+          <input type="text" name="matiere" id="matiere">
+        </div>
+        <div id="div-cl">
+          <label for="matiere">Classe</label>
+          <input type="text" name="classe" id="classe">
+        </div>
+        <div><button>Ajouter</button></div>
+      </form>
+    </div>
+  </div>
+  <script src="ia.js"></script>
+</body>
+
+</html>

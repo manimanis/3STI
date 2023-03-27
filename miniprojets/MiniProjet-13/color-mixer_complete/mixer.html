@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Mixer</title>
+  <link rel="stylesheet" href="mixer.css">
+</head>
+<body>
+  <div id="color-mixer">
+    <h1>Color Mixer</h1>
+    <div id="left">
+      <div>
+        <label for="red">Red</label>
+        <input type="range" name="red" id="red" min="0" max="255" value="0">
+        <span id="vred"></span>
+      </div>
+      <div>
+        <label for="red">Green</label>
+        <input type="range" name="green" id="green" min="0" max="255" value="0">
+        <span id="vgreen"></span>
+      </div>
+      <div>
+        <label for="blue">Blue</label>
+        <input type="range" name="blue" id="blue" min="0" max="255" value="0">
+        <span id="vblue"></span>
+      </div>
+    </div>
+    <div id="right">
+      <div id="box"></div>
+      <div id="rgb-color"></div>
+      <div id="html-color"></div>
+    </div>
+  </div>
+  <script src="mixer.js"></script>
+</body>
+</html>

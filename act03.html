@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Structures conditionnelles & itératives</h2>
+
+      <section>
+        <h3>Structures conditionnelles</h3>
+
+        <h4>Structure if</h4>
+        <p><strong>Exemple</strong></p>
+        <pre><code class="javascript">// Comparaison de deux entiers a et b
+if (a > b) {
+  res = a + " > " + b;
+} else if (a &lt; b) {
+  res = a + " &lt; " + b;
+} else {
+  res = a + " = " + b;
+}</code></pre>
+        <p><strong>Application</strong></p>
+        <p>Ecrire un script qui saisit trois nombres distincts <code>a</code>, <code>b</code> et <code>c</code> puis
+          affiche l'entier qui sera au milieu si les trois entiers ont été ordonnés.</p>
+        <p><strong>Exemple : </strong> a = 5, b = 16 et c = 10, le nombre au milieu est <span
+            class="text-danger">10</span> car 5 &lt; <span class="text-danger">10</span> &lt; 16</p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">let a = Number(prompt(&quot;Donner a ?&quot;, &quot;5&quot;));
+let b = Number(prompt(&quot;Donner b ?&quot;, &quot;16&quot;));
+let c = Number(prompt(&quot;Donner c ?&quot;, &quot;10&quot;));
+
+let mid;
+if ((a &gt; b &amp;&amp; b &gt; c) || (a &lt; b &amp;&amp; b &lt; c)) {
+  mid = b;
+} else if ((b &gt; a &amp;&amp; a &gt; c) || (b &lt; a &amp;&amp; a &lt; c)) {
+  mid = a;
+} else {
+  mid = c;
+}
+
+alert(&quot;Nombre au milieu : &quot; + mid);</code></pre>
+        </div>
+
+        <h4>Structure switch</h4>
+        <p><strong>Exemple</strong></p>
+        <pre><code class="javascript">// Chiffres romains
+// I (1), V (5), X (10), L (50), C (100), D (500), M (1000)
+switch (car) {
+  case "I": val = 1; break;
+  case "V": val = 5; break;
+  case "X": val = 10; break;
+  case "L": val = 50; break;
+  case "C": val = 100; break;  
+  case "D": val = 500; break;  
+  case "M": val = 1000; break;
+  default: val = -1;
+}</code></pre>
+        <p><strong>Application</strong></p>
+        <p>Le prix des fruits est comme suit :</p>
+        <ul>
+          <li>Orange : 1.30$/Kg,</li>
+          <li>Pomme : 0.66$/Kg,</li>
+          <li>Banane : 1.05$/Kg,</li>
+          <li>Cerise : 6.61$/Kg,</li>
+          <li>Mangue / Papaye : 6.15$/Kg,</li>
+          <li>Autres fruits non disponibles.</li>
+        </ul>
+        <p>Ecrire un script qui demande le nom d'un fruit, puis affiche son prix en utilisant la structure switch.</p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">let fruit = prompt(&quot;Que voulez vous acheter ? &quot;, &quot;Banane&quot;);
+let price;
+switch (fruit) {
+  case &quot;Orange&quot; : price = 1.30; break;
+  case &quot;Pomme&quot; :  price = 0.66; break;
+  case &quot;Banane&quot; : price = 1.05; break;
+  case &quot;Cerise&quot; : price = 6.61; break;
+  case &quot;Mangue&quot; :
+  case &quot;Papaye&quot; : price = 6.15; break;
+  default:        price = -1;
+}</code></pre>
+        </div>
+
+        <h4>Opérateur ternaire</h4>
+        <p><strong>Exemple</strong></p>
+        <pre><code class="javascript">// Maximum de deux nombres
+let sup = a > b ? a : b;</code></pre>
+        <p><strong>Application</strong></p>
+        <p>Ecrire un script qui convertit un nombre de secondes en <code>h:mm:ss</code>. Les <code>mm</code> et
+          <code>ss</code> doivent être sur deux chiffres : "9:07:05" et non pas <del>"9:7:5"</del>.
+        </p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">// 32825s = 9:07:05
+let s = Number(prompt(&quot;Nombre de secondes ? &quot;, 32825);
+let hh = Math.floor(s / 3600);
+let mm = Math.floor((s % 3600) / 60);
+let ss = Math.floor(s % 60);
+let heure = hh + &quot;:&quot; +
+  (mm &lt; 10 ? &quot;0&quot; : &quot;&quot;) + mm + &quot;:&quot; +
+  (mm &lt; 10 ? &quot;0&quot; : &quot;&quot;) + ss;
+alert(s + &quot;s = &quot; + heure);</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="p-break">Structures itératives</h3>
+        <h4>Instruction for</h4>
+        <p><strong>Exemple</strong></p>
+        <pre><code class="javascript">// Afficher les nombres de deux chiffres divisibles par 2 ou 3
+for (let i = 10; i &lt; 100; i++) {
+  if (i % 2 == 0 || i % 3 == 0) {
+    document.writeln(i);
+  }
+}</code></pre>
+        <p><strong>Application</strong></p>
+        <p>Un nombre est dit premier si et seulement s'il est divisible exactement par deux nombres distincts 1 et lui
+          même. Ecrire un script qui affiche tous les nombres premiers inférieurs à 100.</p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">document.writeln(&quot;&lt;p&gt;Nombre premiers &lt; 100 :&quot;);
+for (let i = 0; i &lt; 100; i++) {
+  let nbd = 0;
+  for (let j = 1; j &lt;= i; j++) {
+    if (i % j == 0) {
+      nbd++;
+    }
+  }
+  if (nbd == 2) {
+    document.writeln(i, &quot;, &quot;);
+  }
+}
+document.writeln(&quot;&lt;/p&gt;&quot;);</code></pre>
+        </div>
+
+        <h4>Instruction while</h4>
+        <p><strong>Exemple</strong></p>
+        <pre><code class="javascript">// D&eacute;terminer si une cha&icirc;ne est palindr&ocirc;me
+// Exemples : AZIZA, RADAR, RESSASSER
+let ch = "RESSASSER";
+let i = 0, j = ch.length - 1;
+while (j &gt; i &amp;&amp; ch[i] == ch[j]) {
+  i++; j--;
+}
+document.writeln(&quot;&lt;p&gt;&quot;, ch, &quot; est &quot;, (i &gt;= j ? &quot;palindr&ocirc;me&quot; : &quot;non palindr&ocirc;me&quot;), &quot;&lt;/p&gt;&quot;);</code></pre>
+        <p><strong>Application</strong></p>
+        <p>Deux nombres <code>a</code> et <code>b</code> sont premiers entre eux si et seulement si
+          <code>PGCD(a, b) = 1</code>. Ecrire un script qui détermine si deux entiers sont premiers entre eux.
+        </p>
+        <p>PGCD(a, b) = PGCD(b, a mod b) ; si b &ne; 0<br>PGCD(a, b) = a ; si b = 0</p>
+        <div class="d-none d-print-block">
+          <pre><code class="javascript">let a = Number(prompt(&quot;Donner a ? &quot;, &quot;35&quot;));
+let b = Number(prompt(&quot;Donner b ? &quot;, &quot;12&quot;));
+let a1 = a, b1 = b;
+while (b1 != 0) {
+  let r = a1 % b1;
+  a1 = b1;
+  b1 = r;
+}
+document.writeln(&quot;&lt;p&gt;&quot;, a, &quot; et &quot;, b, &quot; &quot;, 
+  (a1 == 1 ? &quot;sont&quot; : &quot;ne sont pas&quot;), 
+  &quot; premiers entre eux.&lt;/p&gt;&quot;);</code></pre>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

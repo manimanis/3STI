@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "intel-clear";
+}
+
+h1 {
+  font-family: "intel-one";
+}
+
+header {
+  background-color: #0068b5;
+  color: #fff;
+  padding: 16px 32px;
+  padding-left: 104px;
+  position: relative;
+}
+
+#intel-logo, #intel-logo-footer {
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  position: absolute;
+  left: 32px;
+  top: calc(50% - 32px);
+}
+
+header h1 {
+  margin: 0 0 -20px;
+}
+
+#cores>.core {
+  width: 960px;
+  margin: 2px auto;
+  background-color: #f3f3f3;
+  color: #333;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.core>.image {
+  width: 64px;
+}
+
+.core>.tit {
+  width: 200px;
+  color: #0f79c8;
+  font-size: 20px;
+}
+
+.core>.description {
+  width: 632px;
+}
+
+nav {
+  background-color: #00285a;
+  color: #fff;
+  padding: 16px 32px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul a {
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 16px;
+}
+
+nav ul a:hover {
+  text-decoration: underline;
+}
+
+main#core {
+  margin: 32px auto;
+}
+
+#features, #information {
+  background-color: #262626;
+  color: #fff;
+  padding: 16px 32px;
+}
+
+#features h1, #information h1 {
+  text-align: center;
+}
+
+.features {
+  width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.features .feature {
+  width: 50%;
+  padding: 16px;
+}
+
+.features .feature img {
+  max-width: 100%;
+}
+
+.features .feature h2 {
+  font-family: "intel-one";
+  margin: 5px 0;
+}
+
+#related {
+  width: 960px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  height: 652px;
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.topics .topic {
+  width: 33.3%;
+  padding: 8px;
+  position: relative;
+}
+
+.topics .topic:nth-of-type(odd) {
+  animation: animation1 3s;
+}
+
+.topics .topic:nth-of-type(even) {
+  animation: animation2 3s;
+}
+
+.topic img {
+  max-width: 100%;
+}
+
+@keyframes animation1 {
+  0% {
+    top: 200px;
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes animation2 {
+  0% {
+    top: -363px;
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+#information form {
+  width: 480px;
+  margin: auto;
+}
+
+#information form div {
+  margin: 8px 0;
+}
+
+#information label[for] {
+  display: block;
+  font-weight: bold;
+}
+
+#information textarea, #information input[type="email"], #information input[type="text"], select {
+  width: 100%;
+  font-size: 16px;
+  padding: 8px;
+}
+
+#information button {
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+footer {
+  background-color: #e7e7e7;
+  color: #090909;
+  padding: 16px 32px;
+  padding-left: 104px;
+  position: relative;
+}
+
+#intel-logo-footer {
+  width: 64px;
+  height: 26px;
+  line-height: 26px;
+  top: calc(50% - 13px);
+}
+
+#footer-links {
+  font-size: 16px;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+#footer-links li {
+  margin: 0 8px;
+}
+
+#footer-links li a {
+  text-decoration: none;
+  color: #090909;
+}
+
+#footer-links li a:hover {
+  text-decoration: underline;
+}

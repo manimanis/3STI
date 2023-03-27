@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Information</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div id="intel-logo">
+      <img src="images/intel-header-logo.svg" alt="Intel header Logo">
+    </div>
+    <h1>Intel® Core™ Processor Family</h1>
+    <p>Do it all and be it all with more performance and efficiency. Welcome to a new level of creating, gaming, and
+      connecting.</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="core.html">Core Processors</a></li>
+      <li><a href="features.html">Features and Performance</a></li>
+      <li><a href="related.html">Related Technologies</a></li>
+      <li><a href="info.html">Information</a></li>
+    </ul>
+  </nav>
+  <main id="information">
+    <form action="#" method="post">
+      <h1>Information Request</h1>
+      <div>
+        <label for="gender-1">Saluation</label>
+        <label><input type="radio" name="gender" id="gender-1" value="Mr"> Mr</label>
+        <label><input type="radio" name="gender" id="gender-2" value="Mr"> Miss</label>
+        <label><input type="radio" name="gender" id="gender-3" value="Mr"> Mrs</label>
+      </div>
+      <div>
+        <label for="name">Name & forename *</label>
+        <input type="text" name="name" id="name" placeholder="Your name" required>
+      </div>
+      <div>
+        <label for="mail">Email *</label>
+        <input type="email" name="mail" id="mail" placeholder="Your email" required>
+      </div>
+      <div>
+        <label for="country">Country *</label>
+        <select name="country" id="country" required>
+          <option value="">Select your country</option>
+          <option value="+216">Tunisia</option>
+          <option value="+1">USA</option>
+          <option value="+33">France</option>
+        </select>
+      </div>
+      <div>
+        <label for="product-1">Products of Interest</label>
+        <label><input type="checkbox" name="product[]" id="product-1" value="i9-x series"> i9-x series</label>
+        <label><input type="checkbox" name="product[]" id="product-2" value="i9 core"> i9 core</label>
+        <label><input type="checkbox" name="product[]" id="product-3" value="i7 core"> i7 core</label>
+        <label><input type="checkbox" name="product[]" id="product-3" value="i5 core"> i5 core</label>
+        <label><input type="checkbox" name="product[]" id="product-3" value="i3 core"> i3 core</label>
+      </div>
+      <div>
+        <label for="remark">Remarks *</label>
+        <textarea name="remarks" id="remark" cols="30" rows="5"
+          placeholder="Do you have any remarks or suggestions?"></textarea>
+      </div>
+      <div><button type="submit">Request information</button></div>
+    </form>
+  </main>
+  <footer>
+    <div id="intel-logo-footer">
+      <img src="images/intel-footer-logo.svg" alt="Intel logo footer">
+    </div>
+    <ul id="footer-links">
+      <li><a href="https://www.intel.com/content/www/us/en/company-overview/company-overview.html">Company Overview</a>
+      </li>
+      <li><a href="https://www.intel.com/content/www/us/en/support/contact-intel.html">Contact Intel</a></li>
+      <li><a href="https://www.intel.com/content/www/us/en/newsroom/home.html">Newsroom</a></li>
+    </ul>
+  </footer>
+</body>
+
+</html>

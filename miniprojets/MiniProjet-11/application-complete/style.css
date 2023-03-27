@@ -1,0 +1,40 @@
+body {
+  direction: rtl;
+  font-family: "Sakkal majalla";
+  font-size: 13.7pt;
+  width: 800px;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr {
+  page-break-inside: avoid;
+}
+
+table th {
+  text-align: center;
+  background-color: #eee;
+}
+
+table td,
+table th {
+  border: #000 solid 1pt;
+  padding: 0 5pt;
+}
+
+table td:nth-of-type(1) {
+  width: 4cm;
+}
+
+table td:nth-of-type(2) {
+  width: 12cm;
+}
+
+table td:nth-of-type(3) {
+  width: 3cm;
+  text-align: center;
+}

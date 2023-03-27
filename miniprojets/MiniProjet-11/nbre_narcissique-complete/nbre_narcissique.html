@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="nbre_narcissique.css">
+</head>
+
+<body>
+  <form action="#">
+    <fieldset>
+      <legend>Nombre narcissique</legend>
+      <p>Les nombres suivants sont des nombres narcissiques.</p>
+      <div class="row">
+        <div class="col">
+          <h4>Exemples de 3 chiffres</h4>
+          <p>1<sup>3</sup>+5<sup>3</sup>+3<sup>3</sup>=153</p>
+          <p>3<sup>3</sup>+7<sup>3</sup>+0<sup>3</sup>=370</p>
+        </div>
+        <div class="col">
+          <h4>Exemples de 4 chiffres</h4>
+          <p>1<sup>4</sup>+6<sup>4</sup>+3<sup>4</sup>+4<sup>4</sup>=1634</p>
+          <p>8<sup>4</sup>+2<sup>4</sup>+0<sup>4</sup>+8<sup>4</sup>=8208</p>
+        </div>
+        <div class="col">
+          <h4>Exemples de 5 chiffres</h4>
+          <p>9<sup>5</sup>+2<sup>5</sup>+7<sup>5</sup>+2<sup>5</sup>+7<sup>5</sup>=92727</p>
+          <p>9<sup>5</sup>+3<sup>5</sup>+0<sup>5</sup>+8<sup>5</sup>+4<sup>5</sup>=93084</p>
+        </div>
+      </div>
+      <div>
+        <label for="nbre">Nombre*</label>
+        <input type="number" name="nbre" id="nbre" min="1" placeholder="Entier entre 1 et 9999999">
+      </div>
+      <div>
+        <button type="button" id="calc">Vérifier</button>
+      </div>
+      <div id="res"></div>
+    </fieldset>
+  </form>
+  <script src="nbre_narcissique.js"></script>
+</body>
+
+</html>

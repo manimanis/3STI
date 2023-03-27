@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Méthodes d'entrée en JavaScript</title>
+</head>
+
+<body>
+  <form action="#" name="f">
+    <div>
+      <label for="val_a">Valeur de A</label>
+      <input type="range" id="val_a" name="val_a" min="0" max="50" value="20">
+      <span id="val_rng"></span>
+    </div>
+    <div>
+      <label for="val_b">Valeur de B</label>
+      <input type="number" id="val_b" name="val_b" min="0" max="50">
+    </div>
+    <div id="val_c"></div>
+    <div id="operation"></div>
+    <div id="res"></div>
+  </form>
+  <script>
+    // récupérer les éléments ayant les id suivants :
+    // val_a, val_rng, val_b, val_c, operation, res
+    const val_a = document.getElementById("val_a");
+    const val_rng = document.getElementById("val_rng");
+    const val_b = document.getElementById("val_b");
+    const val_c = document.getElementById("val_c");
+    const operation = document.getElementById("operation");
+    const res = document.getElementById("res");
+
+    // Méthode (1) : récuprérer la valeur du champ val_a
+    const a = val_a.value;
+    // on peut écrire également : const a = Number(document.f.val_a.value);
+
+    // Méthode (2) : récupérer une valeur depuis une boîte d'invite (prompt)
+    const c = prompt("Donner c ?", "0");
+
+    // Méthode (3) : demander la confirmation de l'utilisateur (confirm)
+    // s'il veut caluler le plus grand ou le plus des nombres
+    const op = confirm("Si vous voulez le maximum cliquer sur Ok, Si vous voulre le minimum cliquer sur Cancel.");
+    
+    // Afficher la valeur trouvée dans "val_rng"
+    val_rng.textContent = a;
+
+    // choisir un nombre au hasard et l'affecter au champ "val_b"
+    const b = Math.floor(Math.random() * 51);
+    document.f.val_b.value = b;
+
+    // Afficher la valeur saisie par l'utilisateur dans l'élément "val_c"
+    val_c.innerHTML = '<label>Valeur de C</label> ' + c;
+
+    // op == true  -> calculer le maximum
+    // op == false -> calculer le minimum
+    let resultat;
+    if (op) {
+      // Afficher l'opération choisie par l'utilisateur dans l'élément "operation"
+      operation.textContent = "max(" + a + ", " + b + ", " + c + ") = ?";
+      // calculer le résultat
+      resultat = Math.max(a, b, c);
+    } else {
+      // Afficher l'opération choisie par l'utilisateur dans l'élément "operation"
+      operation.textContent = "min(" + a + ", " + b + ", " + c + ") = ?";
+      // calculer le résultat
+      resultat = Math.min(a, b, c);
+    }
+
+    // Afficher le résultat de l'opération dans l'élément "res"
+    res.textContent = resultat;
+  </script>
+</body>
+
+</html>

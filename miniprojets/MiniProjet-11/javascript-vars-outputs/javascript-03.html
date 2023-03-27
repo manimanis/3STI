@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lancement de dés</title>
+</head>
+
+<body>
+  <script>
+    function randint(a, b) {
+      return Math.floor(Math.random() * (b - a + 1)) + a;
+    }
+
+    let v = randint(5, 25);
+    document.writeln("<p>Nombre aléatoire [5, 25] : ", v, "</p>");
+  </script>
+
+  <div id="des"></div>
+  <script>
+    function randint(a, b) {
+      return Math.floor(Math.random() * (b - a + 1)) + a;
+    }
+
+    const des = document.getElementById("des");
+
+    let nb1 = randint(1, 6);
+    let nb2 = randint(1, 6);
+
+    des.innerHTML = "Lancement de dés : " + nb1 + " - " + nb2;
+
+    des.innerHTML = '<img src="../../../assets/miniprojet09/images-act/de' + nb1 + '.jpg" alt="Dé' + nb1 + '"> ' +
+      '<img src="../../../assets/miniprojet09/images-act/de' + nb2 + '.jpg" alt="Dé' + nb2 + '">';
+  </script>
+
+  <div id="msg"></div>
+  <script>
+    /*     // Méthode 1 : boîte d'invite
+        let a1 = Number(prompt("Donner a ? ", "6"));
+        let b1 = Number(prompt("Donner b ? ", "6"));
+        let s1 = a1 + b1;
+        const msg = document.getElementById("msg");
+        msg.innerHTML = a1 + " + " + b1 + " = " + s1; */
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    form {
+      border: #000 solid 1px;
+      padding: 10px;
+      width: 200px;
+      margin: 2px;
+    }
+
+    form>div {
+      margin: 5px 0;
+    }
+
+    input {
+      display: block;
+    }
+  </style>
+  <form action="#" method="post" name="f1">
+    <div>
+      <label for="np">Nom & prénom</label>
+      <input type="text" name="np" id="np" value="Sami Ali">
+    </div>
+    <div>
+      <label for="age">Âge</label>
+      <input type="number" name="age" id="age" value="15">
+    </div>
+  </form>
+
+<form action="#" method="post" name="f">
+  <div>
+    <label for="a">A</label>
+    <input type="number" name="a" id="a" value="9"></div>
+  <div>
+    <label for="b">B</label>
+    <input type="number" name="b" id="b" value="16"></div>
+  <div>
+    <label for="r">Résultat</label>
+    <input type="number" name="r" id="r" disabled></div>
+</form>
+<script>
+  let a = Number(document.f.a.value);
+  let b = Number(document.f.b.value);
+  let s = a + b;
+  document.f.r.value = s;
+</script>
+
+<script>
+  const stressed = confirm("Are you stressed ? ");
+  if (stressed) {
+    alert("Eat chocolate");
+  } else {
+    alert("Keep smiling");
+  }
+</script>
+</body>
+
+</html>

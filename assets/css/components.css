@@ -1,0 +1,35 @@
+.frm-ctrl {
+  position: relative;
+}
+
+.frm-ctrl::before {
+	content: attr(data-label);
+	position: absolute;
+	display: flex;
+	top: 0;
+	left: -3em;
+	height: 100%;
+	align-items: center;
+	font-weight: bold;
+	background-color: #ffffff99;
+	color: #000;
+	padding: 8px;
+	box-sizing: border-box;
+}
+.frm-ctrl-name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 12pt;
+  font-family: 'Book Antiqua';
+}
+
+.frm-ctrl-id {
+  text-align: center;
+  font-size: 12pt;
+  font-family: 'Book Antiqua';
+  color: #f00;
+}
+
+.frm-ctrl-details {
+  position: absolute;
+}

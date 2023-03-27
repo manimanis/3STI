@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures itératives</title>
+</head>
+
+<body>
+  <p><b>Nombres pairs :</b>
+    <script>
+      for (let i = 0; i < 16; i++) {
+        if (i % 2 == 0) {
+          document.writeln(i);
+        }
+      }
+    </script>
+  </p>
+
+  <p><b>Nombres pairs :</b>
+    <script>
+      for (let i = 0; i < 16; i += 2) {
+        document.writeln(i);
+      }
+    </script>
+  </p>
+
+  <p><b>Nombres dont le chiffres des unités est multiple ou diviseur du chiffre des unités : </b>
+    <script>
+      for (let i = 10; i < 100; i++) {
+        let d = Math.floor(i / 10);
+        let u = i % 10;
+        if ((u != 0 && d % u == 0) || (d != 0 && u % d == 0)) {
+          document.writeln(i);
+        }
+      }
+    </script>
+  </p>
+
+  <p><b>Calcul du PGCD : </b>
+    <script>
+      let a = parseInt(prompt("Donner a ? "));
+      let b = parseInt(prompt("Donner b ? "));
+
+      /* Calcul du PGCD : Algorithme d'Euclide */
+      let a1 = a, b1 = b;
+      while (b1 != 0) {
+        let r = a1 % b1;
+        a1 = b1;
+        b1 = r;
+      }
+
+      document.writeln("PGCD(", a, ", ", b, ") = ", a1);
+    </script>
+  </p>
+  <p><b>Calcul du PPCM : </b>
+    <script>
+      /* Calcul du PPCM */
+      a1 = a; b1 = b;
+      while (a1 % b1 != 0) {
+        a1 += a;
+      }
+      document.writeln("PPCM(", a, ", ", b, ") = ", a1);
+    </script>
+  </p>
+</body>
+
+</html>

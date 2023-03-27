@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronomètre</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Chronomètre</h1>
+  <div id="chrono">
+    <span id="hh">00</span>:<span id="mm">00</span>:<span id="ss">00</span>
+  </div>
+  <div id="controls">
+    <button id="start">Start</button>
+    <button id="reset" disabled>Reset</button>
+  </div>
+  
+  <script>
+    const hh = document.getElementById("hh");
+    const mm = document.getElementById("mm");
+    const ss = document.getElementById("ss");
+    const start_btn = document.getElementById("start");
+    const reset_btn = document.getElementById("reset");
+    let started = false;
+    let startTime;
+    let elapsedTime = 0;
+    let timerHandle;
+
+    function showTime(elapsedTime) {
+      const h = Math.floor(elapsedTime / 3600); 
+      const m = Math.floor((elapsedTime % 3600) / 60);
+      const s = elapsedTime % 60;
+      hh.textContent = ((h < 10) ? "0" : "") + h;
+      mm.textContent = ((m < 10) ? "0" : "") + m;
+      ss.textContent = ((s < 10) ? "0" : "") + s;
+    }
+
+    function refreshTime() {
+      if (!started) return;
+      elapsedTime = Math.floor((new Date().getTime() - startTime) / 1000);
+      showTime(elapsedTime);
+    }
+
+    start_btn.addEventListener("click", (e) => {
+      if (!started) {
+        started = true;
+        startTime = new Date().getTime();
+        timerHandle = setInterval(refreshTime, 500);
+        start_btn.textContent = "Stop";
+        reset_btn.setAttribute("disabled", "true");
+      } else {
+        started = false;
+        clearInterval(timerHandle);
+        start_btn.textContent = "Start";
+        start_btn.setAttribute("disabled", "true");
+        reset_btn.removeAttribute("disabled");
+      }
+    });
+
+    reset_btn.addEventListener("click", (e) => {
+      elapsedTime = 0;
+      showTime(elapsedTime);
+      start_btn.removeAttribute("disabled");
+      reset_btn.setAttribute("disabled", "true");
+    });
+  </script>
+</body>
+
+</html>

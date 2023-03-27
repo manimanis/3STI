@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "intel-clear";
+  src: url("fonts/intel-clear-latin-lite.eot") format("embedded-opentype"),
+    url("fonts/intel-clear-latin-lite.woff2") format("woff2"),
+    url("fonts/intel-clear-latin-lite.woff") format("woff"),
+    url("fonts/intel-clear-latin-lite.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "intel-clear";
+  src: url("fonts/intel-clear-latin-bold.woff") format("woff"),
+    url("fonts/intel-clear-latin-bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "intel-one";
+  src: url("fonts/intelone-display-light.woff2") format("woff2"),
+    url("fonts/intelone-display-light.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}

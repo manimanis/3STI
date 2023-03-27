@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12pt;
+}
+
+body {
+    background-color: #B3D6C6;
+}
+
+legend {
+    text-align: center;
+    color: #525252;
+    background-color: #A8CCC9;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 0 20px;
+}
+
+fieldset {
+	width: 600px;
+	margin: 50px auto;
+	background-color: #A8CCC9;
+	border-color: #1f5053;
+	color: #143739;
+	border-width: 6px;
+	border-radius: 12px;
+}
+
+fieldset>div {
+    margin: 10px auto;
+}
+
+label[for] {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="number"] {
+	width: 100%;
+	font-size: 16pt;
+	padding: 6px;
+	color: #143739;
+    border: #1F5053 solid 2px;
+}
+
+form p {
+	font-size: 0.9em;
+	margin: 0.2em 0;
+}
+
+form h4 {
+    margin: 0.4em 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.row > .col {
+	width: 32%;
+	background-color: #B3D6C6;
+}
+
+#calc {
+	padding: 8pt 24pt;
+	background-color: #1F5053;
+	color: #fff;
+	font-size: 16pt;
+	border: none;
+}

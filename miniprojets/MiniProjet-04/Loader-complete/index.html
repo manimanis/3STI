@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .loader {
+      width: 320px;
+      height: 16px;
+      margin: 5px 0;
+      border: #333 solid 1px;
+      position: relative;
+    }
+
+    /* animation 1 */
+    .animation1 .progress-bar {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to left, #0f0, #65ff65);
+
+      animation: animation1 5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes animation1 {
+      from {
+        width: 0%;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    /* animation 2 */
+    .animation2 .progress-bar {
+      width: 64px;
+      height: 100%;
+      background: linear-gradient(to left, #f00, #fd5353);
+      position: absolute;
+
+      animation: animation2 2.5s;
+      animation-direction: alternate;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes animation2 {
+      from {
+        left: 0;
+      }
+
+      to {
+        left: 256px;
+      }
+    }
+
+    /* animation 3 */
+    .animation3 .progress-bar {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+
+      animation: animation3 2.5s;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes animation3 {
+      0% {
+        background: linear-gradient(to left, #00f, #000070);
+        width: 0;
+      }
+
+      50% {
+        background: linear-gradient(to left, #ff9900, #ffba53);
+        width: 50%;
+      }
+
+      100% {
+        background: linear-gradient(to left, #f00, #fd5353);
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loader animation1">
+    <div class="progress-bar"></div>
+  </div>
+
+  <div class="loader animation2">
+    <div class="progress-bar"></div>
+  </div>
+
+  <div class="loader animation3">
+    <div class="progress-bar"></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    form {
+      width: 300px;
+      background-color: #fffeb8;
+      margin: 50px auto;
+      border: #807d00 1px solid;
+      padding: 15px;
+    }
+
+    input[type="number"],
+    select,
+    button {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 5px;
+      font-size: 12pt;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="#">
+    <div>
+      <label for="a">a</label>
+      <input type="number" name="a" id="a" value="9">
+    </div>
+    <div>
+      <label for="b">b</label>
+      <input type="number" name="b" id="b" value="8">
+    </div>
+    <div>
+      <label for="c">c</label>
+      <input type="number" name="c" id="c" value="3">
+    </div>
+    <div>
+      <label for="op">Opération</label>
+      <select id="op" name="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+    </div>
+    <div>
+      <label for="res">Résultat</label>
+      <input type="number" name="res" id="res" readonly>
+    </div>
+    <button type="submit">Calculer</button>
+  </form>
+  <script>
+    const a = document.getElementById("a");
+    const b = document.getElementById("b");
+    const c = document.getElementById("c");
+    const op = document.getElementById("op");
+    const res = document.getElementById("res");
+
+    res.value = eval(a.value + op.value + b.value + op.value + c.value);
+  </script>
+</body>
+
+</html>

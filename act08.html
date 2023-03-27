@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Les évènements focus & blur</h2>
+
+      <section>
+        <h3>Les évènements focus & blur</h3>
+
+        <p>L'événement <code>focus</code> se déclenche lorsqu'un élément a reçu le focus.</p>
+        <p>L'événement <code>blur</code> se déclenche lorsqu'un élément a perdu le focus.</p>
+
+        <h4>Exemple</h4>
+        <p>Copier/coller le code suivant :</p>
+        <pre><code class="html">&lt;div&gt;&lt;input type=&quot;text&quot; id=&quot;txt&quot; name=&quot;txt&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;msg&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  const inpTxt = document.getElementById(&quot;txt&quot;);
+  const divMsg = document.getElementById(&quot;msg&quot;);
+
+  function getFocus() {
+    divMsg.textContent = &quot;J&apos;ai re&ccedil;u le focus!&quot;;
+  }
+
+  function lostFocus () {
+    divMsg.textContent = &quot;J&apos;ai perdu le focus!&quot;;
+  }
+
+  inpTxt.addEventListener(&quot;focus&quot;, getFocus);
+  inpTxt.addEventListener(&quot;blur&quot;, lostFocus);
+&lt;/script&gt;</code></pre>
+        <style>
+          span.field {
+            display: inline-block;
+            width: 120px;
+            padding: 2px;
+            border: rgb(118, 118, 118) solid 1px;
+          }
+
+          span.field>span.caret {
+            display: inline-block;
+            width: 1px;
+            border-right: #000 solid 2px;
+            animation: caretanim 0.5s infinite linear;
+          }
+
+          @keyframes caretanim {
+            0% {
+              border-right: #000 solid 2px;
+            }
+
+            100% {
+              border-right: none;
+            }
+          }
+        </style>
+        <p>Lorsque on clique sur le champ de texte <code>#txt</code> pour éditer son contenu, un curseur clignotant
+          s'affiche.</p>
+        <p><span class="field">Ali<span class="caret">&nbsp;</span>&nbsp;</span></p>
+        <p>On dit que le champ a reçu le focus.</p>
+        <p>Lorsqu'on clique hors du champ, le curseur clignotant n'est plus affiché dans le champ. On dit que le champ a
+          perdu le focus.</p>
+
+        <h4>Travail demandé</h4>
+        <p><strong>Evènement <code>blur</code></strong></p>
+        <p>Modifier le script pour que :</p>
+        <ul>
+          <li>Il transforme la chaîne tapée en majuscules,</li>
+          <li>Il supprime les espaces et les voyelles.</li>
+        </ul>
+        <p><strong>Evènement <code>focus</code></strong></p>
+        <p>Modifier le script pour qu'il ajoute une lettre miniscule au hasard au champ.</p>
+      </section>
+
+      <section>
+        <h3 class="p-break">Number Guess</h3>
+
+        <p>Nous souhaitons réaliser le jeu très populaire :</p>
+        <ul>
+          <li>L'ordinateur choisit un nombre au hazard dans l'intervalle [1, 99].</li>
+          <li>L'utilisateur doit le deviner en moins de 7 essais.</li>
+        </ul>
+
+        <p>La figure suivante présente un exemple de l'interface du jeu.</p>
+
+        <figure>
+          <img src="assets/miniprojet11/number-guess.png" alt="Devine mon nombre">
+          <figcaption>Jeu devine mon nombre</figcaption>
+        </figure>
+
+        <p>On donne le <strong>code HTML</strong> de l'interface :</p>
+        <pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;h1&gt;Number Guess&lt;/h1&gt;
+  &lt;p&gt;The computer selected a number between 1 and 99. You have 7 attempts to guess it.&lt;/p&gt;
+  &lt;p&gt;&lt;input type=&quot;number&quot; name=&quot;guess&quot; id=&quot;guess&quot; min=&quot;1&quot; max=&quot;99&quot;&gt;&lt;/p&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;box&quot;&gt;
+      &lt;div class=&quot;title&quot;&gt;# attempts&lt;/div&gt;
+      &lt;div class=&quot;body&quot; id=&quot;num-guess&quot;&gt;0&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;box&quot;&gt;
+      &lt;div class=&quot;title&quot;&gt;3 # guesses&lt;/div&gt;
+      &lt;div class=&quot;body&quot; id=&quot;last-guess&quot;&gt;-&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p id=&quot;msg&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+        <p class="p-break">Et le <strong>code JavaScript</strong> incomplet :</p>
+        <pre><code class="javascript">const inpGuess = document.getElementById("guess");
+const divMsg = document.getElementById("msg");
+const divNumGuess = document.getElementById("num-guess");
+const divLastGuess = document.getElementById("last-guess");
+
+const secret = ...;     // -- TODO -- choisir un nombre au hasard entre 1 et 99
+let lastGuesses = [];   // Tableau des 3 derniers essais
+let guessCount = 0;     // Nombre d'essais
+let guessed = false;    // Indique si l'utilisateur a deviné
+let gameEnded = false;  // Indique si le jeu est terminé
+
+function getFocus() {
+  /* 
+    -- TODO --
+    Si le jeu n'est pas encore terminé 
+      Afficher le message "Guess my number between 1 - 99"
+    Si le jeu est terminé
+      Afficher le message "Game ended!"
+  */
+}
+
+function lostFocus() {
+  /*
+    -- TODO --
+  */
+}
+
+/* -- TODO -- Attacher les événements focus et blur aux fonctions */
+
+/* Initialiser le champ de texte */
+inpGuess.value = "";</code></pre>
+        <h4>Travail demandé</h4>
+        <ol>
+          <li>Copier / Coller le code ci-dessus dans deux fichiers : <code>guesser.html</code> et
+            <code>guesser.js</code>.
+          </li>
+          <li>Ajouter la mise en forme du jeu dans un fichier nommé <code>guesser.css</code>.</li>
+          <li>Compléter le code JavaScript.</li>
+        </ol>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grille Calories</title>
+  <link rel="stylesheet" href="grille_calories.css">
+</head>
+
+<body>
+  <h1>Nombre de calories grillées</h1>
+  <p>Remplir le formulaire suivant pour calculer le nombre de calories que vous allez griller après cet exercice.</p>
+  <form id="frm" action="#" method="post">
+    <div>
+      <label for>Activité</label>
+      <label><input type="radio" name="act" id="act-1" value="marche" required> Marche</label>
+      <label><input type="radio" name="act" id="act-2" value="course"> Course</label>
+    </div>
+    <div>
+      <label for="int">Intensité</label>
+      <select name="int" id="int" required>
+        <option value="0">- Faire un choix -</option>
+        <option value="1">Faible</option>
+        <option value="2">Moyenne</option>
+        <option value="3">Modérée</option>
+      </select>
+    </div>
+    <div>
+      <label for="tmp">Temps d'exercice</label>
+      <input type="number" name="tmp" id="tmp" min="1" max="300" placeholder="Nombre de minutes" required>
+    </div>
+    <div>
+      <button type="button" id="calc">Calculer</button>
+      <button type="reset">Effacer</button>
+    </div>
+  </form>
+  <div id="res">&nbsp;</div>
+  <script src="grille_calories.js"></script>
+</body>
+
+</html>

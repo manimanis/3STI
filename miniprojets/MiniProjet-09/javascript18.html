@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evènement change</title>
+</head>
+
+<body>
+  <p><input type="text" name="nom" id="nom" placeholder="Votre nom"></p>
+  <div id="message"></div>
+  <script>
+    const nom = document.getElementById("nom");
+    const msg = document.getElementById("message");
+    let nom_actuel = nom.value;
+    nom.addEventListener("change", () => {
+      const nouv_nom = nom.value;
+      msg.innerHTML += "Le nom est changé de '" + nom_actuel + "' à '" + nouv_nom + "'<br>";
+      nom_actuel = nouv_nom;
+    });
+  </script>
+
+  <br><br><br>
+  <p><input type="number" name="a" id="a" placeholder="Taper un nombre"></p>
+  <p><input type="number" name="b" id="b" placeholder="Taper un nombre"></p>
+  <p id="res">Taper des nombres pour afficher un message ici.</p>
+  <script>
+    const a = document.getElementById("a");
+    const b = document.getElementById("b");
+    const res = document.getElementById("res");
+
+    function afficherMessage() {
+      const va = parseInt(a.value);
+      const vb = parseInt(b.value);
+      if (!isNaN(va) && !isNaN(vb)) {
+        const mn = (va < vb) ? va : vb;
+        const mx = (va > vb) ? va : vb;
+        const moy = (va + vb) / 2;
+        res.innerHTML = "<b>max(" + va + ", " + vb + ")</b> = " + mx + "<br>" +
+          "<b>min(" + va + ", " + vb + ")</b> = " + mn + "<br>" +
+          "<b>moyenne(" + va + ", " + vb + ")</b> = " + moy;
+      } else {
+        res.innerHTML = "Taper des nombres pour afficher un message ici.";
+      }
+    }
+
+    a.addEventListener("change", afficherMessage);
+    b.addEventListener("change", afficherMessage);
+  </script>
+</body>
+
+</html>

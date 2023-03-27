@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    form {
+      width: 300px;
+      background-color: #fffeb8;
+      margin: 50px auto;
+      border: #807d00 1px solid;
+      padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    button {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 5px;
+      font-size: 12pt;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="#">
+    <div>
+      <label for="np">Nom & Prénom</label>
+      <input type="text" name="np" id="np" value="Yassine">
+    </div>
+    <div>
+      <label for="dn">Date de naissance</label>
+      <input type="date" name="dn" id="dn" value="2022-10-08">
+    </div>
+    <div>
+      <label for="nba">Nombre d'articles</label>
+      <input type="range" name="nba" id="nba" value="3" min="1" max="7">
+    </div>
+    <button type="submit">Confirmer</button>
+  </form>
+  <script>
+    const np = document.getElementById("np");
+    const dn = document.getElementById("dn");
+    const nba = document.getElementById("nba");
+
+    document.writeln("<p>Bonjour ", np.value, "</p>");
+    document.writeln("<p>Vous êtes né le ", dn.value, "</p>");
+    document.writeln("<p>Vous voulez acheter ", nba.value, " articles</p>");
+  </script>
+</body>
+
+</html>

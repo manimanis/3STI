@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Les évènements input et change</h2>
+
+      <section>
+        <h3>Révision</h3>
+        <h4>Question 1</h4>
+        <pre><code class="javascript">function isDigit(ch) {
+  let i = 0, valid = true;
+  while (i < ch.length && valid) {
+    valid = '0' <= ch[i] <= "9"; i++;
+  }
+  return valid;
+}
+console.log(isDigit("123")); // true
+console.log(isDigit("ABC")); // true</code></pre>
+        <p>La fonction <code>isDigit(ch)</code> retourne toujours <code>true</code> indépendamment de la valeur de
+          <code>ch</code>.
+        </p>
+        <p><strong>Comment corriger cette fonction en ne modifiant qu'une seule instruction ?</strong></p>
+
+        <h4>Question 2</h4>
+        <pre><code class="javascript">function somme(t) {
+  const s = 0;
+  for (let i = 0; i < t.length; i++) s += t[i];
+  return s;
+}
+console.log(somme([])); // 0
+console.log(somme([1,2,3])); // invalid assignment to const 's'</code></pre>
+        <p>L'appel de la fonction <code>somme(t)</code> produit toujours l'erreur
+          <code>invalid assignment to const 's'</code> lorsque le tableau <code>t</code> n'est pas vide.
+        </p>
+        <p><strong>Comment corriger cette erreur en ne modifiant qu'une seule ligne ?</strong></p>
+
+        <h4>Question 3</h4>
+        <pre><code class="javascript">function randint(a, b) {
+  return a + Math.random() * (b - a + 1);
+}
+console.log(randint(1, 6)); // 1.439311099391309
+console.log(randint(0, 9)); // 7.606718899286581</code></pre>
+        <p>La fonction <code>randint(a, b)</code> est supposée retourner un entier aléatoire dans l'intervalle [a, b].
+          Or, lors du test elle retourne un réel.
+        </p>
+        <p><strong>Comment corriger ce problème ?</strong></p>
+
+        <h4 class="p-break">Question 4</h4>
+        <pre><code class="javascript">function reverseString(ch) {
+  let i = 0, j = ch.length - 1;
+  while (j > i) {
+    const t = ch[i]; ch[i] = ch[j]; ch[j] = t;
+    i++; j--;
+  }
+  return ch;
+}
+console.log(reverseString("ahmed")); // "ahmed" au lieu de "demha"</code></pre>
+        <p>La fonction <code>reverseString(ch)</code> a pour fonction d'inverser l'ordre des caractères d'une chaîne.
+          L'opértion est réalisée par l'instruction : <code>const t = ch[i]; ch[i] = ch[j]; ch[j] = t;</code>.
+          Seulement, il y a un problème qui l'empêche de bien fonctionner.
+        </p>
+        <p><strong>Lequel ?</strong></p>
+        <p><strong>Utiliser la méthode <code>ch.substring()</code> pour corriger cette instruction.</strong></p>
+
+        <h4>Question 5</h4>
+        <div class="row">
+          <div class="col-6">
+            <p>Soit le code HTML suivant :</p>
+            <pre><code class="html">&lt;div&gt;&lt;input type=&quot;text&quot; id=&quot;nom&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;res&quot;&gt;&lt;/div&gt;</code></pre>
+          </div>
+          <div class="col-6">
+            <p>et le code JavaScript suivant :</p>
+            <pre><code class="javascript">const inpNom = document.getElementById("Nom");
+const divRes = document.getElementById("res");
+function nomChanged() {
+  divRes.value = inpNom.value;
+}</code></pre>
+          </div>
+        </div>
+
+        <p>Le code précédent a été reproduit afin d'afficher le contenu du champ du texte <code>inpNom</code> dans le
+          div <code>divRes</code> lorsqu'on y tape un texte.</p>
+        <p>Bien que tout semble à première vue correct, la fonction <code>nomChanged()</code> n'est pas appelée
+          lorsqu'on saisit quelque chose dans le champ du texte <code>inpNom</code>.</p>
+        <p><strong>Comment résoudre ce problème et répondre à l'évènement <code>input</code> ?</strong></p>
+
+        <p>Après correction du problème précédent, un nouveau surgit. L'erreur suivante s'affiche dans la console dès
+          qu'on tape une touche du clavier : <code>inpNom is null</code>.</p>
+        <p><strong>Pourquoi <code>inpNom</code> est-il null ?</strong></p>
+
+        <p>Après correction du problème, le script n'est pas fonctionnel bien que la fonction <code>nomChanged()</code>
+          soit appelée lorsqu'on tape un texte dans le champ. L'unique instruction de cette fonction semble contenir une
+          erreur.</p>
+        <p><strong>Laquelle ?</strong></p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

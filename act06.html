@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Sujets Bac 2022 - Sections Scientifiques</h2>
+
+      <section>
+        <h3>Nombre ondulant</h3>
+        <ol>
+          <li>
+            <p>On demande de créer le formulaire suivant à l'aide du langage HTML et de le mettre en forme en CSS :</p>
+            <figure>
+              <img src="assets/miniprojet11/ondulant.png" alt="Nombre ondulant">
+              <figcaption>Formulaire nombre ondulant</figcaption>
+            </figure>
+          </li>
+          <li>Ecrire une fonction <code>estOndulant(n)</code> qui permet de vérifier si l'entier n est ondulant.
+            <p>Un nombre <strong>n</strong> est dit ondulant s'il est formé de trois chiffres au minimum et qui est de
+              la forme
+              <strong>ababab...</strong> avec a &ne; b.
+            </p>
+            <p><strong><u>Exemples :</u></strong></p>
+            <ul>
+              <li>101, 2525, 56565 et 1717171 sont des nombres ondulants.</li>
+              <li>12345 et 808008 ne sont pas des nombres ondulants.</li>
+            </ul>
+          </li>
+          <li>Ecrire une fonction <code>btnVerifClicked</code> qui permet de :
+            <ul>
+              <li>Récupérer l'entier <code>n</code> saisit par l'utilisateur,</li>
+              <li>Exploiter la fonction <code>estOndulant(n)</code> pour vérifier si <code>n</code> est un nombre
+                ondulant,</li>
+              <li>Afficher le résultat dans la zone de texte <code>#res</code>.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3 class="p-break">Nombre super-pair plus</h3>
+        <ol>
+          <li>
+            <p>On demande de créer le formulaire suivant à l'aide du langage HTML et de le mettre en forme en CSS :</p>
+            <figure>
+              <img src="assets/miniprojet11/super-pair-plus.png" alt="Nombre super-pair plus">
+              <figcaption>Formulaire nombre super-pair plus</figcaption>
+            </figure>
+          </li>
+          <li>Ecrire une fonction <code>estSuperPairPlus(n)</code> qui permet de vérifier si l'entier n est super-pair
+            plus.
+            <p>Un nombre N est dit super-pairplus s’il vérifie les trois conditions suivantes :</p>
+            <ul>
+              <li>Condition 1 : N est pair</li>
+              <li>Condition 2 : N est formé uniquement par des chiffres pairs</li>
+              <li>Condition 3 : tous les diviseurs de N autres que 1 sont des entiers pairs.</li>
+            </ul>
+            <p><strong><u>Exemples :</u></strong></p>
+            <ul>
+              <li>N = 64 est un entier super-pair plus car 64 vérifie les trois conditions :
+                <ul>
+                  <li>Condition 1 : 64 est pair</li>
+                  <li>Condition 2 : 64 est formé uniquement par des chiffres pairs (6 et 4)</li>
+                  <li>Condition 3 : les diviseurs de 64 autres que 1 (2, 4, 8, 16, 32 et 64) sont des entiers pairs.
+                  </li>
+                </ul>
+              </li>
+              <li>N = 28 n'est pas un entier super-pair plus car une des trois conditions (<strong>condition 3</strong>)
+                n'est pas vérifiée : les diviseurs de 28 autre que 1 (2, 4, <strong>7</strong>, 14 et 28) ne sont pas
+                tous des entiers pairs. En effet, <strong>7 est impair</strong>.</li>
+            </ul>
+          </li>
+          <li>Ecrire une fonction <code>btnVerifClicked</code> qui permet de :
+            <ul>
+              <li>Récupérer l'entier <code>n</code> saisit par l'utilisateur,</li>
+              <li>Exploiter la fonction <code>estSuperPairPlus(n)</code> pour vérifier si <code>n</code> est un nombre
+                super-pair plus,</li>
+              <li>Afficher le résultat dans la zone de texte <code>#res</code>.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3 class="p-break">Nombre semi-premier</h3>
+        <ol>
+          <li>
+            <p>On demande de créer le formulaire suivant à l'aide du langage HTML et de le mettre en forme en CSS :</p>
+            <figure>
+              <img src="assets/miniprojet11/semi-premier.png" alt="Nombre semi-premier">
+              <figcaption>Formulaire nombre semi-premier</figcaption>
+            </figure>
+          </li>
+          <li>Ecrire une fonction <code>estPremier(n)</code> qui permet de vérifier si <code>n</code> est un nombre
+            premier ou non.</li>
+          <li>Ecrire une fonction <code>estSemiPremier(n)</code> qui permet de vérifier si l'entier n est semi-premier.
+            <p>Un nombre N est dit semi-premier lorsqu’il est égal au produit de deux nombres premiers non
+              nécessairement distincts. C’est-à-dire N = k*k avec k est un nombre premier ou N = k*j avec k et j sont
+              deux nombres premiers.</p>
+            <p><strong><u>Exemples :</u></strong></p>
+            <ul>
+              <li>6 est un nombre semi-premier, car 6 = 2 × 3 avec 2 et 3 sont deux nombres premiers.</li>
+              <li>25 est un nombre semi-premier, car 25 = 5 × 5 avec 5 est un nombre premier.</li>
+              <li>831 est un nombre semi-premier, car 831= 3 × 277 avec 3 et 277 sont deux nombres premiers.</li>
+              <li>8 n’est pas un nombre semi-premier, car 8 = 2 × 4 avec 4 n’est pas un nombre premier.</li>
+            </ul>
+          </li>
+          <li>Ecrire une fonction <code>btnVerifClicked</code> qui permet de :
+            <ul>
+              <li>Récupérer l'entier <code>n</code> saisit par l'utilisateur,</li>
+              <li>Exploiter la fonction <code>estSemiPremier(n)</code> pour vérifier si <code>n</code> est un nombre
+                semi-premier,</li>
+              <li>Afficher le résultat dans la zone de texte <code>#res</code>.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3 class="p-break">Générateur de mots de passes</h3>
+        <ol>
+          <li>
+            <p>On demande de créer le formulaire suivant à l'aide du langage HTML et de le mettre en forme en CSS :</p>
+            <figure>
+              <img src="assets/miniprojet11/password-gen.png" alt="Générateur de mots de passes">
+              <figcaption>Formulaire générateur de mots de passes</figcaption>
+            </figure>
+          </li>
+          <li>Créer une fonction nommée <code>randint(a, b)</code> qui retourne un nombre aléatoire dans l'intervalle
+            [a, b], basée sur les deux fonctions prédéfénies en JavaScript :
+            <ul>
+              <li><code>Math.random()</code> qui renvoie un nombre aléatoire dans l'intervalle [0, 1[.</li>
+              <li><code>Math.floor(x)</code> qui permet de supprimer la partie décimale (réelle) d'un nombre.</li>
+            </ul>
+            <p><code>a</code> et <code>b</code> sont deux entiers.</p>
+          </li>
+          <li>Créer une fonction <code>genPassword(chars, len)</code> qui retourne une chaine composée de
+            <code>len</code> caractères sélectionnés au hasard dans une chaine nommée <code>chars</code>.
+          </li>
+          <li>Créer une fonction <code>genClicked(e)</code> qui permet de :
+            <ul>
+              <li>Récupérer les données du formulaire.</li>
+              <li>Générer <code>nbre</code> mots de passe de longueur <code>len</code>.</li>
+              <li>Afficher les mots de passes générés dans un &lt;div&gt; portant l'id <code>#passwords</code>.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

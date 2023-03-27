@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personnages de bandes dessinées</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <form action="bd.php" method="post">
+
+      <h2>Village gaulois</h2>
+      <p>Voici quatre personnages du village gaulois.</p>
+      <p><strong>Etes vous capable d'identifier ces personnages ?</strong></p>
+      <div class="images">
+        <div class="image">
+          <label for="q1-1"><img src="images/asterix.webp" alt="Astérix"></label>
+          <p>
+            <select name="q1_1" id="q1-1" required>
+              <option selected value>Sélectionner</option>
+              <option>Astérix</option>
+              <option>Obélix</option>
+              <option>Idéfix</option>
+              <option>Falbala</option>
+            </select>
+          </p>
+        </div>
+        <div class="image">
+          <label for="q1-2"><img src="images/falbala.png" alt="Falbala"></label>
+          <p>
+            <select name="q1_2" id="q1-2" required>
+              <option selected value>Sélectionner</option>
+              <option>Astérix</option>
+              <option>Obélix</option>
+              <option>Idéfix</option>
+              <option>Falbala</option>
+            </select>
+          </p>
+        </div>
+        <div class="image">
+          <label for="q1-3"><img src="images/idefix.png" alt="Idéfix"></label>
+          <p>
+            <select name="q1_3" id="q1-3" required>
+              <option selected value>Sélectionner</option>
+              <option>Astérix</option>
+              <option>Obélix</option>
+              <option>Idéfix</option>
+              <option>Falbala</option>
+            </select>
+          </p>
+        </div>
+        <div class="image">
+          <label for="q1-4"><img src="images/obelix.webp" alt="Obélix"></label>
+          <p>
+            <select name="q1_4" id="q1-4" required>
+              <option selected value>Sélectionner</option>
+              <option>Astérix</option>
+              <option>Obélix</option>
+              <option>Idéfix</option>
+              <option>Falbala</option>
+            </select>
+          </p>
+        </div>
+      </div>
+
+      <h2>Les Schtroumpfs</h2>
+      <p><strong>Parmi les personnages suivants, identfier Schtroumpfette.</strong></p>
+      <div class="images">
+        <div class="image">
+          <p><input type="radio" name="q2" id="q2-1" value="a" required></p>
+          <label for="q2-1"><img src="images/grand-schtroumpf.jpg" alt="Grand Schtroumpf"></label>
+        </div>
+        <div class="image">
+          <p><input type="radio" name="q2" id="q2-2" value="b"></p>
+          <label for="q2-2"><img src="images/schtroumpfette.webp" alt="Schtroumpfette"></label>
+        </div>
+        <div class="image">
+          <p><input type="radio" name="q2" id="q2-3" value="c"></p>
+          <label for="q2-3"><img src="images/Gargamel.webp" alt="Gargamel"></label>
+        </div>
+      </div>
+
+      <h2>Les superhéros</h2>
+      <p><strong>Identifier le personnage qui est dans la photo.</strong></p>
+      <p><input type="text" list="superheros" name="q3" id="q3" required></p>
+      <figure><label for="q3"><img src="images/Supermanflying.png" alt="Superman"></label></figure>
+      <datalist id="superheros">
+        <option value="Batman"></option>
+        <option value="Superman"></option>
+        <option value="Spiderman"></option>
+        <option value="Megaman"></option>
+        <option value="Catman"></option>
+      </datalist>
+
+      <h2>Dragon ball</h2>
+      <p><strong>Identifier les personnages de Dragon ball.</strong></p>
+      <div class="images">
+        <div class="image">
+          <p>Naruto Uzumaki</p>
+          <label for="q4-1"><img src="images/naruto.png" alt="Naruto Uzumaki"></label>
+          <p><input type="checkbox" name="q4[]" id="q4-1" value="a"></p>
+        </div>
+        <div class="image">
+          <p>Son Goku</p>
+          <label for="q4-2"><img src="images/son_goku.webp" alt="Son Goku"></label>
+          <p><input type="checkbox" name="q4[]" id="q4-2" value="b"></p>
+        </div>
+        <div class="image">
+          <p>Tsunade Senju</p>
+          <label for="q4-3"><img src="images/tsunade_full.webp" alt="Tsunade Senju"></label>
+          <p><input type="checkbox" name="q4[]" id="q4-3" value="c"></p>
+        </div>
+        <div class="image">
+          <p>Vegeta</p>
+          <label for="q4-4"><img src="images/vegeta.webp" alt="Vegeta"></label>
+          <p><input type="checkbox" name="q4[]" id="q4-4" value="d"></p>
+        </div>
+      </div>
+
+      <h2>Looney Tunes</h2>
+      <p><strong>Combien y-a-t'il de personnages dans la photo des Looney Tunes ?
+          <input type="number" name="q5" id="q5" min="1" max="20" value="5" required></strong></p>
+      <figure>
+        <label for="q5"><img src="images/looney-tunes.jpg" alt="Personnages Looney Tunes"></label>
+        <figcaption>Personnages Looney Tunes</figcaption>
+      </figure>
+
+      <p>
+        <button>Soumettre</button>
+        <button type="reset">Effacer</button>
+      </p>
+    </form>
+  </main>
+</body>
+
+</html>

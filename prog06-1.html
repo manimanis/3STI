@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Correction du devoir de contrôle</h2>
+      <section>
+        <h3>RIB Checker</h3>
+        <div class="my-2"><a href="miniprojets/MiniProjet-12/rib.pdf" target="_blank" rel="noopener noreferrer">Enoncé
+            du devoir</a></div>
+        <p><strong>Fichier HTML</strong></p>
+        <pre><code class="html">&lt;h1&gt;RIB Checker&lt;/h1&gt;
+&lt;div id=&quot;rib-band&quot;&gt;
+  &lt;form action=&quot;#&quot;&gt;
+    &lt;div&gt;
+      &lt;label for=&quot;rib&quot;&gt;RIB Checker&lt;/label&gt;
+      &lt;input type=&quot;text&quot; name=&quot;rib&quot; id=&quot;rib&quot; required&gt;
+      &lt;button type=&quot;button&quot; id=&quot;valid-rib&quot;&gt;Validate RIB&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+&lt;div id=&quot;res&quot;&gt;&lt;/div&gt;
+&lt;script src=&quot;rib.js&quot;&gt;&lt;/script&gt;</code></pre>
+        <p><strong>Fichier CSS</strong></p>
+        <pre><code class="css">* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #c4d8ed;
+  color: #00377c;
+  font-size: 17px;
+  font-family: sans-serif;
+}
+
+#rib-band {
+	background-color: #4c6793;
+	color: white;
+	margin: 50px 0;
+}
+
+form {
+	width: 600px;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+
+#valid-rib {
+	padding: 10px 30px;
+	border-radius: 0;
+	border: none;
+	font-size: 17px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #00823a;
+}
+
+#rib {
+	padding: 10px;
+	font-size: 17px;
+	border-radius: 0;
+	border: #5d3cb5 solid 1px;
+	margin: 0 13px;
+	width: 299px;
+}
+
+h1 {
+	text-align: center;
+	margin: 2em 0 1em;
+	text-transform: uppercase;
+}
+
+.wrong {
+  color: maroon;
+}
+
+.valid {
+  color: green;
+}
+
+#res {
+  text-align: center;
+  font-size: 20px;
+  width: 600px;
+  margin: 0 auto;
+}</code></pre>
+
+        <p><strong>Code JavaScript</strong></p>
+        <pre><code class="javascript">const inpRIB = document.getElementById("rib");
+const btnVal = document.getElementById("valid-rib");
+const divRes = document.getElementById("res");
+
+function btnValClicked(e) {
+  /* TODO */
+}
+
+btnVal.addEventListener("click", btnValClicked);
+
+function isAlphanumric(ch) {
+  /* TODO */
+}
+
+function isValidRIB(ch) {
+  /* TODO */
+}
+
+const digits = "12345678912345678923456789";
+function replaceByDigits(ch) {
+  let ch1 = "";
+  for (let i = 0; i < ch.length; i++) {
+    let car = ch[i];
+    if (car >= "A" && car <= "Z") {
+      car = digits[car.charCodeAt(0) - 65];
+    } else if (car >= "a" && car <= "z") {
+      car = digits[car.charCodeAt(0) - 97];
+    }
+    ch1 += car;
+  }
+  return ch1;
+}
+
+function removeSpaces(ch) {
+  let ch1 = "";
+  for (let i = 0; i < ch.length; i++) {
+    if (ch[i] != " ") ch1 += ch[i];
+  }
+  return ch1;
+}
+
+function mod97(ch) {
+  let mul = 1, s = 0;
+  for (let i = ch.length - 1; i >= 0; i--) {
+    s = (s + Number(ch[i]) * mul) % 97;
+    mul = (mul * 10) % 97;
+  }
+  return s;
+}
+
+// Some valid RIBs to test with
+//----------------------------------
+// 30001 00794 12345678901 85
+// 12345 12345 0123456789A 03
+// 11808 00910 12345678901 47
+// 20041 01005 0500013M026 06
+// 12548 02998 98765432109 21
+// 12548 0KRZH IYXONMCBJ0I 21</code></pre>
+      </section>
+      <section>
+        <h3>ClicToPay</h3>
+        <div class="my-2"><a href="miniprojets/MiniProjet-12/paiement.pdf" target="_blank"
+            rel="noopener noreferrer">Enoncé du devoir</a></div>
+        <p><strong>Fichier HTML</strong></p>
+        <pre><code class="html">&lt;form action=&quot;#&quot; method=&quot;post&quot;&gt;
+  &lt;div&gt;
+    &lt;img src=&quot;images/clictopay-logo.png&quot; alt=&quot;Clic to pay logo&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;titre&quot;&gt;
+    Num&eacute;ro de la commande N&deg;&lt;span id=&quot;num-cmd&quot;&gt;&lt;/span&gt; &amp;darr;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;num-card&quot;&gt;Num&eacute;ro de la carte&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;num-card&quot; name=&quot;num_card&quot; placeholder=&quot;**** **** **** **** ****&quot; required&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col&quot;&gt;
+      &lt;label for=&quot;month&quot;&gt;Valable jusqu&apos;au&lt;/label&gt;
+      &lt;select name=&quot;month&quot; id=&quot;month&quot; required&gt;
+        &lt;option value=&quot;&quot;&gt;-&lt;/option&gt;
+        &lt;option value=&quot;1&quot;&gt;Janvier&lt;/option&gt;
+        &lt;option value=&quot;2&quot;&gt;F&eacute;vrier&lt;/option&gt;
+        &lt;option value=&quot;3&quot;&gt;Mars&lt;/option&gt;
+        &lt;option value=&quot;4&quot;&gt;Avril&lt;/option&gt;
+        &lt;option value=&quot;5&quot;&gt;Mai&lt;/option&gt;
+        &lt;option value=&quot;6&quot;&gt;Juin&lt;/option&gt;
+        &lt;option value=&quot;7&quot;&gt;Juillet&lt;/option&gt;
+        &lt;option value=&quot;8&quot;&gt;Ao&ucirc;t&lt;/option&gt;
+        &lt;option value=&quot;9&quot;&gt;Septembre&lt;/option&gt;
+        &lt;option value=&quot;10&quot;&gt;Octobre&lt;/option&gt;
+        &lt;option value=&quot;11&quot;&gt;Novembre&lt;/option&gt;
+        &lt;option value=&quot;12&quot;&gt;D&eacute;cembre&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;
+      &lt;label for=&quot;year&quot;&gt;&amp;nbsp;&lt;/label&gt;
+      &lt;select name=&quot;year&quot; id=&quot;year&quot; required&gt;
+        &lt;option value=&quot;&quot;&gt;-&lt;/option&gt;
+        &lt;option value=&quot;2023&quot;&gt;2023&lt;/option&gt;
+        &lt;option value=&quot;2024&quot;&gt;2024&lt;/option&gt;
+        &lt;option value=&quot;2025&quot;&gt;2025&lt;/option&gt;
+        &lt;option value=&quot;2026&quot;&gt;2026&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col&quot;&gt;
+      &lt;label for=&quot;CVV2&quot;&gt;CVV2&lt;/label&gt;
+      &lt;input type=&quot;password&quot; name=&quot;cvv2&quot; id=&quot;CVV2&quot; placeholder=&quot;***&quot; required&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;nom&quot;&gt;Le nom du d&eacute;tenteur&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;nom&quot; id=&quot;nom&quot; required&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;mail&quot;&gt;Adresse e-mail&lt;/label&gt;
+    &lt;input type=&quot;email&quot; name=&quot;mail&quot; id=&quot;mail&quot; required&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button type=&quot;button&quot; id=&quot;paie&quot;&gt;Paiement &lt;span id=&quot;montant&quot;&gt;&lt;/span&gt; TND&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+&lt;script src=&quot;paiement.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+        <p><strong>Fichier CSS</strong></p>
+        <pre><code class="css">* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+form {
+  width: 540px;
+  margin: 30px auto;
+  padding: 20px;
+  border: gray solid 1px;
+  border-radius: 10px;
+}
+
+form>div {
+  margin: 15px 0;
+}
+
+label[for] {
+  display: block;
+  color: #464646;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col {
+  width: 30%;
+}
+
+.titre {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  border: #808080 solid 1px;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+}</code></pre>
+        <p><strong>Code JavaScript</strong></p>
+        <pre><code class="javascript">const spanNumCmd = document.getElementById("num-cmd");
+const spanMontant = document.getElementById("montant");
+const inpNumCard = document.getElementById("num-card");
+const inpMonth = document.getElementById("month");
+const inpYear = document.getElementById("year");
+const inpCVV2 = document.getElementById("CVV2");
+const inpNom = document.getElementById("nom");
+const inpMail = document.getElementById("mail");
+const btnPaie = document.getElementById("paie");
+
+function btnPaieClicked(e) {
+  /* TODO */
+}
+
+function validCardNumber(numCard) {
+  /* TODO */
+}
+
+function validMail(mail) {
+  return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(mail);
+}
+
+function validCVV2(CVV2) {
+  return /^[0-9]{3}$/g.test(CVV2);
+}
+
+function estAlphabetique(nom) {
+  return /^[\w\s]{3,}$/g.test(nom);
+}
+
+function randint(a, b) {
+  return Math.floor(a + Math.random() * (b - a + 1));
+}
+
+function genNumCommand() {
+  let s = "";
+  for (let i = 0; i < 7; i++) {
+    s += randint((i == 0) ? 1 : 0, 9);
+  }
+  return s;
+}
+
+btnPaie.addEventListener("click", btnPaieClicked);
+spanNumCmd.textContent = genNumCommand();
+spanMontant.textContent = randint(10, 250).toFixed(3);</code></pre>
+      </section>
+      <section>
+        <h3>Grille Calories</h3>
+        <div class="my-2"><a href="miniprojets/MiniProjet-12/grille_calories.pdf" target="_blank"
+            rel="noopener noreferrer">Enoncé du devoir</a></div>
+        <p><strong>Code HTML</strong></p>
+        <pre><code class="html">&lt;h1&gt;Nombre de calories grill&eacute;es&lt;/h1&gt;
+&lt;p&gt;Remplir le formulaire suivant pour calculer le nombre de calories que vous allez griller apr&egrave;s cet exercice.&lt;/p&gt;
+&lt;form id=&quot;frm&quot; action=&quot;#&quot; method=&quot;post&quot;&gt;
+  &lt;div&gt;
+    &lt;label for&gt;Activit&eacute;&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;act&quot; id=&quot;act-1&quot; value=&quot;marche&quot; required&gt; Marche&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;act&quot; id=&quot;act-2&quot; value=&quot;course&quot;&gt; Course&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;int&quot;&gt;Intensit&eacute;&lt;/label&gt;
+    &lt;select name=&quot;int&quot; id=&quot;int&quot; required&gt;
+      &lt;option value=&quot;0&quot;&gt;- Faire un choix -&lt;/option&gt;
+      &lt;option value=&quot;1&quot;&gt;Faible&lt;/option&gt;
+      &lt;option value=&quot;2&quot;&gt;Moyenne&lt;/option&gt;
+      &lt;option value=&quot;3&quot;&gt;Mod&eacute;r&eacute;e&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;tmp&quot;&gt;Temps d&apos;exercice&lt;/label&gt;
+    &lt;input type=&quot;number&quot; name=&quot;tmp&quot; id=&quot;tmp&quot; min=&quot;1&quot; max=&quot;300&quot; placeholder=&quot;Nombre de minutes&quot; required&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button type=&quot;button&quot; id=&quot;calc&quot;&gt;Calculer&lt;/button&gt;
+    &lt;button type=&quot;reset&quot;&gt;Effacer&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+&lt;div id=&quot;res&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;script src=&quot;grille_calories.js&quot;&gt;&lt;/script&gt;</code></pre>
+        <p><strong>Code CSS</strong></p>
+        <pre><code class="css">* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 12pt;
+  font-family: sans-serif;
+}
+
+h1 {
+  color: orange;
+  text-align: center;
+  width: 640px;
+  margin: 1em auto;
+}
+
+p {
+  text-align: center;
+  width: 640px;
+  margin: auto;
+}
+
+#res,
+#frm {
+  padding: 30px;
+  width: 640px;
+  margin: 25px auto;
+  border: #333 solid 1px;
+  border-radius: 8px;
+  background-color: #eee;
+}
+
+#frm > div {
+  margin: 10px 0;
+}
+
+label[for] {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+select,
+input[type="number"] {
+  font-size: 12pt;
+  width: 100%;
+  padding: 10px;
+}
+
+button {
+	font-size: 12pt;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	padding: 10px 30px;
+}
+
+#res {
+  font-size: 16pt;
+  text-align: center;
+  margin-top: 30px;
+}</code></pre>
+        <p><strong>Code JavaScript</strong></p>
+        <pre><code class="javascript">const radAct1 = document.getElementById("act-1");
+const radAct2 = document.getElementById("act-2");
+const selInt = document.getElementById("int");
+const inpTmp = document.getElementById("tmp");
+const btnCalc = document.getElementById("calc");
+const divRes = document.getElementById("res");
+
+function btnCalcClicked(ev) {
+  /* TODO */
+}
+
+btnCalc.addEventListener("click", btnCalcClicked);
+
+</code></pre>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

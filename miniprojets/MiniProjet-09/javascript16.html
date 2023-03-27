@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click</title>
+</head>
+
+<body>
+  <button type="button" onclick="alert('You\'re welcome!')">Cliquez-moi</button>
+
+  <button type="button" onclick="clic01()">Cliquez-moi</button>
+  <script>
+    function clic01() {
+      alert("Good luck!");
+    }
+  </script>
+
+  <button id="bouton" type="button">Cliquez-moi</button>
+  <script>
+    const bouton = document.getElementById("bouton");
+    bouton.onclick = () => {
+      alert("You are the best of the best!");
+    };
+  </script>
+
+  <button id="btn-2" type="button">Cliquez-moi</button>
+  <script>
+    const btn2 = document.getElementById("btn-2");
+    btn2.addEventListener("click", () => {
+      alert("Wish you success and happiness!");
+    });
+  </script>
+
+</body>
+
+</html>

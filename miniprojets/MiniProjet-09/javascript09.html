@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structures conditionnelles</title>
+</head>
+
+<body>
+  <script>
+    let x = prompt("Donner a ? ", "0");
+    let y = prompt("Donner b ? ", "0");
+    let res = "";
+
+    x = parseInt(x);
+    y = parseInt(y);
+
+    if (!isNaN(x) && !isNaN(y)) {
+      if (x > y) {
+        res = x + " > " + y;
+      } else if (x < y) {
+        res = x + " < " + y;
+      } else {
+        res = x + " = " + y;
+      }
+    } else {
+      res = "Données manquantes.";
+    }
+
+    alert(res);
+  </script>
+</body>
+
+</html>

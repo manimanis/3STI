@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Description du site du restaurant">
+  <meta name="keywords" content="chawarma, tunisie, ariana, lablabi, plat tunisien">
+  <title>House Kitchen | Commande</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="#">
+        <img id="img-logo" src="images/house_kitchen_logo.png" alt="logo house kitchen">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="commandes.html">Commande</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <form name="f">
+        <h2>Commandez</h2>
+        <div class="plats">
+          <div class="plat">
+            <img src="./images/plat01.png">
+            <div class="entete">
+              <h3>Plat Tunisien</h3>
+              <p><strong>Prix:</strong> 5d500</p>
+            </div>
+            <div class="quantite">
+              <p><label for="qtpt">Quantité</label></p>
+              <input type="number" id="qtpt" placeholder="EntrezQuantité" value=0>
+            </div>
+          </div>
+          <div class="plat">
+            <img src="./images/plat02.webp">
+            <div class="entete">
+              <h3>Lablabi</h3>
+              <p><strong>Prix:</strong> 3d500</p>
+            </div>
+            <div class="quantite">
+              <p><label for="qtlb">Quantité</label></p>
+              <input type="number" id="qtlb" placeholder="Entrez Quantité" value="0">
+            </div>
+          </div>
+          <div class="plat">
+            <img src="./images/plat03.jpg">
+            <div class="entete">
+              <h3>Hargma</h3>
+              <p><strong>Prix:</strong> 7d000</p>
+            </div>
+            <div class="quantite">
+              <p><label for="qthg">Quantité</label></p>
+              <input type="number" id="qthg" placeholder="Entrez Quantité" value="0">
+            </div>
+          </div>
+        </div>
+        <div class="btb">
+          <input type="submit" class="bouton-blanc" id="cmd" value="Commander">
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <a href="#"><img class="sociaux" src="images/Facebook.png" alt="Facebook"></a>
+      <a href="#"><img class="sociaux" src="images/Twitter.png" alt="Twitter"></a>
+      <a href="#"><img class="sociaux" src="images/Linkedin.png" alt="Linkedin"></a>
+      <a href="#"><img class="sociaux" src="images/Pinterest.png" alt="Pinterest"></a>
+      <a href="#"><img class="sociaux" src="images/Website.png" alt="Website"></a>
+    </div>
+  </footer>
+</body>
+
+</html>

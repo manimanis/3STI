@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 12pt;
+}
+
+main {
+  width: 960px;
+  margin: 0 auto;
+}
+
+#prix h1 {
+  text-transform: uppercase;
+  color: #FE5D9F;
+  background-color: #F1E4F3;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+}
+
+#cagnote {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  background-color: #F4BBD3;
+  border-radius: 0 0 10px 10px;
+}
+
+#cagnote div {
+  width: 33.3%;
+  padding: 5px;
+  text-align: center;
+}
+
+#cagnote div img {
+  max-width: 100%;
+}
+
+#participants {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#participants h1, #gagnants h2 {
+  width: 100%;
+  text-transform: uppercase;
+  color: #F1E4F3;
+  background-color: #F686BD;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+}
+
+#liste {
+  width: 50%;
+  background-color: #F4BBD3;
+  padding: 10px;
+  position: relative;
+  border-radius: 0 0 0 10px;
+}
+
+#liste h2 {
+  margin: 0 0 10px;
+  color: #FE5D9F;
+}
+
+#liste select {
+  width: 100%;
+  border: solid #ff3799 1px;
+  font-size: 12pt;
+  color: #830040;
+}
+
+#liste select option {
+  padding: 4px 8px;
+}
+
+#new {
+  position: absolute;
+  bottom: 20px;
+  right: 36px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #f686bd;
+  font-size: 20pt;
+  font-weight: bolder;
+  color: #fff;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+#new:hover {
+  color: #830040;
+}
+
+#new[disabled] {
+  background-color: #fdb6d8;
+  color: #fff;
+}
+
+#new:hover[disabled] {
+  background-color: #fdb6d8;
+  color: #fff;
+}
+
+#controls {
+  width: 50%;
+  background-color: #F1E4F3;
+  padding: 10px;
+  position: relative;
+  border-radius: 0 0 10px 0;
+}
+
+#controls div {
+  margin: 5px auto;
+}
+
+#controls input[type="text"] {
+  width: 100%;
+  font-size: 12pt;
+  padding: 5px;
+  border: solid #ff3799 1px;
+}
+
+#controls button {
+  background-color: #f686bd;
+  color: #fff;
+  font-size: 11pt;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+
+#controls h2 {
+  color: #ff3799;
+  margin: 5px 0;
+}
+
+#add-form, #edit-form {
+  display: none;
+}
+
+#gagnants {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  background-color: #F1E4F3;
+  border-radius: 10px;
+}
+
+.gagnant {
+  width: 33.3%;
+  padding: 20px;
+}
+
+.gagnant img {
+  max-width: 100%;
+}
+
+.tirage {
+  padding: 20px;
+  width: 100%;
+}
+
+.tirage button {
+  width: 100%;
+  background-color: #f686bd;
+  border: none;
+  padding: 15px;
+  font-size: 14pt;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.gagnant p {
+  text-align: center;
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
