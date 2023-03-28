@@ -9,20 +9,43 @@ $base = 'banque';
 
 $res = ['errors' => []];
 
-function add_error($error) {
+function add_error($error)
+{
     global $res;
     $res['errors'][] = $error;
 }
 
-function write_response() {
+function write_response()
+{
     global $res;
     $res['success'] = count($res['errors']) == 0;
     die(json_encode($res));
 }
 
-function has_errors() {
+function has_errors()
+{
     global $res;
     return count($res['errors']) != 0;
+}
+
+function missingFields($type, ...$fields)
+{
+    $var = $type == 'GET' ? $_GET : $_POST;
+    $m = [];
+    foreach ($fields as $field) {
+        if (!isset($var[$field])) {
+            $m[] = $field;
+        }
+    }
+    return $m;
+}
+
+function addErrorMissingFields($mf)
+{
+    if (count($mf) > 0) {
+        add_error("Vous devez indiquer les champs : '" . implode("', '", $mf) . "'.");
+        write_response();
+    }
 }
 
 $conn = new mysqli($host, $user, $pass);
@@ -44,38 +67,49 @@ if (create_tables($conn) !== TRUE) {
 
 include_once 'validation.php';
 
-if (isPost() && $_POST['op'] == "CREATE CLIENT") {
-    if (!isset($_POST['nom']) || !isset($_POST['prenom']) || !isset($_POST['tel'])) {
-        add_error("Vous devez indiquer les champs : 'nom', 'prenom' et 'tel'.");
-        write_response();
-    }
-    include_once 'create_client.php';
-} else if (isGet() && $_GET['op'] == "SEARCH CLIENT") {
-    if (!isset($_GET['search'])) {
-        add_error("Vous devez indiquer le champ : 'search'.");
-        write_response();
-    }
+if ((isPost() && !isset($_POST['op'])) || (isGet() && !isset($_GET['op']))) {
+    add_error("Veuillez définir un champ 'op' pour votre requête.");
+    add_error("Clients : 'CREATE CLIENT', 'SEARCH CLIENT', 'READ CLIENT', 'UPDATE CLIENT', 'DELETE CLIENT'");
+    write_response();
+}
+
+$op = isPost() ? $_POST['op'] : $_GET['op'];
+
+if (isPost() && $op == "CREATE CLIENT") {
+    $mf = missingFields('POST', 'nom', 'prenom', 'tel');
+    addErrorMissingFields($mf);
+    include_once 'client/create_client.php';
+} else if (isGet() && $op == "SEARCH CLIENT") {
+    $mf = missingFields('GET', 'search');
+    addErrorMissingFields($mf);
     add_error("Not implemented yet.");
     write_response();
-} else if (isGet() && $_GET['op'] == "READ CLIENT") {
-    if (!isset($_GET['numclient'])) {
-        add_error("Vous devez indiquer le champ : 'numclient'.");
-        write_response();
-    }
-    include_once 'read_client.php';
-} else if (isPost() && $_POST['op'] == "UPDATE CLIENT") {
-    if (!isset($_POST['numclient']) || !isset($_POST['nom']) || !isset($_POST['prenom']) || !isset($_POST['tel'])) {
-        add_error("Vous devez indiquer les champs : 'numclient', 'nom', 'prenom' et 'tel'.");
-        write_response();
-    }
-    include_once 'update_client.php';
-} else if (isPost() && $_POST['op'] == "DELETE CLIENT") {
-    if (!isset($_POST['numclient'])) {
-        add_error("Vous devez indiquer le champ : 'numclient'.");
-        write_response();
-    }
-    include_once 'delete_client.php';
+} else if (isGet() && $op == "READ CLIENT") {
+    $mf = missingFields('GET', 'numclient');
+    addErrorMissingFields($mf);
+    include_once 'client/read_client.php';
+} else if (isPost() && $op == "UPDATE CLIENT") {
+    $mf = missingFields('GET', 'numclient', 'nom', 'prenom', 'tel');
+    addErrorMissingFields($mf);
+    include_once 'client/update_client.php';
+} else if (isPost() && $op == "DELETE CLIENT") {
+    $mf = missingFields('GET', 'numclient');
+    addErrorMissingFields($mf);
+    include_once 'client/delete_client.php';
+} else if (isPost() && $op == "CREATE COMPTE") {
+    $mf = missingFields('POST', 'numclient', 'solde');
+    addErrorMissingFields($mf);
+    include_once 'compte/create_compte.php';
+} else if (isPost() && $op == "VERS COMPTE") {
+    $mf = missingFields('POST', 'numcompte', 'montant');
+    addErrorMissingFields($mf);
+    include_once 'compte/vers_compte.php';
+} else if (isPost() && $op == "RETR COMPTE") {
+    $mf = missingFields('POST', 'numcompte', 'montant');
+    addErrorMissingFields($mf);
+    include_once 'compte/retr_compte.php';
 } else {
     add_error("Commande inconnue!");
+    add_error("Clients : 'CREATE CLIENT', 'SEARCH CLIENT', 'READ CLIENT', 'UPDATE CLIENT', 'DELETE CLIENT'.");
     write_response();
 }
