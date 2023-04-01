@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+.digits {
+  display: flex;
+  flex-wrap: wrap;
+  width: 780px;
+  margin: auto;
+  align-items: flex-end;
+}
+
+.digit {
+  width: 130px;
+  height: 240px;
+  display: flex;
+  flex-wrap: wrap;
+  transform: skew(-1.5deg, 0deg);
+  margin: 5px;
+}
+
+.segment {
+  background-color: #eee;
+}
+
+.seg-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 37%;
+}
+
+.seg-a,
+.seg-d,
+.seg-g {
+  width: 70%;
+  height: 8.5%;
+  margin: auto;
+}
+
+.seg-b,
+.seg-c,
+.seg-e,
+.seg-f {
+  width: 15%;
+  height: 100%;
+}
+
+.digit-0 .seg-a,
+.digit-2 .seg-a,
+.digit-3 .seg-a,
+.digit-5 .seg-a,
+.digit-6 .seg-a,
+.digit-7 .seg-a,
+.digit-8 .seg-a,
+.digit-9 .seg-a,
+.digit-0 .seg-b,
+.digit-1 .seg-b,
+.digit-2 .seg-b,
+.digit-3 .seg-b,
+.digit-4 .seg-b,
+.digit-7 .seg-b,
+.digit-8 .seg-b,
+.digit-9 .seg-b,
+.digit-0 .seg-c,
+.digit-1 .seg-c,
+.digit-3 .seg-c,
+.digit-4 .seg-c,
+.digit-5 .seg-c,
+.digit-6 .seg-c,
+.digit-7 .seg-c,
+.digit-8 .seg-c,
+.digit-9 .seg-c,
+.digit-0 .seg-d,
+.digit-2 .seg-d,
+.digit-3 .seg-d,
+.digit-5 .seg-d,
+.digit-6 .seg-d,
+.digit-8 .seg-d,
+.digit-9 .seg-d,
+.digit-0 .seg-e,
+.digit-2 .seg-e,
+.digit-6 .seg-e,
+.digit-8 .seg-e,
+.digit-0 .seg-f,
+.digit-4 .seg-f,
+.digit-5 .seg-f,
+.digit-6 .seg-f,
+.digit-7 .seg-f,
+.digit-8 .seg-f,
+.digit-9 .seg-f,
+.digit-2 .seg-g,
+.digit-3 .seg-g,
+.digit-4 .seg-g,
+.digit-5 .seg-g,
+.digit-6 .seg-g,
+.digit-8 .seg-g,
+.digit-9 .seg-g {
+  background-color: red;
+}
+
+.digit:nth-of-type(6),
+.digit:nth-of-type(7) {
+  width: 80px;
+  height: 130px;
+}
+
+.dots {
+  width: 30px;
+  height: 240px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dot {
+  width: 30px;
+  height: 30px;
+  background-color: #eee;
+  border-radius: 50%;
+  margin: 20px 0;
+}
+
+.dot.on {
+  background-color: red;
+}

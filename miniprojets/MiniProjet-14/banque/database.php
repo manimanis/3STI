@@ -107,6 +107,24 @@ function fetch_client_by_id(mysqli $conn, int $id)
     return null;
 }
 
+function fetch_nbre_clients(mysqli $conn) {
+    $sql = "SELECT COUNT(*) AS nbre FROM clients;";
+    $st = $conn->prepare($sql);
+    if ($st->execute()) {
+        return $st->get_result()->fetch_assoc()['nbre'];
+    }
+    return null;
+}
+
+function fetch_clients(mysqli $conn, int $page, int $nbitems) {
+    $sql = "SELECT * FROM clients LIMIT ?, ?;";
+    $st = $conn->prepare($sql);
+    if ($st->execute([($page - 1) * $nbitems, $nbitems])) {
+        return $st->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+    return null;
+}
+
 function insert_client(mysqli $conn, string $nom, string $prenom, string $tel)
 {
     $sql = "INSERT INTO clients (nom, prenom, tel) VALUES (?, ?, ?);";
@@ -145,6 +163,15 @@ function fetch_nbre_comptes(mysqli $conn, int $numclient)
         return $st->get_result()->fetch_assoc()['NBRE'];
     }
     return 0;
+}
+
+function fetch_comptes(mysqli $conn, int $numclient, int $page = 1, int $nbitems = 10) {
+    $sql = "SELECT * FROM comptes WHERE numclient = ? LIMIT ?, ?;";
+    $st = $conn->prepare($sql);
+    if ($st->execute([$numclient, ($page - 1) * $nbitems, $nbitems])) {
+        return $st->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+    return null;
 }
 
 function fetch_compte_by_num_compte(mysqli $conn, string $numcompte) {

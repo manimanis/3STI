@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+.led {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 0 25px 0;
+}
+
+.led::after {
+  content: "OFF";
+  display: block;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: -25px;
+  color: red;
+}
+
+.led.on::after {
+  content: "ON";
+  color: green;
+}
+
+.led-red {
+  border: darkred solid 5px;
+  background-color: darkred;
+}
+
+.led-red.on {
+  background-color: red;
+}
+
+.led-green {
+  border: darkgreen solid 5px;
+  background-color: darkgreen;
+}
+
+.led-green.on {
+  background-color: lime;
+}
+
+.led-blue {
+  border: darkblue solid 5px;
+  background-color: darkblue;
+}
+
+.led-blue.on {
+  background-color: #03a9f4;
+}
+
+.led-yellow {
+  border: darkgoldenrod solid 5px;
+  background-color: darkgoldenrod;
+}
+
+.led-yellow.on {
+  background-color: yellow;
+}
+
+.led-orange {
+  border: darkorange solid 5px;
+  background-color: darkorange;
+}
+
+.led-orange.on {
+  background-color: #ffc107;
+}
+
+.led-violet {
+  border: darkviolet solid 5px;
+  background-color: darkviolet;
+}
+
+.led-violet.on {
+  background-color: violet;
+}
+
+.led-pink {
+  border: purple solid 5px;
+  background-color: purple;
+}
+
+.led-pink.on {
+  background-color: pink;
+}

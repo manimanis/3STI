@@ -75,7 +75,9 @@ if ((isPost() && !isset($_POST['op'])) || (isGet() && !isset($_GET['op']))) {
 
 $op = isPost() ? $_POST['op'] : $_GET['op'];
 
-if (isPost() && $op == "CREATE CLIENT") {
+if (isGet() && $op == "LIST CLIENT") {
+    include_once 'client/list_client.php';
+} else if (isPost() && $op == "CREATE CLIENT") {
     $mf = missingFields('POST', 'nom', 'prenom', 'tel');
     addErrorMissingFields($mf);
     include_once 'client/create_client.php';
@@ -100,6 +102,10 @@ if (isPost() && $op == "CREATE CLIENT") {
     $mf = missingFields('POST', 'numclient', 'solde');
     addErrorMissingFields($mf);
     include_once 'compte/create_compte.php';
+} else if (isGet() && $op == "LIST COMPTE") {
+    $mf = missingFields('GET', 'numclient');
+    addErrorMissingFields($mf);
+    include_once 'compte/list_compte.php';
 } else if (isPost() && $op == "VERS COMPTE") {
     $mf = missingFields('POST', 'numcompte', 'montant');
     addErrorMissingFields($mf);

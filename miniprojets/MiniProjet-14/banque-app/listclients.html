@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste des clients</title>
+</head>
+
+<body>
+  <h1>Liste des clients</h1>
+  <table id="clients">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Téléphone</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <table id="comptes">
+    <thead>
+      <tr>
+        <th>Numéro de compte</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const tabClients = document.querySelector("#clients tbody");
+    const tabComptes = document.querySelector("#comptes tbody");
+
+    const clientCols = ['numclient', 'nom', 'prenom', 'tel'];
+    const compteCols = ['numcompte'];
+    
+    function listeClients() {
+      tabClients.innerHTML = "";
+      fetch("../banque/?op=LIST CLIENT")
+        .then(res => res.json())
+        .then(data => {
+          if (!data.success) {
+            return null;
+          }
+          for (const client of data.clients) {
+            const docFrag = document.createDocumentFragment();
+            const tr = document.createElement("tr");
+            for (const col of clientCols) {
+              const td = document.createElement("td");
+              tr.append(td);
+              td.textContent = client[col];
+            }
+            const td = document.createElement("td");
+            tr.append(td);
+            td.innerHTML = `<a href="javascript:listeComptes(${client['numclient']})">Comptes</a>`;
+            docFrag.append(tr);
+            tabClients.append(docFrag);
+          }
+        });
+    }
+
+    function listeComptes(numclient) {
+      tabComptes.innerHTML = "";
+      fetch(`../banque/?op=LIST COMPTE&numclient=${numclient}`)
+        .then(res => res.json())
+        .then(data => {
+          if (!data.success) {
+            return null;
+          }
+          for (const compte of data.comptes) {
+            const docFrag = document.createDocumentFragment();
+            const tr = document.createElement("tr");
+            for (const col of compteCols) {
+              const td = document.createElement("td");
+              tr.append(td);
+              td.textContent = compte[col];
+            }
+            const td = document.createElement("td");
+            tr.append(td);
+            td.innerHTML = `<a href="javascript:infosCompte(${compte['numcompte']})">Infos Compte</a>`;
+            docFrag.append(tr);
+            tabComptes.append(docFrag);
+          }
+        });
+    }
+    listeClients();
+  </script>
+</body>
+
+</html>
