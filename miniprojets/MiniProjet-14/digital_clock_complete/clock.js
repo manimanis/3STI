@@ -33,8 +33,8 @@ function displayTime() {
 
 function displayDate() {
   const tm = new Date();
-  setDigit(0, Math.floor(tm.getDay() / 10));
-  setDigit(1, tm.getDay() % 10);
+  setDigit(0, Math.floor(tm.getDate() / 10));
+  setDigit(1, tm.getDate() % 10);
   setDigit(2, Math.floor((tm.getMonth() + 1) / 10));
   setDigit(3, (tm.getMonth() + 1) % 10);
   setDigit(4, Math.floor((tm.getFullYear() % 100) / 10));
@@ -42,15 +42,18 @@ function displayDate() {
   setDotsOn(false);
 }
 
-function onKeypress(ev) {
+function onKeyUp(ev) {
+  displayTime();
+}
+
+function onKeyDown(ev) {
   if (timer != null) {
     clearTimeout(timer);
     timer = null;
-  }
-  if (ev.key == " ") {
     displayDate();
   }
 }
 
 displayTime();
-document.addEventListener("keyup", onKeypress);
+document.addEventListener("keydown", onKeyDown);
+document.addEventListener("keyup", onKeyUp)

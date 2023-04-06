@@ -1,0 +1,36 @@
+.container {
+  width: 100px;
+  margin: auto;
+}
+
+.container > div {
+  margin: 10px 0;
+}
+
+#lampe {
+  width: 100px;
+  height: 100px;
+  border: #777 solid 5px;
+  border-radius: 50%;
+}
+
+#lampe.on {
+  background-color: yellow;
+}
+
+button {
+  display: block;
+  width: 110px;
+  border: none;
+  padding: 10px 0;
+}
+
+#toggle.on {
+  background-color: green;
+  color: white;
+}
+
+#toggle {
+  background-color: maroon;
+  color: white;
+}
