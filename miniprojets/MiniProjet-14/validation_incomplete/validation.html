@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validation Formulaire</title>
+  <link rel="stylesheet" href="validation.css">
+</head>
+
+<body>
+  <form id="f" action="#" method="post">
+    <div>
+      <label for="nom">Nom & Prénom</label>
+      <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+    </div>
+    <div>
+      <label for>Qualité</label>
+      <label><input type="radio" name="qualite" id="qualite-1" value="EL"> Elève</label>
+      <label><input type="radio" name="qualite" id="qualite-2" value="EN"> Enseignant</label>
+    </div>
+    <div id="div-eleve" class="hidden">
+      <label for="classe">Classe</label>
+      <input type="text" id="classe" name="classe" placeholder="Votre classe">
+    </div>
+    <div id="div-ens" class="hidden">
+      <label for="ident">Identifiant</label>
+      <input type="text" id="ident" name="ident" placeholder="Votre identifiant">
+    </div>
+    <div>
+      <button type="submit" id="soumettre">Soumettre</button>
+    </div>
+  </form>
+  <div id="message" class="hidden"></div>
+  <script src="validation.js"></script>
+</body>
+
+</html>
