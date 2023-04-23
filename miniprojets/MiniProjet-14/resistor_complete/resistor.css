@@ -1,0 +1,89 @@
+.controls {
+  width: fit-content;
+  margin: auto;
+}
+
+.resistor {
+	width: 316px;
+	height: 76px;
+	background-image: url(images/resistor.png);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 20px auto;
+}
+
+.band {
+	width: 25px;
+	height: 56px;
+	background-color: #949088;
+	margin: 0 13px;
+	position: relative;
+}
+
+.bandvalue {
+	position: absolute;
+	content: '-';
+	width: 45px;
+	display: block;
+	bottom: -25px;
+	font-size: 0.8em;
+	text-align: center;
+	left: -10px;
+}
+
+#resvalue {
+	font-size: 40pt;
+	margin: .25em;
+	text-align: center;
+}
+
+.band.color-0 {
+  background-color: black;
+}
+
+.band.color-1 {
+  background-color: #512627;
+}
+
+.band.color-2 {
+  background-color: red;
+}
+
+.band.color-3 {
+  background-color: orange;
+}
+
+.band.color-4 {
+  background-color: yellow;
+}
+
+.band.color-5 {
+  background-color: green;
+}
+
+.band.color-6 {
+  background-color: blue;
+}
+
+.band.color-7 {
+  background-color: violet;
+}
+
+.band.color-8 {
+  background-color: gray;
+}
+
+.band.color-9 {
+  background-color: white;
+}
+
+.band.color--1 {
+  background-color: gold;
+}
+
+.band.color--2 {
+  background-color: silver;
+}
+
+
