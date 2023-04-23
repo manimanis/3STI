@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="prices.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <form id="form">
+    <fieldset class="col">
+      <legend><i class="fas fa-microchip"></i> Processeur</legend>
+      <label><input type="radio" name="processor" id="proc-1" value="i7" required>Intel i7</label>
+      <label><input type="radio" name="processor" id="proc-2" value="r7">Ryzen 7</label>
+      <label><input type="radio" name="processor" id="proc-3" value="i5">Intel i5</label>
+    </fieldset>
+
+    <fieldset class="col">
+      <legend><i class="fas fa-memory"></i> RAM</legend>
+      <label><input type="radio" name="ram" id="ram-1" value="8GB" required>8GB</label>
+      <label><input type="radio" name="ram" id="ram-2" value="16GB">16GB</label>
+      <label><input type="radio" name="ram" id="ram-3" value="32GB">32GB</label>
+      <label><input type="radio" name="ram" id="ram-4" value="64GB">64GB</label>
+    </fieldset>
+
+    <fieldset class="col">
+      <legend><i class="fas fa-hdd"></i> Stockage</legend>
+      <label><input type="checkbox" name="storage" id="sto-1" value="HDD 2TB">HDD 2TB</label>
+      <label><input type="checkbox" name="storage" id="sto-2" value="SSD 1TB">SSD 1TB</label>
+      <label><input type="checkbox" name="storage" id="sto-3" value="NVME 512GB">NVME 512GB</label>
+    </fieldset>
+
+    <fieldset class="col">
+      <legend><i class="fas fa-video"></i> Carte graphique</legend>
+      <select name="gpu" id="gpu" required>
+        <option value="" disabled selected>Choisissez une carte graphique</option>
+        <option value="GTX 1660">GTX 1660</option>
+        <option value="RTX 2060">RTX 2060</option>
+        <option value="RTX 3060">RTX 3060</option>
+        <option value="RTX 3070">RTX 3070</option>
+        <option value="RTX 3080">RTX 3080</option>
+        <option value="RX 5700">RX 5700</option>
+        <option value="RX 6700">RX 6700</option>
+        <option value="RX 6800">RX 6800</option>
+        <option value="RX 6900">RX 6900</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend><i class="fas fa-thermometer-half"></i> Refroidissement</legend>
+      <label><input type="radio" name="cool" id="cool-1" value="air" required>Air</label>
+      <label><input type="radio" name="cool" id="cool-2" value="water">Water</label>
+      <label><input type="radio" name="cool" id="cool-3" value="none">None</label>
+    </fieldset>
+
+    <fieldset>
+      <legend><i class="fas fa-desktop"></i> Unité centrale</legend>
+      <div>
+        <label for="text">Texte à imprimer sur le boîtier</label>
+        <input type="text" name="text" id="text" placeholder="Fast Desktop">
+      </div>
+      <div>
+        <label for="color">Couleur</legend>
+          <input type="color" name="color" id="color" value="#ffffff">
+      </div>
+    </fieldset>
+
+    <button type="submit" id="submit"><i class="fas fa-cog"></i> Personnaliser</button>
+  </form>
+
+  <script src="prices.js"></script>
+</body>
+
+</html>
