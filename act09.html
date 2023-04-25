@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
+
+    <article>
+      <h2>Applications</h2>
+      <section>
+        <h3>Lampe Simple</h3>
+        <p>On veut concevoir une lampe qui s'allume ou s'éteint lorsqu'on clique sur le bouton TOGGLE.</p>
+        <figure>
+          <img src="assets/miniprojet14/lampe-eteinte.png" alt="Lampe éteinte">
+          <img src="assets/miniprojet14/lampe-allumee.png" alt="Lampe allumée">
+          <figcaption>Lampe Switch</figcaption>
+        </figure>
+        <p><strong>Code HTML</strong></p>
+        <pre><code class="html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div id=&quot;lampe&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;
+    &lt;button id=&quot;toggle&quot;&gt;TOGGLE&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <p><strong>Code CSS</strong></p>
+        <pre><code class="css">.container {
+  width: 100px;
+  margin: auto;
+}
+
+.container > div {
+  margin: 10px 0;
+}
+
+#lampe {
+  width: 100px;
+  height: 100px;
+  border: #777 solid 5px;
+  border-radius: 50%;
+}
+
+#lampe.on {
+  background-color: yellow;
+}
+
+button {
+  display: block;
+  width: 110px;
+  border: none;
+  padding: 10px 0;
+}
+
+#toggle.on {
+  background-color: green;
+  color: white;
+}
+
+#toggle {
+  background-color: maroon;
+  color: white;
+}</code></pre>
+        <h4>Travail demandé</h4>
+        <ol>
+          <li>Créer les fichiers <code>lampe.html</code> et <code>lampe.css</code> contenant le code précédent.</li>
+          <li>Créer un fichier <code>lampe.js</code> :
+            <ul>
+              <li>Le premier clic sur le bouton TOGGLE allume la lampe,</li>
+              <li>Le second clic sue ce même bouton éteint la lampe,</li>
+              <li>Les touches <code>a</code> et <code>z</code> du clavier allume et éteint la lampe respectivement. La
+                touche <code>e</code> inverse l'état de la lampe.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Double lampes animés</h3>
+        <p>On veut améliorer la première version de notre lampe en ajoutant une seconde lampe. Les deux lampes peuvent
+          être déplacés à l'aides des touches fléchées. La première lampe peut-être allumée/éteinte à l'aide de la
+          touche <code>a</code>. La deuxième lampe est commandée à l'aide de la touche <code>z</code>.</p>
+        <figure>
+          <img src="assets/miniprojet14/lamp-anim.gif" alt="Lampe anim">
+          <figcaption>Lampe animée</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Piano</h3>
+        <p>On veut créer le piano suivant :</p>
+        <figure>
+          <img src="assets/miniprojet14/piano.png" alt="Piano">
+          <figcaption>Piano</figcaption>
+        </figure>
+        <p><strong>Travail Demandé</strong></p>
+        <ol>
+          <li>Télécharger les fichiers ressources contenant l'interface du Piano : <a
+              href="miniprojets/MiniProjet-14/piano_incomplete.zip" target="_blank"
+              rel="noopener noreferrer">Ressources</a></li>
+          <li>Compléter le code JavaScript pour rendre le Piano fonctionnel à l'aide de la Souris ou du clavier.
+            <strong>La fonction qui joue la musique a été fournie <code>playSound(numTouche)</code> et elle accepte le
+              numéro de la touche du piano à jouer.</strong>
+          </li>
+        </ol>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
