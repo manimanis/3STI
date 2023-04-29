@@ -13,7 +13,7 @@
   <div class="container">
     <h1>Order Pizza</h1>
     <div class="pizza-image"></div>
-    <form action="#" method="post">
+    <form id="form" action="#" method="post">
       <fieldset>
         <legend>Personal Information</legend>
         <div>
@@ -66,21 +66,36 @@
       <fieldset>
         <legend>Toppings</legend>
         <div class="toppings">
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Anchovies"> Anchovies</label>
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Bacon"> Bacon</label>
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Ham"> Ham</label>
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Pepperoni"> Pepperoni</label>
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Salami"> Salami</label>
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Sausage"> Sausage</label>
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Green Olives"> Green Olives</label>
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Green Peppers"> Green Peppers</label>
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Mushrooms"> Mushrooms</label>
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Red Onions"> Red Onions</label>
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Broccoli"> Broccoli</label>
-          <label><input type="checkbox" name="topping[]" id="topping1" value="Roasted Garlic"> Red Onions</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Anchovies"> Anchovies</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Bacon"> Bacon</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Ham"> Ham</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Pepperoni"> Pepperoni</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Salami"> Salami</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Sausage"> Sausage</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Green Olives"> Green Olives</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Green Peppers"> Green Peppers</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Mushrooms"> Mushrooms</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Red Onions"> Red Onions</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Broccoli"> Broccoli</label>
+          <label><input type="checkbox" name="topping" id="topping1" value="Roasted Garlic"> Roasted Garlic</label>
         </div>
       </fieldset>
-      <div id="total-price-cont">Total price <span id="total-price">0.0</span></div>
+
+      <div id="summary">
+        <h2>Order Summary</h2>
+        <div><strong>Name:</strong> <span id="cust-name"></span></div>
+        <div><strong>Phone:</strong> <span id="cust-phone"></span></div>
+        <div><strong>Date of birth:</strong> <span id="cust-dob"></span></div>
+        <div><strong>Pizza size:</strong> <span id="pizza-size"></span></div>
+        <div><strong>Pizza crust:</strong> <span id="pizza-crust"></span></div>
+        <div><strong>Cheese:</strong> <span id="pizza-cheese"></span></div>
+        <div><strong>Sauce:</strong> <span id="pizza-sauce"></span></div>
+        <div><strong>Toppings:</strong>
+          <ul id="pizza-top"></ul>
+        </div>
+      </div>
+
+      <div id="total-price-cont">Total price = <span id="total-price">$0.0</span></div>
       <div>
         <button type="submit">Order Pizza</button>
         <button type="reset">Reset Order</button>

@@ -105,3 +105,20 @@ button[type="reset"] {
 	font-size: 30pt;
 	padding: 20px;
 }
+
+#summary {
+	background: #FFC971;
+	font-size: 16px;
+	padding: 20px;
+	border: #E2711D solid 2px;
+}
+
+#summary h2 {
+  text-align: center;
+  margin: 0.5em 0;
+  color: #FF9505;
+}
+
+#summary div > strong {
+  color: #CC5803;
+}
