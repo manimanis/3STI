@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizza Order</title>
+  <link rel="stylesheet" href="order.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="pizza-image">
+      <h1>Order Pizza</h1>
+    </div>
+    <div class="columns">
+      <div class="left-col">
+        <form id="form" action="#" method="post">
+          <fieldset>
+            <legend>Personal Information</legend>
+            <div>
+              <label for="name">Name*</label>
+              <input type="text" id="name" name="name" placeholder="Your name">
+            </div>
+            <div class="row">
+              <div>
+                <label for="phone">Phone*</label>
+                <input type="phone" id="phone" name="phone" placeholder="Your phone">
+              </div>
+              <div>
+                <label for="dob">Date of birth</label>
+                <input type="date" id="dob" name="dob" placeholder="Your DOB">
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Pizza size</legend>
+            <div class="pizza-sizes"></div>
+            <div>
+              <label for>Size *</label>
+              <label><input type="radio" name="size" id="size1" value="Personal"> Personal</label>
+              <label><input type="radio" name="size" id="size2" value="Medium"> Medium</label>
+              <label><input type="radio" name="size" id="size3" value="Large"> Large</label>
+              <label><input type="radio" name="size" id="size4" value="X-Large"> X-Large</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Pizza Crust</legend>
+            <div class="pizza-crusts"></div>
+            <div>
+              <label for>Crust *</label>
+              <label><input type="radio" name="crust" id="crust1" value="Regular Crust" checked> Regular Crust</label>
+              <label><input type="radio" name="crust" id="crust2" value="Thin Crust"> Thin Crust</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Pizza cheese</legend>
+            <div class="pizza-cheeses"></div>
+            <div>
+              <label for>Cheese *</label>
+              <label><input type="radio" name="cheese" id="cheese1" value="Mozzarella" checked> Mozzarella</label>
+              <label><input type="radio" name="cheese" id="cheese2" value="Reduced fat"> Reduced fat</label>
+              <label><input type="radio" name="cheese" id="cheese3" value="Feta"> Feta</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Pizza Sauce</legend>
+            <div class="pizza-sauces"></div>
+            <div>
+              <label for>Sauce *</label>
+              <label><input type="radio" name="sauce" id="sauce1" value="Pizza Sauce" checked> Pizza Sauce</label>
+              <label><input type="radio" name="sauce" id="sauce2" value="BBQ Sauce"> BBQ Sauce</label>
+              <label><input type="radio" name="sauce" id="sauce3" value="Garlic Sauce"> Garlic Sauce</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Toppings</legend>
+            <div class="toppings">
+              <label><input type="checkbox" name="topping" id="topping1" value="Anchovies"> Anchovies</label>
+              <label><input type="checkbox" name="topping" id="topping1" value="Bacon"> Bacon</label>
+              <label><input type="checkbox" name="topping" id="topping1" value="Ham"> Ham</label>
+              <label><input type="checkbox" name="topping" id="topping1" value="Pepperoni"> Pepperoni</label>
+              <label><input type="checkbox" name="topping" id="topping1" value="Salami"> Salami</label>
+              <label><input type="checkbox" name="topping" id="topping1" value="Sausage"> Sausage</label>
+              <label><input type="checkbox" name="topping" id="topping1" value="Green Olives"> Green Olives</label>
+              <label><input type="checkbox" name="topping" id="topping1" value="Green Peppers"> Green Peppers</label>
+              <label><input type="checkbox" name="topping" id="topping1" value="Mushrooms" checked> Mushrooms</label>
+              <label><input type="checkbox" name="topping" id="topping1" value="Red Onions"> Red Onions</label>
+              <label><input type="checkbox" name="topping" id="topping1" value="Broccoli"> Broccoli</label>
+              <label><input type="checkbox" name="topping" id="topping1" value="Roasted Garlic"> Roasted Garlic</label>
+            </div>
+          </fieldset>
+          <div id="nav-buttons">
+            <button id="prev" type="button">&lt; Prev</button>
+            <span id="page-num"></span>
+            <button id="next" type="button">Next ></button>
+          </div>
+          <div id="form-buttons">
+            <button type="submit">Order Pizza</button>
+            <button type="reset">Reset Order</button>
+          </div>
+        </form>
+      </div>
+      <div class="right-col">
+        <div id="summary">
+          <h2>Order Summary</h2>
+          <div><strong>Name:</strong> <span id="cust-name"></span></div>
+          <div><strong>Phone:</strong> <span id="cust-phone"></span></div>
+          <div><strong>Date of birth:</strong> <span id="cust-dob"></span></div>
+          <div><strong>Pizza size:</strong> <span id="pizza-size"></span></div>
+          <div><strong>Pizza crust:</strong> <span id="pizza-crust"></span></div>
+          <div><strong>Cheese:</strong> <span id="pizza-cheese"></span></div>
+          <div><strong>Sauce:</strong> <span id="pizza-sauce"></span></div>
+          <div><strong>Toppings:</strong>
+            <ul id="pizza-top"></ul>
+          </div>
+          <div id="total-price-cont"><strong>Total Price =</strong> <span id="total-price">$0</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="order.js"></script>
+</body>
+
+</html>

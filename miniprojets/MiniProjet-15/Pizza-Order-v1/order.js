@@ -22,6 +22,16 @@ function isAlphabetic(s) {
   return true;
 }
 
+function removeSpaces(s) {
+  let s1 = "";
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] != " ") {
+      s1 += s[i];
+    }
+  }
+  return s1;
+}
+
 function isPhone(s) {
   s = removeSpaces(s);
   if (s.length != 8) {
@@ -33,16 +43,6 @@ function isPhone(s) {
     }
   }
   return "234579".indexOf(s[0]) != -1;
-}
-
-function removeSpaces(s) {
-  let s1 = "";
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] != " ") {
-      s1 += s[i];
-    }
-  }
-  return s1;
 }
 
 function orderPizzaClicked(ev) {
