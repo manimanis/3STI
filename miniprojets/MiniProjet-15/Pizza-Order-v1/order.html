@@ -44,7 +44,7 @@
         <div class="pizza-crusts"></div>
         <div>
           <label for>Crust *</label>
-          <label><input type="radio" name="crust" id="crust1" value="Regular Crust"> Regular Crust</label>
+          <label><input type="radio" name="crust" id="crust1" value="Regular Crust" checked> Regular Crust</label>
           <label><input type="radio" name="crust" id="crust2" value="Thin Crust"> Thin Crust</label>
         </div>
       </fieldset>
@@ -53,13 +53,13 @@
         <div class="pizza-cheeses"></div>
         <div>
           <label for>Cheese *</label>
-          <label><input type="radio" name="cheese" id="cheese1" value="Mozzarella"> Mozzarella</label>
+          <label><input type="radio" name="cheese" id="cheese1" value="Mozzarella" checked> Mozzarella</label>
           <label><input type="radio" name="cheese" id="cheese2" value="Reduced fat"> Reduced fat</label>
           <label><input type="radio" name="cheese" id="cheese3" value="Feta"> Feta</label>
         </div>
         <div>
           <label for>Sauce *</label>
-          <label><input type="radio" name="sauce" id="sauce1" value="Pizza Sauce"> Pizza Sauce</label>
+          <label><input type="radio" name="sauce" id="sauce1" value="Pizza Sauce" checked> Pizza Sauce</label>
           <label><input type="radio" name="sauce" id="sauce2" value="BBQ Sauce"> BBQ Sauce</label>
           <label><input type="radio" name="sauce" id="sauce3" value="Garlic Sauce"> Garlic Sauce</label>
         </div>
@@ -81,23 +81,8 @@
           <label><input type="checkbox" name="topping" id="topping1" value="Roasted Garlic"> Roasted Garlic</label>
         </div>
       </fieldset>
-
-      <div id="summary">
-        <h2>Order Summary</h2>
-        <div><strong>Name:</strong> <span id="cust-name"></span></div>
-        <div><strong>Phone:</strong> <span id="cust-phone"></span></div>
-        <div><strong>Date of birth:</strong> <span id="cust-dob"></span></div>
-        <div><strong>Pizza size:</strong> <span id="pizza-size"></span></div>
-        <div><strong>Pizza crust:</strong> <span id="pizza-crust"></span></div>
-        <div><strong>Cheese:</strong> <span id="pizza-cheese"></span></div>
-        <div><strong>Sauce:</strong> <span id="pizza-sauce"></span></div>
-        <div><strong>Toppings:</strong>
-          <ul id="pizza-top"></ul>
-        </div>
-      </div>
-
-      <div id="total-price-cont">Total price = <span id="total-price">$0.0</span></div>
       <div id="form-buttons">
+        <button type="button" id="btn-calc">Calculate price</button>
         <button type="submit">Order Pizza</button>
         <button type="reset">Reset Order</button>
       </div>

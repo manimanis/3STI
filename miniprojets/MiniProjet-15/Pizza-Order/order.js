@@ -63,7 +63,7 @@ function updateSummary() {
 }
 
 function updatePrice() {
-  const price = calcPrice;
+  const price = calcPrice();
   spanTotalPrice.textContent = "$" + price.toFixed(2);
 }
 
@@ -86,5 +86,5 @@ form.addEventListener("input", updateSummary);
 form.addEventListener("submit", orderPizzaClicked);
 form.addEventListener("reset", resetOrderClicked);
 
-calcPrice();
+updatePrice();
 updateSummary();
