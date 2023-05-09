@@ -104,6 +104,7 @@ for (let i = 0; i < form.topping.length; i++) {
   form.topping[i].addEventListener("click", updatePrice);
 }
 
+form.addEventListener("input", updateSummary);
 /* TODO: Attach event listeners */
 
 updateSummary();

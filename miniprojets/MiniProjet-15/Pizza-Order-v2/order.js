@@ -61,15 +61,10 @@ displayPage(0);
 function calcPrice() {
   let price = 0;
   const size = form.size.value;
-  if (size == "Personal") {
-    price += 12;
-  } else if (size == "Medium") {
-    price += 15;
-  } else if (size == "Large") {
-    price += 22;
-  } else if (size == "X-Large") {
-    price += 25;
-  }
+  if (size == "Personal") { price += 12; } 
+  else if (size == "Medium") { price += 15; } 
+  else if (size == "Large") { price += 22; } 
+  else if (size == "X-Large") { price += 25; }
   for (let i = 0; i < form.topping.length; i++) {
     if (form.topping[i].checked) {
       price += 1.5;
@@ -83,7 +78,9 @@ function isValidName(name) {
     return false;
   }
   for (let i = 0; i < name.length; i++) {
-    const valid = (name[i] >= "A" && name[i] <= "Z") || (name[i] >= "a" && name[i] <= "z") || (name[i] >= " ");
+    const valid = (name[i] >= "A" && name[i] <= "Z") ||
+      (name[i] >= "a" && name[i] <= "z") ||
+      (name[i] >= " ");
     if (!valid) {
       return false;
     }
@@ -133,7 +130,10 @@ function updatePrice() {
 
 function orderPizzaClicked(ev) {
   ev.preventDefault();
-  if (!isValidName(form.name.value) || !isValidPhone(form.phone.value) || form.dob.value == "" || form.size.value == "") {
+  if (!isValidName(form.name.value) ||
+    !isValidPhone(form.phone.value) ||
+    form.dob.value == "" ||
+    form.size.value == "") {
     alert("There are invalid inputs. Correct them before continuing.");
     return;
   }

@@ -14,7 +14,9 @@ const btnPrice = document.getElementById("btn-calc");
 
 function isAlphabetic(s) {
   for (let i = 0; i < s.length; i++) {
-    const valid = (s[i] >= "A" && s[i] <= "Z") || (s[i] >= "a" && s[i] <= "z") || (s[i] >= " ");
+    const valid = (s[i] >= "A" && s[i] <= "Z") ||
+      (s[i] >= "a" && s[i] <= "z") ||
+      (s[i] >= " ");
     if (!valid) {
       return false;
     }
@@ -65,7 +67,7 @@ function orderPizzaClicked(ev) {
     alert("Select the pizza size.");
     return;
   }
-  alert("Order received successfully. You'll be delivered soon, in less than 30 minutes, keep your phone near by.");
+  alert("Order received successfully. You'll be delivered soon, keep your phone near by.");
 }
 
 function calcPrice() {
