@@ -1,4 +1,4 @@
-const divBands = [...document.querySelectorAll(".resistor > .band")];
+const divBands = [...document.getElementsByClassName("band")];
 const divBandsVals = [...document.querySelectorAll(".resistor .bandvalue")];
 const selColors = [...document.getElementsByClassName("bandcolor")];
 const tolerance = [10, 5, 0, 1, 2, 0, 0, 0.5, 0.25, 0.1, 0.05, 0];
