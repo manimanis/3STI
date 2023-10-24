@@ -16,49 +16,35 @@
       position: relative;
     }
 
-    .aiguille1 {
+    .aiguille1, .aiguille2 {
       width: 10px;
       height: 250px;
       position: absolute;
-      background-color: #03a9f4;
-      transform-origin: 5px 245px;
-      transform: rotate(90deg);
-      animation-name: rotate-sec;
-      animation-duration: 1s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      animation-delay: -0.5s;
+      animation: rotate-sec 1s linear infinite;
       left: 245px;
       top: 5px;
+      transform-origin: 5px 245px;
+    }
+
+    .aiguille1 {
+      background-color: #03a9f4;
     }
 
     .aiguille2 {
-      width: 10px;
       height: 205px;
-      position: absolute;
       background-color: #e91e63;
       transform-origin: 5px 200px;
-      transform: rotate(90deg);
-      animation-name: rotate-sec;
       animation-duration: 12s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      animation-delay: -30s;
-      left: 245px;
       top: 50px;
     }
 
     @keyframes rotate-sec {
-      0% {
-        transform: rotate(-180deg);
-      }
-
-      50% {
+      from {
         transform: rotate(0deg);
       }
 
-      100% {
-        transform: rotate(180deg);
+      to {
+        transform: rotate(360deg);
       }
     }
   </style>
