@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+#tete {
+  height: 600px;
+  width: 600px;
+  background-color: yellow;
+  border-radius: 50%;
+  display: center;
+  margin: auto;
+}
+
+#yeux {
+  width: 550px;
+  display: flex;
+  margin: auto;
+  padding: 90px 0;
+  justify-content: space-around;
+}
+
+.oeil {
+  height: 210px;
+  width: 150px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 65px 35px;
+}
+
+.iris {
+  height: 80px;
+  width: 80px;
+  background-color: lightskyblue;
+  border-radius: 50%;
+  padding: 23px;
+  animation: yeux1 1s infinite linear alternate;
+  position: relative;
+}
+
+.pupille {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.bouche {
+  height: 10px;
+  width: 80px;
+  background-color: red;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  animation: bouche 2s infinite linear alternate;
+}
+
+@keyframes yeux1 {
+  from {
+    left: -30px;
+  }
+
+  to {
+    left: 30px;
+  }
+}
+
+@keyframes bouche {
+  from { height: 10px;}
+  from { height: 30px;}
+}
