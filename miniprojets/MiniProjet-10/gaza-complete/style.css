@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 14pt;
+  background-color: #FFC6AC;
+  width: 800px;
+  margin: 30px auto;
+}
+
+header {
+  display: flex;
+  padding: 20px;
+  background-color: #002A32;
+  border-radius: 20px 20px 0 0;
+  color: #eee;
+  overflow: hidden;
+}
+
+header h1 {
+  position: relative;
+  animation: titre 2s linear 1;
+}
+
+@keyframes titre {
+  from {
+    left: 1000px;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+.flag {
+  background: url(images/Flag_of_Palestine.png);
+  background-size: contain;
+  height: 100px;
+  width: 200px;
+  margin-right: 30px;
+  position: relative;
+  animation: flag 3s linear 1;
+}
+
+@keyframes flag {
+  0% {
+    top: 200px; left: 550px;
+  }
+
+  70% {
+    top: 0; left: 550px;
+  }
+
+  100% {
+    top: 0; left: 0;
+  }
+}
+
+nav {
+  background-color: #F40076;
+  color: #fff;
+  padding: 20px;
+}
+
+nav>ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+main {
+  background-color: #C4A29E;
+  padding: 20px;
+}
+
+figure>img {
+  max-width: 100%;
+}
+
+figcaption {
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.7em;
+}
+
+footer {
+  padding: 20px;
+  background-color: #002A32;
+  border-radius: 0 0 20px 20px;
+  color: #eee;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.8em;
+  text-align: center;
+}
