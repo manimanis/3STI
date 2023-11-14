@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addition</title>
+</head>
+
+<body>
+  <script>
+    function calculer() {
+      const a = document.getElementById("a").value;
+      const b = document.getElementById("b").value;
+      const res = Number(a) + Number(b);
+      alert(res);
+    }
+  </script>
+  <form action="#" method="post">
+    <div><label for="a">A</label><input type="number" name="a" id="a"></div>
+    <div><label for="b">B</label><input type="number" name="b" id="b"></div>
+    <div><button type="button" onclick="calculer()">Calculer</button></div>
+  </form>
+</body>
+
+</html>

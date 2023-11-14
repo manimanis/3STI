@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aléatoire</title>
+</head>
+
+<body>
+  <div id="a"></div>
+  <div id="b"></div>
+  <div id="c"></div>
+  <div id="d"></div>
+  <script>
+    const divA = document.getElementById("a");
+    const divB = document.getElementById("b");
+    const divC = document.getElementById("c");
+    const divD = document.getElementById("d");
+
+    const a = Math.ceil(Math.random() * 100);
+    const b = Math.ceil(Math.random() * 100);
+
+    divA.textContent = a + "+" + b + "=" + (a+b);
+    divB.textContent = a + "-" + b + "=" + (a-b);
+    divC.textContent = a + "*" + b + "=" + (a*b);
+    divD.textContent = a + "/" + b + "=" + (a/b);
+  </script>
+</body>
+
+</html>

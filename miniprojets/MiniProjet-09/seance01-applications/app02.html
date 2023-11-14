@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addition</title>
+</head>
+
+<body>
+  <script>
+    function calculer() {
+      const a = Number(document.getElementById("a").value);
+      const b = Number(document.getElementById("b").value);
+      const op = document.getElementById("op").value;
+      let res = 0;
+      
+      /* Méthode 1 */
+      if (op == "+") res = a + b;
+      else if (op == "-") res = a - b;
+      else if (op == "*") res = a * b;
+      else if (op == "/") res = a / b;
+
+      /* Méthode 2 */
+      switch (op) {
+        case '+': res = a + b; break;
+        case '-': res = a - b; break;
+        case '*': res = a * b; break;
+        case '/': res = a / b; break;
+      }
+
+      alert(res);
+    }
+  </script>
+  <form action="#" method="post">
+    <div><label for="a">A</label><input type="number" name="a" id="a"></div>
+    <div><label for="b">B</label><input type="number" name="b" id="b"></div>
+    <div><label for="op">Opération</label><select name="op" id="op">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select></div>
+    <div><button type="button" onclick="calculer()">Calculer</button></div>
+  </form>
+</body>
+
+</html>
