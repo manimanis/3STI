@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nombres aléatoires</title>
+  <style>
+    .nbr {
+      font-size: 40pt;
+    }
+  </style>
+</head>
+
+<body>
+  <p>Simuler le lancement de deux dés. Appuyer sur <kbd>F5</kbd> pour générer une nouvelle valeur.</p>
+
+  <div class="nbr"><span id="v1"></span> - <span id="v2"></span></div>
+
+  <script>
+    const n1 = Math.floor(Math.random() * 6) + 1;
+    const n2 = Math.floor(Math.random() * 6) + 1;
+
+    // Méthode d'affichage 1
+    // alert(n1 + " - " + n2); 
+
+    // Méthode d'affichage 2
+    // document.writeln(n1 + " - " + n2); 
+
+    document.getElementById("v1").innerHTML = n1;
+    document.getElementById("v2").innerHTML = n2;
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrée de données</title>
+</head>
+
+<body>
+    <p>Fonction <strong>prompt(msg, val)</strong></p>
+    <p>Pour demander une entrée de l'utilisateur on peut utiliser la fonction <code>prompt()</code>. Cette fonction
+        renvoie une chaîne de caractères.</p>
+    <p><strong>Application</strong></p>
+    <p>Saisir deux entiers a et b puis afficher le maximum des deux valeurs.</p>
+    <script>
+        const a = Number(prompt("Donner a ?"));
+        const b = Number(prompt("Donner b ?"));
+
+        let max = a;
+        if (b > max) {
+            max = b;
+        }
+
+        alert("max(" + a + ", " + b + ") = " + max);
+    </script>
+</body>
+
+</html>

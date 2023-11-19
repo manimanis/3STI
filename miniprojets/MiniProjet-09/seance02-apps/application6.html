@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrée de données</title>
+</head>
+
+<body>
+    <p><strong>Application</strong></p>
+    <p>Saisir trois entiers a, b et c puis les afficher en ordre croissant.</p>
+    <script>
+        let a = Number(prompt("Donner a ?"));
+        let b = Number(prompt("Donner b ?"));
+        let c = Number(prompt("Donner b ?"));
+
+        if (a > b) {
+            let aux = a; a = b; b = aux;
+        }
+        if (b > c) {
+            let aux = b; b = c; c = aux;
+        }
+        if (a > b) {
+            let aux = a; a = b; b = aux;
+        }
+
+        alert(a + " <= " + b + " <= " + c);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nombres aléatoires</title>
+</head>
+
+<body>
+  <p>Fonction <strong>Math.random()</strong></p>
+  <p>Pour générer un nombre aléatoire en JavaScript on utilise la fonction <code>Math.random()</code>. Cette fonction
+    retourne un nombre aléatoire dans l'intervalle [0, 1[.</p>
+  <script>document.writeln("Math.random() &rarr; ", Math.random());</script>
+  <hr>
+  <p>Fonction <strong>Math.floor(x)</strong></p>
+  <p>La fonction <code>Math.floor(x)</code> est utilisée pour supprimer la partie décimale d'un nombre.</p>
+  <script>
+    const x = Math.random() * 30;
+    document.writeln("Math.floor(", x, ") &rarr; ", Math.floor(x));
+  </script>
+</body>
+
+</html>
