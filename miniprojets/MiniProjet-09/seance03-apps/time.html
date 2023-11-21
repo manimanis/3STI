@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+<script>
+  const s = Number(prompt("Nombre de secondes ? ", "3661"));
+
+  const h = Math.floor(s / 3600);
+  const mm = Math.floor((s % 3600) / 60);
+  const ss = s % 60;
+
+  const res = h + ":" +
+    (mm < 10 ? "0" : "") + mm + ":" +
+    (ss < 10 ? "0" : "") + ss;
+
+  alert(s + " = " + res);
+</script>
+</body>
+
+</html>

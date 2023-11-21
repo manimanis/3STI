@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p><strong>Exercice</strong></p>
+  <p>Afficher le message suivant en utilisant 3 méthodes :</p>
+  <ul>
+    <li>Vous êtes enfant, si 0 &le; age &lt; 13</li>
+    <li>Vous êtes jeune, si 13 &le; age &lt; 25</li>
+    <li>Vous êtes adulte, si 25 &le; age &lt; 40</li>
+    <li>Vous êtes vieux, si 40 &le; age</li>
+  </ul>
+
+  <form action="#" method="post">
+    <div>
+      <label for="age">Age</label>
+      <input type="number" name="age" id="age">
+    </div>
+    <div>
+      <button type="button" onclick="verifier()">Vérifier</button>
+    </div>
+    <div><input type="text" id="res" name="res" disabled></div>
+  </form>
+  <div id="msg"></div>
+
+  <script>
+    function verifier() {
+      const age = Number(document.getElementById("age").value);
+      let res;
+      if (age < 0) res = "Erreur";
+      else if (age < 13) res = "Vous êtes enfant";
+      else if (age < 25) res = "Vous êtes jeune";
+      else if (age < 40) res = "Vous êtes adulte";
+      else res = "Vous êtes vieux";
+
+      // méthode d'affichage 3 : DOM
+      document.getElementById("msg").innerHTML = res;
+
+      // méthode d'affichage 2 : Formulaire
+      document.getElementById("res").value = res;
+
+      // méthode d'affichage 1 : Boite d'alerte
+      alert(res);
+    }
+  </script>
+</body>
+
+</html>

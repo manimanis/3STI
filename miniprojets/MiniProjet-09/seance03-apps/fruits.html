@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+<script>
+  const fruit = prompt("Quel est le fruit choisi ? ", "orange");
+
+  switch (fruit) {
+    case "orange": res = 1.30; break;
+    case "pomme": res = 0.66; break;
+    case "banane": res = 1.05; break;
+    case "orange": res = 1.30; break;
+    case "cerise": res = 6.61; break;
+    case "mangue":
+    case "papaye":  res = 6.15; break;
+    default: res = "Non disponible";
+  }
+
+  alert("Prix du " + fruit + " : " + res);
+</script>
+</body>
+
+</html>
