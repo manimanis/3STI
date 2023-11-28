@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application 3</title>
+</head>
+
+<body>
+  <h1>Application 3</h1>
+  <p>Un mot est dit palindrome s'il se lit de la même façon de droite à gauche et de gauche à droite.</p>
+  <p>Ecrire un script qui saisit un mot, puis affiche s'il est palindrome on non.</p>
+  <form action="#">
+    <div><label for="mot">Mot</label> <input type="text" name="mot" id="mot"></div>
+    <div><button type="button" onclick="calculer()">Est palindrome ?</button></div>
+    <div><label for="res">Résultat</label> <input type="text" name="res" id="res"></div>
+  </form>
+  <script>
+    function calculer() {
+      const m = document.getElementById("mot").value;
+      const pal =  (estPalindrome(m)) ? "Palindrome" : "Non palindrome";
+      document.getElementById("res").value = m + " est " + pal; 
+    }
+
+    function estPalindrome(m) {
+      let i = 0;
+      let j = m.length-1;
+      let pal = true;
+      while (pal && j > i) {
+        pal = m[i] == m[j];
+        i++;
+        j--;
+      }
+      return pal;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application 1</title>
+</head>
+
+<body>
+  <h1>Application 1</h1>
+  <p>Un nombre est dit premier SSI il est divisible exactement par deux nombres 1 et lui même.</p>
+  <ol>
+    <li>Ecrire un script qui saisit un nombre puis affiche s'il est premier ou non.</li>
+    <li>Modifier le script pour afficher tous les nombres premiers dans un intervalle [a, b].</li>
+  </ol>
+  <p><strong></strong></p>
+  <form action="#">
+    <div><label for="a">A</label> <input type="number" name="a" id="a"></div>
+    <div><label for="b">B</label> <input type="number" name="b" id="b"></div>
+    <div><button type="button" onclick="calculer()">Calculer</button></div>
+  </form>
+  <script>
+    function calculer() {
+      const a = Number(document.getElementById("a").value);
+      const b = Number(document.getElementById("b").value);
+      let ch = "";
+      for (let i = a; i <= b; i++) {
+        if (premier(i)) {
+          ch = ch + i + ", ";
+        }
+      }
+      alert("Les nombres premiers dans l'intervalle [" + a + ", " + b + "] sont :\n" + ch);
+    }
+
+    function premier(a) {
+      let c = 0;
+      for (let i = 1; i <= a; i++) {
+        if (a % i == 0) {
+          c++;
+        }
+      }
+      return c == 2;
+    }
+  </script>
+</body>
+
+</html>

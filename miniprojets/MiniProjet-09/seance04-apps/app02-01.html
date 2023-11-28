@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application 1</title>
+</head>
+
+<body>
+  <h1>Application 2</h1>
+  <p>Deux nombres a et b sont dits premiers SSI PGCD(a, b) = 1.</p>
+  <ol>
+    <li>Ecrire un script qui détermine si deux nombres sont premiers entre eux ou non.</li>
+    <li>Une fraction a/b peut-être simplifiée en calculant (a/PGCD(a, b))/(b/PGCD(a, b)). Modifier le script précédent
+      pour qu'il simplifie une fraction données.</li>
+  </ol>
+  <p><strong>Premier entre eux</strong></p>
+  <form action="#">
+    <div><label for="a">A</label> <input type="number" name="a" id="a"></div>
+    <div><label for="b">B</label> <input type="number" name="b" id="b"></div>
+    <div><button type="button" onclick="calculer()">Primalité</button></div>
+  </form>
+  <script>
+    function calculer() {
+      const a = Number(document.getElementById("a").value);
+      const b = Number(document.getElementById("b").value);
+      if(pgcd(a, b) == 1) {
+        alert(a + " et " + b + " sont premiers entre eux.");
+      } else {
+        alert(a + " et " + b + " ne sont pas premiers entre eux.");
+      }
+    }
+
+    function pgcd(a, b) {
+      while (b != 0) {
+        const r = a % b;
+        a = b;
+        b = r;
+      }
+      return a;
+    }
+  </script>
+</body>
+
+</html>
