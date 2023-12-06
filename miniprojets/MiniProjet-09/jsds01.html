@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      color: #121212;
+    }
+
+    form {
+      padding: 16px;
+      border: #ccbed0 solid 1px;
+      background-color: #f6f5f7;
+      border-radius: 10px;
+    }
+
+    form > div {
+      margin: 10px 0;
+    }
+
+    label[for] {
+      display: block;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    textarea {
+      font-size: 14pt;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <div><strong>Fill the form below</strong></div>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name">
+    </div>
+    <div>
+      <label for="pass">Password</label>
+      <input type="password" id="pass" name="pass">
+    </div>
+    <div>
+      <label for="fdback">Feedback</label>
+      <textarea name="fdback" id="fdback" cols="30" rows="3"></textarea>
+    </div>
+    <div>
+      <label for="gender">Gender</label>
+      <label>
+        <input type="radio" name="gender" id="gender1" value="Male"> Male
+      </label>
+      <label>
+        <input type="radio" name="gender" id="gender2" value="Female"> Female
+      </label>
+    </div>
+    <div>
+      <label for="subject">Subject</label>
+      <label>
+        <input type="checkbox" name="sub" id="sub1" value="Web"> Web
+      </label>
+      <label>
+        <input type="checkbox" name="sub" id="sub2" value="Math"> Math
+      </label>
+      <label>
+        <input type="checkbox" name="sub" id="sub3" value="Graphics"> Graphics
+      </label>
+      <label>
+        <input type="checkbox" name="sub" id="sub4" value="English"> English
+      </label>
+    </div>
+    <div>
+      <button type="button">Submit Above Details</button>
+    </div>
+  </form>
+  <script>
+    alert("You are a Male.");
+  </script>
+</body>
+
+</html>
