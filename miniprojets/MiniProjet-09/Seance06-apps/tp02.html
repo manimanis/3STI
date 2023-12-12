@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="#">
+    <div>
+      <label for="nom">Nom & prénom</label>
+      <input type="text" id="nom" name="nom"></div>
+    <div>
+      Genre
+      <label>
+        <input type="radio" name="gen" id="gen1" value="un homme"> 
+        Homme</label>
+      <label>
+        <input type="radio" name="gen" id="gen2" value="une femme"> 
+        Femme</label>
+    </div>
+    <div>
+      Plat Préféré
+      <label>
+        <input id="plat1" name="plat" type="checkbox" value="Pizza"> 
+        Pizza</label>
+      <label>
+        <input id="plat2" name="plat" type="checkbox" value="Makloub"> 
+        Makloub</label>
+      <label>
+        <input id="plat3" name="plat" type="checkbox" value="Spaghetti"> 
+        Spaghetti</label>
+    </div>
+    <div>
+      <button type="button" onclick="res()">Soumettre</button>
+    </div>
+  </form>
+
+  <script>
+    function res() {
+      const nom = document.getElementById("nom").value;
+      const genres = [...document.querySelectorAll("input[type=radio]:checked")];
+      const plats = [...document.querySelectorAll("input[type=checkbox]:checked")];
+
+      if (nom == "") {
+        alert("Donner votre nom.");
+        return;
+      }
+      if (genres.length == 0) {
+        alert("Sélectionner votre genre.");
+        return;
+      }
+      if (plats.length == 0) {
+        alert("Aucun plat sélectionné.");
+      }
+      let genre = genres[0].value;
+      let liste_plats = "";
+      for (let i = 0; i < plats.length; i++) {
+        liste_plats = liste_plats + plats[i].value;
+      }
+      alert("Bonjour " + nom + "\n" + 
+      "vous êtes " + genre + "\n" +
+      "Vous aimez " + liste_plats);
+    }
+  </script>
+</body>
+
+</html>

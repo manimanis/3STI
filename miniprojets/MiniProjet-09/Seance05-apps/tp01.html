@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nombres parfaits / Nombres amis</title>
+  <link rel="stylesheet" href="nbres.css">
+</head>
+
+<body>
+  <form>
+    <div>
+      <label><input type="radio" id="som-div" name="choix" value="1"> Somme diviseurs</label>
+      <label><input type="radio" id="nbr-par" name="choix" value="2"> Nombres parfaits</label>
+      <label><input type="radio" id="nbr-amis" name="choix" value="3"> Nombres amis</label>
+    </div>
+    <div>
+      <label for="a">A</label><input type="number" id="a" name="a" min="1" max="99999"
+        placeholder="Nombre entre 1 et 99999">
+    </div>
+    <div>
+      <label for="b">B</label><input type="number" id="b" name="b" min="1" max="99999"
+        placeholder="Nombre entre 1 et 99999">
+    </div>
+    <div>
+      <button type="button" id="calc" onclick="calcul()">Calculer</button>
+    </div>
+    <div>
+      <label for="res">Résultat</label>
+      <textarea id="res" name="b" rows="8" readonly></textarea>
+    </div>
+  </form>
+  <script>
+    function calcul() {
+        const a=Number(document.getElementById("a").value);
+        const b=Number(document.getElementById("b").value);
+        const choix=document.getElementById("som-div").checked*1+
+        document.getElementById("nbr-par").checked*2+
+        document.getElementById("nbr-amis").checked*3;
+        if (choix==0){
+          alert("faire un choix");
+          return;
+        }
+        else if (choix==1) 
+        document.getElementById("res").value=somdiv(a);
+        else if (choix==2) 
+        document.getElementById("res").value=parfait(a);
+        else               
+        document.getElementById("res").value=amis(a,b);
+    }
+
+    function somdiv(a) {
+        let s = 0;
+        for (let i = 1; i < a; i++) {
+            if (a % i == 0) s = s + i;
+        }bvv
+        return s;
+    }
+
+    function parfait(a) {
+        return somdiv(a) == a;
+    }
+
+    function amis(a, b) {
+        return somdiv(a) == b && somdiv(b) == a;
+    }
+  </script>
+</body>
+
+</html>
