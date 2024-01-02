@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="date"></div>
+  <div id="time"></div>
+
+  <script>
+    const dateDiv = document.getElementById("date");
+    const timeDiv = document.getElementById("time");
+
+    function displayDate() {
+      const dt = new Date();
+      const date = dt.toLocaleDateString("FR-fr");
+      const time = dt.toLocaleTimeString("FR-fr");
+      dateDiv.textContent = date;
+      timeDiv.textContent = time;
+    }
+
+    setInterval(displayDate, 1000);
+    displayDate();
+  </script>
+</body>
+
+</html>

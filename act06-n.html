@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activités JavaScript</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <aside>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Web</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span> Menu
+                </button>
+                <div class="collapse navbar-collapse" id="aside_navbar"></div>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="my-4 container">
+        <h1>Activités JavaScript</h1>
+
+        <article>
+            <h2>Objet Date</h2>
+
+            <section>
+                <h3>Fonctions Usuelles</h3>
+
+                <h4>1. Création d'une nouvelle instance de Date</h4>
+                <pre><code class="language-javascript">const currentDate = new Date();
+console.log(currentDate);</code></pre>
+                <p><strong>Résultat</strong></p>
+                <pre><code class="hljs nohighlight"><script>
+                    const currentDate = new Date();
+                    document.writeln(currentDate);
+                </script></code></pre>
+
+                <h4>2. Obtenir la date</h4>
+
+                <pre><code class="language-javascript">const dayOfMonth = currentDate.getDate();
+console.log(`Jour du mois : ${dayOfMonth}`);
+
+const month = currentDate.getMonth(); 
+// Renvoie un nombre entre 0 (janvier) et 11 (décembre)
+console.log(`Mois : ${month}`);
+
+const year = currentDate.getFullYear();
+console.log(`Année : ${year}`);</code></pre>
+                <p><strong>Résultat</strong></p>
+                <pre><code class="hljs nohighlight"><script>
+                    const dayOfMonth = currentDate.getDate();
+                    document.writeln(`Jour du mois : ${dayOfMonth}`);
+
+                    const month = currentDate.getMonth();
+                    // Renvoie un nombre entre 0 (janvier) et 11 (décembre)
+                    document.writeln(`Mois : ${month}`);
+
+                    const year = currentDate.getFullYear();
+                    document.writeln(`Année : ${year}`);
+                </script></code></pre>
+
+                <h4>3. Obtenir le jour de la semaine</h4>
+
+                <pre><code class="language-javascript">const dayOfWeek = currentDate.getDay(); 
+// Renvoie un nombre entre 0 (dimanche) et 6 (samedi)
+console.log(`Jour de la semaine : ${dayOfWeek}`);</code></pre>
+                <p><strong>Résultat</strong></p>
+                <pre><code class="hljs nohighlight"><script>
+                    const dayOfWeek = currentDate.getDay();
+                    // Renvoie un nombre entre 0 (dimanche) et 6 (samedi)
+                    document.writeln(`Jour de la semaine : ${dayOfWeek}`);
+                </script></code></pre>
+
+                <h4>4. Obtenir l'heure actuelle</h4>
+
+                <pre><code class="language-javascript">const hours = currentDate.getHours();
+const minutes = currentDate.getMinutes();
+const seconds = currentDate.getSeconds();
+console.log(`Heure actuelle : ${hours}:${minutes}:${seconds}`);</code></pre>
+                <p><strong>Résultat</strong></p>
+                <pre><code class="hljs nohighlight"><script>
+                    const hours = currentDate.getHours();
+                    const minutes = currentDate.getMinutes();
+                    const seconds = currentDate.getSeconds();
+                    document.writeln(`Heure actuelle : ${hours}:${minutes}:${seconds}`);
+                </script></code></pre>
+
+                <h4>5. Formater une date</h4>
+
+                <pre><code class="language-javascript">const formattedDate = currentDate.toLocaleDateString('fr-FR');
+console.log(`Date formatée : ${formattedDate}`);</code></pre>
+                <p><strong>Résultat</strong></p>
+                <pre><code class="hljs nohighlight"><script>
+                    const formattedDate = currentDate.toLocaleDateString('fr-FR');
+                    document.writeln(`Date formatée : ${formattedDate}`);
+                </script></code></pre>
+
+                <h4>6. Calculer la différence entre deux dates</h4>
+
+                <pre><code class="language-javascript">const startDate = new Date('2022-01-01');
+const endDate = new Date();
+const timeDifference = endDate - startDate; 
+// Renvoie la différence en millisecondes
+const daysDifference=Math.floor(timeDifference/(1000*60*60*24));
+console.log(`Différence en jours : ${daysDifference}`);</code></pre>
+                <p><strong>Résultat</strong></p>
+                <pre><code class="hljs nohighlight"><script>
+                    const startDate = new Date('2022-01-01');
+                    const endDate = new Date();
+                    const timeDifference = endDate - startDate;
+                    // Renvoie la différence en millisecondes
+                    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                    document.writeln(`Différence en jours : ${daysDifference}`);
+                </script></code></pre>
+
+                <h4>7.Convertir une date en format ISO</h4>
+
+                <pre><code class="language-javascript">const isoDateString = currentDate.toISOString();
+console.log(`Date au format ISO : ${isoDateString}`);</code></pre>
+                <p><strong>Résultat</strong></p>
+                <pre><code class="hljs nohighlight"><script>
+                    const isoDateString = currentDate.toISOString();
+                    document.writeln(`Date au format ISO : ${isoDateString}`);
+                </script></code></pre>
+            </section>
+
+            
+        </article>
+    </main>
+
+    <footer class="d-print-none bg-dark text-white p-2">
+        <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+        <div class="text-center small">Année scolaire : 2022/2023</div>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/pages.js"></script>
+    <script src="assets/js/highlight.pack.js"></script>
+    <script src="assets/js/hljs.algorithm.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
