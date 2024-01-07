@@ -7,7 +7,7 @@
   font-size: 40pt;
   padding: 30px;
   margin: 65px auto;
-  width: 320px;
+  width: fit-content;
   text-align: center;
   background: rgb(34, 193, 195);
   background: linear-gradient(0deg, #22c1c3 0%, #fdbb2d 100%);

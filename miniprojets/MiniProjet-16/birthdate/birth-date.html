@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birth Date</title>
+  <link rel="stylesheet" href="dob.css">
+</head>
+
+<body>
+  <form action="#">
+    <div>
+      <label for="db">Date de naissance</label>
+      <input type="date" name="db" id="db">
+    </div>
+    <div>
+      <button type="button" onclick="compute()">Calculer mon âge!</button>
+    </div>
+  </form>
+  <div id="res">
+    <div>Votre jour de naissance est <strong><span id="day">-</span></strong></div>
+    <div>Vous avez exactement <strong><span id="year">-</span></strong> ans, <strong><span id="month">-</span></strong>
+      mois et <strong><span id="date">-</span></strong> jours</div>
+    <div>Votre prochain anniversaire est le <strong><span id="anniv">-</span></strong> dans <strong><span id="anniv-jour"></span></strong> jours.</div>
+  </div>
+  <script src="dob.js"></script>
+</body>
+
+</html>

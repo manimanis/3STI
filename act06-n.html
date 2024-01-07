@@ -2,50 +2,50 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activités JavaScript</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/default.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités JavaScript</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <aside>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span> Menu
-                </button>
-                <div class="collapse navbar-collapse" id="aside_navbar"></div>
-            </div>
-        </nav>
-    </aside>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Web</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
 
-    <main class="my-4 container">
-        <h1>Activités JavaScript</h1>
+  <main class="my-4 container">
+    <h1>Activités JavaScript</h1>
 
-        <article>
-            <h2>Objet Date</h2>
+    <article>
+      <h2>Objet Date</h2>
 
-            <section>
-                <h3>Fonctions Usuelles</h3>
+      <section>
+        <h3>Fonctions Usuelles</h3>
 
-                <h4>1. Création d'une nouvelle instance de Date</h4>
-                <pre><code class="language-javascript">const currentDate = new Date();
+        <h4>1. Création d'une nouvelle instance de Date</h4>
+        <pre><code class="language-javascript">const currentDate = new Date();
 console.log(currentDate);</code></pre>
-                <p><strong>Résultat</strong></p>
-                <pre><code class="hljs nohighlight"><script>
-                    const currentDate = new Date();
-                    document.writeln(currentDate);
-                </script></code></pre>
+        <p><strong>Résultat</strong></p>
+        <pre><code class="hljs nohighlight"><script>
+          const currentDate = new Date();
+          document.writeln(currentDate);
+        </script></code></pre>
 
-                <h4>2. Obtenir la date</h4>
+        <h4>2. Obtenir la date</h4>
 
-                <pre><code class="language-javascript">const dayOfMonth = currentDate.getDate();
+        <pre><code class="language-javascript">const dayOfMonth = currentDate.getDate();
 console.log(`Jour du mois : ${dayOfMonth}`);
 
 const month = currentDate.getMonth(); 
@@ -54,102 +54,207 @@ console.log(`Mois : ${month}`);
 
 const year = currentDate.getFullYear();
 console.log(`Année : ${year}`);</code></pre>
-                <p><strong>Résultat</strong></p>
-                <pre><code class="hljs nohighlight"><script>
-                    const dayOfMonth = currentDate.getDate();
-                    document.writeln(`Jour du mois : ${dayOfMonth}`);
+        <p><strong>Résultat</strong></p>
+        <pre><code class="hljs nohighlight"><script>
+          const dayOfMonth = currentDate.getDate();
+          document.writeln(`Jour du mois : ${dayOfMonth}`);
 
-                    const month = currentDate.getMonth();
-                    // Renvoie un nombre entre 0 (janvier) et 11 (décembre)
-                    document.writeln(`Mois : ${month}`);
+          const month = currentDate.getMonth();
+          // Renvoie un nombre entre 0 (janvier) et 11 (décembre)
+          document.writeln(`Mois : ${month}`);
 
-                    const year = currentDate.getFullYear();
-                    document.writeln(`Année : ${year}`);
-                </script></code></pre>
+          const year = currentDate.getFullYear();
+          document.writeln(`Année : ${year}`);
+        </script></code></pre>
 
-                <h4>3. Obtenir le jour de la semaine</h4>
+        <h4>3. Obtenir le jour de la semaine</h4>
 
-                <pre><code class="language-javascript">const dayOfWeek = currentDate.getDay(); 
+        <pre><code class="language-javascript">const dayOfWeek = currentDate.getDay(); 
 // Renvoie un nombre entre 0 (dimanche) et 6 (samedi)
 console.log(`Jour de la semaine : ${dayOfWeek}`);</code></pre>
-                <p><strong>Résultat</strong></p>
-                <pre><code class="hljs nohighlight"><script>
-                    const dayOfWeek = currentDate.getDay();
-                    // Renvoie un nombre entre 0 (dimanche) et 6 (samedi)
-                    document.writeln(`Jour de la semaine : ${dayOfWeek}`);
-                </script></code></pre>
+        <p><strong>Résultat</strong></p>
+        <pre><code class="hljs nohighlight"><script>
+          const dayOfWeek = currentDate.getDay();
+          // Renvoie un nombre entre 0 (dimanche) et 6 (samedi)
+          document.writeln(`Jour de la semaine : ${dayOfWeek}`);
+        </script></code></pre>
 
-                <h4>4. Obtenir l'heure actuelle</h4>
+        <h4>4. Obtenir l'heure actuelle</h4>
 
-                <pre><code class="language-javascript">const hours = currentDate.getHours();
+        <pre><code class="language-javascript">const hours = currentDate.getHours();
 const minutes = currentDate.getMinutes();
 const seconds = currentDate.getSeconds();
 console.log(`Heure actuelle : ${hours}:${minutes}:${seconds}`);</code></pre>
-                <p><strong>Résultat</strong></p>
-                <pre><code class="hljs nohighlight"><script>
-                    const hours = currentDate.getHours();
-                    const minutes = currentDate.getMinutes();
-                    const seconds = currentDate.getSeconds();
-                    document.writeln(`Heure actuelle : ${hours}:${minutes}:${seconds}`);
-                </script></code></pre>
+        <p><strong>Résultat</strong></p>
+        <pre><code class="hljs nohighlight"><script>
+          const hours = currentDate.getHours();
+          const minutes = currentDate.getMinutes();
+          const seconds = currentDate.getSeconds();
+          document.writeln(`Heure actuelle : ${hours}:${minutes}:${seconds}`);
+        </script></code></pre>
 
-                <h4>5. Formater une date</h4>
+        <h4>5. Formater une date</h4>
 
-                <pre><code class="language-javascript">const formattedDate = currentDate.toLocaleDateString('fr-FR');
+        <pre><code class="language-javascript">const formattedDate = currentDate.toLocaleDateString('fr-FR');
 console.log(`Date formatée : ${formattedDate}`);</code></pre>
-                <p><strong>Résultat</strong></p>
-                <pre><code class="hljs nohighlight"><script>
-                    const formattedDate = currentDate.toLocaleDateString('fr-FR');
-                    document.writeln(`Date formatée : ${formattedDate}`);
-                </script></code></pre>
+        <p><strong>Résultat</strong></p>
+        <pre><code class="hljs nohighlight"><script>
+          const formattedDate = currentDate.toLocaleDateString('fr-FR');
+          document.writeln(`Date formatée : ${formattedDate}`);
+        </script></code></pre>
 
-                <h4>6. Calculer la différence entre deux dates</h4>
+        <h4>6. Calculer la différence entre deux dates</h4>
 
-                <pre><code class="language-javascript">const startDate = new Date('2022-01-01');
+        <pre><code class="language-javascript">const startDate = new Date('2022-01-01');
 const endDate = new Date();
 const timeDifference = endDate - startDate; 
 // Renvoie la différence en millisecondes
 const daysDifference=Math.floor(timeDifference/(1000*60*60*24));
 console.log(`Différence en jours : ${daysDifference}`);</code></pre>
-                <p><strong>Résultat</strong></p>
-                <pre><code class="hljs nohighlight"><script>
-                    const startDate = new Date('2022-01-01');
-                    const endDate = new Date();
-                    const timeDifference = endDate - startDate;
-                    // Renvoie la différence en millisecondes
-                    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                    document.writeln(`Différence en jours : ${daysDifference}`);
-                </script></code></pre>
+        <p><strong>Résultat</strong></p>
+        <pre><code class="hljs nohighlight"><script>
+          const startDate = new Date('2022-01-01');
+          const endDate = new Date();
+          const timeDifference = endDate - startDate;
+          // Renvoie la différence en millisecondes
+          const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+          document.writeln(`Différence en jours : ${daysDifference}`);
+        </script></code></pre>
 
-                <h4>7.Convertir une date en format ISO</h4>
+        <h4>7.Convertir une date en format ISO</h4>
 
-                <pre><code class="language-javascript">const isoDateString = currentDate.toISOString();
+        <pre><code class="language-javascript">const isoDateString = currentDate.toISOString();
 console.log(`Date au format ISO : ${isoDateString}`);</code></pre>
-                <p><strong>Résultat</strong></p>
-                <pre><code class="hljs nohighlight"><script>
-                    const isoDateString = currentDate.toISOString();
-                    document.writeln(`Date au format ISO : ${isoDateString}`);
-                </script></code></pre>
-            </section>
+        <p><strong>Résultat</strong></p>
+        <pre><code class="hljs nohighlight"><script>
+          const isoDateString = currentDate.toISOString();
+          document.writeln(`Date au format ISO : ${isoDateString}`);
+        </script></code></pre>
+      </section>
 
-            
-        </article>
-    </main>
 
-    <footer class="d-print-none bg-dark text-white p-2">
-        <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
-        <div class="text-center small">Année scolaire : 2022/2023</div>
-    </footer>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/pages.js"></script>
-    <script src="assets/js/highlight.pack.js"></script>
-    <script src="assets/js/hljs.algorithm.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad();
-    </script>
+      <section>
+        <h3>Digital Clock</h3>
+
+        <p>En exploitant les méthodes de l'objet Date, créer l'horloge suivante :</p>
+
+        <figure>
+          <img src="assets/miniprojet16/clock.png" alt="Digital Clock">
+          <figcaption>Digital Clock</figcaption>
+        </figure>
+
+        <p>On donne le code HTML suivant :</p>
+
+        <pre><code class="html">&lt;div id=&quot;date&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;time&quot;&gt;&lt;/div&gt;</code></pre>
+
+        <h4>Travail demandé</h4>
+
+        <ol>
+          <li>Enregistrer le fichier HTML avec sous le nom <code>clock.html</code>.</li>
+          <li>Développer le code CSS dans le fichier <code>clock.css</code>.</li>
+          <li>Développer le code JavaScript dans le fichier HTML.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Date anniversaire</h3>
+
+        <p>Créer une application qui permet de calculer :</p>
+
+        <ul>
+          <li>Le jour de la semaine de la date de naissance.</li>
+          <li>L'âge exact en années, mois et jours.</li>
+          <li>La date du prochain anniversaire.</li>
+          <li>Le nombre de jours restant avant de fêter son anniversaire.</li>
+          <li>Afficher "Joyeux anniversaire" si la date du jour correspond à la date d'anniversaire./li>
+        </ul>
+
+        <figure>
+          <img src="assets/miniprojet16/birth-date.png" alt="Birth Date Calculator">
+          <figcaption>Birth Date Calculator</figcaption>
+        </figure>
+
+        <p>On donne le code HTML suivant :</p>
+
+        <pre><code class="html">&lt;form action=&quot;#&quot;&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;db&quot;&gt;Date de naissance&lt;/label&gt;
+    &lt;input type=&quot;date&quot; name=&quot;db&quot; id=&quot;db&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button type=&quot;button&quot; onclick=&quot;compute()&quot;&gt;Calculer mon &acirc;ge!&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+&lt;div id=&quot;res&quot;&gt;
+  &lt;div&gt;Votre jour de naissance est &lt;strong&gt;&lt;span id=&quot;day&quot;&gt;-&lt;/span&gt;&lt;/strong&gt;&lt;/div&gt;
+  &lt;div&gt;Vous avez exactement &lt;strong&gt;&lt;span id=&quot;year&quot;&gt;-&lt;/span&gt;&lt;/strong&gt; ans, &lt;strong&gt;&lt;span id=&quot;month&quot;&gt;-&lt;/span&gt;&lt;/strong&gt;
+    mois et &lt;strong&gt;&lt;span id=&quot;date&quot;&gt;-&lt;/span&gt;&lt;/strong&gt; jours&lt;/div&gt;
+  &lt;div&gt;Votre prochain anniversaire est le &lt;strong&gt;&lt;span id=&quot;anniv&quot;&gt;-&lt;/span&gt;&lt;/strong&gt; 
+  dans &lt;strong&gt;&lt;span id=&quot;anniv-jour&quot;&gt;&lt;/span&gt;&lt;/strong&gt; jours.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <h4>Travail demandé</h4>
+
+        <ol>
+          <li>Enregistrer le fichier HTML sous le nom <code>birth-date.html</code>.</li>
+          <li>Placer la mise en forme dans le fichier <code>dob.css</code>.</li>
+          <li>Placer le code JavaScript dans le fichier <code>dob.js</code>.</li>
+          <li>Développer les fonctions JavaScript suivantes:
+            <ul>
+              <li>La fonction <code>numberDays(a, m)</code> calcule le nombre de jours par mois.
+                <p>On suppose que <code>m</code> est le mois (0 &rarr; Janvier et 11 &rarr; Décembre) et <code>a</code>
+                  est l'année.</p>
+              </li>
+              <li>La fonction <code>nextBirthDate(dt)</code> accepte un objet de type Date et retourne la date du
+                prochain anniversaire (de type Date).</li>
+              <li>La fonction <code>substractDates(dt1, dt2)</code> accepte deux objets de type Date et retrourne la
+                différence entre les deux dates dans un tableau contenant 4 valeurs :
+                <ul>
+                  <li><strong>na</strong> : Nombre d'années entre dt1 et dt2</li>
+                  <li><strong>nm</strong> : Nombre de mois entre dt1 et dt2</li>
+                  <li><strong>nj</strong> : Nombre de jours entre dt1 et dt2</li>
+                  <li><strong>ntj</strong> : Nombre total de jours entre dt1 et dt2</li>
+                </ul>
+                <p>Ces valeurs seront retrouvées grâce à l'algorithme suivant :</p>
+                <pre><code
+            class="algorithm">nm &larr; (Année(dt2) - Année(dt1)) * 12 + (Mois(dt2) - Mois(dt1))
+nj &larr; Jour(dt2) - Jour(dt1)
+Si nj &lt; 0 Alors 
+  nm &larr; nm - 1
+  nj &larr; nj + numberDays(Année(dt1), Mois(dr1))
+Fin Si
+na &larr; nm div 12
+nm &larr; nm mod 12
+ntj &larr; (Temps(dt2) - Temps(dt1)) div (1000 * 24 * 3600) + 1</code></pre>
+              </li>
+            </ul>
+          </li>
+          <li>La fonction <code>compute()</code> est déclenchée par le clic sur le bouton [Calculer mon age!] et permet
+            de récupérer la date de naissance de l'utilisateur et de calculer et afficher toutes les informations
+            demandées précédemment.</li>
+        </ol>
+
+
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2022/2023</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
 </body>
 
 </html>
