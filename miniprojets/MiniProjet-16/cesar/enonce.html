@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagrammes</title>
+</head>
+
+<body>
+    <h1>Exercice 2 - Cryptage de césar</h1>
+    <p>Le cryptage de césar est un cryptage par substitution où chaque lettre est remplacée par une autre.</p>
+    <pre align="center"><script>
+        for (let i = 0; i < 26; i++) {
+            document.write(String.fromCharCode(65 + i));
+        }
+    </script></pre>
+    <pre align="center"><script>
+        for (let i = 0; i < 26; i++) {
+            document.write(String.fromCharCode((i + 3) % 26 + 65));
+        }
+    </script></pre>
+    <p><strong>A &rarr; D, B &rarr; E, C &rarr; F, etc.</strong></p>
+    <p><strong>HAMZA</strong> devient <strong>KDPCD</strong> ; <strong>ESS</strong> dvient <strong>HVV</strong></p>
+    <p>Concevoir une page Web pour crypter un mot alphabétique majuscule en utilisant la méthode de césar.</p>
+    <p align="center"><img src="cesar.png" alt="َAnagramme"></p>
+</body>
+
+</html>
