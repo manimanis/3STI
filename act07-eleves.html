@@ -48,6 +48,10 @@ console.log(isDigit("ABC")); // true</code></pre>
         </p>
         <p><strong>Comment corriger cette fonction en ne modifiant qu'une seule instruction ?</strong></p>
 
+        <h5>Réponse</h5>
+        <p>Changer la ligne suivante :</p>
+        <pre><code class="javascript">valid = '0' <= ch[i] && ch[i] <= "9";</code></pre>
+
         <h4>Question 2</h4>
         <pre><code class="javascript">function somme(t) {
   const s = 0;
@@ -61,7 +65,12 @@ console.log(somme([1,2,3])); // invalid assignment to const 's'</code></pre>
         </p>
         <p><strong>Comment corriger cette erreur en ne modifiant qu'une seule ligne ?</strong></p>
 
-        <h4>Question 3</h4>
+        <h5>Réponse</h5>
+        <p>Changer la ligne suivante :</p>
+        <pre><code class="javascript">let s = 0;</code></pre>
+
+
+        <h4 class="p-break">Question 3</h4>
         <pre><code class="javascript">function randint(a, b) {
   return a + Math.random() * (b - a + 1);
 }
@@ -72,7 +81,11 @@ console.log(randint(0, 9)); // 7.606718899286581</code></pre>
         </p>
         <p><strong>Comment corriger ce problème ?</strong></p>
 
-        <h4 class="p-break">Question 4</h4>
+        <h5>Réponse</h5>
+        <p>Changer la ligne suivante :</p>
+        <pre><code class="javascript">return Math.floor(a + Math.random() * (b - a + 1));</code></pre>
+
+        <h4>Question 4</h4>
         <pre><code class="javascript">function reverseString(ch) {
   let i = 0, j = ch.length - 1;
   while (j > i) {
@@ -89,7 +102,15 @@ console.log(reverseString("ahmed")); // "ahmed" au lieu de "demha"</code></pre>
         <p><strong>Lequel ?</strong></p>
         <p><strong>Utiliser la méthode <code>ch.substring()</code> pour corriger cette instruction.</strong></p>
 
-        <h4>Question 5</h4>
+        <h5>Réponse</h5>
+        <p>Une chaîne est immutable en JavaScript, il n'est pas possible de changer les caractères d'une chaîne en
+          écrivant : <code>ch[i] = car;</code></p>
+        <p>Pour permuter les caractères situés à la position i et j, il faut écrire :</p>
+        <pre><code class="javascript">ch = ch.substring(0, i) + ch[j] 
+    + ch.substring(i + 1, j) + ch[i]
+    + ch.substring(j + 1);</code></pre>
+
+        <h4 class="p-break">Question 5</h4>
         <div class="row">
           <div class="col-6">
             <p>Soit le code HTML suivant :</p>
@@ -120,6 +141,17 @@ function nomChanged() {
           soit appelée lorsqu'on tape un texte dans le champ. L'unique instruction de cette fonction semble contenir une
           erreur.</p>
         <p><strong>Laquelle ?</strong></p>
+
+        <h5>Réponse</h5>
+        <p>La version HTML corrigée est :</p>
+        <pre><code class="html">&lt;div&gt;&lt;input type=&quot;text&quot; id=&quot;nom&quot; oninput=&quot;nomChanged()&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;res&quot;&gt;&lt;/div&gt;</code></pre>
+        <p>La version corrigée du JavaScript est :</p>
+        <pre><code class="javascript">const inpNom = document.getElementById("nom");
+const divRes = document.getElementById("res");
+function nomChanged() {
+  divRes.innerHTML = inpNom.value;
+}</code></pre>
       </section>
     </article>
   </main>

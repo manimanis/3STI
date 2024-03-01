@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div><input type="text" id="nom" oninput="nomChanged()"></div>
+  <div id="res"></div>
+
+  <script>
+    const inpNom = document.getElementById("nom");
+    const divRes = document.getElementById("res");
+    function nomChanged() {
+      divRes.innerHTML = inpNom.value;
+    }
+  </script>
+</body>
+
+</html>

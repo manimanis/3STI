@@ -1,0 +1,30 @@
+.container {
+	width: 500px;
+	padding: 20px;
+	border: #333 solid 4px;
+	margin: 30px auto;
+	background-color: aquamarine;
+	color: #006;
+	font-family: sans-serif;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+}
+
+label {
+  display: inline-block;
+  width: 70px;
+  font-weight: bold;
+}
+
+#color {
+	width: 200px;
+	height: 70px;
+	background-color: #8e6ece;
+	border: #333 solid 1px;
+}
