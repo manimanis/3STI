@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nombre ondulant</title>
+  <link rel="stylesheet" href="ondulant.css">
+</head>
+
+<body>
+  <form action="#" name="f" method="post">
+    <h1>Nombre Ondulant</h1>
+    <div>
+      <label for="n">n</label>
+      <input type="number" name="n" id="n" placeholder="Introduire un entier >= 100">
+    </div>
+    <div><button type="button" id="verif" onclick="btnVerifClicked()">Vérifier</button></div>
+    <div>
+      <label for="res">Résultat</label>
+      <textarea name="res" id="res" readonly></textarea>
+    </div>
+  </form>
+  <script src="ondulant.js"></script>
+</body>
+
+</html>

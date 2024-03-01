@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: #fff;
+  font-size: 14pt;
+  font-family: cursive;
+}
+
+form {
+  width: 500px;
+  padding: 30px;
+  margin: 80px auto;
+  background-color: #FF3F00;
+  border-radius: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+input[type="number"], textarea, button {
+	width: 100%;
+	padding: 8px;
+	font-size: 14pt;
+	border: none;
+}
+
+button {
+  background-color: #FF7F11;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #FFFFFC;
+  color: #FF7F11
+}
+
+form>div {
+  margin: 7px 0;
+}
