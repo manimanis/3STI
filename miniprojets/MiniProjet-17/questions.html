@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>Chat GPT</li>
+    <li>Gemini</li>
+    <li>Perplexity</li>
+  </ul>
+  <ol>
+    <li>Chat GPT</li>
+    <li>Gemini</li>
+    <li>Perplexity</li>
+  </ol>
+  <p><img src="goodluck.jpg" alt="Good Luck" width="160"></p>
+  <p><label><input type="checkbox" name="lang1" id="lang1" value="Python"> Python</label></p>
+  <p><label><input type="checkbox" name="lang2" id="lang2" value="JavaScript"> JavaScript</label></p>
+
+  <p><select name="fruits" id="fruits" size="6">
+      <optgroup label="Fruits">
+        <option value="1">Pomme</option>
+        <option value="2">Orange</option>
+      </optgroup>
+      <optgroup label="Légumes">
+        <option value="3">Pomme de terres</option>
+        <option value="4">Carottes</option>
+      </optgroup>
+    </select></p>
+
+  <style>
+    .container {
+      box-sizing: border-box;
+      display: flex;
+      width: 640px;
+    }
+
+    .drapeau {
+      width: 300px;
+      height: 150px;
+      margin: 20px;
+      border: #333 solid 1px;
+      display: flex;
+    }
+
+    .band1,
+    .band2,
+    .band3 {
+      width: 33.3%;
+    }
+
+    #italie .band1 {
+      background-color: green;
+    }
+
+    #italie .band2 {
+      background-color: white;
+    }
+
+    #italie .band3 {
+      background-color: red;
+    }
+
+    #france .band1 {
+      background-color: blue;
+    }
+
+    #france .band2 {
+      background-color: white;
+    }
+
+    #france .band3 {
+      background-color: red;
+    }
+  </style>
+  <div class="container">
+    <div id="italie" class="drapeau">
+      <div class="band1"></div>
+      <div class="band2"></div>
+      <div class="band3"></div>
+    </div>
+    <div id="france" class="drapeau">
+      <div class="band1"></div>
+      <div class="band2"></div>
+      <div class="band3"></div>
+    </div>
+  </div>
+
+  <form action="#">
+    <input type="text" id="n" name="n"><br>
+    <button type="button" onclick="calcB()">Calculer B-Friable</button>
+  </form>
+
+  <script>
+    function calcB() {
+      const n = Number(document.getElementById("n").value);
+      if (n <= 2) {
+        alert("Saisir un nombre supérieur à 2!");
+        return;
+      }
+      const B = calcB_Friable(n);
+      alert(`${n} est ${B}-Friable`);
+    }
+    function calcB_Friable(n) {
+      let f = 2;
+      while (n >= f) {
+        if (n % f == 0) {
+          n = n / f;
+        } else {
+          f++;
+        }
+      }
+      return f;
+    }
+    console.log(calcB_Friable(6));
+    console.log(calcB_Friable(3888));
+    console.log(calcB_Friable(330));
+    console.log(calcB_Friable(256));
+    console.log(calcB_Friable(140));
+  </script>
+</body>
+
+</html>
