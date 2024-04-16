@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+</head>
+
+<body>
+  <div><a href="https://google.com" target="_blank" onclick="return linkClicked()">Google.com</a></div>
+  <div>
+    <input type="checkbox" name="act" id="act" oninput="actChecked()"> 
+    <label for="act" id="act-text">Lien désactivé</label>
+  </div>
+  <div>
+    <button id="btn" onclick="btnClicked()">Activer</button>
+  </div>
+  <script src="events.js"></script>
+</body>
+
+</html>
