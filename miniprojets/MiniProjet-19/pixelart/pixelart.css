@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  width: 640px;
+  margin: auto;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.col {
+  width: 260px;
+  padding: 5px;
+  border: #333 solid 3px;
+}
+
+.col img {
+  width: 100%;
+}
