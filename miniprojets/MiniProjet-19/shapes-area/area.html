@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area of Shapes</title>
+  <link rel="stylesheet" href="area.css">
+</head>
+
+<body onload="displayInput()">
+  <h1>Shapes Area & Perimeter</h1>
+  <div id="select-shape">
+    <label for>Select a Shape</label><br>
+    <label><input type="radio" name="shape" id="shape-sq" value="square" onclick="shapeClicked()"> Square</label>
+    <label><input type="radio" name="shape" id="shape-rect" value="rectangle" onclick="shapeClicked()">
+      Rectangle</label>
+    <label><input type="radio" name="shape" id="shape-tri" value="triangle" onclick="shapeClicked()"> Triangle</label>
+    <label><input type="radio" name="shape" id="shape-cir" value="circle" onclick="shapeClicked()"> Circle</label>
+  </div>
+  <div id="img">
+    <img id="img-shape" src="images/noshape.png">
+  </div>
+  <div class="info">
+    <div id="inp-a">
+      <label for="a" id="label-a">Side A</label>
+      <input type="number" name="a" id="a" min="0" placeholder="Enter a" onfocus="resetInput('a')" oninput="calcShapeArea()">
+    </div>
+    <div id="inp-b">
+      <label for="b" id="label-b">Side B</label>
+      <input type="number" name="b" id="b" min="0" placeholder="Enter b" onfocus="resetInput('b')" oninput="calcShapeArea()">
+    </div>
+  </div>
+  <div id="result">
+    <div id="area">-</div>
+    <div id="perimeter">-</div>
+  </div>
+  <script src="area.js"></script>
+</body>
+
+</html>
