@@ -1,21 +1,29 @@
 function displayInput(shape) {
+  const inpA = document.getElementById("inp-a");
   const inpB = document.getElementById("inp-b");
   const labA = document.getElementById("label-a");
   const labB = document.getElementById("label-b");
   if (shape == "square") {
+    inpA.style.display = "block";
     inpB.style.display = "none";
     labA.textContent = "Side";
   } else if (shape == "rectangle") {
+    inpA.style.display = "block";
     inpB.style.display = "block";
     labA.textContent = "Side A";
     labB.textContent = "Side B";
   } else if (shape == "circle") {
+    inpA.style.display = "block";
     inpB.style.display = "none";
     labA.textContent = "Radius";
   } else if (shape == "triangle") {
+    inpA.style.display = "block";
     inpB.style.display = "block";
     labA.textContent = "Base";
     labB.textContent = "Height";
+  } else {
+    inpA.style.display = "none";
+    inpB.style.display = "none";
   }
 }
 
@@ -28,6 +36,7 @@ function getSelectedShape() {
 }
 
 function shapeClicked() {
+  const img = document.getElementById("img-shape");
   const shape = getSelectedShape();
   if (shape != "") {
     img.src = "images/" + shape + ".png";
