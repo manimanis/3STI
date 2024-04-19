@@ -1,0 +1,28 @@
+body {
+  width: 600px;
+  height: 100vh;
+  margin: auto;
+  background: linear-gradient(#CE5BAC, #F696BD);
+  color: #020022;
+}
+
+#frame {
+	padding: 20px;
+	border: #FDFDFD dotted 2px;
+	background: linear-gradient(#003371, #020022);
+	border-radius: 20px;
+	margin: 20px;
+	color: #fff;
+}
+
+h1 {
+  text-align: center;
+}
+
+figure {
+  text-align: center;
+}
+
+figcaption {
+  font-style: italic;
+}
