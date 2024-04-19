@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffeccc;
+  width: 800px;
+  margin: 20px auto;
+  padding: 10px;
+  border: #060407 solid 5px;
+  border-radius: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+.img-container>img {
+  height: 500px;
+  display: block;
+}
+
+.btns .num,
+.btns .part {
+  width: 80px;
+  font-size: 14pt;
+  margin: 5px;
+}
+
+.btns .part {
+  width: 120px;
+}
+
+.btns .answer {
+  margin: 5px;
+  line-height: 28px;
+  padding: 1px 6px;
+  font-size: 14pt;
+  font-family: sans-serif;
+  border: transparent solid 1px;
+  height: 28px;
+}
