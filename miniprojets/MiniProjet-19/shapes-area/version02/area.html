@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area of Shapes</title>
+  <link rel="stylesheet" href="area.css">
+</head>
+
+<body onload="displayInput()">
+  <h1>Common Shapes Area & Perimeter</h1>
+  <div id="select-shape">
+    <label for>Select a Shape</label><br>
+    <label><input type="radio" name="shape" id="shape-sq" value="square" onclick="shapeClicked(0)"> Square</label>
+    <label><input type="radio" name="shape" id="shape-rect" value="rectangle" onclick="shapeClicked(1)">
+      Rectangle</label>
+    <label><input type="radio" name="shape" id="shape-tri" value="triangle" onclick="shapeClicked(2)"> Triangle</label>
+    <label><input type="radio" name="shape" id="shape-cir" value="circle" onclick="shapeClicked(3)"> Circle</label>
+  </div>
+  <div id="img">
+    <img id="img-shape" src="images/noshape.png">
+  </div>
+  <div class="info">
+    <div id="inp-a">
+      <label for="a" id="label-a">Side A</label>
+      <input type="number" name="a" id="a" onfocus="resetInput('a')" oninput="calcShapeArea()">
+    </div>
+    <div id="inp-b">
+      <label for="b" id="label-b">Side B</label>
+      <input type="number" name="b" id="b" onfocus="resetInput('b')" oninput="calcShapeArea()">
+    </div>
+  </div>
+  <div id="result">
+    <div id="area">-</div>
+    <div id="perimeter">-</div>
+  </div>
+  <script src="area.js"></script>
+</body>
+
+</html>

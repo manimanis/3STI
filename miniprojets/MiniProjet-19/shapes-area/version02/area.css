@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 600px;
+  margin: 30px auto;
+  color: #283618;
+  background-color: #FEFAE0;
+  font-family: sans-serif;
+  font-size: 12pt;
+  border: #DDA15E dashed 2px;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 15px #DDA15E;
+}
+
+h1, #img, #select-shape {
+  text-align: center;
+}
+
+body > div {
+  margin: 10px 0;
+}
+
+#result, .info {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#area, #perimeter {
+  width: 250px;
+  text-align: right;
+  border: #283618 solid 1px;
+  border-radius: 0 0 10px 10px;
+  padding: 10px;
+  position: relative;
+  margin-top: 40px;
+}
+
+#area::before, #perimeter::before {
+  position: absolute;
+  display: block;
+  content: "Area";
+  text-align: center;
+  width: 250px;
+  background-color: #283618;
+  border: #283618 solid 1px;
+  padding: 10px;
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+  top: -41px;
+  left: -1px;
+  box-sizing: border-box;
+}
+
+#perimeter::before {
+  content: "Perimeter";
+}
+
+input[type=number] {
+  font-family: sans-serif;
+  font-size: 12pt;
+  padding: 5px;
+  width: 100%;
+  border: #283618 solid 3px;
+}
+
+.info > div {
+  width: 40%;
+}
+
+label[for] {
+  font-weight: bold;
+}
