@@ -199,12 +199,11 @@ p:nth-child(even) { color: blue; }</code></pre>
         <p>Une page web possède une structure formée par ses éléments appelée DOM. Le langage JavaScript offre plusieurs
           fonctions pour accéder au DOM, notamment :</p>
         <ul>
-          <li><code>document.getElementById("id")</code> : retrourne une référence à un élément de la page connaissant
-            son
-            <code>id</code>.
+          <li><code>document.getElementById("id")</code> : retourne une référence à un élément de la page connaissant son <code>id</code>.
           </li>
-          <li><code>document.querySelector("css_selector")</code> : retourne une référence au premier élément de la page
-            en fonction du sélecteur CSS donné.</li>
+          <li><code>document.getElementsByName("nom")</code> : retourne une collection (NodeList) de tous les éléments ayant l'attribut <code>name="nom"</code>. Cette méthode est indispensable pour accéder aux groupes de boutons radio (<code>&lt;input type="radio"&gt;</code>) partageant le même nom.
+          </li>
+          <li><code>document.querySelector("css_selector")</code> : retourne une référence au premier élément de la page en fonction du sélecteur CSS donné.</li>
         </ul>
         <p>L'obtention d'une référence à un élément a pour objectif de manipuler ses propriétés à l'aide de JavaScript.
         </p>
@@ -1412,6 +1411,120 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
             <code>b</code>. Puis, l'appeler.
           </li>
         </ul>
+      </section>
+
+      <section>
+        <h3 class="p-break">Manipulation des chaînes de caractères</h3>
+        <p>Une chaîne de caractères est une séquence de caractères indexée de <code>0</code> à <code>length - 1</code>. JavaScript fournit de nombreuses méthodes pour manipuler les chaînes :</p>
+
+        <table class="table table-sm table-bordered border-dark">
+          <thead>
+            <tr>
+              <th>Propriété / Méthode</th>
+              <th>Description</th>
+              <th>Exemple</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>ch.length</code></td>
+              <td>Retourne la longueur (nombre de caractères) de la chaîne.</td>
+              <td><code>&quot;Bonjour&quot;.length</code> &rarr; <code>7</code></td>
+            </tr>
+            <tr>
+              <td><code>ch[p]</code> ou <code>ch.charAt(p)</code></td>
+              <td>Retourne le caractère situé à la position (indice) <code>p</code>.</td>
+              <td><code>&quot;Web&quot;[1]</code> ou <code>&quot;Web&quot;.charAt(1)</code> &rarr; <code>&quot;e&quot;</code></td>
+            </tr>
+            <tr>
+              <td><code>ch.charCodeAt(p)</code></td>
+              <td>Retourne le code ASCII (Unicode) du caractère à la position <code>p</code>.</td>
+              <td><code>&quot;A&quot;.charCodeAt(0)</code> &rarr; <code>65</code></td>
+            </tr>
+            <tr>
+              <td><code>String.fromCharCode(code)</code></td>
+              <td>Construit et retourne un caractère à partir de son code ASCII.</td>
+              <td><code>String.fromCharCode(65)</code> &rarr; <code>&quot;A&quot;</code></td>
+            </tr>
+            <tr>
+              <td><code>ch.indexOf(ch1, p)</code></td>
+              <td>Retourne la première position de <code>ch1</code> dans <code>ch</code> (à partir de <code>p</code>, par défaut 0). Retourne <code>-1</code> si non trouvée.</td>
+              <td><code>&quot;banane&quot;.indexOf(&quot;an&quot;)</code> &rarr; <code>1</code></td>
+            </tr>
+            <tr>
+              <td><code>ch.lastIndexOf(ch1, p)</code></td>
+              <td>Retourne la dernière position de <code>ch1</code> dans <code>ch</code> (recherche de droite à gauche). Retourne <code>-1</code> si non trouvée.</td>
+              <td><code>&quot;banane&quot;.lastIndexOf(&quot;an&quot;)</code> &rarr; <code>3</code></td>
+            </tr>
+            <tr>
+              <td><code>ch.substring(d, f)</code></td>
+              <td>Extrait une sous-chaîne entre l'indice <code>d</code> (inclus) et <code>f</code> (exclu).</td>
+              <td><code>&quot;Informatique&quot;.substring(0, 4)</code> &rarr; <code>&quot;Info&quot;</code></td>
+            </tr>
+            <tr>
+              <td><code>ch.replace(ch1, ch2)</code></td>
+              <td>Remplace la première occurrence de <code>ch1</code> par <code>ch2</code>.</td>
+              <td><code>&quot;chat noir&quot;.replace(&quot;noir&quot;, &quot;blanc&quot;)</code> &rarr; <code>&quot;chat blanc&quot;</code></td>
+            </tr>
+            <tr>
+              <td><code>ch.toUpperCase()</code></td>
+              <td>Convertit toute la chaîne en majuscules.</td>
+              <td><code>&quot;bac&quot;.toUpperCase()</code> &rarr; <code>&quot;BAC&quot;</code></td>
+            </tr>
+            <tr>
+              <td><code>ch.toLowerCase()</code></td>
+              <td>Convertit toute la chaîne en minuscules.</td>
+              <td><code>&quot;BAC&quot;.toLowerCase()</code> &rarr; <code>&quot;bac&quot;</code></td>
+            </tr>
+            <tr>
+              <td><code>ch.trim()</code></td>
+              <td>Supprime les espaces au début et à la fin de la chaîne.</td>
+              <td><code>&quot;  test  &quot;.trim()</code> &rarr; <code>&quot;test&quot;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3 class="p-break">L'objet Math : Calculs et arrondis</h3>
+        <p>L'objet prédéfini <code>Math</code> rassemble des constantes et des fonctions mathématiques courantes :</p>
+
+        <table class="table table-sm table-bordered border-dark">
+          <thead>
+            <tr>
+              <th>Méthode</th>
+              <th>Description</th>
+              <th>Exemple</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Math.abs(N)</code></td>
+              <td>Retourne la valeur absolue de <code>N</code>.</td>
+              <td><code>Math.abs(-12)</code> &rarr; <code>12</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.round(N)</code></td>
+              <td>Retourne l'arrondi arithmétique de <code>N</code> à l'entier le plus proche (&ge; 0.5 vers le haut).</td>
+              <td><code>Math.round(4.5)</code> &rarr; <code>5</code><br><code>Math.round(4.4)</code> &rarr; <code>4</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.trunc(N)</code></td>
+              <td>Retourne la partie entière de <code>N</code> en éliminant la fraction décimale (troncature).</td>
+              <td><code>Math.trunc(4.9)</code> &rarr; <code>4</code><br><code>Math.trunc(-4.9)</code> &rarr; <code>-4</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.floor(N)</code></td>
+              <td>Retourne le plus grand entier inférieur ou égal à <code>N</code> (arrondi à l'inférieur).</td>
+              <td><code>Math.floor(4.9)</code> &rarr; <code>4</code><br><code>Math.floor(-4.1)</code> &rarr; <code>-5</code></td>
+            </tr>
+            <tr>
+              <td><code>Math.random()</code></td>
+              <td>Génère un nombre réel pseudo-aléatoire dans l'intervalle semi-ouvert <code>[0, 1[</code>.</td>
+              <td><code>Math.floor(Math.random() * 10) + 1</code> &rarr; Entier entre 1 et 10</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
     </article>
 

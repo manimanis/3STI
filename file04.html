@@ -527,8 +527,69 @@
 &lt;button type=&quot;reset&quot;&gt;RAZ&lt;/button&gt;</code></pre>
               </td>
             </tr>
+            <tr>
+              <td>
+                <p>Regroupement de champs (fieldset &amp; legend)</p>
+                <fieldset class="border p-2">
+                  <legend class="float-none w-auto px-2 fs-6">Identité</legend>
+                  <label for="cin">CIN :</label> <input type="text" id="cin" name="cin" size="8" maxlength="8"><br>
+                  <label for="nom">Nom :</label> <input type="text" id="nom" name="nom">
+                </fieldset>
+              </td>
+              <td>
+                <pre class="html"><code>&lt;fieldset&gt;
+  &lt;legend&gt;Identit&eacute;&lt;/legend&gt;
+  &lt;label for=&quot;cin&quot;&gt;CIN :&lt;/label&gt; &lt;input type=&quot;text&quot; id=&quot;cin&quot; name=&quot;cin&quot;&gt;&lt;br&gt;
+  &lt;label for=&quot;nom&quot;&gt;Nom :&lt;/label&gt; &lt;input type=&quot;text&quot; id=&quot;nom&quot; name=&quot;nom&quot;&gt;
+&lt;/fieldset&gt;</code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Attributs d'état (disabled &amp; readonly)</p>
+                <label>Lecture seule :</label> <input type="text" value="Code fixe" readonly><br>
+                <label>Champ désactivé :</label> <input type="text" value="Non modifiable" disabled><br>
+                <label>Zone désactivée :</label> <textarea disabled rows="2" cols="15">Inactif</textarea>
+              </td>
+              <td>
+                <pre class="html"><code>&lt;!-- Lecture seule (valeur envoy&eacute;e lors du submit) --&gt;
+&lt;input type=&quot;text&quot; value=&quot;Code fixe&quot; readonly&gt;
+&lt;!-- D&eacute;sactiv&eacute; (valeur NON envoy&eacute;e lors du submit) --&gt;
+&lt;input type=&quot;text&quot; value=&quot;Non modifiable&quot; disabled&gt;
+&lt;textarea disabled&gt;Inactif&lt;/textarea&gt;</code></pre>
+              </td>
+            </tr>
           </tbody>
         </table>
+
+        <h4>Structure complète d'un tableau HTML (&lt;caption&gt; et &lt;tfoot&gt;)</h4>
+        <p>En plus de <code>&lt;thead&gt;</code> (en-tête) et <code>&lt;tbody&gt;</code> (corps), un tableau HTML peut comporter une légende descriptive avec <code>&lt;caption&gt;</code> et un pied de tableau récapitulatif avec <code>&lt;tfoot&gt;</code> (idéal pour les totaux et bilans) :</p>
+        <table class="table table-bordered table-sm border-dark w-50">
+          <caption>Facture récapitulative</caption>
+          <thead>
+            <tr><th>Article</th><th>Qté</th><th>Prix U.</th><th>Total</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Clavier USB</td><td>2</td><td>25 DT</td><td>50 DT</td></tr>
+            <tr><td>Souris optique</td><td>3</td><td>15 DT</td><td>45 DT</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><th colspan="3">Total général</th><th>95 DT</th></tr>
+          </tfoot>
+        </table>
+        <pre class="html"><code>&lt;table border=&quot;1&quot;&gt;
+  &lt;caption&gt;Facture r&eacute;capitulative&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Article&lt;/th&gt;&lt;th&gt;Qt&eacute;&lt;/th&gt;&lt;th&gt;Prix U.&lt;/th&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Clavier USB&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;25 DT&lt;/td&gt;&lt;td&gt;50 DT&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Souris optique&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;15 DT&lt;/td&gt;&lt;td&gt;45 DT&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;&lt;th colspan=&quot;3&quot;&gt;Total g&eacute;n&eacute;ral&lt;/th&gt;&lt;th&gt;95 DT&lt;/th&gt;&lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
       </section>
 
       <section>

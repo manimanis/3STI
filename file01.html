@@ -216,6 +216,13 @@ p { color: green; text-align: center; font-size: 22pt; }
   propriétés
 }</code></pre>
           </li>
+          <li><strong>Le sélecteur universel (<code>*</code>)</strong> : il cible l'ensemble des éléments HTML du document sans exception. Il est fréquemment employé pour réinitialiser les marges internes et externes par défaut du navigateur (CSS Reset) :
+            <pre class="css"><code>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}</code></pre>
+          </li>
         </ul>
       </section>
 
@@ -362,6 +369,9 @@ padding: top right bottom left;</code></pre>
           <code>style</code>définit le style du trait (<code>solid</code>, <code>dotted</code>, etc) et la
           <code>taille</code> l'épaisseur du trait.
         </p>
+
+        <pre class="css"><code>border-collapse: collapse | separate;</code></pre>
+        <p>Spécifique aux tableaux (<code>&lt;table&gt;</code>), elle permet de fusionner les bordures des cellules adjacentes en une bordure unique (<code>collapse</code>) plutôt que de laisser un espace entre elles (<code>separate</code>).</p>
 
         <p class="p-break"></p>
         <pre class="css"><code>margin: top;

@@ -57,8 +57,8 @@
           <figcaption>Structure de la page Web à l'aide de balises sémantiques</figcaption>
         </figure>
 
-        <h4>L'entête</h4>
-        <p>L'entête de la page est définie à l'aide de la balise <code>&lt;header&gt;...&lt;/header&gt;</code>.</p>
+        <h4>L'entête (&lt;header&gt;)</h4>
+        <p>L'entête de la page (ou d'une section) est définie à l'aide de la balise <code>&lt;header&gt;...&lt;/header&gt;</code>. Elle regroupe typiquement le logo, le titre du site ou de l'article, et forme le binôme structurel avec le pied de page (<code>&lt;footer&gt;</code>).</p>
 
         <h4>Le menu de navigation</h4>
         <p>Une page web présente souvent des liens vers les autres pages ou parties d'un site web. Ces liens sont
@@ -170,6 +170,45 @@ footer {
   margin: 0.15em 0;
   position: relative;
 }</code></pre>
+      </section>
+
+      <section>
+        <h3>Balises sémantiques de contenu et médias</h3>
+        <p>En plus de la structure globale de la page, HTML5 propose des balises pour enrichir sémantiquement le contenu textuel et multimédia :</p>
+
+        <h4>La balise &lt;mark&gt; (Surlignage)</h4>
+        <p>Elle permet de mettre en valeur du texte particulièrement pertinent dans un contexte donné (surlignage jaune par défaut).</p>
+        <div class="alert alert-light border">
+          <p class="mb-0">Exemple de rendu : N'oubliez pas d'<mark>enregistrer votre travail</mark> avant de quitter.</p>
+        </div>
+        <pre class="html"><code>&lt;p&gt;N'oubliez pas d'&lt;mark&gt;enregistrer votre travail&lt;/mark&gt; avant de quitter.&lt;/p&gt;</code></pre>
+
+        <h4>Les balises &lt;details&gt; et &lt;summary&gt; (Bloc dépliable)</h4>
+        <p>La balise <code>&lt;details&gt;</code> crée un widget interactif que l'utilisateur peut ouvrir ou fermer. La balise <code>&lt;summary&gt;</code> définit son intitulé visible.</p>
+        <p>L'attribut booléen <code>open</code> permet d'afficher le bloc ouvert par défaut.</p>
+        <div class="alert alert-light border">
+          <details open>
+            <summary>En savoir plus sur le HTML5 (cliquez pour replier)</summary>
+            <p class="mt-2 mb-0">HTML5 introduit de nouvelles balises sémantiques facilitant l'accessibilité et le référencement.</p>
+          </details>
+        </div>
+        <pre class="html"><code>&lt;details open&gt;
+  &lt;summary&gt;En savoir plus sur le HTML5&lt;/summary&gt;
+  &lt;p&gt;HTML5 introduit de nouvelles balises sémantiques facilitant l'accessibilité et le référencement.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+
+        <h4>La balise &lt;audio&gt; (Médias audio)</h4>
+        <p>La balise <code>&lt;audio&gt;</code> permet d'intégrer un extrait sonore dans une page web. L'attribut <code>controls</code> ajoute la barre de lecture (lecture/pause, volume, durée). On utilise la balise <code>&lt;source&gt;</code> imbriquée pour spécifier les fichiers et formats (ex. MP3, OGG).</p>
+        <div class="alert alert-light border">
+          <audio controls src="assets/audio/sample.mp3">
+            <source src="assets/audio/sample.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas la balise audio.
+          </audio>
+        </div>
+        <pre class="html"><code>&lt;audio controls src=&quot;sample.mp3&quot;&gt;
+  &lt;source src=&quot;sample.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+  Votre navigateur ne supporte pas la balise audio.
+&lt;/audio&gt;</code></pre>
       </section>
 
       <section>
