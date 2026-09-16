@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Séance n°3 : Animation CSS — Démonstrations et styles interactifs
+   ========================================================================== */
+
+/* Tailles médias des démos */
+.demo-video {
+  max-width: 540px;
+  width: 100%;
+}
+
+.demo-img-preview {
+  max-height: 220px;
+}
+
+/* --------------------------------------------------------------------------
+   Démonstrations de base (Changement de couleur et trajectoire)
+   -------------------------------------------------------------------------- */
+@keyframes liveAnim01 {
+  from { background-color: #ef4444; }
+  to   { background-color: #eab308; }
+}
+
+.box-live-01 {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  background-color: #ef4444;
+  animation: liveAnim01 2s ease-in-out infinite alternate;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes liveAnim02 {
+  0%   { background-color: #ef4444; }
+  25%  { background-color: #eab308; }
+  50%  { background-color: #3b82f6; }
+  100% { background-color: #10b981; }
+}
+
+.box-live-02 {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  background-color: #ef4444;
+  animation: liveAnim02 4s linear infinite;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes liveAnim03 {
+  0%   { background-color: #ef4444; left: 0px; top: 0px; }
+  25%  { background-color: #eab308; left: calc(100% - 70px); top: 0px; }
+  50%  { background-color: #3b82f6; left: calc(100% - 70px); top: 110px; }
+  75%  { background-color: #10b981; left: 0px; top: 110px; }
+  100% { background-color: #ef4444; left: 0px; top: 0px; }
+}
+
+.stage-live-03 {
+  height: 200px;
+  position: relative;
+  background: var(--bg-surface-hover);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 10px;
+}
+
+.box-live-03 {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  border-radius: 8px;
+  background-color: #ef4444;
+  animation: liveAnim03 5s ease-in-out infinite;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   Comparateur visuel des fonctions de lissage (timing-functions)
+   -------------------------------------------------------------------------- */
+.demo-timing-track {
+  background: var(--border-color);
+  border-radius: 20px;
+  height: 28px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.demo-timing-bar {
+  height: 100%;
+  width: 60px;
+  border-radius: 20px;
+  background: var(--primary-gradient);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-name: slideTrack;
+}
+
+@keyframes slideTrack {
+  from { left: 0; }
+  to   { left: calc(100% - 60px); }
+}
+
+.timing-linear { animation-timing-function: linear; }
+.timing-ease { animation-timing-function: ease; }
+.timing-ease-in { animation-timing-function: ease-in; }
+.timing-ease-out { animation-timing-function: ease-out; }
+.timing-ease-in-out { animation-timing-function: ease-in-out; }
+
+/* --------------------------------------------------------------------------
+   Démonstration combinée (shorthand & morphisme)
+   -------------------------------------------------------------------------- */
+@keyframes liveAnim04 {
+  0%   { background-color: #ef4444; border-radius: 8px;  left: 0px;   top: 0px; }
+  25%  { background-color: #eab308; border-radius: 50%;  left: calc(100% - 70px); top: 0px; }
+  50%  { background-color: #3b82f6; border-radius: 8px;  left: calc(100% - 70px); top: 110px; }
+  75%  { background-color: #10b981; border-radius: 50%;  left: 0px;   top: 110px; }
+  100% { background-color: #ef4444; border-radius: 8px;  left: 0px;   top: 0px; }
+}
+
+.box-live-04 {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  background-color: #ef4444;
+  animation: liveAnim04 6s linear infinite alternate;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

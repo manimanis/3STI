@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Séance n°2</title>
+  <title>Séance n°2 : Balises sémantiques</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/default.css">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -15,7 +15,8 @@
   <aside>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span class="brand-text">Conception Web</span></a>
+        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span
+            class="brand-text">Conception Web</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span> Menu
@@ -26,235 +27,702 @@
   </aside>
 
   <main class="my-4 container">
-    <h1>Séance n°2</h1>
+    <h1>Séance n°2 : Balises sémantiques</h1>
 
+    <!-- ================================================================= -->
+    <!-- ARTICLE 1 : OBJECTIFS & PRÉSENTATION -->
+    <!-- ================================================================= -->
     <article>
-      <h2>Balises sémantiques</h2>
+      <h2>Objectifs & Présentation</h2>
 
+      <!-- Section 1.1 : Mise en situation -->
       <section>
-        <h3>Définition</h3>
+        <h3>Mise en situation & Intérêt de la sémantique</h3>
+        <p>
+          Aux débuts du Web, la mise en page des sites reposait quasi exclusivement sur des conteneurs génériques :
+          l'élément <code>&lt;div&gt;</code> pour les blocs et <code>&lt;span&gt;</code> pour le texte en-ligne,
+          auxquels les développeurs attribuaient des classes arbitraires comme <code>&lt;div class="header"&gt;</code>
+          ou <code>&lt;div class="footer"&gt;</code>.
+        </p>
 
-        <p>Une balise sémantique est une balise qui donne une indication sur le contenu qu'elle entoure.</p>
-        <p>Les balises <code>&lt;div&gt;</code> et <code>&lt;span&gt;</code> ne sont pas des balises sémantiques car
-          elles ne donnent aucune indication sur leurs contenus.</p>
-        <p>Il existe deux catégories de balises sémantiques :</p>
+        <p>
+          Le standard <strong>HTML5</strong> a révolutionné cette approche en introduisant les <strong>balises
+            sémantiques</strong>.
+          Une balise est dite <em>sémantique</em> lorsqu'elle <strong>porte du sens</strong> et indique explicitement la
+          nature
+          et le rôle du contenu qu'elle délimite.
+        </p>
+
+        <p>
+          <strong>Les balises génériques (non sémantiques) :</strong>
+          telles que <code>&lt;div&gt;</code> (bloc) et <code>&lt;span&gt;</code> (en-ligne), ne fournissent aucune
+          indication sur la nature de leur contenu. Elles servent uniquement à regrouper et organiser des éléments pour
+          leur appliquer des règles de style CSS (mise en page, couleurs) ou pour les manipuler en JavaScript (via des
+          classes ou des identifiants).
+        </p>
+
+        <p>
+          <strong>Les balises sémantiques de texte :</strong>
+          comme <code>&lt;p&gt;</code>, les titres <code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code>,
+          <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code> ou <code>&lt;mark&gt;</code>, apportent une signification
+          éditoriale précise (paragraphe, hiérarchie de titre, importance forte, accentuation ou surlignage).
+        </p>
+
+        <p>
+          <strong>Les balises sémantiques de structuration de page :</strong>
+          introduites avec HTML5 (comme <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+          <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>,
+          <code>&lt;aside&gt;</code> et <code>&lt;footer&gt;</code>), délimitent les grandes régions fonctionnelles et
+          logiques d'un document Web.
+        </p>
+
+        <h4>Pourquoi la sémantique HTML5 est-elle indispensable ?</h4>
         <ul>
-          <li>Les balises de structuration du contenu comme <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>,
-            <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, etc.
+          <li>
+            <strong>1. Accessibilité (<abbr title="Accessibility">A11y</abbr>) :</strong>
+            Les lecteurs d'écran utilisés par les personnes malvoyantes utilisent les balises sémantiques pour proposer
+            une navigation par régions (par exemple : sauter directement au <code>&lt;main&gt;</code> ou explorer le
+            menu <code>&lt;nav&gt;</code>).
           </li>
-          <li>Les balises de structuration de page, ajoutées en HTML 5</li>
+          <li>
+            <strong>2. Optimisation du référencement (<abbr title="Search Engine Optimization">SEO</abbr>) :</strong>
+            Les robots des moteurs de recherche (Google, Bing) analysent la structure de la page pour identifier
+            facilement le contenu prioritaire et hiérarchiser les informations.
+          </li>
+          <li>
+            <strong>3. Lisibilité et maintenance du code :</strong>
+            Un document HTML structuré avec des balises sémantiques est immédiatement compréhensible pour toute une
+            équipe de développement.
+          </li>
         </ul>
       </section>
 
+      <!-- Section 1.2 : Auto-évaluation -->
       <section>
-        <h3>Balises de structuration de page</h3>
+        <h3>Question d'auto-évaluation</h3>
+        <p>Testez votre compréhension de la différence entre balisage générique et balisage sémantique.</p>
 
-        <p>Le HTML 5 définit plusieurs balises pour structrer une page web. La figure suivante propose une structuration
-          visuelle de la page en utilisant des balises sémantiques.</p>
-
-        <figure>
-          <img src="assets/miniprojet02/images/page_structure.png" alt="Structure de la page Web">
-          <figcaption>Structure de la page Web à l'aide de balises sémantiques</figcaption>
-        </figure>
-
-        <h4>L'entête (&lt;header&gt;)</h4>
-        <p>L'entête de la page (ou d'une section) est définie à l'aide de la balise <code>&lt;header&gt;...&lt;/header&gt;</code>. Elle regroupe typiquement le logo, le titre du site ou de l'article, et forme le binôme structurel avec le pied de page (<code>&lt;footer&gt;</code>).</p>
-
-        <h4>Le menu de navigation</h4>
-        <p>Une page web présente souvent des liens vers les autres pages ou parties d'un site web. Ces liens sont
-          définis à l'intérieur de la balise <code>&lt;nav&gt;...&lt;/nav&gt;</code>.</p>
-
-        <h4>Le contenu principal</h4>
-        <p>La balise <code>&lt;main&gt;...&lt;/main&gt;</code> inclue le contenu principal d'une page web.</p>
-        <p>Cette balise peut contenir les balises <code>&lt;article&gt;...&lt;/article&gt;</code> et
-          <code>&lt;section&gt;...&lt;/section&gt;</code>. Ainsi, le contenu est découpé en <strong>articles</strong>
-          qui peuvent être découpés en <strong>sections</strong>.
+        <h4>Question</h4>
+        <p>
+          Quelle est la différence fondamentale entre écrire <code>&lt;div id=&quot;menu&quot;&gt;</code> et utiliser la
+          balise <code>&lt;nav&gt;</code> ?
         </p>
 
-        <h4>Contenu annexe</h4>
-        <p>Certaines pages proposent un encart de contenu non relié directement au contenu principal de la page à l'aide
-          de la balise <code>&lt;aside&gt;...&lt;/aside&gt;</code>.</p>
+        <details class="my-3">
+          <summary>
+            💡 Cliquez ici pour afficher la réponse
+          </summary>
+          <div class="mt-3">
+            <p>
+              Bien que les deux éléments puissent avoir exactement le même rendu visuel à l'écran grâce au CSS, leur
+              valeur sémantique est radicalement différente :
+            </p>
+            <ul>
+              <li>
+                <code>&lt;div id=&quot;menu&quot;&gt;</code> est une simple boîte générique. Le mot <em>"menu"</em> n'a
+                aucun sens pour le navigateur ou pour une synthèse vocale ; il s'agit juste d'un identifiant textuel
+                arbitraire.
+              </li>
+              <li>
+                <code>&lt;nav&gt;</code> est reconnue nativement par tous les navigateurs et outils d'assistance comme
+                une <strong>zone de navigation principale</strong>. Elle permet aux technologies d'assistance de fournir
+                des raccourcis clavier pour y accéder directement.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </section>
+    </article>
 
-        <h4>Pied de page</h4>
-        <p>Le pied de page est définit à l'aide de la balise <code>&lt;footer&gt;...&lt;/footer&gt;</code>.</p>
+    <!-- ================================================================= -->
+    <!-- ARTICLE 2 : BALISES DE STRUCTURATION DE PAGE -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Structuration de la page</h2>
 
-        <h4>Exemple</h4>
-        <p>Résultat désiré</p>
-        <figure>
-          <img src="assets/miniprojet02/images/semantiques.png" alt="Structure d'une page Web">
-          <figcaption>Structure d'une page Web</figcaption>
+      <!-- Section 2.1 : Architecture globale -->
+      <section>
+        <h3>Architecture globale</h3>
+        <p>
+          HTML5 définit un ensemble de balises de niveau bloc dédiées à l'organisation spatiale et logique du document.
+          Le schéma ci-dessous illustre l'agencement type d'une page Web moderne :
+        </p>
+
+        <figure class="my-4 text-center">
+          <img src="assets/miniprojet02/images/page_structure.png" alt="Structure générale d'une page Web sémantique"
+            class="img-fluid rounded border shadow-sm">
+          <figcaption class="mt-2 text-muted fst-italic">Architecture structurelle d'une page Web à l'aide des balises
+            sémantiques HTML5</figcaption>
         </figure>
 
-        <p>Code HTML</p>
+        <p>
+          Chaque bloc joue un rôle précis et bien délimité dans l'expérience utilisateur et l'arbre du document.
+        </p>
+      </section>
+
+      <!-- Section 2.2 : En-tête et Navigation -->
+      <section>
+        <h3>En-tête et Navigation</h3>
+
+        <h4>1. L'en-tête de document ou de section : <code>&lt;header&gt;</code></h4>
+        <p>
+          La balise <code>&lt;header&gt;...&lt;/header&gt;</code> regroupe les éléments introductifs d'une page ou d'une
+          section :
+          logo du site, titre principal, sous-titre, slogan, et parfois une barre de recherche rapide.
+        </p>
+        <p>
+          <em>Remarque sémantique :</em> une page peut contenir plusieurs éléments <code>&lt;header&gt;</code> (par
+          exemple, l'en-tête général du site dans <code>&lt;body&gt;</code>, et un en-tête propre à chaque
+          <code>&lt;article&gt;</code>).
+        </p>
+        <pre class="html"><code>&lt;header&gt;
+  &lt;img src=&quot;images/logo.png&quot; alt=&quot;Logo du Lycée&quot;&gt;
+  &lt;h1&gt;Lycée Secondaire Pilote&lt;/h1&gt;
+  &lt;p&gt;Portail des Sciences de l'Informatique&lt;/p&gt;
+&lt;/header&gt;</code></pre>
+
+        <h4>2. La barre de navigation : <code>&lt;nav&gt;</code></h4>
+        <p>
+          La balise <code>&lt;nav&gt;...&lt;/nav&gt;</code> délimite une section contenant les liens de navigation
+          majeurs du site
+          (menu principal, menu de pied de page, fil d'Ariane ou pagination).
+        </p>
+        <p>
+          <strong>Bonne pratique pédagogique :</strong> les liens de navigation doivent toujours être structurés sous la
+          forme d'une liste non ordonnée <code>&lt;ul&gt;</code> / <code>&lt;li&gt;</code> pour garantir une navigation
+          claire et accessible.
+        </p>
+        <pre class="html"><code>&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;index.html&quot;&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;cours.html&quot;&gt;Cours 3STI&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;tp.html&quot;&gt;Travaux Pratiques&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;contact.html&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+      </section>
+
+      <!-- Section 2.3 : Contenu principal, Articles et Sections -->
+      <section>
+        <h3>Contenu principal, Articles et Sections</h3>
+
+        <h4>1. Le contenu principal unique : <code>&lt;main&gt;</code></h4>
+        <p>
+          La balise <code>&lt;main&gt;...&lt;/main&gt;</code> englobe le contenu central et exclusif de la page Web.
+          Elle exclut le contenu qui se répète sur l'ensemble du site (comme l'en-tête global, le menu de navigation et
+          le pied de page).
+        </p>
+        <ul>
+          <li><em>Règle stricte du W3C :</em> il ne doit y avoir <strong>qu'un seul</strong> élément
+            <code>&lt;main&gt;</code> visible par document HTML.
+          </li>
+          <li>L'élément <code>&lt;main&gt;</code> ne doit jamais être imbriqué à l'intérieur d'un
+            <code>&lt;header&gt;</code>, d'un <code>&lt;nav&gt;</code>, d'un <code>&lt;aside&gt;</code> ou d'un
+            <code>&lt;footer&gt;</code>.
+          </li>
+        </ul>
+
+        <h4>2. L'article autonome : <code>&lt;article&gt;</code></h4>
+        <p>
+          La balise <code>&lt;article&gt;...&lt;/article&gt;</code> représente une composition indépendante et autonome
+          qui a du sens
+          par elle-même et pourrait être réutilisée ou distribuée hors du contexte du site (ex. via un flux RSS, un
+          agrégateur d'actualités).
+        </p>
+        <p><strong>Cas d'usage typiques :</strong> un article de presse, une publication de blog, une fiche de cours,
+          une critique de livre ou un commentaire d'utilisateur.</p>
+
+        <h4>3. La section thématique : <code>&lt;section&gt;</code></h4>
+        <p>
+          La balise <code>&lt;section&gt;...&lt;/section&gt;</code> regroupe des contenus liés par une thématique
+          commune.
+          Chaque section débute généralement par son propre titre hiérarchique (<code>&lt;h2&gt;</code> à
+          <code>&lt;h6&gt;</code>).
+        </p>
+
+        <h4>Règle de décision : Quand choisir <code>&lt;article&gt;</code> ou <code>&lt;section&gt;</code> ?</h4>
+        <div class="callout-box">
+          <ul class="mb-0">
+            <li>Si le contenu a un sens complet lorsqu'il est extrait de la page &rarr; utilisez
+              <strong><code>&lt;article&gt;</code></strong>.
+            </li>
+            <li>Si le contenu n'est qu'une sous-division thématique du document ou de l'article &rarr; utilisez
+              <strong><code>&lt;section&gt;</code></strong>.
+            </li>
+            <li><em>Imbrication :</em> un <code>&lt;article&gt;</code> peut être découpé en plusieurs
+              <code>&lt;section&gt;</code>, et inversement, une <code>&lt;section&gt;</code> peut regrouper plusieurs
+              <code>&lt;article&gt;</code> (ex. une section « Dernières actualités » contenant 3 articles).
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 2.4 : Contenu connexe et Pied de page -->
+      <section>
+        <h3>Contenu connexe et Pied de page</h3>
+
+        <h4>1. Le contenu connexe (ou périphérique) : <code>&lt;aside&gt;</code></h4>
+        <p>
+          La balise <code>&lt;aside&gt;...&lt;/aside&gt;</code> contient des informations secondaires ou
+          complémentaires,
+          qui ont un rapport indirect avec le contenu principal qui les entoure.
+        </p>
+        <p><strong>Exemples d'utilisation :</strong></p>
+        <ul>
+          <li>Une barre latérale (<em>sidebar</em>) affichant des articles recommandés ou récents.</li>
+          <li>Un encadré de définition, un glossaire ou une anecdote historique liée au sujet.</li>
+          <li>La biographie de l'auteur d'un article.</li>
+        </ul>
+
+        <h4>2. Le pied de page : <code>&lt;footer&gt;</code></h4>
+        <p>
+          La balise <code>&lt;footer&gt;...&lt;/footer&gt;</code> clôture un document entier ou une section donnée.
+          Elle regroupe traditionnellement :
+        </p>
+        <ul>
+          <li>Les mentions légales et droits d'auteur (copyright).</li>
+          <li>Les liens vers la politique de confidentialité et le plan du site.</li>
+          <li>Les coordonnées de contact (souvent associées à la balise <code>&lt;address&gt;</code>).</li>
+          <li>L'année scolaire ou la date de dernière mise à jour.</li>
+        </ul>
+      </section>
+
+      <!-- Section 2.5 : Exemple complet de mise en page -->
+      <section>
+        <h3>Exemple complet de mise en page structurée</h3>
+        <p>
+          Voici l'exemple pratique officiel montrant comment combiner harmonieusement toutes les balises structurelles
+          en HTML5 :
+        </p>
+
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet02/images/semantiques.png" alt="Rendu de l'exemple de structure sémantique"
+            class="img-fluid rounded border shadow-sm">
+          <figcaption class="mt-2 text-muted fst-italic">Aperçu visuel de la maquette structurée</figcaption>
+        </figure>
+
+        <h4>Code HTML5 complet</h4>
         <pre class="html"><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;fr&quot;&gt;
 &lt;head&gt;
   &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-  &lt;title&gt;Balises s&eacute;mantiques&lt;/title&gt;
+  &lt;title&gt;Structure s&eacute;mantique HTML5&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;header&gt;Ent&ecirc;te&lt;/header&gt;
-  &lt;nav&gt;Barre de navigation&lt;/nav&gt;
-  &lt;main&gt;
-    &lt;h1&gt;Contenu principal&lt;/h1&gt;
-    &lt;section&gt;
-      &lt;h2&gt;Section&lt;/h2&gt;
-    &lt;/section&gt;
-  &lt;/main&gt;
-  &lt;aside&gt;
-    &lt;h3&gt;En relation&lt;/h3&gt;
-  &lt;/aside&gt;
-  &lt;footer&gt;Pied de page&lt;/footer&gt;
+
+  &lt;header&gt;
+    &lt;h1&gt;Ent&ecirc;te de la page&lt;/h1&gt;
+  &lt;/header&gt;
+
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Actualit&eacute;s&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+
+  &lt;div class=&quot;conteneur-corps&quot;&gt;
+    &lt;main&gt;
+      &lt;h2&gt;Contenu principal&lt;/h2&gt;
+      &lt;section&gt;
+        &lt;h3&gt;Section th&eacute;matique&lt;/h3&gt;
+        &lt;p&gt;Texte explicatif du sujet abord&eacute; dans cette section.&lt;/p&gt;
+      &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;aside&gt;
+      &lt;h3&gt;En relation&lt;/h3&gt;
+      &lt;p&gt;Liens et informations p&eacute;riph&eacute;riques.&lt;/p&gt;
+    &lt;/aside&gt;
+  &lt;/div&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;Pied de page &mdash; Tous droits r&eacute;serv&eacute;s 3STI&lt;/p&gt;
+  &lt;/footer&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-        <p>Code CSS</p>
-        <pre class="css"><code>body {
-  width: 800px;
+        <h4>Code CSS de disposition moderne</h4>
+        <pre class="css"><code>/* Feuille de style illustrant la mise en page des balises sémantiques */
+body {
+  max-width: 900px;
   margin: 20px auto;
-  background-color: #a9a9a9;
-  display: flex;
-  flex-wrap: wrap;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #f1f5f9;
+  color: #1e293b;
 }
 
 header {
-  width: 100%; height: 3em;
-  line-height: 3em;
-  color: #fff;
-  font-size: 2em;
-  font-family: cursive;
+  background: linear-gradient(135deg, #475569, #334155);
+  color: #ffffff;
   text-align: center;
-  border: #fff solid 1px;
-  margin: 0.15em 0;
-  position: relative;
+  padding: 1.5rem;
+  border-radius: 8px 8px 0 0;
 }
 
 nav {
-  background-color: #ff80ff;
-  text-align: center;
-  border: #fff solid 1px;
-  width: 100%; height: 3em;
-  margin: 0.15em 0;
-  line-height: 3em;
-  position: relative;
+  background-color: #e2e8f0;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid #cbd5e1;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.conteneur-corps {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
 }
 
 main {
-  background-color: #fff;
-  text-align: center;
-  border: #333 solid 1px;
-  width: 70%; height: 15em;
-  margin: 0.15em 0;
-  position: relative;
-  padding-top: 2em;
+  flex: 7;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
 }
 
 aside {
-  background-color: #ff80ff;
-  text-align: center;
-  border: #fff solid 1px;
-  width: calc(30% - 0.3em - 4px); height: 15em;
-  margin: 0.15em 0 0.15em 0.3em;
-  position: relative;
-  padding-top: 2em;
+  flex: 3;
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
 }
 
 footer {
-  background-color: #fff;
+  background-color: #1e293b;
+  color: #94a3b8;
   text-align: center;
-  border: #333 solid 1px;
-  width: 100%; height: 3em;
-  line-height: 3em;
-  margin: 0.15em 0;
-  position: relative;
+  padding: 1rem;
+  border-radius: 0 0 8px 8px;
 }</code></pre>
       </section>
+    </article>
 
+    <!-- ================================================================= -->
+    <!-- ARTICLE 3 : BALISES SÉMANTIQUES DE CONTENU & ACCESSIBILITÉ -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Structuration du contenu</h2>
+
+      <!-- Section 3.1 : Figure et Figcaption -->
       <section>
-        <h3>Balises sémantiques de contenu et médias</h3>
-        <p>En plus de la structure globale de la page, HTML5 propose des balises pour enrichir sémantiquement le contenu textuel et multimédia :</p>
+        <h3>Illustrations &amp; Légendes</h3>
+        <p>
+          En HTML5, lorsqu'une image, un schéma, un graphique ou un extrait de code est accompagné d'une légende
+          explicative,
+          on utilise le binôme sémantique <code>&lt;figure&gt;</code> et <code>&lt;figcaption&gt;</code> :
+        </p>
 
-        <h4>La balise &lt;mark&gt; (Surlignage)</h4>
-        <p>Elle permet de mettre en valeur du texte particulièrement pertinent dans un contexte donné (surlignage jaune par défaut).</p>
-        <div class="alert alert-light border">
-          <p class="mb-0">Exemple de rendu : N'oubliez pas d'<mark>enregistrer votre travail</mark> avant de quitter.</p>
-        </div>
-        <pre class="html"><code>&lt;p&gt;N'oubliez pas d'&lt;mark&gt;enregistrer votre travail&lt;/mark&gt; avant de quitter.&lt;/p&gt;</code></pre>
-
-        <h4>Les balises &lt;details&gt; et &lt;summary&gt; (Bloc dépliable)</h4>
-        <p>La balise <code>&lt;details&gt;</code> crée un widget interactif que l'utilisateur peut ouvrir ou fermer. La balise <code>&lt;summary&gt;</code> définit son intitulé visible.</p>
-        <p>L'attribut booléen <code>open</code> permet d'afficher le bloc ouvert par défaut.</p>
-        <div class="alert alert-light border">
-          <details open>
-            <summary>En savoir plus sur le HTML5 (cliquez pour replier)</summary>
-            <p class="mt-2 mb-0">HTML5 introduit de nouvelles balises sémantiques facilitant l'accessibilité et le référencement.</p>
-          </details>
-        </div>
-        <pre class="html"><code>&lt;details open&gt;
-  &lt;summary&gt;En savoir plus sur le HTML5&lt;/summary&gt;
-  &lt;p&gt;HTML5 introduit de nouvelles balises sémantiques facilitant l'accessibilité et le référencement.&lt;/p&gt;
-&lt;/details&gt;</code></pre>
-
-        <h4>La balise &lt;audio&gt; (Médias audio)</h4>
-        <p>La balise <code>&lt;audio&gt;</code> permet d'intégrer un extrait sonore dans une page web. L'attribut <code>controls</code> ajoute la barre de lecture (lecture/pause, volume, durée). On utilise la balise <code>&lt;source&gt;</code> imbriquée pour spécifier les fichiers et formats (ex. MP3, OGG).</p>
-        <div class="alert alert-light border">
-          <audio controls src="assets/audio/sample.mp3">
-            <source src="assets/audio/sample.mp3" type="audio/mpeg">
-            Votre navigateur ne supporte pas la balise audio.
-          </audio>
-        </div>
-        <pre class="html"><code>&lt;audio controls src=&quot;sample.mp3&quot;&gt;
-  &lt;source src=&quot;sample.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
-  Votre navigateur ne supporte pas la balise audio.
-&lt;/audio&gt;</code></pre>
-      </section>
-
-      <section>
-        <h3>Application 1</h3>
-
-        <p>Utiliser les balises sémantiques pour structurer le site web <strong>computers</strong> disponible en
-          téléchargement à travers ce lien : <a href="assets/miniprojet02/computers-todo.zip" target="_blank"
-            rel="noopener noreferrer">Computers</a>.</p>
-        <p>Les pages possèdent la structure suivante :</p>
-        <figure>
-          <img src="assets/miniprojet02/images/computers_page_structure.png" alt="Structure de la page computers">
-          <figcaption>Structure de la page computers</figcaption>
-        </figure>
-
-        <p>Utiliser une feuille de style liée. Les couleurs sont laissées au libre choix de l'élève.</p>
-      </section>
-
-      <section>
-        <h3 class="p-break">Application 2</h3>
-        <p>Télécharger le site Web <strong>Fruits universe</strong> à compléter à traver le lien : <a
-            href="assets/miniprojet02/fruits_universe-todo.zip" target="_blank" rel="noopener noreferrer">Fruits
-            universe</a>.</p>
         <ul>
-          <li>Décompresser le fichier,</li>
-          <li>Ouvrir le dossier à l'aide de Visual Studio Code,</li>
-          <li>Ajouter le fichier <strong>style.css</strong> pour mettre en forme le site comme suit : cliquer sur
-            l'image pour l'agrandir.</li>
+          <li>
+            <strong><code>&lt;figure&gt;</code> (Conteneur de média) :</strong>
+            englobe le contenu multimédia (image, illustration, extrait de code, vidéo) perçu comme une unité
+            indépendante du flux du texte.
+          </li>
+          <li>
+            <strong><code>&lt;figcaption&gt;</code> (Légende de la figure) :</strong>
+            contient la légende ou la description textuelle de la figure. Elle se place obligatoirement comme premier ou
+            dernier enfant direct de <code>&lt;figure&gt;</code>.
+          </li>
         </ul>
 
-        <figure>
-          <a href="assets/miniprojet02/page01.png" target="_blank" rel="noopener noreferrer">
-            <img src="assets/miniprojet02/page01_thumb.png" alt="Strawberry page">
-          </a>
+        <pre class="html"><code>&lt;figure&gt;
+  &lt;img src=&quot;assets/miniprojet02/images/motherboard.jpg&quot; alt=&quot;Carte mère d'un ordinateur de bureau&quot;&gt;
+  &lt;figcaption&gt;Figure 1.1 : Vue d'ensemble des composants d'une carte m&egrave;re ATX&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
 
-          <a href="assets/miniprojet02/page02.png" target="_blank" rel="noopener noreferrer">
-            <img src="assets/miniprojet02/page02_thumb.png" alt="Apples page" style="width: 30%;">
-          </a>
+        <div class="demo-box my-3 text-center">
+          <figure class="mb-0">
+            <img src="assets/miniprojet02/images/motherboard.jpg" alt="Carte mère d'un ordinateur de bureau"
+              class="img-fluid rounded border shadow-sm" style="max-height: 250px;">
+            <figcaption class="text-muted small mt-2"><em>Figure 1.1 : Vue d'ensemble des composants d'une carte mère
+                ATX</em></figcaption>
+          </figure>
+        </div>
+      </section>
 
-          <a href="assets/miniprojet02/page02.png" target="_blank" rel="noopener noreferrer">
-            <img src="assets/miniprojet02/page03_thumb.png" alt="Grapes page" style="width: 30%;">
-          </a>
+      <!-- Section 3.2 : Details et Summary -->
+      <section>
+        <h3>Blocs dépliables</h3>
+        <p>
+          HTML5 permet de créer des menus accordéons ou des blocs dépliables interactifs <strong>sans écrire une seule
+            ligne de JavaScript</strong> :
+        </p>
 
-          <figcaption>Aperçu des pages</figcaption>
+        <ul>
+          <li>
+            <strong><code>&lt;details&gt;</code> :</strong>
+            balise conteneur dont le contenu peut être masqué ou révélé par l'utilisateur.
+          </li>
+          <li>
+            <strong><code>&lt;summary&gt;</code> :</strong>
+            fournit l'intitulé visible et cliquable du bloc. Elle est toujours accompagnée d'un petit triangle
+            orientable par le navigateur.
+          </li>
+          <li>
+            <strong>Attribut <code>open</code> :</strong>
+            attribut booléen facultatif. Lorsqu'il est présent (<code>&lt;details open&gt;</code>), le bloc est ouvert
+            et visible dès le chargement initial de la page.
+          </li>
+        </ul>
+
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>⚡ Démonstration interactive :</span>
+          </div>
+          <details open>
+            <summary>
+              Prérequis de la Séance n°2
+            </summary>
+            <ul class="mt-2 mb-0">
+              <li>Maîtrise de la structure minimale d'un document HTML5 (<code>&lt;!DOCTYPE&gt;</code>,
+                <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>).
+              </li>
+              <li>Utilisation correcte des titres (<code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code>) et des paragraphes
+                (<code>&lt;p&gt;</code>).</li>
+              <li>Notions de base du modèle de boîte CSS (marges, bordures et remplissage).</li>
+            </ul>
+          </details>
+        </div>
+
+        <pre class="html"><code>&lt;!-- Bloc dépliable ouvert par défaut --&gt;
+&lt;details open&gt;
+  &lt;summary&gt;Pr&eacute;requis de la S&eacute;ance n&deg;2&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Maîtrise de la structure minimale d'un document HTML5 (<code>&lt;!DOCTYPE&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>).&lt;/li&gt;
+    &lt;li&gt;Utilisation correcte des titres (<code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code>) et des paragraphes (<code>&lt;p&gt;</code>).&lt;/li&gt;
+    &lt;li&gt;Notions de base du modèle de boîte CSS (marges, bordures et remplissage).&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;</code></pre>
+      </section>
+
+      <!-- Section 3.3 : Surlignage, Coordonnées et Citations -->
+      <section>
+        <h3>Mise en valeur &amp; Références</h3>
+
+        <h4>1. Surlignage contextuel : <code>&lt;mark&gt;</code></h4>
+        <p>
+          La balise <code>&lt;mark&gt;...&lt;/mark&gt;</code> indique un passage de texte mis en surbrillance pour sa
+          pertinence dans un contexte précis (terme recherché, élément clé d'une citation). Par défaut, les navigateurs
+          lui appliquent un fond jaune vif.
+        </p>
+        <div class="callout-box">
+          <p class="mb-0"><strong>Exemple de rendu :</strong> Pensez à <mark>fermer toutes les balises imbriquées</mark>
+            pour éviter les erreurs d'affichage.</p>
+        </div>
+        <pre
+          class="html"><code>&lt;p&gt;Pensez &agrave; &lt;mark&gt;fermer toutes les balises imbriqu&eacute;es&lt;/mark&gt; pour &eacute;viter les erreurs.&lt;/p&gt;</code></pre>
+
+        <h4>2. Coordonnées de l'auteur : <code>&lt;address&gt;</code></h4>
+        <p>
+          La balise <code>&lt;address&gt;...&lt;/address&gt;</code> fournit les informations de contact pour l'auteur ou
+          le propriétaire du document.
+          Elle contient généralement un e-mail, un numéro de téléphone, une adresse physique ou un lien de contact. Elle
+          s'intègre typiquement dans le <code>&lt;footer&gt;</code>.
+        </p>
+        <pre class="html"><code>&lt;footer&gt;
+  &lt;address&gt;
+    R&eacute;dig&eacute; par Mohamed Anis MANI&lt;br&gt;
+    Courriel : &lt;a href=&quot;mailto:prof@education.tn&quot;&gt;prof@education.tn&lt;/a&gt;&lt;br&gt;
+    Tunis, Tunisie
+  &lt;/address&gt;
+&lt;/footer&gt;</code></pre>
+
+        <h4>3. Titre d'une œuvre : <code>&lt;cite&gt;</code></h4>
+        <p>
+          La balise <code>&lt;cite&gt;...&lt;/cite&gt;</code> représente le titre d'un travail créatif (un livre, un
+          article, un film, une œuvre d'art ou un site web). Le navigateur l'affiche généralement en italique.
+        </p>
+        <pre
+          class="html"><code>&lt;p&gt;D'apr&egrave;s l'ouvrage &lt;cite&gt;Conception Web moderne&lt;/cite&gt;, la s&eacute;mantique est le pilier du HTML5.&lt;/p&gt;</code></pre>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered align-middle">
+            <thead>
+              <tr>
+                <th>Balise</th>
+                <th>Rôle sémantique</th>
+                <th>Rendu par défaut</th>
+                <th>Emplacement type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>&lt;mark&gt;</code></td>
+                <td>Surlignage contextuel / mise en évidence</td>
+                <td><mark>Fond jaune</mark></td>
+                <td>Au sein d'un paragraphe <code>&lt;p&gt;</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;address&gt;</code></td>
+                <td>Coordonnées de l'auteur / propriétaire</td>
+                <td><i>Texte en italique</i> avec saut de ligne</td>
+                <td>Dans <code>&lt;footer&gt;</code> ou fin d'article</td>
+              </tr>
+              <tr>
+                <td><code>&lt;cite&gt;</code></td>
+                <td>Référence ou titre d'une œuvre</td>
+                <td><i>Texte en italique</i></td>
+                <td>En-ligne dans une citation ou bibliographie</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 4 : ATELIERS PRATIQUES (APPLICATIONS) -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Ateliers Pratiques</h2>
+
+      <!-- Section 4.1 : Application 1 - Computers -->
+      <section>
+        <h3>Application 1 : Computers</h3>
+        <p>
+          L'objectif de cet atelier est de mettre en pratique les balises sémantiques de structuration de page en
+          concevant
+          un mini-site documentaire complet intitulé <strong>« Computers »</strong>.
+        </p>
+
+        <div class="my-3 text-center">
+          <a href="assets/miniprojet02/computers-todo.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger le projet de départ : Computers (ZIP)
+          </a>
+        </div>
+
+        <h4>Structure attendue des pages</h4>
+        <p>
+          Chaque page du site doit impérativement respecter le découpage sémantique illustré ci-dessous :
+        </p>
+
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet02/images/computers_page_structure.png"
+            alt="Architecture des pages du site Computers" class="img-fluid rounded border shadow-sm">
+          <figcaption class="mt-2 text-muted fst-italic">Structure sémantique attendue pour les pages du site Computers
+          </figcaption>
         </figure>
 
-        <p>Le choix des couleurs et le style des polices sont laissés au libre choix de l'élève.</p>
+        <h4>Cahier des charges & Travail à réaliser</h4>
+        <ol>
+          <li>
+            <strong>Téléchargement & Extraction :</strong>
+            Téléchargez l'archive <code>computers-todo.zip</code>, décompressez-la et ouvrez le dossier sous <em>Visual
+              Studio Code</em>.
+          </li>
+          <li>
+            <strong>Structure globale commune :</strong>
+            Chacune des 4 pages (<code>index.html</code>, <code>uses.html</code>, <code>types.html</code>,
+            <code>parts.html</code>) doit comporter :
+            <ul>
+              <li>Un en-tête <code>&lt;header&gt;</code> contenant le titre principal
+                <code>&lt;h1&gt;Computers&lt;/h1&gt;</code> et le slogan
+                <code>&lt;p&gt;A serie of what's&lt;/p&gt;</code>.
+              </li>
+              <li>Une barre de navigation <code>&lt;nav&gt;</code> contenant une liste à puces <code>&lt;ul&gt;</code>
+                avec les 4 liens, la page courante étant repérée par la classe <code>class="active"</code>.</li>
+              <li>Un conteneur central <code>&lt;main&gt;</code> enveloppant le titre du sujet et le contenu
+                rédactionnel.</li>
+              <li>Un pied de page <code>&lt;footer&gt;</code> avec la mention de copyright.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Feuille de styles liée :</strong>
+            Créez ou complétez le fichier <code>style.css</code> pour harmoniser la présentation (les couleurs et
+            polices sont laissées au libre choix de l'élève).
+          </li>
+        </ol>
+      </section>
+
+      <!-- Section 4.2 : Application 2 - Fruits Universe -->
+      <section>
+        <h3>Application 2 : Fruits Universe</h3>
+        <p>
+          Cet atelier met l'accent sur l'application de feuilles de styles CSS pour transformer une structure sémantique
+          brute en une interface web moderne.
+        </p>
+
+        <div class="my-3 text-center">
+          <a href="assets/miniprojet02/fruits_universe-todo.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger le projet de départ : Fruits Universe (ZIP)
+          </a>
+        </div>
+
+        <h4>Aperçu des maquettes à reproduire</h4>
+        <p>
+          Le site se compose de trois pages thématiques présentant la fraise, la pomme et le raisin.
+          Cliquez sur chaque vignette pour ouvrir la maquette en grand format :
+        </p>
+
+        <figure class="my-4 text-center">
+          <div class="row g-3 justify-content-center">
+            <div class="col-md-4">
+              <a href="assets/miniprojet02/page01.png" target="_blank" rel="noopener noreferrer">
+                <img src="assets/miniprojet02/page01_thumb.png" alt="Maquette de la page Strawberry"
+                  class="img-fluid rounded border shadow-sm hover-zoom">
+              </a>
+              <div class="small text-muted mt-1">Page 1 : Strawberry</div>
+            </div>
+            <div class="col-md-4">
+              <a href="assets/miniprojet02/page02.png" target="_blank" rel="noopener noreferrer">
+                <img src="assets/miniprojet02/page02_thumb.png" alt="Maquette de la page Apples"
+                  class="img-fluid rounded border shadow-sm hover-zoom">
+              </a>
+              <div class="small text-muted mt-1">Page 2 : Apples</div>
+            </div>
+            <div class="col-md-4">
+              <a href="assets/miniprojet02/page03.png" target="_blank" rel="noopener noreferrer">
+                <img src="assets/miniprojet02/page03_thumb.png" alt="Maquette de la page Grapes"
+                  class="img-fluid rounded border shadow-sm hover-zoom">
+              </a>
+              <div class="small text-muted mt-1">Page 3 : Grapes</div>
+            </div>
+          </div>
+          <figcaption class="mt-3 text-muted fst-italic">Aperçu visuel des trois maquettes du projet Fruits Universe
+          </figcaption>
+        </figure>
+
+        <h4>Étapes de réalisation guidée</h4>
+        <ul>
+          <li>
+            <strong>1. En-tête sombre :</strong> appliquez à <code>&lt;header&gt;</code> un fond sombre (ex.
+            <code>background-color: #111;</code>), un texte en blanc et une typographie à empattement (serif) élégante.
+          </li>
+          <li>
+            <strong>2. Navigation horizontale :</strong> stylisez la balise <code>&lt;nav&gt;</code> avec un fond
+            contrasté et disposez les liens en ligne sans puces (<code>list-style: none; display: flex;</code>). Mettez
+            en surbrillance rouge le fruit actif.
+          </li>
+          <li>
+            <strong>3. Corps de page & Tableaux :</strong> mettez en page le conteneur <code>&lt;main&gt;</code> sur
+            fond blanc centré, intégrez la photo du fruit avec une bordure discrète et formatez le tableau statistique
+            des productions (<code>&lt;table&gt;</code> avec bordures horizontales simples et alignement soigné).
+          </li>
+          <li>
+            <strong>4. Pied de page :</strong> centrez le texte du copyright dans <code>&lt;footer&gt;</code> sur fond
+            sombre.
+          </li>
+        </ul>
       </section>
     </article>
   </main>

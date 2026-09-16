@@ -5,17 +5,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Séance n°3</title>
+  <title>Séance n°3 : Animation CSS</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/default.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animation.css">
 </head>
 
 <body>
   <aside>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span class="brand-text">Conception Web</span></a>
+        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span
+            class="brand-text">Conception Web</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span> Menu
@@ -26,69 +28,99 @@
   </aside>
 
   <main class="my-4 container">
-    <h1>Séance n°3</h1>
+    <h1>Séance n°3 : Animation CSS</h1>
 
+    <!-- ================================================================= -->
+    <!-- ARTICLE 1 : OBJECTIFS & PRÉSENTATION -->
+    <!-- ================================================================= -->
     <article>
-      <h2>Animation CSS</h2>
+      <h2>Objectifs & Présentation</h2>
 
+      <!-- Section 1.1 : Mise en situation & Problématique -->
       <section>
-        <h3>Problématique</h3>
+        <h3>Mise en situation & Problématique</h3>
+        <p>
+          En conception Web moderne, les animations CSS jouent un rôle capital dans l'expérience utilisateur (<abbr
+            title="User Experience">UX</abbr>).
+          Elles permettent de donner vie aux interfaces graphiques, de signaler l'état d'un chargement en arrière-plan,
+          d'attirer l'attention sur une action ou de guider l'utilisateur de manière intuitive et fluide, le tout
+          <strong>sans alourdir la page avec du code JavaScript</strong>.
+        </p>
 
-        <p>On veut créer les <strong>barres de progression</strong> ci-dessous :</p>
-        <div class="d-print-none">
-          <video controls>
+        <p>
+          <strong>Problématique d'étude :</strong>
+          On souhaite concevoir et animer les indicateurs de chargement (barres de progression) illustrés ci-dessous :
+        </p>
+
+        <div class="demo-box my-3 text-center d-print-none">
+          <div class="demo-box-header mb-3">
+            <span>🎥 Rendu dynamique attendu (Démonstration vidéo) :</span>
+          </div>
+          <video controls class="rounded border shadow-sm img-fluid demo-video">
             <source src="assets/miniprojet04/images/loader.webm" type="video/webm">
             <source src="assets/miniprojet04/images/loader.ogg" type="video/ogg">
             <source src="assets/miniprojet04/images/loader.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la balise vidéo HTML5.
           </video>
         </div>
-        <div class="d-none d-print-block">
+
+        <div class="d-none d-print-block text-center my-3">
           <figure>
-            <img src="assets/miniprojet04/images/loader.png" alt="Barres de progression">
-            <figcaption>Barres de progression</figcaption>
+            <img src="assets/miniprojet04/images/loader.png" alt="Barres de progression"
+              class="img-fluid border rounded">
+            <figcaption class="mt-2 text-muted fst-italic">Aperçu statique des barres de progression</figcaption>
           </figure>
         </div>
 
-        <h4>Squelette de la page</h4>
+        <h4>1. Squelette HTML5 initial</h4>
+        <p>
+          Le document HTML contient trois conteneurs représentant chacun une variante d'animation :
+        </p>
 
-        <p>On donne le code HTML correspondant :</p>
         <pre class="html"><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
+&lt;html lang=&quot;fr&quot;&gt;
 &lt;head&gt;
   &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-  &lt;title&gt;Animation&lt;/title&gt;
+  &lt;title&gt;Barres de progression anim&eacute;es&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div class=&quot;loader animation1&quot;&gt;
     &lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
+
   &lt;div class=&quot;loader animation2&quot;&gt;
     &lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
+
   &lt;div class=&quot;loader animation3&quot;&gt;
     &lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-        <p>Le chargement du fichier dans le navigateur n'affiche rien. Il faudra écrire le code CSS.</p>
+        <p>
+          Sans code CSS associé, le navigateur n'affiche rien à l'écran car les éléments <code>&lt;div&gt;</code> n'ont
+          ni
+          dimensions ni couleur de fond.
+        </p>
 
-        <h4>Code CSS</h4>
-
-        <p>Commençons par définir le cadre des barres de progression :</p>
+        <h4>2. Définition du cadre et du remplissage initial en CSS</h4>
+        <p>
+          Définissons la boîte externe (le cadre) et le style de base de la barre intérieure :
+        </p>
         <ul>
-          <li>Dimensions : 320px &times; 16px</li>
-          <li>Marges verticales: 5px</li>
-          <li>Bordure : couleur <span class="color" style="background-color: #333;"></span> #333, épaisseur 1px</li>
-        </ul>
-
-        <p>La barre de progression est définie comme suit :</p>
-        <ul>
-          <li>Dimensions : 100% &times; 100%</li>
-          <li>Arrière plan : Un dégradé linéaire de <span class="color" style="background-color: #007700;"></span>
-            #007700 à <span class="color" style="background-color: #65ff65;"></span> #65ff65, de gauche à droite</li>
+          <li><strong>Cadre externe (<code>.loader</code>) :</strong> largeur <code>320px</code>, hauteur
+            <code>16px</code>, marge verticale <code>5px</code>, bordure fine <code>#333 solid 1px</code>, et
+            positionnement <code>position: relative;</code>.
+          </li>
+          <li><strong>Barre intérieure (<code>.progress-bar</code>) :</strong> remplit initialement 100% de la largeur
+            et
+            de la hauteur, avec un dégradé linéaire de vert foncé (<span class="color"
+              style="background-color: #007700;"></span> <code>#007700</code>) à vert clair (<span class="color"
+              style="background-color: #65ff65;"></span> <code>#65ff65</code>).
+          </li>
         </ul>
 
         <pre class="css"><code>.loader {
@@ -105,472 +137,509 @@
   background: linear-gradient(to right, #007700, #65ff65);
 }</code></pre>
 
-        <p>Ce code permet d'obtenir un rectangle remplit par un dégradé de vert comme suit :</p>
-        <figure>
+        <figure class="my-3 text-center">
           <img src="assets/miniprojet04/images/loader02.png"
-            alt="Implémentation partielle de l'indicateur de téléchargement">
-          <figcaption>Implémentation partielle de l'indicateur de téléchargement</figcaption>
+            alt="Implémentation partielle de l'indicateur de téléchargement" class="img-fluid rounded border shadow-sm">
+          <figcaption class="mt-2 text-muted fst-italic">Rendu statique de la barre avant application des animations
+          </figcaption>
         </figure>
       </section>
 
+      <!-- Section 1.2 : Auto-évaluation & Prérequis -->
       <section>
-        <h3>Présentation</h3>
-        <p>Une animation permet à un élément de passer progressivement d'un style à un autre. Pour animer un élément, il
-          faut définir les images clés (keyframes) de l'animation. Les images clés contiennent les styles que l'élément
-          aura à certains moments.</p>
-
-        <h4>La règle @keyframes</h4>
-        <p>La règle <code>@keyframes</code> définit les moments auxquels l'animation passe du style actuel à un nouveau
-          style.</p>
-        <p>Pour fonctionner les images clés <code>@keyframes</code> doivent être liés à un élément de la page.</p>
-        <p>Dans l'example suivant l'animation <code>anim01</code> est liée à l'élément ayant comme classe
-          <code>.anim01</code>. L'animation dure 4 secondes et fait changer l'arrière plan de l'élément du
-          <span class="color" style="background-color: red;"></span> rouge au <span class="color"
-            style="background-color: yellow;"></span> jaune.
+        <h3>Auto-évaluation & Prérequis</h3>
+        <p>
+          Avant d'aborder les animations CSS, assurez-vous de maîtriser les fondamentaux CSS3 vus lors des séances
+          précédentes :
         </p>
-        <p>La propriété <code> animation-duration</code> définit la durée d'exécution de l'animation. Si elle n'est pas
-          spécifiée, aucune animation ne se produit, car la valeur par défaut est 0s.</p>
 
-        <p>Dans cet exemple, les moments quand le style changera en utilisant les mots clés <code>from</code> et
-          <code>to</code>.
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>⚡ Vérification des connaissances requises :</span>
+          </div>
+          <details open>
+            <summary>Prérequis de la Séance n°3</summary>
+            <ul class="mt-2 mb-0">
+              <li><strong>Sélecteurs CSS :</strong> sélection par classe (<code>.classe</code>), identifiant
+                (<code>#id</code>) et sélecteurs combinés descendants (ex. <code>.animation1 .progress-bar</code>).</li>
+              <li><strong>Modèle de boîte :</strong> dimensions (<code>width</code>, <code>height</code>), marges
+                externes (<code>margin</code>), bordures (<code>border</code>) et arrondis
+                (<code>border-radius</code>).</li>
+              <li><strong>Positionnement CSS :</strong> différence fondamentale entre <code>position: relative;</code>
+                et <code>position: absolute;</code> ainsi que les coordonnées <code>top</code>, <code>bottom</code>,
+                <code>left</code>, <code>right</code>.
+              </li>
+              <li><strong>Arrière-plans avancés :</strong> dégradés linéaires avec
+                <code>linear-gradient(direction, couleur1, couleur2)</code>.
+              </li>
+            </ul>
+          </details>
+        </div>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 2 : CONCEPTS FONDAMENTAUX DES ANIMATIONS CSS3 -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Fondamentaux des Animations</h2>
+
+      <!-- Section 2.1 : Principe de l'animation & Règle @keyframes -->
+      <section>
+        <h3>Principe de l'animation</h3>
+        <p>
+          Une animation CSS permet à un élément HTML de <strong>passer progressivement d'un style à un autre</strong> au
+          cours du temps.
+          Le navigateur calcule automatiquement toutes les valeurs intermédiaires (interpolation) entre les états
+          déclarés.
+        </p>
+
+        <div class="callout-box">
+          <p class="mb-0">
+            <strong>Définition :</strong> La règle <code>@keyframes</code> (littéralement « images clés ») est une
+            directive CSS qui décrit les différents états stylistiques par lesquels passe un élément à des moments
+            précis de son cycle d'animation.
+          </p>
+        </div>
+
+        <h4>Syntaxe générale</h4>
+        <pre class="css"><code>@keyframes nomDeLAnimation {
+  /* Définition des états successifs */
+}</code></pre>
+        <p>
+          Pour être visible à l'écran, une animation déclarée avec <code>@keyframes</code> doit obligatoirement être
+          <strong>associée à un élément HTML</strong> via son sélecteur CSS.
+        </p>
+      </section>
+
+      <!-- Section 2.2 : Définition des étapes temporelles -->
+      <section>
+        <h3>Définition des étapes</h3>
+
+        <h4>1. Animation à deux états : mots-clés <code>from</code> et <code>to</code></h4>
+        <p>
+          Lorsque l'animation ne comporte qu'un point de départ et un point d'arrivée simples, on utilise :
         </p>
         <ul>
-          <li><code>from</code> : représente le style au début de l'animation (0%)</li>
-          <li><code>to</code> : représente le style à la fin de l'animation (100%)</li>
+          <li><code>from</code> : style appliqué au tout début de l'animation (équivalent à <code>0%</code>).</li>
+          <li><code>to</code> : style appliqué à la fin du cycle (équivalent à <code>100%</code>).</li>
         </ul>
 
-        <div class="row d-print-none">
-          <div class="col-sm-9">
-            <pre class="css"><code>@keyframes anim01 {
-  from {background-color: red;}
-  to {background-color: yellow;}
+        <div class="row align-items-center g-3 my-2">
+          <div class="col-lg-8">
+            <pre class="css mb-0"><code>@keyframes anim01 {
+  from { background-color: red; }
+  to   { background-color: yellow; }
 }
 
 .anim01 {
-  width: 100px; 
+  width: 100px;
   height: 100px;
   background-color: red;
   animation-name: anim01;
-  animation-duration: 4s;
+  animation-duration: 2s;
 }</code></pre>
           </div>
-          <div class="col-sm-3">
-            <style>
-              @keyframes anim01 {
-                from {
-                  background-color: red;
-                }
-
-                to {
-                  background-color: yellow;
-                }
-              }
-
-              .anim01 {
-                width: 100px;
-                height: 100px;
-                background-color: red;
-                animation-name: anim01;
-                animation-duration: 4s;
-              }
-            </style>
-            <div class="anim01"></div>
+          <div class="col-lg-4 text-center">
+            <div class="demo-box py-3">
+              <div class="demo-box-header mb-2"><span>⚡ Aperçu en direct :</span></div>
+              <div class="d-flex justify-content-center">
+                <div class="box-live-01"></div>
+              </div>
+              <div class="small text-muted mt-2 fst-italic">Rouge &harr; Jaune (2s)</div>
+            </div>
           </div>
         </div>
-        <div class="d-none d-print-block">
-          <pre class="css"><code>@keyframes anim01 {
-  from {background-color: red;}
-  to {background-color: yellow;}
-}
 
-.anim01 {
-  width: 100px; height: 100px;
-  background-color: red;
-  animation-name: anim01;
-  animation-duration: 4s;
-}</code></pre>
-        </div>
-
-        <p>A la place des mots clés <code>from</code> et <code>to</code>, il est possible d'utiliser le poucentage de
-          progression de l'animation &laquo; <strong>animation progression in percent</strong> &raquo; :</p>
+        <h4>2. Animation multi-étapes avec les Pourcentages (<code>0%</code> à <code>100%</code>)</h4>
+        <p>
+          Pour créer des séquences complexes comportant plusieurs changements successifs, on remplace <code>from</code>
+          et <code>to</code> par des pourcentages représentant la progression temporelle :
+        </p>
         <ul>
-          <li><code>0%</code> représente le début de l'animation,</li>
-          <li><code>x%</code> avec <code>x</code> est un nombre de 0 à 100 qui représente la progression de l'animation,
+          <li><code>0%</code> : moment initial du cycle.</li>
+          <li><code>x%</code> : état intermédiaire précis (ex. <code>25%</code>, <code>50%</code>, <code>75%</code>).
           </li>
-          <li><code>100%</code> représente la fin de l'animation</li>
+          <li><code>100%</code> : moment final du cycle.</li>
         </ul>
 
-        <p><strong>Exemple 1</strong> : L'exemple suivant modifie la couleur d'arrière-plan de la classe
-          <code>.anim02</code> :
+        <p><strong>Exemple 1 : Cycle de 4 couleurs consécutives</strong></p>
+        <div class="row align-items-center g-3 my-2">
+          <div class="col-lg-8">
+            <pre class="css mb-0"><code>@keyframes anim02 {
+  0%   { background-color: red; }
+  25%  { background-color: yellow; }
+  50%  { background-color: blue; }
+  100% { background-color: green; }
+}
+
+.anim02 {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: anim02;
+  animation-duration: 4s;
+}</code></pre>
+          </div>
+          <div class="col-lg-4 text-center">
+            <div class="demo-box py-3">
+              <div class="demo-box-header mb-2"><span>⚡ Aperçu en direct :</span></div>
+              <div class="d-flex justify-content-center">
+                <div class="box-live-02"></div>
+              </div>
+              <div class="small text-muted mt-2 fst-italic">Rouge &rarr; Jaune &rarr; Bleu &rarr; Vert</div>
+            </div>
+          </div>
+        </div>
+
+        <p><strong>Exemple 2 : Déplacement spatial 2D sur trajectoire carrée</strong></p>
+        <p>
+          En combinant le changement de couleur avec les coordonnées <code>left</code> et <code>top</code> (sur un
+          élément
+          en <code>position: relative;</code>), on crée un mouvement orbital complet :
         </p>
-        <ul>
-          <li>de <code>0%</code> à <code>25%</code> : couleur d'arrière-plan <span class="color"
-              style="background-color: red;"></span> rouge</li>
-          <li>de <code>25%</code> à <code>50%</code> : couleur d'arrière-plan <span class="color"
-              style="background-color: yellow;"></span> jaune</li>
-          <li>de <code>50%</code> à <code>75%</code> : couleur d'arrière-plan <span class="color"
-              style="background-color: blue;"></span> bleue</li>
-          <li>de <code>75%</code> à <code>100%</code> : couleur d'arrière-plan <span class="color"
-              style="background-color: green;"></span> verte</li>
-        </ul>
-        <div class="row d-print-none">
-          <div class="col-sm-9">
-            <pre class="css"><code>@keyframes anim02 {
-  0%   {background-color: red;}
-  25%  {background-color: yellow;}
-  50%  {background-color: blue;}
-  100% {background-color: green;}
-}
 
-.anim02 {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  animation-name: anim02;
-  animation-duration: 4s;
-}</code></pre>
-          </div>
-          <div class="col-sm-3">
-            <style>
-              @keyframes anim02 {
-                0% {
-                  background-color: red;
-                }
-
-                25% {
-                  background-color: yellow;
-                }
-
-                50% {
-                  background-color: blue;
-                }
-
-                100% {
-                  background-color: green;
-                }
-              }
-
-              .anim02 {
-                width: 100px;
-                height: 100px;
-                background-color: red;
-                animation-name: anim02;
-                animation-duration: 4s;
-              }
-            </style>
-            <div class="anim02"></div>
-          </div>
-        </div>
-
-        <div class="d-none d-print-block">
-          <pre class="css"><code>@keyframes anim02 {
-  0%   {background-color: red;}
-  25%  {background-color: yellow;}
-  50%  {background-color: blue;}
-  100% {background-color: green;}
-}
-
-.anim02 {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  animation-name: anim02;
-  animation-duration: 4s;
-}</code></pre>
-        </div>
-
-        <p><strong>Exemple 2</strong> : L'exemple suiavnt modifie la couleur et la position de l'élément dont la classe
-          est <code>.anim03</code>.</p>
-        <div class="row d-print-none">
-          <div class="col-sm-9">
-            <pre class="css"><code>@keyframes anim03 {
-  0%   {background-color:red; left:0px; top:0px;}
-  25%  {background-color:yellow; left:200px; top:0px;}
-  50%  {background-color:blue; left:200px; top:200px;}
-  75%  {background-color:green; left:0px; top:200px;}
-  100% {background-color:red; left:0px; top:0px;}
+        <div class="row align-items-center g-3 my-2">
+          <div class="col-lg-8">
+            <pre class="css mb-0"><code>@keyframes anim03 {
+  0%   { background-color: red;    left: 0px;   top: 0px; }
+  25%  { background-color: yellow; left: 200px; top: 0px; }
+  50%  { background-color: blue;   left: 200px; top: 110px; }
+  75%  { background-color: green;  left: 0px;   top: 110px; }
+  100% { background-color: red;    left: 0px;   top: 0px; }
 }
 
 .anim03 {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   position: relative;
   background-color: red;
   animation-name: anim03;
-  animation-duration: 4s;
+  animation-duration: 5s;
 }</code></pre>
           </div>
-          <div class="col-sm-3">
-            <style>
-              @keyframes anim03 {
-                0% {
-                  background-color: red;
-                  left: 0px;
-                  top: 0px;
-                }
-
-                25% {
-                  background-color: yellow;
-                  left: 200px;
-                  top: 0px;
-                }
-
-                50% {
-                  background-color: blue;
-                  left: 200px;
-                  top: 200px;
-                }
-
-                75% {
-                  background-color: green;
-                  left: 0px;
-                  top: 200px;
-                }
-
-                100% {
-                  background-color: red;
-                  left: 0px;
-                  top: 0px;
-                }
-              }
-
-              .anim03 {
-                width: 100px;
-                height: 100px;
-                position: relative;
-                background-color: red;
-                animation-name: anim03;
-                animation-duration: 4s;
-              }
-            </style>
-            <div class="anim03"></div>
+          <div class="col-lg-4">
+            <div class="demo-box py-3">
+              <div class="demo-box-header mb-2 text-center"><span>⚡ Trajectoire 2D en direct :</span></div>
+              <div class="stage-live-03">
+                <div class="box-live-03"></div>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+    </article>
 
-        <div class="d-none d-print-block">
-          <pre class="css"><code>@keyframes anim03 {
-            0%   {background-color:red; left:0px; top:0px;}
-            25%  {background-color:yellow; left:200px; top:0px;}
-            50%  {background-color:blue; left:200px; top:200px;}
-            75%  {background-color:green; left:0px; top:200px;}
-            100% {background-color:red; left:0px; top:0px;}
-          }
-          
-          .anim03 {
-            width: 100px;
-            height: 100px;
-            position: relative;
-            background-color: red;
-            animation-name: anim03;
-            animation-duration: 4s;
-          }</code></pre>
+    <!-- ================================================================= -->
+    <!-- ARTICLE 3 : PROPRIÉTÉS DE L'ANIMATION -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Propriétés de l'animation</h2>
+
+      <!-- Section 3.1 : Propriétés minimales -->
+      <section>
+        <h3>Propriétés minimales</h3>
+        <p>
+          Pour qu'une animation s'active sur un élément du document HTML, deux propriétés CSS fondamentales sont
+          <strong>strictement indispensables</strong> :
+        </p>
+
+        <ol>
+          <li>
+            <strong><code>animation-name</code> :</strong>
+            définit le nom de la règle <code>@keyframes</code> à exécuter sur cet élément.
+            <div class="small text-muted mt-1"><em>Valeur par défaut :</em> <code>none</code> (aucune animation
+              associée).</div>
+          </li>
+          <li class="mt-2">
+            <strong><code>animation-duration</code> :</strong>
+            définit la durée totale d'un cycle d'animation (exprimée en secondes <code>s</code> ou en millisecondes
+            <code>ms</code>, par exemple <code>3s</code> ou <code>500ms</code>).
+            <div class="small text-muted mt-1"><em>Valeur par défaut :</em> <code>0s</code> (animation inactive sans
+              durée spécifiée).</div>
+          </li>
+        </ol>
+
+        <div class="callout-box">
+          <p class="mb-0">
+            ⚠️ <strong>Règle essentielle :</strong> Par défaut, la valeur de <code>animation-duration</code> est égale à
+            <code>0s</code>. Par conséquent, <strong>si la durée n'est pas explicitement spécifiée, aucune animation ne
+              se produira</strong>, même si <code>animation-name</code> est correctement renseigné.
+          </p>
         </div>
       </section>
 
+      <!-- Section 3.2 : Paramètres temporels & Répétition -->
       <section>
-        <h3>Propriétés d'une animation</h3>
-        <p>Une animation possède les propriétés suivantes :</p>
+        <h3>Paramètres temporels &amp; Répétition</h3>
+        <p>
+          CSS3 offre un éventail de propriétés précises pour contrôler le déclenchement, la répétition et le sens de
+          lecture de l'animation :
+        </p>
+
         <ul>
-          <li><code>animation-name</code> nom donné aux images clés (<code>@keyframes</code>)</li>
-          <li><code>animation-duration</code> durée de l'animation en secondes</li>
-          <li><code>animation-delay</code> permet de lancer l'animation avec un retard donné</li>
-          <li><code>animation-iteration-count</code> nombre de répétition de l'animation</li>
-          <li><code>animation-direction</code> indique le sens d'évolution de l'animation de 0% vers 100% ou le
-            contraire.</li>
-          <li><code>animation-timing-function</code> indique la vitesse d'évolution de l'animation</li>
-          <li><code>animation</code> est un raccourci à l'ensemble des propriétés précédentes dans une seule propriété :
-            <pre
-              class="css"><code>animation: name duration timing-function delay iteration-count direction;</code></pre>
+          <li>
+            <strong><code>animation-delay</code> (Délai d'attente) :</strong>
+            retarde le démarrage de l'animation d'une durée déterminée (ex. <code>2s</code>).
+            <em>Remarque :</em> une valeur négative (ex. <code>-1s</code>) fait démarrer l'animation immédiatement,
+            comme si elle avait déjà débuté 1 seconde auparavant.
+            <div class="small text-muted mt-1"><em>Valeur par défaut :</em> <code>0s</code> (démarrage immédiat sans
+              retard).</div>
+          </li>
+          <li class="mt-2">
+            <strong><code>animation-iteration-count</code> (Nombre de cycles) :</strong>
+            détermine combien de fois l'animation doit se répéter :
+            <ul>
+              <li>Un nombre entier fixe (ex. <code>1</code>, <code>3</code>, <code>5</code>).</li>
+              <li>Le mot-clé <strong><code>infinite</code></strong> : l'animation tourne en boucle perpétuelle sans
+                jamais s'arrêter.</li>
+            </ul>
+            <div class="small text-muted mt-1"><em>Valeur par défaut :</em> <code>1</code> (l'animation s'exécute un
+              seul cycle).</div>
+          </li>
+          <li class="mt-2">
+            <strong><code>animation-direction</code> (Sens de lecture) :</strong>
+            définit si l'animation s'exécute de l'avant vers l'arrière ou en alternance :
+            <ul>
+              <li><code>normal</code> : avance toujours dans le sens direct, de 0% vers 100%.</li>
+              <li><code>reverse</code> : lecture inversée, de 100% vers 0%.</li>
+              <li><code>alternate</code> : fait l'aller (0% &rarr; 100%) puis le retour (100% &rarr; 0%), créant un
+                effet de va-et-vient fluide.</li>
+              <li><code>alternate-reverse</code> : commence par le retour (100% &rarr; 0%), puis enchaîne avec l'aller.
+              </li>
+            </ul>
+            <div class="small text-muted mt-1"><em>Valeur par défaut :</em> <code>normal</code> (lecture de 0% à 100%).
+            </div>
           </li>
         </ul>
+      </section>
 
-        <p><strong>Exemple 1</strong> : </p>
-        <div class="row d-print-none">
-          <div class="col-sm-9">
-            <pre class="css"><code>.anim04 {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  background-color: red;
-  animation-name: anim04;
-  animation-duration: 10s;
-  animation-delay: 5s;
-  animation-iteration-count: 6;
-  animation-direction: alternate;
-}
+      <!-- Section 3.3 : Fonctions de lissage & Courbes de vitesse -->
+      <section>
+        <h3>Fonctions de lissage</h3>
+        <p>
+          La propriété <code>animation-timing-function</code> définit le <strong>profil d'accélération</strong> de
+          l'élément tout au long de sa trajectoire.
+          <br><span class="text-muted small"><em>Valeur par défaut :</em> <code>ease</code> (départ modéré, accélération
+            au centre, puis décélération douce à la fin).</span>
+        </p>
 
-@keyframes anim04 {
-  0%   {background-color:red; left:0px; top:0px;}
-  25%  {background-color:yellow; border-radius: 50%; left:200px; top:0px;}
-  50%  {background-color:blue; border-radius: 0%; left:200px; top:200px;}
-  75%  {background-color:green; border-radius: 50%; left:0px; top:200px;}
-  100% {background-color:red; border-radius: 0%; left:0px; top:0px;}
-}</code></pre>
-          </div>
-          <div class="col-sm-3">
-            <style>
-              .anim04 {
-                width: 100px;
-                height: 100px;
-                position: relative;
-                background-color: red;
-                animation-name: anim04;
-                animation-duration: 10s;
-                animation-delay: 5s;
-                animation-iteration-count: 6;
-                animation-direction: alternate;
-              }
-
-              @keyframes anim04 {
-                0% {
-                  background-color: red;
-                  left: 0px;
-                  top: 0px;
-                }
-
-                25% {
-                  background-color: yellow;
-                  border-radius: 50%;
-                  left: 200px;
-                  top: 0px;
-                }
-
-                50% {
-                  background-color: blue;
-                  border-radius: 0%;
-                  left: 200px;
-                  top: 200px;
-                }
-
-                75% {
-                  background-color: green;
-                  border-radius: 50%;
-                  left: 0px;
-                  top: 200px;
-                }
-
-                100% {
-                  background-color: red;
-                  border-radius: 0%;
-                  left: 0px;
-                  top: 0px;
-                }
-              }
-            </style>
-            <div class="anim04"></div>
-          </div>
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Valeur</th>
+                <th>Comportement du mouvement</th>
+                <th>Cas d'usage recommandés</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>linear</code></td>
+                <td>Vitesse strictement constante et uniforme du début à la fin.</td>
+                <td>Horloges, spinners de chargement, rotations perpétuelles.</td>
+              </tr>
+              <tr>
+                <td><code>ease</code> <span class="badge bg-secondary">Défaut</span></td>
+                <td>Départ modéré, accélération au centre, puis décélération douce à la fin.</td>
+                <td>Transitions naturelles d'interface utilisateur.</td>
+              </tr>
+              <tr>
+                <td><code>ease-in</code></td>
+                <td>Démarrage très lent, puis accélération continue jusqu'à la fin.</td>
+                <td>Élément qui quitte l'écran ou chute d'un objet.</td>
+              </tr>
+              <tr>
+                <td><code>ease-out</code></td>
+                <td>Démarrage rapide, puis freinage progressif et délicat à la fin.</td>
+                <td>Apparition d'une fenêtre modale, arrivée d'un menu.</td>
+              </tr>
+              <tr>
+                <td><code>ease-in-out</code></td>
+                <td>Démarrage lent et fin lente, avec une vitesse maximale au milieu.</td>
+                <td>Balancements de pendule, battements, effets de respiration.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="row d-none d-print-block">
-          <pre class="css"><code>.anim04 {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  background-color: red;
-  animation-name: anim04;
-  animation-duration: 10s;
-  animation-delay: 5s;
-  animation-iteration-count: 6;
-  animation-direction: alternate;
-}
-
-@keyframes anim04 {
-  0%   {background-color:red; left:0px; top:0px;}
-  25%  {background-color:yellow; border-radius: 50%; left:200px; top:0px;}
-  50%  {background-color:blue; border-radius: 0%; left:200px; top:200px;}
-  75%  {background-color:green; border-radius: 50%; left:0px; top:200px;}
-  100% {background-color:red; border-radius: 0%; left:0px; top:0px;}
-}</code></pre>
-        </div>
-
-        <p><strong>Exemple 2</strong> : </p>
-        <div class="row d-print-none">
-          <div class="col-sm-9">
-            <pre class="css"><code>.anim05 {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  background-color: red;
-  animation: anim05 4s linear 5s 7 alternate;
-}</code></pre>
+        <div class="demo-box my-3 p-3 d-print-none">
+          <div class="demo-box-header mb-3">
+            <span>⚡ Comparaison visuelle en direct des 5 fonctions de timing :</span>
           </div>
-          <div class="col-sm-3">
-            <style>
-              .anim05 {
-                width: 100px;
-                height: 100px;
-                position: relative;
-                background-color: red;
-                animation: anim05 4s linear 5s 7 alternate;
-              }
 
-              @keyframes anim05 {
-                0% {
-                  background-color: red;
-                  left: 0px;
-                  top: 0px;
-                }
-
-                25% {
-                  background-color: yellow;
-                  border-radius: 50%;
-                  left: 200px;
-                  top: 0px;
-                }
-
-                50% {
-                  background-color: blue;
-                  border-radius: 0%;
-                  left: 200px;
-                  top: 200px;
-                }
-
-                75% {
-                  background-color: green;
-                  border-radius: 50%;
-                  left: 0px;
-                  top: 200px;
-                }
-
-                100% {
-                  background-color: red;
-                  border-radius: 0%;
-                  left: 0px;
-                  top: 0px;
-                }
-              }
-            </style>
-            <div class="anim05"></div>
+          <div class="small fw-bold text-muted mb-1">1. linear (vitesse constante) :</div>
+          <div class="demo-timing-track">
+            <div class="demo-timing-bar timing-linear">linear</div>
           </div>
-        </div>
 
-        <div class="row d-none d-print-block">
-          <pre class="css"><code>.anim05 {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  background-color: red;
-  animation: anim05 4s linear 5s 7 alternate;
-}</code></pre>
+          <div class="small fw-bold text-muted mb-1">2. ease (standard naturel) :</div>
+          <div class="demo-timing-track">
+            <div class="demo-timing-bar timing-ease">ease</div>
+          </div>
+
+          <div class="small fw-bold text-muted mb-1">3. ease-in (départ lent) :</div>
+          <div class="demo-timing-track">
+            <div class="demo-timing-bar timing-ease-in">ease-in</div>
+          </div>
+
+          <div class="small fw-bold text-muted mb-1">4. ease-out (freinage doux) :</div>
+          <div class="demo-timing-track">
+            <div class="demo-timing-bar timing-ease-out">ease-out</div>
+          </div>
+
+          <div class="small fw-bold text-muted mb-1">5. ease-in-out (départ et arrivée lents) :</div>
+          <div class="demo-timing-track">
+            <div class="demo-timing-bar timing-ease-in-out">in-out</div>
+          </div>
         </div>
       </section>
 
+      <!-- Section 3.4 : Propriété raccourcie & Synthèse -->
       <section>
-        <h3>Application 4 : Progress bar</h3>
+        <h3>Propriété <code>animation</code></h3>
+        <p>
+          Au lieu de déclarer individuellement chaque propriété, CSS3 permet de combiner l'ensemble des paramètres en
+          une seule ligne grâce à la propriété raccourcie (<em>shorthand</em>) :
+        </p>
 
-        <h4>Travail demandé</h4>
+        <pre class="css"><code>/* Syntaxe standard */
+animation: name duration timing-function delay iteration-count direction;
+
+/* Exemple pratique */
+animation: anim05 4s linear 1s infinite alternate;</code></pre>
+
+        <p><strong>Exemple combiné : Déplacement avec morphisme (carré &harr; cercle)</strong></p>
+        <div class="row align-items-center g-3 my-2">
+          <div class="col-lg-8">
+            <pre class="css mb-0"><code>.anim04 {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  background-color: red;
+  animation: anim04 6s linear 1s infinite alternate;
+}
+
+@keyframes anim04 {
+  0%   { background-color: red;    border-radius: 8px;  left: 0px;   top: 0px; }
+  25%  { background-color: yellow; border-radius: 50%;  left: 200px; top: 0px; }
+  50%  { background-color: blue;   border-radius: 8px;  left: 200px; top: 110px; }
+  75%  { background-color: green;  border-radius: 50%;  left: 0px;   top: 110px; }
+  100% { background-color: red;    border-radius: 8px;  left: 0px;   top: 0px; }
+}</code></pre>
+          </div>
+          <div class="col-lg-4">
+            <div class="demo-box py-3">
+              <div class="demo-box-header mb-2 text-center"><span>⚡ Animation complète en direct :</span></div>
+              <div class="stage-live-03">
+                <div class="box-live-04"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Tableau synthétique des propriétés d'animation CSS3</h4>
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Propriété CSS</th>
+                <th>Rôle et description</th>
+                <th>Exemples de valeurs</th>
+                <th>Valeur par défaut</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>animation-name</code></td>
+                <td>Identifiant de la règle <code>@keyframes</code></td>
+                <td><code>monAnimation</code>, <code>loader</code>, <code>fade</code></td>
+                <td><code>none</code></td>
+              </tr>
+              <tr>
+                <td><code>animation-duration</code></td>
+                <td>Durée d'exécution d'un cycle complet</td>
+                <td><code>2s</code>, <code>500ms</code>, <code>4.5s</code></td>
+                <td><code>0s</code> (animation inactive)</td>
+              </tr>
+              <tr>
+                <td><code>animation-timing-function</code></td>
+                <td>Profil de vitesse / courbe d'accélération</td>
+                <td><code>linear</code>, <code>ease</code>, <code>ease-in-out</code></td>
+                <td><code>ease</code></td>
+              </tr>
+              <tr>
+                <td><code>animation-delay</code></td>
+                <td>Temps d'attente avant le démarrage</td>
+                <td><code>0s</code>, <code>2s</code>, <code>-1s</code></td>
+                <td><code>0s</code></td>
+              </tr>
+              <tr>
+                <td><code>animation-iteration-count</code></td>
+                <td>Nombre de répétitions du cycle</td>
+                <td><code>1</code>, <code>3</code>, <code>infinite</code></td>
+                <td><code>1</code></td>
+              </tr>
+              <tr>
+                <td><code>animation-direction</code></td>
+                <td>Sens de lecture de l'animation</td>
+                <td><code>normal</code>, <code>reverse</code>, <code>alternate</code></td>
+                <td><code>normal</code></td>
+              </tr>
+              <tr>
+                <td><code>animation-fill-mode</code></td>
+                <td>Styles appliqués avant le début ou après la fin du cycle</td>
+                <td><code>none</code>, <code>forwards</code>, <code>backwards</code>, <code>both</code></td>
+                <td><code>none</code></td>
+              </tr>
+              <tr>
+                <td><code>animation-play-state</code></td>
+                <td>État de lecture de l'animation (pause ou reprise)</td>
+                <td><code>running</code>, <code>paused</code></td>
+                <td><code>running</code></td>
+              </tr>
+              <tr>
+                <td><code>animation</code></td>
+                <td>Notation raccourcie regroupant l'ensemble des propriétés</td>
+                <td><code>anim 3s ease 1s infinite alternate</code></td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 4 : ATELIERS PRATIQUES -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Ateliers Pratiques</h2>
+
+      <!-- Section 4.1 : Application 1 - Progress bar -->
+      <section>
+        <h3>Application 1 : Barres de progression (Loader)</h3>
+        <p>
+          L'objectif de cet atelier est d'implémenter les trois barres de progression présentées dans la problématique
+          en
+          utilisant différentes techniques d'animation CSS3.
+        </p>
+
+        <h4>Cahier des charges &amp; Travail à réaliser</h4>
         <ol>
-          <li>Ajouter une animation qui fait varier la largeur du <code>.progress-bar</code> de la première animation
-            <code>.animation1</code> de <code>0%</code> à <code>100%</code> :
+          <li>
+            <strong>Variante 1 — Remplissage progressif :</strong>
+            Ajoutez une animation faisant varier la largeur du <code>.progress-bar</code> du premier loader de
+            <code>0%</code>
+            à <code>100%</code> :
             <ul>
-              <li>Nommer l'animation <code>animation1</code>.</li>
-              <li>Fixer la durée de l'animation à <code>5s</code>.</li>
-              <li>Utiliser <code>linear</code> comme <code>timing-function</code>.</li>
-              <li>Répéter l'animation une infinité de fois <code>infinite</code>.</li>
+              <li>Nommer l'animation : <code>animation1</code>.</li>
+              <li>Fixer la durée à <code>5s</code>.</li>
+              <li>Fonction de lissage : <code>linear</code>.</li>
+              <li>Répétition : <code>infinite</code>.</li>
             </ul>
-            <p><strong>Code CSS</strong></p>
+
             <pre class="css"><code>.animation1 .progress-bar {
-  /* ajouter les lignes suivantes */
   animation-name: animation1;
   animation-duration: 5s;
   animation-timing-function: linear;
@@ -582,26 +651,15 @@
   to   { width: 100%; }
 }</code></pre>
           </li>
-          <li>Copier le code CSS de <code>.animation2 .progress-bar</code> :
+
+          <li>
+            <strong>Variante 2 — Navette horizontale d'un bloc :</strong>
+            Appliquez les propriétés suivantes pour créer un curseur rouge mobile de <code>64px</code> :
             <pre class="css"><code>.animation2 .progress-bar {
   width: 64px;
   height: 100%;
   background: linear-gradient(to left, #f00, #fd5353);
   position: absolute;
-}</code></pre>
-            <p>Quel est le résultat de ce code ?</p>
-          </li>
-          <li class="p-break">Déplacer le rectangle rouge de gauche à droite, puis de gauche à droite une infinité de
-            fois. Pour faire,
-            utiliser la propriété CSS <code>left</code>.
-            <div class="d-none d-print-block">
-              <p><strong>Code CSS</strong></p>
-              <pre class="css"><code>.animation2 .progress-bar {
-  width: 64px;
-  height: 100%;
-  background: linear-gradient(to left, #f00, #fd5353);
-  position: absolute;
-
   animation-name: animation2;
   animation-duration: 5s;
   animation-timing-function: linear;
@@ -609,68 +667,62 @@
 }
 
 @keyframes animation2 {
-  from { left: 0;}
-  to { left: 256px;}
+  from { left: 0px; }
+  to   { left: 256px; } /* 320px - 64px = 256px */
 }</code></pre>
-            </div>
+            <p>
+              <em>Explication du calcul :</em> Pour que le curseur ne sorte pas du cadre de 320px, sa position finale
+              maximale à droite est de <code>320px - 64px = 256px</code>.
+            </p>
           </li>
-          <li>Copier le code CSS des images clés de l'animation <code>animation3</code> :
+
+          <li class="p-break">
+            <strong>Variante 3 — Remplissage multicolore alterné :</strong>
+            Combinez le changement dynamique de couleur et l'allongement progressif :
             <pre class="css"><code>@keyframes animation3 {
   0% {
     background: linear-gradient(to left, #00f, #000070);
-    width: 0;
+    width: 0%;
   }
-
   50% {
     background: linear-gradient(to left, #ff9900, #ffba53);
     width: 50%;
   }
-
   100% {
     background: linear-gradient(to left, #f00, #fd5353);
     width: 100%;
   }
-}</code></pre>
-          </li>
-          <li>Ajouter le code CSS du sélecteur <code>.animation3 .progress-bar</code> :
-            <ul>
-              <li>Dimensions : 100% &times; 100%, positionnement : <code>absolute</code></li>
-              <li>Nom de l'animation : <code>animation3</code>, durée : <code>2.5s</code>, répétition :
-                <code>infinite</code></li>
-              <li>Direction : <code>alternate</code></li>
-              <li>Fonction de timing : <code>ease-in-out</code></li>
-            </ul>
-            <div class="d-none d-print-block">
-              <pre class="css"><code>.animation3 .progress-bar {
+}
+
+.animation3 .progress-bar {
   width: 100%;
   height: 100%;
   position: absolute;
-
   animation-name: animation3;
   animation-duration: 2.5s;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }</code></pre>
-            </div>
           </li>
         </ol>
       </section>
 
+      <!-- Section 4.2 : Application 2 - Smiley -->
       <section>
-        <h3 class="p-break">Application 5 : Smiley</h3>
+        <h3 class="p-break">Application 2 : Smiley</h3>
+        <p>
+          On souhaite dessiner un visage expressif (Smiley) en pur CSS et animer son regard ainsi que sa bouche :
+        </p>
 
-        <p>On désire créer le smiley suivant :</p>
-        <figure>
-          <img src="assets/miniprojet05/images/smiley.png" alt="Forme initiale du smiley" class="im-h-6">
-          <figcaption>Forme initiale du smiley</figcaption>
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet05/images/smiley.png" alt="Forme initiale du smiley"
+            class="img-fluid rounded border shadow-sm demo-img-preview">
+          <figcaption class="mt-2 text-muted fst-italic">Forme initiale attendue pour le Smiley</figcaption>
         </figure>
 
-        <h4>Travail demandé</h4>
-        <ol>
-          <li>
-            <p>Copier le code HTML suivant et faire la mise en forme du smiley à l'aide du CSS.</p>
-            <pre class="html"><code>&lt;div id=&quot;tete&quot;&gt;
+        <h4>Structure HTML du visage</h4>
+        <pre class="html"><code>&lt;div id=&quot;tete&quot;&gt;
   &lt;div id=&quot;yeux&quot;&gt;
     &lt;div class=&quot;oeil&quot;&gt;
       &lt;div class=&quot;iris&quot;&gt;
@@ -685,46 +737,93 @@
   &lt;/div&gt;
   &lt;div class=&quot;bouche&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-          </li>
-          <li>Animer les yeux du smiley et sa bouche.</li>
-        </ol>
-      </section>
 
-      <section>
-        <h3>Application 6 : Montre Analogique</h3>
-
-        <p>On désire créer une montre analogique comportant deux aiguilles, comme suit.</p>
-
-        <figure>
-          <img src="assets/miniprojet06/images/montre.png" alt="Montre analogique à deux aiguilles" class="im-h-6">
-          <figcaption>Montre analogique à deux aiguilles</figcaption>
-        </figure>
-
-        <h4 class="p-break">Travail demandé</h4>
+        <h4>Consignes de réalisation</h4>
         <ol>
-          <li>Copier le code HTML. Faire la mise en forme des deux aiguilles.
-            <pre class="html"><code>&lt;div class=&quot;horloge&quot;&gt;
-  &lt;div class=&quot;aiguille1&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;aiguille2&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+          <li>
+            <strong>Mise en forme CSS de la tête :</strong> appliquez une forme circulaire
+            (<code>border-radius: 50%;</code>),
+            une couleur de fond jaune vif et positionnez le conteneur au centre de l'écran.
           </li>
-          <li>Placer les aiguilles au centre de la montre.</li>
-          <li>Animer les aiguilles de la montre : la petite aiguille doit être 12 fois moins lente que la plus longue.
-            La montre tourne indéfiniment sans s'arrêter.
+          <li>
+            <strong>Yeux et Pupilles :</strong> créez les orbites avec un fond blanc, les iris en couleur et les
+            pupilles
+            sombres au centre grâce au positionnement absolu.
+          </li>
+          <li>
+            <strong>Animation du regard :</strong> déclarez une animation <code>@keyframes</code> qui déplace les
+            pupilles
+            de gauche à droite en utilisant <code>left</code> ou <code>transform: translateX(...)</code>.
+          </li>
+          <li>
+            <strong>Animation de la bouche :</strong> appliquez une animation de déformation pour faire passer le smiley
+            d'une expression neutre à un large sourire.
           </li>
         </ol>
       </section>
 
+      <!-- Section 4.3 : Application 3 - Montre Analogique -->
       <section>
-        <h3>Exercice de rappel</h3>
-        <p>Créer une animation comme suit :</p>
-        <figure>
-          <img src="assets/miniprojet06/images/animation01.png" alt="Animation carrés">
-          <figcaption>Animation carrés</figcaption>
+        <h3>Application 3 : Montre à deux aiguilles</h3>
+        <p>
+          On souhaite réaliser une horloge analogique comportant deux aiguilles tournantes (heures et minutes) :
+        </p>
+
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet06/images/montre.png" alt="Montre analogique à deux aiguilles"
+            class="img-fluid rounded border shadow-sm demo-img-preview">
+          <figcaption class="mt-2 text-muted fst-italic">Montre analogique circulaire à deux aiguilles</figcaption>
         </figure>
 
-        <h4>Code HTML</h4>
-        <p>On donne le code HTML suivant :</p>
+        <h4 class="p-break">Structure HTML5</h4>
+        <pre class="html"><code>&lt;div class=&quot;horloge&quot;&gt;
+  &lt;div class=&quot;aiguille1&quot;&gt;&lt;/div&gt; &lt;!-- Grande aiguille (minutes) --&gt;
+  &lt;div class=&quot;aiguille2&quot;&gt;&lt;/div&gt; &lt;!-- Petite aiguille (heures) --&gt;
+&lt;/div&gt;</code></pre>
+
+        <h4>Consignes d'animation</h4>
+        <ol>
+          <li>
+            <strong>Centrage des aiguilles :</strong> positionnez le point d'ancrage de la rotation à la base des
+            aiguilles (avec <code>transform-origin: bottom center;</code> ou <code>50% 100%;</code>).
+          </li>
+          <li>
+            <strong>Cycle de rotation :</strong> définissez une règle <code>@keyframes rotation</code> faisant tourner
+            l'aiguille de <code>0deg</code> à <code>360deg</code> :
+            <pre class="css"><code>@keyframes rotation {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}</code></pre>
+          </li>
+          <li>
+            <strong>Rapport de vitesse d'horlogerie :</strong>
+            <ul>
+              <li>L'aiguille des minutes (<code>.aiguille1</code>) effectue un tour complet en <strong>60
+                  secondes</strong>
+                (<code>animation: rotation 60s linear infinite;</code>).</li>
+              <li>L'aiguille des heures (<code>.aiguille2</code>) est <strong>12 fois plus lente</strong> : elle met
+                donc <code>60s &times; 12 = 720s</code> (12 minutes) pour accomplir une révolution complète
+                (<code>animation: rotation 720s linear infinite;</code>).</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Section 4.4 : Application 4 - Carrés tournants -->
+      <section>
+        <h3>Application 4 : Carrés tournants</h3>
+        <p>
+          Pour consolider votre maîtrise des coordonnées spatiales et des images clés, animez les quatre carrés
+          ci-dessous pour reproduire fidèlement leur cycle de permutation rotative :
+        </p>
+
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet06/images/animation01.png" alt="Cycle d'animation des 4 carrés"
+            class="img-fluid rounded border shadow-sm">
+          <figcaption class="mt-2 text-muted fst-italic">Cycle complet de permutation des carrés de couleur</figcaption>
+        </figure>
+
+        <h4>Code HTML fourni</h4>
         <pre class="html"><code>&lt;div class=&quot;gcarre&quot;&gt;
   &lt;div class=&quot;carre carre1&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;carre carre2&quot;&gt;&lt;/div&gt;
@@ -733,9 +832,11 @@
 &lt;/div&gt;</code></pre>
 
         <h4>Travail demandé</h4>
-        <p>Utiliser les propriétés CSS vue dans ce cours pour animer ces carrés selon le cycle indiqué dans l'image :
-          <code>@keyframes</code>, <code>animation-name</code>, <code>animation-duration</code>,
-          <code>animation-iteration-count</code> et <code>animation-timing-function</code>.
+        <p>
+          Utilisez les propriétés CSS étudiées dans cette séance (<code>@keyframes</code>, <code>animation-name</code>,
+          <code>animation-duration</code>, <code>animation-iteration-count</code> et
+          <code>animation-timing-function: linear;</code>) pour programmer la trajectoire de chaque carré en 4 étapes
+          successives (<code>0%</code>, <code>25%</code>, <code>50%</code>, <code>75%</code> et <code>100%</code>).
         </p>
       </section>
     </article>

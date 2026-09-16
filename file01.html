@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Séance n°1</title>
+  <title>Séance n°1 : Rappel sur le langage HTML & CSS</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/default.css">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -15,7 +15,10 @@
   <aside>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span class="brand-text">Conception Web</span></a>
+        <a class="navbar-brand" href="index.html">
+          <span class="brand-badge">3STI</span>
+          <span class="brand-text">Conception Web</span>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span> Menu
@@ -26,28 +29,62 @@
   </aside>
 
   <main class="my-4 container">
-    <h1>Séance n°1</h1>
+    <h1>Séance n°1 : Rappel sur le langage HTML & CSS</h1>
 
+    <!-- ====================================================================
+         MODULE 1 : OBJECTIFS & PRÉSENTATION
+         ==================================================================== -->
     <article>
-      <h2>Fiche d'information</h2>
+      <h2>Objectifs & Présentation</h2>
 
       <section>
-        <h3>Travail demandé</h3>
+        <h3>Mise en situation & Objectifs</h3>
+        <p>
+          Cette première séance d'informatique en <strong>3<sup>ème</sup> SI</strong> est dédiée à la réactivation
+          des connaissances acquises en <strong>HTML5</strong> et <strong>CSS3</strong>. Elle pose les bases de la
+          structuration
+          sémantique et de la mise en page web avant d'aborder les formulaires avancés et la programmation dynamique en
+          JavaScript.
+        </p>
 
-        <p>Utiliser vos connaissances en HTML et en CSS pour vous présenter. Le choix des
-          couleurs et le style des polices sont laissés à l'élève.</p>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title text-primary">🎯 Objectifs d'apprentissage :</h5>
+            <ul class="mb-0">
+              <li>Reconnaître et expliquer la <strong>structure minimale</strong> d'un document HTML5 valide.</li>
+              <li>Utiliser convenablement les balises de texte (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>,
+                <code>&lt;p&gt;</code>) et de groupement (<code>&lt;div&gt;</code>, <code>&lt;span&gt;</code>).
+              </li>
+              <li>Insérer des médias accessibles (<code>&lt;img&gt;</code> avec attribut <code>alt</code>) et des liens
+                de navigation (<code>&lt;a&gt;</code>).</li>
+              <li>Lier et appliquer des feuilles de style externes en respectant la syntaxe des <strong>règles
+                  CSS</strong> et des <strong>sélecteurs</strong>.</li>
+              <li>Maîtriser le <strong>modèle de boîte</strong> (largeurs, hauteurs, marges internes
+                <code>padding</code>, bordures et marges externes <code>margin</code>).
+              </li>
+              <li>Réaliser une fiche de présentation personnelle soignée et personnalisée (Mini-projet 1).</li>
+            </ul>
+          </div>
+        </div>
 
         <figure>
           <img src="assets/miniprojet01/images/modele.jpg" class="im-h-8" alt="Modèle de fiche d'information">
-          <figcaption>Module de la fiche d'information</figcaption>
+          <figcaption>Aperçu du mini-projet à réaliser en fin de séance : la fiche de présentation personnelle
+          </figcaption>
         </figure>
       </section>
     </article>
 
+    <!-- ====================================================================
+         MODULE 2 : LANGAGE HTML5
+         ==================================================================== -->
     <article>
-      <h2>Langage HTML</h2>
+      <h2>Langage HTML5</h2>
+
+      <!-- Section 2.1 : Structure minimale -->
       <section>
         <h3>Structure d'une page Web</h3>
+        <p>Tout document web moderne doit respecter le squelette HTML5 minimal suivant :</p>
 
         <pre class="html"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;fr&quot;&gt;
@@ -55,168 +92,552 @@
   &lt;meta charset=&quot;UTF-8&quot;&gt;
   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-  &lt;title&gt;Document&lt;/title&gt;
+  &lt;title&gt;Fiche de renseignements&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-
+  &lt;!-- Contenu visible par l'utilisateur --&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-        <h4>Question</h4>
-        <p>Expliquer le rôle de chaque ligne du code précédent.</p>
+        <h4>Question d'auto-évaluation</h4>
+        <p>Expliquez le rôle de chacune des lignes du code précédent avant de consulter la réponse.</p>
 
-        <div class="d-none d-print-block">
-          <h4>Réponse</h4>
-          <pre class="html"><code>&lt;!DOCTYPE html&gt;</code></pre>
-          <p>Indique au navigateur la version HTML utilisée dans le document. Ici, on utilise la version 5 du HTML.</p>
+        <details>
+          <summary>Afficher l'explication détaillée de chaque balise</summary>
 
-          <p class="p-break"></p>
-          <pre class="html"><code>&lt;html lang=&quot;fr&quot;&gt; ... &lt;/html&gt;</code></pre>
-          <p>Indiquent les limites du document HTML. L'attribut <code>lang=&quot;fr&quot;</code> est destiné aux
-            screen-readers et au correcteur orthographique intégré au navigateur.</p>
+          <div class="mt-3">
+            <pre class="html"><code>&lt;!DOCTYPE html&gt;</code></pre>
+            <p>Indique au navigateur le standard HTML utilisé. La mention simple <code>html</code> désigne expressément
+              la version <strong>HTML5</strong>.</p>
 
-          <pre class="html"><code>&lt;head&gt; ... &lt;/head&gt;</code></pre>
-          <p>L'entête du document HTML comporte des informations sur l'encodage du document, les feuilles de style
-            utilisées, le titre du document qui apparait dans la barre du titre du navigateur, etc.</p>
+            <pre class="html"><code>&lt;html lang=&quot;fr&quot;&gt; ... &lt;/html&gt;</code></pre>
+            <p>Élément racine englobant l'intégralité du document. L'attribut <code>lang="fr"</code> précise la langue
+              naturelle du contenu, essentielle pour les lecteurs d'écran (accessibilité) et les moteurs de recherche.
+            </p>
 
-          <pre class="html"><code>&lt;body&gt; ... &lt;/body&gt;</code></pre>
-          <p>Le corps du document englobe toutes les balises qui seront rendues (affichées) par le navigateur : textes,
-            images, audio, vidéo, etc.</p>
+            <pre class="html"><code>&lt;head&gt; ... &lt;/head&gt;</code></pre>
+            <p>Contient les métadonnées (encodage, viewport, titre de l'onglet, liaisons aux feuilles de style CSS et
+              scripts externes). Ces informations ne sont pas affichées directement dans le corps de la page.</p>
 
-          <pre class="html"><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
-          <p>L'encodage du document est le nombre de bits utilisés pour représenter ses caractères.
-            L'UTF-8 est un encodage variable qui s'étend sur 1 à 4 octets par caractère. C'est, en effet,
-            l'encodage le plus utilisé car il supporte toutes les langues humaines.</p>
+            <pre class="html"><code>&lt;body&gt; ... &lt;/body&gt;</code></pre>
+            <p>Le corps du document. Il regroupe tous les éléments visibles à l'écran : textes, images, conteneurs,
+              liens, etc.</p>
 
-          <pre
-            class="html"><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</code></pre>
-          <p>Elle indique le moteur de rendu pour les pages HTML destinées à IE.</p>
+            <pre class="html"><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre>
+            <p>Définit le jeu de caractères en <strong>UTF-8</strong>, permettant d'afficher correctement tous les
+              caractères accentués et alphabets internationaux.</p>
 
-          <pre
-            class="html"><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></pre>
-          <p>Elle empêche le navigateur d'un smartphone de faire la mise à l'échelle d'un document HTML destiné,
-            initialement, à un grand écran.</p>
+            <pre
+              class="html"><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></pre>
+            <p>Garantit l'affichage adaptatif (<strong>Responsive Design</strong>) sur smartphones et tablettes en
+              ajustant la largeur de rendu à celle de l'appareil sans zoom automatique artificiel.</p>
 
-          <pre class="html"><code>&lt;title&gt;Document&lt;/title&gt;</code></pre>
-          <p>Elle indique le titre affiché dans la barre du titre du navigateur.</p>
+            <pre class="html"><code>&lt;title&gt;Document&lt;/title&gt;</code></pre>
+            <p>Indique le titre de la page affiché dans l'onglet du navigateur et dans les résultats des moteurs de
+              recherche.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- Section 2.2 : Structuration et mise en forme du texte -->
+      <section>
+        <h3>Titres, Paragraphes &amp; Mise en forme du texte</h3>
+
+        <h4>1. Hiérarchie des titres (<code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code>)</h4>
+        <pre class="html"><code>&lt;h1&gt;Titre principal (Niveau 1)&lt;/h1&gt;
+&lt;h2&gt;Titre de section (Niveau 2)&lt;/h2&gt;
+...
+&lt;h6&gt;Sous-titre mineur (Niveau 6)&lt;/h6&gt;</code></pre>
+        <p>
+          Les titres s'échelonnent de <code>&lt;h1&gt;</code> (le plus important, unique par page) jusqu'à
+          <code>&lt;h6&gt;</code>.
+          Ce sont des éléments de bloc (ils débutent sur une nouvelle ligne et possèdent une marge verticale par
+          défaut).
+        </p>
+
+        <h4>2. Paragraphes de texte (<code>&lt;p&gt;</code>)</h4>
+        <p>
+          La balise <code>&lt;p&gt;...&lt;/p&gt;</code> (<em>Paragraph</em>) est un élément de type <strong>bloc</strong> servant à structurer le texte en paragraphes distincts.
+        </p>
+        <ul>
+          <li>Le navigateur ajoute automatiquement un saut de ligne et une <strong>marge verticale</strong> (espacement par défaut) avant et après chaque paragraphe.</li>
+          <li><em>Règle de syntaxe sémantique :</em> un paragraphe ne peut contenir que du contenu en-ligne (texte, images, balises de style). Il est strictement interdit d'imbriquer un paragraphe à l'intérieur d'un autre paragraphe, ou d'y insérer des éléments de bloc (comme <code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> ou <code>&lt;div&gt;</code>).</li>
+        </ul>
+        <pre class="html"><code>&lt;p&gt;Le langage HTML permet de structurer le contenu d'une page Web.&lt;/p&gt;
+&lt;p&gt;Chaque paragraphe commence automatiquement sur une nouvelle ligne avec un espacement régulier.&lt;/p&gt;</code></pre>
+
+        <h4>3. Saut de ligne forcé (<code>&lt;br&gt;</code>)</h4>
+        <p>
+          La balise <code>&lt;br&gt;</code> (<em>Line Break</em>) est une balise <strong>orpheline</strong> (auto-fermante / vide) de type <strong>en-ligne</strong> (<em>inline</em>).
+        </p>
+        <ul>
+          <li>Elle provoque un retour immédiat à la ligne au sein d'un même flux de texte, <strong>sans créer de nouveau paragraphe</strong> et sans introduire de marge verticale supplémentaire.</li>
+          <li><strong>Cas d'utilisation typiques :</strong> adresses postales, coordonnées de contact, strophes d'un poème ou paroles de chanson, où le passage à la ligne fait partie intégrante du texte.</li>
+          <li><strong>Bonne pratique :</strong> ne jamais enchaîner plusieurs <code>&lt;br&gt;&lt;br&gt;</code> pour espacer visuellement des éléments. L'espacement vertical doit toujours être géré en CSS via la propriété <code>margin</code>.</li>
+        </ul>
+        <pre class="html"><code>&lt;p&gt;
+  Lycée Secondaire Habib Bourguiba&lt;br&gt;
+  Avenue de la République&lt;br&gt;
+  1001 Tunis, Tunisie
+&lt;/p&gt;</code></pre>
+
+        <h4>4. Trait de séparation thématique (<code>&lt;hr&gt;</code>)</h4>
+        <p>
+          La balise <code>&lt;hr&gt;</code> (<em>Horizontal Rule / Thematic Break</em>) est une balise <strong>orpheline</strong> de niveau <strong>bloc</strong>.
+        </p>
+        <ul>
+          <li>Elle représente une <strong>rupture thématique</strong> ou une transition entre deux sujets au sein d'une même page ou section.</li>
+          <li>Par défaut, les navigateurs l'affichent sous la forme d'un trait horizontal gris occupant toute la largeur disponible. Son apparence (couleur, épaisseur, marge) est facilement personnalisable en CSS.</li>
+        </ul>
+        <pre class="html"><code>&lt;p&gt;Ce premier paragraphe présente les concepts fondamentaux du balisage.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Après cette transition, nous abordons l'application pratique des styles.&lt;/p&gt;</code></pre>
+
+        <p class="p-break"></p>
+        <h4>5. Balises de mise en forme du texte</h4>
+        <p>HTML5 fournit des balises en-ligne pour enrichir le texte, mettre en valeur des expressions ou leur donner une signification sémantique précise :</p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered align-middle">
+            <thead>
+              <tr>
+                <th>Balise</th>
+                <th>Rôle sémantique &amp; Effet</th>
+                <th>Exemple de code HTML</th>
+                <th>Rendu dans le navigateur</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>&lt;strong&gt;</code></td>
+                <td>Importance forte (gras sémantique)</td>
+                <td><code>&lt;strong&gt;Attention&lt;/strong&gt;</code></td>
+                <td><strong>Attention</strong></td>
+              </tr>
+              <tr>
+                <td><code>&lt;b&gt;</code></td>
+                <td>Gras purement stylistique (Bold)</td>
+                <td><code>&lt;b&gt;Important&lt;/b&gt;</code></td>
+                <td><b>Important</b></td>
+              </tr>
+              <tr>
+                <td><code>&lt;em&gt;</code></td>
+                <td>Emphase / accentuation (italique sémantique)</td>
+                <td><code>&lt;em&gt;Remarque&lt;/em&gt;</code></td>
+                <td><em>Remarque</em></td>
+              </tr>
+              <tr>
+                <td><code>&lt;i&gt;</code></td>
+                <td>Italique stylistique (terme technique, mot étranger)</td>
+                <td><code>&lt;i&gt;Software&lt;/i&gt;</code></td>
+                <td><i>Software</i></td>
+              </tr>
+              <tr>
+                <td><code>&lt;ins&gt;</code></td>
+                <td>Texte inséré / ajouté (souligné par défaut)</td>
+                <td><code>&lt;ins&gt;Nouveau tarif&lt;/ins&gt;</code></td>
+                <td><ins>Nouveau tarif</ins></td>
+              </tr>
+              <tr>
+                <td><code>&lt;u&gt;</code></td>
+                <td>Texte souligné stylistique (Underline)</td>
+                <td><code>&lt;u&gt;Texte souligné&lt;/u&gt;</code></td>
+                <td><u>Texte souligné</u></td>
+              </tr>
+              <tr>
+                <td><code>&lt;del&gt;</code></td>
+                <td>Texte supprimé / archivé (barré par défaut)</td>
+                <td><code>&lt;del&gt;50 DT&lt;/del&gt;</code></td>
+                <td><del>50 DT</del></td>
+              </tr>
+              <tr>
+                <td><code>&lt;s&gt;</code></td>
+                <td>Texte barré (information plus d'actualité)</td>
+                <td><code>&lt;s&gt;Épuisé&lt;/s&gt;</code></td>
+                <td><s>Épuisé</s></td>
+              </tr>
+              <tr>
+                <td><code>&lt;sup&gt;</code></td>
+                <td>Texte en exposant (Superscript)</td>
+                <td><code>x&lt;sup&gt;2&lt;/sup&gt;, 1&lt;sup&gt;er&lt;/sup&gt;</code></td>
+                <td>x<sup>2</sup>, 1<sup>er</sup></td>
+              </tr>
+              <tr>
+                <td><code>&lt;sub&gt;</code></td>
+                <td>Texte en indice (Subscript)</td>
+                <td><code>H&lt;sub&gt;2&lt;/sub&gt;O, U&lt;sub&gt;n&lt;/sub&gt;</code></td>
+                <td>H<sub>2</sub>O, U<sub>n</sub></td>
+              </tr>
+              <tr>
+                <td><code>&lt;mark&gt;</code></td>
+                <td>Texte surligné (mise en évidence)</td>
+                <td><code>&lt;mark&gt;Résultat clé&lt;/mark&gt;</code></td>
+                <td><mark>Résultat clé</mark></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
+      <!-- Section 2.3 : Conteneurs génériques -->
       <section>
-        <h3>Titres & Paragraphes</h3>
-        <pre class="html"><code>&lt;h1&gt;...&lt;/h1&gt;
-&lt;h2&gt;...&lt;/h2&gt;
-...
-&lt;h6&gt;...&lt;/h6&gt;</code></pre>
-        <p>Les titres sont classés selon leurs importances et leurs tailles de 1 à 6, du plus important au moins
-          important, du plus grand au plus petit.</p>
-        <p>Ils commencent toujours dans une nouvelle ligne et possèdent une marge plus importante qui dépend de leurs
-          niveaux.</p>
+        <h3>Conteneurs génériques (div &amp; span)</h3>
+        <p>
+          Contrairement aux balises de texte qui apportent une signification sémantique, les <strong>conteneurs génériques</strong> sont des éléments neutres servant à regrouper d'autres éléments pour structurer une page ou leur appliquer un style CSS commun :
+        </p>
 
-        <pre class="html"><code>&lt;p&gt;...&lt;/p&gt;</code></pre>
-        <p>Les paragraphes sont des balises de bloc. Un nouveau paragraphe commence toujours dans une nouvelle ligne et
-          elle possède une marge par défaut.</p>
+        <h4>1. Conteneur de type bloc : <code>&lt;div&gt;</code></h4>
+        <p>
+          La balise <code>&lt;div&gt;...&lt;/div&gt;</code> (<em>division</em>) est un élément de niveau <strong>bloc</strong>.
+          Elle commence toujours sur une nouvelle ligne, occupe par défaut toute la largeur disponible et ne possède pas de marges verticales prédéfinies.
+          Elle constitue la brique fondamentale pour assembler des composants, des cartes (<em>cards</em>), des encadrés ou agencer les sections d'une mise en page.
+        </p>
 
-        <p><strong>Les paragraphes et les titres ne peuvent pas être imbriqué. Un paragraphe ne peut pas contenir un
-            autre paragraphe ou un titre, et inversement.</strong></p>
+        <h4>2. Conteneur de type en-ligne : <code>&lt;span&gt;</code></h4>
+        <p>
+          La balise <code>&lt;span&gt;...&lt;/span&gt;</code> est un élément de niveau <strong>en-ligne</strong> (<em>inline</em>).
+          Elle ne provoque aucun saut de ligne et n'occupe strictement que la largeur de son propre contenu.
+          Elle sert principalement à cibler un mot, une expression ou une valeur au sein d'un paragraphe pour lui appliquer une classe, une couleur ou un style CSS spécifique.
+        </p>
+
+        <h4>3. Règles d'imbrication</h4>
+        <p>
+          Les conteneurs peuvent être imbriqués sans restriction (par exemple, un <code>&lt;span&gt;</code> au sein d'un <code>&lt;p&gt;</code>, lui-même enveloppé dans un <code>&lt;div&gt;</code>).
+        </p>
+
+        <pre class="html"><code>&lt;div class=&quot;carte-profil&quot;&gt;
+  &lt;h2&gt;Mon Profil&lt;/h2&gt;
+  &lt;p&gt;Je suis un élève passionné par le &lt;span class=&quot;important&quot;&gt;développement Web&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
       </section>
 
+      <!-- Section 2.4 : Listes -->
       <section>
-        <p class="p-break"></p>
-        <h3>Conteneurs</h3>
-        <pre class="html"><code>&lt;div&gt;...&lt;/div&gt;</code></pre>
-        <p>Utilisé pour le groupement des éléments appartenant à une même entité sémantique.</p>
-        <p>Paar défaut, un <code>div</code> est un élément de bloc. Il commence toujours sur une nouvelle ligne et n'a
-          pas de marges.</p>
+        <h3>Listes ordonnées & non ordonnées</h3>
+        <p>Les listes permettent d'énumérer des éléments sous forme structurée :</p>
 
-        <pre class="html"><code>&lt;span&gt;...&lt;/span&gt;</code></pre>
-        <p>Utilisé pour le groupement des éléments apparenant à une même entité sémantique. Un <code>span</code> est un
-          élément inline. Il n'a pas de marge et ne commence pas sur une nouvelle ligne.</p>
-
-        <p><strong>Les conteneurs peuvent être imbriqués, sans aucune limite, l'un dans l'autre.</strong></p>
-      </section>
-
-      <section>
-        <h3>Images</h3>
-        <pre
-          class="html"><code>&lt;img src=&quot;chemin de l&apos;image&quot; alt=&quot;texte de remplacement&quot;&gt;</code></pre>
-        <p>Utilisée pour insérer une image dans le document HTML. Le chemin de l'image doit être spécifié dans
-          l'attribut <code>src</code>. Lorsque le navigateur ne peut pas charger l'image il affiche le texte indiqué
-          dans l'attribut <code>alt</code>. Bien que ce dernier (attribut <code>alt</code>) soit optionnel il est
-          vivement conseillé de le mentionner, car il est destiné aux mal-voyants utilisant un screen reader.</p>
-      </section>
-
-      <section>
-        <h3>Liens hypertextes</h3>
-        <pre class="html"><code>&lt;a href=&quot;destination&quot;&gt;texte du lien&lt;/a&gt;</code></pre>
-        <p>C'est un texte souligné et clickable qui permet de naviguer entre les pages Web.</p>
-      </section>
-
-    </article>
-
-    <article>
-      <h2>Feuilles de styles en cascade CSS</h2>
-
-      <section>
-        <h3>Intégration</h3>
-        <p>Les feuilles de style en cascade sont utilisées pour personnaliser la mise en forme d'un document HTML. Elles
-          peuvent être intégrées de plusieurs manières :</p>
+        <h4>1. Listes non ordonnées (à puces) : <code>&lt;ul&gt;</code></h4>
+        <p>Utilisées lorsque l'ordre des éléments n'a pas d'importance particulière. Chaque élément de la liste est
+          délimité par <code>&lt;li&gt;</code> (List Item).</p>
+        <p>La balise <code>&lt;ul&gt;</code> dispose de l'attribut <strong><code>type</code></strong> permettant de
+          personnaliser la forme de la puce :</p>
         <ul>
-          <li><strong>Inline</strong> : indiquant le style désiré pour chaque élément.
+          <li><code>type="disc"</code> : disque plein (valeur par défaut : &bull;).</li>
+          <li><code>type="circle"</code> : cercle vide (&cir;).</li>
+          <li><code>type="square"</code> : carré plein (&squ;).</li>
+        </ul>
+
+        <pre class="html"><code>&lt;!-- Liste avec puces carrées --&gt;
+&lt;ul type=&quot;square&quot;&gt;
+  &lt;li&gt;HTML5&lt;/li&gt;
+  &lt;li&gt;CSS3&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Liste avec cercles évidés --&gt;
+&lt;ul type=&quot;circle&quot;&gt;
+  &lt;li&gt;Algorithmique&lt;/li&gt;
+  &lt;li&gt;Bases de données SQL&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+        <h4>2. Listes ordonnées (numérotées) : <code>&lt;ol&gt;</code></h4>
+        <p>Utilisées pour des étapes, des classements ou des procédures ordonnées. La balise <code>&lt;ol&gt;</code>
+          dispose de 3 attributs clés :</p>
+        <ul>
+          <li>
+            <strong><code>type</code> :</strong> définit le style de numérotation :
+            <ul>
+              <li><code>type="1"</code> : chiffres arabes (par défaut : 1, 2, 3...)</li>
+              <li><code>type="a"</code> : lettres minuscules (a, b, c...)</li>
+              <li><code>type="A"</code> : lettres majuscules (A, B, C...)</li>
+              <li><code>type="i"</code> : chiffres romains minuscules (i, ii, iii...)</li>
+              <li><code>type="I"</code> : chiffres romains majuscules (I, II, III...)</li>
+            </ul>
+          </li>
+          <li>
+            <strong><code>start</code> :</strong> fixe la valeur numérique de départ (ex: <code>start="5"</code>
+            commence à 5 ou 'e' ou 'V').
+          </li>
+          <li>
+            <strong><code>reversed</code> :</strong> attribut booléen qui inverse l'ordre de numérotation (compte à
+            rebours : 3, 2, 1).
+          </li>
+        </ul>
+
+        <pre class="html"><code>&lt;!-- Liste avec chiffres romains débutant à 3 --&gt;
+&lt;ol type=&quot;I&quot; start=&quot;3&quot;&gt;
+  &lt;li&gt;Conception de la maquette&lt;/li&gt;
+  &lt;li&gt;Codage HTML/CSS&lt;/li&gt;
+  &lt;li&gt;Tests et validation&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Compte à rebours inversé --&gt;
+&lt;ol reversed&gt;
+  &lt;li&gt;Décollage !&lt;/li&gt;
+  &lt;li&gt;Mise à feu&lt;/li&gt;
+  &lt;li&gt;Préparation&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+        <p class="p-break"></p>
+        <h4>3. Listes imbriquées</h4>
+        <p>Une liste peut être imbriquée à l'intérieur d'un élément <code>&lt;li&gt;</code> pour créer des sous-niveaux
+          :</p>
+        <pre class="html"><code>&lt;ul&gt;
+  &lt;li&gt;Front-end
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;HTML5&lt;/li&gt;
+      &lt;li&gt;CSS3&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Back-end&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </section>
+
+      <!-- Section 2.5 : Tableaux -->
+      <section>
+        <h3>Tableaux</h3>
+        <p>Les tableaux en HTML5 permettent d'organiser des données en lignes et en colonnes selon une structure
+          sémantique stricte :</p>
+
+        <h4>1. Balises de structure d'un tableau</h4>
+        <ul>
+          <li><code>&lt;table&gt;</code> : conteneur principal du tableau.</li>
+          <li><code>&lt;caption&gt;</code> : titre ou légende du tableau (placé obligatoirement juste après
+            <code>&lt;table&gt;</code>).
+          </li>
+          <li><code>&lt;thead&gt;</code> : groupe les lignes d'en-tête du tableau.</li>
+          <li><code>&lt;tbody&gt;</code> : groupe les lignes contenant les données du tableau.</li>
+          <li><code>&lt;tfoot&gt;</code> : groupe les lignes du pied de tableau (récapitulatif, totaux, moyennes).</li>
+          <li><code>&lt;tr&gt;</code> (Table Row) : définit une ligne du tableau.</li>
+          <li><code>&lt;th&gt;</code> (Table Header) : cellule d'en-tête (texte en gras et centré par défaut).</li>
+          <li><code>&lt;td&gt;</code> (Table Data) : cellule standard de données.</li>
+        </ul>
+
+        <h4>2. Exemple de tableau structuré complet</h4>
+        <pre class="html"><code>&lt;table&gt;
+  &lt;caption&gt;Relevé des notes d'Informatique&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Matière&lt;/th&gt;
+      &lt;th&gt;Coefficient&lt;/th&gt;
+      &lt;th&gt;Note / 20&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Algorithmique &amp; Programmation&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;16.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Technologies Web (HTML/CSS)&lt;/td&gt;
+      &lt;td&gt;1.5&lt;/td&gt;
+      &lt;td&gt;18.0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Moyenne générale&lt;/th&gt;
+      &lt;td colspan=&quot;2&quot;&gt;17.0 / 20&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+
+        <p class="p-break"></p>
+        <h4>3. Fusion de cellules : <code>colspan</code> et <code>rowspan</code></h4>
+        <p>Deux attributs essentiels permettent de fusionner des cellules adjacentes :</p>
+        <ul>
+          <li>
+            <strong><code>colspan="n"</code> (Column Span) :</strong> fusionne horizontalement <code>n</code> colonnes
+            sur une même ligne.
             <pre
-              class="html"><code>&lt;p style=&quot;color: red; text-align: center; font-size: 20px&quot;&gt;CSS is cool!&lt;/p&gt;</code></pre>
+              class="html"><code>&lt;td colspan=&quot;2&quot;&gt;Cellule fusionnant 2 colonnes&lt;/td&gt;</code></pre>
           </li>
-          <li><strong>Embedded</strong> : Le style est intégré dans la page à l'aide de la balise
-            <code>&lt;style&gt;...&lt;/style&gt;</code>.
-            <pre class="html"><code>&lt;style&gt;
-p { color: green; text-align: center; font-size: 22pt; }
-&lt;/style&gt;</code></pre>
-          </li>
-          <li><strong>Linked</strong> : Les styles sont enregistrés dans un fichier indépendant de la page HTML et ce
-            fichier est lié, par la suite, au document.
-            <pre class="html"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code></pre>
+          <li>
+            <strong><code>rowspan="n"</code> (Row Span) :</strong> fusionne verticalement <code>n</code> lignes d'une
+            même colonne.
+            <pre class="html"><code>&lt;td rowspan=&quot;2&quot;&gt;Cellule fusionnant 2 lignes&lt;/td&gt;</code></pre>
           </li>
         </ul>
       </section>
 
+      <!-- Section 2.6 : Médias -->
       <section>
+        <h3>Médias (Images, Audio & Vidéo)</h3>
+        <p>HTML5 offre des balises natives pour intégrer du contenu multimédia riche sans recourir à des plugins
+          externes :</p>
+
+        <h4>1. Images : <code>&lt;img&gt;</code></h4>
+        <pre
+          class="html"><code>&lt;img src=&quot;images/photo.jpg&quot; alt=&quot;Portrait de l'élève en tenue de lycée&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;</code></pre>
+        <ul>
+          <li><code>src</code> : chemin d'accès vers le fichier image (relatif ou absolu).</li>
+          <li><code>alt</code> : texte alternatif descriptif (accessibilité pour malvoyants et moteurs de recherche).
+          </li>
+          <li><code>width</code> / <code>height</code> (optionnels) : dimensions d'affichage de l'image en pixels.</li>
+        </ul>
+
+        <h4>2. Fichiers Audio : <code>&lt;audio&gt;</code></h4>
+        <p>La balise <code>&lt;audio&gt;</code> intègre un lecteur sonore natif dans la page :</p>
+
+        <p><strong>a. Syntaxe simple (avec attribut <code>src</code> direct) :</strong></p>
+        <pre class="html"><code>&lt;audio src=&quot;sons/musique.mp3&quot; controls&gt;
+  Votre navigateur ne prend pas en charge l'élément audio.
+&lt;/audio&gt;</code></pre>
+
+        <p><strong>b. Syntaxe multi-sources (avec balise <code>&lt;source&gt;</code> pour compatibilité maximale)
+            :</strong></p>
+        <p>Pour proposer plusieurs formats de secours (ex: MP3 et OGG) selon les navigateurs :</p>
+        <pre class="html"><code>&lt;audio controls&gt;
+  &lt;source src=&quot;sons/musique.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+  &lt;source src=&quot;sons/musique.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+  Votre navigateur ne prend pas en charge l'élément audio.
+&lt;/audio&gt;</code></pre>
+
+        <p>Attributs principaux de l'élément <code>&lt;audio&gt;</code> :</p>
+        <ul>
+          <li><code>src</code> : chemin d'accès vers le fichier audio (dans la syntaxe simple).</li>
+          <li><code>controls</code> : affiche l'interface utilisateur native (bouton lecture/pause, curseur de volume,
+            temps écoulé). <em>Indispensable pour que le lecteur soit visible.</em></li>
+          <li><code>autoplay</code> : démarre la lecture automatique (souvent restreint par les navigateurs).</li>
+          <li><code>loop</code> : répète la lecture en boucle.</li>
+          <li><code>muted</code> : coupe le son par défaut.</li>
+        </ul>
+
         <p class="p-break"></p>
-        <h3>Règles de style</h3>
-        <p>La feuille de style est composée de <strong>règles de style</strong>. Elles possèdent le format suivant :</p>
+        <h4>3. Vidéos : <code>&lt;video&gt;</code></h4>
+        <p>La balise <code>&lt;video&gt;</code> permet de diffuser des séquences vidéo directement dans le navigateur :
+        </p>
+
+        <p><strong>a. Syntaxe simple (avec attribut <code>src</code> direct) :</strong></p>
+        <pre class="html"><code>&lt;video src=&quot;videos/presentation.mp4&quot; controls width=&quot;640&quot; height=&quot;360&quot;&gt;
+  Votre navigateur ne prend pas en charge la lecture de vidéos HTML5.
+&lt;/video&gt;</code></pre>
+
+        <p><strong>b. Syntaxe multi-sources (avec balise <code>&lt;source&gt;</code> et image d'affiche) :</strong></p>
+        <pre class="html"><code>&lt;video controls width=&quot;640&quot; height=&quot;360&quot; poster=&quot;images/affiche.jpg&quot;&gt;
+  &lt;source src=&quot;videos/presentation.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;videos/presentation.webm&quot; type=&quot;video/webm&quot;&gt;
+  Votre navigateur ne prend pas en charge la lecture de vidéos HTML5.
+&lt;/video&gt;</code></pre>
+
+        <p>Attributs spécifiques à l'élément <code>&lt;video&gt;</code> :</p>
+        <ul>
+          <li><code>src</code> : chemin d'accès vers le fichier vidéo (dans la syntaxe simple).</li>
+          <li><code>controls</code> : affiche les commandes de lecture (lecture/pause, volume, barre temporelle, plein
+            écran).</li>
+          <li><code>width</code> et <code>height</code> : dimensions d'affichage du lecteur vidéo en pixels.</li>
+          <li><code>poster="image.jpg"</code> : image affichée avant le déclenchement de la lecture.</li>
+          <li><code>autoplay</code>, <code>loop</code>, <code>muted</code> : lecture automatique, boucle et mise en
+            sourdine.</li>
+        </ul>
+      </section>
+
+      <!-- Section 2.7 : Liens hypertextes -->
+      <section>
+        <h3>Liens hypertextes</h3>
+        <p>La balise <code>&lt;a&gt;</code> (Anchor) est l'élément fondamental permettant la navigation entre les pages
+          Web :</p>
+
+        <h4>1. Syntaxe de base</h4>
+        <pre
+          class="html"><code>&lt;a href=&quot;https://monlycee.education.tn&quot; target=&quot;_blank&quot;&gt;Site officiel du lycée&lt;/a&gt;</code></pre>
+        <ul>
+          <li><code>href</code> (Hypertext Reference) : adresse URL de la page cible ou ressource visée.</li>
+          <li><code>target="_blank"</code> (optionnel) : commande l'ouverture du lien dans un nouvel onglet.</li>
+        </ul>
+
+        <h4>2. Types de liens</h4>
+        <p>Les différents types de liens au programme sont :</p>
+        <ul>
+          <li>
+            <strong>Lien externe :</strong> pointe vers un autre site web sur Internet :
+            <pre
+              class="html"><code>&lt;a href=&quot;https://google.com&quot; target=&quot;_blank&quot;&gt;Visiter Google&lt;/a&gt;</code></pre>
+          </li>
+          <li>
+            <strong>Lien interne :</strong> pointe vers une autre page située dans le même dossier ou site :
+            <pre class="html"><code>&lt;a href=&quot;file02.html&quot;&gt;Accéder à la Séance n°2&lt;/a&gt;</code></pre>
+          </li>
+          <li>
+            <strong>Lien nommé (vers signet / ancre interne) :</strong> permet de naviguer vers une section spécifique
+            de la même page identifiée par son <code>id</code> :
+            <pre class="html"><code>&lt;a href=&quot;#section-cours&quot;&gt;Aller au cours&lt;/a&gt;</code></pre>
+          </li>
+          <li>
+            <strong>Lien de messagerie électronique :</strong> lance le client de messagerie grâce au préfixe
+            <code>mailto:</code> :
+            <pre
+              class="html"><code>&lt;a href=&quot;mailto:contact@lycee.tn&quot;&gt;Envoyer un e-mail&lt;/a&gt;</code></pre>
+          </li>
+          <li>
+            <strong>Lien de numérotation de téléphone :</strong> permet d'appeler directement un numéro (notamment sur
+            smartphone) via le préfixe <code>tel:</code> :
+            <pre
+              class="html"><code>&lt;a href=&quot;tel:+21673123456&quot;&gt;Appeler le lycée (+216 73 123 456)&lt;/a&gt;</code></pre>
+          </li>
+        </ul>
+      </section>
+    </article>
+
+    <!-- ====================================================================
+         MODULE 3 : CSS3
+         ==================================================================== -->
+    <article>
+      <h2>Feuilles de styles CSS3</h2>
+
+      <!-- Section 3.1 : Intégration & Sélecteurs -->
+      <section>
+        <h3>Intégration & Sélecteurs CSS</h3>
+
+        <h4>1. Méthodes d'intégration du CSS</h4>
+        <p>Il existe trois façons d'intégrer des règles de style dans une page :</p>
+        <ul>
+          <li>
+            <strong>Fichier externe lié (Recommandé) :</strong> via la balise <code>&lt;link&gt;</code> dans le
+            <code>&lt;head&gt;</code> :
+            <pre class="html"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code></pre>
+          </li>
+          <li>
+            <strong>Feuille de style interne :</strong> déclarée dans l'en-tête via <code>&lt;style&gt;</code> :
+            <pre class="html"><code>&lt;style&gt;
+  body { background-color: #f0f4f8; }
+&lt;/style&gt;</code></pre>
+          </li>
+          <li>
+            <strong>Style en ligne (Inline) :</strong> directement dans la balise via l'attribut <code>style</code> :
+            <pre
+              class="html"><code>&lt;p style=&quot;color: #4f46e5; font-weight: bold;&quot;&gt;Texte stylé en ligne&lt;/p&gt;</code></pre>
+          </li>
+        </ul>
+
+        <p class="p-break"></p>
+        <h4>2. Anatomie d'une règle de style & Sélecteurs</h4>
         <pre class="css"><code>selecteur { 
   propriété1: valeur1;
   propriété2: valeur2;
-  ...
 }</code></pre>
-        <p>On modifie l'apparence d'un élément en modifiant les valeurs de ses propriétés.</p>
-      </section>
 
-      <section>
-        <h3>Sélecteurs</h3>
-        <p>Le sélecteur indique l'élément ou le groupe d'éléments concernés par une règle de style. Parmi les sélecteurs
-          les plus fréquemment utilisés on cite :</p>
+        <p>Les 4 sélecteurs indispensables au programme de 3STI :</p>
         <ul>
-          <li><strong>Le sélecteur d'élément</strong> : il est de la forme suivante et concerne tous les éléments d'une
-            balise donnée.
-            <pre class="css"><code>balise {
-  propriétés
-}</code></pre>
-            <p><code>balise</code> est le nom d'un élément. Exemples : <code>p</code>, <code>h1</code>, etc.</p>
+          <li>
+            <strong>Sélecteur d'élément (balise) :</strong> cible toutes les balises de ce nom.
+            <pre class="css"><code>p { color: #333333; line-height: 1.6; }</code></pre>
           </li>
-          <li><strong>Le sélecteur de classe</strong> : il est de la forme suivante et concerne tous les éléments qui
-            définissent l'attribut <code>class=&quot;classe&quot;</code>.
-
-            <pre class="css"><code>.classe {
-  propriétés
-}</code></pre>
+          <li>
+            <strong>Sélecteur de classe (<code>.nom</code>) :</strong> cible tous les éléments portant l'attribut
+            <code>class="nom"</code>. Réutilisable à volonté.
+            <pre
+              class="css"><code>.encadre-remarque { border-left: 4px solid #06b6d4; padding-left: 10px; }</code></pre>
           </li>
-          <li><strong>Le sélecteur d'<code>id</code></strong> : il est de la forme suivante et concerne l'unique élément
-            qui a définit l'attribut <code>id=&quot;iden&quot;</code>.
-            <pre class="css"><code>#iden {
-  propriétés
-}</code></pre>
+          <li>
+            <strong>Sélecteur d'identifiant (<code>#id</code>) :</strong> cible l'unique élément portant l'attribut
+            <code>id="id"</code>.
+            <pre class="css"><code>#profil-header { background-color: #ffffff; }</code></pre>
           </li>
-          <li><strong>Le sélecteur universel (<code>*</code>)</strong> : il cible l'ensemble des éléments HTML du document sans exception. Il est fréquemment employé pour réinitialiser les marges internes et externes par défaut du navigateur (CSS Reset) :
+          <li>
+            <strong>Sélecteur universel (<code>*</code>) :</strong> cible absolument tous les éléments du document.
+            Indispensable pour réinitialiser les marges du navigateur :
             <pre class="css"><code>* {
   margin: 0;
   padding: 0;
@@ -226,162 +647,183 @@ p { color: green; text-align: center; font-size: 22pt; }
         </ul>
       </section>
 
+      <!-- Section 3.2 : Typographie & Couleurs -->
       <section>
-        <h3>Mise en forme du texte</h3>
-        <pre class="css"><code>font-family: &apos;Georgia&apos;;</code></pre>
-        <p>Choix de la police de caractères appliquée à un élement.</p>
+        <h3>Typographie & Couleurs</h3>
 
-        <pre class="css"><code>font-size: 15px;</code></pre>
-        <p>Indique la taille de la police.</p>
+        <h4>1. Mise en forme du texte</h4>
+        <pre class="css"><code>/* Famille de police avec polices de substitution */
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-        <pre class="css"><code>font-style: italic;</code></pre>
-        <p>Indique si la police est oblique, italique ou normale.</p>
+/* Taille du texte en pixels, em ou rem */
+font-size: 16px;
 
-        <pre class="css"><code>font-weight: bold;</code></pre>
-        <p>Indique si le texte est gras.</p>
+/* Style : normal, italic ou oblique */
+font-style: italic;
+
+/* Épaisseur du trait : normal, bold, ou valeurs 100 à 900 */
+font-weight: bold;
+
+/* Alignement : left, right, center ou justify */
+text-align: center;</code></pre>
 
         <p class="p-break"></p>
-        <pre class="css"><code>text-align: center;</code></pre>
-        <p>Choix de l'alignement d'un paragraphe : gauche (<code>left</code>), droite (<code>right</code>), centré
-          (<code>center</code>) ou justifié (<code>justify</code>).</p>
-      </section>
+        <h4>2. Couleurs et Arrière-plans</h4>
+        <p>La couleur s'applique sur le texte via <code>color</code> et sur le fond via <code>background-color</code> :
+        </p>
 
-      <section>
-        <h3>Couleurs</h3>
-        <pre class="css"><code>color: couleur;</code></pre>
-        <p>Choix de la couleur du texte. <code>couleur</code> peut être :</p>
         <ul>
-          <li>Le nom d'une couleur : red <span class="color" style="background-color: red;"></span>, white <span
-              class="color" style="background-color: white;"></span>, black <span class="color"
-              style="background-color: black;"></span>, pink <span class="color"
-              style="background-color: pink;"></span>, green <span class="color"
-              style="background-color: green;"></span>, etc.</li>
-          <li>Le code hexadécimal d'une couleur, sur 6 chiffres, au format <code>#rrggbb</code> où <code>rr</code>,
-            <code>gg</code> et
-            <code>bb</code> indiquent l'intensité en hexadécimal de chacune des trois composantes. Exemple,
-            <code>#123456</code> signifie que l'intensité du rouge est <code>18</code>, l'instensité du vert est
-            <code>52</code> et celle du bleu est <code>86</code> ce qui donne : <span class="color"
-              style="background-color: #123456;"></span>.
-          </li>
-          <li>Le code hexadécimal d'une couleur, sur 3 chiffres, au format <code>#rgb</code> où <code>r</code>,
-            <code>g</code> et
-            <code>b</code> indiquent l'intensité en hexadécimal de chacune des trois composantes. Ce format est un
-            raccourci du format <code>#rrggbb</code>. Par exemple, le code <code>#356</code> signifie
-            <code>#335566</code> : <span class="color" style="background-color: #356;"></span>.
-          </li>
-          <li>L'intensité des trois composantes rouge, vert et bleu <code>rgb(r, g, b)</code>. Exemple :
-            <code>color: rgb(33, 144, 55);</code> <span class="color"
-              style="background-color: rgb(33, 144, 55);"></span>
-          </li>
-          <li>L'intensité des trois composantes rouge, vert et bleu auxquelles s'ajoutent le degré de transparence de
-            couleur <code>rgba(r, g, b, a)</code>. Exemple : <code>color: rgba(33, 144, 55, 0.5);</code> <span
-              class="color" style="background-color: rgba(33, 144, 55, 0.5);"></span>. La transparence varie de 0 à 1,
-            du transparent à l'opaque.
+          <li><strong>Nom de couleur :</strong> <code>color: red;</code>, <code>color: navy;</code> <span class="color"
+              style="background-color: navy;"></span></li>
+          <li><strong>Hexadécimal à 6 chiffres (<code>#rrggbb</code>) :</strong> <code>color: #4f46e5;</code> <span
+              class="color" style="background-color: #4f46e5;"></span></li>
+          <li><strong>Hexadécimal court à 3 chiffres (<code>#rgb</code>) :</strong> <code>color: #0bd;</code> équivalent
+            à <code>#00bbdd</code> <span class="color" style="background-color: #00bbdd;"></span></li>
+          <li><strong>Format RGB :</strong> <code>color: rgb(33, 150, 243);</code> <span class="color"
+              style="background-color: rgb(33, 150, 243);"></span></li>
+          <li><strong>Format RGBA avec transparence :</strong> <code>background-color: rgba(79, 70, 229, 0.2);</code>
+            <span class="color" style="background-color: rgba(79, 70, 229, 0.2);"></span> (alpha de 0 à 1).
           </li>
         </ul>
 
-        <pre class="css"><code>background-color: couleur;</code></pre>
-        <p>Choix de la couleur de l'arrière plan d'un élément.</p>
-
-        <pre class="css"><code>background: linear-gradient(angle, col1, col2);</code></pre>
-        <p>Elle définit un dégradé linéaire ayant un angle de <code>angle</code> degrées, allant de <code>-180deg</code>
-          à
-          <code>180deg</code>, de la couleur <code>col1</code> à la couleur <code>col2</code>. Exemple :
-          <code>background: linear-gradient(45deg, white, red);</code> <span class="color"
-            style="background: linear-gradient(45deg, white, red);"></span>
+        <h4>3. Dégradés linéaires en arrière-plan</h4>
+        <pre class="css"><code>/* Dégradé diagonal à 45 degrés entre deux teintes */
+background: linear-gradient(45deg, #4f46e5, #06b6d4);</code></pre>
+        <p>
+          Résultat visuel : <span class="color"
+            style="width: 120px; height: 24px; background: linear-gradient(45deg, #4f46e5, #06b6d4);"></span>
         </p>
       </section>
 
+      <!-- Section 3.3 : Modèle de boîte -->
       <section>
-        <h3>Modèle de boîte (box model)</h3>
-        <p>Toutes les balises de blocs sont considérées comme étant des boîtes.</p>
-        <p>Une boîte est constituée par :</p>
-        <ul>
-          <li>Le contenu de l'élément HTML (content), qui possède une largeur <code>width</code> et une hauteur
-            <code>height</code>.
-          </li>
-          <li>La marge interne (<code>padding</code>)</li>
-          <li>La bordure de l'élément (<code>border</code>)</li>
-          <li>La marge externe (<code>margin</code>)</li>
-        </ul>
+        <h3>Modèle de boîte (Box Model)</h3>
+        <p>
+          En CSS, chaque élément HTML affiché en mode bloc est modélisé sous la forme d'une boîte rectangulaire
+          constituée de quatre couches concentriques :
+        </p>
+
         <figure>
           <img src="assets/miniprojet01/images/box-model.png" alt="Modèle de boîte d'un élément HTML">
-          <figcaption>Modèle de boîte d'un élément HTML</figcaption>
+          <figcaption>Les quatre composantes du modèle de boîte : Content, Padding, Border et Margin</figcaption>
         </figure>
 
-        <p class="p-break"></p>
-        <pre class="css"><code>width: taille;</code></pre>
-        <p>La <code>taille</code> indique la largeur d'un élément HTML. Elle peut-être :</p>
-        <ul>
-          <li><strong>Absolue</strong> : définie en pixels (<code>px</code>), en points (<code>pt</code> = 1/72"), en
-            <code>cm</code>, en <code>mm</code>.
-            Exemple : <code>width: 200px;</code> définit
-            la largeur d'un élément à 200 pixels.
-          </li>
-          <li><strong>Relative</strong> : définie en pourcent (<code>%</code>) ou en M <code>em</code>. Par exemple,
-            <code>width: 4em;</code> la largeur de l'élément est de quatre fois l'hauteur de la lettre <span
-              class="color" style="width: 4em; height: 1.2em; line-height: 1em;">MMMM</span>.
-          </li>
-        </ul>
-
-        <pre class="css"><code>height: taille;</code></pre>
-        <p>La <code>taille</code> indique l'hauteur d'un élément HTML. Elle est semblable à la propriété
-          <code>width</code>.
-        </p>
-
-        <pre class="css"><code>padding: top;
-padding: top right;
-padding: top right bottom;
-padding: top right bottom left;</code></pre>
-        <p>Indique la <strong>marge interne</strong> d'un élément HTML, entre le contenu de l'élement et
-          sa bordure. Elle peut prendre plusieurs formes :</p>
-        <ul>
-          <li><strong>Une seule valeur</strong> :
-            <pre class="css"><code>padding: top;</code></pre>
-            Toutes les marges internes sont égales. Exemple :
-            <code>padding: 10px;</code>
-          </li>
-          <li><strong>Deux valeurs</strong> :
-            <pre class="css"><code>padding: top right;</code></pre>
-            Les marges internes sur les deux axes sont égales (top = bottom) et (right
-            = left). Exemple :
-            <code>padding: 15px 20px;</code>, les marges <code>top</code> et <code>bottom</code> sont de 15 pixels et
-            les marges <code>right</code> et <code>left</code> sont de 20 pixels.
-          </li>
-          <li><strong>Trois valeurs</strong> :
-            <pre class="css"><code>padding: top right bottom;</code></pre>
-            Les marges internes sur l'axe des x sont égales tandis que les autres sont
-            différentes. Exemple :
-            <code>padding: 15px 20px 25px;</code>, la marge <code>top</code> est de 15 pixels, la marge
-            <code>right</code> est de 20 pixels et la marge <code>bottom</code> est de 25 pixels et la marge
-            <code>left</code> est égale à la marge <code>right</code>,
-          </li>
-          <li><strong>Quatre valeurs</strong> :
-            <pre class="css"><code>padding: top right bottom left;</code></pre>
-            Toutes les marges internes sont différentes. Exemple : <code>padding: 15px 20px 25px 30px;</code>, les
-            marges <code>top</code>, <code>right</code> et <code>bottom</code> sont les mêmes que l'exemple précédent,
-            tandis que la marge <code>left</code> est de 30 pixels.</code>
-          </li>
-        </ul>
-
-        <pre class="css"><code>border: couleur style taille;</code></pre>
-        <p>Définit une bordure autour d'un élément HTML. <code>couleur</code> définit la couleur de la bordure,
-          <code>style</code>définit le style du trait (<code>solid</code>, <code>dotted</code>, etc) et la
-          <code>taille</code> l'épaisseur du trait.
-        </p>
-
-        <pre class="css"><code>border-collapse: collapse | separate;</code></pre>
-        <p>Spécifique aux tableaux (<code>&lt;table&gt;</code>), elle permet de fusionner les bordures des cellules adjacentes en une bordure unique (<code>collapse</code>) plutôt que de laisser un espace entre elles (<code>separate</code>).</p>
+        <div class="row g-3 my-2">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title text-primary">1. Content (Contenu)</h5>
+                <p class="card-text small">Dimensionné par <code>width</code> (largeur) et <code>height</code>
+                  (hauteur), en pixels (<code>px</code>), pourcentages (<code>%</code>) ou cadratins (<code>em</code>).
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title text-primary">2. Padding (Marge interne)</h5>
+                <p class="card-text small">Espace transparent entre le contenu et sa bordure. Définit l'aisance à
+                  l'intérieur du bloc.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title text-primary">3. Border (Bordure)</h5>
+                <p class="card-text small">Encadre l'élément : <code>border: épaisseur style couleur;</code> (ex:
+                  <code>border: 2px solid #4f46e5;</code>).
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title text-primary">4. Margin (Marge externe)</h5>
+                <p class="card-text small">Espace extérieur séparant l'élément de ses voisins.
+                  <code>margin: 0 auto;</code> permet de centrer un bloc.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <p class="p-break"></p>
-        <pre class="css"><code>margin: top;
-margin: top right;
-margin: top right bottom;
-margin: top right bottom left;</code></pre>
-        <p>Elle indique la marge extérieure d'un élément. C'est sa marge avec les éléments voisins. Tout comme la marge
-          interne <code>padding</code>, elle possède aussi plusieurs formes.</p>
+        <h4>Syntaxes abrégées de <code>padding</code> et <code>margin</code> :</h4>
+        <ul>
+          <li><strong>1 valeur :</strong> <code>padding: 10px;</code> ➔ 4 côtés égaux.</li>
+          <li><strong>2 valeurs :</strong> <code>padding: 10px 20px;</code> ➔ (haut/bas : 10px) et (gauche/droite :
+            20px).</li>
+          <li><strong>3 valeurs :</strong> <code>padding: 10px 20px 30px;</code> ➔ (haut : 10px), (gauche/droite :
+            20px), (bas : 30px).</li>
+          <li><strong>4 valeurs (sens horaire) :</strong> <code>padding: 10px 15px 20px 25px;</code> ➔ Haut, Droite,
+            Bas, Gauche.</li>
+        </ul>
       </section>
     </article>
+
+    <!-- ====================================================================
+         MODULE 4 : ATELIER PRATIQUE (MINI-PROJET 1)
+         ==================================================================== -->
+    <article>
+      <h2>Atelier Pratique : Fiche d'information</h2>
+
+      <section>
+        <h3>Cahier des charges & Travail à réaliser</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Réaliser une page web de présentation personnelle intitulée <em>« Fiche
+            d'information »</em>
+          en mobilisant l'ensemble des balises HTML5 et règles CSS3 étudiées lors de cette séance.
+        </div>
+
+        <h4>Étapes de réalisation guidée :</h4>
+        <ol>
+          <li>
+            <strong>Préparation du projet :</strong>
+            <ul>
+              <li>Créer un dossier nommé <code>miniprojet01</code>.</li>
+              <li>Créer à l'intérieur les fichiers <code>index.html</code> et <code>style.css</code>, ainsi qu'un
+                sous-dossier <code>images/</code>.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Rédaction du document HTML5 (<code>index.html</code>) :</strong>
+            <ul>
+              <li>Insérer le squelette minimal avec l'encodage UTF-8 et la liaison vers <code>style.css</code>.</li>
+              <li>Créer un conteneur principal <code>&lt;div class="fiche"&gt;</code> pour délimiter la carte de visite.
+              </li>
+              <li>Structurer les informations : Titre de niveau 1 pour votre prénom et nom, sous-titre pour la classe
+                (<strong>3STI</strong>).</li>
+              <li>Insérer une photo de profil ou un avatar avec un attribut <code>alt</code> explicite.</li>
+              <li>Rédiger quelques paragraphes présentant vos centres d'intérêt, vos langages de programmation favoris
+                et vos ambitions.</li>
+              <li>Ajouter un lien hypertexte vers votre profil scolaire ou un site de référence.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Stylisation avec CSS3 (<code>style.css</code>) :</strong>
+            <ul>
+              <li>Réinitialiser les marges par défaut avec le sélecteur universel <code>*</code>.</li>
+              <li>Définir une couleur de fond ou un dégradé élégant pour le <code>body</code>.</li>
+              <li>Appliquer le modèle de boîte sur la classe <code>.fiche</code> : largeur maximale, centrage horizontal
+                (<code>margin: 40px auto;</code>), bordure arrondie et marge interne confortable (<code>padding</code>).
+              </li>
+              <li>Harmoniser la typographie (famille de polices, graisses, alignements et couleurs de contraste).</li>
+            </ul>
+          </li>
+        </ol>
+
+        <figure>
+          <img src="assets/miniprojet01/images/modele.jpg" class="im-h-8" alt="Modèle visuel de la fiche d'information">
+          <figcaption>Exemple de mise en page attendue — Le choix de la palette de couleurs et des polices reste libre.
+          </figcaption>
+        </figure>
+      </section>
+    </article>
+
   </main>
 
   <footer class="d-print-none bg-dark text-white p-2">
@@ -391,7 +833,6 @@ margin: top right bottom left;</code></pre>
 
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/navigation.js"></script>
   <script src="assets/js/pages.js"></script>
   <script src="assets/js/highlight.pack.js"></script>
   <script>

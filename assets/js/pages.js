@@ -11,6 +11,7 @@ $(() => {
     const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
     
     document.documentElement.setAttribute('data-theme', initialTheme);
+    document.documentElement.setAttribute('data-bs-theme', initialTheme);
     return initialTheme;
   };
 
@@ -41,6 +42,7 @@ $(() => {
       .click(() => {
         currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', currentTheme);
+        document.documentElement.setAttribute('data-bs-theme', currentTheme);
         localStorage.setItem('3sti_theme', currentTheme);
         toggleBtn.html(currentTheme === 'dark' ? '☀️' : '🌙');
       });
@@ -102,6 +104,7 @@ $(() => {
           const sectLinkId = `link-${index + 1}-${section_index + 1}`;
           const sectTitle = section.find('h3').first().text().trim() || `Page ${section_index + 1}`;
 
+          section.attr('id', sectId);
           section.addClass('d-none d-print-block');
 
           // Store for sequential navigation
@@ -137,13 +140,18 @@ $(() => {
     const artTitle = articles.eq(artIndex).find('h2').text().trim();
     const sectTitle = articles.eq(artIndex).find('section').eq(sectIndex).find('h3').first().text().trim();
 
-    breadcrumbElem.html(`
-      <a href="index.html">🏠 Accueil</a>
-      <span class="sep">/</span>
-      <span>${pageMainTitle}</span>
-      ${artTitle ? `<span class="sep">/</span> <span>${artTitle}</span>` : ''}
-      ${sectTitle ? `<span class="sep">/</span> <span class="current">${sectTitle}</span>` : ''}
-    `);
+    breadcrumbElem.empty();
+    $('<a>').attr('href', 'index.html').text('🏠 Accueil').appendTo(breadcrumbElem);
+    $('<span>').addClass('sep').text('/').appendTo(breadcrumbElem);
+    $('<span>').text(pageMainTitle).appendTo(breadcrumbElem);
+    if (artTitle) {
+      $('<span>').addClass('sep').text('/').appendTo(breadcrumbElem);
+      $('<span>').text(artTitle).appendTo(breadcrumbElem);
+    }
+    if (sectTitle) {
+      $('<span>').addClass('sep').text('/').appendTo(breadcrumbElem);
+      $('<span>').addClass('current').text(sectTitle).appendTo(breadcrumbElem);
+    }
   };
 
   // Section Display Function
@@ -159,7 +167,7 @@ $(() => {
     $(`a#link-${index + 1}`).addClass('active');
   };
 
-  const displaySection = (index) => {
+  const displaySection = (index, updateUrl = 'push') => {
     if (art_obj.section && art_obj.section.addClass) {
       art_obj.section.addClass('d-none');
       $(`a#link-${art_obj.article_index + 1}-${art_obj.section_index + 1}`).removeClass('active');
@@ -176,6 +184,20 @@ $(() => {
       article_index: art_obj.article_index,
       section_index: art_obj.section_index
     }));
+
+    // Synchronize URL in the browser address bar
+    if (updateUrl && !isHomePage) {
+      const sectId = `section-${art_obj.article_index + 1}-${index + 1}`;
+      if (location.hash !== `#${sectId}`) {
+        if (updateUrl === 'replace' && window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', `#${sectId}`);
+        } else if (window.history && window.history.pushState) {
+          window.history.pushState(null, '', `#${sectId}`);
+        } else {
+          location.hash = sectId;
+        }
+      }
+    }
   };
 
   const STORAGE_KEY = location.pathname + '#art_obj';
@@ -242,13 +264,15 @@ $(() => {
       // Previous button
       if (flatIdx > 0) {
         const prevItem = flatSections[flatIdx - 1];
+        const prevSectId = `section-${prevItem.articleIndex + 1}-${prevItem.sectionIndex + 1}`;
         $('<button>')
           .attr('type', 'button')
+          .attr('data-target', `#${prevSectId}`)
           .addClass('lesson-nav-btn prev-btn')
-          .html(`← ${prevItem.sectionTitle}`)
+          .text(`← ${prevItem.sectionTitle}`)
           .click(() => {
             displayArticle(prevItem.articleIndex);
-            displaySection(prevItem.sectionIndex);
+            displaySection(prevItem.sectionIndex, 'push');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           })
           .appendTo(navContainer);
@@ -260,16 +284,39 @@ $(() => {
       // Next button
       if (flatIdx < flatSections.length - 1) {
         const nextItem = flatSections[flatIdx + 1];
+        const nextSectId = `section-${nextItem.articleIndex + 1}-${nextItem.sectionIndex + 1}`;
         $('<button>')
           .attr('type', 'button')
+          .attr('data-target', `#${nextSectId}`)
           .addClass('lesson-nav-btn next-btn')
-          .html(`${nextItem.sectionTitle} →`)
+          .text(`${nextItem.sectionTitle} →`)
           .click(() => {
             displayArticle(nextItem.articleIndex);
-            displaySection(nextItem.sectionIndex);
+            displaySection(nextItem.sectionIndex, 'push');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           })
           .appendTo(navContainer);
+      }
+    });
+
+    // Listen for browser Back/Forward history navigation
+    $(window).on('popstate hashchange', () => {
+      const currentHash = window.location.hash;
+      if (currentHash && currentHash.startsWith('#section')) {
+        const parts = currentHash.split('-');
+        if (parts.length >= 3) {
+          const aIdx = parseInt(parts[1], 10) - 1;
+          const sIdx = parseInt(parts[2], 10) - 1;
+          if (aIdx >= 0 && aIdx < articles.length) {
+            if (aIdx !== art_obj.article_index) {
+              displayArticle(aIdx);
+            }
+            if (sIdx !== art_obj.section_index) {
+              displaySection(sIdx, false);
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }
       }
     });
   }
@@ -339,9 +386,9 @@ $(() => {
     // By default on homepage, display all sections nicely
     handleFilter('all');
   } else {
-    // Initial display on lesson pages
+    // Initial display on lesson pages (use replace to avoid duplicate history entry)
     displayArticle(art_obj.article_index);
-    displaySection(art_obj.section_index);
+    displaySection(art_obj.section_index, 'replace');
   }
 
   // 6. Code Blocks Enhancement (macOS window bar & Copy Button)
@@ -352,11 +399,12 @@ $(() => {
     const code = pre.find('code');
     let lang = 'Code';
     if (code.length) {
-      const cls = code.attr('class') || pre.attr('class') || '';
-      if (cls.includes('html')) lang = 'HTML';
-      else if (cls.includes('css')) lang = 'CSS';
-      else if (cls.includes('js') || cls.includes('javascript')) lang = 'JavaScript';
-      else if (cls.includes('sql')) lang = 'SQL';
+      const cls = ((code.attr('class') || '') + ' ' + (pre.attr('class') || '')).toLowerCase();
+      const tokens = cls.split(/\s+/).filter(t => t && t !== 'hljs');
+      if (tokens.some(t => t === 'html' || t === 'xml' || t === 'language-html')) lang = 'HTML';
+      else if (tokens.some(t => t === 'css' || t === 'language-css')) lang = 'CSS';
+      else if (tokens.some(t => t === 'js' || t === 'javascript' || t === 'language-javascript' || t === 'language-js')) lang = 'JavaScript';
+      else if (tokens.some(t => t === 'sql' || t === 'language-sql')) lang = 'SQL';
     }
 
     const wrapper = $('<div>').addClass('code-block-wrapper');
