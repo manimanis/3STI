@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cours HTML5 / CSS3</title>
+  <title>Cours & Travaux Pratiques Conception Web - 3STI</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/default.css">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -14,404 +14,388 @@
   <aside>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Web</a>
+        <a class="navbar-brand" href="index.html">
+          <span class="brand-badge">3STI</span>
+          <span class="brand-text">Conception Web</span>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          aria-controls="aside_navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span> Menu
         </button>
         <div class="collapse navbar-collapse" id="aside_navbar"></div>
       </div>
     </nav>
   </aside>
+
   <main class="my-4 container">
-    <h1>Conception Web</h1>
+    <!-- Hero Banner & Interactive Hub -->
+    <header class="hero-banner">
+      <div class="hero-pill">🎓 Année Scolaire 2026/2027 • Section 3STI</div>
+      <h1 class="hero-title">Conception & Développement Web</h1>
+      <p class="hero-subtitle">
+        Plateforme d'apprentissage interactif pour les élèves de 3<sup>ème</sup> Sciences de l'Informatique :
+        cours théoriques, travaux pratiques guidés, activités algorithmiques et devoirs de synthèse.
+      </p>
+
+      <div class="hero-stats">
+        <span class="stat-chip">📘 5 Séances de Cours</span>
+        <span class="stat-chip">⚡ 10 Séances d'Activités JS</span>
+        <span class="stat-chip">🎯 3 Devoirs & Progressions</span>
+        <span class="stat-chip">🛠️ HTML5 • CSS3 • JavaScript</span>
+      </div>
+
+      <div class="hub-toolbar">
+        <div class="search-box-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="site-search" class="search-input" placeholder="Rechercher une notion, un TP, une séance (ex: formulaires, animation, date, smiley...)" autocomplete="off">
+        </div>
+        <div class="filter-chips">
+          <button type="button" class="filter-chip-btn active" data-filter="all">Tous les modules (18)</button>
+          <button type="button" class="filter-chip-btn" data-filter="cours">📘 Cours (5)</button>
+          <button type="button" class="filter-chip-btn" data-filter="activites">⚡ Activités JS (10)</button>
+          <button type="button" class="filter-chip-btn" data-filter="progression">🎯 Progression (3)</button>
+        </div>
+      </div>
+    </header>
 
     <article>
-      <h2>TP</h2>
+      <h2>Modules & Ressources Pédagogiques</h2>
 
-      <section>
-        <h3>Cours</h3>
+      <!-- Section 1 : Cours -->
+      <section id="section-cours">
+        <h3>Cours Théoriques & Applications</h3>
 
         <div class="row">
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 1</h5>
-                <p class="card-text">Rappel sur le langage HTML et CSS.</p>
-                <p>Application 1 : Fiche de renseignements</p>
-              </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="file01.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet01.jpg" class="card-img-top" alt="Fiche de renseignements">
+                <span class="card-badge-floating">Séance 1</span>
               </div>
               <div class="card-body">
-                <a href="docs/seance01.pdf" target="_blank" rel="noopener noreferrer">Version PDF</a>
+                <h5 class="card-title">Séance 1 : Rappel HTML & CSS</h5>
+                <p class="card-text">Rappels fondamentaux sur la structure HTML et la mise en forme CSS.</p>
+                <p class="text-muted small mb-0">Application 1 : Fiche de renseignements</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="file01.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir le cours ➔</a>
+                <a href="docs/seance01.pdf" class="btn-pdf" target="_blank" rel="noopener noreferrer">📄 PDF</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet02.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Balises sémantiques">
-              <div class="card-body">
-                <h5 class="card-title">Séance 2</h5>
-                <p class="card-text">Les balises sémantiques de contenu et les balises sémantiques structurelles.</p>
-                <p>Application 2 : Computers<br>Application 3 : Fruits universe</p>
-              </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="file02.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet02.jpg" class="card-img-top" alt="Balises sémantiques">
+                <span class="card-badge-floating">Séance 2</span>
               </div>
               <div class="card-body">
-                <a href="docs/seance02.pdf" target="_blank" rel="noopener noreferrer">Version PDF</a>
+                <h5 class="card-title">Séance 2 : Balises Sémantiques</h5>
+                <p class="card-text">Balises sémantiques de contenu et de structure de page en HTML5.</p>
+                <p class="text-muted small mb-0">Application 2 : Computers<br>Application 3 : Fruits universe</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="file02.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir le cours ➔</a>
+                <a href="docs/seance02.pdf" class="btn-pdf" target="_blank" rel="noopener noreferrer">📄 PDF</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet03.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Balises sémantiques">
-              <div class="card-body">
-                <h5 class="card-title">Séance 3</h5>
-                <p class="card-text">Les animation en CSS.</p>
-                <p>Application 4 : Progress bar<br>Application 5 : Smiley<br>Application 6 : Montre analogique</p>
-              </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="file03.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet03.jpg" class="card-img-top" alt="Animations CSS">
+                <span class="card-badge-floating">Séance 3</span>
               </div>
               <div class="card-body">
-                <a href="docs/seance03.pdf" target="_blank" rel="noopener noreferrer">Version PDF</a>
+                <h5 class="card-title">Séance 3 : Animations en CSS</h5>
+                <p class="card-text">Transitions, keyframes, transformations et animations en CSS3.</p>
+                <p class="text-muted small mb-0">Application 4 : Progress bar<br>Application 5 : Smiley • Montre analogique</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="file03.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir le cours ➔</a>
+                <a href="docs/seance03.pdf" class="btn-pdf" target="_blank" rel="noopener noreferrer">📄 PDF</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet04.jpg" class="card-img-top border-bottom border-secondary" alt="Formulaires">
-              <div class="card-body">
-                <h5 class="card-title">Séance 4</h5>
-                <p class="card-text">Les Formulaire.</p>
-                <p>Application 7 : Formulaire de contact<br>Application 8 : Personnages de bandes dessinées</p>
-              </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="file04.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet04.jpg" class="card-img-top" alt="Formulaires Web">
+                <span class="card-badge-floating">Séance 4</span>
               </div>
               <div class="card-body">
-                <a href="docs/seance04.pdf" target="_blank" rel="noopener noreferrer">Version PDF</a>
+                <h5 class="card-title">Séance 4 : Les Formulaires Web</h5>
+                <p class="card-text">Création, structuration et contrôles des formulaires interactifs.</p>
+                <p class="text-muted small mb-0">Application 7 : Formulaire de contact<br>Application 8 : Héros de bandes dessinées</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="file04.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir le cours ➔</a>
+                <a href="docs/seance04.pdf" class="btn-pdf" target="_blank" rel="noopener noreferrer">📄 PDF</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet-05.png" class="card-img-top border-bottom border-secondary" alt="Formulaires">
-              <div class="card-body">
-                <h5 class="card-title">Séance 5</h5>
-                <p class="card-text">JavaScript</p>
-                <p></p>
-              </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="file05.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet-05.png" class="card-img-top" alt="JavaScript">
+                <span class="card-badge-floating">Séance 5</span>
               </div>
               <div class="card-body">
-                <a href="docs/seance05.pdf" target="_blank" rel="noopener noreferrer">Version PDF</a>
+                <h5 class="card-title">Séance 5 : Initiation JavaScript</h5>
+                <p class="card-text">Bases du langage JavaScript, manipulation du DOM et gestion d'événements.</p>
+                <p class="text-muted small mb-0">Applications pratiques et contrôle de formulaire</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="file05.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir le cours ➔</a>
+                <a href="docs/seance05.pdf" class="btn-pdf" target="_blank" rel="noopener noreferrer">📄 PDF</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section>
-        <h3>Activités JavaScript</h3>
+      <!-- Section 2 : Activités JavaScript -->
+      <section id="section-activites">
+        <h3>Activités Pratiques JavaScript</h3>
 
         <div class="row">
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 1</h5>
-                <p class="card-text">Méthodes de sortie en JavaScript.</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet01.jpg" class="card-img-top" alt="Sorties JS">
+                <span class="card-badge-floating">Activité 1</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="act01.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Séance 1 : Sorties en JavaScript</h5>
+                <p class="card-text">Méthodes de sortie : console.log, document.write, alert, innerHTML.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="act01.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir l'activité ➔</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 2</h5>
-                <p class="card-text">Méthodes d'entrées en JavaScript.</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet02.jpg" class="card-img-top" alt="Entrées JS">
+                <span class="card-badge-floating">Activité 2</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="act02.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Séance 2 : Entrées en JavaScript</h5>
+                <p class="card-text">Méthodes de saisie, boîtes prompt, champs de saisie et conversion de type.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="act02.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir l'activité ➔</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 3</h5>
-                <p class="card-text">Structures conditionnelles et itératives.</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet03.jpg" class="card-img-top" alt="Conditions et Boucles">
+                <span class="card-badge-floating">Activité 3</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="act03.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Séance 3 : Conditions & Boucles</h5>
+                <p class="card-text">Structures conditionnelles (if / switch) et structures itératives (for / while).</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="act03.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir l'activité ➔</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 4</h5>
-                <p class="card-text">Fonctions & évènements.</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet04.jpg" class="card-img-top" alt="Fonctions et Événements">
+                <span class="card-badge-floating">Activité 4</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="act04.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Séance 4 : Fonctions & Événements</h5>
+                <p class="card-text">Déclaration de fonctions, passage de paramètres et gestion des événements du DOM.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="act04.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir l'activité ➔</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 5</h5>
-                <p class="card-text">TP n°1 - Somme diviseurs - Nombres parfaits - Nombres amis</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet-05.png" class="card-img-top" alt="TP1 Algorithmes">
+                <span class="card-badge-floating">TP n°1</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="act05.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Séance 5 : TP n°1 Nombres</h5>
+                <p class="card-text">Somme des diviseurs, nombres parfaits et nombres amis en JavaScript.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="act05.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir l'activité ➔</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 6</h5>
-                <p class="card-text">Fonctions Date</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet01.jpg" class="card-img-top" alt="Fonctions Date">
+                <span class="card-badge-floating">Séance 6 (A)</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="act06-n.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Séance 6 : Fonctions Date</h5>
+                <p class="card-text">Manipulation de l'objet Date, calculs de durées et formatage de dates.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="act06-n.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir l'activité ➔</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 6</h5>
-                <p class="card-text">TP n°2 - Nombre ondulant - Nombre superpair plus - Nombre semi-premier - Générateur
-                  de mots de passes</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet02.jpg" class="card-img-top" alt="TP2 Nombres et Mots de Passe">
+                <span class="card-badge-floating">TP n°2</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="act06.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Séance 6 : TP n°2 Algorithmes</h5>
+                <p class="card-text">Nombre ondulant, nombre superpair, semi-premier et générateur de mots de passe.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="act06.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir l'activité ➔</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 7</h5>
-                <p class="card-text">TP n°3 - Color Mixer - Volume Sliders</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet03.jpg" class="card-img-top" alt="Color Mixer">
+                <span class="card-badge-floating">TP n°3</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="act07.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Séance 7 : TP n°3 Color Mixer</h5>
+                <p class="card-text">Mixeur de couleurs RGB, sliders interactifs et contrôle du volume sonore.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="act07.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir l'activité ➔</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 8</h5>
-                <p class="card-text">TP n°4 - Number Guesser</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet04.jpg" class="card-img-top" alt="Number Guesser">
+                <span class="card-badge-floating">TP n°4</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="act08.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Séance 8 : TP n°4 Number Guesser</h5>
+                <p class="card-text">Jeu de devinette de nombre avec rétroaction interactive et score.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="act08.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir l'activité ➔</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 9</h5>
-                <p class="card-text">TP n°5 - Lamp Switch - Double lampes - Piano</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet-05.png" class="card-img-top" alt="Lampes et Piano">
+                <span class="card-badge-floating">TP n°5</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="act09.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Séance 9 : TP n°5 Lampes & Piano</h5>
+                <p class="card-text">Interrupteurs de lampes, circuit électrique double et mini-piano jouable.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="act09.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir l'activité ➔</a>
               </div>
             </div>
           </div>
-<!--
-          <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
-            <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 10</h5>
-                <p class="card-text">TP n°6 - Correction DS</p>
-              </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="miniprojets/MiniProjet-14/validation_incomplete.zip" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Télécharger...</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
-            <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 11</h5>
-                <p class="card-text">TP n°7 - Digital Clock - Computer Price</p>
-              </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="act10.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir...</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
-            <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 13</h5>
-                <p class="card-text">TP n°7 - Resistor</p>
-              </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="miniprojets/MiniProjet-14/resistor_incomplete.zip" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Télécharger...</a>
-                </div>
-              </div>
-            </div>
-          </div>
--->
         </div>
       </section>
 
-      <section>
-        <h3>Progression</h3>
+      <!-- Section 3 : Progression -->
+      <section id="section-progression">
+        <h3>Progression, Projets & Devoirs de Synthèse</h3>
+
         <div class="row">
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 4</h5>
-                <p class="card-text">Fonctions & évènements.</p>
-                <p class="card-text">Jeu Tic-Tac-Toe</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet01.jpg" class="card-img-top" alt="Jeu Tic-Tac-Toe">
+                <span class="card-badge-floating">Jeu Interactif</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="prog04-1.html" class="btn btn-primary" target="_blank"
-                    rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Projet Tic-Tac-Toe</h5>
+                <p class="card-text">Implémentation complète du jeu Morpion (Tic-Tac-Toe) en HTML5, CSS3 et JS.</p>
+                <p class="text-muted small mb-0">Gestion de grille, alternance des joueurs et détection de victoire.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="prog04-1.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Jouer au projet ➔</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 5</h5>
-                <p class="card-text">TP n°1 - Somme diviseurs - Nombres parfaits - Nombres amis</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet02.jpg" class="card-img-top" alt="Diviseurs et Nombres">
+                <span class="card-badge-floating">Math & Algorithmes</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="prog05-1.html" class="btn btn-primary" target="_blank"
-                    rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Progression Nombres Parfaits</h5>
+                <p class="card-text">Application complète de calcul arithmétique : diviseurs, nombres parfaits et amis.</p>
+                <p class="text-muted small mb-0">Affichage dynamique des résultats et validations.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="prog05-1.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ouvrir la progression ➔</a>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
             <div class="card h-100">
-              <img src="images/miniprojet01.jpg" class="card-img-top border-bottom border-secondary"
-                alt="Fiche de renseignements">
-              <div class="card-body">
-                <h5 class="card-title">Séance 6</h5>
-                <p class="card-text">Correction devoir de contrôle RIB Checker, ClicToPay et Grille calories</p>
+              <div class="card-img-wrapper">
+                <img src="images/miniprojet03.jpg" class="card-img-top" alt="Correction Devoir">
+                <span class="card-badge-floating">Devoir Contrôle</span>
               </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="prog06-1.html" class="btn btn-primary" target="_blank"
-                    rel="noopener noreferrer">Ouvrir...</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Correction Devoir de Contrôle</h5>
+                <p class="card-text">Corrigé interactif des sujets : Vérificateur de RIB bancaire, ClicToPay et Grille calories.</p>
+                <p class="text-muted small mb-0">Algorithmes de validation et gestion fine des événements.</p>
+              </div>
+              <div class="card-footer-actions">
+                <a href="prog06-1.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Consulter le corrigé ➔</a>
               </div>
             </div>
           </div>
         </div>
       </section>
     </article>
-
   </main>
-  <footer class="d-print-none bg-dark text-white p-2">
-    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
-    <div class="text-center small">Année scolaire : 2022/2023</div>
+
+  <footer class="d-print-none">
+    <div class="footer-inner">
+      <div class="footer-credit">
+        Conçu avec <span class="heart-icon">♥</span> par <strong>Mohamed Anis MANI</strong> — 3STI
+      </div>
+      <div class="footer-year-badge">
+        🎓 Année scolaire : 2026/2027
+      </div>
+    </div>
   </footer>
+
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/highlight.pack.js"></script>
   <script src="assets/js/jquery.min.js"></script>
