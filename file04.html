@@ -5,17 +5,122 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Séance n°4</title>
+  <title>Séance n°4 : Les formulaires Web</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/default.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Styles dédiés aux démonstrations interactives de la Séance 4 */
+    #example01 {
+      font-family: inherit;
+      font-size: 1rem;
+      display: flex;
+      max-width: 420px;
+      width: 100%;
+      flex-wrap: wrap;
+      padding: 25px;
+      background-color: var(--bg-surface, #ffffff);
+      border: 1px solid var(--border-color, --cadetblue);
+      margin: 20px auto;
+      border-radius: var(--radius-md, 8px);
+      box-shadow: var(--card-shadow, 0 4px 12px rgba(0, 0, 0, 0.06));
+    }
+
+    #example01 input[type="text"],
+    #example01 input[type="password"],
+    #example01 label,
+    #example01 button {
+      width: 100%;
+      display: block;
+      margin: 6px 0;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm, 6px);
+    }
+
+    #example01 input[type="text"],
+    #example01 input[type="password"] {
+      border: 1px solid var(--border-color, #ccc);
+      background-color: var(--bg-body, #ffffff);
+      color: var(--text-main, #0f172a);
+    }
+
+    #example01 button {
+      background-color: var(--primary, #4f46e5);
+      border: none;
+      color: #ffffff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    #example01 button:hover {
+      background-color: var(--primary-hover, #4338ca);
+    }
+
+    .login-form {
+      font-family: inherit;
+      font-size: 1rem;
+      display: flex;
+      max-width: 320px;
+      width: 100%;
+      flex-wrap: wrap;
+      padding: 20px;
+      background-color: var(--bg-surface, #ffffff);
+      border: 1px solid var(--border-color, --cadetblue);
+      margin: 15px auto;
+      border-radius: var(--radius-md, 8px);
+      box-shadow: var(--card-shadow, 0 4px 12px rgba(0, 0, 0, 0.06));
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form label,
+    .login-form button {
+      width: 100%;
+      display: block;
+      margin: 6px 0;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm, 6px);
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      border: 1px solid var(--border-color, #ccc);
+      background-color: var(--bg-body, #ffffff);
+      color: var(--text-main, #0f172a);
+    }
+
+    .login-form button {
+      background-color: var(--primary, #4f46e5);
+      border: none;
+      color: #ffffff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .login-form button:hover {
+      background-color: var(--primary-hover, #4338ca);
+    }
+
+    .login-form h4 {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+  </style>
 </head>
 
 <body>
   <aside>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span class="brand-text">Conception Web</span></a>
+        <a class="navbar-brand" href="index.html">
+          <span class="brand-badge">3STI</span>
+          <span class="brand-text">Conception Web</span>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span> Menu
@@ -26,275 +131,670 @@
   </aside>
 
   <main class="my-4 container">
-    <h1>Séance n°4</h1>
+    <h1>Séance n°4 : Les formulaires Web</h1>
 
+    <!-- ================================================================= -->
+    <!-- ARTICLE 1 : OBJECTIFS & PRÉSENTATION -->
+    <!-- ================================================================= -->
     <article>
-      <h2>Formulaires</h2>
+      <h2>Objectifs & Présentation</h2>
 
+      <!-- Section 1.1 : Mise en situation & Rôle des formulaires -->
       <section>
-        <h3>Présentation</h3>
-
-        <p>Les formulaires sont utilisés par les sites Web pour <strong>recueillir des informations de
-            l'utilisateur</strong>. Ils permettent à l'utilisateur <strong>d'envoyer des données au site web</strong>.
-          La plupart du temps, ces données sont envoyées à des serveurs web.</p>
-        <p>Un formulaire est formé par un ou plusieurs composants. Parmi ceux-ci on cite :</p>
-        <ul>
-          <li class="my-2"><strong>les champs de texte</strong> : <input type="text"></li>
-          <li class="my-2"><strong>les listes déroulantes</strong> : <select>
-              <option>Sélectionner</option>
-              <option value="Tunisie">Tunisie</option>
-              <option value="Algérie">Algérie</option>
-            </select></li>
-          <li class="my-2"><strong>les boutons</strong> : <button>Soumettre les donnée</button></li>
-          <li class="my-2"><strong>les case à cocher</strong> : Je veux : <label><input type="checkbox"> Une
-              pizza</label>
-            <label><input type="checkbox"> Des frites</label> <label><input type="checkbox"> Une boisson</label>
-          </li>
-          <li class="my-2"><strong>les boutons radio</strong> : Je suis : <label><input type="radio" name="genre"
-                value="g"> Un
-              garçon</label><label><input type="radio" name="genre" value="F"> Une fille</label></li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>Exemple 1 : Login</h3>
-
-        <p>On désire créer le formulaire suivant :</p>
-
-        <style>
-          #example01 {
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            font-size: 12pt;
-            display: flex;
-            width: 400px;
-            flex-wrap: wrap;
-            padding: 25px;
-            background-color: aliceblue;
-            border: cadetblue solid 1px;
-            margin: 25px auto;
-            border-radius: 5px;
-          }
-
-          #example01 input[type="text"],
-          #example01 input[type="password"],
-          #example01 label,
-          #example01 button {
-            width: 100%;
-            display: block;
-            margin: 5px 0;
-            font-size: 12pt;
-            padding: 5px;
-          }
-
-          #example01 button {
-            background-color: cadetblue;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            font-weight: bold;
-          }
-        </style>
-        <form id="example01" action="#" method="post">
-          <input type="text" name="login" placeholder="Login">
-          <input type="password" name="pass" placeholder="Password" autocomplete="new-password">
-          <label><input type="checkbox" name="rememberme" checked="true"> Remember me</label>
-          <button>Log me in</button>
-        </form>
-
-        <p><strong>Le code HTML correspondant est comme suit :</strong></p>
-        <pre class="html"><code>&lt;form id=&quot;example01&quot; action=&quot;#&quot; method=&quot;post&quot;&gt;
-  &lt;input type=&quot;text&quot; name=&quot;login&quot; placeholder=&quot;Login&quot;&gt;
-  &lt;input type=&quot;password&quot; name=&quot;pass&quot; placeholder=&quot;Password&quot; autocomplete=&quot;new-password&quot;&gt;
-  &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;rememberme&quot; checked=&quot;true&quot;&gt; Remember me&lt;/label&gt;
-  &lt;button&gt;Log me in&lt;/button&gt;
-&lt;/form&gt;</code></pre>
-
-        <p><strong>Le code CSS correspondant est disponible ici : <a href="assets/miniprojet07/login.txt"
-              target="_blank" rel="noopener noreferrer">code CSS du formulaire de login</a>.</strong></p>
-
-        <h4>Exploration du code</h4>
-        <p>On remarque que ce formulaire :</p>
-        <ul>
-          <li>commence par la balise <code>&lt;form&gt;</code> et se termine par <code>&lt;/form&gt;</code>.</li>
-          <li>contient un <strong>champ de texte (text field)</strong> :
-            <code>&lt;input type=&quot;text&quot; name=&quot;login&quot; placeholder=&quot;Login&quot;&gt;</code>
-          </li>
-          <li>contient un <strong>champ de mot de passe (password field)</strong> :
-            <code>&lt;input type=&quot;password&quot; name=&quot;pass&quot; placeholder=&quot;Password&quot; autocomplete=&quot;new-password&quot;&gt;</code>
-          </li>
-          <li>contient une <strong>case à cocher (checkbox)</strong> :
-            <code>&lt;input type=&quot;checkbox&quot; name=&quot;rememberme&quot; checked=&quot;true&quot;&gt;</code>
-          </li>
-          <li>contient une <strong>étiquette (label)</strong> :
-            <code>&lt;label&gt;&lt;input ...&gt; Remember me&lt;/label&gt;</code>
-          </li>
-          <li>contient un <strong>bouton de soumission (submit button)</strong> :
-            <code>&lt;button&gt;Log me in&lt;/button&gt;</code>
-          </li>
-        </ul>
-
-        <h4 class="p-break">Travail demandé</h4>
-        <ol>
-          <li>Créer un fichier HTML nommé : <strong>login.html</strong></li>
-          <li>Copier le code HTML du formulaire, ci-dessus.</li>
-          <li>Ajouter la mise en forme CSS disponible à travers le lien hypertexte, précédent.</li>
-        </ol>
-      </section>
-
-      <section>
-        <h3>Balise form</h3>
-
-        <p>Le formulaire est délimité par
-          <code>&lt;form action=&quot;...&quot; method=&quot;...&quot;&gt;...&lt;/form&gt;</code>.
+        <h3>Rôle des formulaires</h3>
+        <p>
+          En conception de sites et d'applications Web, les <strong>formulaires</strong> constituent la passerelle
+          fondamentale d'interaction entre l'utilisateur et le système d'information. Ils permettent de
+          <strong>recueillir des données</strong> saisies par l'internaute (identifiants de connexion, coordonnées,
+          choix d'options, commentaires, dates, téléversements de documents) et de les <strong>transmettre à un serveur
+            Web</strong> pour traitement, enregistrement en base de données ou calcul.
         </p>
-        <p>Cette balise admet deux attributs principaux :</p>
-        <ul>
-          <li><code>action="..."</code> indique l'<strong>URL</strong> qui traite les données récupérées provenant du
-            formulaire.</li>
-          <li><code>method="..."</code> indique la <b><u>méthode HTTP</u></b> qui sera utilisée pour envoyer les données
-            au serveur.
-            <p>Les méthodes HTTP usuelles sont :</p>
-            <ul>
-              <li><strong>GET</strong> : les données sont ajoutées à l'adresse URL indiquée dans action, elles sont
-                <b><u>visibles</u></b> à l'utilisateur.
+
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title text-primary">🎯 Objectifs d'apprentissage :</h5>
+            <ul class="mb-0">
+              <li>Comprendre le rôle fonctionnel et l'architecture d'échange client-serveur d'un formulaire Web.</li>
+              <li>Déclarer et configurer le conteneur <code>&lt;form&gt;</code> avec ses attributs clés
+                (<code>action</code>,
+                <code>method</code>, <code>target</code>).
               </li>
-              <li><strong>POST</strong> : les données sont envoyées dans le corps de la requête, donc
-                <b><u>invisibles</u></b> à l'utilisateur.
+              <li>Distinguer avec rigueur le comportement, les atouts et les limites des méthodes HTTP
+                <strong>GET</strong>
+                et <strong>POST</strong>.
               </li>
+              <li>Exploiter la balise polyvalente <code>&lt;input&gt;</code> et ses multiples types (<code>text</code>,
+                <code>password</code>, <code>number</code>, <code>email</code>, <code>tel</code>, <code>date</code>,
+                <code>time</code>, <code>range</code>, <code>checkbox</code>, <code>radio</code>).
+              </li>
+              <li>Concevoir des zones de saisie multilignes avec <code>&lt;textarea&gt;</code> et des listes de choix
+                avec <code>&lt;select&gt;</code>, <code>&lt;optgroup&gt;</code>, <code>&lt;option&gt;</code> et
+                <code>&lt;datalist&gt;</code>.
+              </li>
+              <li>Garantir la sémantique et l'accessibilité des formulaires avec les étiquettes
+                <code>&lt;label&gt;</code> et les
+                regroupements <code>&lt;fieldset&gt;</code> / <code>&lt;legend&gt;</code>.
+              </li>
+              <li>Appliquer les contraintes de validation natives (<code>required</code>, <code>readonly</code>,
+                <code>disabled</code>, <code>pattern</code>, <code>min</code>, <code>max</code>, <code>step</code>).
+              </li>
+              <li>Intégrer et styliser des formulaires web complets et esthétiques en CSS (Mini-projets : Formulaire de
+                contact
+                et Questionnaire BD).</li>
             </ul>
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>Exemple 2 : méthodes GET et HTTP</h3>
-        <p>On va comparer les deux méthodes HTTP (GET et POST) à l'aide des formulaires suivants.</p>
-
-        <style>
-          .login-form {
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            font-size: 12pt;
-            display: flex;
-            width: 300px;
-            flex-wrap: wrap;
-            padding: 25px;
-            background-color: aliceblue;
-            border: cadetblue solid 1px;
-            margin: 25px auto;
-            border-radius: 5px;
-          }
-
-          .login-form input[type="text"],
-          .login-form input[type="password"],
-          .login-form label,
-          .login-form button {
-            width: 100%;
-            display: block;
-            margin: 5px 0;
-            font-size: 12pt;
-            padding: 5px;
-          }
-
-          .login-form button {
-            background-color: cadetblue;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            font-weight: bold;
-          }
-
-          .login-form h4 {
-            width: 100%;
-            text-align: center;
-          }
-        </style>
-        <div class="row">
-          <div class="col-6">
-            <form class="login-form" action="assets/miniprojet07/loggedin.html" method="post">
-              <h4>Méthode POST</h4>
-              <input type="text" name="login" placeholder="Login" value="user">
-              <input type="password" name="pass" placeholder="Password" value="user">
-              <button>Login</button>
-            </form>
-          </div>
-          <div class="col-6">
-            <form class="login-form" action="assets/miniprojet07/loggedin.html" method="get">
-              <h4>Méthode GET</h4>
-              <input type="text" name="login" placeholder="Login" value="user">
-              <input type="password" name="pass" placeholder="Password" value="user">
-              <button>Login</button>
-            </form>
           </div>
         </div>
 
-        <h4>Méthode POST</h4>
-        <p>Ouvrir l'outil de développement <kbd>F12</kbd> du navigateur sur l'onglet réseau. Puis, cliquer sur le bouton
-          <strong>Login</strong> du formulaire qui utilise la méthode POST.
+        <h4>Composants élémentaires d'un formulaire</h4>
+        <p>Un formulaire est constitué de composants interactifs variés. Parmi les plus répandus :</p>
+        <ul>
+          <li class="my-2"><strong>Les champs de texte monolignes :</strong> <input type="text"
+              placeholder="Ex: Mohamed" class="form-control d-inline-block w-auto ms-2"></li>
+          <li class="my-2"><strong>Les listes déroulantes de sélection :</strong>
+            <select class="form-select d-inline-block w-auto ms-2">
+              <option>Sélectionner un pays</option>
+              <option value="Tunisie">Tunisie</option>
+              <option value="Algérie">Algérie</option>
+              <option value="Maroc">Maroc</option>
+            </select>
+          </li>
+          <li class="my-2"><strong>Les boutons d'action :</strong> <button type="button"
+              class="btn btn-sm btn-primary ms-2">Soumettre les données</button></li>
+          <li class="my-2"><strong>Les cases à cocher (sélection multiple) :</strong> Je veux :
+            <label class="ms-2"><input type="checkbox"> Une pizza</label>
+            <label class="ms-2"><input type="checkbox"> Des frites</label>
+            <label class="ms-2"><input type="checkbox"> Une boisson</label>
+          </li>
+          <li class="my-2"><strong>Les boutons radio (choix exclusif) :</strong> Je suis :
+            <label class="ms-2"><input type="radio" name="preview_genre" value="g"> Un garçon</label>
+            <label class="ms-2"><input type="radio" name="preview_genre" value="F"> Une fille</label>
+          </li>
+        </ul>
+
+      </section>
+
+      <!-- Section 1.2 : Auto-évaluation & Prérequis -->
+      <section>
+        <h3>Auto-évaluation & Prérequis</h3>
+        <p>Vérifiez vos acquis et réflexes fondamentaux avant de détailler la syntaxe des formulaires.</p>
+
+        <h4>1. Rôle indispensable de l'attribut <code>name</code></h4>
+        <p>Que se passe-t-il si un champ de saisie (ex: <code>&lt;input type="text"&gt;</code>) ne possède pas
+          d'attribut <code>name</code> lors de l'envoi du formulaire ?</p>
+        <details class="my-3">
+          <summary>💡 Cliquez ici pour afficher la réponse</summary>
+          <div class="mt-3">
+            <p>
+              <strong>Le champ ne sera pas transmis au serveur !</strong>
+            </p>
+            <p>
+              L'attribut <code>name</code> est <strong>obligatoire</strong> pour tout contrôle de formulaire dont on
+              souhaite
+              exploiter la valeur. Côté serveur, les données sont indexées sous la forme de paires
+              <code>clé=valeur</code>
+              où la clé correspond exactement à la valeur de l'attribut <code>name</code>. Sans cet attribut, le
+              navigateur
+              ignore complètement le champ lors de la soumission de la requête HTTP.
+            </p>
+          </div>
+        </details>
+
+        <h4>2. Quand privilégier impérativement la méthode POST ?</h4>
+        <p>Pourquoi ne doit-on jamais utiliser la méthode <code>GET</code> pour envoyer un mot de passe ou des données
+          confidentielles ?</p>
+        <details class="my-3">
+          <summary>💡 Cliquez ici pour afficher la réponse</summary>
+          <div class="mt-3">
+            <p>
+              Avec la méthode <code>GET</code>, toutes les données saisies sont concaténées en clair directement dans
+              l'<strong>URL</strong> du navigateur (ex : <code>page.php?login=admin&amp;pass=secret123</code>).
+            </p>
+            <ul>
+              <li>Le mot de passe apparaît en clair sur l'écran, accessible à toute personne à proximité.</li>
+              <li>L'URL reste stockée en clair dans l'historique du navigateur, les journaux serveurs et les proxys.
+              </li>
+              <li>Elle peut être partagée par inadvertance lors de la copie du lien.</li>
+            </ul>
+            <p>
+              La méthode <code>POST</code> encapsule au contraire les données dans le <strong>corps (Body)</strong> de
+              la
+              requête HTTP, les rendant invisibles dans l'URL et assurant leur confidentialité (lorsqu'elles transitent
+              en HTTPS).
+            </p>
+          </div>
+        </details>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 2 : TRANSMISSION & MÉTHODES HTTP -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Transmission & Méthodes HTTP</h2>
+
+      <!-- Section 2.1 : Balise form et Attributs fondamentaux -->
+      <section>
+        <h3>Attributs de la balise &lt;form&gt;</h3>
+        <p>
+          Tout formulaire Web s'encadre obligatoirement entre la balise ouvrante <code>&lt;form&gt;</code> et la balise
+          fermante
+          <code>&lt;/form&gt;</code> :
         </p>
 
-        <figure>
-          <img src="assets/miniprojet07/images/method-post-01.png" class="im-h-10"
+        <pre class="html"><code>&lt;form action=&quot;traitement.php&quot; method=&quot;post&quot; target=&quot;_self&quot;&gt;
+  &lt;!-- Contrôles de saisie, étiquettes et boutons --&gt;
+&lt;/form&gt;</code></pre>
+
+        <h4>Attributs fondamentaux de la balise <code>&lt;form&gt;</code> :</h4>
+        <ul>
+          <li>
+            <strong><code>action="URL"</code> :</strong>
+            spécifie l'adresse URL du script ou de la page côté serveur chargée de réceptionner et de traiter les
+            données
+            (ex : <code>action="contact.php"</code>). Si la valeur est <code>"#"</code> ou vide, les données sont
+            soumises à la
+            même page.
+          </li>
+          <li>
+            <strong><code>method="GET | POST"</code> :</strong>
+            indique la <strong>méthode HTTP</strong> employée pour transmettre les données au serveur.
+          </li>
+          <li>
+            <strong><code>target="_self | _blank | _parent | _top"</code> :</strong>
+            indique la cible d'affichage de la réponse renvoyée par le serveur (ex. <code>_blank</code> pour ouvrir le
+            résultat
+            dans un nouvel onglet).
+          </li>
+        </ul>
+
+        <h4>Autres attributs possibles (hors programme) :</h4>
+        <ul>
+          <li>
+            <strong><code>autocomplete="on | off"</code> :</strong>
+            active ou désactive la mémorisation et la suggestion automatique des valeurs par le navigateur sur
+            l'ensemble du formulaire.
+          </li>
+          <li>
+            <strong><code>enctype="..."</code> :</strong>
+            définit l'encodage des données envoyées. Par défaut, la valeur est
+            <code>application/x-www-form-urlencoded</code>.
+            Lors de l'envoi de fichiers (via <code>&lt;input type="file"&gt;</code>), il est indispensable de spécifier
+            <code>enctype="multipart/form-data"</code> avec la méthode <code>POST</code>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 2.2 : Méthodes de transmission : GET vs POST -->
+      <section>
+        <h3>Méthodes de transmission</h3>
+        <p>
+          Le protocole HTTP propose deux méthodes fondamentales pour transférer des données de formulaire. Le choix de
+          la
+          méthode influe directement sur la visibilité, la sécurité, la mise en cache et le volume des données
+          transmises.
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 25%;">Critère</th>
+                <th style="width: 37%;">Méthode GET</th>
+                <th style="width: 38%;">Méthode POST</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Emplacement des données</strong></td>
+                <td>Ajoutées à la fin de l'URL sous forme de chaîne de requête (<em>Query String</em>) :<br>
+                  <code>page.html?nom=Ali&amp;age=17</code>
+                </td>
+                <td>Encapsulées dans le <strong>corps (Body)</strong> de la requête HTTP, séparées des en-têtes.</td>
+              </tr>
+              <tr>
+                <td><strong>Visibilité pour l'utilisateur</strong></td>
+                <td><span class="badge bg-warning text-dark">Visible</span> en clair dans la barre d'adresses du
+                  navigateur.</td>
+                <td><span class="badge bg-success">Invisible</span> dans l'URL.</td>
+              </tr>
+              <tr>
+                <td><strong>Confidentialité &amp; Sécurité</strong></td>
+                <td>Très faible : inadapté aux mots de passe, numéros bancaires et données personnelles sensibles.</td>
+                <td>Beaucoup plus sécurisé : les données ne sont pas exposées dans l'historique ou l'écran.</td>
+              </tr>
+              <tr>
+                <td><strong>Limite de volume</strong></td>
+                <td>Limitée par la taille maximale de l'URL autorisée par le serveur et le navigateur (~2048
+                  caractères).</td>
+                <td>Virtuellement illimitée (dépend de la configuration du serveur web, adapté aux gros volumes et
+                  fichiers).</td>
+              </tr>
+              <tr>
+                <td><strong>Mise en cache &amp; Favoris</strong></td>
+                <td>Peut être mise en cache, archivée dans l'historique et enregistrée en marque-page (favori).</td>
+                <td>Jamais mise en cache par défaut, non enregistrable en marque-page. Le navigateur demande
+                  confirmation avant rechargement.</td>
+              </tr>
+              <tr>
+                <td><strong>Cas d'usage recommandés</strong></td>
+                <td>Recherches, filtres de catalogue, pagination, consultation sans modification de données sur le
+                  serveur.</td>
+                <td>Formulaires de connexion (login), inscriptions, transactions de paiement, envoi de messages et de
+                  fichiers.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 2.3 : Observation réseau dans les outils de développement (F12) -->
+      <section>
+        <h3>Observation réseau</h3>
+        <p>
+          Pour observer concrètement la différence entre les deux méthodes, testons les deux formulaires ci-dessous qui
+          transmettent les mêmes champs vers la même page réceptrice (<code>assets/miniprojet07/loggedin.html</code>).
+        </p>
+
+        <div class="row my-4">
+          <div class="col-md-6 my-2">
+            <div class="card h-100 shadow-sm">
+              <div class="card-header bg-primary text-white text-center fw-bold">
+                Formulaire 1 : Méthode POST
+              </div>
+              <div class="card-body">
+                <form class="login-form" action="assets/miniprojet07/loggedin.html" method="post">
+                  <h4>Méthode POST</h4>
+                  <input type="text" name="login" placeholder="Login" value="user" class="form-control">
+                  <input type="password" name="pass" placeholder="Password" value="user" class="form-control">
+                  <button type="submit" class="btn btn-primary w-100">Login (POST)</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 my-2">
+            <div class="card h-100 shadow-sm">
+              <div class="card-header bg-secondary text-white text-center fw-bold">
+                Formulaire 2 : Méthode GET
+              </div>
+              <div class="card-body">
+                <form class="login-form" action="assets/miniprojet07/loggedin.html" method="get">
+                  <h4>Méthode GET</h4>
+                  <input type="text" name="login" placeholder="Login" value="user" class="form-control">
+                  <input type="password" name="pass" placeholder="Password" value="user" class="form-control">
+                  <button type="submit" class="btn btn-secondary w-100">Login (GET)</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Expérience 1 : Analyse de la méthode POST</h4>
+        <p>
+          Ouvrez les <strong>Outils de développement</strong> de votre navigateur avec la touche <kbd>F12</kbd> (ou
+          <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>),
+          sélectionnez l'onglet <strong>Réseau (Network)</strong>, puis cliquez sur le bouton <strong>Login
+            (POST)</strong> :
+        </p>
+
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet07/images/method-post-01.png" class="img-fluid rounded border shadow-sm im-h-10"
             alt="Dans l'onglet Headers on observe bien que la méthode utilisée est POST">
-          <figcaption>Dans l'onglet Headers on observe bien que la méthode utilisée est POST</figcaption>
+          <figcaption class="mt-2 text-muted fst-italic">Dans l'onglet En-têtes (Headers), la méthode de requête est
+            explicitement POST</figcaption>
         </figure>
 
-        <figure>
-          <img src="assets/miniprojet07/images/method-post-03.png"
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet07/images/method-post-03.png" class="img-fluid rounded border shadow-sm"
             alt="L'adresse URL affichée lorsqu'on utilise une méthode POST pour récupérer les données">
-          <figcaption>L'adresse URL affichée lorsqu'on utilise une méthode POST pour récupérer les données</figcaption>
+          <figcaption class="mt-2 text-muted fst-italic">L'URL de destination ne comporte aucun paramètre visible : la
+            confidentialité est préservée</figcaption>
         </figure>
 
-        <figure>
-          <img src="assets/miniprojet07/images/method-post-02.png" class="im-h-10"
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet07/images/method-post-02.png" class="img-fluid rounded border shadow-sm im-h-10"
             alt="Les données du formulaire sont disponibles dans la partie 'Request'">
-          <figcaption>Les données du formulaire sont disponibles dans la partie 'Request'</figcaption>
+          <figcaption class="mt-2 text-muted fst-italic">Dans l'onglet Charge utile (Payload / Request), les champs
+            login et pass sont transportés dans le corps</figcaption>
         </figure>
 
-        <h4>Méthode GET</h4>
-        <p>Utiliser le lien <u>"return to course..."</u> pour retourner à la page des formulaires. Puis, cliquer sur le
-          bouton <strong>login</strong> du formulaire qui utilise la méthode GET.</p>
+        <h4>Expérience 2 : Analyse de la méthode GET</h4>
+        <p>
+          Cliquez sur le lien <u>« return to course... »</u> pour revenir à cette page. Réactivez l'enregistrement dans
+          l'onglet
+          <strong>Réseau (Network)</strong> de <kbd>F12</kbd>, puis cliquez sur le bouton <strong>Login (GET)</strong> :
+        </p>
 
-        <figure>
-          <img src="assets/miniprojet07/images/method-get-02.png" class="im-h-10"
-            alt="Dans l'onglet Headers on vérifie, bien, que la méthode utilisée est GET">
-          <figcaption>Dans l'onglet Headers on vérifie, bien, que la méthode utilisée est GET</figcaption>
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet07/images/method-get-02.png" class="img-fluid rounded border shadow-sm im-h-10"
+            alt="Dans l'onglet Headers on vérifie bien que la méthode utilisée est GET">
+          <figcaption class="mt-2 text-muted fst-italic">Dans l'onglet En-têtes (Headers), la méthode de requête est
+            bien GET</figcaption>
         </figure>
 
-        <figure>
-          <img src="assets/miniprojet07/images/method-get-03.png"
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet07/images/method-get-03.png" class="img-fluid rounded border shadow-sm"
             alt="L'adresse URL affichée lorsqu'on utilise une méthode GET contient les données du formulaire">
-          <figcaption>L'adresse URL affichée lorsqu'on utilise une méthode GET contient les données du formulaire
-          </figcaption>
+          <figcaption class="mt-2 text-muted fst-italic">Les identifiants apparaissent directement en clair dans la
+            barre d'adresse de l'URL !</figcaption>
         </figure>
 
-        <figure>
-          <img src="assets/miniprojet07/images/method-get-01.png" class="im-h-10" alt="La partie 'Request' est vide">
-          <figcaption>La partie 'Request' est vide</figcaption>
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet07/images/method-get-01.png" class="img-fluid rounded border shadow-sm im-h-10"
+            alt="La partie 'Request' est vide">
+          <figcaption class="mt-2 text-muted fst-italic">Le corps de la requête (Request Body / Payload) reste vide car
+            les données ont voyagé dans l'URL</figcaption>
         </figure>
       </section>
 
+      <!-- Section 2.4 : Premier formulaire interactif : Authentification -->
       <section>
-        <h3 class="p-break">Composants standards</h3>
+        <h3>Formulaire d'authentification</h3>
+        <p>
+          Examinons un formulaire complet de connexion (login) stylisé pour comprendre l'assemblage des éléments :
+        </p>
 
-        <table class="table table-bordered table-sm border-dark">
-          <thead>
-            <tr>
-              <th>Composant / Forme</th>
-              <th>Code HTML</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <p>Bouton radio (radio button)</p>
-                <label><input type="radio" name="se" value="x86"> Windows 32bits</label><br>
-                <label><input type="radio" name="se" value="x64" checked> Windows 64bits</label><br>
-                <label><input type="radio" name="se" value="Linux"> Linux distribution</label>
-              </td>
-              <td>
-                <pre class="html"><code>&lt;label&gt;
+        <div class="demo-box my-3">
+          <div class="demo-box-header"><span>⚡ Rendu direct du formulaire :</span></div>
+          <form id="example01" action="#" method="post">
+            <input type="text" name="login" placeholder="Login">
+            <input type="password" name="pass" placeholder="Password" autocomplete="new-password">
+            <label><input type="checkbox" name="rememberme" checked> Remember me</label>
+            <button type="submit">Log me in</button>
+          </form>
+        </div>
+
+        <h4>Code HTML source</h4>
+        <pre class="html"><code>&lt;form id=&quot;example01&quot; action=&quot;#&quot; method=&quot;post&quot;&gt;
+  &lt;input type=&quot;text&quot; name=&quot;login&quot; placeholder=&quot;Login&quot;&gt;
+  &lt;input type=&quot;password&quot; name=&quot;pass&quot; placeholder=&quot;Password&quot; autocomplete=&quot;new-password&quot;&gt;
+  &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;rememberme&quot; checked&gt; Remember me&lt;/label&gt;
+  &lt;button type=&quot;submit&quot;&gt;Log me in&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <p>
+          <strong>Feuille de style CSS associée :</strong>
+          <a href="assets/miniprojet07/login.txt" target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline-primary btn-sm ms-2">
+            📄 Consulter le code CSS (login.txt)
+          </a>
+        </p>
+
+        <h4>Exploration détaillée du code</h4>
+        <ul>
+          <li><strong>Conteneur <code>&lt;form&gt;</code> :</strong> délimite le formulaire, spécifie l'action et impose
+            la méthode <code>POST</code>.</li>
+          <li><strong>Champ texte (<code>type="text"</code>) :</strong> reçoit le nom d'utilisateur. L'attribut
+            <code>placeholder="Login"</code> fournit une indication textuelle temporaire.
+          </li>
+          <li><strong>Champ mot de passe (<code>type="password"</code>) :</strong> masque la saisie par des ronds ou
+            étoiles. L'attribut <code>autocomplete="new-password"</code> gère la complétion par les gestionnaires de
+            mots de passe.</li>
+          <li><strong>Case à cocher (<code>type="checkbox"</code>) :</strong> permet de mémoriser la session. L'attribut
+            booléen <code>checked</code> la coche par défaut.</li>
+          <li><strong>Étiquette englobante (<code>&lt;label&gt;</code>) :</strong> rend le texte « Remember me »
+            cliquable pour cocher ou décocher la case.</li>
+          <li><strong>Bouton de soumission (<code>&lt;button type="submit"&gt;</code>) :</strong> déclenche la
+            validation et l'expédition du formulaire.</li>
+        </ul>
+
+        <h4>Travail demandé</h4>
+        <ol>
+          <li>Créer un fichier HTML nommé <code>login.html</code>.</li>
+          <li>Insérer la structure HTML5 minimale et recopier le code du formulaire ci-dessus.</li>
+          <li>Appliquer la feuille de style CSS disponible via le lien <code>login.txt</code>.</li>
+          <li>Tester la saisie et observer l'interaction avec le bouton et la case à cocher.</li>
+        </ol>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 3 : COMPOSANTS DE FORMULAIRE -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Composants de Formulaire</h2>
+
+      <!-- Section 3.1 : Champs de saisie textuels et numériques -->
+      <section>
+        <h3>Champs de saisie textuels et numériques</h3>
+        <p>
+          Les champs textuels et numériques permettent à l'utilisateur de taper des valeurs libres ou encadrées par des
+          règles de format précises.
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 25%;">Composant &amp; Description</th>
+                <th style="width: 35%;">Rendu interactif</th>
+                <th style="width: 40%;">Code HTML5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Champ de texte</strong><br>
+                  <small class="text-muted">Saisie monoligne libre</small>
+                </td>
+                <td>
+                  <input type="text" name="np" value="Mariem" placeholder="Nom &amp; Prénom" class="form-control">
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;input type=&quot;text&quot; name=&quot;np&quot; 
+       value=&quot;Mariem&quot; placeholder=&quot;Nom &amp;amp; Pr&eacute;nom&quot;&gt;</code></pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Champ mot de passe</strong><br>
+                  <small class="text-muted">Masque les caractères saisis</small>
+                </td>
+                <td>
+                  <input type="password" name="pwd" value="secret" placeholder="Mot de passe" class="form-control">
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;input type=&quot;password&quot; name=&quot;pwd&quot; 
+       value=&quot;secret&quot; placeholder=&quot;Mot de passe&quot;&gt;</code></pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Zone de texte (textarea)</strong><br>
+                  <small class="text-muted">Saisie multiligne extensible</small>
+                </td>
+                <td>
+                  <textarea name="histoire" cols="20" rows="3" placeholder="Raconter votre histoire"
+                    class="form-control"></textarea>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;textarea name=&quot;histoire&quot; cols=&quot;20&quot; rows=&quot;3&quot;
+          placeholder=&quot;Raconter votre histoire&quot;&gt;&lt;/textarea&gt;</code></pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Champ numérique</strong><br>
+                  <small class="text-muted">Contrôle des bornes et pas</small>
+                </td>
+                <td>
+                  <input type="number" name="note" value="10.0" min="0.0" max="20.0" step="0.25" class="form-control">
+                  <small class="text-muted">De 0.0 à 20.0 (pas: 0.25)</small>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;input type=&quot;number&quot; name=&quot;note&quot; value=&quot;10.0&quot; 
+       min=&quot;0.0&quot; max=&quot;20.0&quot; step=&quot;0.25&quot;&gt;</code></pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Champ adresse courriel</strong><br>
+                  <small class="text-muted">Validation syntaxique automatique</small>
+                </td>
+                <td>
+                  <input type="email" name="mail" placeholder="Votre adresse mail" class="form-control">
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;input type=&quot;email&quot; name=&quot;mail&quot; 
+       placeholder=&quot;Votre adresse mail&quot;&gt;</code></pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Champ numéro de téléphone</strong><br>
+                  <small class="text-muted">Validation par expression rationnelle</small>
+                </td>
+                <td>
+                  <input type="tel" name="phone" pattern="[2459][0-9] [0-9]{3} [0-9]{3}" placeholder="98 123 456"
+                    class="form-control">
+                  <small class="text-muted">Format tunisien : 8 chiffres</small>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;input type=&quot;tel&quot; name=&quot;phone&quot; 
+       pattern=&quot;[2459][0-9] [0-9]{3} [0-9]{3}&quot; 
+       placeholder=&quot;Votre t&eacute;l&eacute;phone&quot;&gt;</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 3.2 : Champs temporels et intervalles -->
+      <section>
+        <h3>Champs temporels et intervalles</h3>
+        <p>
+          HTML5 intègre nativement des sélecteurs spécialisés pour les dates, les heures et les curseurs de réglage
+          numérique :
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 25%;">Composant</th>
+                <th style="width: 35%;">Rendu interactif</th>
+                <th style="width: 40%;">Code HTML5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Champ date</strong><br>
+                  <small class="text-muted">Calendrier natif interactif</small>
+                </td>
+                <td>
+                  <input type="date" name="voyage" value="2026-10-01" min="2026-01-01" max="2026-12-31"
+                    class="form-control">
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;input type=&quot;date&quot; name=&quot;voyage&quot; value=&quot;2026-10-01&quot; 
+       min=&quot;2026-01-01&quot; max=&quot;2026-12-31&quot;&gt;</code></pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Champ heure (time)</strong><br>
+                  <small class="text-muted">Sélecteur horaire (HH:MM)</small>
+                </td>
+                <td>
+                  <input type="time" name="appt" min="08:00" max="18:00" step="900" value="14:00" class="form-control">
+                  <small class="text-muted">Entre 08:00 et 18:00 (pas: 15 min)</small>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;input type=&quot;time&quot; name=&quot;appt&quot; 
+       min=&quot;08:00&quot; max=&quot;18:00&quot; step=&quot;900&quot; value=&quot;14:00&quot;&gt;</code></pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Date et heure locales</strong><br>
+                  <small class="text-muted">Combinaison calendrier + heure</small>
+                </td>
+                <td>
+                  <input type="datetime-local" name="exam" min="2026-09-15T08:00" max="2027-06-30T18:00"
+                    value="2026-09-15T08:00" class="form-control">
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;input type=&quot;datetime-local&quot; name=&quot;exam&quot; 
+       min=&quot;2026-09-15&quot; max=&quot;2027-06-30&quot; 
+       value=&quot;2026-09-15T08:00&quot;&gt;</code></pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Curseur d'intervalle (range)</strong><br>
+                  <small class="text-muted">Avec repères gradués (datalist)</small>
+                </td>
+                <td>
+                  <input type="range" name="volume" min="0" max="100" step="5" list="ticks" class="form-range">
+                  <datalist id="ticks">
+                    <option value="0" label="0%"></option>
+                    <option value="25" label="25%"></option>
+                    <option value="50" label="50%"></option>
+                    <option value="75" label="75%"></option>
+                    <option value="100" label="100%"></option>
+                  </datalist>
+                  <div class="d-flex justify-content-between small text-muted">
+                    <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+                  </div>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;input type=&quot;range&quot; name=&quot;volume&quot; 
+       min=&quot;0&quot; max=&quot;100&quot; step=&quot;5&quot; list=&quot;ticks&quot;&gt;
+&lt;datalist id=&quot;ticks&quot;&gt;
+  &lt;option value=&quot;0&quot; label=&quot;0%&quot;&gt;&lt;/option&gt;
+  &lt;option value=&quot;25&quot; label=&quot;25%&quot;&gt;&lt;/option&gt;
+  &lt;option value=&quot;50&quot; label=&quot;50%&quot;&gt;&lt;/option&gt;
+  &lt;option value=&quot;75&quot; label=&quot;75%&quot;&gt;&lt;/option&gt;
+  &lt;option value=&quot;100&quot; label=&quot;100%&quot;&gt;&lt;/option&gt;
+&lt;/datalist&gt;</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 3.3 : Boutons radio, Cases à cocher et Étiquettes -->
+      <section>
+        <h3>Boutons radio, Cases à cocher et Étiquettes</h3>
+        <p>
+          La sélection d'options repose sur des composants au comportement bien distinct : choix exclusif avec les
+          boutons radio, choix multiple avec les cases à cocher, et association ergonomique grâce aux étiquettes.
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 25%;">Composant &amp; Description</th>
+                <th style="width: 35%;">Rendu interactif</th>
+                <th style="width: 40%;">Code HTML5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Bouton radio</strong><br>
+                  <small class="text-muted">Choix exclusif au sein d'un même groupe (même attribut
+                    <code>name</code>)</small>
+                </td>
+                <td>
+                  <label class="d-block mb-1"><input type="radio" name="se" value="x86"> Windows 32bits</label>
+                  <label class="d-block mb-1"><input type="radio" name="se" value="x64" checked> Windows 64bits</label>
+                  <label class="d-block"><input type="radio" name="se" value="Linux"> Linux distribution</label>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;label&gt;
   &lt;input type=&quot;radio&quot; name=&quot;se&quot; value=&quot;x86&quot;&gt; Windows 32bits
 &lt;/label&gt;&lt;br&gt;
 &lt;label&gt;
@@ -303,18 +803,24 @@
 &lt;label&gt;
   &lt;input type=&quot;radio&quot; name=&quot;se&quot; value=&quot;Linux&quot;&gt; Linux distribution
 &lt;/label&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Case à cocher (checkbox)</p>
-                <label><input type="checkbox" name="media" value="Livre" checked> Livre</label><br>
-                <label><input type="checkbox" name="media" value="Magazine" checked> Magazine</label><br>
-                <label><input type="checkbox" name="media" value="Roman"> Roman</label><br>
-                <label><input type="checkbox" name="media" value="Encyclopédie"> Encyclopédie</label>
-              </td>
-              <td>
-                <pre class="html"><code>&lt;label&gt;
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Case à cocher (checkbox)</strong><br>
+                  <small class="text-muted">Sélection multiple ou options indépendantes (0, 1 ou plusieurs)</small>
+                </td>
+                <td>
+                  <label class="d-block mb-1"><input type="checkbox" name="media" value="Livre" checked> Livre</label>
+                  <label class="d-block mb-1"><input type="checkbox" name="media" value="Magazine" checked>
+                    Magazine</label>
+                  <label class="d-block mb-1"><input type="checkbox" name="media" value="Roman"> Roman</label>
+                  <label class="d-block"><input type="checkbox" name="media" value="Encyclopédie">
+                    Encyclopédie</label>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;label&gt;
   &lt;input type=&quot;checkbox&quot; name=&quot;media&quot; value=&quot;Livre&quot; checked&gt; Livre
 &lt;/label&gt;&lt;br&gt;
 &lt;label&gt;
@@ -326,141 +832,130 @@
 &lt;label&gt;
   &lt;input type=&quot;checkbox&quot; name=&quot;media&quot; value=&quot;Encyclop&eacute;die&quot;&gt; Encyclop&eacute;die
 &lt;/label&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Champ de texte (text field)</p>
-                <input type="text" name="np" value="Mariem" placeholder="Nom & Prénom">
-              </td>
-              <td>
-                <pre
-                  class="html"><code>&lt;input type=&quot;text&quot; name=&quot;np&quot; value=&quot;Mariem&quot; placeholder=&quot;Nom &amp; Pr&eacute;nom&quot;&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Zone de texte (text area)</p>
-                <textarea name="histoire" cols="20" rows="4" placeholder="Raconter votre histoire"></textarea>
-              </td>
-              <td>
-                <pre class="html"><code>&lt;textarea name=&quot;histoire&quot; cols=&quot;20&quot; rows=&quot;4&quot; 
-          placeholder=&quot;Raconter votre histoire&quot;&gt;&lt;/textarea&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Champ de mot de passe (password field)</p>
-                <input type="password" name="pwd" value="secret" placeholder="Mot de passe">
-              </td>
-              <td>
-                <pre
-                  class="html"><code>&lt;input type=&quot;password&quot; name=&quot;pwd&quot; value=&quot;secret&quot; placeholder=&quot;Mot de passe&quot;&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Champ nombre (number field)</p>
-                <input type="number" name="note" value="10.0" min="0.0" max="20.0" step="0.25">
-              </td>
-              <td>
-                <pre class="html"><code>&lt;input type=&quot;number&quot; name=&quot;note&quot; value=&quot;10.0&quot; 
-       min=&quot;0.0&quot; max=&quot;20.0&quot; step=&quot;0.25&quot;&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Champ email (email field)</p>
-                <input type="email" name="mail" placeholder="Votre adresse mail">
-              </td>
-              <td>
-                <pre
-                  class="html"><code>&lt;input type=&quot;email&quot; name=&quot;mail&quot; placeholder=&quot;Votre adresse mail&quot;&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Champ téléphone (tel field)</p>
-                <input type="tel" name="phone" pattern="[2459][0-9] [0-9]{3} [0-9]{3}" placeholder="Votre téléphone">
-              </td>
-              <td>
-                <pre class="html"><code>&lt;input type=&quot;tel&quot; name=&quot;phone&quot; pattern=&quot;[2459][0-9] [0-9]{3} [0-9]{3}&quot; 
-       placeholder=&quot;Votre t&eacute;l&eacute;phone&quot;&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Champ date (date field)</p>
-                <input type="date" name="voyage" value="2026-10-01" min="2026-01-01" max="2026-12-31">
-              </td>
-              <td>
-                <pre class="html"><code>&lt;input type=&quot;date&quot; name=&quot;voyage&quot; value=&quot;2026-10-01&quot; 
-       min=&quot;2026-01-01&quot; max=&quot;2026-12-31&quot;&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Champ heure (time field)</p>
-                <input type="time" name="appt" min="08:00" max="18:00" step="900" value="14:00">
-              </td>
-              <td>
-                <pre class="html"><code>&lt;input type=&quot;time&quot; name=&quot;appt&quot; 
-       min=&quot;08:00&quot; max=&quot;18:00&quot; step=&quot;900&quot; value=&quot;14:00&quot;&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Champ date et heure (datetime field)</p>
-                <input type="datetime-local" name="exam" min="2026-09-15" max="2027-06-30" value="2026-09-15T08:00">
-              </td>
-              <td>
-                <pre class="html"><code>&lt;input type=&quot;datetime-local&quot; name=&quot;exam&quot; 
-       min=&quot;2026-09-15&quot; max=&quot;2027-06-30&quot; value=&quot;2026-09-15T08:00&quot;&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Champ intervalle (range field)</p>
-                <input type="range" name="volume" min="0" max="100" step="5" list="ticks">
-                <datalist id="ticks">
-                  <option value="0" label="0%"></option>
-                  <option value="25" label="25%"></option>
-                  <option value="50" label="50%"></option>
-                  <option value="75" label="75%"></option>
-                  <option value="100" label="100%"></option>
-                </datalist>
-              </td>
-              <td>
-                <pre class="html"><code>&lt;input type=&quot;range&quot; name=&quot;volume&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;5&quot; list=&quot;ticks&quot;&gt;
-&lt;!-- afficher les ticks --&gt;
-&lt;datalist id=&quot;ticks&quot;&gt;
-  &lt;option value=&quot;0&quot; label=&quot;0%&quot;&gt;&lt;/option&gt;
-  &lt;option value=&quot;25&quot; label=&quot;25%&quot;&gt;&lt;/option&gt;
-  &lt;option value=&quot;50&quot; label=&quot;50%&quot;&gt;&lt;/option&gt;
-  &lt;option value=&quot;75&quot; label=&quot;75%&quot;&gt;&lt;/option&gt;
-  &lt;option value=&quot;100&quot; label=&quot;100%&quot;&gt;&lt;/option&gt;
-&lt;/datalist&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Liste déroulante</p>
-                <select name="fruit">
-                  <optgroup label="Fruits locaux">
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Étiquette (&lt;label&gt;)</strong><br>
+                  <small class="text-muted">Liaison libellé &harr; champ : accessibilité et extension de la zone
+                    cliquable</small>
+                </td>
+                <td>
+                  <div class="mb-2">
+                    <small class="text-muted d-block mb-1">1. Syntaxe implicite (englobante) :</small>
+                    <label><input type="checkbox" name="cgu"> J'accepte les conditions</label>
+                  </div>
+                  <div>
+                    <small class="text-muted d-block mb-1">2. Syntaxe explicite (via for &amp; id) :</small>
+                    <label for="demo-nom" class="form-label mb-1">Nom d'utilisateur :</label>
+                    <input type="text" id="demo-nom" name="demo-nom" class="form-control form-control-sm"
+                      placeholder="Cliquez sur le libellé pour activer">
+                  </div>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;!-- 1. Syntaxe implicite (englobante) --&gt;
+&lt;label&gt;
+  &lt;input type=&quot;checkbox&quot; name=&quot;cgu&quot;&gt; J'accepte les conditions
+&lt;/label&gt;
+
+&lt;!-- 2. Syntaxe explicite (recommand&eacute;e) --&gt;
+&lt;label for=&quot;demo-nom&quot;&gt;Nom d'utilisateur :&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;demo-nom&quot; name=&quot;demo-nom&quot;&gt;</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Importance ergonomique de l'élément <code>&lt;label&gt;</code></h4>
+        <p>
+          L'élément <code>&lt;label&gt;</code> associe un libellé textuel à son contrôle de formulaire. Il offre deux
+          avantages capitaux :
+        </p>
+        <ol>
+          <li><strong>Accessibilité :</strong> les synthèses vocales annoncent le libellé dès que le champ reçoit le
+            focus.</li>
+          <li><strong>Zone cliquable étendue :</strong> un clic de souris sur le texte active ou coche instantanément le
+            champ associé.</li>
+        </ol>
+        <p>Deux syntaxes équivalentes sont possibles :</p>
+        <ul>
+          <li><strong>Syntaxe implicite (englobante) :</strong>
+            <code>&lt;label&gt;&lt;input type="checkbox" name="..."&gt; Mon libellé&lt;/label&gt;</code>
+          </li>
+          <li><strong>Syntaxe explicite (via identifiant) :</strong>
+            <code>&lt;label for="monId"&gt;Mon libellé&lt;/label&gt; &lt;input type="checkbox" id="monId" name="..."&gt;</code>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 3.4 : Listes déroulantes et Suggestions -->
+      <section>
+        <h3>Listes déroulantes et Suggestions</h3>
+        <p>
+          Lorsque le nombre d'options est élevé, les listes déroulantes compactent l'espace d'affichage tout en
+          structurant les choix. La balise <code>&lt;datalist&gt;</code> permet quant à elle de suggérer des valeurs
+          sans restreindre la saisie libre.
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 25%;">Composant &amp; Description</th>
+                <th style="width: 35%;">Rendu interactif</th>
+                <th style="width: 40%;">Code HTML5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Liste déroulante simple</strong><br>
+                  <small class="text-muted">Sélection unique standard sans regroupement (balises <code>&lt;select&gt;</code> et <code>&lt;option&gt;</code>)</small>
+                </td>
+                <td>
+                  <select name="fruit" class="form-select">
+                    <option value="">-- Choisir un fruit --</option>
                     <option value="pomme">Pomme</option>
                     <option value="fraise" selected>Fraise</option>
                     <option value="orange">Orange</option>
-                    <option value="raisin">Raisin</option>
-                  </optgroup>
-                  <optgroup label="Fruits importés">
                     <option value="banane">Banane</option>
-                    <option value="avocat">Avocat</option>
-                    <option value="kiwi">Kiwi</option>
-                  </optgroup>
-                </select>
-              </td>
-              <td>
-                <pre class="html"><code>&lt;select name=&quot;fruit&quot;&gt;
+                  </select>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;select name=&quot;fruit&quot;&gt;
+  &lt;option value=&quot;&quot;&gt;-- Choisir un fruit --&lt;/option&gt;
+  &lt;option value=&quot;pomme&quot;&gt;Pomme&lt;/option&gt;
+  &lt;option value=&quot;fraise&quot; selected&gt;Fraise&lt;/option&gt;
+  &lt;option value=&quot;orange&quot;&gt;Orange&lt;/option&gt;
+  &lt;option value=&quot;banane&quot;&gt;Banane&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Liste avec groupes (&lt;optgroup&gt;)</strong><br>
+                  <small class="text-muted">Organisation hiérarchique. La balise <code>&lt;optgroup&gt;</code> structure les options en sous-catégories non sélectionnables.</small>
+                </td>
+                <td>
+                  <select name="fruit_cat" class="form-select">
+                    <optgroup label="Fruits locaux">
+                      <option value="pomme">Pomme</option>
+                      <option value="fraise" selected>Fraise</option>
+                      <option value="orange">Orange</option>
+                      <option value="raisin">Raisin</option>
+                    </optgroup>
+                    <optgroup label="Fruits importés">
+                      <option value="banane">Banane</option>
+                      <option value="avocat">Avocat</option>
+                      <option value="kiwi">Kiwi</option>
+                    </optgroup>
+                  </select>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;select name=&quot;fruit_cat&quot;&gt;
   &lt;optgroup label=&quot;Fruits locaux&quot;&gt;
     &lt;option value=&quot;pomme&quot;&gt;Pomme&lt;/option&gt;
     &lt;option value=&quot;fraise&quot; selected&gt;Fraise&lt;/option&gt;
@@ -473,195 +968,357 @@
     &lt;option value=&quot;kiwi&quot;&gt;Kiwi&lt;/option&gt;
   &lt;/optgroup&gt;
 &lt;/select&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Liste à choix multiples</p>
-                <select name="fruits" size="8" multiple>
-                  <optgroup label="Fruits locaux">
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Liste à choix multiples</strong><br>
+                  <small class="text-muted">Attributs <code>multiple</code> et <code>size</code>. Autorise la sélection de plusieurs éléments (<kbd>Ctrl</kbd> ou <kbd>Shift</kbd>).</small>
+                </td>
+                <td>
+                  <select name="fruits" size="5" multiple class="form-select">
                     <option value="pomme">Pomme</option>
                     <option value="fraise" selected>Fraise</option>
                     <option value="orange">Orange</option>
-                    <option value="raisin">Raisin</option>
-                  </optgroup>
-                  <optgroup label="Fruits importés">
                     <option value="banane" selected>Banane</option>
-                    <option value="avocat">Avocat</option>
-                    <option value="kiwi" selected>Kiwi</option>
-                  </optgroup>
-                </select>
-              </td>
-              <td>
-                <pre class="html"><code>&lt;select name=&quot;fruits&quot; size=&quot;8&quot; multiple&gt;
-  &lt;optgroup label=&quot;Fruits locaux&quot;&gt;
-    &lt;option value=&quot;pomme&quot;&gt;Pomme&lt;/option&gt;
-    &lt;option value=&quot;fraise&quot; selected&gt;Fraise&lt;/option&gt;
-    &lt;option value=&quot;orange&quot;&gt;Orange&lt;/option&gt;
-    &lt;option value=&quot;raisin&quot;&gt;Raisin&lt;/option&gt;
-  &lt;/optgroup&gt;
-  &lt;optgroup label=&quot;Fruits import&eacute;s&quot;&gt;
-    &lt;option value=&quot;banane&quot; selected&gt;Banane&lt;/option&gt;
-    &lt;option value=&quot;avocat&quot;&gt;Avocat&lt;/option&gt;
-    &lt;option value=&quot;kiwi&quot; selected&gt;Kiwi&lt;/option&gt;
-  &lt;/optgroup&gt;
+                    <option value="kiwi">Kiwi</option>
+                  </select>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;select name=&quot;fruits&quot; size=&quot;5&quot; multiple&gt;
+  &lt;option value=&quot;pomme&quot;&gt;Pomme&lt;/option&gt;
+  &lt;option value=&quot;fraise&quot; selected&gt;Fraise&lt;/option&gt;
+  &lt;option value=&quot;orange&quot;&gt;Orange&lt;/option&gt;
+  &lt;option value=&quot;banane&quot; selected&gt;Banane&lt;/option&gt;
+  &lt;option value=&quot;kiwi&quot;&gt;Kiwi&lt;/option&gt;
 &lt;/select&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Boutons (buttons)</p>
-                <form action="#">
-                  <div class="my-2">
-                    <label for="champ">Modifier ce texte</label>
-                    <input type="text" id="champ" name="champ" value="ahmed">
-                  </div>
-                  <button type="button">Rien</button>
-                  <button type="submit">Envoi</button>
-                  <button type="reset">RAZ</button>
-                </form>
-              </td>
-              <td>
-                <pre class="html"><code>&lt;button type=&quot;button&quot;&gt;Rien&lt;/button&gt;
-&lt;button type=&quot;submit&quot;&gt;Envoi&lt;/button&gt;
-&lt;button type=&quot;reset&quot;&gt;RAZ&lt;/button&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Regroupement de champs (fieldset &amp; legend)</p>
-                <fieldset class="border p-2">
-                  <legend class="float-none w-auto px-2 fs-6">Identité</legend>
-                  <label for="cin">CIN :</label> <input type="text" id="cin" name="cin" size="8" maxlength="8"><br>
-                  <label for="nom">Nom :</label> <input type="text" id="nom" name="nom">
-                </fieldset>
-              </td>
-              <td>
-                <pre class="html"><code>&lt;fieldset&gt;
-  &lt;legend&gt;Identit&eacute;&lt;/legend&gt;
-  &lt;label for=&quot;cin&quot;&gt;CIN :&lt;/label&gt; &lt;input type=&quot;text&quot; id=&quot;cin&quot; name=&quot;cin&quot;&gt;&lt;br&gt;
-  &lt;label for=&quot;nom&quot;&gt;Nom :&lt;/label&gt; &lt;input type=&quot;text&quot; id=&quot;nom&quot; name=&quot;nom&quot;&gt;
-&lt;/fieldset&gt;</code></pre>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Attributs d'état (disabled &amp; readonly)</p>
-                <label>Lecture seule :</label> <input type="text" value="Code fixe" readonly><br>
-                <label>Champ désactivé :</label> <input type="text" value="Non modifiable" disabled><br>
-                <label>Zone désactivée :</label> <textarea disabled rows="2" cols="15">Inactif</textarea>
-              </td>
-              <td>
-                <pre class="html"><code>&lt;!-- Lecture seule (valeur envoy&eacute;e lors du submit) --&gt;
-&lt;input type=&quot;text&quot; value=&quot;Code fixe&quot; readonly&gt;
-&lt;!-- D&eacute;sactiv&eacute; (valeur NON envoy&eacute;e lors du submit) --&gt;
-&lt;input type=&quot;text&quot; value=&quot;Non modifiable&quot; disabled&gt;
-&lt;textarea disabled&gt;Inactif&lt;/textarea&gt;</code></pre>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </td>
+              </tr>
 
-        <h4>Structure complète d'un tableau HTML (&lt;caption&gt; et &lt;tfoot&gt;)</h4>
-        <p>En plus de <code>&lt;thead&gt;</code> (en-tête) et <code>&lt;tbody&gt;</code> (corps), un tableau HTML peut comporter une légende descriptive avec <code>&lt;caption&gt;</code> et un pied de tableau récapitulatif avec <code>&lt;tfoot&gt;</code> (idéal pour les totaux et bilans) :</p>
-        <table class="table table-bordered table-sm border-dark w-50">
-          <caption>Facture récapitulative</caption>
-          <thead>
-            <tr><th>Article</th><th>Qté</th><th>Prix U.</th><th>Total</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Clavier USB</td><td>2</td><td>25 DT</td><td>50 DT</td></tr>
-            <tr><td>Souris optique</td><td>3</td><td>15 DT</td><td>45 DT</td></tr>
-          </tbody>
-          <tfoot>
-            <tr><th colspan="3">Total général</th><th>95 DT</th></tr>
-          </tfoot>
-        </table>
-        <pre class="html"><code>&lt;table border=&quot;1&quot;&gt;
-  &lt;caption&gt;Facture r&eacute;capitulative&lt;/caption&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;&lt;th&gt;Article&lt;/th&gt;&lt;th&gt;Qt&eacute;&lt;/th&gt;&lt;th&gt;Prix U.&lt;/th&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;&lt;td&gt;Clavier USB&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;25 DT&lt;/td&gt;&lt;td&gt;50 DT&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Souris optique&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;15 DT&lt;/td&gt;&lt;td&gt;45 DT&lt;/td&gt;&lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tfoot&gt;
-    &lt;tr&gt;&lt;th colspan=&quot;3&quot;&gt;Total g&eacute;n&eacute;ral&lt;/th&gt;&lt;th&gt;95 DT&lt;/th&gt;&lt;/tr&gt;
-  &lt;/tfoot&gt;
-&lt;/table&gt;</code></pre>
+              <tr>
+                <td>
+                  <strong>Suggestions (&lt;datalist&gt;)</strong><br>
+                  <small class="text-muted">Champ texte libre lié à une liste de suggestions d'autocomplétion via
+                    l'attribut <code>list</code></small>
+                </td>
+                <td>
+                  <input type="text" name="hero" list="heroes-list" placeholder="Tapez ou double-cliquez"
+                    class="form-control mb-1">
+                  <datalist id="heroes-list">
+                    <option value="Spiderman">
+                    <option value="Superman">
+                    <option value="Batman">
+                    <option value="Megaman">
+                    <option value="Catman">
+                  </datalist>
+                  <small class="text-muted">Ex: tapez 'S' ou double-cliquez pour choisir</small>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;input type=&quot;text&quot; name=&quot;hero&quot; list=&quot;heroes-list&quot;&gt;
+&lt;datalist id=&quot;heroes-list&quot;&gt;
+  &lt;option value=&quot;Spiderman&quot;&gt;
+  &lt;option value=&quot;Superman&quot;&gt;
+  &lt;option value=&quot;Batman&quot;&gt;
+  &lt;option value=&quot;Megaman&quot;&gt;
+  &lt;option value=&quot;Catman&quot;&gt;
+&lt;/datalist&gt;</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
+      <!-- Section 3.5 : Boutons d'action -->
       <section>
-        <h3 class="p-break">Application 7 : Formulaire de contact</h3>
-        <p>Créer le formulaire de contact suivant :</p>
-        <figure>
-          <img src="assets/miniprojet07/images/contact.png" alt="Formulaire de contacts développeur">
-          <figcaption>Formulaire de contacts développeur</figcaption>
+        <h3>Boutons d'action</h3>
+        <p>
+          Les boutons déclenchent des actions interactives essentielles : soumettre les données saisies au serveur,
+          réinitialiser les champs à leur état initial ou exécuter un traitement en JavaScript. En HTML5, on utilise
+          la balise polyvalente <code>&lt;button&gt;</code> (ou l'élément <code>&lt;input&gt;</code>) avec l'attribut
+          <code>type</code> adéquat :
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 25%;">Composant &amp; Description</th>
+                <th style="width: 35%;">Rendu interactif</th>
+                <th style="width: 40%;">Code HTML5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Bouton d'envoi (submit)</strong><br>
+                  <small class="text-muted">Transmet les données du formulaire à l'URL cible spécifiée dans l'attribut
+                    <code>action</code> (type par défaut)</small>
+                </td>
+                <td>
+                  <form action="#" onsubmit="alert('Formulaire soumis avec succès !'); return false;">
+                    <button type="submit" class="btn btn-primary btn-sm">Soumettre les données</button>
+                  </form>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;!-- Balise button (recommand&eacute;e) --&gt;
+&lt;button type=&quot;submit&quot;&gt;Soumettre&lt;/button&gt;
+
+&lt;!-- Syntaxe alternative avec input --&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Soumettre&quot;&gt;</code></pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Bouton de réinitialisation (reset)</strong><br>
+                  <small class="text-muted">Rétablit instantanément tous les champs du formulaire à leurs valeurs
+                    initiales</small>
+                </td>
+                <td>
+                  <form action="#">
+                    <div class="mb-2">
+                      <input type="text" value="Texte modifiable" class="form-control form-control-sm"
+                        placeholder="Modifiez puis cliquez sur RAZ">
+                    </div>
+                    <button type="reset" class="btn btn-danger btn-sm">Réinitialiser (RAZ)</button>
+                  </form>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;!-- Balise button (recommand&eacute;e) --&gt;
+&lt;button type=&quot;reset&quot;&gt;R&eacute;initialiser (RAZ)&lt;/button&gt;
+
+&lt;!-- Syntaxe alternative avec input --&gt;
+&lt;input type=&quot;reset&quot; value=&quot;R&eacute;initialiser&quot;&gt;</code></pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>Bouton neutre (button)</strong><br>
+                  <small class="text-muted">Bouton générique sans action native par défaut. Son comportement est programmé
+                    via JavaScript (attribut <code>onclick</code> ou écouteur d'événement)</small>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-secondary btn-sm"
+                    onclick="alert('Action JavaScript exécutée avec succès !')">Exécuter script</button>
+                </td>
+                <td>
+                  <pre class="html mb-0"><code>&lt;!-- Balise button (recommand&eacute;e) --&gt;
+&lt;button type=&quot;button&quot; onclick=&quot;alert('Action !')&quot;&gt;
+  Ex&eacute;cuter script
+&lt;/button&gt;
+
+&lt;!-- Syntaxe alternative avec input --&gt;
+&lt;input type=&quot;button&quot; value=&quot;Ex&eacute;cuter script&quot;&gt;</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Différence clé entre <code>&lt;button&gt;</code> et <code>&lt;input type="..."&gt;</code></h4>
+        <p>
+          Contrairement à <code>&lt;input&gt;</code> dont l'intitulé est restreint à une simple chaîne de texte brut
+          (attribut <code>value</code>), la balise <code>&lt;button&gt;...&lt;/button&gt;</code> est un conteneur qui peut
+          embarquer du contenu HTML riche (icônes, images, mise en gras, etc.) :
+        </p>
+        <pre class="html"><code>&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;
+  &lt;strong&gt;&check; Valider&lt;/strong&gt; l'inscription
+&lt;/button&gt;</code></pre>
+      </section>
+
+      <!-- Section 3.6 : Regroupement et attributs d'état -->
+      <section>
+        <h3>Regroupement et attributs d'état</h3>
+
+        <h4>1. Regroupement logique avec <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code></h4>
+        <p>
+          Pour organiser un formulaire dense, <code>&lt;fieldset&gt;</code> trace un cadre englobant et
+          <code>&lt;legend&gt;</code>
+          en définit le titre sémantique :
+        </p>
+
+        <div class="row align-items-center my-3">
+          <div class="col-md-6">
+            <fieldset class="border p-3 rounded">
+              <legend class="float-none w-auto px-2 fs-6 fw-bold text-primary">Identité</legend>
+              <div class="mb-2">
+                <label for="cin" class="form-label">CIN :</label>
+                <input type="text" id="cin" name="cin" size="8" maxlength="8" class="form-control"
+                  placeholder="8 chiffres">
+              </div>
+              <div class="mb-1">
+                <label for="nom" class="form-label">Nom &amp; Prénom :</label>
+                <input type="text" id="nom" name="nom" class="form-control" placeholder="Nom complet">
+              </div>
+            </fieldset>
+          </div>
+          <div class="col-md-6">
+            <pre class="html mb-0"><code>&lt;fieldset&gt;
+  &lt;legend&gt;Identit&eacute;&lt;/legend&gt;
+  &lt;label for=&quot;cin&quot;&gt;CIN :&lt;/label&gt; 
+  &lt;input type=&quot;text&quot; id=&quot;cin&quot; name=&quot;cin&quot; size=&quot;8&quot; maxlength=&quot;8&quot;&gt;
+  
+  &lt;label for=&quot;nom&quot;&gt;Nom :&lt;/label&gt; 
+  &lt;input type=&quot;text&quot; id=&quot;nom&quot; name=&quot;nom&quot;&gt;
+&lt;/fieldset&gt;</code></pre>
+          </div>
+        </div>
+
+        <h4>2. Attributs d'état : <code>disabled</code> vs <code>readonly</code></h4>
+        <div class="alert alert-info">
+          <strong>Règle cruciale pour la soumission :</strong>
+          <ul>
+            <li><code>readonly</code> (lecture seule) : le champ n'est pas modifiable, mais sa valeur <strong>EST
+                transmise</strong> au serveur lors de la soumission.</li>
+            <li><code>disabled</code> (désactivé) : le champ est grisé, inactif, et sa valeur <strong>N'EST PAS
+                transmise</strong> au serveur.</li>
+          </ul>
+        </div>
+
+        <div class="row align-items-center my-3">
+          <div class="col-md-6">
+            <div class="p-3 border rounded bg-light">
+              <div class="mb-2">
+                <label class="form-label fw-bold small">Lecture seule (readonly) :</label>
+                <input type="text" value="Code fixe" readonly class="form-control form-control-sm">
+              </div>
+              <div class="mb-2">
+                <label class="form-label fw-bold small">Champ désactivé (disabled) :</label>
+                <input type="text" value="Non modifiable" disabled class="form-control form-control-sm">
+              </div>
+              <div>
+                <label class="form-label fw-bold small">Zone de texte désactivée :</label>
+                <textarea disabled rows="2" class="form-control form-control-sm">Zone inactive</textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <pre class="html mb-0"><code>&lt;!-- Lecture seule : valeur envoy&eacute;e lors du submit --&gt;
+&lt;input type=&quot;text&quot; value=&quot;Code fixe&quot; readonly&gt;
+
+&lt;!-- D&eacute;sactiv&eacute; : valeur NON transmise lors du submit --&gt;
+&lt;input type=&quot;text&quot; value=&quot;Non modifiable&quot; disabled&gt;
+&lt;textarea disabled&gt;Zone inactive&lt;/textarea&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 4 : ATELIERS PRATIQUES -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Ateliers Pratiques</h2>
+
+      <!-- Section 4.1 : Application 7 - Formulaire de contact -->
+      <section>
+        <h3>Application 7 : Formulaire de contact</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Réaliser un formulaire Web de contact complet pour développeur en intégrant
+          l'ensemble des balises, contrôles de saisie, étiquettes sémantiques et règles de mise en page CSS étudiées.
+        </div>
+
+        <h4>Aperçu du modèle visuel attendu</h4>
+        <figure class="text-center my-3">
+          <img src="assets/miniprojet07/images/contact.png" class="img-fluid rounded border shadow-sm im-h-10"
+            alt="Formulaire de contact développeur">
+          <figcaption class="mt-2 text-muted fst-italic">Formulaire de contact développeur avec champs requis et mise en
+            page CSS</figcaption>
         </figure>
-        <p>Les champs obligatoires sont suivis par un astérisque (*).</p>
-        <p>Les <b>postes actuels</b> disponibles sont :</p>
+
+        <h4>Cahier des charges &amp; Spécifications</h4>
         <ul>
-          <li>Web<ul>
-              <li>Frontend developer</li>
-              <li>Backend developer</li>
-              <li>Fullstack developer</li>
+          <li>Les champs obligatoires doivent être signalés par un astérisque (<code>*</code>) et comporter l'attribut
+            <code>required</code>.
+          </li>
+          <li>
+            Le champ <strong>Poste actuel</strong> est une liste déroulante organisée avec <code>&lt;optgroup&gt;</code>
+            selon la hiérarchie suivante :
+            <ul>
+              <li><strong>Web :</strong> Frontend developer, Backend developer, Fullstack developer</li>
+              <li><strong>Data science :</strong> Datascience engineer</li>
+              <li><strong>Autres :</strong> Python developer, C++ developer</li>
             </ul>
           </li>
-          <li>Data science <ul>
-              <li>Datascience engineer</li>
-            </ul>
-          </li>
-          <li>Autres<ul>
-              <li>Python developer</li>
-              <li>C++ developer</li>
-            </ul>
+          <li>Insérer une zone de texte multiligne <code>&lt;textarea&gt;</code> pour la rédaction du message.</li>
+          <li>Fournir les boutons de soumission (<em>Envoyer</em>) et de réinitialisation (<em>Annuler</em>).</li>
+          <li>
+            <strong>Mise en forme CSS :</strong> centrer le formulaire, appliquer des espacements internes
+            (<code>padding</code>) confortables,
+            des bordures adoucies et une harmonie de couleurs élégante.
           </li>
         </ul>
-        <p>Utiliser le CSS pour mettre en forme le formulaire.</p>
       </section>
 
+      <!-- Section 4.2 : Application 8 - Personnages de bandes dessinées -->
       <section>
-        <h3 class="p-break">Application 8 : Personnages de bandes dessinées</h3>
+        <h3>Application 8 : Personnages de bandes dessinées</h3>
 
-        <p>Réaliser un formulaire de personnages de bandes dessinées composé de cinq questions.</p>
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Concevoir un questionnaire interactif en cinq questions portant sur
+          l'identification
+          de personnages de bandes dessinées, en mobilisant diverses techniques d'association de contrôles et
+          d'étiquettes visuelles.
+        </div>
 
-        <p><a href="assets/miniprojet08/bd-todo.zip">Télécharger les images</a></p>
+        <div class="my-3 text-center">
+          <a href="assets/miniprojet08/bd-todo.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger les images de l'atelier (bd-todo.zip)
+          </a>
+        </div>
 
-        <h4>Question 1</h4>
-        <figure>
-          <img src="assets/miniprojet08/images/bandes_dessinees-01.png" alt="Question 1">
-          <figcaption>Question 1</figcaption>
+        <h4>Question 1 : Identification par zone de liste</h4>
+        <figure class="text-center my-3">
+          <img src="assets/miniprojet08/images/bandes_dessinees-01.png"
+            class="img-fluid rounded border shadow-sm im-h-8" alt="Question 1">
+          <figcaption class="mt-2 text-muted fst-italic">Question 1 : Sélection du personnage sous chaque avatar
+          </figcaption>
         </figure>
         <ol>
-          <li>Les images des personnages sont des étiquettes (labels) qui permettent de sélectionner la zone de liste en
-            dessous de chaque image.</li>
-          <li>Les éléments de la zone de liste sont montrés dans la figure suivante :
-            <p class="text-center"><img src="assets/miniprojet08/images/bd-select-q1.png"
-                alt="Options disponibles dans la zone de liste"></p>
+          <li>Les images des personnages servent d'étiquettes (<code>&lt;label&gt;</code>) pour sélectionner la liste
+            déroulante située juste en dessous.</li>
+          <li>
+            Les éléments de la zone de liste sont présentés dans la figure ci-après :
+            <div class="text-center my-2">
+              <img src="assets/miniprojet08/images/bd-select-q1.png" class="img-fluid rounded border shadow-sm"
+                alt="Options de la zone de liste">
+            </div>
           </li>
-          <li>L'utilisateur doit obligatoirement remplir chacune des listes.</li>
+          <li>Chacune des quatre listes doit obligatoirement être renseignée par l'utilisateur (attribut
+            <code>required</code>).
+          </li>
         </ol>
 
-        <h4>Question 2</h4>
-        <figure>
-          <img src="assets/miniprojet08/images/bandes_dessinees-02.png" alt="Question 2">
-          <figcaption>Question 2</figcaption>
+        <h4>Question 2 : Boutons radio avec avatars</h4>
+        <figure class="text-center my-3">
+          <img src="assets/miniprojet08/images/bandes_dessinees-02.png"
+            class="img-fluid rounded border shadow-sm im-h-8" alt="Question 2">
+          <figcaption class="mt-2 text-muted fst-italic">Question 2 : Choix exclusif avec bouton radio au-dessus de
+            l'image</figcaption>
         </figure>
         <ol>
-          <li>Les images des personnages sont des étiquettes (labels) qui permettent de sélectionner le bouton radio au
-            dessus de chaque image.</li>
-          <li>La valeur respective de chaque bouton radio est : a, b et c.</li>
-          <li>L'utilisateur doit obligatoirement choisir une réponse parmi les trois propositions.</li>
+          <li>Les images des personnages sont des étiquettes (<code>&lt;label&gt;</code>) qui activent le bouton radio
+            situé au-dessus d'elles.</li>
+          <li>Les valeurs respectives transmises par les trois boutons radio sont : <code>a</code>, <code>b</code> et
+            <code>c</code>.
+          </li>
+          <li>L'utilisateur doit obligatoirement sélectionner une réponse parmi les trois propositions.</li>
         </ol>
 
-        <h4>Question 3</h4>
-        <figure>
-          <img src="assets/miniprojet08/images/bandes_dessinees-03.png" alt="Question 3">
-          <figcaption>Question 3</figcaption>
+        <h4>Question 3 : Champ de texte avec suggestions (datalist)</h4>
+        <figure class="text-center my-3">
+          <img src="assets/miniprojet08/images/bandes_dessinees-03.png"
+            class="img-fluid rounded border shadow-sm im-h-8" alt="Question 3">
+          <figcaption class="mt-2 text-muted fst-italic">Question 3 : Saisie textuelle guidée par autocomplétion
+          </figcaption>
         </figure>
         <ol>
-          <li>Le champ de texte est lié à une <code>datalist</code> qui contient les valeurs suivantes :
+          <li>
+            Le champ de texte est lié à une <code>&lt;datalist&gt;</code> qui propose les suggestions suivantes :
             <ul>
               <li>Spiderman</li>
               <li>Superman</li>
@@ -670,34 +1327,43 @@
               <li>Catman</li>
             </ul>
           </li>
-          <li>L'utilisateur doit obligatoirement répondre à cette question.</li>
+          <li>La saisie d'une réponse à cette question est obligatoire.</li>
         </ol>
 
-        <h4>Question 4</h4>
-        <figure>
-          <img src="assets/miniprojet08/images/bandes_dessinees-04.png" alt="Question 4">
-          <figcaption>Question 4</figcaption>
-        </figure>
-        <ol class="p-break">
-          <li>Les images des personnages sont des étiquettes (labels) qui permettent de sélectionner la case à cocher
-            (checkbox) en dessous de chaque image.</li>
-          <li>La valeur respective de chaque bouton radio est : a, b, c et d.</li>
-          <li>La réponse n'est pas obligatoire à cette question.</li>
-        </ol>
-
-        <h4>Question 5</h4>
-        <figure>
-          <img src="assets/miniprojet08/images/bandes_dessinees-05.png" alt="Question 5">
-          <figcaption>Question 5</figcaption>
+        <h4>Question 4 : Cases à cocher multiples</h4>
+        <figure class="text-center my-3">
+          <img src="assets/miniprojet08/images/bandes_dessinees-04.png"
+            class="img-fluid rounded border shadow-sm im-h-8" alt="Question 4">
+          <figcaption class="mt-2 text-muted fst-italic">Question 4 : Sélection multiple par case à cocher sous l'image
+          </figcaption>
         </figure>
         <ol>
-          <li>Le champ affiché est de type numérique (number).</li>
-          <li>Les valeurs acceptées dans ce champ sont comprises entre 1 et 20. Le champ affiche la valeur 5, par
-            défaut.</li>
+          <li>Les images des personnages sont des étiquettes (<code>&lt;label&gt;</code>) qui permettent de cocher la
+            case correspondante.</li>
+          <li>Les valeurs respectives associées aux cases sont : <code>a</code>, <code>b</code>, <code>c</code> et
+            <code>d</code>.
+          </li>
+          <li>La réponse à cette question est facultative (aucune obligation de saisie).</li>
+        </ol>
+
+        <h4>Question 5 : Champ numérique borné</h4>
+        <figure class="text-center my-3">
+          <img src="assets/miniprojet08/images/bandes_dessinees-05.png"
+            class="img-fluid rounded border shadow-sm im-h-8" alt="Question 5">
+          <figcaption class="mt-2 text-muted fst-italic">Question 5 : Note numérique comprise entre 1 et 20</figcaption>
+        </figure>
+        <ol>
+          <li>Le champ de saisie est de type numérique (<code>type="number"</code>).</li>
+          <li>Les valeurs permises sont comprises entre <code>1</code> (minimum) et <code>20</code> (maximum). Le champ
+            affiche la valeur <code>5</code> par défaut.</li>
           <li>La réponse à cette question est obligatoire.</li>
         </ol>
 
-        <p><strong>Le formulaire fournit deux boutons : <code>submit</code> et <code>reset</code></strong></p>
+        <div class="alert alert-secondary my-3 text-center">
+          <strong>Boutons de fin de formulaire :</strong> Le formulaire doit comporter un bouton d'envoi
+          <code>&lt;button type="submit"&gt;</code> et un bouton de réinitialisation
+          <code>&lt;button type="reset"&gt;</code>.
+        </div>
       </section>
     </article>
   </main>
