@@ -15,7 +15,8 @@
   <aside>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span class="brand-text">Conception Web</span></a>
+        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span
+            class="brand-text">Conception Web</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span> Menu
@@ -81,10 +82,11 @@ console.log(&quot;Hello JavaScript!&quot;);</code></pre>
         </ul>
       </section>
 
-            <section>
-        <h3>Les méthodes d'affichage</h3>
+      <section>
+        <h3>Affichage</h3>
 
-        <p>JavaScript permet d'afficher et de restituer les résultats des traitements selon <strong>quatre méthodes principales</strong> :</p>
+        <p>JavaScript permet d'afficher et de restituer les résultats des traitements selon <strong>quatre méthodes
+            principales</strong> :</p>
         <div class="table-responsive">
           <table class="table table-bordered table-striped align-middle">
             <thead class="table-light">
@@ -98,12 +100,14 @@ console.log(&quot;Hello JavaScript!&quot;);</code></pre>
               <tr>
                 <td><strong>1. Console</strong></td>
                 <td><code>console.log(...)</code></td>
-                <td>Écrit dans la console des outils de développement (DevTools <kbd>F12</kbd>) pour déboguer le script et traquer les erreurs.</td>
+                <td>Écrit dans la console des outils de développement (DevTools <kbd>F12</kbd>) pour déboguer le script
+                  et traquer les erreurs.</td>
               </tr>
               <tr>
                 <td><strong>2. Boîte d'alerte</strong></td>
                 <td><code>alert(...)</code></td>
-                <td>Ouvre une boîte de dialogue modale surgissante pour alerter l'utilisateur ou afficher un message important.</td>
+                <td>Ouvre une boîte de dialogue modale surgissante pour alerter l'utilisateur ou afficher un message
+                  important.</td>
               </tr>
               <tr>
                 <td><strong>3. Document HTML</strong></td>
@@ -113,7 +117,8 @@ console.log(&quot;Hello JavaScript!&quot;);</code></pre>
               <tr>
                 <td><strong>4. Page web (DOM)</strong></td>
                 <td><code>element.innerHTML</code><br><code>element.value</code></td>
-                <td>Modifie dynamiquement le contenu d'une balise HTML ou la valeur d'un champ de formulaire sans recharger la page.</td>
+                <td>Modifie dynamiquement le contenu d'une balise HTML ou la valeur d'un champ de formulaire sans
+                  recharger la page.</td>
               </tr>
             </tbody>
           </table>
@@ -226,21 +231,29 @@ p:nth-child(even) { color: blue; }</code></pre>
 
         <!-- 4. DOM et Formulaires -->
         <h4>4. Affichage dans la page web (DOM et formulaires) : <code>innerHTML</code> et <code>value</code></h4>
-        <p>Une page web possède une structure arborescente formée par ses éléments appelée <strong>DOM</strong> (<em>Document Object Model</em>). Le langage JavaScript offre plusieurs
+        <p>Une page web possède une structure arborescente formée par ses éléments appelée <strong>DOM</strong>
+          (<em>Document Object Model</em>). Le langage JavaScript offre plusieurs
           méthodes pour accéder à ces éléments et manipuler leurs propriétés :</p>
         <ul>
-          <li><code>document.getElementById("id")</code> : retourne une référence à un élément de la page connaissant son <code>id</code>.
+          <li><code>document.getElementById("id")</code> : retourne une référence à un élément de la page connaissant
+            son <code>id</code>.
           </li>
-          <li><code>document.getElementsByName("nom")</code> : retourne une collection (NodeList) de tous les éléments ayant l'attribut <code>name="nom"</code>. Cette méthode est indispensable pour accéder aux groupes de boutons radio (<code>&lt;input type="radio"&gt;</code>) partageant le même nom.
+          <li><code>document.getElementsByName("nom")</code> : retourne une collection (NodeList) de tous les éléments
+            ayant l'attribut <code>name="nom"</code>. Cette méthode est indispensable pour accéder aux groupes de
+            boutons radio (<code>&lt;input type="radio"&gt;</code>) partageant le même nom.
           </li>
-          <li><code>document.querySelector("css_selector")</code> : retourne une référence au premier élément de la page en fonction du sélecteur CSS donné.</li>
+          <li><code>document.querySelector("css_selector")</code> : retourne une référence au premier élément de la page
+            en fonction du sélecteur CSS donné.</li>
         </ul>
-        <p>L'obtention d'une référence à un élément permet d'agir sur son affichage selon deux techniques complémentaires :</p>
+        <p>L'obtention d'une référence à un élément permet d'agir sur son affichage selon deux techniques
+          complémentaires :</p>
         <ul>
-          <li><strong>Modification du contenu (<code>innerHTML</code>)</strong> : pour modifier ou insérer du balisage HTML à l'intérieur d'un élément conteneur à l'aide de :
+          <li><strong>Modification du contenu (<code>innerHTML</code>)</strong> : pour modifier ou insérer du balisage
+            HTML à l'intérieur d'un élément conteneur à l'aide de :
             <code>elem.innerHTML = "&lt;p&gt;Code HTML&lt;/p&gt;";</code>.
           </li>
-          <li><strong>Modification de la valeur d'un champ (<code>value</code>)</strong> : pour lire ou affecter une valeur dans un composant de formulaire à l'aide de :
+          <li><strong>Modification de la valeur d'un champ (<code>value</code>)</strong> : pour lire ou affecter une
+            valeur dans un composant de formulaire à l'aide de :
             <code>elem.value = "Une nouvelle valeur";</code>.
           </li>
         </ul>
@@ -298,7 +311,8 @@ p:nth-child(even) { color: blue; }</code></pre>
           <code>const elem = document.getElementById("elemid")</code>, il est possible de modifier sa valeur via
           l'instruction : <code>elem.value = "Nouvelle valeur";</code>
         </p>
-        <p><strong>Exemple 1</strong> : Calculatrice avec affichage du résultat dans un champ <code>&lt;input&gt;</code></p>
+        <p><strong>Exemple 1</strong> : Calculatrice avec affichage du résultat dans un champ <code>&lt;input&gt;</code>
+        </p>
         <div class="row">
           <div class="col-8">Code HTML
             <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
@@ -434,84 +448,7 @@ button {
       </section>
 
       <section>
-        <h3>Affichage : Formulaire</h3>
-        <p>Un formulaire permet de recuillir les information de l'utilisateur, pour les soumettre à un serveur ou pour
-          les manipuler localement à l'aide de JavaScript.</p>
-        <p>En récupérant la référence d'un composant du formulaire à l'aide de
-          <code>const elem = document.getElementById("elemid")</code>, il est possible de modifier sa valeur via
-          l'instruction : <code>elem.value = "Nouvelle valeur";</code>
-        </p>
-        <p><strong>Exemple</strong></p>
-        <div class="row">
-          <div class="col-8">Code HTML
-            <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
-  &lt;div&gt;&lt;label for=&quot;a&quot;&gt;a&lt;/label&gt;
-      &lt;input type=&quot;number&quot; name=&quot;a&quot; id=&quot;a&quot; value=&quot;9&quot;&gt;&lt;/div&gt;
-  &lt;div&gt;&lt;label for=&quot;b&quot;&gt;b&lt;/label&gt;
-      &lt;input type=&quot;number&quot; name=&quot;b&quot; id=&quot;b&quot; value=&quot;8&quot;&gt;&lt;/div&gt;
-  &lt;div&gt;&lt;label for=&quot;op&quot;&gt;Op&eacute;ration&lt;/label&gt;
-      &lt;select id=&quot;op&quot; name=&quot;op&quot;&gt;
-        &lt;option value=&quot;+&quot;&gt;+&lt;/option&gt;&lt;option value=&quot;-&quot;&gt;-&lt;/option&gt;
-        &lt;option value=&quot;*&quot;&gt;*&lt;/option&gt;&lt;option value=&quot;/&quot;&gt;/&lt;/option&gt;
-      &lt;/select&gt;&lt;/div&gt;
-  &lt;div&gt;&lt;label for=&quot;res&quot;&gt;R&eacute;sultat&lt;/label&gt;
-      &lt;input type=&quot;number&quot; name=&quot;res&quot; id=&quot;res&quot; readonly&gt;&lt;/div&gt;
-  &lt;button type=&quot;submit&quot;&gt;Calculer&lt;/button&gt;
-&lt;/form&gt;
-&lt;script&gt;
-  const a = document.getElementById(&quot;a&quot;);
-  const b = document.getElementById(&quot;b&quot;);
-  const op = document.getElementById(&quot;op&quot;);
-  const res = document.getElementById(&quot;res&quot;);
-  res.value = eval(a.value + op.value + b.value);
-&lt;/script&gt;</code></pre>
-          </div>
-          <div class="col-4">Code CSS
-            <pre class="css"><code>* {
-  box-sizing: border-box;
-}
-
-form {
-  width: 300px;
-  background-color: #fffeb8;
-  margin: 50px auto;
-  border: #807d00 1px solid;
-  padding: 15px;
-}
-
-input[type="number"],
-select,
-button {
-  display: block;
-  width: 100%;
-  margin: 5px 0;
-  padding: 5px;
-  font-size: 12pt;
-}</code></pre>
-          </div>
-        </div>
-        <p class="p-break"><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/forms-01.png" alt="Affichage dans le formulaire">
-          <figcaption>Affichage dans le formulaire</figcaption>
-        </figure>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Créer un fichier HTML nommé <strong>javascript06.html</strong>.</li>
-          <li>Copier le code HTML et CSS ci-dessus.</li>
-          <li>Tester dans le navigateur.</li>
-          <li>Ajouter un troisième champ nombre nommé c.</li>
-          <li>Modifier le code précédent pour qu'il calcule : a + b + c, a - b - c, a * b * c ou a / b / c.
-            <figure>
-              <img src="assets/miniprojet09/images/forms-02.png" alt="Résultat à obtenir">
-              <figcaption>Résultat à obtenir</figcaption>
-            </figure>
-          </li>
-        </ol>
-      </section>
-
-      <section>
-        <h3 class="p-break">Variables / Constantes</h3>
+        <h3 class="p-break">Variables et constantes</h3>
         <p>On peut déclarer des variables en JavaScript en utilisant les mots clés <code>var</code> et <code>let</code>.
           Les variables peuvent être initialisées lors de leurs déclaration. Une variable non initialisée contient la
           valeur : <code>undefined</code>.
@@ -567,7 +504,7 @@ console.log(y);</code></pre>
       </section>
 
       <section>
-        <h3>Types prédéfinis</h3>
+        <h3>Types</h3>
         <p>JavaScript supporte six classes de variables prédéfinis :</p>
         <ul>
           <li><code>number</code> : Pour les nombres entiers et réels,</li>
@@ -635,7 +572,7 @@ console.log(typeof Math.abs); // 'function'</code></pre>
       </section>
 
       <section>
-        <h3 class="p-break">Les opérateurs</h3>
+        <h3 class="p-break">Opérateurs</h3>
         <p>Les opérateurs sont classés en catégories :</p>
         <h4>Les opérateurs de calcul</h4>
         <table class="table table-sm table-bordered border-dark n5-col-eq">
@@ -817,7 +754,7 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
       </section>
 
       <section>
-        <h3>Les entrées</h3>
+        <h3>Entrées</h3>
         <p>Il est possible de récupérer les données de l'utilisateur en utilisant diverses méthodes :</p>
         <ul>
           <li>Depuis un formulaire en utilisant la propriété : <code>elem.value</code> d'un champ.</li>
@@ -955,7 +892,7 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
       </section>
 
       <section>
-        <h3 class="p-break">Structures conditionnelles</h3>
+        <h3 class="p-break">Conditions</h3>
 
         <p>JavaScript offre une variété de structures conditionnelles :</p>
         <ul>
@@ -1149,7 +1086,7 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
       </section>
 
       <section>
-        <h3>Structures itératives</h3>
+        <h3>Boucles</h3>
         <p>On utilise les structures itératives lorsqu'on veut répéter un traitement plusieurs fois. JavaScript met à
           notre disposition les strucures suivantes :</p>
         <ul>
@@ -1459,49 +1396,38 @@ function nom_fonction(par1, par2, ..., parN) {
 
   /* La fonction peut retourner, ou non, un résultat à son appelant */
   [return résultat;]
-}
-
-/* fonctions anonymes */
-const nom_fct2 = function (par1, par2, ..., parM) {
-  // traitement
-  [return resultat;]
-};
-
-const nom_fct3 = (par1, par2, ..., parM) =&gt; résultat;</code></pre>
+}</code></pre>
 
         <p><strong>Exemple</strong></p>
-        <p>L'exemple suivant présente plusieurs façons pour décalrer une fonction.</p>
+        <p>L'exemple suivant présente plusieurs exemples de déclaration d'une fonction.</p>
         <pre class="javascript"><code>let a = 5, b = 10;
 
-/* D&eacute;claration d&apos;une fonction : M&eacute;thode 1 */
+/* D&eacute;claration d&apos;une fonction : somme */
 function somme(a, b) {
   return a + b;
 }
 document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;+&quot;, b, &quot;=&quot;, somme(a, b), &quot;&lt;/p&gt;&quot;);
-</code></pre>
 
-        <pre class="javascript"><code>/* D&eacute;claration d&apos;une fonction : M&eacute;thode 2 */
-const produit = function (a, b) {
+/* D&eacute;claration d&apos;une fonction : produit */
+function produit(a, b) {
   return a * b;
 }
 document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;*&quot;, b, &quot;=&quot;, produit(a, b), &quot;&lt;/p&gt;&quot;);
-</code></pre>
 
-        <pre class="javascript"><code>/* D&eacute;claration d&apos;une fonction : M&eacute;thode 3 */
-const alea = (a, b) =&gt; {
+/* D&eacute;claration d&apos;une fonction : alea */
+function alea(a, b) {
   return Math.floor(Math.random() * (b - a)) + a;
 }
 document.writeln(&quot;&lt;p&gt;alea(&quot;, a, &quot;, &quot;, b, &quot;) = &quot;, alea(a, b), &quot;&lt;/p&gt;&quot;);
-</code></pre>
 
-        <pre class="javascript p-break"><code>// Le premier paramètre de calc est une fonction
+// Le premier paramètre de calc est une fonction
 function calc(fn, a, b) {
   return fn(a, b);
 }
 
-/* D&eacute;claration d&apos;une fonction : M&eacute;thode 4 */
-const res = calc((x, y) =&gt; x / y, a, b);
-document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res, &quot;&lt;/p&gt;&quot;);</code></pre>
+/* Appel d&apos;une fonction : M&eacute;thode 4 */
+const res = calc(produit, a, b);
+document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;*&quot;, b, &quot;=&quot;, res, &quot;&lt;/p&gt;&quot;);</code></pre>
         <p><strong>Résultat</strong></p>
         <figure>
           <img src="assets/miniprojet09/images/function-01.png" alt="Différentes méthodes pour déclarer une fonction">
@@ -1518,8 +1444,9 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
       </section>
 
       <section>
-        <h3 class="p-break">Manipulation des chaînes de caractères</h3>
-        <p>Une chaîne de caractères est une séquence de caractères indexée de <code>0</code> à <code>length - 1</code>. JavaScript fournit de nombreuses méthodes pour manipuler les chaînes :</p>
+        <h3 class="p-break">Chaînes</h3>
+        <p>Une chaîne de caractères est une séquence de caractères indexée de <code>0</code> à <code>length - 1</code>.
+          JavaScript fournit de nombreuses méthodes pour manipuler les chaînes :</p>
 
         <table class="table table-sm table-bordered border-dark">
           <thead>
@@ -1538,7 +1465,9 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
             <tr>
               <td><code>ch[p]</code> ou <code>ch.charAt(p)</code></td>
               <td>Retourne le caractère situé à la position (indice) <code>p</code>.</td>
-              <td><code>&quot;Web&quot;[1]</code> ou <code>&quot;Web&quot;.charAt(1)</code> &rarr; <code>&quot;e&quot;</code></td>
+              <td><code>&quot;Web&quot;[1]</code> ou <code>&quot;Web&quot;.charAt(1)</code> &rarr;
+                <code>&quot;e&quot;</code>
+              </td>
             </tr>
             <tr>
               <td><code>ch.charCodeAt(p)</code></td>
@@ -1552,12 +1481,14 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
             </tr>
             <tr>
               <td><code>ch.indexOf(ch1, p)</code></td>
-              <td>Retourne la première position de <code>ch1</code> dans <code>ch</code> (à partir de <code>p</code>, par défaut 0). Retourne <code>-1</code> si non trouvée.</td>
+              <td>Retourne la première position de <code>ch1</code> dans <code>ch</code> (à partir de <code>p</code>,
+                par défaut 0). Retourne <code>-1</code> si non trouvée.</td>
               <td><code>&quot;banane&quot;.indexOf(&quot;an&quot;)</code> &rarr; <code>1</code></td>
             </tr>
             <tr>
               <td><code>ch.lastIndexOf(ch1, p)</code></td>
-              <td>Retourne la dernière position de <code>ch1</code> dans <code>ch</code> (recherche de droite à gauche). Retourne <code>-1</code> si non trouvée.</td>
+              <td>Retourne la dernière position de <code>ch1</code> dans <code>ch</code> (recherche de droite à gauche).
+                Retourne <code>-1</code> si non trouvée.</td>
               <td><code>&quot;banane&quot;.lastIndexOf(&quot;an&quot;)</code> &rarr; <code>3</code></td>
             </tr>
             <tr>
@@ -1568,7 +1499,9 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
             <tr>
               <td><code>ch.replace(ch1, ch2)</code></td>
               <td>Remplace la première occurrence de <code>ch1</code> par <code>ch2</code>.</td>
-              <td><code>&quot;chat noir&quot;.replace(&quot;noir&quot;, &quot;blanc&quot;)</code> &rarr; <code>&quot;chat blanc&quot;</code></td>
+              <td><code>&quot;chat noir&quot;.replace(&quot;noir&quot;, &quot;blanc&quot;)</code> &rarr;
+                <code>&quot;chat blanc&quot;</code>
+              </td>
             </tr>
             <tr>
               <td><code>ch.toUpperCase()</code></td>
@@ -1590,7 +1523,124 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
       </section>
 
       <section>
-        <h3 class="p-break">L'objet Math : Calculs et arrondis</h3>
+        <h3 class="p-break">Nombres</h3>
+        <p>En JavaScript, les valeurs saisies par l'utilisateur (via un champ de formulaire ou une boîte de dialogue)
+          sont initialement récupérées sous forme de chaînes de caractères (<code>string</code>). JavaScript propose des
+          fonctions indispensables pour <strong>vérifier</strong>, <strong>convertir</strong> et
+          <strong>formater</strong> les nombres :
+        </p>
+
+        <div class="table-responsive">
+          <table class="table table-sm table-bordered border-dark">
+            <thead class="table-light">
+              <tr>
+                <th style="width: 25%;">Fonction / Méthode</th>
+                <th style="width: 45%;">Description</th>
+                <th style="width: 30%;">Exemple et Résultat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>isNaN(ch)</code></td>
+                <td>
+                  <strong>is Not a Number</strong> : Vérifie si une valeur ou une chaîne <u>n'est pas</u> un nombre
+                  valide.<br>
+                  Retourne <code>true</code> si la valeur n'est pas numérique, et <code>false</code> si c'est un nombre
+                  valide.
+                </td>
+                <td>
+                  <code>isNaN("15.5")</code> &rarr; <code>false</code><br>
+                  <code>isNaN("12a")</code> &rarr; <code>true</code><br>
+                  <code>isNaN("STI")</code> &rarr; <code>true</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>Number(ch)</code></td>
+                <td>
+                  Convertit globalement une chaîne <code>ch</code> en valeur numérique (entière ou décimale).<br>
+                  Retourne <code>NaN</code> si la chaîne contient des caractères non numériques.
+                </td>
+                <td>
+                  <code>Number("19.75")</code> &rarr; <code>19.75</code><br>
+                  <code>Number("25px")</code> &rarr; <code>NaN</code><br>
+                  <code>Number("")</code> &rarr; <code>0</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>parseInt(ch, b)</code></td>
+                <td>
+                  Extrait et convertit le début d'une chaîne <code>ch</code> en <strong>nombre entier</strong> dans la
+                  base <code>b</code> (base 10 décimale par défaut si <code>b</code> est omis).<br>
+                  La lecture s'arrête dès qu'un caractère non valide pour la base est rencontré.
+                </td>
+                <td>
+                  <code>parseInt("42.8")</code> &rarr; <code>42</code><br>
+                  <code>parseInt("150px")</code> &rarr; <code>150</code><br>
+                  <code>parseInt("1011", 2)</code> &rarr; <code>11</code><br>
+                  <code>parseInt("FF", 16)</code> &rarr; <code>255</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>parseFloat(ch)</code></td>
+                <td>
+                  Extrait et convertit le début d'une chaîne <code>ch</code> en <strong>nombre réel décimal</strong> (à
+                  virgule flottante).<br>
+                  S'arrête dès le premier caractère non convertible.
+                </td>
+                <td>
+                  <code>parseFloat("14.75")</code> &rarr; <code>14.75</code><br>
+                  <code>parseFloat("14.75 DT")</code> &rarr; <code>14.75</code><br>
+                  <code>parseFloat("bac")</code> &rarr; <code>NaN</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>N.toString(b)</code></td>
+                <td>
+                  Méthode appliquée sur un nombre <code>N</code> pour le convertir en <strong>chaîne de
+                    caractères</strong>.<br>
+                  Le paramètre optionnel <code>b</code> permet de choisir la base de numération (ex. 2 pour binaire, 16
+                  pour hexadécimal).
+                </td>
+                <td>
+                  <code>(125).toString()</code> &rarr; <code>"125"</code><br>
+                  <code>(10).toString(2)</code> &rarr; <code>"1010"</code><br>
+                  <code>(255).toString(16)</code> &rarr; <code>"ff"</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Exemple d'application : Contrôle de saisie et conversion numérique</strong></p>
+        <p>Dans un formulaire, la valeur retournée par un champ <code>&lt;input&gt;</code> est toujours de type texte.
+          Pour calculer la moyenne de deux notes en toute sécurité :</p>
+        <pre class="javascript"><code>let note1 = "14.5"; // Récupéré via champ1.value
+let note2 = "abc";  // Saisie erronée d'un utilisateur
+
+// 1. Contrôle de validité avec isNaN()
+if (isNaN(note1) || isNaN(note2)) {
+  console.log("Erreur : Veuillez saisir des notes numériques valides !");
+} else {
+  // 2. Conversion explicite avec parseFloat() ou Number()
+  let moyenne = (parseFloat(note1) + parseFloat(note2)) / 2;
+  console.log("Moyenne =", moyenne);
+}</code></pre>
+
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Ouvrir la console du navigateur (<kbd>F12</kbd>).</li>
+          <li>Tester l'instruction <code>isNaN("2024")</code> puis <code>isNaN("2024-STI")</code>. Noter la différence.
+          </li>
+          <li>Convertir le nombre entier <code>42</code> en binaire à l'aide de la méthode <code>toString(2)</code>.
+          </li>
+          <li>Comparer les résultats de <code>parseInt("30.75")</code>, <code>parseFloat("30.75")</code> et
+            <code>Number("30.75")</code>.
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3 class="p-break">Math</h3>
         <p>L'objet prédéfini <code>Math</code> rassemble des constantes et des fonctions mathématiques courantes :</p>
 
         <table class="table table-sm table-bordered border-dark">
@@ -1609,18 +1659,25 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
             </tr>
             <tr>
               <td><code>Math.round(N)</code></td>
-              <td>Retourne l'arrondi arithmétique de <code>N</code> à l'entier le plus proche (&ge; 0.5 vers le haut).</td>
-              <td><code>Math.round(4.5)</code> &rarr; <code>5</code><br><code>Math.round(4.4)</code> &rarr; <code>4</code></td>
+              <td>Retourne l'arrondi arithmétique de <code>N</code> à l'entier le plus proche (&ge; 0.5 vers le haut).
+              </td>
+              <td><code>Math.round(4.5)</code> &rarr; <code>5</code><br><code>Math.round(4.4)</code> &rarr;
+                <code>4</code>
+              </td>
             </tr>
             <tr>
               <td><code>Math.trunc(N)</code></td>
               <td>Retourne la partie entière de <code>N</code> en éliminant la fraction décimale (troncature).</td>
-              <td><code>Math.trunc(4.9)</code> &rarr; <code>4</code><br><code>Math.trunc(-4.9)</code> &rarr; <code>-4</code></td>
+              <td><code>Math.trunc(4.9)</code> &rarr; <code>4</code><br><code>Math.trunc(-4.9)</code> &rarr;
+                <code>-4</code>
+              </td>
             </tr>
             <tr>
               <td><code>Math.floor(N)</code></td>
               <td>Retourne le plus grand entier inférieur ou égal à <code>N</code> (arrondi à l'inférieur).</td>
-              <td><code>Math.floor(4.9)</code> &rarr; <code>4</code><br><code>Math.floor(-4.1)</code> &rarr; <code>-5</code></td>
+              <td><code>Math.floor(4.9)</code> &rarr; <code>4</code><br><code>Math.floor(-4.1)</code> &rarr;
+                <code>-5</code>
+              </td>
             </tr>
             <tr>
               <td><code>Math.random()</code></td>
@@ -1630,10 +1687,139 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
           </tbody>
         </table>
       </section>
+
+      <section>
+        <h3 class="p-break">Dates</h3>
+        <p>En JavaScript, la gestion du temps, des dates et des heures s'effectue à l'aide de l'objet standard
+          <code>Date</code>. Il permet d'obtenir l'instant courant du système ou de manipuler une date saisie par un
+          utilisateur :
+        </p>
+
+        <h4>1. Instanciation d'un objet Date</h4>
+        <div class="table-responsive">
+          <table class="table table-sm table-bordered border-dark">
+            <thead class="table-light">
+              <tr>
+                <th style="width: 30%;">Syntaxe</th>
+                <th style="width: 40%;">Description</th>
+                <th style="width: 30%;">Exemple</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>new Date()</code></td>
+                <td>Crée un objet représentant la date et l'heure système actuelles (au moment précis de l'exécution).
+                </td>
+                <td><code>let mnt = new Date();</code></td>
+              </tr>
+              <tr>
+                <td><code>new Date(ch)</code></td>
+                <td>
+                  Crée un objet Date à partir d'une chaîne <code>ch</code> au format standard ISO
+                  (<code>"YYYY-MM-DD"</code>).<br>
+                  C'est la valeur exacte retournée par un champ HTML5 <code>&lt;input type="date"&gt;</code>.
+                </td>
+                <td><code>let d = new Date("2008-04-25");</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>2. Méthodes d'extraction et de formatage</h4>
+        <div class="table-responsive">
+          <table class="table table-sm table-bordered border-dark">
+            <thead class="table-light">
+              <tr>
+                <th style="width: 25%;">Méthode</th>
+                <th style="width: 45%;">Description</th>
+                <th style="width: 30%;">Valeurs de retour et Exemple</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>d.getDate()</code></td>
+                <td>Retourne le <strong>jour du mois</strong>.</td>
+                <td>Entier entre <code>1</code> et <code>31</code>.<br><code>d.getDate()</code> &rarr; <code>25</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>d.getMonth()</code></td>
+                <td>
+                  Retourne le <strong>numéro du mois</strong>.<br>
+                  <span class="text-danger"><strong>Attention :</strong> Les mois sont numérotés de <strong>0 à
+                      11</strong> (0 = Janvier, 1 = Février, ..., 11 = Décembre). Pour afficher le mois réel, on ajoute
+                    1 : <code>d.getMonth() + 1</code>.</span>
+                </td>
+                <td>Entier entre <code>0</code> et <code>11</code>.<br><code>d.getMonth()</code> &rarr; <code>3</code>
+                  (Avril)<br><code>d.getMonth() + 1</code> &rarr; <code>4</code></td>
+              </tr>
+              <tr>
+                <td><code>d.getFullYear()</code></td>
+                <td>Retourne l'<strong>année complète sur 4 chiffres</strong>.</td>
+                <td>Entier à 4 chiffres.<br><code>d.getFullYear()</code> &rarr; <code>2008</code></td>
+              </tr>
+              <tr>
+                <td><code>d.toString()</code></td>
+                <td>Convertit l'objet Date en une chaîne descriptive lisible incluant jour, date, heure et fuseau
+                  horaire.</td>
+                <td><code>d.toString()</code> &rarr;<br><code>"Fri Apr 25 2008 01:00:00 GMT+0100..."</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>3. Exemple d'application : Calcul de l'âge d'un utilisateur</h4>
+        <p>Soit un formulaire permettant à un utilisateur de saisir sa date de naissance. Le script calcule
+          automatiquement son âge en années à partir de l'année actuelle :</p>
+        <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
+  &lt;label for=&quot;dn&quot;&gt;Date de naissance :&lt;/label&gt;
+  &lt;input type=&quot;date&quot; id=&quot;dn&quot; value=&quot;2007-06-15&quot;&gt;
+  &lt;button type=&quot;button&quot; onclick=&quot;calculerAge()&quot;&gt;Calculer l&apos;&acirc;ge&lt;/button&gt;
+  &lt;p id=&quot;res_age&quot;&gt;&lt;/p&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+function calculerAge() {
+  const champDate = document.getElementById(&quot;dn&quot;);
+  const affichage = document.getElementById(&quot;res_age&quot;);
+
+  // 1. Instancier la date de naissance saisie
+  const dateNais = new Date(champDate.value);
+  
+  // 2. Instancier la date courante du système
+  const aujourdhui = new Date();
+
+  // 3. Extraire les années et composantes
+  const anneeNais = dateNais.getFullYear();
+  const anneeActuelle = aujourdhui.getFullYear();
+
+  // 4. Calcul de l'âge
+  let age = anneeActuelle - anneeNais;
+
+  // Ajuster si l'anniversaire n'est pas encore passé cette année
+  const diffMois = aujourdhui.getMonth() - dateNais.getMonth();
+  if (diffMois &lt; 0 || (diffMois === 0 &amp;&amp; aujourdhui.getDate() &lt; dateNais.getDate())) {
+    age--;
+  }
+
+  affichage.innerHTML = `Date de naissance : &lt;strong&gt;${dateNais.getDate()}/${dateNais.getMonth() + 1}/${anneeNais}&lt;/strong&gt; &mdash; &Acirc;ge : &lt;strong&gt;${age} ans&lt;/strong&gt;`;
+}
+&lt;/script&gt;</code></pre>
+
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Dans la console du navigateur (<kbd>F12</kbd>), exécuter <code>let d = new Date();</code>.</li>
+          <li>Afficher la date d'aujourd'hui au format <code>JJ/MM/AAAA</code> en assemblant <code>d.getDate()</code>,
+            <code>d.getMonth() + 1</code> et <code>d.getFullYear()</code>.
+          </li>
+          <li>Créer un objet date pour le jour du baccalauréat <code>let bac = new Date("2025-06-02");</code> et
+            vérifier son année avec <code>bac.getFullYear()</code>.</li>
+        </ol>
+      </section>
     </article>
 
     <article>
-      <h2 class="p-break">&Eacute;vènements</h2>
+      <h2 class="p-break">&Eacute;vénements</h2>
 
       <section>
         <h3>Présentation</h3>
@@ -1728,7 +1914,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
       </section>
 
       <section>
-        <h3 class="p-break">&Eacute;vènement click</h3>
+        <h3 class="p-break">&Eacute;vénement click</h3>
         <p>L'évènement click est déclenché lorsqu'on clique sur un élément du DOM.</p>
         <p><strong>Forme générale</strong></p>
         <p><code>elem</code> est une référence à un élément du DOM.</p>
@@ -1758,7 +1944,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
       </section>
 
       <section>
-        <h3 class="p-break">&Eacute;vènement change</h3>
+        <h3 class="p-break">&Eacute;vénement change</h3>
         <p>L'évènement <strong>change</strong> est déclenché lorsque la valeur d'un champ dans un formulaire a changé.
         </p>
         <p><strong>Forme générale</strong></p>
@@ -1838,7 +2024,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
       </section>
 
       <section>
-        <h3 class="p-break">&Eacute;vènements focus/blur</h3>
+        <h3 class="p-break">&Eacute;vénements focus/blur</h3>
         <p>L'évènement <strong>focus</strong> est déclenché par un champ d'un formulaire lorsque celui-ci devient
           l'élément actif.</p>
         <p>L'évènement <strong>blur</strong> est déclenché par un champ d'un formulaire perd le focus et n'est plus
@@ -1928,7 +2114,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
       </section>
 
       <section>
-        <h3>&Eacute;vènements keyup / keydown / keypress</h3>
+        <h3>&Eacute;vénements keyup / keydown / keypress</h3>
         <p>Lorsque l'utilisateur appuie sur une touche du clavier le navigateur déclenche l'évènement
           <strong>keydown</strong> suivi de l'évènement <strong>keypress</strong>. Ces deux évènement sont redéclenchés
           périodiquement si l'utilisateur maintien la touche appuyée.
@@ -2004,7 +2190,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
       </section>
 
       <section>
-        <h3>&Eacute;vènement input</h3>
+        <h3>&Eacute;vénement input</h3>
         <p>Le changement de la valeur d'un champ d'un formulaire déclenche l'évènement <strong>input</strong>. Cet
           évènement est déclenché à chaque fois que la valeur du champ change et ce à l'inverse de l'évènement
           <strong>change</strong> qui est déclenché une seule fois lorsque l'utilisateur a fini de changer la valeur
@@ -2120,7 +2306,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, res,
       </section>
 
       <section>
-        <h3 class="p-break">&Eacute;vènement submit / reset</h3>
+        <h3 class="p-break">&Eacute;vénement submit / reset</h3>
         <p>L'évènement <strong>submit</strong> est déclenché lorsque l'utilisateur désire soumettre les données d'un
           formulaire.</p>
         <p>L'évènement <strong>reset</strong> est déclenché lorsque l'utilisateur souhaite réinitialiser le contenu d'un
