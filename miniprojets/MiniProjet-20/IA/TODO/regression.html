@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA Décodée - Régression Linéaire</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h2 class="title-cyber">📈 Régression Linéaire</h2>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="vision.html" class="nav-link">Vision</a>
+      <a href="regression.html" class="nav-link active">Régression</a>
+      <a href="performances.html" class="nav-link">Benchmark</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="card-concept">
+      <span class="badge-tag">Modèle Prédictif</span>
+      <h1 class="title-cyber">Simulateur d'inférence</h1>
+      <p>
+        La régression linéaire trouve la ligne optimale qui relie une variable explicative (ex: taille des données en Go)
+        à une valeur prédite (ex: temps d'entraînement ou puissance nécessaire).
+      </p>
+
+      <form class="form-regression">
+        <label for="surface">
+          Taille de la donnée en entrée : 50 Go
+        </label>
+
+        <input type="range" id="surface" name="surface" min="10" max="200" value="50" step="5">
+
+        <div class="form-result-row">
+          <span>Temps d'entraînement calculé par l'IA :</span>
+          <!-- =====================================================================
+               TODO 1 (HTML - Conteneur d'affichage <span>) :
+               Déclarer une balise <span> avec les attributs et le contenu suivants :
+               - id="temps_predit"
+               - class="result-display"
+               - Contenu initial : 50 min
+               ===================================================================== -->
+          <!-- [Remplacer ce commentaire par la balise <span>] -->
+        </div>
+      </form>
+
+      <div id="bloc-formule" class="card-concept">
+        <h3>📐 Formule mathématique sous le capot</h3>
+        <p>Le modèle applique l'équation linéaire : <code>y = (a * x) + b</code></p>
+        <ul>
+          <li><strong>x</strong> : Taille des données (Go)</li>
+          <li><strong>a (pente / coefficient directeur)</strong> = <code>0.5</code></li>
+          <li><strong>b (ordonnée à l'origine / biais)</strong> = <code>2.0</code></li>
+        </ul>
+      </div>
+
+      <!-- =====================================================================
+           TODO 2 (HTML - Attribut global booléen hidden) :
+           Ajouter l'attribut global booléen "hidden" sur la balise <p> ci-dessous
+           pour masquer cette note interne sans passer par une règle CSS.
+           ===================================================================== -->
+      <p>Ce texte de diagnostic interne est masqué via l'attribut global booléen hidden.</p>
+    </section>
+  </main>
+
+</body>
+
+</html>

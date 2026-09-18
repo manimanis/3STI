@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Séance n°5</title>
+  <title>Séance n°6 : Initiation JavaScript</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/default.css">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -26,7 +26,7 @@
   </aside>
 
   <main class="my-4 container">
-    <h1>Séance n°5</h1>
+    <h1>Séance n°6 : Initiation JavaScript</h1>
 
     <article>
       <h2>JavaScript</h2>
@@ -81,21 +81,48 @@ console.log(&quot;Hello JavaScript!&quot;);</code></pre>
         </ul>
       </section>
 
-      <section>
-        <h3>Affichage</h3>
+            <section>
+        <h3>Les méthodes d'affichage</h3>
 
-        <p>JavaScript permet d'afficher les résultats des traitements de plusieurs façons :</p>
-        <ul>
-          <li>Dans la <b>console</b> de l'outil de développement (Devtools),</li>
-          <li>Dans une <b>boîte d'alerte</b>,</li>
-          <li>Dans le <b>document HTML</b>,</li>
-          <li>Dans le <b>DOM</b>,</li>
-          <li>Dans un <b>composant d'un formulaire</b>,</li>
-        </ul>
-      </section>
+        <p>JavaScript permet d'afficher et de restituer les résultats des traitements selon <strong>quatre méthodes principales</strong> :</p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-light">
+              <tr>
+                <th style="width: 25%;">Méthode d'affichage</th>
+                <th style="width: 30%;">Instruction / Propriété</th>
+                <th style="width: 45%;">Rôle et Cas d'usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Console</strong></td>
+                <td><code>console.log(...)</code></td>
+                <td>Écrit dans la console des outils de développement (DevTools <kbd>F12</kbd>) pour déboguer le script et traquer les erreurs.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Boîte d'alerte</strong></td>
+                <td><code>alert(...)</code></td>
+                <td>Ouvre une boîte de dialogue modale surgissante pour alerter l'utilisateur ou afficher un message important.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Document HTML</strong></td>
+                <td><code>document.write(...)</code> / <code>document.writeln(...)</code></td>
+                <td>Écrit directement du texte ou du balisage dans le flux HTML lors du chargement de la page.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Page web (DOM)</strong></td>
+                <td><code>element.innerHTML</code><br><code>element.value</code></td>
+                <td>Modifie dynamiquement le contenu d'une balise HTML ou la valeur d'un champ de formulaire sans recharger la page.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <section>
-        <h3>Affichage : console.log</h3>
+        <hr class="my-4">
+
+        <!-- 1. Console -->
+        <h4>1. Affichage dans la console : <code>console.log()</code></h4>
         <p>L'affichage dans la <strong>console</strong> sert à débugger les scripts JavaScript. Il sert principalement à
           traquer les éventuelles erreurs dans un script.</p>
         <p><strong>Exemple</strong></p>
@@ -122,10 +149,11 @@ console.log(&quot;Hello JavaScript!&quot;);</code></pre>
           <li>Copier le code précédent puis le tester dans la console du navigateur.</li>
           <li>Corriger l'erreur.</li>
         </ol>
-      </section>
 
-      <section>
-        <h3 class="p-break">Affichage : boîte d'alerte (alert)</h3>
+        <hr class="my-4">
+
+        <!-- 2. Boîte d'alerte -->
+        <h4 class="p-break">2. Affichage dans une boîte d'alerte : <code>alert()</code></h4>
         <p>La boîte d'alerte <strong>alert</strong> surgit afin d'attirer l'attention de l'utilisateur et de l'alerter
           sur une exception dans le script.</p>
         <p><strong>Exemple</strong></p>
@@ -154,10 +182,11 @@ console.log(&quot;Hello JavaScript!&quot;);</code></pre>
             alt="Afficher une boîte d'alerte à l'aide de la console">
           <figcaption>Afficher une boîte d'alerte à l'aide de la console</figcaption>
         </figure>
-      </section>
 
-      <section>
-        <h3>Affichage : Document HTML (document.writeln)</h3>
+        <hr class="my-4">
+
+        <!-- 3. Document HTML -->
+        <h4>3. Affichage dans le document HTML : <code>document.writeln()</code></h4>
         <p>Il est possible d'afficher le résultat d'un traitement directement dans la page en utilisant la fonction
           <code>document.writeln("message");</code>. Cette fonction permet aussi d'insérer un code HTML dans la page et
           de
@@ -192,12 +221,13 @@ p:nth-child(even) { color: blue; }</code></pre>
           <li>Copier le code HTML et le code CSS ci-dessus.</li>
           <li>Tester dans le navigateur.</li>
         </ol>
-      </section>
 
-      <section>
-        <h3>Affichage : DOM (Document Object Model)</h3>
-        <p>Une page web possède une structure formée par ses éléments appelée DOM. Le langage JavaScript offre plusieurs
-          fonctions pour accéder au DOM, notamment :</p>
+        <hr class="my-4">
+
+        <!-- 4. DOM et Formulaires -->
+        <h4>4. Affichage dans la page web (DOM et formulaires) : <code>innerHTML</code> et <code>value</code></h4>
+        <p>Une page web possède une structure arborescente formée par ses éléments appelée <strong>DOM</strong> (<em>Document Object Model</em>). Le langage JavaScript offre plusieurs
+          méthodes pour accéder à ces éléments et manipuler leurs propriétés :</p>
         <ul>
           <li><code>document.getElementById("id")</code> : retourne une référence à un élément de la page connaissant son <code>id</code>.
           </li>
@@ -205,19 +235,138 @@ p:nth-child(even) { color: blue; }</code></pre>
           </li>
           <li><code>document.querySelector("css_selector")</code> : retourne une référence au premier élément de la page en fonction du sélecteur CSS donné.</li>
         </ul>
-        <p>L'obtention d'une référence à un élément a pour objectif de manipuler ses propriétés à l'aide de JavaScript.
-        </p>
+        <p>L'obtention d'une référence à un élément permet d'agir sur son affichage selon deux techniques complémentaires :</p>
         <ul>
-          <li>On peut, par exemple, récupérer la référence d'un champ dans un formulaire à l'aide de son <i>#elem_id</i>
-            <code>const elem = document.getElementById("elem_id")</code>. Puis, on peut soit modifier sa valeur en
-            utilisant
-            : <code>elem.value = "Une nouvelle valeur";</code>.
-          </li>
-          <li>On peut, même, changer le contenu d'un élément en utilisant la propriété :
+          <li><strong>Modification du contenu (<code>innerHTML</code>)</strong> : pour modifier ou insérer du balisage HTML à l'intérieur d'un élément conteneur à l'aide de :
             <code>elem.innerHTML = "&lt;p&gt;Code HTML&lt;/p&gt;";</code>.
           </li>
+          <li><strong>Modification de la valeur d'un champ (<code>value</code>)</strong> : pour lire ou affecter une valeur dans un composant de formulaire à l'aide de :
+            <code>elem.value = "Une nouvelle valeur";</code>.
+          </li>
         </ul>
-        <p><strong>Exemple 1</strong> : Accès aux propriétés d'un formulaire</p>
+
+        <h5 class="mt-4 mb-3">A. Affichage dans le contenu d'un élément avec <code>innerHTML</code></h5>
+        <p><strong>Exemple</strong> : Modification du contenu d'un conteneur</p>
+        <div class="row">
+          <div class="col-8">Code HTML
+            <pre class="html"><code>&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // récupérer une référence du div
+  const msg = document.getElementById(&quot;message&quot;);
+
+  // ajouter un contenu à ce div
+  msg.innerHTML = &apos;&lt;p class=&quot;erreur&quot;&gt;Bienvenue dans JavaScript!&lt;/p&gt;&apos;;
+&lt;/script&gt;</code></pre>
+          </div>
+          <div class="col-4">Code CSS
+            <pre class="css"><code>#message { 
+  width: 500px; 
+  margin: 10px auto; }
+.erreur {
+  background-color: red; 
+  color: white;
+  font-weight: bold;
+  padding: 15px; }</code></pre>
+          </div>
+        </div>
+        <p><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/inner-html-01.PNG" alt="Exemple d'utilisation de innerHTML">
+          <figcaption>Exemple d'utilisation de innerHTML</figcaption>
+        </figure>
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Copier les codes HTML et CSS de l'exemple précédent dans un fichier HTML nommé :
+            <strong>javascript07.html</strong>
+          </li>
+          <li>Tester dans un navigateur.</li>
+          <li>Ajouter la balise suivante dans la partie HTML du document :
+            <code>&lt;div id=&quot;greeting&quot;&gt;&lt;/div&gt;</code>
+          </li>
+          <li>Ajouter le code JavaScript nécessaire pour obtenir l'affichage suivant :
+            <figure>
+              <img src="assets/miniprojet09/images/inner-html-02.png" alt="Résultat à obtenir">
+              <figcaption>Résultat à obtenir</figcaption>
+            </figure>
+          </li>
+        </ol>
+
+        <h5 class="mt-4 mb-3">B. Affichage dans un composant de formulaire avec <code>value</code></h5>
+        <p>Un formulaire permet de recueillir les informations de l'utilisateur, pour les soumettre à un serveur ou pour
+          les manipuler localement à l'aide de JavaScript.</p>
+        <p>En récupérant la référence d'un composant du formulaire à l'aide de
+          <code>const elem = document.getElementById("elemid")</code>, il est possible de modifier sa valeur via
+          l'instruction : <code>elem.value = "Nouvelle valeur";</code>
+        </p>
+        <p><strong>Exemple 1</strong> : Calculatrice avec affichage du résultat dans un champ <code>&lt;input&gt;</code></p>
+        <div class="row">
+          <div class="col-8">Code HTML
+            <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
+  &lt;div&gt;&lt;label for=&quot;a&quot;&gt;a&lt;/label&gt;
+      &lt;input type=&quot;number&quot; name=&quot;a&quot; id=&quot;a&quot; value=&quot;9&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;b&quot;&gt;b&lt;/label&gt;
+      &lt;input type=&quot;number&quot; name=&quot;b&quot; id=&quot;b&quot; value=&quot;8&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;op&quot;&gt;Op&eacute;ration&lt;/label&gt;
+      &lt;select id=&quot;op&quot; name=&quot;op&quot;&gt;
+        &lt;option value=&quot;+&quot;&gt;+&lt;/option&gt;&lt;option value=&quot;-&quot;&gt;-&lt;/option&gt;
+        &lt;option value=&quot;*&quot;&gt;*&lt;/option&gt;&lt;option value=&quot;/&quot;&gt;/&lt;/option&gt;
+      &lt;/select&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;res&quot;&gt;R&eacute;sultat&lt;/label&gt;
+      &lt;input type=&quot;number&quot; name=&quot;res&quot; id=&quot;res&quot; readonly&gt;&lt;/div&gt;
+  &lt;button type=&quot;submit&quot;&gt;Calculer&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+  const a = document.getElementById(&quot;a&quot;);
+  const b = document.getElementById(&quot;b&quot;);
+  const op = document.getElementById(&quot;op&quot;);
+  const res = document.getElementById(&quot;res&quot;);
+  res.value = eval(a.value + op.value + b.value);
+&lt;/script&gt;</code></pre>
+          </div>
+          <div class="col-4">Code CSS
+            <pre class="css"><code>* {
+  box-sizing: border-box;
+}
+
+form {
+  width: 300px;
+  background-color: #fffeb8;
+  margin: 50px auto;
+  border: #807d00 1px solid;
+  padding: 15px;
+}
+
+input[type="number"],
+select,
+button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px;
+  font-size: 12pt;
+}</code></pre>
+          </div>
+        </div>
+        <p class="p-break"><strong>Résultat</strong></p>
+        <figure>
+          <img src="assets/miniprojet09/images/forms-01.png" alt="Affichage dans le formulaire">
+          <figcaption>Affichage dans le formulaire</figcaption>
+        </figure>
+        <p><strong>Travail demandé</strong></p>
+        <ol>
+          <li>Créer un fichier HTML nommé <strong>javascript06.html</strong>.</li>
+          <li>Copier le code HTML et CSS ci-dessus.</li>
+          <li>Tester dans le navigateur.</li>
+          <li>Ajouter un troisième champ nombre nommé c.</li>
+          <li>Modifier le code précédent pour qu'il calcule : a + b + c, a - b - c, a * b * c ou a / b / c.
+            <figure>
+              <img src="assets/miniprojet09/images/forms-02.png" alt="Résultat à obtenir">
+              <figcaption>Résultat à obtenir</figcaption>
+            </figure>
+          </li>
+        </ol>
+
+        <p><strong>Exemple 2</strong> : Accès et lecture des propriétés d'un formulaire</p>
         <div class="row">
           <div class="col-8">Code HTML
             <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
@@ -278,51 +427,6 @@ button {
           <li>Ajouter un code JavaScript qui affiche la valeur de ce dernier champ.
             <figure>
               <img src="assets/miniprojet09/images/dom-02.png" alt="Résultat à obtenir" class="im-h-9">
-              <figcaption>Résultat à obtenir</figcaption>
-            </figure>
-          </li>
-        </ol>
-
-        <p><strong>Exemple 2</strong> : Modification du contenu d'un élément</p>
-        <div class="row">
-          <div class="col-8">Code HTML
-            <pre class="html"><code>&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  // récéupérer une référence du div
-  const msg = document.getElementById(&quot;message&quot;);
-
-  // ajouter un contenu à ce div
-  msg.innerHTML = &apos;&lt;p class=&quot;erreur&quot;&gt;Bienvenue dans JavaScript!&lt;/p&gt;&apos;;
-&lt;/script&gt;</code></pre>
-          </div>
-          <div class="col-4">Code CSS
-            <pre class="css"><code>#message { 
-  width: 500px; 
-  margin: 10px auto; }
-.erreur {
-  background-color: red; 
-  color: white;
-  font-weight: bold;
-  padding: 15px; }</code></pre>
-          </div>
-        </div>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/inner-html-01.PNG" alt="Exemple d'utilisation de innerHTML">
-          <figcaption>Exemple d'utilisation de innerHTML</figcaption>
-        </figure>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Copier les codes HTML et CSS de l'exemple précédent dans un fichier HTML nommé :
-            <strong>javascript07.html</strong>
-          </li>
-          <li>Tester dans un navigateur.</li>
-          <li>Ajouter la balise suivante dans la partie HTML du document :
-            <code>&lt;div id=&quot;greeting&quot;&gt;&lt;/div&gt;</code>
-          </li>
-          <li>Ajouter le code JavaScript nécessaire pour obtenir l'affichage suivant :
-            <figure>
-              <img src="assets/miniprojet09/images/inner-html-02.png" alt="Résultat à obtenir">
               <figcaption>Résultat à obtenir</figcaption>
             </figure>
           </li>

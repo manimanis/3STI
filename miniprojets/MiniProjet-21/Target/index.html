@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini-Projet 21 : Manuel Numérique (Ciblage iframe & target)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="manuel-header">
+    <h1>📖 Manuel Numérique Interactif</h1>
+    <p class="chapter-lead">Sélectionnez un chapitre ci-dessous pour charger son contenu dans le cadre intégré récepteur :</p>
+    <nav class="manuel-nav">
+      <a href="chapitre1.html" target="zone_cours" class="nav-btn">📘 Chapitre 1 : Introduction</a>
+      <a href="chapitre2.html" target="zone_cours" class="nav-btn">📙 Chapitre 2 : Balises HTML5</a>
+      <a href="chapitre3.html" target="zone_cours" class="nav-btn">📕 Chapitre 3 : Feuilles CSS3</a>
+    </nav>
+  </header>
+
+  <main>
+    <iframe src="chapitre1.html" name="zone_cours" class="manuel-frame">
+      Votre navigateur ne prend pas en charge les cadres intégrés <code>&lt;iframe&gt;</code>.
+    </iframe>
+  </main>
+</body>
+
+</html>

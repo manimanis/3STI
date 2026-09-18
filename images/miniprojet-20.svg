@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="600" height="350">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="neonPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="350" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Grid Pattern -->
+  <g opacity="0.12" stroke="#38bdf8" stroke-width="1">
+    <line x1="0" y1="70" x2="600" y2="70"/>
+    <line x1="0" y1="140" x2="600" y2="140"/>
+    <line x1="0" y1="210" x2="600" y2="210"/>
+    <line x1="0" y1="280" x2="600" y2="280"/>
+    <line x1="120" y1="0" x2="120" y2="350"/>
+    <line x1="240" y1="0" x2="240" y2="350"/>
+    <line x1="360" y1="0" x2="360" y2="350"/>
+    <line x1="480" y1="0" x2="480" y2="350"/>
+  </g>
+
+  <!-- Neural Network Nodes & Links -->
+  <g stroke="#06b6d4" stroke-width="2" opacity="0.5">
+    <line x1="160" y1="110" x2="300" y2="175"/>
+    <line x1="160" y1="240" x2="300" y2="175"/>
+    <line x1="300" y1="175" x2="440" y2="120"/>
+    <line x1="300" y1="175" x2="440" y2="230"/>
+    <line x1="160" y1="110" x2="160" y2="240"/>
+    <line x1="440" y1="120" x2="440" y2="230"/>
+  </g>
+
+  <!-- Outer Nodes -->
+  <circle cx="160" cy="110" r="16" fill="#1e293b" stroke="#06b6d4" stroke-width="3"/>
+  <circle cx="160" cy="240" r="16" fill="#1e293b" stroke="#06b6d4" stroke-width="3"/>
+  <circle cx="440" cy="120" r="16" fill="#1e293b" stroke="#8b5cf6" stroke-width="3"/>
+  <circle cx="440" cy="230" r="16" fill="#1e293b" stroke="#8b5cf6" stroke-width="3"/>
+
+  <!-- Center Core Node (AI Brain) -->
+  <circle cx="300" cy="175" r="46" fill="url(#neonPurple)" filter="url(#glow)" opacity="0.8"/>
+  <circle cx="300" cy="175" r="38" fill="#0f172a" stroke="url(#neonCyan)" stroke-width="4"/>
+  
+  <!-- Icon in Center: Circuit AI -->
+  <text x="300" y="188" font-family="'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="bold" fill="#06b6d4" text-anchor="middle">IA</text>
+
+  <!-- Title & Subtitle Banner -->
+  <rect x="130" y="275" width="340" height="42" rx="21" fill="#020617" stroke="#334155" stroke-width="1.5"/>
+  <text x="300" y="302" font-family="'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" fill="#f8fafc" letter-spacing="1.5" text-anchor="middle">MINI-PROJET 20 • IA DÉCODÉE</text>
+</svg>

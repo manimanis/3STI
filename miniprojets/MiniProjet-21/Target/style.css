@@ -1,0 +1,189 @@
+/* ==========================================================================
+   Feuille de styles - MiniProjet-21 : Manuel Numérique (iframe & target)
+   ========================================================================== */
+
+:root {
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --bg-body: #f8fafc;
+  --bg-surface: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --primary: #4f46e5;
+  --primary-light: #eef2ff;
+  --accent-html: #10b981;
+  --accent-html-light: #ecfdf5;
+  --accent-css: #06b6d4;
+  --accent-css-light: #ecfeff;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-body: #0b0f19;
+    --bg-surface: #131b2e;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #1e293b;
+    --primary: #6366f1;
+    --primary-light: rgba(99, 102, 241, 0.15);
+    --accent-html: #34d399;
+    --accent-html-light: rgba(16, 185, 129, 0.15);
+    --accent-css: #38bdf8;
+    --accent-css-light: rgba(6, 182, 212, 0.15);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+/* En-tête du portail index.html */
+.manuel-header {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.manuel-header h1 {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+.manuel-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  display: inline-block;
+  padding: 0.45rem 0.95rem;
+  border-radius: 100px;
+  background: var(--primary-light);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.manuel-frame {
+  width: 100%;
+  height: 420px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Style des fiches de chapitres (chapitre1, chapitre2, chapitre3) */
+.chapter-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.chapter-badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+.badge-intro {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(79, 70, 229, 0.25);
+}
+
+.badge-html {
+  background: var(--accent-html-light);
+  color: var(--accent-html);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.badge-css {
+  background: var(--accent-css-light);
+  color: var(--accent-css);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+.chapter-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.65rem;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
+.chapter-lead {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.chapter-points {
+  list-style: none;
+  margin: 0.75rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chapter-points li {
+  background: var(--bg-body);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.88rem;
+}
+
+.chapter-points li strong {
+  color: var(--text-main);
+}
+
+.chapter-tip {
+  margin-top: 1rem;
+  padding: 0.65rem 0.9rem;
+  background: var(--primary-light);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  font-size: 0.88em;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+}

@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Séance n°5 : Notions avancées HTML5 & CSS3</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Styles dédiés aux démonstrations interactives de la Séance 5 */
+    .demo-frame {
+      width: 100%;
+      height: 200px;
+      border: 2px dashed var(--border-color);
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-surface);
+    }
+
+    /* Boîtes de démonstration pour Éléments invisibles */
+    .demo-vis-container {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 0.85rem 1rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      min-height: 75px;
+    }
+
+    .demo-vis-box {
+      width: 120px;
+      height: 52px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.88rem;
+      border-radius: 6px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .demo-vis-box-1 {
+      background-color: #e0e7ff;
+      border: 2px solid #4f46e5;
+      color: #3730a3;
+    }
+
+    .demo-vis-box-target {
+      background-color: #fee2e2;
+      border: 2px solid #ef4444;
+      color: #991b1b;
+    }
+
+    .demo-vis-box-3 {
+      background-color: #d1fae5;
+      border: 2px solid #10b981;
+      color: #065f46;
+    }
+
+    [data-theme="dark"] .demo-vis-box-1 {
+      background-color: rgba(79, 70, 229, 0.2);
+      border-color: #818cf8;
+      color: #c7d2fe;
+    }
+
+    [data-theme="dark"] .demo-vis-box-target {
+      background-color: rgba(239, 68, 68, 0.2);
+      border-color: #f87171;
+      color: #fca5a5;
+    }
+
+    [data-theme="dark"] .demo-vis-box-3 {
+      background-color: rgba(16, 185, 129, 0.2);
+      border-color: #34d399;
+      color: #a7f3d0;
+    }
+
+    .demo-display-box {
+      background: var(--primary-light);
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      margin: 4px;
+    }
+
+    .demo-float-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      overflow: hidden;
+    }
+
+    .demo-float-img {
+      float: left;
+      width: 110px;
+      height: 110px;
+      margin-right: 1.25rem;
+      margin-bottom: 0.75rem;
+      border-radius: 8px;
+    }
+
+    .demo-filter-card {
+      display: inline-block;
+      width: 140px;
+      margin: 8px;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    .demo-filter-img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease;
+    }
+
+    .demo-filter-card:hover .demo-filter-img {
+      transform: scale(1.05);
+    }
+
+    .demo-transition-box {
+      width: 160px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+      border-radius: 8px;
+      margin: 10px auto;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .demo-transition-box:hover {
+      transform: translateY(-6px) scale(1.05);
+      background-color: var(--accent);
+      box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4);
+    }
+
+    /* Démonstrations Sélecteurs combinés */
+    button.demo-comb-action {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    a.demo-comb-action {
+      color: var(--accent);
+      text-decoration: underline;
+      font-weight: 600;
+      padding: 6px 14px;
+    }
+
+    div.demo-comb-action {
+      background: var(--bg-surface);
+      border-left: 4px solid var(--primary);
+      padding: 6px 14px;
+      font-weight: 500;
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* Démonstrations Ombres portées */
+    .demo-shadow-card {
+      background: var(--bg-surface);
+      border-radius: 8px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .demo-shadow-soft {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--border-color);
+    }
+
+    .demo-shadow-elevated {
+      box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.22);
+    }
+
+    .demo-shadow-glow {
+      box-shadow: 0 0 18px rgba(6, 182, 212, 0.55);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+
+    /* Démonstrations Débordement (overflow) */
+    .demo-overflow-box {
+      width: 100%;
+      height: 80px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 0.6rem;
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    /* Démonstrations Display items */
+    .demo-display-item {
+      padding: 6px 12px;
+      margin: 4px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+
+    .demo-item-block {
+      display: block;
+      background: #e0e7ff;
+      border: 1px solid #4f46e5;
+      color: #3730a3;
+      margin-bottom: 6px;
+    }
+
+    .demo-item-inline {
+      display: inline;
+      background: #fef3c7;
+      border: 1px solid #d97706;
+      color: #92400e;
+    }
+
+    .demo-item-inline-block {
+      display: inline-block;
+      width: 140px;
+      background: #d1fae5;
+      border: 1px solid #059669;
+      color: #065f46;
+      text-align: center;
+    }
+
+    /* Démonstration Transition */
+    .demo-transition-btn {
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .demo-transition-btn:hover {
+      background-color: var(--accent);
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 10px 20px rgba(6, 182, 212, 0.4);
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <span class="brand-badge">3STI</span>
+          <span class="brand-text">Conception Web</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>Séance n°5 : Notions avancées HTML5 & CSS3</h1>
+
+    <!-- ====================================================================
+         ARTICLE 1 : OBJECTIFS & PRÉSENTATION
+         ==================================================================== -->
+    <article>
+      <h2>Objectifs & Présentation</h2>
+
+      <!-- Section 1.1 : Mise en situation & Objectifs -->
+      <section>
+        <h3>Mise en situation & Objectifs</h3>
+        <p>
+          Cette cinquième séance d'informatique en <strong>3<sup>ème</sup> SI</strong> approfondit la maîtrise des
+          langages <strong>HTML5</strong> et <strong>CSS3</strong> à travers des concepts avancés de structuration et de
+          mise en page.
+          Elle permet de consolider l'autonomie des élèves dans l'intégration modulaire, la manipulation du flux de
+          document, le contrôle précis des dimensions et l'application d'effets visuels modernes avant d'aborder la
+          programmation dynamique en JavaScript.
+        </p>
+
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title text-primary">🎯 Objectifs d'apprentissage :</h5>
+            <ul class="mb-0">
+              <li>Intégrer et piloter des cadres modulaires avec la balise <code>&lt;iframe&gt;</code> et le ciblage via
+                l'attribut <code>target</code>.</li>
+              <li>Conditionner le chargement des ressources selon le dispositif d'affichage avec l'attribut
+                <code>media</code>.
+              </li>
+              <li>Expliciter les sigles et acronymes avec la balise sémantique <code>&lt;abbr&gt;</code> et son attribut
+                <code>title</code>.
+              </li>
+              <li>Masquer des éléments du flux d'affichage avec l'attribut booléen <code>hidden</code>.</li>
+              <li>Maîtriser les types d'affichage du modèle de boîte avec la propriété <code>display</code>
+                (<code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>none</code>).</li>
+              <li>Mettre en œuvre le positionnement flottant avec <code>float</code> et rétablir le flux avec
+                <code>clear</code>.
+              </li>
+              <li>Contrôler le débordement de contenu avec la propriété <code>overflow</code> (<code>visible</code>,
+                <code>hidden</code>, <code>scroll</code>, <code>auto</code>).
+              </li>
+              <li>Ajuster la transparence avec <code>opacity</code> et concevoir des ombrages portés avec
+                <code>box-shadow</code>.
+              </li>
+              <li>Transformer la casse du texte avec <code>text-transform</code> et cibler les balises avec le sélecteur
+                combiné <code>element.classe</code>.</li>
+              <li>Appliquer des filtres graphiques d'images en pur CSS avec <code>filter</code> (<code>grayscale</code>,
+                <code>contrast</code>, <code>blur</code>, <code>brightness</code>).
+              </li>
+              <li>Créer des micro-animations fluides d'états au survol avec la propriété <code>transition</code>.</li>
+              <li>Structurer des tableaux de données avancés avec <code>border-collapse</code> et
+                <code>table-layout: fixed</code>.
+              </li>
+              <li>Concevoir et styliser une plateforme interactive complète : « IA Décodée » (Mini-projet 20).</li>
+            </ul>
+          </div>
+        </div>
+
+        <figure class="my-4 text-center">
+          <img src="images/miniprojet-20.svg" class="img-fluid rounded border shadow-sm im-h-8"
+            alt="Modèle visuel de la plateforme IA Décodée">
+          <figcaption class="mt-2 text-muted fst-italic">Aperçu du mini-projet à réaliser en fin de séance : Plateforme
+            « IA Décodée »</figcaption>
+        </figure>
+      </section>
+
+      <!-- Section 1.2 : Auto-évaluation & Prérequis -->
+      <section>
+        <h3>Auto-évaluation & Prérequis</h3>
+        <p>Vérifiez la maîtrise de vos prérequis en HTML5 et CSS3 avant de débuter l'étude des notions avancées de cette
+          séance :</p>
+
+        <h4>Question 1</h4>
+        <p>
+          Quelle est la différence fondamentale de comportement entre une balise de niveau bloc (ex.
+          <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>) et une balise de niveau en-ligne (ex.
+          <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>) ?
+        </p>
+        <details class="my-3">
+          <summary>💡 Cliquez ici pour afficher la réponse</summary>
+          <div class="mt-3">
+            <ul>
+              <li><strong>Élément bloc (<code>display: block</code>) :</strong> Occupe toute la largeur disponible de
+                son conteneur, débute systématiquement sur une nouvelle ligne et accepte la définition de dimensions
+                explicites (<code>width</code>, <code>height</code>, marges et espacements verticaux).</li>
+              <li><strong>Élément en-ligne (<code>display: inline</code>) :</strong> Se glisse naturellement au sein du
+                flux textuel sur la même ligne, n'occupe que la largeur exacte de son contenu et ignore les propriétés
+                <code>width</code> et <code>height</code>.
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <h4>Question 2</h4>
+        <p>
+          Quelle est la différence entre l'attribut booléen <code>hidden</code> en HTML5 et la déclaration CSS
+          <code>display: none;</code> ?
+        </p>
+        <details class="my-3">
+          <summary>💡 Cliquez ici pour afficher la réponse</summary>
+          <div class="mt-3">
+            <p>
+              Sur le plan visuel, le résultat est équivalent : l'élément disparaît complètement de l'affichage et ne
+              réserve aucun espace.
+              Toutefois, <code>hidden</code> est un <strong>attribut sémantique natif HTML5</strong> directement compris
+              par le navigateur et les lecteurs d'écran sans nécessiter de code CSS, tandis que
+              <code>display: none;</code> est une règle de style purement cosmétique définie dans une feuille de style.
+            </p>
+          </div>
+        </details>
+
+        <h4>Question 3</h4>
+        <p>
+          À quoi sert l'attribut <code>target</code> sur un lien hypertexte <code>&lt;a&gt;</code>, et comment peut-on
+          le relier à un <code>&lt;iframe&gt;</code> ?
+        </p>
+        <details class="my-3">
+          <summary>💡 Cliquez ici pour afficher la réponse</summary>
+          <div class="mt-3">
+            <p>
+              L'attribut <code>target</code> précise le contexte de navigation récepteur où doit s'ouvrir le lien. En
+              attribuant à <code>target</code> la valeur du nom (attribut <code>name</code>) d'un
+              <code>&lt;iframe&gt;</code>, le clic sur ce lien charge immédiatement la page dans ce cadre sans recharger
+              la page principale.
+            </p>
+          </div>
+        </details>
+      </section>
+    </article>
+
+    <!-- ====================================================================
+         ARTICLE 2 : CONTENEURS & ATTRIBUTS HTML5 AVANCÉS
+         ==================================================================== -->
+    <article>
+      <h2>Conteneurs & Attributs HTML5</h2>
+
+      <!-- Section 2.1 : Intégration iframe et ciblage target -->
+      <section>
+        <h3>Cadres intégrés : &lt;iframe&gt;</h3>
+        <p>
+          L'élément <strong><code>&lt;iframe&gt;</code></strong> (pour <em>inline frame</em>) permet
+          d'incorporer une autre page HTML, un document interactif ou une ressource externe directement à l'intérieur
+          de la page Web courante, formant ainsi une fenêtre de navigation autonome.
+        </p>
+
+        <h4>1. Syntaxe fondamentale</h4>
+        <pre class="html"><code>&lt;iframe src="vision.html" name="mini_sandbox" width="800" height="400"&gt;
+  Votre navigateur ne supporte pas les iframes.
+&lt;/iframe&gt;</code></pre>
+
+        <h4>2. Attributs essentiels</h4>
+        <ul>
+          <li><strong><code>src</code></strong> : spécifie l'adresse URL (absolue ou relative) du document à afficher
+            dans le cadre.</li>
+          <li><strong><code>name</code></strong> : attribue un identifiant de contexte de navigation au cadre,
+            permettant à des hyperliens de le cibler.</li>
+        </ul>
+
+        <h4>3. Mécanisme de ciblage avec l'attribut <code>target</code></h4>
+        <p>
+          Par défaut, un lien hypertexte s'ouvre dans la fenêtre courante (<code>target="_self"</code>) ou dans un
+          nouvel onglet (<code>target="_blank"</code>).
+          En affectant à l'attribut <strong><code>target</code></strong> d'un lien la valeur du
+          <strong><code>name</code></strong> d'un <code>&lt;iframe&gt;</code>, le clic sur ce lien charge immédiatement
+          le document à l'intérieur de ce cadre sans recharger la page principale.
+        </p>
+
+        <div class="callout-box">
+          <strong>Règle de correspondance :</strong> La valeur renseignée dans <code>target="..."</code> sur la balise
+          <code>&lt;a&gt;</code> doit correspondre <strong>exactement</strong> à la valeur de l'attribut
+          <code>name="..."</code> défini sur la balise <code>&lt;iframe&gt;</code> réceptrice.
+        </div>
+
+        <h5>Exemple : Manuel numérique avec sommaire interactif</h5>
+        <p>
+          Considérons un manuel de cours en ligne où une barre de navigation permet d'afficher les différents chapitres
+          dans une zone de lecture unique :
+        </p>
+        <pre class="html"><code>&lt;!-- 1. Liens du sommaire ciblant le cadre "zone_cours" --&gt;
+&lt;nav&gt;
+  &lt;a href="chapitre1.html" target="zone_cours"&gt;Chapitre 1 : Introduction au Web&lt;/a&gt; |
+  &lt;a href="chapitre2.html" target="zone_cours"&gt;Chapitre 2 : Balises HTML5&lt;/a&gt; |
+  &lt;a href="chapitre3.html" target="zone_cours"&gt;Chapitre 3 : Feuilles CSS3&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;!-- 2. Cadre récepteur identifié par name="zone_cours" --&gt;
+&lt;iframe src="chapitre1.html" name="zone_cours" width="100%" height="240"&gt;
+  Votre navigateur ne supporte pas les cadres intégrés.
+&lt;/iframe&gt;</code></pre>
+
+        <p>
+          <strong>Principe d'exécution :</strong> Lorsque l'utilisateur clique sur le lien <em>« Chapitre 2 : Balises
+            HTML5 »</em>, le navigateur repère le cadre portant <code>name="zone_cours"</code> et y charge la page
+          <code>chapitre2.html</code> sans jamais quitter ni rafraîchir la page principale.
+        </p>
+
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>⚡ Démonstration interactive du mécanisme iframe &amp; target :</span>
+          </div>
+          <p class="text-muted small mb-2">Cliquez sur l'un des boutons de chapitres ci-dessous pour observer le
+            chargement ciblé dans le cadre récepteur (Mini-Projet 21) :</p>
+          <div class="mb-3 d-flex flex-wrap gap-2">
+            <a href="miniprojets/MiniProjet-21/Target/chapitre1.html" target="demo_frame_cours"
+              class="btn btn-sm btn-outline-primary">📘 Chapitre 1 : Introduction</a>
+            <a href="miniprojets/MiniProjet-21/Target/chapitre2.html" target="demo_frame_cours"
+              class="btn btn-sm btn-outline-success">📙 Chapitre 2 : Balises HTML5</a>
+            <a href="miniprojets/MiniProjet-21/Target/chapitre3.html" target="demo_frame_cours"
+              class="btn btn-sm btn-outline-info">📕 Chapitre 3 : Feuilles CSS3</a>
+          </div>
+          <iframe src="miniprojets/MiniProjet-21/Target/chapitre1.html" name="demo_frame_cours" class="demo-frame"
+            style="height: 240px;"></iframe>
+        </div>
+
+        <div class="callout-box">
+          <strong>Cas d'usage pédagogique :</strong> Cette technique permet de concevoir des portails documentaires, des
+          visionneuses multimédias ou des hubs d'ateliers modulaires tout en conservant une structure de code claire et
+          découplée.
+        </div>
+      </section>
+
+      <!-- Section 2.2 : L'attribut media -->
+      <section>
+        <h3>Images adaptatives : &lt;picture&gt; et &lt;source&gt;</h3>
+        <p>
+          L'attribut <strong><code>media</code></strong> conditionne le chargement d'une ressource ou l'application
+          d'une feuille de style selon les caractéristiques du dispositif de consultation (largeur de la fenêtre
+          d'affichage, orientation ou résolution d'écran).
+        </p>
+
+        <h4>1. Images adaptatives avec <code>&lt;picture&gt;</code> et <code>&lt;source&gt;</code></h4>
+        <p>
+          Associé à l'élément <strong><code>&lt;picture&gt;</code></strong> et à la balise
+          <strong><code>&lt;source&gt;</code></strong>, l'attribut <code>media</code> permet au navigateur de
+          sélectionner intelligemment l'image la plus appropriée :
+        </p>
+        <ul>
+          <li><strong>Sur grand écran (ordinateur de bureau, tablette en mode paysage) :</strong> le navigateur
+            télécharge une version <em>Haute Définition (HD)</em> riche en détails.</li>
+          <li><strong>Sur petit écran (smartphone, fenêtre réduite) :</strong> le navigateur bascule automatiquement sur
+            une version <em>normale / standard</em> plus légère, accélérant le chargement et économisant la bande
+            passante.</li>
+        </ul>
+
+        <pre class="html"><code>&lt;!-- Chargement adaptatif selon la résolution de l'écran --&gt;
+&lt;picture&gt;
+  &lt;!-- Image Haute Définition chargée uniquement si la largeur d'écran est &gt;= 768px --&gt;
+  &lt;source media="(min-width: 768px)" srcset="images/nano-banana-hd.jpg"&gt;
+
+  &lt;!-- Image normale / standard de repli pour les petits écrans et mobiles --&gt;
+  &lt;img src="images/nano-banana-normal.jpg" alt="Mascotte Nano Banana" class="img-fluid rounded border shadow-sm"&gt;
+&lt;/picture&gt;</code></pre>
+
+        <div class="demo-box my-3 text-center">
+          <div class="demo-box-header justify-content-center">
+            <span>🍌 Démonstration en direct de l'image adaptative (Nano Banana) :</span>
+          </div>
+          <p class="text-muted small mb-3">
+            Redimensionnez la largeur de votre fenêtre pour observer le basculement automatique entre la version
+            <strong>Haute Définition</strong> (&ge; 768px) et la version <strong>Normale</strong> (&lt; 768px) :
+          </p>
+
+          <figure class="my-2 d-inline-block">
+            <picture>
+              <source media="(min-width: 768px)" srcset="images/nano-banana-hd.jpg">
+              <img src="images/nano-banana-normal.jpg" alt="Mascotte Nano Banana"
+                class="img-fluid rounded border shadow-sm" style="max-height: 280px;">
+            </picture>
+            <figcaption class="mt-2 text-muted fst-italic">Chargement conditionnel avec l'attribut media : Nano Banana
+              HD (&ge; 768px) / Normale (&lt; 768px)</figcaption>
+          </figure>
+        </div>
+
+        <div class="row g-3 justify-content-center my-3 text-center">
+          <div class="col-sm-6 col-md-4">
+            <div class="p-3 border rounded">
+              <img src="images/nano-banana-hd.jpg" alt="Nano Banana HD" class="img-fluid rounded border shadow-sm mb-2"
+                style="max-height: 150px;">
+              <div class="small fw-bold">1. Version Haute Définition (HD)</div>
+              <div class="text-muted small">Ciblée par <code>media="(min-width: 768px)"</code></div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="p-3 border rounded">
+              <img src="images/nano-banana-normal.jpg" alt="Nano Banana Normale"
+                class="img-fluid rounded border shadow-sm mb-2" style="max-height: 150px;">
+              <div class="small fw-bold">2. Version Normale / Standard</div>
+              <div class="text-muted small">Définie sur la balise de repli <code>&lt;img&gt;</code></div>
+            </div>
+          </div>
+        </div>
+
+        <h4>2. Feuilles de style conditionnelles avec <code>&lt;link&gt;</code> ou <code>&lt;style&gt;</code></h4>
+        <p>
+          L'attribut <code>media</code> peut également être employé sur les balises <code>&lt;link&gt;</code> ou
+          <code>&lt;style&gt;</code> (ex. <code>media="screen"</code>) pour restreindre l'application d'une feuille de
+          style aux caractéristiques de l'écran.
+        </p>
+      </section>
+
+      <!-- Section 2.3 : Abréviations -->
+      <section>
+        <h3>Abréviations : &lt;abbr&gt;</h3>
+        <p>
+          En HTML5, la balise sémantique <strong><code>&lt;abbr&gt;</code></strong> (pour <em>abbreviation</em>) est
+          utilisée pour représenter une abréviation, un sigle ou un acronyme (ex. <abbr
+            title="Intelligence Artificielle">IA</abbr>, <abbr title="HyperText Markup Language">HTML</abbr>, <abbr
+            title="Cascading Style Sheets">CSS</abbr>).
+        </p>
+
+        <h4>1. Rôle et utilisation de l'attribut <code>title</code></h4>
+        <p>
+          Pour expliciter le sens d'un terme abrégé, on lui associe systématiquement l'attribut
+          <strong><code>title</code></strong>, qui contient la description ou le développement complet du sigle :
+        </p>
+        <pre class="html"><code>&lt;p&gt;
+  Le standard &lt;abbr title="HyperText Markup Language"&gt;HTML5&lt;/abbr&gt;
+  est maintenu par le &lt;abbr title="World Wide Web Consortium"&gt;W3C&lt;/abbr&gt;.
+&lt;/p&gt;</code></pre>
+
+        <h4>2. Atouts ergonomiques et accessibilité</h4>
+        <ul>
+          <li>
+            <strong>Infobulle native (<em>tooltip</em>) :</strong> Le navigateur affiche automatiquement une infobulle
+            explicative lorsque l'internaute survole l'élément avec le pointeur de la souris.
+          </li>
+          <li>
+            <strong>Accessibilité (<abbr title="Accessibility">A11y</abbr>) :</strong> Les lecteurs d'écran utilisés par
+            les personnes malvoyantes peuvent énoncer le développement complet du terme au lieu de simplement épeler les
+            lettres.
+          </li>
+          <li>
+            <strong>Rendu visuel par défaut :</strong> La plupart des navigateurs soulignent le texte délimité par
+            <code>&lt;abbr&gt;</code> d'une fine ligne pointillée discrète (<em>dotted underline</em>) pour inciter au
+            survol.
+          </li>
+        </ul>
+
+        <h4>Code HTML de la démonstration :</h4>
+        <pre class="html"><code>&lt;p&gt;
+  Un modèle d'&lt;abbr title="Intelligence Artificielle"&gt;IA&lt;/abbr&gt; applique un algorithme de
+  &lt;abbr title="Mécanisme d'ajustement automatique des poids du réseau neuronal"&gt;rétropropagation&lt;/abbr&gt;
+  sur un processeur &lt;abbr title="Graphics Processing Unit - Processeur graphique hautement parallélisé"&gt;GPU&lt;/abbr&gt;
+  pour minimiser l'&lt;abbr title="Écart mesuré entre la prédiction mathématique et la valeur réelle"&gt;erreur quadratique&lt;/abbr&gt;.
+&lt;/p&gt;</code></pre>
+
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>💡 Rendu dans le navigateur (survolez les termes soulignés avec la souris) :</span>
+          </div>
+          <p class="mb-0">
+            Un modèle d'<abbr title="Intelligence Artificielle">IA</abbr> applique un algorithme de <abbr
+              title="Mécanisme d'ajustement automatique des poids du réseau neuronal">rétropropagation</abbr>
+            sur un processeur <abbr
+              title="Graphics Processing Unit - Processeur graphique hautement parallélisé">GPU</abbr> pour minimiser
+            l'<abbr title="Écart mesuré entre la prédiction mathématique et la valeur réelle">erreur quadratique</abbr>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 2.4 : Éléments invisibles -->
+      <section>
+        <h3>Éléments invisibles</h3>
+        <p>
+          HTML5 fournit l'attribut booléen global <strong><code>hidden</code></strong> pour indiquer qu'un élément
+          n'est pas ou n'est plus pertinent pour l'affichage courant.
+        </p>
+
+        <h4>1. Comportement de l'attribut <code>hidden</code></h4>
+        <p>
+          Lorsqu'un élément possède l'attribut <code>hidden</code>, le navigateur le retire totalement de l'affichage
+          visuel et libère immédiatement l'espace qu'il aurait dû occuper dans le flux de la page :
+        </p>
+        <pre class="html"><code>&lt;!-- Paragraphe confidentiel masqué de l'affichage --&gt;
+&lt;p hidden&gt;Données de diagnostic interne réservées aux administrateurs.&lt;/p&gt;
+
+&lt;!-- Bloc de calcul masqué à l'état initial --&gt;
+&lt;div id="bloc-formule" hidden&gt;
+  &lt;h4&gt;Formule mathématique&lt;/h4&gt;
+  &lt;p&gt;y = 0.5 * x + 2.0&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+        <h4>2. Comparaison avec les règles de visibilité CSS</h4>
+        <div class="table-responsive my-3">
+          <table class="table table-bordered align-middle">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Technique</th>
+                <th style="width: 25%;">Nature</th>
+                <th style="width: 50%;">Effet sur l'affichage et l'espace réservé</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>hidden</code></td>
+                <td>Attribut natif HTML5</td>
+                <td>Élément <strong>totalement masqué</strong>. Ne réserve aucun espace.</td>
+              </tr>
+              <tr>
+                <td><code>display: none;</code></td>
+                <td>Propriété CSS</td>
+                <td>Retire l'élément du flux d'affichage visuel. Ne réserve aucun espace.</td>
+              </tr>
+              <tr>
+                <td><code>visibility: hidden;</code></td>
+                <td>Propriété CSS</td>
+                <td>Rend l'élément invisible, mais <strong>conserve l'espace blanc</strong> qu'il occupe dans la page.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>3. Démonstration des trois méthodes de masquage</h4>
+        <p>
+          Pour observer concrètement la différence d'occupation spatiale entre ces trois techniques, considérons une
+          rangée composée de trois éléments consécutifs : <strong>Bloc 1</strong>, <strong>Bloc 2</strong> (l'élément
+          soumis au masquage) et <strong>Bloc 3</strong>.
+        </p>
+
+        <h5>Code source HTML &amp; CSS des trois méthodes :</h5>
+        <pre class="html"><code>&lt;!-- 1. État initial de référence (les 3 blocs sont visibles) --&gt;
+&lt;div class="conteneur"&gt;
+  &lt;div class="bloc bloc-1"&gt;Bloc 1&lt;/div&gt;
+  &lt;div class="bloc bloc-2"&gt;Bloc 2 (Visible)&lt;/div&gt;
+  &lt;div class="bloc bloc-3"&gt;Bloc 3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 2. Méthode 1 : Attribut HTML5 hidden --&gt;
+&lt;div class="conteneur"&gt;
+  &lt;div class="bloc bloc-1"&gt;Bloc 1&lt;/div&gt;
+  &lt;div class="bloc bloc-2" hidden&gt;Bloc 2 (hidden)&lt;/div&gt;
+  &lt;div class="bloc bloc-3"&gt;Bloc 3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 3. Méthode 2 : Règle CSS display: none --&gt;
+&lt;div class="conteneur"&gt;
+  &lt;div class="bloc bloc-1"&gt;Bloc 1&lt;/div&gt;
+  &lt;div class="bloc bloc-2" style="display: none;"&gt;Bloc 2 (display: none)&lt;/div&gt;
+  &lt;div class="bloc bloc-3"&gt;Bloc 3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 4. Méthode 3 : Règle CSS visibility: hidden --&gt;
+&lt;div class="conteneur"&gt;
+  &lt;div class="bloc bloc-1"&gt;Bloc 1&lt;/div&gt;
+  &lt;div class="bloc bloc-2" style="visibility: hidden;"&gt;Bloc 2 (visibility: hidden)&lt;/div&gt;
+  &lt;div class="bloc bloc-3"&gt;Bloc 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <h5>Comparatif visuel du rendu dans le navigateur :</h5>
+        <div class="row g-3 my-3">
+          <!-- Cas 1 : Normal -->
+          <div class="col-md-6">
+            <div class="card h-100 border shadow-sm">
+              <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                <span class="fw-bold small">1. État de référence</span>
+                <span class="badge bg-secondary">Visible</span>
+              </div>
+              <div class="card-body">
+                <div class="demo-vis-container">
+                  <div class="demo-vis-box demo-vis-box-1">Bloc 1</div>
+                  <div class="demo-vis-box demo-vis-box-target">Bloc 2</div>
+                  <div class="demo-vis-box demo-vis-box-3">Bloc 3</div>
+                </div>
+                <p class="small text-muted mt-2 mb-0">
+                  Les 3 blocs occupent normalement leur place dans le flux horizontal.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cas 2 : hidden -->
+          <div class="col-md-6">
+            <div class="card h-100 border shadow-sm">
+              <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                <span class="fw-bold small">2. Attribut HTML5 <code>hidden</code></span>
+                <span class="badge bg-primary">hidden</span>
+              </div>
+              <div class="card-body">
+                <div class="demo-vis-container">
+                  <div class="demo-vis-box demo-vis-box-1">Bloc 1</div>
+                  <div class="demo-vis-box demo-vis-box-target" hidden>Bloc 2</div>
+                  <div class="demo-vis-box demo-vis-box-3">Bloc 3</div>
+                </div>
+                <p class="small text-muted mt-2 mb-0">
+                  Bloc 2 est <strong>totalement masqué</strong>. Espace libéré : Bloc 3 s'avance immédiatement contre
+                  Bloc 1.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cas 3 : display: none -->
+          <div class="col-md-6">
+            <div class="card h-100 border shadow-sm">
+              <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                <span class="fw-bold small">3. CSS <code>display: none;</code></span>
+                <span class="badge bg-info text-dark">display: none</span>
+              </div>
+              <div class="card-body">
+                <div class="demo-vis-container">
+                  <div class="demo-vis-box demo-vis-box-1">Bloc 1</div>
+                  <div class="demo-vis-box demo-vis-box-target" style="display: none;">Bloc 2</div>
+                  <div class="demo-vis-box demo-vis-box-3">Bloc 3</div>
+                </div>
+                <p class="small text-muted mt-2 mb-0">
+                  Bloc 2 est <strong>exclu de l'arbre de rendu</strong>. Espace libéré (rendu visuel identique à
+                  <code>hidden</code>).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cas 4 : visibility: hidden -->
+          <div class="col-md-6">
+            <div class="card h-100 border shadow-sm">
+              <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+                <span class="fw-bold small">4. CSS <code>visibility: hidden;</code></span>
+                <span class="badge bg-warning text-dark">visibility: hidden</span>
+              </div>
+              <div class="card-body">
+                <div class="demo-vis-container">
+                  <div class="demo-vis-box demo-vis-box-1">Bloc 1</div>
+                  <div class="demo-vis-box demo-vis-box-target" style="visibility: hidden;">Bloc 2</div>
+                  <div class="demo-vis-box demo-vis-box-3">Bloc 3</div>
+                </div>
+                <p class="small text-muted mt-2 mb-0">
+                  Bloc 2 est <strong>invisible</strong>, mais son <strong>espace physique est intégralement
+                    préservé</strong> (espace vide visible). Bloc 3 ne bouge pas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="callout-box">
+          <strong>Recommandation :</strong> Utilisez l'attribut HTML5 <code>hidden</code> lorsque le masquage découle de
+          la logique sémantique du contenu (ex. un panneau d'aide fermé par défaut), et réservez
+          <code>display: none;</code> aux choix stylistiques et réactifs gérés dans les feuilles de styles CSS.
+        </div>
+      </section>
+    </article>
+
+    <!-- ====================================================================
+         ARTICLE 3 : FEUILLES DE STYLE CSS3 AVANCÉES
+         ==================================================================== -->
+    <article>
+      <h2>Feuilles de style CSS3 avancées</h2>
+      <!-- Section 3.1 : Sélecteurs combinés : element.class -->
+      <section>
+        <h3>Sélecteurs combinés : element.class</h3>
+        <p>
+          Le sélecteur combiné <strong><code>element.classe</code></strong> cible uniquement une balise HTML précise
+          portant une classe déterminée, sans espace entre le nom de la balise et le point de la classe.
+        </p>
+
+        <h4>1. Utilité et intérêt pédagogique</h4>
+        <p>
+          Contrairement à un sélecteur de classe simple (<code>.classe</code>) qui s'applique indistinctement à
+          n'importe quel élément, le sélecteur combiné renforce la précision sémantique du style et évite d'impacter par
+          erreur d'autres balises partageant le même nom de classe :
+        </p>
+
+        <pre class="css"><code>/* Cible uniquement les balises &lt;table&gt; ayant la classe benchmark-table */
+table.benchmark-table {
+  width: 100%;
+}
+
+/* Cible uniquement les balises &lt;img&gt; ayant la classe filter-preview */
+img.filter-preview {
+  display: block;
+  border-radius: 8px;
+}
+
+/* Cible uniquement les balises &lt;figure&gt; ayant la classe carte-filtre */
+figure.carte-filtre {
+  display: inline-block;
+  width: 210px;
+}
+
+/* Cible uniquement les balises &lt;span&gt; ayant la classe result-display */
+span.result-display {
+  font-weight: bold;
+  color: #4f46e5;
+}</code></pre>
+
+        <div class="callout-box">
+          <strong>Règle de syntaxe :</strong> Ne placez aucun espace entre le nom de l'élément et le point (ex.
+          <code>table.benchmark-table</code>). Un espace (<code>table .benchmark-table</code>) transformerait la règle
+          en un sélecteur descendant, ciblant un élément de classe <code>benchmark-table</code> situé à l'intérieur
+          d'une table !
+        </div>
+
+        <h4>2. Code source et démonstration pratique</h4>
+        <p>
+          Considérons trois balises HTML différentes (<code>&lt;button&gt;</code>, <code>&lt;a&gt;</code> et
+          <code>&lt;div&gt;</code>) qui partagent la même classe <code>action-element</code> :
+        </p>
+
+        <pre class="html"><code>&lt;!-- Même classe action-element, mais balises distinctes --&gt;
+&lt;button type="button" class="action-element"&gt;Bouton Action&lt;/button&gt;
+&lt;a href="#" class="action-element"&gt;Lien Action&lt;/a&gt;
+&lt;div class="action-element"&gt;Bloc d'information Action&lt;/div&gt;</code></pre>
+
+        <pre class="css"><code>/* Stylise UNIQUEMENT le bouton */
+button.action-element {
+  background: #4f46e5;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* Stylise UNIQUEMENT le lien */
+a.action-element {
+  color: #06b6d4;
+  text-decoration: underline;
+  font-weight: 600;
+  padding: 6px 14px;
+}
+
+/* Stylise UNIQUEMENT le bloc conteneur */
+div.action-element {
+  background: #f8fafc;
+  border-left: 4px solid #4f46e5;
+  padding: 6px 14px;
+}</code></pre>
+
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>⚡ Rendu dans le navigateur (sélecteurs combinés en action) :</span>
+          </div>
+          <div class="d-flex flex-wrap align-items-center gap-3 py-2">
+            <style>
+              /* Stylise UNIQUEMENT le bouton */
+              button.action-element {
+                background: #4f46e5;
+                color: #ffffff;
+                border: none;
+                padding: 6px 14px;
+                border-radius: 6px;
+                font-weight: 600;
+              }
+
+              /* Stylise UNIQUEMENT le lien */
+              a.action-element {
+                color: #06b6d4;
+                text-decoration: underline;
+                font-weight: 600;
+                padding: 6px 14px;
+              }
+
+              /* Stylise UNIQUEMENT le bloc conteneur */
+              div.action-element {
+                background: #f8fafc;
+                border-left: 4px solid #4f46e5;
+                color: black;
+                padding: 6px 14px;
+              }
+            </style>
+            <!-- Même classe action-element, mais balises distinctes -->
+            <button type="button" class="action-element">Bouton Action</button>
+            <a href="#" class="action-element">Lien Action</a>
+            <div class="action-element">Bloc d'information Action</div>
+          </div>
+          <small class="text-muted d-block mt-2">
+            Chaque élément adopte un style totalement adapté à sa nature, sans collision de classe.
+          </small>
+        </div>
+      </section>
+
+      <!-- Section 3.2 : Type d'affichage : display -->
+      <section>
+        <h3>Type d'affichage : display</h3>
+        <p>
+          La propriété <strong><code>display</code></strong> définit le comportement de la boîte générée par un élément
+          dans le flux du document et détermine la façon dont il s'insère par rapport aux éléments voisins :
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered align-middle">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Valeur</th>
+                <th style="width: 45%;">Comportement dans le flux</th>
+                <th style="width: 35%;">Exemples HTML natifs</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>block</code></td>
+                <td>
+                  Occupe toute la largeur disponible. Provoque un retour à la ligne avant et après.
+                  Accepte <code>width</code>, <code>height</code>, marges et espacements verticaux.
+                </td>
+                <td><code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;-&lt;h6&gt;</code>,
+                  <code>&lt;section&gt;</code>, <code>&lt;figure&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>inline</code></td>
+                <td>
+                  S'insère directement dans le texte sans retour à la ligne.
+                  N'occupe que la largeur de son contenu. <strong>Ignore</strong> <code>width</code> et
+                  <code>height</code>.
+                </td>
+                <td><code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>,
+                  <code>&lt;a&gt;</code>, <code>&lt;code&gt;</code>, <code>&lt;abbr&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>inline-block</code></td>
+                <td>
+                  <strong>Hybride très pratique :</strong> se place côte à côte sur la ligne comme un élément
+                  <code>inline</code>, tout en acceptant des dimensions (<code>width</code>, <code>height</code>) et
+                  marges comme un élément <code>block</code>.
+                </td>
+                <td><code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, cartes d'une galerie</td>
+              </tr>
+              <tr>
+                <td><code>none</code></td>
+                <td>
+                  Supprime complètement l'élément de l'affichage. L'espace qu'il occupait est totalement libéré.
+                </td>
+                <td>Éléments temporairement masqués, menus fermés</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Code source et démonstration comparative des modes display</h4>
+        <pre class="html"><code>&lt;!-- 1. Éléments de type block (empilement vertical pleine largeur) --&gt;
+&lt;div class="demo-item-block"&gt;Bloc 1 (display: block)&lt;/div&gt;
+&lt;div class="demo-item-block"&gt;Bloc 2 (display: block)&lt;/div&gt;
+
+&lt;!-- 2. Éléments de type inline (dans le texte, dimensions ignorées) --&gt;
+&lt;span class="demo-item-inline"&gt;Inline A&lt;/span&gt;
+&lt;span class="demo-item-inline"&gt;Inline B&lt;/span&gt;
+
+&lt;!-- 3. Éléments de type inline-block (côte à côte avec dimensions respectées) --&gt;
+&lt;div class="demo-item-inline-block"&gt;Inline-Block 1&lt;/div&gt;
+&lt;div class="demo-item-inline-block"&gt;Inline-Block 2&lt;/div&gt;</code></pre>
+
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>⚡ Rendu visuel comparatif des types display dans le navigateur :</span>
+          </div>
+
+          <div class="mb-3">
+            <span class="fw-bold small text-primary d-block mb-1">1. Comportement display: block (occupe toute la
+              largeur, retour automatique à la ligne) :</span>
+            <div class="demo-display-item demo-item-block">Bloc 1 (display: block)</div>
+            <div class="demo-display-item demo-item-block">Bloc 2 (display: block)</div>
+          </div>
+
+          <div class="mb-3">
+            <span class="fw-bold small text-warning d-block mb-1">2. Comportement display: inline (s'insère dans la
+              ligne de texte courante) :</span>
+            <p class="mb-0">
+              Voici du texte normal dans lequel s'insèrent
+              <span class="demo-display-item demo-item-inline">Inline A</span> et
+              <span class="demo-display-item demo-item-inline">Inline B</span>
+              sans provoquer aucun saut de ligne.
+            </p>
+          </div>
+
+          <div>
+            <span class="fw-bold small text-success d-block mb-1">3. Comportement display: inline-block (sur la même
+              ligne avec largeur et hauteur fixées) :</span>
+            <div class="demo-display-item demo-item-inline-block">Inline-Block 1</div>
+            <div class="demo-display-item demo-item-inline-block">Inline-Block 2</div>
+            <div class="demo-display-item demo-item-inline-block">Inline-Block 3</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.3 : Positionnement flottant : float -->
+      <section>
+        <h3>Positionnement flottant : float</h3>
+        <p>
+          La propriété <strong><code>float</code></strong> détache temporairement un élément du flux normal pour le
+          placer à gauche (<code>float: left;</code>) ou à droite (<code>float: right;</code>) de son conteneur,
+          permettant au texte suivant de s'enrouler autour de lui (effet d'habillage).
+        </p>
+
+        <div class="callout-box">
+          <strong>Règle fondamentale du programme 3STI :</strong> La propriété <code>float</code> s'applique sur des
+          <strong>éléments de bloc</strong> (ou des éléments configurés avec <code>display: block;</code>).
+        </div>
+
+        <h4>1. Code source de l'habillage et du rétablissement du flux</h4>
+        <pre class="html"><code>&lt;div class="conteneur-flottant"&gt;
+  &lt;!-- Image de bloc alignée à gauche avec float: left --&gt;
+  &lt;img src="images/miniprojet-20.svg" alt="IA" class="img-flottante"&gt;
+  
+  &lt;!-- Texte qui s'enroule autour de l'image --&gt;
+  &lt;p&gt;L'apprentissage automatique permet aux ordinateurs d'apprendre à partir de données...&lt;/p&gt;
+  
+  &lt;!-- Séparateur rétablissant le flux sous l'image flottante --&gt;
+  &lt;div class="clear-line"&gt;&lt;/div&gt;
+  &lt;p&gt;Ce paragraphe démarre proprement sous l'image grâce à clear: both.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+        <pre class="css"><code>img.img-flottante {
+  display: block;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin-right: 1.25rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+}
+
+/* Annule l'effet flottant et force le contenu suivant à passer dessous */
+.clear-line {
+  clear: both;
+}</code></pre>
+
+        <h4>2. Démonstration visuelle de float et clear</h4>
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>⚡ Habillage de texte autour d'une image flottante (float: left) :</span>
+          </div>
+          <div class="demo-float-container">
+            <img src="images/miniprojet-20.svg" alt="Illustration" class="demo-float-img">
+            <p class="mb-2">
+              L'apprentissage automatique (<abbr title="Machine Learning">ML</abbr>) permet aux ordinateurs d'apprendre
+              à partir de données sans être explicitement programmés pour chaque cas de figure. Le texte s'enroule
+              naturellement autour de l'image grâce à la règle <code>float: left; margin-right: 1.25rem;</code>.
+            </p>
+            <div style="clear: both; border-top: 1px dashed var(--border-color); padding-top: 8px; margin-top: 8px;">
+              <small class="text-success fw-bold">✓ Ligne démarrant sous l'élément flottant (clear: both)</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.4 : Gestion du débordement : overflow -->
+      <section>
+        <h3>Gestion du débordement : overflow</h3>
+        <p>
+          La propriété <strong><code>overflow</code></strong> détermine le comportement du contenu lorsqu'il dépasse les
+          dimensions fixées (largeur ou hauteur) de sa boîte conteneur :
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered align-middle">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Valeur</th>
+                <th style="width: 75%;">Comportement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>visible</code></td>
+                <td><strong>Comportement par défaut :</strong> le contenu qui déborde reste visible et empiète sur les
+                  éléments voisins.</td>
+              </tr>
+              <tr>
+                <td><code>hidden</code></td>
+                <td>Le contenu excédentaire est <strong>coupé et masqué</strong>. Aucune barre de défilement n'apparaît.
+                </td>
+              </tr>
+              <tr>
+                <td><code>scroll</code></td>
+                <td>Le contenu excédentaire est masqué et des barres de défilement horizontale et verticale sont
+                  <strong>systématiquement affichées</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td><code>auto</code></td>
+                <td><strong>Recommandé :</strong> le navigateur n'affiche une barre de défilement <strong>que
+                    si</strong> le contenu dépasse effectivement la boîte.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Code source et comparatif visuel des modes overflow</h4>
+        <pre class="css"><code>/* Conteneurs de hauteur fixe limitée à 80px */
+.box-hidden { height: 80px; overflow: hidden; }
+.box-scroll { height: 80px; overflow: scroll; }
+.box-auto   { height: 80px; overflow: auto; }</code></pre>
+
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>⚡ Comparatif visuel direct du débordement dans une boîte de 80px de haut :</span>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <span class="fw-bold small d-block mb-1 text-danger">1. overflow: hidden (coupé net) :</span>
+              <div class="demo-overflow-box" style="overflow: hidden;">
+                Ligne 1 : Démarrage du système...<br>
+                Ligne 2 : Analyse des données d'entrée...<br>
+                Ligne 3 : Entraînement des neurones...<br>
+                Ligne 4 : Texte tronqué et masqué !<br>
+                Ligne 5 : Ligne invisible...
+              </div>
+            </div>
+            <div class="col-md-4">
+              <span class="fw-bold small d-block mb-1 text-primary">2. overflow: scroll (barres forcées) :</span>
+              <div class="demo-overflow-box" style="overflow: scroll;">
+                Ligne 1 : Démarrage du système...<br>
+                Ligne 2 : Analyse des données d'entrée...<br>
+                Ligne 3 : Entraînement des neurones...<br>
+                Ligne 4 : Barre toujours active !<br>
+                Ligne 5 : Défilement manuel possible.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <span class="fw-bold small d-block mb-1 text-success">3. overflow: auto (recommandé) :</span>
+              <div class="demo-overflow-box" style="overflow: auto;">
+                Ligne 1 : Démarrage du système...<br>
+                Ligne 2 : Analyse des données d'entrée...<br>
+                Ligne 3 : Entraînement des neurones...<br>
+                Ligne 4 : Barre affichée à la demande !<br>
+                Ligne 5 : Défilement fluide et propre.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.5 : Transparence et opacité : opacity -->
+      <section>
+        <h3>Transparence et opacité : opacity</h3>
+        <p>
+          La propriété <strong><code>opacity</code></strong> applique un degré d'opacité (ou de transparence) global à
+          un élément et à tout son contenu (textes, bordures et images enfants).
+        </p>
+
+        <h4>1. Échelle de valeurs</h4>
+        <p>
+          Sa valeur est un nombre décimal compris entre <code>0</code> et <code>1</code> :
+        </p>
+        <ul>
+          <li><code>opacity: 1;</code> : élément <strong>100% opaque</strong> (valeur par défaut, aucune transparence).
+          </li>
+          <li><code>opacity: 0.5;</code> : élément <strong>semi-transparent</strong> à 50%.</li>
+          <li><code>opacity: 0;</code> : élément <strong>totalement transparent</strong> (invisible, mais son espace
+            reste réservé dans la page).</li>
+        </ul>
+
+        <h4>2. Code source et démonstration d'opacité</h4>
+        <pre class="css"><code>/* Règle d'opacité statique */
+.carte-semi-transparente {
+  opacity: 0.7;
+}
+
+/* Règle d'opacité interactive avec survol (:hover) */
+.carte-interactive {
+  opacity: 0.45;
+  transition: opacity 0.3s ease;
+}
+.carte-interactive:hover {
+  opacity: 1; /* Retour à 100% au survol */
+}</code></pre>
+
+        <div class="demo-box my-3 text-center">
+          <div class="demo-box-header justify-content-center">
+            <span>⚡ Comparaison visuelle des niveaux d'opacité et effet au survol :</span>
+          </div>
+          <div class="d-flex justify-content-center gap-3 flex-wrap my-3">
+            <div class="p-3 text-white rounded shadow-sm" style="background: #4f46e5; opacity: 1; width: 110px;">
+              <strong>1.0</strong><br><small>100%</small>
+            </div>
+            <div class="p-3 text-white rounded shadow-sm" style="background: #4f46e5; opacity: 0.7; width: 110px;">
+              <strong>0.7</strong><br><small>70%</small>
+            </div>
+            <div class="p-3 text-white rounded shadow-sm" style="background: #4f46e5; opacity: 0.4; width: 110px;">
+              <strong>0.4</strong><br><small>40%</small>
+            </div>
+            <div class="p-3 text-white rounded shadow-sm" style="background: #4f46e5; opacity: 0.15; width: 110px;">
+              <strong>0.15</strong><br><small>15%</small>
+            </div>
+          </div>
+
+          <div class="p-3 rounded border text-center my-2 mx-auto"
+            style="max-width: 380px; background: #e0e7ff; color: #3730a3; opacity: 0.5; transition: opacity 0.3s ease; cursor: pointer;"
+            onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">
+            🖱️ <strong>Survolez-moi avec la souris :</strong><br>
+            <small>Passe de <code>opacity: 0.5</code> à <code>opacity: 1.0</code></small>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.6 : Ombres portées : box-shadow -->
+      <section>
+        <h3>Ombres portées : box-shadow</h3>
+        <p>
+          La propriété <strong><code>box-shadow</code></strong> projette une ombre portée autour du cadre d'un élément,
+          créant une impression de relief et de profondeur visuelle.
+        </p>
+
+        <h4>1. Syntaxe de la propriété</h4>
+        <pre class="css"><code>box-shadow: décalage-x décalage-y flou [étalement] couleur;</code></pre>
+
+        <ul>
+          <li><strong>décalage-x :</strong> déplacement horizontal de l'ombre (positif vers la droite, négatif vers la
+            gauche).</li>
+          <li><strong>décalage-y :</strong> déplacement vertical de l'ombre (positif vers le bas, négatif vers le haut).
+          </li>
+          <li><strong>flou (blur) :</strong> rayon de diffusion du flou gaussien (0 = contour net).</li>
+          <li><strong>étalement (spread, optionnel) :</strong> accroissement ou réduction de la taille de l'ombre.</li>
+          <li><strong>couleur :</strong> couleur de l'ombre, souvent exprimée en <code>rgba()</code> pour doser la
+            transparence.</li>
+        </ul>
+
+        <h4>2. Code source des différents styles d'ombres</h4>
+        <pre class="css"><code>/* 1. Ombre douce d'interface */
+.ombre-douce {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Ombre d'élévation prononcée */
+.ombre-elevee {
+  box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.22);
+}
+
+/* 3. Halo lumineux d'accentuation */
+.ombre-halo {
+  box-shadow: 0 0 18px rgba(6, 182, 212, 0.55);
+}</code></pre>
+
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>⚡ Comparatif visuel des trois types d'ombres portées :</span>
+          </div>
+          <div class="row g-3 py-2">
+            <div class="col-md-4">
+              <div class="demo-shadow-card demo-shadow-soft">
+                <span>Ombre douce</span><br>
+                <small class="text-muted">0 4px 10px rgba(0,0,0,0.1)</small>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="demo-shadow-card demo-shadow-elevated">
+                <span>Ombre élevée</span><br>
+                <small class="text-muted">0 12px 24px rgba(0,0,0,0.22)</small>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="demo-shadow-card demo-shadow-glow">
+                <span>Halo lumineux</span><br>
+                <small class="text-muted">0 0 18px rgba(6,182,212,0.55)</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.7 : Transformation de texte : text-transform -->
+      <section>
+        <h3>Transformation de texte : text-transform</h3>
+        <p>
+          La propriété <strong><code>text-transform</code></strong> contrôle la casse des caractères d'un texte sans
+          modifier le contenu d'origine dans le code HTML :
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered align-middle">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Valeur</th>
+                <th style="width: 40%;">Effet</th>
+                <th style="width: 35%;">Exemple de résultat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>uppercase</code></td>
+                <td>Convertit toutes les lettres en <strong>MAJUSCULES</strong>.</td>
+                <td><span style="text-transform: uppercase;">intelligence artificielle</span></td>
+              </tr>
+              <tr>
+                <td><code>lowercase</code></td>
+                <td>Convertit toutes les lettres en <strong>minuscules</strong>.</td>
+                <td><span style="text-transform: lowercase;">INTELLIGENCE ARTIFICIELLE</span></td>
+              </tr>
+              <tr>
+                <td><code>capitalize</code></td>
+                <td>Met la <strong>P</strong>remière lettre de chaque mot en majuscule.</td>
+                <td><span style="text-transform: capitalize;">intelligence artificielle</span></td>
+              </tr>
+              <tr>
+                <td><code>none</code></td>
+                <td>Conserve la casse d'origine du code HTML.</td>
+                <td><span>Intelligence Artificielle</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Code source et démonstration sur un même texte</h4>
+        <pre class="html"><code>&lt;!-- Code HTML d'origine : "réseau de neurones profonds" --&gt;
+&lt;p style="text-transform: uppercase;"&gt;réseau de neurones profonds&lt;/p&gt;
+&lt;p style="text-transform: lowercase;"&gt;RÉSEAU DE NEURONES PROFONDS&lt;/p&gt;
+&lt;p style="text-transform: capitalize;"&gt;réseau de neurones profonds&lt;/p&gt;
+&lt;p style="text-transform: none;"&gt;réseau de neurones profonds&lt;/p&gt;</code></pre>
+
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>⚡ Rendu visuel dans le navigateur des transformations de casse :</span>
+          </div>
+          <ul class="list-group list-group-flush my-2">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <code>text-transform: uppercase;</code>
+              <span class="fw-bold text-primary" style="text-transform: uppercase;">réseau de neurones profonds</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <code>text-transform: lowercase;</code>
+              <span class="fw-bold text-secondary" style="text-transform: lowercase;">RÉSEAU DE NEURONES PROFONDS</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <code>text-transform: capitalize;</code>
+              <span class="fw-bold text-success" style="text-transform: capitalize;">réseau de neurones profonds</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <code>text-transform: none;</code>
+              <span class="fw-bold text-dark" style="text-transform: none;">réseau de neurones profonds</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 3.8 : Filtres graphiques : filter -->
+      <section>
+        <h3>Filtres graphiques : filter</h3>
+        <p>
+          La propriété <strong><code>filter</code></strong> applique des traitements graphiques et des effets visuels
+          directement sur les éléments (notamment les images <code>&lt;img&gt;</code>) au niveau du navigateur :
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered align-middle">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Fonction de filtre</th>
+                <th style="width: 45%;">Description</th>
+                <th style="width: 30%;">Syntaxe CSS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>none</code></td>
+                <td>Aucun filtre appliqué (image originale).</td>
+                <td><code>filter: none;</code></td>
+              </tr>
+              <tr>
+                <td><code>grayscale(pourcentage)</code></td>
+                <td>Convertit en <strong>niveaux de gris</strong> (0% à 100%).</td>
+                <td><code>filter: grayscale(100%);</code></td>
+              </tr>
+              <tr>
+                <td><code>contrast(pourcentage)</code></td>
+                <td>Ajuste le <strong>contraste</strong> (&gt;100% accentue les écarts).</td>
+                <td><code>filter: contrast(200%);</code></td>
+              </tr>
+              <tr>
+                <td><code>blur(rayon)</code></td>
+                <td>Applique un <strong>flou gaussien</strong> exprimé en pixels.</td>
+                <td><code>filter: blur(3px);</code></td>
+              </tr>
+              <tr>
+                <td><code>brightness(pourcentage)</code></td>
+                <td>Ajuste la <strong>luminosité</strong> (&gt;100% éclaircit, &lt;100% assombrit).</td>
+                <td><code>filter: brightness(150%);</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Code HTML et CSS de la galerie de filtres</h4>
+        <pre class="html"><code>&lt;!-- Application des filtres graphiques sur l'image source --&gt;
+&lt;img src="images/miniprojet-20.svg" style="filter: none;" alt="Original"&gt;
+&lt;img src="images/miniprojet-20.svg" style="filter: grayscale(100%);" alt="Niveaux de gris"&gt;
+&lt;img src="images/miniprojet-20.svg" style="filter: contrast(200%);" alt="Contraste élevé"&gt;
+&lt;img src="images/miniprojet-20.svg" style="filter: blur(3px);" alt="Flou gaussien"&gt;</code></pre>
+
+        <div class="demo-box my-3 text-center">
+          <div class="demo-box-header justify-content-center">
+            <span>🖼️ Démonstration des filtres CSS sur une image :</span>
+          </div>
+          <div>
+            <div class="demo-filter-card">
+              <img src="images/miniprojet-20.svg" alt="Normal" class="demo-filter-img" style="filter: none;">
+              <div class="small text-muted mt-1">1. Normal (none)</div>
+            </div>
+            <div class="demo-filter-card">
+              <img src="images/miniprojet-20.svg" alt="Grayscale" class="demo-filter-img"
+                style="filter: grayscale(100%);">
+              <div class="small text-muted mt-1">2. Gris (100%)</div>
+            </div>
+            <div class="demo-filter-card">
+              <img src="images/miniprojet-20.svg" alt="Contrast" class="demo-filter-img"
+                style="filter: contrast(200%);">
+              <div class="small text-muted mt-1">3. Contraste (200%)</div>
+            </div>
+            <div class="demo-filter-card">
+              <img src="images/miniprojet-20.svg" alt="Blur" class="demo-filter-img" style="filter: blur(3px);">
+              <div class="small text-muted mt-1">4. Flou (3px)</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.9 : Transitions fluides : transition -->
+      <section>
+        <h3>Transitions fluides : transition</h3>
+        <p>
+          La propriété <strong><code>transition</code></strong> permet d'animer progressivement le changement d'une ou
+          plusieurs propriétés CSS d'un état initial vers un nouvel état (notamment lors du survol avec la pseudo-classe
+          <code>:hover</code>).
+        </p>
+
+        <h4>1. Propriétés détaillées et syntaxe raccourcie</h4>
+        <ul>
+          <li><strong><code>transition-property</code> :</strong> nom de la propriété CSS à animer (ex.
+            <code>top</code>, <code>box-shadow</code>, <code>opacity</code> ou <code>all</code>).
+          </li>
+          <li><strong><code>transition-duration</code> :</strong> durée de l'animation en secondes (ex.
+            <code>0.3s</code>) ou millisecondes (ex. <code>300ms</code>).
+          </li>
+          <li><strong><code>transition-timing-function</code> :</strong> rythme de l'animation (ex. <code>ease</code>,
+            <code>linear</code>, <code>ease-in-out</code>).
+          </li>
+          <li><strong><code>transition-delay</code> :</strong> délai d'attente avant le début de l'animation
+            (optionnel).</li>
+        </ul>
+
+        <h4>2. Code source de l'animation au survol</h4>
+        <pre class="css"><code>/* Syntaxe : transition: propriété durée timing; */
+button.btn-anime {
+  background-color: #4f46e5;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+  /* Animation progressive et fluide sur 3 propriétés en 0.3s */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.btn-anime:hover {
+  background-color: #06b6d4;                      /* Transition vers le cyan */
+  transform: translateY(-4px) scale(1.04);        /* Légère élévation */
+  box-shadow: 0 10px 20px rgba(6, 182, 212, 0.4); /* Accentuation de l'ombre */
+}</code></pre>
+
+        <div class="demo-box my-3 text-center">
+          <div class="demo-box-header justify-content-center">
+            <span>⚡ Démonstration de transition fluide (survolez le bouton) :</span>
+          </div>
+          <p class="small text-muted mb-3">Observez la progressivité du changement de couleur, d'élévation et d'ombre
+            portée :</p>
+          <div class="py-2">
+            <button type="button" class="demo-transition-btn">
+              ✨ Survolez ce bouton avec la souris !
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.10 : Bordures de tableaux : border-collapse -->
+      <section>
+        <h3>Bordures de tableaux : border-collapse</h3>
+        <p>
+          La propriété <strong><code>border-collapse</code></strong> définit la manière dont le navigateur gère les
+          bordures entre les cellules d'un tableau HTML (<code>&lt;table&gt;</code>).
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered align-middle">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Valeur</th>
+                <th style="width: 75%;">Comportement visuel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>separate</code></td>
+                <td><strong>Comportement par défaut :</strong> chaque cellule (<code>&lt;th&gt;</code>,
+                  <code>&lt;td&gt;</code>) possède sa propre bordure distincte, séparée des cellules voisines par un
+                  espace d'écartement.
+                </td>
+              </tr>
+              <tr>
+                <td><code>collapse</code></td>
+                <td><strong>Recommandé pour un rendu net :</strong> les bordures adjacentes des cellules voisines sont
+                  <strong>fusionnées en une bordure commune unique</strong>. L'écartement par défaut est supprimé.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Code HTML et CSS des deux modes de bordures</h4>
+        <pre class="css"><code>/* Cas 1 : Bordures séparées avec espacement visible */
+table.table-separate {
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+
+/* Cas 2 : Bordures fusionnées en une ligne fine et nette */
+table.table-collapse {
+  border-collapse: collapse;
+}</code></pre>
+
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>⚡ Comparatif visuel direct entre border-collapse: separate et collapse :</span>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <span class="fw-bold small d-block mb-1">border-collapse: separate (défaut navigateur) :</span>
+              <table
+                style="width: 100%; border-collapse: separate; border-spacing: 5px; border: 1px solid #94a3b8; text-align: center; font-size: 0.85rem;">
+                <tr>
+                  <th style="border: 1px solid #94a3b8; padding: 6px; background: #f1f5f9; color: #3730a3;">Architecture
+                  </th>
+                  <th style="border: 1px solid #94a3b8; padding: 6px; background: #f1f5f9; color: #3730a3;">Précision
+                  </th>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #94a3b8; padding: 6px;">CNN (Vision)</td>
+                  <td style="border: 1px solid #94a3b8; padding: 6px;">98.4%</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #94a3b8; padding: 6px;">Transformer</td>
+                  <td style="border: 1px solid #94a3b8; padding: 6px;">96.2%</td>
+                </tr>
+              </table>
+              <small class="text-muted d-block mt-1">Remarquez l'espacement et les doubles bordures.</small>
+            </div>
+            <div class="col-md-6">
+              <span class="fw-bold small d-block mb-1">border-collapse: collapse (recommandé) :</span>
+              <table
+                style="width: 100%; border-collapse: collapse; border: 1px solid #4f46e5; text-align: center; font-size: 0.85rem;">
+                <tr>
+                  <th style="border: 1px solid #4f46e5; padding: 6px; background: #e0e7ff; color: #3730a3;">Architecture
+                  </th>
+                  <th style="border: 1px solid #4f46e5; padding: 6px; background: #e0e7ff; color: #3730a3;">Précision
+                  </th>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #4f46e5; padding: 6px;">CNN (Vision)</td>
+                  <td style="border: 1px solid #4f46e5; padding: 6px;">98.4%</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #4f46e5; padding: 6px;">Transformer</td>
+                  <td style="border: 1px solid #4f46e5; padding: 6px;">96.2%</td>
+                </tr>
+              </table>
+              <small class="text-muted d-block mt-1">Bordures fusionnées en un tracé unique et propre.</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3.11 : Disposition des colonnes : table-layout -->
+      <section>
+        <h3>Disposition des colonnes : table-layout</h3>
+        <p>
+          La propriété <strong><code>table-layout</code></strong> détermine l'algorithme employé par le navigateur pour
+          calculer la largeur des colonnes et la mise en page d'un tableau.
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered align-middle">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Valeur</th>
+                <th style="width: 75%;">Comportement et performance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>auto</code></td>
+                <td><strong>Comportement par défaut :</strong> le navigateur doit analyser l'intégralité du contenu de
+                  toutes les cellules de toutes les lignes avant de fixer la largeur des colonnes. Rendu plus lent sur
+                  de grands tableaux.</td>
+              </tr>
+              <tr>
+                <td><code>fixed</code></td>
+                <td><strong>Disposition fixe et stricte :</strong> les largeurs des colonnes sont calculées et figées
+                  dès l'analyse de la première ligne d'en-tête (<code>&lt;th&gt;</code>). Rendu beaucoup plus rapide et
+                  respect rigoureux des largeurs définies.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Code HTML et CSS d'un tableau à disposition fixe</h4>
+        <pre class="html"><code>&lt;table class="tableau-benchmark"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th class="col-arch"&gt;Architecture (25%)&lt;/th&gt;
+      &lt;th class="col-usage"&gt;Usage principal (45%)&lt;/th&gt;
+      &lt;th class="col-acc"&gt;Précision (15%)&lt;/th&gt;
+      &lt;th class="col-lat"&gt;Latence (15%)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ResNet-50&lt;/td&gt;
+      &lt;td&gt;Reconnaissance d'images et vision artificielle&lt;/td&gt;
+      &lt;td&gt;94.8%&lt;/td&gt;
+      &lt;td&gt;12 ms&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+        <pre class="css"><code>table.tableau-benchmark {
+  width: 100%;
+  table-layout: fixed;        /* Largeurs fixes imposées dès la 1ère ligne */
+  border-collapse: collapse; /* Bordures fusionnées */
+}
+
+table.tableau-benchmark th.col-arch  { width: 25%; }
+table.tableau-benchmark th.col-usage { width: 45%; }
+table.tableau-benchmark th.col-acc   { width: 15%; }
+table.tableau-benchmark th.col-lat   { width: 15%; }
+
+table.tableau-benchmark th,
+table.tableau-benchmark td {
+  border: 1px solid #cbd5e1;
+  padding: 8px 12px;
+  overflow: hidden;
+}</code></pre>
+
+        <div class="demo-box my-3">
+          <div class="demo-box-header">
+            <span>⚡ Démonstration d'un tableau à colonnes fixes (table-layout: fixed) :</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered mb-0"
+              style="table-layout: fixed; width: 100%; border-collapse: collapse;">
+              <thead class="table-light">
+                <tr>
+                  <th style="width: 25%; background: #e0e7ff; color: #3730a3;">Architecture (25%)</th>
+                  <th style="width: 45%; background: #e0e7ff; color: #3730a3;">Usage principal (45%)</th>
+                  <th style="width: 15%; background: #e0e7ff; color: #3730a3;">Précision (15%)</th>
+                  <th style="width: 15%; background: #e0e7ff; color: #3730a3;">Latence (15%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold">ResNet-50</td>
+                  <td>Classification d'images haute résolution</td>
+                  <td><span class="badge bg-success">94.8%</span></td>
+                  <td>12 ms</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold">BERT-Base</td>
+                  <td>Compréhension et analyse sémantique du texte</td>
+                  <td><span class="badge bg-primary">91.3%</span></td>
+                  <td>28 ms</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold">YOLOv8</td>
+                  <td>Détection d'objets en flux vidéo temps réel</td>
+                  <td><span class="badge bg-info text-dark">89.5%</span></td>
+                  <td>6 ms</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="callout-box">
+          <strong>Bonne pratique :</strong> La combinaison de <code>table-layout: fixed;</code> et
+          <code>border-collapse: collapse;</code> constitue le standard professionnel recommandé pour tous les tableaux
+          de données structurées.
+        </div>
+      </section>
+    </article>
+
+    <!-- ====================================================================
+         ARTICLE 4 : ATELIERS PRATIQUES
+         ==================================================================== -->
+    <article>
+      <h2>Ateliers Pratiques</h2>
+
+      <!-- Section 4.1 : Application 20 - Plateforme IA Décodée -->
+      <section>
+        <h3>Application : Plateforme « IA Décodée »</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Réaliser et styliser la plateforme interactive « IA Décodée » en mobilisant les
+          conteneurs d'intégration HTML5 (<code>&lt;iframe&gt;</code>), les attributs d'en-tête et globaux, ainsi que
+          les règles avancées de mise en page CSS3 (affichage, flottants, débordement, filtres, transitions et
+          tableaux).
+        </div>
+
+        <div class="my-3 text-center">
+          <a href="miniprojets/MiniProjet-20/IA/TODO.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger les fichiers de l'atelier &laquo; IA Décodée &raquo;
+          </a>
+        </div>
+
+        <h4>Architecture des fichiers du projet</h4>
+        <p>Le projet est structuré en 4 pages interconnectées et une feuille de style partagée :</p>
+        <pre class="html"><code>TODO/
+├── index.html           # Hub principal : anatomie du neurone et cadre &lt;iframe&gt;
+├── vision.html          # Atelier Vision : galerie des 4 filtres graphiques CSS
+├── regression.html      # Atelier Régression : indicateur flottant et attribut hidden
+├── performances.html    # Atelier Benchmark : tableau table-layout: fixed et terminal logs
+├── style.css            # Feuille de style globale (charte Cyberpunk &amp; effets visuels)
+└── images/
+    ├── neurone-hd.svg       # Schéma HD pour grands écrans (&lt;source media="..."&gt;)
+    ├── neurone-mobile.svg   # Schéma compact pour mobiles (&lt;img&gt;)
+    └── vision-test.svg      # Image de test pour les filtres graphiques</code></pre>
+
+        <h4>Travail à faire</h4>
+        <p>
+          Pour réaliser l'atelier, l'élève travaille dans le dossier <strong><code>TODO/</code></strong> et complète les
+          consignes signalées par les commentaires <code>TODO</code> :
+        </p>
+
+        <ol>
+          <li>
+            <strong>Dans <code>index.html</code> (Hub principal) :</strong>
+            <ul>
+              <li><strong>TODO 1 :</strong> Configurer l'attribut <code>media="(min-width: 768px)"</code> sur la balise
+                <code>&lt;source&gt;</code> pour l'image adaptative.
+              </li>
+              <li><strong>TODO 2 :</strong> Déclarer les infobulles explicatives sur les termes techniques avec
+                <code>&lt;abbr title="..."&gt;</code>.
+              </li>
+              <li><strong>TODO 3 :</strong> Associer l'attribut <code>target="mini_sandbox"</code> aux liens de la barre
+                d'outils pour piloter le cadre.</li>
+              <li><strong>TODO 4 :</strong> Intégrer le cadre d'affichage
+                <code>&lt;iframe src="vision.html" name="mini_sandbox"&gt;</code>.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Dans <code>vision.html</code> (Atelier Vision) :</strong>
+            <ul>
+              <li><strong>TODO 1 :</strong> Rédiger le code HTML complet des 4 figures sémantiques
+                <code>&lt;figure class="carte-filtre"&gt;</code>, avec leurs balises <code>&lt;img&gt;</code> (classes
+                <code>filter-normal</code>, <code>filter-grayscale</code>, <code>filter-contrast</code>,
+                <code>filter-blur</code>) et leurs légendes <code>&lt;figcaption&gt;</code>.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Dans <code>regression.html</code> (Atelier Régression) :</strong>
+            <ul>
+              <li><strong>TODO 1 :</strong> Déclarer le conteneur du résultat
+                <code>&lt;span id="temps_predit" class="result-display"&gt;50 min&lt;/span&gt;</code>.
+              </li>
+              <li><strong>TODO 2 :</strong> Ajouter l'attribut global booléen <code>hidden</code> pour masquer la note
+                interne de calcul.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Dans <code>performances.html</code> (Atelier Benchmark) :</strong>
+            <ul>
+              <li><strong>TODO 1 :</strong> Déclarer les classes de dimensionnement fixe des colonnes sur les en-têtes
+                <code>&lt;th&gt;</code> (<code>col-arch</code>, <code>col-usage</code>, <code>col-acc</code>,
+                <code>col-lat</code>).
+              </li>
+              <li><strong>TODO 2 :</strong> Encadrer les lignes de logs brutes avec la balise
+                <code>&lt;pre class="terminal-logs"&gt;</code> pour activer le défilement contrôlé.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Dans <code>style.css</code> (Feuille de styles partagée) :</strong>
+            <ul>
+              <li>Compléter les règles CSS fondamentales : <code>overflow: hidden</code>, <code>float: left</code>,
+                <code>float: right</code> sur un élément <code>display: block</code>, <code>position: relative</code>
+                avec <code>transition</code>, <code>text-transform: uppercase</code>, <code>opacity</code>, filtres
+                <code>filter</code> et <code>table-layout: fixed</code> avec <code>border-collapse: collapse</code>.
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2026/2027</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

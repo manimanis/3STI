@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA Décodée - Accueil & Réseaux de neurones</title>
+  
+  <link rel="stylesheet" href="style.css">
+
+  <style media="screen and (max-width: 768px)">
+    header.site-header h2.title-cyber {
+      float: none;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    nav.main-nav {
+      float: none;
+      text-align: center;
+    }
+    a.nav-link {
+      margin: 0.25rem;
+    }
+    img.float-concept {
+      float: none;
+      display: block;
+      margin: 0 auto 1rem auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <h2 class="title-cyber">🤖 IA Décodée</h2>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link active">Accueil</a>
+      <a href="vision.html" class="nav-link">Vision</a>
+      <a href="regression.html" class="nav-link">Régression</a>
+      <a href="performances.html" class="nav-link">Benchmark</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+
+    <section class="card-concept clearfix">
+      <span class="badge-tag">Architecture biologique vs artificielle</span>
+      <h1 class="title-cyber">Anatomie d'un neurone artificiel</h1>
+
+      <picture>
+        <!-- =====================================================================
+             TODO 1 (HTML - Attribut media sur <source>) :
+             Ajouter l'attribut media="(min-width: 800px)" sur la balise <source>
+             ===================================================================== -->
+        <source srcset="images/neurone-hd.svg">
+        
+        <!-- Image affichée par défaut avec float -->
+        <img class="float-concept" src="images/neurone-mobile.svg" alt="Schéma d'un neurone formel">
+      </picture>
+
+      <p>
+        Un réseau de neurones artificiels s'inspire du cerveau humain. Chaque cellule reçoit plusieurs entrées multipliées par un
+        <!-- =====================================================================
+             TODO 2.A (HTML - Balise <abbr> et attribut title) :
+             Ajouter l'attribut title avec la définition sur la balise <abbr> :
+             "Poids synaptique : coefficient qui amplifie ou atténue l'importance d'une information entrante."
+             ===================================================================== -->
+        <abbr class="terme-info">poids synaptique</abbr>.
+        On y additionne ensuite un
+        <!-- =====================================================================
+             TODO 2.B (HTML - Balise <abbr> et attribut title) :
+             Ajouter l'attribut title avec la définition sur la balise <abbr> :
+             "Biais : valeur seuil permettant de décaler la fonction d'activation."
+             ===================================================================== -->
+        <abbr class="terme-info">biais</abbr>,
+        puis le signal traverse une fonction d'activation non-linéaire.
+      </p>
+
+      <p>
+        L'apprentissage consiste à ajuster ces paramètres au fil des
+        <!-- =====================================================================
+             TODO 2.C (HTML - Balise <abbr> et attribut title) :
+             Ajouter l'attribut title avec la définition sur la balise <abbr> :
+             "Epoch : passage complet de la totalité des données d'entraînement dans le modèle."
+             ===================================================================== -->
+        <abbr class="terme-info">epochs</abbr>
+        grâce à la rétropropagation du gradient d'erreur.
+      </p>
+
+      <!-- Bloc démontrant la propriété CSS opacity -->
+      <div class="card-concept layer-inactive">
+        <small>💡 <em>Survolez ce bloc : il utilise <code>opacity: 0.35</code> au repos et passe à <code>opacity: 1</code> au survol pour simuler un neurone en cours d'activation !</em></small>
+      </div>
+    </section>
+
+    <section class="card-concept">
+      <span class="badge-tag">Bac à sable interactif</span>
+      <h2 class="title-cyber">Hub d'expérimentation intégré</h2>
+      <p>Basculez entre les ateliers pratiques directement dans le conteneur sécurisé ci-dessous :</p>
+      
+      <!-- =======================================================================
+           TODO 3 (HTML - Liens ciblant un iframe avec target) :
+           Ajouter l'attribut target="mini_sandbox" sur chacun des 3 liens ci-dessous
+           pour afficher les pages cibles à l'intérieur du cadre sans quitter la page.
+           ======================================================================= -->
+      <div class="hub-actions">
+        <a href="vision.html" class="btn-ia">Tester Vision</a>
+        <a href="regression.html" class="btn-ia">Tester Régression</a>
+        <a href="performances.html" class="btn-ia">Voir Benchmark</a>
+      </div>
+
+      <!-- =======================================================================
+           TODO 4 (HTML - Balise <iframe> avec src et name) :
+           Déclarer ci-dessous un élément <iframe> avec :
+           - src="vision.html" (page chargée par défaut)
+           - name="mini_sandbox" (nom du cadre ciblé par les liens)
+           - class="sandbox-frame"
+           - Texte de substitution : "Votre navigateur ne supporte pas les iframes."
+           ======================================================================= -->
+      <!-- [Écrire la balise <iframe> ici] -->
+
+    </section>
+
+  </main>
+</body>
+</html>

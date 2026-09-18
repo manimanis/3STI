@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     IA DÉCODÉE  |  Page 2 : COMMENT L'IA APPREND ?  (apprentissage.html)
+     Site pédagogique 3STI : HTML5 + CSS3 uniquement (aucun framework)
+     Notions démontrées sur cette page :
+     float (left) + clear, overflow (auto), display, transition,
+     box-shadow, text-transform, sélecteur element.class
+     ================================================================== -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Décodée — Comment l'IA apprend ?</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body class="est-site">
+
+    <!-- ==================== EN-TÊTE + NAVIGATION COMMUNES ==================== -->
+    <header class="entete-site">
+        <a class="logo-site" href="index.html" title="Revenir à la page d'accueil">
+            <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+                <defs>
+                    <linearGradient id="g-logo" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#60A5FA"/>
+                        <stop offset="1" stop-color="#C084FC"/>
+                    </linearGradient>
+                </defs>
+                <circle cx="6"  cy="16" r="3.4" fill="url(#g-logo)"/>
+                <circle cx="26" cy="7"  r="3.4" fill="url(#g-logo)"/>
+                <circle cx="26" cy="25" r="3.4" fill="url(#g-logo)"/>
+                <line x1="9"  y1="15" x2="23" y2="8"  stroke="url(#g-logo)" stroke-width="1.6"/>
+                <line x1="9"  y1="17" x2="23" y2="24" stroke="url(#g-logo)" stroke-width="1.6"/>
+            </svg>
+            IA <span class="decore">Décodée</span>
+        </a>
+        <nav class="navigation-principale">
+            <a class="lien-nav" href="index.html">Accueil</a>
+            <a class="lien-nav actif" href="apprentissage.html">Apprentissage</a>
+            <a class="lien-nav" href="modeles.html">Modèles IA</a>
+            <a class="lien-nav" href="laboratoire.html">Laboratoire</a>
+        </nav>
+    </header>
+
+    <!-- ==================== INTRO DE LA PAGE ==================== -->
+    <section class="intro-page">
+        <h1 class="titre-page">Comment l'IA apprend ?</h1>
+        <p class="slogan">Des données, un modèle, un résultat : le cycle de l'apprentissage automatique.</p>
+        <p class="texte-intro">
+            Une machine n'a ni instinct ni mémoire d'enfance. Sa « compréhension » vient d'un processus
+            précis et répété des millions de fois : on lui montre des <strong>données</strong>, elle
+            <strong>traite</strong> ces données grâce à un algorithme, elle produit un <strong>résultat</strong>,
+            puis elle corrige ses erreurs et recommence. Cette page décompose ce cycle, étape par étape.
+        </p>
+
+        <!-- ==================== SCHÉMA : DONNÉES / MODÈLE / RÉSULTAT ==================== -->
+        <!-- Illustration schématique composée uniquement de blocs HTML stylisés
+             en CSS (p.bloc-schema) et de flèches en texte. Chaque bloc porte
+             en plus une infobulle (attribut title) pour rappeler son rôle. -->
+        <div class="schema-apprentissage">
+            <p class="bloc-schema" title="Les informations brutes fournies à la machine : images, textes, sons, nombres.">Données</p>
+            <p class="fleche-schema">&#8595;</p>
+            <p class="bloc-schema" title="Le programme qui analyse les données et apprend à partir d'elles.">Modèle IA</p>
+            <p class="fleche-schema">&#8595;</p>
+            <p class="bloc-schema" title="La réponse produite par le modèle : une prédiction, une catégorie, un nombre.">Résultat</p>
+        </div>
+    </section>
+
+    <!-- ==================== QUATRE BLOCS EXPLICATIFS CÔTE À CÔTE (FLOAT) ==================== -->
+    <section class="etape-cycle">
+        <h2 class="titre-section">Le cycle d'apprentissage en quatre étapes</h2>
+
+        <!-- NOTION : float: left (côté CSS)
+             Chaque div.bloc-explicatif « flotte » à gauche : les quatre
+             blocs se placent donc CÔTE À CÔTE au lieu de s'empiler.
+             Leur largeur est de 23 % (plus les marges de 1 %), ce qui
+             remplit exactement une ligne de quatre colonnes. -->
+
+        <div class="groupe-flottants">
+
+            <div class="bloc-explicatif">
+                <h3>1. Les données d'entrée</h3>
+                <p>Tout commence par les données : des milliers de photos de chats, des heures
+                   d'enregistrements de voix, des tableaux de températures mesurées chaque jour.
+                   Plus les données sont nombreuses et variées, plus l'apprentissage sera fiable.
+                   C'est le « carburant » de toute IA.</p>
+            </div>
+
+            <div class="bloc-explicatif">
+                <h3>2. Les traitements</h3>
+                <p>L'algorithme analyse les données et y cherche des régularités : la forme des
+                   oreilles sur les photos, la fréquence des mots dans les phrases, la hausse des
+                   températures au fil des saisons. Chaque information utile s'appelle une
+                   « caractéristique ».</p>
+            </div>
+
+            <div class="bloc-explicatif">
+                <h3>3. Les résultats produits</h3>
+                <p>À la fin du traitement, le modèle produit une réponse : « cette image contient
+                   un chat », « demain il fera 24 °C », « ce message est un spam ». Cette réponse
+                   s'appelle une prédiction, car elle porte sur des données que la machine
+                   n'a encore jamais vues.</p>
+            </div>
+
+            <div class="bloc-explicatif">
+                <h3>4. L'apprentissage automatique</h3>
+                <p>La machine compare sa prédiction à la bonne réponse, mesure son erreur, puis
+                   ajuste ses paramètres internes pour se tromper un peu moins la fois suivante.
+                   Répété des millions de fois, ce cycle permet à la machine de progresser
+                   seule : c'est le « machine learning ».</p>
+            </div>
+
+            <!-- Technique du « clearfix » : cette div vide force le conteneur
+                 à englober toute la hauteur des blocs flottants qui la
+                 précèdent. Sans elle, la suite de la page remonterait
+                 autour des blocs. -->
+            <div class="nettoyage-flottants"></div>
+
+        </div>
+    </section>
+
+    <!-- ==================== ZONE DÉFILANTE : L'HISTOIRE DE L'IA (OVERFLOW) ==================== -->
+    <section class="histoire-ia">
+        <h2 class="titre-section">Petite histoire de l'IA (zone défilante)</h2>
+
+        <!-- NOTION : overflow: auto (côté CSS)
+             Le texte ci-dessous est plus long que la hauteur fixée
+             (250 px) : une barre de défilement apparaît donc À
+             L'INTÉRIEUR du cadre, sans casser la mise en page. -->
+        <div class="zone-histoire">
+            <h3>De Turing aux chatbots : soixante-dix ans d'histoire</h3>
+
+            <p><span class="annee">1943 :</span> le neurophysiologiste Warren McCulloch et le logicien
+            Walter Pitts proposent le premier modèle mathématique d'un neurone artificiel :
+            la porte des réseaux de neurones vient de s'ouvrir.</p>
+
+            <p><span class="annee">1950 :</span> le mathématicien britannique Alan Turing publie son article
+            célèbre « Computing Machinery and Intelligence ». Il y pose la question « Une machine peut-elle
+            penser ? » et propose un test simple : si un juge humain dialogue avec une machine sans pouvoir
+            dire s'il s'agit d'un humain ou d'un programme, alors la machine fait preuve d'intelligence.</p>
+
+            <p><span class="annee">1956 :</span> lors de la conférence de Dartmouth, aux États-Unis,
+            John McCarthy invente l'expression « intelligence artificielle ». La discipline est
+            officiellement née, portée par un optimisme immense.</p>
+
+            <p><span class="annee">1958 :</span> Frank Rosenblatt construit le perceptron, première machine
+            capable d'apprendre à reconnaître des formes simples. Les journaux annoncent des ordinateurs
+            qui « marcheront, parleront et verront » très bientôt.</p>
+
+            <p><span class="annee">1966 :</span> le programme ELIZA simule un psychothérapeute et surprend
+            ses utilisateurs par des réponses qui semblent empathiques, alors qu'il ne fait que renvoyer
+            les mots de la conversation.</p>
+
+            <p><span class="annee">Années 1970 :</span> les promesses ne sont pas tenues : les ordinateurs
+            sont trop lents, les données trop rares, les budgets sont coupés. C'est le premier
+            « hiver de l'IA ».</p>
+
+            <p><span class="annee">Années 1980 :</span> les « systèmes experts » enferment le savoir de
+            spécialistes dans des règles logiques. Le succès est réel mais fragile, et un second hiver
+            suit à la fin de la décennie.</p>
+
+            <p><span class="annee">1997 :</span> le supercalculateur Deep Blue, d'IBM, bat le champion du
+            monde d'échecs Garry Kasparov. Pour la première fois, une machine surpasse l'humain dans un
+            jeu de stratégie réputé inaccessible.</p>
+
+            <p><span class="annee">2012 :</span> le réseau AlexNet remporte le concours de reconnaissance
+            d'images ImageNet grâce à l'apprentissage profond. La combinaison des cartes graphiques,
+            du « big data » et des réseaux profonds change tout : l'IA entre dans une nouvelle ère.</p>
+
+            <p><span class="annee">2016 :</span> AlphaGo, de la société DeepMind, bat Lee Sedol au jeu de go,
+            considéré comme le plus complexe qui soit. Des millions de spectateurs regardent la défaite
+            en direct.</p>
+
+            <p><span class="annee">2022 :</span> ChatGPT rend l'IA générative accessible à tous :
+            des millions de personnes dialoguent avec une machine capable de rédiger, traduire,
+            expliquer et programmer.</p>
+
+            <p><span class="annee">Aujourd'hui :</span> l'IA est partout — santé, transports, traduction,
+            éducation — et son histoire ne fait que commencer. Peut-être un jour l'écriras-tu ?</p>
+        </div>
+    </section>
+
+    <!-- ==================== PANORAMA DES NOTIONS ==================== -->
+    <section class="panorama-notions">
+        <h2 class="titre-section">Notions HTML et CSS utilisées sur cette page</h2>
+
+        <p class="liste-notions">
+            <span class="badge-notion">float</span>
+            <span class="badge-notion">clear</span>
+            <span class="badge-notion">overflow</span>
+            <span class="badge-notion">display</span>
+            <span class="badge-notion">transition</span>
+            <span class="badge-notion">box-shadow</span>
+            <span class="badge-notion">text-transform</span>
+        </p>
+
+        <!-- Exemple : float + clear + overflow -->
+        <div class="exemple-code">
+            <p class="titre-code">Exemple : blocs côte à côte et zone défilante (extraits de style.css)</p>
+            <pre><span class="c-propriete">div.bloc-explicatif</span> <span class="c-texte">{</span>
+    <span class="c-attribut">float</span><span class="c-texte">: left;</span>   <span class="c-comment">/* le bloc flotte à gauche, le suivant se colle à lui */</span>
+    <span class="c-attribut">width</span><span class="c-texte">: 23%;</span>    <span class="c-comment">/* quatre blocs de 23 % remplissent une ligne */</span>
+<span class="c-texte">}</span>
+<span class="c-propriete">div.nettoyage-flottants</span> <span class="c-texte">{</span> <span class="c-attribut">clear</span><span class="c-texte">: both;</span> <span class="c-texte">}</span> <span class="c-comment">/* stoppe l'effet du float */</span>
+<span class="c-propriete">div.zone-histoire</span> <span class="c-texte">{</span>
+    <span class="c-attribut">overflow</span><span class="c-texte">: auto;</span> <span class="c-comment">/* barre de défilement si le texte dépasse */</span>
+    <span class="c-attribut">height</span><span class="c-texte">: 250px;</span>
+<span class="c-texte">}</span></pre>
+        </div>
+    </section>
+
+    <!-- ==================== ENCADRE PÉDAGOGIQUE : À RETENIR ==================== -->
+    <section class="encadre-retenir">
+        <h2 class="titre-retenir">À retenir</h2>
+        <ul class="liste-retenir">
+            <li><strong>Algorithme :</strong> la suite d'instructions qui décrit comment les données sont analysées et traitées.</li>
+            <li><strong>Données :</strong> les informations brutes fournies à la machine ; leur qualité et leur quantité conditionnent l'apprentissage.</li>
+            <li><strong>Modèle :</strong> le programme obtenu après entraînement ; il résume ce que la machine a « compris » des données.</li>
+            <li><strong>Prédiction :</strong> le résultat estimé par le modèle sur des données nouvelles, jamais rencontrées pendant l'entraînement.</li>
+        </ul>
+    </section>
+
+    <!-- ==================== PIED DE PAGE COMMUN ==================== -->
+    <footer class="pied-site">
+        <p><strong>IA Décodée</strong> — site pédagogique HTML5 / CSS3 — programme 3STI</p>
+        <p>Projet réalisé sans framework ni bibliothèque externe : uniquement du code ouvert dans un éditeur de texte.</p>
+    </footer>
+
+</body>
+</html>

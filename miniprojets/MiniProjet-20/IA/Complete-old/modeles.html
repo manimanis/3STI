@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     IA DÉCODÉE  |  Page 3 : RÉSEAUX DE NEURONES ET RÉGRESSION (modeles.html)
+     Site pédagogique 3STI : HTML5 + CSS3 uniquement (aucun framework)
+     Notions démontrées sur cette page :
+     <link>, <style type="text/css" media="screen">, <script>,
+     schéma de réseau de neurones en HTML/CSS pur,
+     border-collapse, table-layout, <colgroup>, <col>, <caption>
+     ================================================================== -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Décodée — Réseaux de neurones et régression</title>
+
+    <!-- NOTION : <link> et ses attributs
+         rel="stylesheet" : indique que le fichier lié est une feuille de
+                            style (relation entre la page et le fichier) ;
+         type="text/css"  : précise le langage du fichier lié (du CSS) ;
+         href             : donne le chemin du fichier (ici à la racine).
+         La feuille commune style.css est chargée en premier. -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- NOTION : la balise <style> et ses attributs
+         <style> permet d'écrire du CSS DIRECTEMENT DANS la page HTML,
+         entre <head> et </head>, sans fichier externe.
+         type="text/css" : précise que le langage utilisé entre les
+                           balises est le CSS (attribut conservé ici
+                           car il figure au programme) ;
+         media="screen"  : ce style ne s'applique que pour l'affichage
+                           À L'ÉCRAN. Pour l'impression sur papier, on
+                           écrirait media="print". -->
+    <style type="text/css" media="screen">
+        /* Styles PARTICULIERS à cette page : ils complètent style.css.
+           Ici : la légende colorée du schéma de neurones. */
+
+        /* NOTION : sélecteur element.class -> div.legende-couches */
+        div.legende-couches {
+            text-align: center;
+            margin: 8px auto 0;
+            max-width: 760px;
+        }
+
+        div.legende-couches p {
+            display: inline-block;
+            margin: 6px 14px;
+            padding: 6px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 255, 0.45);
+            background: rgba(255, 255, 255, 0.04);
+            color: #C7D2F5;
+            font-size: 0.88rem;
+        }
+
+        div.legende-couches p b {
+            color: #F0ABFC;
+        }
+    </style>
+
+    <!-- NOTION : la balise <script> et l'attribut type
+         <script> réserve un espace pour du code JavaScript, le langage
+         qui rend les pages interactives (cliques, formulaires vivants...).
+         type="text/javascript" : précise le langage du script.
+         La balise reste ici VIDE : ce site est réalisé uniquement en
+         HTML5 et CSS3, sans aucune bibliothèque externe. Tu la rempliras
+         plus tard, quand le programme abordera le JavaScript. -->
+    <script type="text/javascript"></script>
+</head>
+<body class="est-site">
+
+    <!-- ==================== EN-TÊTE + NAVIGATION COMMUNES ==================== -->
+    <header class="entete-site">
+        <a class="logo-site" href="index.html" title="Revenir à la page d'accueil">
+            <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+                <defs>
+                    <linearGradient id="g-logo" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#60A5FA"/>
+                        <stop offset="1" stop-color="#C084FC"/>
+                    </linearGradient>
+                </defs>
+                <circle cx="6"  cy="16" r="3.4" fill="url(#g-logo)"/>
+                <circle cx="26" cy="7"  r="3.4" fill="url(#g-logo)"/>
+                <circle cx="26" cy="25" r="3.4" fill="url(#g-logo)"/>
+                <line x1="9"  y1="15" x2="23" y2="8"  stroke="url(#g-logo)" stroke-width="1.6"/>
+                <line x1="9"  y1="17" x2="23" y2="24" stroke="url(#g-logo)" stroke-width="1.6"/>
+            </svg>
+            IA <span class="decore">Décodée</span>
+        </a>
+        <nav class="navigation-principale">
+            <a class="lien-nav" href="index.html">Accueil</a>
+            <a class="lien-nav" href="apprentissage.html">Apprentissage</a>
+            <a class="lien-nav actif" href="modeles.html">Modèles IA</a>
+            <a class="lien-nav" href="laboratoire.html">Laboratoire</a>
+        </nav>
+    </header>
+
+    <!-- ==================== INTRO DE LA PAGE ==================== -->
+    <section class="intro-page">
+        <h1 class="titre-page">Réseaux de neurones et régression</h1>
+        <p class="slogan">Regarde comment une machine « imagine », puis comment elle « prévoit ».</p>
+        <p class="texte-intro">
+            Sur la page précédente, tu as vu le cycle général de l'apprentissage. Ici, nous ouvrons le
+            capot de la machine : d'abord avec le <strong>réseau de neurones</strong>, l'architecture
+            inspirée du cerveau qui domine l'IA moderne ; ensuite avec la <strong>régression</strong>,
+            la technique qui permet de prévoir une valeur numérique.
+        </p>
+    </section>
+
+    <!-- ==================== SECTION 1 : RÉSEAUX DE NEURONES ==================== -->
+    <section class="partie-neurones">
+        <h2 class="titre-section">Section 1 : le réseau de neurones</h2>
+        <p class="texte-intro">
+            Un réseau de neurones artificiel est composé de « neurones », de petits calculateurs
+            organisés en <strong>couches</strong>. La <strong>couche d'entrée</strong> reçoit les données
+            (par exemple les pixels d'une image). Une ou plusieurs <strong>couches cachées</strong>
+            transforment progressivement ces données en repères de plus en plus abstraits : d'abord des
+            contours, puis des formes, puis des visages entiers. Enfin, la <strong>couche de
+            sortie</strong> donne la réponse du réseau. Le schéma ci-dessous est dessiné uniquement
+            avec des balises HTML et du CSS : chaque cercle est une balise, chaque « câble » un dégradé CSS.
+        </p>
+
+        <!-- ==================== SCHÉMA 100% HTML/CSS ====================
+             Quatre colonnes (div.couche) contenant des cercles (p.neurone),
+             reliées par des « câbles » (div.connexions) dessinés avec un
+             repeating-linear-gradient et rendus semi-transparents
+             (opacity). Aucune image, aucun JavaScript : tout est CSS. -->
+        <div class="schema-neurones">
+
+            <div class="couche">
+                <p class="neurone"></p>
+                <p class="neurone"></p>
+                <p class="neurone"></p>
+                <p class="etiquette-couche">Couche d'entrée</p>
+            </div>
+
+            <div class="connexions" role="presentation"></div>
+
+            <div class="couche">
+                <p class="neurone"></p>
+                <p class="neurone"></p>
+                <p class="neurone"></p>
+                <p class="neurone"></p>
+                <p class="neurone"></p>
+                <p class="etiquette-couche">Couche cachée 1</p>
+            </div>
+
+            <div class="connexions" role="presentation"></div>
+
+            <div class="couche">
+                <p class="neurone"></p>
+                <p class="neurone"></p>
+                <p class="neurone"></p>
+                <p class="neurone"></p>
+                <p class="neurone"></p>
+                <p class="etiquette-couche">Couche cachée 2</p>
+            </div>
+
+            <div class="connexions" role="presentation"></div>
+
+            <div class="couche">
+                <p class="neurone"></p>
+                <p class="etiquette-couche">Couche de sortie</p>
+            </div>
+
+        </div>
+
+        <!-- Légende mise en forme par le bloc <style media="screen"> du head :
+             c'est un exemple de style DANS la page, complémentaire de
+             la feuille externe style.css. -->
+        <div class="legende-couches">
+            <p><b>Entrée :</b> les données brutes</p>
+            <p><b>Couches cachées :</b> les transformations</p>
+            <p><b>Sortie :</b> la prédiction finale</p>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 2 : RÉGRESSION ==================== -->
+    <section class="partie-regression">
+        <h2 class="titre-section">Section 2 : la régression</h2>
+        <p class="texte-intro">
+            La <strong>régression</strong> est la technique utilisée quand on veut prévoir une
+            <strong>valeur numérique</strong> : une température, un prix, une note. Le modèle observe
+            des exemples passés (les entrées et leurs valeurs), déduit une tendance, puis l'applique
+            à une situation nouvelle. Voici trois exemples concrets :
+        </p>
+
+        <!-- Ces trois cartes réutilisent le style section.carte de l'accueil,
+             enrichi d'une classe supplémentaire carte-regression : c'est un
+             exemple de sélecteur element.class combiné à deux classes. -->
+        <div class="galerie-cartes">
+
+            <section class="carte carte-regression">
+                <h3>Prévoir une température</h3>
+                <p><strong>Entrée :</strong> les températures mesurées les dix derniers jours, la saison,
+                   l'humidité du vent.</p>
+                <p><strong>Sortie :</strong> un nombre : « demain, 24 °C à Tunis ».
+                   Les météorologistes utilisent des modèles de ce type.</p>
+            </section>
+
+            <section class="carte carte-regression">
+                <h3>Prévoir un prix</h3>
+                <p><strong>Entrée :</strong> la surface d'un appartement, son quartier, son étage,
+                   l'année de construction.</p>
+                <p><strong>Sortie :</strong> un nombre : un prix estimé en dinars.
+                   Les plateformes immobilières affichent souvent une estimation automatique.</p>
+            </section>
+
+            <section class="carte carte-regression">
+                <h3>Prévoir une note</h3>
+                <p><strong>Entrée :</strong> les heures de révision d'un élève, ses notes des contrôles
+                   précédents, son assiduité.</p>
+                <p><strong>Sortie :</strong> un nombre : la note probable au prochain contrôle.
+                   Certains logiciels scolaires signalent ainsi les élèves à risque.</p>
+            </section>
+
+        </div>
+
+        <!-- ==================== TABLEAU COMPARATIF ====================
+             NOTION : border-collapse: collapse -> les bordures des
+             cellules fusionnent en une seule ligne propre.
+             NOTION : table-layout: fixed -> les largeurs de colonnes
+             sont définies UNE FOIS par <colgroup> : le tableau reste
+             stable même si un texte est long. -->
+        <table class="comparatif">
+            <caption>Comparaison entre régression et classification</caption>
+            <colgroup>
+                <col class="col-technique">
+                <col class="col-entree">
+                <col class="col-sortie">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col">Technique</th>
+                    <th scope="col">Entrée</th>
+                    <th scope="col">Sortie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Régression</strong></td>
+                    <td>Valeurs numériques</td>
+                    <td>Nombre</td>
+                </tr>
+                <tr>
+                    <td><strong>Classification</strong></td>
+                    <td>Données diverses</td>
+                    <td>Catégorie</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="encadre-explication">
+            <p>En résumé : la régression répond à la question <strong>« combien ? »</strong> (un nombre),
+            tandis que la classification répond à la question <strong>« lequel ? »</strong> (une catégorie
+            parmi plusieurs, comme « chat » ou « chien »). Tu testeras la classification toi-même
+            dans le <a href="laboratoire.html">Laboratoire IA</a> !</p>
+        </div>
+    </section>
+
+    <!-- ==================== PANORAMA DES NOTIONS ==================== -->
+    <section class="panorama-notions">
+        <h2 class="titre-section">Notions HTML et CSS utilisées sur cette page</h2>
+
+        <p class="liste-notions">
+            <span class="badge-notion">link + rel + type + href</span>
+            <span class="badge-notion">style + type + media</span>
+            <span class="badge-notion">script + type</span>
+            <span class="badge-notion">border-collapse</span>
+            <span class="badge-notion">table-layout</span>
+            <span class="badge-notion">display</span>
+            <span class="badge-notion">opacity</span>
+        </p>
+
+        <div class="exemple-code">
+            <p class="titre-code">Exemple : dans le &lt;head&gt; de cette page</p>
+            <pre><span class="c-balise">&lt;link</span> <span class="c-attribut">rel</span>=<span class="c-valeur">"stylesheet"</span> <span class="c-attribut">type</span>=<span class="c-valeur">"text/css"</span> <span class="c-attribut">href</span>=<span class="c-valeur">"style.css"</span><span class="c-balise">&gt;</span>
+<span class="c-balise">&lt;style</span> <span class="c-attribut">type</span>=<span class="c-valeur">"text/css"</span> <span class="c-attribut">media</span>=<span class="c-valeur">"screen"</span><span class="c-balise">&gt;</span><span class="c-comment">... CSS interne à la page ...</span><span class="c-balise">&lt;/style&gt;</span>
+<span class="c-balise">&lt;script</span> <span class="c-attribut">type</span>=<span class="c-valeur">"text/javascript"</span><span class="c-balise">&gt;&lt;/script&gt;</span></pre>
+        </div>
+
+        <div class="exemple-code">
+            <p class="titre-code">Exemple : le tableau comparatif (extrait de style.css)</p>
+            <pre><span class="c-propriete">table.comparatif</span> <span class="c-texte">{</span>
+    <span class="c-attribut">border-collapse</span><span class="c-texte">: collapse;</span> <span class="c-comment">/* les bordures fusionnent */</span>
+    <span class="c-attribut">table-layout</span><span class="c-texte">: fixed;</span>       <span class="c-comment">/* largeurs de colonnes fixes */</span>
+<span class="c-texte">}</span></pre>
+        </div>
+    </section>
+
+    <!-- ==================== ENCADRE PÉDAGOGIQUE : À RETENIR ==================== -->
+    <section class="encadre-retenir">
+        <h2 class="titre-retenir">À retenir</h2>
+        <ul class="liste-retenir">
+            <li><strong>Réseau de neurones :</strong> un modèle organisé en couches de petits calculateurs, inspiré du cerveau humain.</li>
+            <li><strong>Couches :</strong> la couche d'entrée reçoit les données, les couches cachées les transforment, la couche de sortie donne la réponse.</li>
+            <li><strong>Régression :</strong> technique qui prédit une valeur numérique : une température, un prix, une note.</li>
+            <li><strong>Classification :</strong> technique qui prédit une catégorie : « chat » ou « chien », « spam » ou « légitime ».</li>
+        </ul>
+    </section>
+
+    <!-- ==================== PIED DE PAGE COMMUN ==================== -->
+    <footer class="pied-site">
+        <p><strong>IA Décodée</strong> — site pédagogique HTML5 / CSS3 — programme 3STI</p>
+        <p>Projet réalisé sans framework ni bibliothèque externe : uniquement du code ouvert dans un éditeur de texte.</p>
+    </footer>
+
+</body>
+</html>

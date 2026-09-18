@@ -1,0 +1,413 @@
+/* ==========================================================================
+   FEUILLE DE STYLE PRINCIPALE - PROJET IA DÉCODÉE (3STI)
+   Thème : Cyberpunk Tech / Dark Mode (100% Conforme au programme STI 2024)
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   NOTION : display (block, inline-block, none) & float & element.class
+   ========================================================================== */
+header.site-header {
+  padding: 1rem 2rem;
+  background-color: #1e293b;
+  border-bottom: 2px solid #06b6d4;
+  overflow: hidden;
+}
+
+header.site-header h2.title-cyber {
+  float: left;
+  margin: 0;
+  line-height: 2;
+}
+
+nav.main-nav {
+  float: right;
+  margin-top: 0.25rem;
+}
+
+/* NOTION : element.class */
+a.nav-link {
+  /* NOTION : display: inline-block */
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  /* NOTION : transition */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a.nav-link:hover,
+a.nav-link.active {
+  background-color: #8b5cf6;
+  color: #ffffff;
+}
+
+main.main-content {
+  /* NOTION : display: block */
+  display: block;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ==========================================================================
+   NOTION : text-transform, box-shadow, transition, position
+   ========================================================================== */
+h1.title-cyber {
+  /* NOTION : text-transform (uppercase) */
+  text-transform: uppercase;
+  color: #06b6d4;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+span.badge-tag {
+  /* NOTION : display: inline-block & text-transform: uppercase */
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem 0.6rem;
+  background-color: #8b5cf6;
+  color: #ffffff;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+/* NOTION : element.class & positionnement */
+div.card-concept,
+section.card-concept {
+  position: relative;
+  top: 0;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid #334155;
+  /* NOTION : box-shadow */
+  box-shadow: 0 8px 24px #000000;
+  /* NOTION : transition */
+  transition: top 0.3s ease, box-shadow 0.3s ease;
+}
+
+div.card-concept:hover,
+section.card-concept:hover {
+  top: -4px;
+  box-shadow: 0 0 20px #06b6d4;
+}
+
+/* NOTION : element.class */
+button.btn-ia,
+a.btn-ia {
+  /* NOTION : display: inline-block */
+  display: inline-block;
+  background-color: #06b6d4;
+  color: #000000;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  /* NOTION : text-transform: uppercase */
+  text-transform: uppercase;
+  text-decoration: none;
+  /* NOTION : transition */
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.btn-ia:hover,
+a.btn-ia:hover {
+  background-color: #8b5cf6;
+  color: #ffffff;
+  box-shadow: 0 0 15px #8b5cf6;
+}
+
+/* ==========================================================================
+   NOTION : float & opacity
+   ========================================================================== */
+/* NOTION : element.class */
+img.float-concept {
+  /* NOTION : float (left) avec habillage de texte */
+  display: block;
+  float: left;
+  width: 140px;
+  height: 140px;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 2px solid #06b6d4;
+}
+
+/* Pour nettoyer le float */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* NOTION : opacity */
+.layer-inactive {
+  /* NOTION : opacity (transparence) */
+  opacity: 0.35;
+  transition: opacity 0.3s ease;
+}
+
+.layer-inactive:hover {
+  opacity: 1;
+}
+
+div.card-concept.layer-inactive {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+/* Termes avec infobulle title (<abbr>) */
+abbr.terme-info {
+  color: #06b6d4;
+  font-weight: bold;
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* Conteneur d'actions du hub bac à sable */
+div.hub-actions {
+  margin-bottom: 1rem;
+}
+
+div.hub-actions a.btn-ia {
+  font-size: 0.85rem;
+}
+
+/* NOTION : iframe */
+iframe.sandbox-frame {
+  width: 100%;
+  height: 480px;
+  border: 2px solid #334155;
+  border-radius: 8px;
+  background-color: #0b1120;
+  display: block;
+}
+
+/* ==========================================================================
+   NOTION : filter & Galerie d'images (figure, figcaption) (vision.html)
+   ========================================================================== */
+div.galerie-filtres {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+/* NOTION : element.class & display: inline-block */
+figure.carte-filtre {
+  display: inline-block;
+  vertical-align: top;
+  width: 210px;
+  margin: 0.6rem;
+  padding: 0.8rem;
+  background-color: #020617;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px #000000;
+  position: relative;
+  top: 0;
+  transition: top 0.3s ease, box-shadow 0.3s ease;
+}
+
+figure.carte-filtre:hover {
+  top: -4px;
+  box-shadow: 0 0 15px #06b6d4;
+}
+
+/* NOTION : element.class */
+figure.carte-filtre img.filter-preview {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
+}
+
+figure.carte-filtre figcaption {
+  font-size: 0.85rem;
+  color: #f8fafc;
+  font-weight: bold;
+}
+
+figure.carte-filtre code {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: #06b6d4;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+div.inference-result {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #020617;
+  border-radius: 8px;
+  border-left: 4px solid #06b6d4;
+}
+
+div.inference-result h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  color: #06b6d4;
+}
+
+div.inference-result p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* NOTION : Déclinaisons de prétraitements d'images avec filter */
+.filter-normal {
+  filter: none;
+}
+
+.filter-grayscale {
+  filter: grayscale(100%);
+}
+
+.filter-contrast {
+  filter: contrast(200%);
+}
+
+.filter-blur {
+  filter: blur(3px);
+}
+
+/* ==========================================================================
+   NOTION : Tableaux (border-collapse, table-layout) (performances.html)
+   ========================================================================== */
+/* NOTION : element.class */
+table.benchmark-table {
+  width: 100%;
+  /* NOTION : border-collapse */
+  border-collapse: collapse;
+  /* NOTION : table-layout */
+  table-layout: fixed;
+  margin-top: 1rem;
+  background-color: #1e293b;
+}
+
+table.benchmark-table th,
+table.benchmark-table td {
+  border: 1px solid #334155;
+  padding: 0.85rem;
+  text-align: left;
+  /* Évite le débordement dans les cellules fixes */
+  overflow: hidden;
+}
+
+table.benchmark-table th {
+  background-color: #083344;
+  color: #06b6d4;
+  text-transform: uppercase;
+}
+
+table.benchmark-table th.col-arch {
+  width: 25%;
+}
+
+table.benchmark-table th.col-usage {
+  width: 30%;
+}
+
+table.benchmark-table th.col-acc {
+  width: 25%;
+}
+
+table.benchmark-table th.col-lat {
+  width: 20%;
+}
+
+/* ==========================================================================
+   NOTION : overflow (performances.html)
+   ========================================================================== */
+/* NOTION : element.class */
+pre.terminal-logs {
+  background-color: #020617;
+  color: #38bdf8;
+  padding: 1rem;
+  border-radius: 8px;
+  height: 120px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  border: 1px solid #334155;
+  /* NOTION : overflow */
+  overflow: auto;
+}
+
+/* ==========================================================================
+   NOTION : output & Formulaires (regression.html)
+   ========================================================================== */
+form.form-regression {
+  margin: 2rem 0;
+  background-color: #020617;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+form.form-regression label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+form.form-regression input[type="range"] {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+div.form-result-row {
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+div.form-result-row span {
+  display: block;
+  float: left;
+  line-height: 2.2;
+}
+
+/* NOTION : element.class */
+span.result-display {
+  display: block;
+  float: right;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #06b6d4;
+  padding: 0.4rem 0.8rem;
+  background-color: #020617;
+  border-radius: 6px;
+  border: 1px solid #06b6d4;
+}
+
+div#bloc-formule {
+  margin-top: 1.5rem;
+  border-color: #8b5cf6;
+}
+
+div#bloc-formule h3 {
+  color: #8b5cf6;
+}

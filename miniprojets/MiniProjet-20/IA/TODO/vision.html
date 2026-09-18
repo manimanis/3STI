@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA Décodée - Vision par Ordinateur</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h2 class="title-cyber">👁️ Vision par Ordinateur</h2>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="vision.html" class="nav-link active">Vision</a>
+      <a href="regression.html" class="nav-link">Régression</a>
+      <a href="performances.html" class="nav-link">Benchmark</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="card-concept">
+      <span class="badge-tag">Traitement d'images & Convolutions</span>
+      <h1 class="title-cyber">Comment l'IA « voit-elle » les pixels ?</h1>
+      <p>
+        Avant qu'un réseau à convolution (CNN) n'identifie un objet, il applique des
+        <strong>filtres mathématiques</strong> pour simplifier l'image : suppression des couleurs superflues,
+        mise en valeur des contours ou réduction du bruit.
+      </p>
+
+      <!-- =====================================================================
+           TODO 1 (HTML - Structuration sémantique avec <figure> et <figcaption>) :
+           Écrire le code HTML des 4 cartes d'images dans le conteneur ci-dessous.
+           Chaque carte doit être constituée d'une balise <figure class="carte-filtre"> contenant :
+           1. Une image <img> :
+              - source : src="images/vision-test.svg"
+              - texte alternatif : un attribut alt descriptif
+              - classes CSS : "filter-preview" combinée à la classe du filtre concerné :
+                * Figure 1 : filter-preview filter-normal
+                * Figure 2 : filter-preview filter-grayscale
+                * Figure 3 : filter-preview filter-contrast
+                * Figure 4 : filter-preview filter-blur
+           2. Une légende <figcaption> :
+              - Le nom du filtre (ex. "1. Original", "2. Niveaux de gris", "3. Contraste (Contours)", "4. Flou (Débruitage)")
+              - Une balise <code> affichant la règle CSS (ex. <code>filter: none;</code>, <code>filter: grayscale(100%);</code>, etc.)
+           ===================================================================== -->
+      <div class="galerie-filtres">
+        <!-- [Écrire ici le code HTML des 4 balises <figure class="carte-filtre">] -->
+
+      </div>
+
+      <div class="inference-result">
+        <h3>Résultat de l'inférence :</h3>
+        <p>Cercle détecté : <strong>98.4%</strong> | Triangle détecté : <strong>94.1%</strong></p>
+      </div>
+    </section>
+  </main>
+
+</body>
+
+</html>

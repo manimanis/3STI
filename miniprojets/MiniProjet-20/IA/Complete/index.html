@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA Décodée - Accueil & Réseaux de neurones</title>
+  
+  <!-- NOTION DU PROGRAMME : Attribut d'en-tête type sur <link> -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- NOTION DU PROGRAMME : Attribut d'en-tête type et media sur <style> -->
+  <style type="text/css" media="screen and (max-width: 768px)">
+    header.site-header h2.title-cyber {
+      float: none;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    nav.main-nav {
+      float: none;
+      text-align: center;
+    }
+    a.nav-link {
+      margin: 0.25rem;
+    }
+    img.float-concept {
+      float: none;
+      display: block;
+      margin: 0 auto 1rem auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <h2 class="title-cyber">🤖 IA Décodée</h2>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link active">Accueil</a>
+      <a href="vision.html" class="nav-link">Vision</a>
+      <a href="regression.html" class="nav-link">Régression</a>
+      <a href="performances.html" class="nav-link">Benchmark</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+
+    <section class="card-concept clearfix">
+      <span class="badge-tag">Architecture biologique vs artificielle</span>
+      <h1 class="title-cyber">Anatomie d'un neurone artificiel</h1>
+
+      <!-- NOTION DU PROGRAMME : <picture> avec <source media="..."> -->
+      <picture>
+        <!-- Image grand écran -->
+        <source media="(min-width: 800px)" srcset="images/neurone-hd.svg">
+        <!-- Image par défaut / mobile avec float -->
+        <!-- NOTION DU PROGRAMME : class img.float-concept avec float: left -->
+        <img class="float-concept" src="images/neurone-mobile.svg" alt="Schéma d'un neurone formel">
+      </picture>
+
+      <p>
+        Un réseau de neurones artificiels s'inspire du cerveau humain. Chaque cellule reçoit plusieurs entrées multipliées par un
+        <!-- NOTION DU PROGRAMME : Balise <abbr> et attribut title (Infobulle 1) -->
+        <abbr title="Poids synaptique : coefficient qui amplifie ou atténue l'importance d'une information entrante." class="terme-info">poids synaptique</abbr>.
+        On y additionne ensuite un
+        <!-- NOTION DU PROGRAMME : Balise <abbr> et attribut title (Infobulle 2) -->
+        <abbr title="Biais : valeur seuil permettant de décaler la fonction d'activation." class="terme-info">biais</abbr>,
+        puis le signal traverse une fonction d'activation non-linéaire.
+      </p>
+
+      <p>
+        L'apprentissage consiste à ajuster ces paramètres au fil des
+        <!-- NOTION DU PROGRAMME : Balise <abbr> et attribut title (Infobulle 3) -->
+        <abbr title="Epoch : passage complet de la totalité des données d'entraînement dans le modèle." class="terme-info">epochs</abbr>
+        grâce à la rétropropagation du gradient d'erreur.
+      </p>
+
+      <!-- NOTION DU PROGRAMME : opacity -->
+      <div class="card-concept layer-inactive">
+        <small>💡 <em>Survolez ce bloc : il utilise <code>opacity: 0.35</code> au repos et passe à <code>opacity: 1</code> au survol pour simuler un neurone en cours d'activation !</em></small>
+      </div>
+    </section>
+
+    <!-- NOTION DU PROGRAMME : <iframe> avec src et name + liens ciblant target -->
+    <section class="card-concept">
+      <span class="badge-tag">Bac à sable interactif</span>
+      <h2 class="title-cyber">Hub d'expérimentation intégré</h2>
+      <p>Basculez entre les ateliers pratiques directement dans le conteneur sécurisé ci-dessous :</p>
+      
+      <div class="hub-actions">
+        <a href="vision.html" target="mini_sandbox" class="btn-ia">Tester Vision</a>
+        <a href="regression.html" target="mini_sandbox" class="btn-ia">Tester Régression</a>
+        <a href="performances.html" target="mini_sandbox" class="btn-ia">Voir Benchmark</a>
+      </div>
+
+      <!-- Cadre interne avec src et name -->
+      <iframe src="vision.html" name="mini_sandbox" class="sandbox-frame">
+        Votre navigateur ne supporte pas les iframes.
+      </iframe>
+    </section>
+
+  </main>
+
+</body>
+</html>

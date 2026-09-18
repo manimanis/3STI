@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA Décodée - Vision par Ordinateur</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h2 class="title-cyber">👁️ Vision par Ordinateur</h2>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="vision.html" class="nav-link active">Vision</a>
+      <a href="regression.html" class="nav-link">Régression</a>
+      <a href="performances.html" class="nav-link">Benchmark</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="card-concept">
+      <span class="badge-tag">Traitement d'images & Convolutions</span>
+      <h1 class="title-cyber">Comment l'IA « voit-elle » les pixels ?</h1>
+      <p>
+        Avant qu'un réseau à convolution (CNN) n'identifie un objet, il applique des
+        <strong>filtres mathématiques</strong> pour simplifier l'image : suppression des couleurs superflues,
+        mise en valeur des contours ou réduction du bruit.
+      </p>
+
+      <!-- Galerie statique présentant les filtres CSS appliqués à plusieurs images -->
+      <div class="galerie-filtres">
+        <figure class="carte-filtre">
+          <img class="filter-preview filter-normal" src="images/vision-test.svg" alt="Image originale">
+          <figcaption>
+            1. Original
+            <code>filter: none;</code>
+          </figcaption>
+        </figure>
+
+        <figure class="carte-filtre">
+          <img class="filter-preview filter-grayscale" src="images/vision-test.svg" alt="Image en niveaux de gris">
+          <figcaption>
+            2. Niveaux de gris
+            <code>filter: grayscale(100%);</code>
+          </figcaption>
+        </figure>
+
+        <figure class="carte-filtre">
+          <img class="filter-preview filter-contrast" src="images/vision-test.svg" alt="Image à contraste élevé">
+          <figcaption>
+            3. Contraste (Contours)
+            <code>filter: contrast(200%);</code>
+          </figcaption>
+        </figure>
+
+        <figure class="carte-filtre">
+          <img class="filter-preview filter-blur" src="images/vision-test.svg" alt="Image avec flou">
+          <figcaption>
+            4. Flou (Débruitage)
+            <code>filter: blur(3px);</code>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="inference-result">
+        <h3>Résultat de l'inférence :</h3>
+        <p>Cercle détecté : <strong>98.4%</strong> | Triangle détecté : <strong>94.1%</strong></p>
+      </div>
+    </section>
+  </main>
+
+</body>
+
+</html>

@@ -1,0 +1,944 @@
+/* ==================================================================
+   IA DECODEE  —  Feuille de style commune (style.css)
+   ------------------------------------------------------------------
+   Projet pedagogique 3STI : site 100% HTML5 + CSS3
+   (aucun framework, aucune bibliotheque externe)
+
+   Ce fichier unique met en oeuvre les notions obligatoires :
+   display, transition, float, overflow, opacity, box-shadow,
+   text-transform, filter, border-collapse, table-layout,
+   selecteurs element.class
+   ------------------------------------------------------------------
+   SOMMAIRE :
+   1. Remise a zero et styles de base
+   2. En-tete et navigation communes a toutes les pages
+   3. Titres de section et badges de notions
+   4. Cartes lumineuses (display, transition, box-shadow)
+   5. Encadre pedagogique "A retenir"
+   6. Encadres d'explication et exemples de code
+   7. Page Apprentissage : float, schema, overflow
+   8. Page Modeles : reseaux de neurones CSS, tableau
+   9. Page Laboratoire : iframe, formulaire, video
+   10. Pages "fiche" affichees dans l'iframe
+   11. Pied de page commun
+   ================================================================== */
+
+
+/* ==================================================================
+   1. REMISE A ZERO ET STYLES DE BASE
+   ================================================================== */
+
+/* Le selecteur universel * remet a zero les marges de TOUS les
+   elements : cela evite les decalages entre navigateurs.
+   box-sizing: border-box : la largeur d'une boite inclut son
+   padding et sa bordure (calculs plus simples). */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* NOTION : selecteur element.class -> body.est-site  */
+body.est-site {
+    font-family: 'Segoe UI', 'Trebuchet MS', Arial, sans-serif;
+    color: #E6EAF7;
+    line-height: 1.65;
+
+    /* Fond sombre "interface IA" : couleur de base + halos bleus
+       et violets dessines avec des gradients radiaux. */
+    background-color: #070B1F;
+    background-image:
+        radial-gradient(circle at 12% 18%, rgba(59, 130, 246, 0.20), transparent 42%),
+        radial-gradient(circle at 88% 8%,  rgba(139, 92, 246, 0.18), transparent 40%),
+        radial-gradient(circle at 50% 95%, rgba(217, 70, 239, 0.12), transparent 52%);
+    background-attachment: fixed;
+}
+
+/* Corps special des pages "fiche" (chat.html, chien.html, oiseau.html)
+   affichees a l'interieur de l'iframe du Laboratoire. */
+body.corps-fiche {
+    font-family: 'Segoe UI', 'Trebuchet MS', Arial, sans-serif;
+    color: #E6EAF7;
+    line-height: 1.6;
+    padding: 24px;
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0A1030, #141C4A 55%, #0A1030);
+}
+
+
+/* ==================================================================
+   2. EN-TETE ET NAVIGATION COMMUNES A TOUTES LES PAGES
+   ================================================================== */
+
+/* NOTION : selecteur element.class -> header.entete-site */
+header.entete-site {
+    /* NOTION : display: block -> l'en-tete occupe toute la largeur,
+       les elements suivants passent a la ligne en dessous. */
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 14px 5%;
+    background: rgba(7, 11, 31, 0.88);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.35);
+}
+
+/* Le logo : icone SVG + nom du site, alignes cote a cote. */
+a.logo-site {
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    color: #F1F5FF;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+a.logo-site svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    transition: transform 0.5s ease;
+}
+
+a.logo-site:hover svg {
+    transform: rotate(12deg) scale(1.08);
+}
+
+/* Le mot "Decodee" du logo recoit un degrade bleu-violet-rose. */
+a.logo-site span.decore {
+    background: linear-gradient(90deg, #60A5FA, #C084FC, #F0ABFC);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* NOTION : selecteur element.class -> nav.navigation-principale */
+nav.navigation-principale {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+}
+
+/* NOTION : selecteur element.class -> a.lien-nav
+   NOTION : display: inline-block -> les liens de navigation restent
+   sur une meme ligne tout en acceptant padding et marges. */
+a.lien-nav {
+    display: inline-block;
+    margin: 4px 8px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #C7D2F5;
+    font-size: 0.92rem;
+
+    /* NOTION : text-transform: uppercase -> le texte HTML reste
+       saisi normalement, le CSS l'affiche en MAJUSCULES. */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    /* NOTION : transition -> changement de couleurs FLUIDE au survol
+       (duration 0.3s, easing "ease"). */
+    transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+a.lien-nav:hover {
+    color: #FFFFFF;
+    background: rgba(139, 92, 246, 0.22);
+    box-shadow: 0 0 14px rgba(139, 92, 246, 0.45);
+}
+
+/* Le lien de la page courante est mis en evidence (classe "actif"). */
+a.lien-nav.actif {
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #2563EB, #7C3AED);
+    box-shadow: 0 0 16px rgba(124, 58, 237, 0.55);
+}
+
+
+/* ==================================================================
+   3. TITRES DE SECTION ET BADGES DE NOTIONS
+   ================================================================== */
+
+/* Grand titre de la page d'accueil. */
+h1.titre-hero {
+    text-align: center;
+    font-size: 3.4rem;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+h1.titre-hero span.decore {
+    background: linear-gradient(90deg, #60A5FA, #C084FC, #F0ABFC);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Titre principal des pages internes (plus discret que le hero). */
+h1.titre-page {
+    text-align: center;
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+/* NOTION : selecteur element.class -> h2.titre-section */
+h2.titre-section {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.45rem;
+    color: #E0E7FF;
+    margin: 26px 0 8px;
+}
+
+/* Petit barre degradee decorative sous chaque titre de section. */
+h2.titre-section::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 4px;
+    margin: 12px auto 0;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #3B82F6, #C084FC);
+}
+
+p.slogan {
+    text-align: center;
+    color: #93C5FD;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+}
+
+p.texte-intro {
+    max-width: 860px;
+    margin: 10px auto 26px;
+    color: #D7DFF8;
+}
+
+/* NOTION : selecteur element.class -> p.definition (definition simple
+   de l'IA sur la page d'accueil). */
+p.definition {
+    max-width: 820px;
+    margin: 14px auto 20px;
+    font-size: 1.12rem;
+    color: #E4EAFF;
+}
+
+/* Mots eqvipes d'une infobulle (attribut HTML title). */
+span.terme-info {
+    color: #93C5FD;
+    font-weight: 600;
+    border-bottom: 1px dashed #818CF8;
+    cursor: help;
+}
+
+/* Badges affichant les notions HTML/CSS utilisees.
+   NOTION : display: inline-block -> chaque badge garde sa taille de
+   contenu tout en acceptant padding, marge et bordure arrondie. */
+span.badge-notion {
+    display: inline-block;
+    margin: 4px 5px;
+    padding: 3px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(139, 92, 246, 0.55);
+    background: rgba(139, 92, 246, 0.14);
+    color: #C4B5FD;
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 0.82rem;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+span.badge-notion:hover {
+    background: rgba(139, 92, 246, 0.35);
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+}
+
+p.liste-notions {
+    text-align: center;
+    margin: 10px 0 18px;
+}
+
+
+/* ==================================================================
+   3 bis. HERO (accueil) ET INTRO (pages internes) + ILLUSTRATION
+   ================================================================== */
+
+section.hero {
+    text-align: center;
+    padding: 54px 5% 12px;
+}
+
+section.intro-page {
+    text-align: center;
+    padding: 44px 5% 0;
+}
+
+/* NOTION : selecteur element.class -> img.illustration
+   NOTION : display: block -> l'image se place SEULE sur sa ligne
+   (pas de texte a cote) ; margin auto + width fixee la centrent.
+   NOTION : opacity -> illustration legerement transparente (0.85).
+   NOTION : filter -> grayscale(50%) retire la moitie des couleurs ;
+   drop-shadow ajoute un halo colore autour de l'image. */
+img.illustration {
+    display: block;
+    width: 580px;
+    max-width: 92%;
+    margin: 14px auto 6px;
+    opacity: 0.85;
+    filter: grayscale(50%) drop-shadow(0 0 18px rgba(139, 92, 246, 0.45));
+
+    /* NOTION : transition -> au survol, la couleur et la luminosite
+       reviennent en douceur (0.4 s) au lieu de changer brutalement. */
+    transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+/* Au survol : illustration pleinement opaque et entierement coloree. */
+img.illustration:hover {
+    opacity: 1;
+    filter: grayscale(0%) drop-shadow(0 0 26px rgba(192, 132, 252, 0.65));
+}
+
+/* Indice discret qui incite a chercher l'anecdote cachee (hidden). */
+p.indice-anecdote {
+    text-align: center;
+    color: #7C8BB0;
+    font-size: 0.88rem;
+    font-style: italic;
+    margin-top: 8px;
+}
+
+/* Panorama des notions : cadre recapitulatif en fin de page. */
+section.panorama-notions {
+    max-width: 920px;
+    margin: 40px auto 10px;
+    padding: 26px 30px;
+    border-radius: 18px;
+    border: 1px solid rgba(96, 165, 250, 0.4);
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.5);
+}
+
+
+/* ==================================================================
+   4. CARTES LUMINEUSES (display, transition, box-shadow)
+   ================================================================== */
+
+/* NOTION : selecteur element.class -> section.carte
+   Ces cartes presentent les domaines de l'IA (page d'accueil) et les
+   exemples de regression (page modeles). */
+section.carte {
+    /* NOTION : display: inline-block -> les cartes se placent cote a
+       cote et passent naturellement a la ligne quand l'ecran est
+       etroit (pas besoin de flexbox ni de grid). */
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    width: 272px;
+    min-height: 240px;
+    margin: 14px;
+    padding: 24px 22px;
+    border-radius: 18px;
+    border: 1px solid rgba(139, 92, 246, 0.45);
+    background: linear-gradient(160deg, rgba(59, 130, 246, 0.13), rgba(139, 92, 246, 0.16));
+
+    /* NOTION : box-shadow -> ombre portee qui "detache" la carte du fond.
+       Premiere ombre : ombre sombre descendante. Seconde : halo colore. */
+    box-shadow: 0 10px 26px rgba(2, 6, 23, 0.65),
+                0 0 18px rgba(139, 92, 246, 0.18);
+
+    /* NOTION : transition -> la levee de carte et le halo lumineux du
+       survol sont ANIMES en douceur (0.35 seconde). */
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+/* Etat de survol : la carte s'eleve et s'illumine. */
+section.carte:hover {
+    transform: translateY(-8px);
+    border-color: rgba(217, 70, 239, 0.75);
+    box-shadow: 0 18px 34px rgba(2, 6, 23, 0.75),
+                0 0 30px rgba(139, 92, 246, 0.55);
+}
+
+section.carte h3 {
+    margin: 10px 0 8px;
+    color: #E0E7FF;
+    font-size: 1.02rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+section.carte p {
+    color: #C9D3F2;
+    font-size: 0.94rem;
+}
+
+/* Conteneur qui centre les cartes inline-block et permet le repli
+   en ligne lors du redimensionnement de la fenetre. */
+div.galerie-cartes {
+    text-align: center;
+    padding: 10px 4%;
+}
+
+.icone-carte {
+    width: 60px;
+    height: 60px;
+}
+
+
+/* ==================================================================
+   5. ENCADRE PEDAGOGIQUE "A RETENIR" (present sur chaque page)
+   ================================================================== */
+
+/* NOTION : selecteur element.class -> section.encadre-retenir */
+section.encadre-retenir {
+    max-width: 920px;
+    margin: 44px auto 30px;
+    padding: 26px 30px;
+    border-radius: 18px;
+    border: 1px solid rgba(34, 211, 238, 0.5);
+    background: linear-gradient(150deg, rgba(34, 211, 238, 0.10), rgba(59, 130, 246, 0.08));
+    box-shadow: 0 0 24px rgba(34, 211, 238, 0.18);
+}
+
+h2.titre-retenir {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #67E8F9;
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+}
+
+ul.liste-retenir {
+    list-style: none;
+}
+
+ul.liste-retenir li {
+    position: relative;
+    padding: 7px 0 7px 30px;
+    color: #D7DFF8;
+}
+
+/* Petite losange decoree devant chaque ligne de l'encadre. */
+ul.liste-retenir li::before {
+    content: "\25C8";
+    position: absolute;
+    left: 4px;
+    color: #67E8F9;
+}
+
+ul.liste-retenir strong {
+    color: #A5F3FC;
+}
+
+
+/* ==================================================================
+   6. ENCADRES D'EXPLICATION ET EXEMPLES DE CODE
+   ================================================================== */
+
+/* Encadre "comment ca marche ?" pour expliquer un attribut HTML. */
+div.encadre-explication {
+    max-width: 860px;
+    margin: 18px auto;
+    padding: 14px 20px;
+    border-left: 4px solid #60A5FA;
+    border-radius: 0 12px 12px 0;
+    background: rgba(96, 165, 250, 0.09);
+    font-size: 0.96rem;
+    color: #D7DFF8;
+}
+
+div.encadre-explication p {
+    margin: 4px 0;
+}
+
+div.encadre-explication code {
+    font-family: Consolas, 'Courier New', monospace;
+    color: #93C5FD;
+    background: rgba(7, 11, 31, 0.6);
+    padding: 1px 7px;
+    border-radius: 6px;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+/* Bloc qui affiche un extrait de code au visiteur. */
+div.exemple-code {
+    max-width: 780px;
+    margin: 16px auto;
+    padding: 14px 18px;
+    text-align: left;
+    border-radius: 14px;
+    border: 1px solid rgba(96, 165, 250, 0.35);
+    background: #0B1026;
+    box-shadow: 0 8px 22px rgba(2, 6, 23, 0.55);
+}
+
+p.titre-code {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.72rem;
+    color: #7DD3FC;
+    margin-bottom: 8px;
+}
+
+/* NOTION : overflow: auto -> si le code est trop long, une barre de
+   defilement apparait a l'interieur du bloc (et n'explose pas la page). */
+div.exemple-code pre {
+    overflow: auto;
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #E2E8F0;
+}
+
+/* Petite coloration manuelle du code affiche. */
+span.c-balise     { color: #7DD3FC; }
+span.c-attribut   { color: #FDBA74; }
+span.c-valeur     { color: #A7F3D0; }
+span.c-texte      { color: #E2E8F0; }
+span.c-comment    { color: #64748B; font-style: italic; }
+span.c-propriete  { color: #C4B5FD; }
+
+
+/* ==================================================================
+   7. PAGE APPRENTISSAGE : FLOAT, SCHEMA, OVERFLOW
+   ================================================================== */
+
+/* Schema simple : Donnees -> Modele IA -> Resultat (blocs empiles). */
+div.schema-apprentissage {
+    text-align: center;
+    padding: 18px 0 6px;
+}
+
+p.bloc-schema {
+    display: inline-block;
+    min-width: 240px;
+    padding: 13px 34px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1D4ED8, #7C3AED);
+    box-shadow: 0 0 18px rgba(124, 58, 237, 0.5);
+    color: #FFFFFF;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: help;
+}
+
+p.fleche-schema {
+    font-size: 1.9rem;
+    line-height: 1.15;
+    color: #A78BFA;
+}
+
+/* NOTION : float: left -> les quatre blocs explicatifs se placent
+   COTE A COTE : chacun "flotte" a gauche du suivant.
+   NOTION : selecteur element.class -> div.bloc-explicatif */
+div.bloc-explicatif {
+    float: left;
+    width: 23%;
+    margin: 1%;
+    min-height: 230px;
+    padding: 20px 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(139, 92, 246, 0.45);
+    background: linear-gradient(160deg, rgba(59, 130, 246, 0.13), rgba(139, 92, 246, 0.16));
+    box-shadow: 0 10px 24px rgba(2, 6, 23, 0.6);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+div.bloc-explicatif:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px rgba(2, 6, 23, 0.7), 0 0 24px rgba(139, 92, 246, 0.45);
+}
+
+div.bloc-explicatif h3 {
+    color: #93C5FD;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+div.bloc-explicatif p {
+    color: #C9D3F2;
+    font-size: 0.93rem;
+}
+
+/* Technique du "clearfix" : cette div vide, placee APRES les blocs
+   flottants, force son conteneur a englober toute leur hauteur.
+   clear: both -> aucun element flottant ne peut la depasser. */
+div.nettoyage-flottants {
+    clear: both;
+}
+
+/* NOTION : overflow: auto -> zone de texte DEFILEANTE : quand le
+   contenu depasse la hauteur fixee (240px), une barre de defilement
+   apparait a l'interieur du cadre. */
+div.zone-histoire {
+    overflow: auto;
+    height: 250px;
+    max-width: 880px;
+    margin: 14px auto;
+    padding: 18px 24px;
+    border-radius: 14px;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: inset 0 0 24px rgba(2, 6, 23, 0.6);
+}
+
+div.zone-histoire h3 {
+    color: #C084FC;
+    margin-bottom: 10px;
+}
+
+div.zone-histoire p {
+    margin-bottom: 12px;
+    color: #CBD5F0;
+    font-size: 0.95rem;
+}
+
+div.zone-histoire p.annee {
+    color: #93C5FD;
+    font-weight: 700;
+}
+
+/* Personnalisation de la barre de defilement (effet futuriste). */
+div.zone-histoire::-webkit-scrollbar {
+    width: 10px;
+}
+
+div.zone-histoire::-webkit-scrollbar-track {
+    background: rgba(7, 11, 31, 0.6);
+    border-radius: 6px;
+}
+
+div.zone-histoire::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3B82F6, #8B5CF6);
+    border-radius: 6px;
+}
+
+
+/* ==================================================================
+   8. PAGE MODELES : RESEAUX DE NEURONES CSS + TABLEAU
+   ================================================================== */
+
+/* Schema des neurones : colonnes de cercles reliees par des "cables"
+   dessines en repeating-linear-gradient (100% HTML + CSS). */
+div.schema-neurones {
+    text-align: center;
+    padding: 24px 0 6px;
+}
+
+div.couche {
+    display: inline-block;
+    vertical-align: top;
+    width: 124px;
+    height: 300px;
+}
+
+/* NOTION : opacity -> les "cables" du reseau sont rendus
+   semi-transparents pour laisser deviner le fond. */
+div.connexions {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 28px;
+    width: 56px;
+    height: 244px;
+    opacity: 0.55;
+    background: repeating-linear-gradient(to bottom, #8B5CF6 0 2px, transparent 2px 19px);
+}
+
+p.neurone {
+    width: 34px;
+    height: 34px;
+    margin: 12px auto;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, #BFDBFE, #6366F1 58%, #1E1B4B);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.85);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+p.neurone:hover {
+    transform: scale(1.18);
+    box-shadow: 0 0 22px rgba(192, 132, 252, 0.95);
+}
+
+p.etiquette-couche {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: #A5B4FC;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Legende du schema (mise en forme dans le <style> de la page). */
+
+/* NOTION : selecteur element.class -> table.comparatif
+   NOTION : border-collapse: collapse -> les bordures des cellules
+   FUSIONNENT en une seule ligne (au lieu d'etre doublees).
+   NOTION : table-layout: fixed -> la largeur des colonnes est fixee
+   une fois pour toutes (par <colgroup>), le texte passe a la ligne
+   au lieu d'elargir les colonnes. */
+table.comparatif {
+    width: 100%;
+    max-width: 860px;
+    margin: 24px auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+table.comparatif caption {
+    caption-side: bottom;
+    padding-top: 10px;
+    color: #94A3B8;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+table.comparatif th {
+    padding: 13px 10px;
+    border: 1px solid rgba(148, 163, 255, 0.55);
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.95rem;
+}
+
+table.comparatif td {
+    padding: 13px 10px;
+    border: 1px solid rgba(148, 163, 255, 0.4);
+    background: rgba(255, 255, 255, 0.035);
+    text-align: center;
+    color: #E2E8F0;
+    transition: background 0.3s ease;
+}
+
+table.comparatif tbody tr:hover td {
+    background: rgba(139, 92, 246, 0.14);
+}
+
+/* Largeurs fixes des colonnes (grace a table-layout: fixed). */
+table.comparatif col.col-technique { width: 28%; }
+table.comparatif col.col-entree    { width: 36%; }
+table.comparatif col.col-sortie    { width: 36%; }
+
+
+/* ==================================================================
+   9. PAGE LABORATOIRE : IFRAME, FORMULAIRE, VIDEO
+   ================================================================== */
+
+/* NOTION : selecteur element.class -> section.activite */
+section.activite {
+    max-width: 980px;
+    margin: 36px auto;
+    padding: 26px 30px;
+    border-radius: 18px;
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.5);
+}
+
+section.activite > p {
+    color: #D7DFF8;
+}
+
+/* Boutons de choix (liens Chat / Chien / Oiseau). */
+a.bouton-fiche {
+    display: inline-block;
+    margin: 6px;
+    padding: 10px 28px;
+    border-radius: 999px;
+    border: 1px solid rgba(96, 165, 250, 0.55);
+    color: #BFDBFE;
+    text-decoration: none;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(2, 6, 23, 0.5);
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+a.bouton-fiche:hover {
+    background: linear-gradient(135deg, #2563EB, #7C3AED);
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
+}
+
+/* NOTION : selecteur element.class -> iframe.zone-iframe */
+iframe.zone-iframe {
+    display: block;
+    width: 100%;
+    height: 440px;
+    margin: 18px auto 8px;
+    border: 1px solid rgba(139, 92, 246, 0.5);
+    border-radius: 16px;
+    background: #0A1030;
+    box-shadow: 0 12px 34px rgba(2, 6, 23, 0.65);
+}
+
+/* Formulaire de confiance. */
+form.formulaire-confiance {
+    max-width: 600px;
+    margin: 12px auto;
+    text-align: center;
+}
+
+form.formulaire-confiance label {
+    display: block;
+    margin-bottom: 12px;
+    color: #CBD5F0;
+}
+
+/* Style du curseur (input type="range") : accent violet. */
+input[type="range"] {
+    width: 100%;
+    accent-color: #A855F7;
+    cursor: pointer;
+}
+
+p.lecture-confiance {
+    margin-top: 14px;
+    font-size: 1.05rem;
+    color: #E2E8F0;
+}
+
+/* NOTION : selecteur element.class -> output.valeur-confiance
+   La balise <output> affiche le resultat produit par le formulaire. */
+output.valeur-confiance {
+    display: inline-block;
+    min-width: 70px;
+    margin: 0 6px;
+    padding: 2px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(34, 211, 238, 0.55);
+    background: rgba(34, 211, 238, 0.12);
+    color: #67E8F9;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Barre visuelle de confiance : son conteneur utilise overflow:hidden
+   pour que le remplissage colorie reste arrondi aux extremites. */
+div.barre-confiance {
+    overflow: hidden;
+    height: 16px;
+    max-width: 480px;
+    margin: 16px auto;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+div.remplissage-confiance {
+    width: 82%;
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #22D3EE, #8B5CF6, #EC4899);
+    box-shadow: 0 0 14px rgba(139, 92, 246, 0.8);
+}
+
+/* Largeurs specifiques aux fiches animaux (chat, chien, oiseau). */
+div.remplissage-confiance.niveau-96 { width: 96%; }
+div.remplissage-confiance.niveau-94 { width: 94%; }
+div.remplissage-confiance.niveau-91 { width: 91%; }
+
+/* NOTION : selecteur element.class -> video.ressource-video */
+video.ressource-video {
+    display: block;
+    width: 100%;
+    max-width: 720px;
+    margin: 18px auto;
+    border-radius: 16px;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    box-shadow: 0 12px 34px rgba(2, 6, 23, 0.65);
+}
+
+
+/* ==================================================================
+   10. PAGES "FICHE" AFFICHEES DANS L'IFRAME
+   ================================================================== */
+
+article.fiche-animal {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2.titre-fiche {
+    margin: 14px 0;
+    font-size: 1.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #F1F5FF;
+}
+
+ul.liste-indices {
+    list-style: none;
+    max-width: 430px;
+    margin: 14px auto 20px;
+    text-align: left;
+}
+
+ul.liste-indices li {
+    position: relative;
+    padding: 6px 0 6px 26px;
+    color: #CBD5F0;
+}
+
+ul.liste-indices li::before {
+    content: "\25B8";
+    position: absolute;
+    left: 6px;
+    color: #93C5FD;
+}
+
+p.verdict-fiche {
+    font-size: 1.12rem;
+    color: #E0E7FF;
+    margin-bottom: 4px;
+}
+
+p.pourcentage-fiche {
+    color: #94A3B8;
+    font-size: 0.9rem;
+}
+
+
+/* ==================================================================
+   11. PIED DE PAGE COMMUN ET UTILITAIRES
+   ================================================================== */
+
+footer.pied-site {
+    margin-top: 64px;
+    padding: 28px 5% 36px;
+    text-align: center;
+    border-top: 1px solid rgba(139, 92, 246, 0.3);
+    background: rgba(7, 11, 31, 0.65);
+}
+
+footer.pied-site p {
+    color: #8B93B8;
+    font-size: 0.9rem;
+    margin: 4px 0;
+}
+
+/* NOTION : display: none -> l'element ci-dessous EXISTE dans le HTML
+   mais le CSS le masque totalement (contrairement a l'attribut HTML
+   hidden, ici la decision vient de la feuille de style). */
+div.bandeau-experimentation {
+    display: none;
+}
+
+/* BONUS (hors programme) : adaptation aux petits ecrans.
+   Les blocs flottants passent a deux par ligne, puis un par ligne. */
+@media (max-width: 820px) {
+    div.bloc-explicatif { width: 46%; }
+    h1.titre-hero { font-size: 2.4rem; }
+}
+
+@media (max-width: 540px) {
+    div.bloc-explicatif { width: 96%; }
+    section.carte { width: 92%; }
+    header.entete-site { text-align: center; }
+    nav.navigation-principale { display: block; margin-left: 0; }
+}

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     IA DÉCODÉE  |  Page 1 : ACCUEIL  (index.html)
+     Site pédagogique 3STI : HTML5 + CSS3 uniquement (aucun framework)
+     Notions démontrées sur cette page :
+     attribut title, attribut hidden, transition, box-shadow, opacity,
+     filter, display (block / inline-block / none), sélecteur element.class
+     ================================================================== -->
+<html lang="fr">
+<head>
+    <!-- NOTION : <meta charset="UTF-8"> déclare l'encodage du document :
+         indispensable pour afficher correctement les accents français. -->
+    <meta charset="UTF-8">
+
+    <!-- NOTION : <meta name="viewport" ...> rend la page lisible sur mobile :
+         name="viewport" désigne la zone d'affichage, content précise la
+         largeur (celle de l'appareil) et le zoom initial (1.0 = normal). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- NOTION : <title> nomme l'onglet du navigateur. -->
+    <title>IA Décodée — Accueil</title>
+
+    <!-- NOTION : <link> relie la feuille de style commune à la page.
+         rel="stylesheet" : le fichier lié est une feuille de style ;
+         type="text/css"  : son langage est le CSS ;
+         href             : son chemin (le fichier style.css, à la racine). -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Petit logo d'onglet (favicon) généré pour le site. -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body class="est-site">
+
+    <!-- ==================== EN-TÊTE + NAVIGATION COMMUNES ==================== -->
+    <header class="entete-site">
+        <a class="logo-site" href="index.html" title="Revenir à la page d'accueil">
+            <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+                <defs>
+                    <linearGradient id="g-logo" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#60A5FA"/>
+                        <stop offset="1" stop-color="#C084FC"/>
+                    </linearGradient>
+                </defs>
+                <circle cx="6"  cy="16" r="3.4" fill="url(#g-logo)"/>
+                <circle cx="26" cy="7"  r="3.4" fill="url(#g-logo)"/>
+                <circle cx="26" cy="25" r="3.4" fill="url(#g-logo)"/>
+                <line x1="9"  y1="15" x2="23" y2="8"  stroke="url(#g-logo)" stroke-width="1.6"/>
+                <line x1="9"  y1="17" x2="23" y2="24" stroke="url(#g-logo)" stroke-width="1.6"/>
+            </svg>
+            IA <span class="decore">Décodée</span>
+        </a>
+        <nav class="navigation-principale">
+            <a class="lien-nav actif" href="index.html">Accueil</a>
+            <a class="lien-nav" href="apprentissage.html">Apprentissage</a>
+            <a class="lien-nav" href="modeles.html">Modèles IA</a>
+            <a class="lien-nav" href="laboratoire.html">Laboratoire</a>
+        </nav>
+    </header>
+
+    <!-- ==================== HERO : PRÉSENTATION DE L'IA ==================== -->
+    <section class="hero">
+        <h1 class="titre-hero">IA <span class="decore">Décodée</span></h1>
+        <p class="slogan">Comprends l'intelligence artificielle en construisant le Web qui la présente.</p>
+
+        <!-- NOTION : sélecteur element.class -> p.definition -->
+        <p class="definition">
+            L'<span class="terme-info" title="Ensemble de techniques qui permettent à une machine d'imiter certaines capacités humaines : voir, écouter, comprendre, décider, créer.">intelligence artificielle</span>
+            (IA) est une discipline de l'informatique qui crée des programmes capables d'accomplir des tâches
+            que l'on croyait réservées aux humains : reconnaître une image, comprendre une phrase, conduire
+            une voiture ou écrire un texte. Pour cela, la machine n'est pas programmée instruction par
+            instruction : elle apprend à partir de <span class="terme-info" title="Informations brutes (images, textes, sons, nombres) servant à l'entraînement d'un modèle.">données</span>,
+            un peu comme un élève progresse à force d'exercices, en suivant les règles d'un
+            <span class="terme-info" title="Suite d'instructions précises que la machine exécute pour résoudre un problème.">algorithme</span>.
+        </p>
+
+        <!-- NOTION : sélecteur element.class -> img.illustration
+             Cette image est stylisée dans style.css :
+             display: block (placée seule sur sa ligne, centrée),
+             opacity: 0.85 (légèrement transparente),
+             filter: grayscale(50%) (demi-teinte grise),
+             transition (la couleur revient en douceur au survol).
+             Survole l'illustration pour voir l'effet ! -->
+        <img class="illustration" src="images/illustration-ia.png"
+             alt="Illustration d'un réseau de neurones artificiels : des nœuds lumineux bleus et violets reliés entre eux"
+             width="580" height="397">
+
+        <!-- NOTION : attribut global hidden
+             L'attribut booléen hidden MASQUE totalement l'élément :
+             il reste dans le code source mais n'apparaît pas à l'écran.
+             Astuce : affiche le code source de cette page (Ctrl + U)
+             pour découvrir l'anecdote cachée ci-dessous ! -->
+        <p hidden>Le premier réseau de neurones, le perceptron, date des années 1950.</p>
+
+        <p class="indice-anecdote">(psst : une anecdote mystère est cachée quelque part dans cette page... affiche le code source avec Ctrl + U !)</p>
+    </section>
+
+    <!-- ==================== QUATRE DOMAINES DE L'IA ==================== -->
+    <section class="domaines">
+        <h2 class="titre-section">Quatre domaines où l'IA brille déjà</h2>
+        <p class="texte-intro">
+            L'intelligence artificielle n'est pas un bloc unique : c'est une famille de techniques.
+            En voici quatre que tu croises déjà, souvent sans le savoir, dans ton quotidien.
+        </p>
+
+        <div class="galerie-cartes">
+
+            <!-- NOTION : sélecteur element.class -> section.carte
+                 Chaque carte est une section de classe « carte », stylisée
+                 dans style.css : display: inline-block, box-shadow (ombres
+                 portées), transition (animation douce au survol). -->
+
+            <section class="carte">
+                <svg class="icone-carte" viewBox="0 0 64 64" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="g-vision" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#60A5FA"/>
+                            <stop offset="1" stop-color="#C084FC"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M4 32 C14 15 50 15 60 32 C50 49 14 49 4 32 Z"
+                          fill="none" stroke="url(#g-vision)" stroke-width="3"/>
+                    <circle cx="32" cy="32" r="9" fill="url(#g-vision)"/>
+                    <circle cx="32" cy="32" r="3.6" fill="#0B1035"/>
+                </svg>
+                <h3>Vision par ordinateur</h3>
+                <p>La machine analyse les pixels d'une image pour reconnaître des visages, des objets ou
+                   des panneaux de signalisation. C'est elle qui débloque ton téléphone d'un regard
+                   et qui aide les voitures autonomes à voir la route.</p>
+            </section>
+
+            <section class="carte">
+                <svg class="icone-carte" viewBox="0 0 64 64" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="g-vocal" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#93C5FD"/>
+                            <stop offset="1" stop-color="#A855F7"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="25" y="6" width="14" height="27" rx="7" fill="url(#g-vocal)"/>
+                    <path d="M16 30 C16 43 48 43 48 30" fill="none" stroke="url(#g-vocal)" stroke-width="3"/>
+                    <line x1="32" y1="42" x2="32" y2="52" stroke="#93C5FD" stroke-width="3"/>
+                    <line x1="21" y1="55" x2="43" y2="55" stroke="#C084FC" stroke-width="3"/>
+                </svg>
+                <h3>Reconnaissance vocale</h3>
+                <p>La machine transforme les ondes sonores de ta voix en texte, puis en instructions.
+                   Les assistants vocaux comprennent tes questions, et les logiciels de sous-titrage
+                   transcrivent les cours en temps réel grâce à cette technologie.</p>
+            </section>
+
+            <section class="carte">
+                <svg class="icone-carte" viewBox="0 0 64 64" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="g-gen" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#F0ABFC"/>
+                            <stop offset="1" stop-color="#818CF8"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M32 5 L38 26 L59 32 L38 38 L32 59 L26 38 L5 32 L26 26 Z" fill="url(#g-gen)"/>
+                    <circle cx="52" cy="12" r="3" fill="#93C5FD"/>
+                    <circle cx="12" cy="52" r="2.6" fill="#F0ABFC"/>
+                </svg>
+                <h3>IA générative</h3>
+                <p>Au lieu d'analyser, cette IA crée : elle rédige des textes, dessine des images,
+                   compose de la musique ou écrit du code à partir de millions d'exemples.
+                   Les chatbots que tu as peut-être déjà essayés en font partie.</p>
+            </section>
+
+            <section class="carte">
+                <svg class="icone-carte" viewBox="0 0 64 64" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="g-robo" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#60A5FA"/>
+                            <stop offset="1" stop-color="#A855F7"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="12" y="20" width="40" height="30" rx="9" fill="none" stroke="url(#g-robo)" stroke-width="3"/>
+                    <circle cx="24" cy="34" r="4" fill="#60A5FA"/>
+                    <circle cx="40" cy="34" r="4" fill="#C084FC"/>
+                    <line x1="20" y1="44" x2="44" y2="44" stroke="#8B5CF6" stroke-width="3" stroke-dasharray="5 4"/>
+                    <line x1="32" y1="20" x2="32" y2="11" stroke="url(#g-robo)" stroke-width="3"/>
+                    <circle cx="32" cy="8" r="3.2" fill="#F0ABFC"/>
+                </svg>
+                <h3>Robotique</h3>
+                <p>L'IA pilote des robots qui perçoivent leur environnement et décident de leurs mouvements :
+                   bras industriels, robots chirurgiens, drones de livraison ou simples aspirateurs
+                   autonomes qui cartographient ta maison.</p>
+            </section>
+
+        </div>
+
+        <!-- NOTION : display: none (côté CSS)
+             Ce bandeau existe dans le code HTML, mais la classe
+             .bandeau-experimentation applique display: none dans
+             style.css : le navigateur ne l'affiche pas du tout.
+             Comparaison utile : hidden est une décision HTML,
+             display: none est une décision CSS. -->
+        <div class="bandeau-experimentation">
+            Fonction expérimentale : générateur d'exercices automatiques (bientôt disponible).
+        </div>
+    </section>
+
+    <!-- ==================== PANORAMA DES NOTIONS ==================== -->
+    <section class="panorama-notions">
+        <h2 class="titre-section">Notions HTML et CSS utilisées sur cette page</h2>
+        <p class="texte-intro">Chaque notion du programme est utilisée de manière utile et visible. En voici la liste :</p>
+
+        <p class="liste-notions">
+            <span class="badge-notion">title</span>
+            <span class="badge-notion">hidden</span>
+            <span class="badge-notion">display</span>
+            <span class="badge-notion">transition</span>
+            <span class="badge-notion">box-shadow</span>
+            <span class="badge-notion">opacity</span>
+            <span class="badge-notion">filter</span>
+            <span class="badge-notion">element.class</span>
+        </p>
+
+        <!-- Exemple 1 : l'attribut global title (infobulles) -->
+        <div class="exemple-code">
+            <p class="titre-code">Exemple 1 : attribut global title (infobulle au survol)</p>
+            <pre><span class="c-balise">&lt;span</span> <span class="c-attribut">title</span>=<span class="c-valeur">"Capacité d'une machine à apprendre à partir de données"</span><span class="c-balise">&gt;</span><span class="c-texte">IA</span><span class="c-balise">&lt;/span&gt;</span></pre>
+        </div>
+
+        <!-- Exemple 2 : l'attribut global hidden -->
+        <div class="exemple-code">
+            <p class="titre-code">Exemple 2 : attribut global hidden (contenu masqué)</p>
+            <pre><span class="c-balise">&lt;p</span> <span class="c-attribut">hidden</span><span class="c-balise">&gt;</span><span class="c-texte">Le premier réseau de neurones date des années 1950.</span><span class="c-balise">&lt;/p&gt;</span></pre>
+        </div>
+
+        <!-- Exemple 3 : le trio opacity + filter + transition -->
+        <div class="exemple-code">
+            <p class="titre-code">Exemple 3 : opacity, filter et transition (extrait de style.css)</p>
+            <pre><span class="c-propriete">img.illustration</span> <span class="c-texte">{</span>
+    <span class="c-attribut">display</span><span class="c-texte">: block;</span>          <span class="c-comment">/* l'image occupe sa propre ligne */</span>
+    <span class="c-attribut">opacity</span><span class="c-texte">: 0.85;</span>           <span class="c-comment">/* légèrement transparente */</span>
+    <span class="c-attribut">filter</span><span class="c-texte">: grayscale(50%);</span> <span class="c-comment">/* la moitié des couleurs est retirée */</span>
+    <span class="c-attribut">transition</span><span class="c-texte">: filter 0.4s;</span> <span class="c-comment">/* retour de la couleur en douceur */</span>
+<span class="c-texte">}</span></pre>
+        </div>
+    </section>
+
+    <!-- ==================== ENCADRE PÉDAGOGIQUE : À RETENIR ==================== -->
+    <section class="encadre-retenir">
+        <h2 class="titre-retenir">À retenir</h2>
+        <ul class="liste-retenir">
+            <li><strong>Intelligence artificielle :</strong> la capacité d'une machine à imiter certaines capacités humaines (voir, écouter, comprendre, créer) en apprenant à partir d'exemples.</li>
+            <li><strong>Algorithme :</strong> une suite d'instructions et de règles que la machine suit pour résoudre un problème, étape par étape.</li>
+            <li><strong>Donnée :</strong> toute information fournie à la machine : une image, un texte, un son, un nombre, un tableau de mesures.</li>
+            <li><strong>Modèle :</strong> le programme « entraîné » produit par l'apprentissage : c'est lui qui prend ensuite des décisions sur des données nouvelles.</li>
+        </ul>
+    </section>
+
+    <!-- ==================== PIED DE PAGE COMMUN ==================== -->
+    <footer class="pied-site">
+        <p><strong>IA Décodée</strong> — site pédagogique HTML5 / CSS3 — programme 3STI</p>
+        <p>Projet réalisé sans framework ni bibliothèque externe : uniquement du code ouvert dans un éditeur de texte.</p>
+    </footer>
+
+</body>
+</html>

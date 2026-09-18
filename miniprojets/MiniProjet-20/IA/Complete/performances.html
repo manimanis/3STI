@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA Décodée - Benchmark des Modèles</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h2 class="title-cyber">📊 Benchmark des Modèles</h2>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="vision.html" class="nav-link">Vision</a>
+      <a href="regression.html" class="nav-link">Régression</a>
+      <a href="performances.html" class="nav-link active">Benchmark</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="card-concept">
+      <span class="badge-tag">Évaluation & Métriques</span>
+      <h1 class="title-cyber">Comparatif des architectures IA</h1>
+      <p>
+        Toutes les architectures ne se valent pas : un modèle convolutionnel (CNN) excelle dans l'image,
+        tandis qu'un Transformer domine le traitement du langage naturel (NLP).
+      </p>
+
+      <!-- NOTION DU PROGRAMME : Table avec border-collapse et table-layout: fixed -->
+      <!-- NOTION DU PROGRAMME : element.class -> table.benchmark-table -->
+      <table class="benchmark-table">
+        <thead>
+          <tr>
+            <th class="col-arch">Architecture</th>
+            <th class="col-usage">Usage Principal</th>
+            <th class="col-acc">Précision (Top-1)</th>
+            <th class="col-lat">Latence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>MLP</strong> (Perceptron)</td>
+            <td>Données tabulaires</td>
+            <td>84.2 %</td>
+            <td>2 ms</td>
+          </tr>
+          <tr>
+            <td><strong>CNN</strong> (ResNet)</td>
+            <td>Vision par ordinateur</td>
+            <td>93.8 %</td>
+            <td>18 ms</td>
+          </tr>
+          <tr>
+            <td><strong>RNN / LSTM</strong></td>
+            <td>Séries temporelles</td>
+            <td>88.6 %</td>
+            <td>25 ms</td>
+          </tr>
+          <tr>
+            <td><strong>Transformer</strong></td>
+            <td>Texte & Multimodal</td>
+            <td>97.1 %</td>
+            <td>64 ms</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card-concept">
+      <span class="badge-tag">Télémétrie</span>
+      <h2 class="title-cyber">Journal d'entraînement en temps réel</h2>
+      <p>Exemple de terminal de logs d'une IA utilisant une zone à défilement contrôlé :</p>
+
+      <!-- NOTION DU PROGRAMME : element.class et propriété CSS overflow: auto -->
+      <pre class="terminal-logs">
+[INFO] Epoch 1/10 - loss: 0.6541 - accuracy: 0.6120 - val_loss: 0.5820
+[INFO] Epoch 2/10 - loss: 0.5123 - accuracy: 0.7340 - val_loss: 0.4610
+[INFO] Epoch 3/10 - loss: 0.4011 - accuracy: 0.8210 - val_loss: 0.3890
+[INFO] Epoch 4/10 - loss: 0.3129 - accuracy: 0.8845 - val_loss: 0.3105
+[INFO] Epoch 5/10 - loss: 0.2450 - accuracy: 0.9120 - val_loss: 0.2640
+[INFO] Epoch 6/10 - loss: 0.1980 - accuracy: 0.9350 - val_loss: 0.2210
+[INFO] Epoch 7/10 - loss: 0.1540 - accuracy: 0.9510 - val_loss: 0.1950
+[INFO] Epoch 8/10 - loss: 0.1210 - accuracy: 0.9630 - val_loss: 0.1740
+[INFO] Epoch 9/10 - loss: 0.0980 - accuracy: 0.9720 - val_loss: 0.1620
+[INFO] Epoch 10/10 - loss: 0.0750 - accuracy: 0.9840 - val_loss: 0.1490
+[STATUS] Entraînement terminé. Poids sauvegardés dans 'model_v1.weights'.
+      </pre>
+    </section>
+  </main>
+
+</body>
+
+</html>

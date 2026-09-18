@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     IA DÉCODÉE  |  Fiche : CHAT  (chat.html)
+     Petit document HTML affiché DANS l'iframe de la page laboratoire.html.
+     C'est ce fichier qui est désigné par src="chat.html".
+     ================================================================== -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Décodée — Fiche : Chat</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body class="corps-fiche">
+
+    <article class="fiche-animal">
+        <!-- Icône du chat dessinée en SVG inline (aucune image externe) -->
+        <svg width="110" height="110" viewBox="0 0 96 96" aria-hidden="true">
+            <defs>
+                <linearGradient id="g-chat" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#93C5FD"/>
+                    <stop offset="1" stop-color="#A78BFA"/>
+                </linearGradient>
+            </defs>
+            <path d="M22 34 L16 10 L40 22 Z" fill="url(#g-chat)"/>
+            <path d="M74 34 L80 10 L56 22 Z" fill="url(#g-chat)"/>
+            <circle cx="48" cy="54" r="30" fill="url(#g-chat)"/>
+            <ellipse cx="37" cy="50" rx="4" ry="6" fill="#0B1035"/>
+            <ellipse cx="59" cy="50" rx="4" ry="6" fill="#0B1035"/>
+            <path d="M44 62 L52 62 L48 68 Z" fill="#F0ABFC"/>
+            <line x1="20" y1="60" x2="36" y2="62" stroke="#E0E7FF" stroke-width="1.6"/>
+            <line x1="20" y1="68" x2="36" y2="66" stroke="#E0E7FF" stroke-width="1.6"/>
+            <line x1="76" y1="60" x2="60" y2="62" stroke="#E0E7FF" stroke-width="1.6"/>
+            <line x1="76" y1="68" x2="60" y2="66" stroke="#E0E7FF" stroke-width="1.6"/>
+        </svg>
+
+        <h2 class="titre-fiche">Chat</h2>
+
+        <p>Le modèle de vision a analysé l'image et détecté les indices suivants :</p>
+
+        <ul class="liste-indices">
+            <li>Oreilles triangulaires dressées</li>
+            <li>Pupilles en fente verticale</li>
+            <li>Moustaches longues et fines</li>
+            <li>Miaulement aigu enregistré à côté de l'image</li>
+        </ul>
+
+        <p class="verdict-fiche">Classe choisie par l'IA : <strong>Chat</strong></p>
+
+        <div class="barre-confiance">
+            <div class="remplissage-confiance niveau-96"></div>
+        </div>
+        <p class="pourcentage-fiche">Niveau de confiance : 96 %</p>
+    </article>
+
+</body>
+</html>
