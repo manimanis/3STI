@@ -1,0 +1,436 @@
+/* ==========================================================================
+   Feuille de style : style.css (Version Élève à compléter)
+   CS Portal - 3e Sciences de l'Informatique
+   Séance n°2 : Balises Sémantiques & Mise en page CSS
+   Strictement conforme au programme officiel 3STI (sans Flexbox ni Grid)
+   Mise en page : float, clear, inline-block, modèle de boîte standard
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Style général du corps de la page
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #10234d;
+  background-color: #f4f7fb;
+  font-family: Arial, "Segoe UI", Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Zone 1 : En-tête de la page (header)
+   -------------------------------------------------------------------------- */
+header {
+  background-image: linear-gradient(rgba(10, 28, 59, 0.78), rgba(8, 47, 73, 0.88)), url('medias/entete.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 35px 20px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  margin: 0 0 6px 0;
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  /* TODO 1 : À COMPLÉTER
+     - Couleur du texte : #a3e635 (nuance vive de vert / yellowgreen)
+     - Ombre de texte : 2px 2px 10px rgba(0, 0, 0, 0.75)
+  */
+
+}
+
+header p {
+  margin: 4px 0 6px 0;
+  font-size: 18px;
+  color: #e0f2fe;
+  text-align: center;
+}
+
+header h2 {
+  margin: 6px 0 0 0;
+  font-size: 26px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  /* TODO 2 : À COMPLÉTER
+     - Mettre le texte en majuscules (text-transform: uppercase;)
+     - Ombre textuelle douce : 2px 2px 8px rgba(0, 0, 0, 0.65)
+  */
+
+}
+
+/* --------------------------------------------------------------------------
+   3. Zone 2 : Menu de navigation (nav)
+   -------------------------------------------------------------------------- */
+nav {
+  margin: 15px 0 25px 0;
+  padding: 12px;
+  background-color: #082f49;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(8, 47, 73, 0.2);
+}
+
+nav a {
+  background-color: #12a8d8;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 9px 0;
+  margin: 0 6px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  /* TODO 3 : À COMPLÉTER
+     - Afficher en élément en-ligne acceptant des dimensions : display: inline-block;
+     - Fixer la largeur à 140px (width)
+     - Supprimer le soulignement par défaut (text-decoration: none;)
+     - Arrondir les angles à 7px (border-radius: 7px;)
+  */
+
+}
+
+nav a:hover {
+  background-color: #0284c7;
+  transform: translateY(-2px);
+}
+
+nav a.active {
+  background-color: #0369a1;
+}
+
+/* --------------------------------------------------------------------------
+   4. Zone 3 : Contenu principal (main)
+   -------------------------------------------------------------------------- */
+main {
+  max-width: 1200px;
+  box-sizing: border-box;
+  /* TODO 4 : À COMPLÉTER
+     - Largeur du conteneur principal à 90% (width: 90%;)
+     - Centrer horizontalement la page avec les marges automatiques (margin: 0 auto;)
+  */
+
+}
+
+/* Vidéo d'introduction */
+video {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  background-color: #021324;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Conteneur clearfix pour réinitialiser les flottements */
+.content-wrapper {
+  margin-top: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* --------------------------------------------------------------------------
+   5. Zone 4 : Section et Volet latéral (aside) - DISPOSITION MULTI-COLONNES
+   -------------------------------------------------------------------------- */
+section {
+  box-sizing: border-box;
+  padding-right: 20px;
+  /* TODO 5 : À COMPLÉTER (Disposition multi-colonnes avec float)
+     - Fixer la largeur à 70% (width: 70%;)
+     - Positionner la section à gauche grâce au flottement (float: left;)
+  */
+
+}
+
+section h2 {
+  text-align: center;
+  color: #073b8e;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Articles côte à côte dans la section */
+article {
+  box-sizing: border-box;
+  /* TODO 6 : À COMPLÉTER
+     - Fixer la largeur des articles à 48% (width: 48%;)
+     - Positionner les articles côte à côte par flottement (float: left;)
+     - Définir une marge droite de 4% (margin-right: 4%;)
+  */
+
+}
+
+article:last-of-type {
+  margin-right: 0;
+}
+
+/* Zone 4-1 : Figure et images */
+figure {
+  margin: 0;
+  border-radius: 12px;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #dbeafe;
+  padding: 20px 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+figure img {
+  width: 28%;
+  height: 110px;
+  object-fit: contain;
+  margin: 0 2%;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.95;
+  transition: transform 0.25s ease;
+}
+
+figure img:hover {
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+figcaption {
+  font-size: 13.5px;
+  line-height: 1.4;
+  margin-top: 15px;
+  /* TODO 7 : À COMPLÉTER
+     - Couleur de fond sombre : #082f49
+     - Couleur du texte blanche (#ffffff) et texte en gras (font-weight: bold;)
+     - Centrer horizontalement le texte (text-align: center;)
+     - Espacement interne : 10px en haut/bas et 12px à gauche/droite (padding: 10px 12px;)
+     - Coins arrondis à 7px (border-radius: 7px;)
+  */
+
+}
+
+/* Zone 4-2 : Tableau récapitulatif */
+table {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 14.5px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  /* TODO 8 : À COMPLÉTER
+     - Fusionner les bordures des cellules : border-collapse: collapse;
+  */
+
+}
+
+table caption {
+  color: #42577e;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  border: 1px solid #9db9e7;
+  text-align: left;
+}
+
+thead {
+  /* TODO 9 : À COMPLÉTER
+     - Couleur de fond bleu foncé : #073b8e
+     - Couleur du texte : #ffffff
+  */
+
+}
+
+thead th {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+tbody {
+  background-color: #f8fbff;
+}
+
+tfoot {
+  /* TODO 10 : À COMPLÉTER
+     - Couleur de fond vert pâle : #e5f8f1
+     - Couleur du texte vert foncé : #076c4d
+     - Texte en gras : font-weight: bold;
+  */
+
+}
+
+tfoot td {
+  padding: 12px;
+  font-size: 13px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Zone 5 : Volet latéral (aside)
+   -------------------------------------------------------------------------- */
+aside {
+  box-sizing: border-box;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(185, 92, 0, 0.1);
+  /* TODO 11 : À COMPLÉTER
+     - Fixer la largeur à 28% (width: 28%;)
+     - Flottement à droite (float: right;)
+     - Bordure continue de 2px de couleur dorée/orange (#ffc15e)
+     - Coins arrondis à 12px (border-radius: 12px;)
+     - Couleur de fond crème doux : #fff9ec
+  */
+
+}
+
+details {
+  background-color: #ffffff;
+  padding: 15px;
+  border: 1px solid #ffc15e;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+summary {
+  font-size: 15px;
+  /* TODO 12 : À COMPLÉTER
+     - Couleur du texte ambrée : #b95c00
+     - Texte en gras (font-weight: bold;)
+     - Curseur en forme de main au survol (cursor: pointer;)
+  */
+
+}
+
+details p {
+  font-size: 14px;
+  color: #451a03;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+aside img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  display: block;
+  margin: 12px auto 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   7. Zone 6 : Pied de page (footer)
+   -------------------------------------------------------------------------- */
+footer {
+  /* TODO 13 : À COMPLÉTER
+     - DÉSACTIVER les flottements pour se positionner sous la section et l'aside (clear: both;)
+     - Marge au-dessus de 35px (margin-top: 35px;)
+     - Marge intérieure de 20px (padding: 20px;)
+     - Couleur de fond bleu nuit : #073b8e
+     - Bordure supérieure continue de 4px couleur bleue vive (#12a8d8)
+     - Couleur du texte en blanc et alignement centré
+  */
+
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 14px;
+}
+
+footer ul li a {
+  color: #7dd3fc;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
+}
+
+address {
+  /* TODO 14 : À COMPLÉTER
+     - Style de police en italique (font-style: italic;)
+  */
+
+}
+
+/* --------------------------------------------------------------------------
+   8. Styles pour la page secondaire inscription.html (Fournis)
+   -------------------------------------------------------------------------- */
+.form-card {
+  background-color: #ffffff;
+  max-width: 650px;
+  margin: 25px auto;
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #073b8e;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.radio-group {
+  margin-top: 6px;
+}
+
+.radio-item {
+  display: inline-block;
+  margin-right: 18px;
+  font-size: 14px;
+}
+
+.btn-submit {
+  background-color: #0284c7;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #0369a1;
+}

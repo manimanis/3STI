@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription aux Ateliers Web - CS Portal 3e Sciences de l'informatique</title>
+  <meta name="description" content="Formulaire d'inscription aux ateliers pratiques de conception Web pour les élèves de 3STI.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Zone 1 : En-tête de la page -->
+  <header>
+    <div class="header-badge">Espace Élèves • 3STI</div>
+    <h1>CS Portal</h1>
+    <p class="intro-desc">Systèmes et technologies de l'informatique</p>
+    <h2>Inscription aux Ateliers Pratiques</h2>
+    <p class="sub-desc">
+      Inscrivez-vous aux séances pratiques de laboratoire informatique pour renforcer vos compétences en conception Web (HTML5, CSS3, JavaScript).
+    </p>
+  </header>
+
+  <!-- Zone 2 : Menu de navigation -->
+  <nav>
+    <a href="index.html">ACCUEIL</a>
+    <a href="inscription.html" class="active">Inscription</a>
+  </nav>
+
+  <!-- Zone 3 : Contenu principal -->
+  <main>
+    <div class="form-card">
+      <h2 style="color: #073b8e; text-align: center; margin-top: 0; text-transform: uppercase;">
+        Formulaire d'Inscription
+      </h2>
+      <p style="text-align: center; color: #64748b; font-size: 14px; margin-bottom: 25px;">
+        Veuillez renseigner vos coordonnées d'élève pour réserver votre poste de travail lors des séances de TP.
+      </p>
+
+      <form id="form-inscription" action="#" method="post">
+
+        <div class="form-group">
+          <label for="nom_prenom">Nom &amp; Prénom de l'élève * :</label>
+          <input type="text" id="nom_prenom" name="nom_prenom" placeholder="Ex: Mohamed Ben Salah" required>
+        </div>
+
+        <div class="form-group">
+          <label for="lycee">Lycée d'origine * :</label>
+          <input type="text" id="lycee" name="lycee" placeholder="Ex: Lycée Pilote / Lycée Secondaire" required>
+        </div>
+
+        <div class="form-group">
+          <label>Groupe de classe 3STI * :</label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="groupe" value="3STI-1" checked> 3STI 1</label>
+            <label class="radio-item"><input type="radio" name="groupe" value="3STI-2"> 3STI 2</label>
+            <label class="radio-item"><input type="radio" name="groupe" value="3STI-3"> 3STI 3</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Adresse courriel (Email) * :</label>
+          <input type="email" id="email" name="email" placeholder="eleve@exemple.tn" required>
+        </div>
+
+        <div class="form-group">
+          <label for="telephone">Numéro de téléphone :</label>
+          <input type="tel" id="telephone" name="telephone" placeholder="Ex: 98 123 456">
+        </div>
+
+        <div class="form-group">
+          <label for="niveau">Niveau actuel en programmation Web :</label>
+          <select id="niveau" name="niveau">
+            <option value="debutant">Débutant (Découverte de HTML et CSS)</option>
+            <option value="intermediaire" selected>Intermédiaire (Bases acquises, besoin de pratique)</option>
+            <option value="avance">Avancé (À l'aise avec la programmation et JavaScript)</option>
+          </select>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <button type="submit" class="btn-submit">Valider mon inscription</button>
+        </div>
+
+      </form>
+
+      <div id="form-confirmation" style="display: none; margin-top: 20px; padding: 15px; background-color: #ecfdf5; border: 1px solid #10b981; border-radius: 8px; color: #065f46; text-align: center; font-weight: bold;">
+        ✅ Inscription enregistrée avec succès ! Votre tuteur pédagogique vous contactera par courriel.
+      </div>
+    </div>
+  </main>
+
+  <!-- Zone 6 : Pied de page -->
+  <footer>
+    <p class="footer-title">Lycée Secondaire &amp; Plateforme Pédagogique CS Portal — République Tunisienne</p>
+    <address>
+      <ul>
+        <li>Courriel : <a href="mailto:contact@cs-portal.edunet.tn">contact@cs-portal.edunet.tn</a></li>
+        <li>Téléphone : <a href="tel:+21671000123">+216 71 000 123</a></li>
+        <li>Section : 3<sup>e</sup> Sciences de l'Informatique</li>
+      </ul>
+    </address>
+    <div class="footer-copy">
+      © 2026-2027 CS Portal STI • Réalisation conforme aux spécifications officielles
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('form-inscription').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('form-confirmation').style.display = 'block';
+      this.reset();
+    });
+  </script>
+
+</body>
+
+</html>

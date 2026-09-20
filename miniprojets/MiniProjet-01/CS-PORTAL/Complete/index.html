@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS Portal - 3e Sciences de l'informatique</title>
+  <!-- Liaison avec la feuille de style externe -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Zone 1 : En-tête de la page -->
+  <header>
+    <h1>CS Portal</h1>
+    <p>Systèmes et technologies de l'informatique</p>
+    <h2>3e Sciences de l'informatique</h2>
+  </header>
+
+  <!-- Zone 2 : Menu de navigation -->
+  <nav>
+    <a href="index.html" class="active">ACCUEIL</a>
+    <a href="inscription.html">Inscription</a>
+  </nav>
+
+  <!-- Zone 3 : Contenu principal -->
+  <main>
+    <!-- Vidéo d'introduction -->
+    <video src="medias/intro.mp4" controls poster="medias/entete.png">
+      Votre navigateur ne supporte pas la lecture de cette vidéo.
+    </video>
+
+    <!-- Conteneur pour le clearfix des éléments flottants -->
+    <div class="content-wrapper clearfix">
+
+      <!-- Zone 4 : Section composée de deux articles (float: left) -->
+      <section>
+        <h2>LANGAGE DEVELOPPEMENT WEB</h2>
+
+        <div class="clearfix">
+          <!-- Zone 4-1 : Groupe d'images avec légende -->
+          <article>
+            <figure>
+              <img src="medias/html.png" alt="Logo HTML5">
+              <img src="medias/css.png" alt="Logo CSS3">
+              <img src="medias/js.png" alt="Logo JavaScript">
+              <figcaption>HTML structure la page, CSS la met en forme et JavaScript la rend interactive.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Zone 4-2 : Tableau récapitulatif -->
+          <article>
+            <table>
+              <caption>Rôle des principales technologies du Web</caption>
+              <thead>
+                <tr>
+                  <th>Technologie</th>
+                  <th>Rôle principal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>HTML5</td>
+                  <td>Structurer le contenu</td>
+                </tr>
+                <tr>
+                  <td>CSS3</td>
+                  <td>Présenter et disposer les éléments</td>
+                </tr>
+                <tr>
+                  <td>JavaScript</td>
+                  <td>Rendre la page interactive</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2">Ces technologies coopèrent pour réaliser un site Web statique.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </article>
+        </div>
+      </section>
+
+      <!-- Zone 5 : Volet latéral / informations dépliables (float: right) -->
+      <aside>
+        <details open>
+          <summary>Découvrir CS Portal</summary>
+          <p>CS Portal est une plateforme éducative pour les élèves de 3e Sciences de l'informatique.</p>
+          <img src="medias/logo.png" alt="Logo CS Portal">
+        </details>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Zone 6 : Pied de page -->
+  <footer>
+    <address>
+      <ul>
+        <li>Courriel : <a href="mailto:contact@cs-portal.edunet.tn">contact@cs-portal.edunet.tn</a></li>
+        <li>Téléphone : <a href="tel:+21671000123">+216 71 000 123</a></li>
+      </ul>
+    </address>
+  </footer>
+
+</body>
+
+</html>

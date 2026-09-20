@@ -296,9 +296,9 @@
         </p>
 
         <figure class="my-3 text-center">
-          <img src="assets/miniprojet02/images/semantiques.png" alt="Rendu de l'exemple de structure sémantique"
-            class="img-fluid rounded border shadow-sm">
-          <figcaption class="mt-2 text-muted fst-italic">Aperçu visuel de la maquette structurée</figcaption>
+          <img src="assets/miniprojet02/images/semantiques.svg?v=3" alt="Rendu de l'exemple de structure sémantique"
+            class="img-fluid rounded border shadow-sm" style="max-width: 860px; width: 100%; height: auto;">
+          <figcaption class="mt-2 text-muted fst-italic">Aperçu visuel des balises sémantiques HTML5</figcaption>
         </figure>
 
         <h4>Code HTML5 complet</h4>
@@ -318,7 +318,7 @@
 
   &lt;nav&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;actif&quot;&gt;Accueil&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Actualit&eacute;s&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
@@ -346,73 +346,144 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-        <h4>Code CSS de disposition moderne</h4>
+        <h4>Code CSS de mise en page structurée aux couleurs vives</h4>
         <pre class="css"><code>/* Feuille de style illustrant la mise en page des balises sémantiques */
+* {
+  box-sizing: border-box;
+}
+
 body {
   max-width: 900px;
   margin: 20px auto;
   font-family: 'Segoe UI', Tahoma, sans-serif;
-  background-color: #f1f5f9;
+  background-color: #f8fafc;
   color: #1e293b;
 }
 
+/* Zone 1 : En-tête en Bleu Royal éclatant */
 header {
-  background: linear-gradient(135deg, #475569, #334155);
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
   color: #ffffff;
   text-align: center;
   padding: 1.5rem;
   border-radius: 8px 8px 0 0;
+  box-shadow: 0 4px 6px -1px rgba(29, 78, 216, 0.2);
 }
 
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* Zone 2 : Barre de navigation en Turquoise / Cyan éclatant (liens en-ligne) */
 nav {
-  background-color: #e2e8f0;
-  padding: 0.5rem 1rem;
-  border-bottom: 2px solid #cbd5e1;
+  background: linear-gradient(90deg, #0284c7, #06b6d4);
+  padding: 0.6rem 1rem;
+  text-align: center;
 }
 
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 0.5rem;
 }
 
 nav a {
+  display: inline-block;
   text-decoration: none;
-  color: #0f172a;
+  color: #ffffff;
   font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
 }
 
+nav a:hover,
+nav a.actif {
+  background-color: #ffffff;
+  color: #0284c7;
+}
+
+/* Conteneur principal (Section + Aside) avec clearfix */
 .conteneur-corps {
-  display: flex;
-  gap: 1rem;
   margin: 1rem 0;
 }
 
+.conteneur-corps::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Zone 3 : Contenu principal flottant à gauche avec bordure azur vive */
 main {
-  flex: 7;
+  float: left;
+  width: 68%;
   background-color: #ffffff;
   padding: 1.5rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
+  border: 2px solid #38bdf8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(14, 165, 233, 0.08);
 }
 
+main h2 {
+  color: #0284c7;
+  margin-top: 0;
+}
+
+/* Section thématique en vert menthe / émeraude très frais */
+section {
+  background-color: #f0fdf4;
+  border-left: 4px solid #10b981;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 0 6px 6px 0;
+}
+
+section h3 {
+  color: #047857;
+  margin-top: 0;
+}
+
+/* Zone 4 : Volet latéral connexe flottant à droite en Ambre / Orange Mandarine */
 aside {
-  flex: 3;
-  background-color: #f8fafc;
+  float: right;
+  width: 29%;
+  background-color: #fff7ed;
   padding: 1.5rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
+  border: 2px solid #f97316;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(249, 115, 22, 0.08);
 }
 
+aside h3 {
+  color: #ea580c;
+  margin-top: 0;
+}
+
+aside p {
+  color: #9a3412;
+}
+
+/* Zone 5 : Pied de page en Violet / Pourpre avec arrêt des flottements */
 footer {
-  background-color: #1e293b;
-  color: #94a3b8;
+  clear: both;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #ffffff;
   text-align: center;
   padding: 1rem;
   border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.2);
+}
+
+footer p {
+  margin: 0;
 }</code></pre>
       </section>
     </article>
@@ -654,9 +725,243 @@ footer {
         </ol>
       </section>
 
-      <!-- Section 4.2 : Application 2 - Fruits Universe -->
+      <!-- Section 4.2 : Application 2 - CS-PORTAL -->
       <section>
-        <h3>Application 2 : Fruits Universe</h3>
+        <h3>Application 2 : CS-PORTAL</h3>
+        <p>
+          L'objectif de cet atelier est de concevoir et styliser la page d'accueil d'un portail éducatif moderne
+          intitulé
+          <strong>« CS Portal »</strong>.
+        </p>
+
+        <div class="alert alert-info my-3">
+          <strong>ℹ️ Travail à réaliser :</strong>
+          <ul class="mb-0 mt-2">
+            <li><strong>Page <code>index.html</code> :</strong> À créer entièrement.</li>
+            <li><strong>Feuille de styles <code>style.css</code> :</strong> Une version <em>incomplète</em> est
+              fournie. Vous devez compléter les règles de mise en page signalées par <code>/* TODO : ... */</code>.</li>
+            <li><strong>Ressources fournies :</strong> La page secondaire <code>inscription.html</code> ainsi que les
+              médias (logos, bannière, vidéo dans le dossier <code>medias/</code>).</li>
+          </ul>
+        </div>
+
+        <div class="my-3 text-center">
+          <a href="assets/miniprojet02/csportal-todo.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger le projet de départ : CS-PORTAL (ZIP)
+          </a>
+        </div>
+
+        <h4>Aperçu de la maquette à réaliser</h4>
+        <p>
+          Une fois la page <code>index.html</code> structurée et la feuille de style <code>style.css</code> complétée,
+          votre réalisation doit reproduire fidèlement l'interface ci-dessous :
+        </p>
+
+        <figure class="my-4 text-center">
+          <img src="assets/miniprojet02/images/csportal_preview.png" alt="Aperçu visuel de la page CS Portal"
+            class="img-fluid rounded border shadow-sm">
+          <figcaption class="mt-2 text-muted fst-italic">Aperçu visuel du rendu final attendu pour le portail CS Portal
+          </figcaption>
+        </figure>
+
+        <h4>Partie 1 — Structure Sémantique HTML5 (<code>index.html</code>)</h4>
+        <p>
+          Créez le fichier <code>index.html</code> à la racine du projet et organisez son contenu en respectant
+          l'agencement sémantique illustré par le schéma ci-dessous :
+        </p>
+
+        <figure class="my-4 text-center">
+          <img src="assets/miniprojet02/images/csportal_structure.svg?v=5"
+            alt="Architecture sémantique de la page index.html de CS Portal" class="img-fluid rounded border shadow-sm"
+            style="max-width: 920px; width: 100%; height: auto;">
+          <figcaption class="mt-2 text-muted fst-italic">Découpage et imbrication des balises sémantiques pour la page
+            index.html
+          </figcaption>
+        </figure>
+
+        <p>
+          Détail des 6 zones sémantiques à intégrer :
+        </p>
+
+        <ol>
+          <li>
+            <strong>Zone 1 — En-tête (<code>&lt;header&gt;</code>) :</strong>
+            comprend dans l'ordre :
+            <ul>
+              <li>Un titre principal de niveau 1 : <code>CS Portal</code>.</li>
+              <li>Un paragraphe descriptif : <code>Systèmes et technologies de l'informatique</code>.</li>
+              <li>Un titre de niveau 2 : <code>3e Sciences de l'informatique</code>.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Zone 2 — Barre de navigation (<code>&lt;nav&gt;</code>) :</strong>
+            comporte deux liens hypertextes :
+            <ul>
+              <li><code>ACCUEIL</code> : lien vers la page active <code>index.html</code> avec la classe
+                <code>class="active"</code>.
+              </li>
+              <li><code>Inscription</code> : lien vers la page <code>inscription.html</code>.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Zone 3 — Contenu principal (<code>&lt;main&gt;</code>) :</strong>
+            englobe :
+            <ul>
+              <li>
+                Un lecteur vidéo <code>&lt;video&gt;</code> chargeant la vidéo <code>medias/intro.mp4</code> avec les
+                contrôles de lecture (<code>controls</code>) et l'affiche <code>poster="medias/entete.png"</code>.
+              </li>
+              <li>
+                Un conteneur <code>&lt;div class="content-wrapper clearfix"&gt;</code> regroupant la <strong>Zone
+                  4</strong>
+                (<code>&lt;section&gt;</code>) et la <strong>Zone 5</strong> (<code>&lt;aside&gt;</code>).
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Zone 4 — Section thématique (<code>&lt;section&gt;</code>) :</strong>
+            s'ouvre par le titre niveau 2 : <code>LANGAGE DEVELOPPEMENT WEB</code> et contient une division
+            <code>&lt;div class="clearfix"&gt;</code> regroupant deux articles :
+            <ul>
+              <li>
+                <strong>Article 1 (Illustrations &amp; Logos) :</strong> élément <code>&lt;article&gt;</code> avec
+                conteneur
+                <code>&lt;figure&gt;</code> affichant les 3 images
+                (<code>medias/html.png</code>, <code>medias/css.png</code>, <code>medias/js.png</code>) et la légende
+                <code>HTML structure la page, CSS la met en forme et JavaScript la rend interactive.</code>.
+              </li>
+              <li>
+                <strong>Article 2 (Tableau récapitulatif) :</strong> élément <code>&lt;article&gt;</code> contenant un
+                tableau <code>&lt;table&gt;</code> :
+                <ul>
+                  <li>Titre du tableau : <code>Rôle des principales technologies du Web</code>.</li>
+                  <li>Entête : colonnes <code>Technologie</code> et <code>Rôle principal</code>.</li>
+                  <li>Corps : 3 lignes associant HTML5 (<code>Structurer le contenu</code>), CSS3
+                    (<code>Présenter et disposer les éléments</code>), et JavaScript
+                    (<code>Rendre la page interactive</code>).
+                  </li>
+                  <li>Pied : cellule fusionnée sur deux colonnes : <code>« Ces technologies coopèrent pour réaliser un
+                      site Web statique. »</code>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Zone 5 — Volet latéral d'information (<code>&lt;aside&gt;</code>) :</strong>
+            englobe un bloc dépliable <code>&lt;details open&gt;</code> contenant :
+            <ul>
+              <li>L'intitulé cliquable : <code>Découvrir CS Portal</code>.</li>
+              <li>Un paragraphe de présentation : <code>CS Portal est une plateforme éducative pour les élèves de 3e
+                  Sciences de l'informatique.</code></li>
+              <li>Le logo officiel : <code>medias/logo.png</code>.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Zone 6 — Pied de page (<code>&lt;footer&gt;</code>) :</strong>
+            clôture le document avec les coordonnées de contact dans une balise <code>&lt;address&gt;</code> et une
+            liste <code>&lt;ul&gt;</code> :
+            <ul>
+              <li>Courriel : lien <code>mailto:contact@cs-portal.edunet.tn</code>.</li>
+              <li>Téléphone : lien <code>tel:+21671000123</code> (+216 71 000 123).</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h4>Partie 2 — Feuille de Styles CSS3 (<code>style.css</code> à compléter)</h4>
+        <p>
+          Ouvrez le fichier <code>style.css</code> fourni dans votre éditeur de code. Complétez les sélecteurs indiqués
+          en respectant scrupuleusement les spécifications suivantes :
+        </p>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 25%;">Sélecteur / Zone</th>
+                <th>Règles CSS à appliquer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>header h1</code></td>
+                <td>Couleur <code>#a3e635</code> (yellowgreen) et ombre portée
+                  <code>text-shadow: 2px 2px 10px rgba(0,0,0,0.75);</code>.
+                </td>
+              </tr>
+              <tr>
+                <td><code>header h2</code></td>
+                <td>Majuscules (<code>text-transform: uppercase;</code>) et ombre douce
+                  <code>text-shadow: 2px 2px 8px rgba(0,0,0,0.65);</code>.
+                </td>
+              </tr>
+              <tr>
+                <td><code>nav a</code></td>
+                <td>Affichage en ligne acceptant des dimensions (<code>display: inline-block;</code>), largeur fixe de
+                  <code>140px</code>, suppression du soulignement (<code>text-decoration: none;</code>) et coins
+                  arrondis à <code>7px</code>.
+                </td>
+              </tr>
+              <tr>
+                <td><code>main</code></td>
+                <td>Largeur à <code>90%</code> et centrage horizontal de la page (<code>margin: 0 auto;</code>).</td>
+              </tr>
+              <tr>
+                <td><code>section</code> &amp; <code>aside</code><br><span class="badge bg-primary">Disposition
+                    multi-colonnes</span></td>
+                <td>
+                  <strong><code>section</code> :</strong> largeur à <code>70%</code> et flottement à gauche.<br>
+                  <strong><code>aside</code> :</strong> largeur à <code>28%</code>, flottement à droite, bordure
+                  continue de <code>2px</code> couleur <code>#ffc15e</code>, fond<code>#fff9ec</code> et coins arrondis
+                  à <code>12px</code>.
+                </td>
+              </tr>
+              <tr>
+                <td><code>article</code> (dans section)</td>
+                <td>Disposition côte à côte : largeur à <code>48%</code>, flottement à gauche
+                  (<code>float: left;</code>) et marge droite de <code>4%</code> sur le premier article.</td>
+              </tr>
+              <tr>
+                <td><code>figcaption</code></td>
+                <td>Fond sombre <code>#082f49</code>, texte blanc en gras centré, coins arrondis à <code>7px</code> et
+                  espacement interne <code>padding: 10px 12px;</code>.</td>
+              </tr>
+              <tr>
+                <td><code>table</code></td>
+                <td>Fusion des bordures (<code>border-collapse: collapse;</code>). Fond <code>#073b8e</code> et texte
+                  blanc pour <code>thead</code>, fond vert <code>#e5f8f1</code> et texte <code>#076c4d</code> en gras
+                  pour <code>tfoot</code>.</td>
+              </tr>
+              <tr>
+                <td><code>summary</code></td>
+                <td>Texte ambré <code>#b95c00</code>, texte en gras et curseur en main (<code>cursor: pointer;</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>footer</code> &amp; <code>address</code></td>
+                <td>
+                  <strong><code>footer</code> :</strong> désactivation impérative des flottements
+                  (<code>clear: both;</code>), marge supérieure de <code>35px</code>, fond <code>#073b8e</code>, bordure
+                  supérieure de <code>4px solid #12a8d8</code>, texte centré blanc.<br>
+                  <strong><code>address</code> :</strong> texte en italique (<code>font-style: italic;</code>).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert alert-warning">
+          <strong>⚠️ Rappel pédagogique :</strong> L'utilisation des modules Flexbox (<code>display: flex</code>) et CSS
+          Grid (<code>display: grid</code>) est <strong>strictement interdite</strong> pour cet atelier. La mise en page
+          multi-colonnes doit reposer exclusivement sur les flottements (<code>float: left</code>,
+          <code>float: right</code>)
+          et leur désactivation avec <code>clear: both</code>.
+        </div>
+      </section>
+
+      <!-- Section 4.3 : Application 3 - Fruits Universe -->
+      <section>
+        <h3>Application 3 : Fruits Universe</h3>
         <p>
           Cet atelier met l'accent sur l'application de feuilles de styles CSS pour transformer une structure sémantique
           brute en une interface web moderne.

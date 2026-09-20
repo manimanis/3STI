@@ -1,0 +1,383 @@
+/* ==========================================================================
+   Feuille de style : style.css
+   CS Portal - 3e Sciences de l'Informatique
+   TP1 : Notions Fondamentales (HTML5 & CSS3)
+   Strictement conforme au programme 3STI (sans Flexbox ni CSS Grid)
+   Mise en page : float, inline-block, modèle de boîte standard
+   ========================================================================== */
+
+/* 1. Style général du corps de la page */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #10234d;
+  background-color: #f4f7fb;
+  font-family: Arial, "Segoe UI", Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Zone 1 : En-tête de la page (header) */
+header {
+  background-image: linear-gradient(rgba(10, 28, 59, 0.78), rgba(8, 47, 73, 0.88)), url('medias/entete.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 35px 20px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  margin: 0 0 6px 0;
+  font-size: 48px;
+  color: #a3e635; /* Nuance vive de yellowgreen */
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.75);
+}
+
+header p {
+  margin: 4px 0 6px 0;
+  font-size: 18px;
+  color: #e0f2fe;
+  text-align: center;
+}
+
+header h2 {
+  margin: 6px 0 0 0;
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.65);
+}
+
+/* 3. Zone 2 : Menu de navigation (nav) */
+nav {
+  margin: 15px 0 25px 0;
+  padding: 12px;
+  background-color: #082f49;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(8, 47, 73, 0.2);
+}
+
+nav a {
+  background-color: #12a8d8;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  width: 140px;
+  border-radius: 7px;
+  font-weight: bold;
+  padding: 9px 0;
+  margin: 0 6px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #0284c7;
+  transform: translateY(-2px);
+}
+
+nav a.active {
+  background-color: #0369a1;
+}
+
+/* 4. Zone 3 : Contenu principal (main) */
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Vidéo d'introduction */
+video {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  background-color: #021324;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Conteneur clearfix pour les blocs flottants */
+.content-wrapper {
+  margin-top: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* 5. Zone 4 : Section (70% de largeur, positionnée à gauche avec float) */
+section {
+  width: 70%;
+  float: left;
+  box-sizing: border-box;
+  padding-right: 20px;
+}
+
+section h2 {
+  text-align: center;
+  color: #073b8e;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Zone 4-1 et Zone 4-2 : Articles côte à côte avec float */
+article {
+  width: 48%;
+  float: left;
+  margin-right: 4%;
+  box-sizing: border-box;
+}
+
+article:last-of-type {
+  margin-right: 0;
+}
+
+/* Zone 4-1 : Figure et images */
+figure {
+  margin: 0;
+  border-radius: 12px;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #dbeafe;
+  padding: 20px 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+figure img {
+  width: 28%;
+  height: 110px;
+  object-fit: contain;
+  margin: 0 2%;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.95;
+  transition: transform 0.25s ease;
+}
+
+figure img:hover {
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+figcaption {
+  background-color: #082f49;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 7px;
+  font-size: 13.5px;
+  line-height: 1.4;
+  margin-top: 15px;
+}
+
+/* Zone 4-2 : Tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 14.5px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table caption {
+  color: #42577e;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  border: 1px solid #9db9e7;
+  text-align: left;
+}
+
+thead {
+  background-color: #073b8e;
+  color: #ffffff;
+}
+
+thead th {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+tbody {
+  background-color: #f8fbff;
+}
+
+tfoot {
+  background-color: #e5f8f1;
+  color: #076c4d;
+  font-weight: bold;
+}
+
+tfoot td {
+  padding: 12px;
+  font-size: 13px;
+}
+
+/* 6. Zone 5 : Volet latéral (aside) (28% de largeur, positionnée à droite avec float) */
+aside {
+  width: 28%;
+  float: right;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 2px solid #ffc15e;
+  border-radius: 12px;
+  background-color: #fff9ec;
+  box-shadow: 0 4px 12px rgba(185, 92, 0, 0.1);
+}
+
+details {
+  background-color: #ffffff;
+  padding: 15px;
+  border: 1px solid #ffc15e;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+summary {
+  color: #b95c00;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+details p {
+  font-size: 14px;
+  color: #451a03;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+aside img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  display: block;
+  margin: 12px auto 0 auto;
+}
+
+/* 7. Zone 6 : Pied de page (footer) */
+footer {
+  clear: both;
+  /* Placer le pied de page en dessous des éléments flottants */
+  margin-top: 35px;
+  padding: 20px;
+  background-color: #073b8e;
+  color: #ffffff;
+  text-align: center;
+  border-top: 4px solid #12a8d8;
+}
+
+footer ul {
+  list-style-type: none;
+  /* Supprimer les marqueurs de liste */
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 14px;
+}
+
+footer ul li a {
+  color: #7dd3fc;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
+}
+
+address {
+  font-style: italic;
+  /* Caractères italiques */
+}
+
+/* Styles pour la page inscription.html */
+.form-card {
+  background-color: #ffffff;
+  max-width: 650px;
+  margin: 25px auto;
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #073b8e;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.radio-group {
+  margin-top: 6px;
+}
+
+.radio-item {
+  display: inline-block;
+  margin-right: 18px;
+  font-size: 14px;
+}
+
+.btn-submit {
+  background-color: #0284c7;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #0369a1;
+}
