@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 220" width="100%" height="100%">
+  <defs>
+    <filter id="asideShadow" x="-3%" y="-5%" width="106%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Browser window frame -->
+  <rect x="15" y="10" width="510" height="200" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#asideShadow)" />
+
+  <!-- Browser header -->
+  <rect x="15" y="10" width="510" height="24" rx="10" fill="#f1f5f9" />
+  <circle cx="30" cy="22" r="3.5" fill="#f87171" />
+  <circle cx="42" cy="22" r="3.5" fill="#fbbf24" />
+  <circle cx="54" cy="22" r="3.5" fill="#34d399" />
+  <text x="270" y="26" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Structure d'une page Web</text>
+
+  <!-- <header> -->
+  <rect x="30" y="42" width="480" height="22" rx="4" fill="#f8fafc" stroke="#e2e8f0" />
+  <text x="40" y="57" font-family="monospace" font-size="10" fill="#64748b">&lt;header&gt; &amp; &lt;nav&gt;</text>
+
+  <!-- Main Content area (Left) -->
+  <rect x="30" y="70" width="310" height="108" rx="6" fill="#f8fafc" stroke="#cbd5e1" />
+  <rect x="42" y="80" width="75" height="18" rx="3" fill="#e2e8f0" />
+  <text x="79" y="93" font-family="monospace" font-size="10" fill="#475569" text-anchor="middle">&lt;article&gt;</text>
+  <rect x="42" y="108" width="280" height="6" rx="2" fill="#cbd5e1" />
+  <rect x="42" y="120" width="260" height="6" rx="2" fill="#e2e8f0" />
+  <rect x="42" y="132" width="270" height="6" rx="2" fill="#e2e8f0" />
+  <rect x="42" y="144" width="190" height="6" rx="2" fill="#e2e8f0" />
+  <text x="185" y="166" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Contenu principal</text>
+
+  <!-- Sidebar <aside> (Right - HIGHLIGHTED) -->
+  <rect x="350" y="70" width="160" height="108" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" />
+  <!-- Badge <aside> -->
+  <rect x="360" y="78" width="70" height="20" rx="4" fill="#2563eb" />
+  <text x="395" y="92" font-family="monospace" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">&lt;aside&gt;</text>
+
+  <rect x="360" y="106" width="140" height="18" rx="3" fill="#dbeafe" stroke="#93c5fd" />
+  <text x="430" y="119" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#1e40af" text-anchor="middle">Barre latérale (Sidebar)</text>
+
+  <rect x="360" y="130" width="140" height="14" rx="2" fill="#ffffff" stroke="#bfdbfe" />
+  <text x="365" y="141" font-family="system-ui, sans-serif" font-size="8" fill="#3b82f6">• Liens connexes</text>
+
+  <rect x="360" y="148" width="140" height="14" rx="2" fill="#ffffff" stroke="#bfdbfe" />
+  <text x="365" y="159" font-family="system-ui, sans-serif" font-size="8" fill="#3b82f6">• Infos d'auteur</text>
+
+  <!-- <footer> -->
+  <rect x="30" y="184" width="480" height="18" rx="4" fill="#f8fafc" stroke="#e2e8f0" />
+  <text x="270" y="197" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">&lt;footer&gt;</text>
+</svg>

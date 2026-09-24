@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 220" width="100%" height="100%">
+  <defs>
+    <filter id="mShadow" x="-3%" y="-5%" width="106%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity="0.08" />
+    </filter>
+    <marker id="mArrowTop" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ea580c" />
+    </marker>
+    <marker id="mArrowBottom" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ea580c" />
+    </marker>
+  </defs>
+
+  <!-- Background card -->
+  <rect x="15" y="10" width="510" height="200" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#mShadow)" />
+
+  <!-- Paragraph 1 -->
+  <rect x="40" y="24" width="460" height="48" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+  <rect x="55" y="34" width="90" height="12" rx="3" fill="#64748b" />
+  <rect x="55" y="52" width="300" height="7" rx="2" fill="#cbd5e1" />
+  <text x="480" y="42" font-family="monospace" font-size="10" fill="#64748b" text-anchor="end">&lt;p&gt; Paragraphe 1 &lt;/p&gt;</text>
+
+  <!-- GAP BETWEEN THE TWO BOXES (HIGHLIGHTED) -->
+  <rect x="40" y="78" width="460" height="44" rx="4" fill="#ffedd5" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="4,4" />
+  
+  <!-- Dimension arrows -->
+  <line x1="80" y1="82" x2="80" y2="118" stroke="#ea580c" stroke-width="2" marker-start="url(#mArrowBottom)" marker-end="url(#mArrowTop)" />
+  <line x1="460" y1="82" x2="460" y2="118" stroke="#ea580c" stroke-width="2" marker-start="url(#mArrowBottom)" marker-end="url(#mArrowTop)" />
+
+  <!-- Label in gap -->
+  <rect x="145" y="87" width="250" height="26" rx="13" fill="#ea580c" />
+  <text x="270" y="104" font-family="system-ui, sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">
+    MARGIN (Marge externe de séparation)
+  </text>
+
+  <!-- Paragraph 2 -->
+  <rect x="40" y="128" width="460" height="48" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" />
+  <rect x="55" y="138" width="110" height="12" rx="3" fill="#64748b" />
+  <rect x="55" y="156" width="280" height="7" rx="2" fill="#cbd5e1" />
+  <text x="480" y="146" font-family="monospace" font-size="10" fill="#64748b" text-anchor="end">&lt;p&gt; Paragraphe 2 &lt;/p&gt;</text>
+
+  <!-- Footnote -->
+  <text x="270" y="195" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">
+    La propriété <tspan font-family="monospace" font-weight="600" fill="#ea580c">margin</tspan> crée l'espace entre deux boîtes adjacentes
+  </text>
+</svg>

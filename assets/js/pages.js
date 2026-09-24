@@ -103,6 +103,8 @@ $(() => {
           const sectId = `section-${index + 1}-${section_index + 1}`;
           const sectLinkId = `link-${index + 1}-${section_index + 1}`;
           const sectTitle = section.find('h3').first().text().trim() || `Page ${section_index + 1}`;
+          const dataHref = section.attr('data-href');
+          const dataTarget = section.attr('data-target') || (dataHref ? '_blank' : null);
 
           section.attr('id', sectId);
           section.addClass('d-none d-print-block');
@@ -113,15 +115,27 @@ $(() => {
             sectionIndex: section_index,
             articleTitle: artTitle,
             sectionTitle: sectTitle,
-            elem: section
+            elem: section,
+            dataHref: dataHref
           });
 
-          $('<a>')
-            .attr('href', `#${sectId}`)
+          const itemLink = $('<a>')
             .attr('id', sectLinkId)
             .addClass('dropdown-item')
-            .text(sectTitle)
             .appendTo(sect_list);
+
+          if (dataHref) {
+            itemLink
+              .attr('href', dataHref)
+              .attr('target', dataTarget)
+              .attr('rel', 'noopener noreferrer')
+              .addClass('dropdown-item-external')
+              .html(`<span>${sectTitle}</span> <span class="badge-ext-doc" title="Lien vers un autre document">📄 ↗</span>`);
+          } else {
+            itemLink
+              .attr('href', `#${sectId}`)
+              .text(sectTitle);
+          }
         });
       }
     });
@@ -391,7 +405,82 @@ $(() => {
     displaySection(art_obj.section_index, 'replace');
   }
 
-  // 6. Code Blocks Enhancement (macOS window bar & Copy Button)
+  // 6. Code Blocks Enhancement (macOS window bar & Copy Button with multi-fallback)
+  const copyIconSvg = `<svg class="copy-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+  </svg>`;
+
+  const checkIconSvg = `<svg class="check-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="20 6 9 17 4 12"></polyline>
+  </svg>`;
+
+  const fallbackExecCopy = (text) => {
+    return new Promise((resolve, reject) => {
+      let textArea = null;
+      try {
+        textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.setAttribute('readonly', '');
+        textArea.style.position = 'fixed';
+        textArea.style.top = '0';
+        textArea.style.left = '0';
+        textArea.style.width = '2em';
+        textArea.style.height = '2em';
+        textArea.style.padding = '0';
+        textArea.style.border = 'none';
+        textArea.style.outline = 'none';
+        textArea.style.boxShadow = 'none';
+        textArea.style.background = 'transparent';
+        textArea.style.opacity = '0';
+        textArea.style.zIndex = '-9999';
+
+        document.body.appendChild(textArea);
+
+        if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+          const range = document.createRange();
+          range.selectNodeContents(textArea);
+          const selection = window.getSelection();
+          if (selection) {
+            selection.removeAllRanges();
+            selection.addRange(range);
+          }
+          textArea.setSelectionRange(0, 999999);
+        } else {
+          textArea.focus();
+          textArea.select();
+        }
+
+        const successful = document.execCommand('copy');
+        if (successful) {
+          resolve(text);
+        } else {
+          reject(new Error('execCommand copy returned false'));
+        }
+      } catch (err) {
+        reject(err);
+      } finally {
+        if (textArea && textArea.parentNode) {
+          textArea.parentNode.removeChild(textArea);
+        }
+      }
+    });
+  };
+
+  const copyToClipboard = (text) => {
+    const cleaned = (text || '').replace(/^\r?\n+|\r?\n+$/g, '');
+
+    // Modern Async Clipboard API (available in secure contexts: HTTPS or localhost)
+    if (navigator.clipboard && window.isSecureContext && typeof navigator.clipboard.writeText === 'function') {
+      return navigator.clipboard.writeText(cleaned)
+        .then(() => cleaned)
+        .catch(() => fallbackExecCopy(cleaned));
+    }
+
+    // Universal fallback (works in HTTP on LAN, file://, older browsers)
+    return fallbackExecCopy(cleaned);
+  };
+
   $('pre').each(function () {
     const pre = $(this);
     if (pre.parent().hasClass('code-block-wrapper')) return;
@@ -420,10 +509,7 @@ $(() => {
         </div>
         <span class="code-lang-badge">${lang}</span>
         <button type="button" class="copy-code-btn" title="Copier le code">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-          </svg>
+          ${copyIconSvg}
           <span>Copier</span>
         </button>
       `)
@@ -434,14 +520,21 @@ $(() => {
     header.find('.copy-code-btn').click(function () {
       const btn = $(this);
       const textToCopy = code.length ? code.text() : pre.text();
-      
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        btn.addClass('copied').find('span').text('Copié !');
-        setTimeout(() => {
-          btn.removeClass('copied').find('span').text('Copier');
+
+      copyToClipboard(textToCopy).then(() => {
+        const prevTimer = btn.data('copy-timer');
+        if (prevTimer) clearTimeout(prevTimer);
+
+        btn.addClass('copied').html(`${checkIconSvg}<span>Copié !</span>`);
+
+        const timer = setTimeout(() => {
+          btn.removeClass('copied').html(`${copyIconSvg}<span>Copier</span>`);
+          btn.removeData('copy-timer');
         }, 2000);
+
+        btn.data('copy-timer', timer);
       }).catch(err => {
-        console.error('Erreur de copie:', err);
+        console.error('Erreur lors de la copie du code :', err);
       });
     });
   });

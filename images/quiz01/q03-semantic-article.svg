@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 220" width="100%" height="100%">
+  <defs>
+    <filter id="cardShadow" x="-3%" y="-5%" width="106%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Container for the independent article component -->
+  <rect x="25" y="12" width="490" height="196" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)" />
+
+  <!-- Semantic tag badge -->
+  <rect x="40" y="24" width="85" height="24" rx="5" fill="#4f46e5" />
+  <text x="82" y="40" font-family="monospace" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">&lt;article&gt;</text>
+
+  <!-- Autonomy explanation badge -->
+  <rect x="135" y="24" width="220" height="24" rx="5" fill="#eef2ff" stroke="#c7d2fe" />
+  <text x="245" y="40" font-family="system-ui, sans-serif" font-weight="600" font-size="11" fill="#4338ca" text-anchor="middle">Contenu autonome &amp; réutilisable</text>
+
+  <!-- Article thumbnail image placeholder -->
+  <rect x="40" y="60" width="120" height="100" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+  <circle cx="80" cy="95" r="14" fill="#818cf8" opacity="0.6" />
+  <path d="M 50 145 L 85 115 L 115 138 L 135 125 L 150 145 Z" fill="#c7d2fe" opacity="0.8" />
+  <text x="100" y="152" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Image</text>
+
+  <!-- Article Title & Meta -->
+  <text x="175" y="78" font-family="system-ui, sans-serif" font-weight="700" font-size="15" fill="#0f172a">Les nouveautés de CSS3 &amp; HTML5</text>
+  <text x="175" y="96" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Publié le 24 Septembre 2026 • Par Prof. Informatique</text>
+
+  <!-- Text lines -->
+  <rect x="175" y="110" width="320" height="7" rx="3" fill="#cbd5e1" />
+  <rect x="175" y="123" width="290" height="7" rx="3" fill="#cbd5e1" />
+  <rect x="175" y="136" width="310" height="7" rx="3" fill="#e2e8f0" />
+  <rect x="175" y="149" width="180" height="7" rx="3" fill="#e2e8f0" />
+
+  <!-- Action button -->
+  <rect x="40" y="170" width="120" height="26" rx="6" fill="#0f172a" />
+  <text x="100" y="187" font-family="system-ui, sans-serif" font-weight="600" font-size="11" fill="#ffffff" text-anchor="middle">Lire l'article ➔</text>
+
+  <!-- Self-contained notes -->
+  <text x="500" y="187" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="end">Ex: post de blog, actualité...</text>
+</svg>

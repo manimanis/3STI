@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 220" width="100%" height="100%">
+  <defs>
+    <filter id="mainShadow" x="-3%" y="-5%" width="106%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Browser window frame -->
+  <rect x="15" y="10" width="510" height="200" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#mainShadow)" />
+
+  <!-- Window bar -->
+  <rect x="15" y="10" width="510" height="24" rx="10" fill="#f1f5f9" />
+  <circle cx="30" cy="22" r="3.5" fill="#f87171" />
+  <circle cx="42" cy="22" r="3.5" fill="#fbbf24" />
+  <circle cx="54" cy="22" r="3.5" fill="#34d399" />
+  <text x="270" y="26" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Règle sémantique du W3C / WHATWG</text>
+
+  <!-- <header> -->
+  <rect x="30" y="42" width="480" height="20" rx="4" fill="#f8fafc" stroke="#e2e8f0" />
+  <text x="270" y="56" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">&lt;header&gt; &amp; &lt;nav&gt;</text>
+
+  <!-- <main> AREA (HIGHLIGHTED) -->
+  <rect x="30" y="68" width="480" height="110" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="2" />
+  
+  <!-- <main> tag badge -->
+  <g transform="translate(42, 78)">
+    <rect x="0" y="0" width="75" height="22" rx="4" fill="#4f46e5" />
+    <text x="37" y="15" font-family="monospace" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">&lt;main&gt;</text>
+
+    <!-- Golden Rule Badge -->
+    <rect x="85" y="0" width="220" height="22" rx="11" fill="#10b981" />
+    <text x="195" y="15" font-family="system-ui, sans-serif" font-weight="700" font-size="11" fill="#ffffff" text-anchor="middle">★ UNIQUE : 1 seule fois par page</text>
+  </g>
+
+  <!-- Inner sections/articles within the unique <main> -->
+  <g transform="translate(42, 108)">
+    <rect x="0" y="0" width="220" height="58" rx="5" fill="#ffffff" stroke="#c7d2fe" />
+    <text x="10" y="16" font-family="monospace" font-size="9" fill="#6366f1">&lt;section&gt; ou &lt;article&gt;</text>
+    <rect x="10" y="26" width="180" height="6" rx="2" fill="#e2e8f0" />
+    <rect x="10" y="38" width="140" height="6" rx="2" fill="#e2e8f0" />
+
+    <rect x="235" y="0" width="220" height="58" rx="5" fill="#ffffff" stroke="#c7d2fe" />
+    <text x="10" y="16" font-family="monospace" font-size="9" fill="#6366f1">&lt;section&gt; ou &lt;article&gt;</text>
+    <rect x="10" y="26" width="180" height="6" rx="2" fill="#e2e8f0" />
+    <rect x="10" y="38" width="140" height="6" rx="2" fill="#e2e8f0" />
+  </g>
+
+  <!-- <footer> -->
+  <rect x="30" y="184" width="480" height="20" rx="4" fill="#f8fafc" stroke="#e2e8f0" />
+  <text x="270" y="198" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">&lt;footer&gt;</text>
+</svg>

@@ -485,6 +485,47 @@ footer {
 footer p {
   margin: 0;
 }</code></pre>
+
+        <div
+          class="alert alert-primary d-flex align-items-center justify-content-between flex-wrap gap-2 my-4 border-0 shadow-sm">
+          <div class="d-flex align-items-center gap-2">
+            <span class="fs-4">🎯</span>
+            <div>
+              <strong class="text-primary">Évaluation des acquis :</strong> Testez votre compréhension avec le quiz sur
+              la structuration de page.
+            </div>
+          </div>
+          <a href="quiz01.html" target="_blank" rel="noopener noreferrer"
+            class="btn btn-sm btn-primary d-inline-flex align-items-center gap-1 shadow-sm">
+            <span>Accéder au Quiz</span>
+            <span aria-hidden="true" title="Lien vers un autre document">📄 ↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Section 2.6 : Quiz interactif sur la structuration de page -->
+      <section data-href="quiz01.html" data-target="_blank" class="quiz-section">
+        <h3>Quiz : Structuration de la page</h3>
+        <div class="card my-4 shadow-sm border-primary">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span class="fs-1">🎯</span>
+              <h4 class="card-title text-primary mb-1">Quiz d'auto-évaluation : Structuration de la page</h4>
+            </div>
+            <p>
+              Ce quiz interactif vous propose une série de questions à choix multiples pour consolider vos compétences
+              sur les balises sémantiques HTML5 (&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;article&gt;,
+              &lt;section&gt;, &lt;aside&gt;, &lt;footer&gt;).
+            </p>
+            <div class="d-flex flex-wrap align-items-center gap-3 mt-4">
+              <a href="quiz01.html" target="_blank" rel="noopener noreferrer"
+                class="btn btn-primary d-inline-flex align-items-center gap-2 px-4 py-2 fw-semibold shadow-sm">
+                <span>Accéder au Quiz</span>
+                <span aria-hidden="true" title="Lien externe vers un autre document">📄 ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
     </article>
 
@@ -657,6 +698,163 @@ footer p {
               </tr>
             </tbody>
           </table>
+        </div>
+      </section>
+
+      <!-- Section 3.4 : Exercice d'application : Chronique littéraire -->
+      <section>
+        <h3>Exercice d'application : Chronique littéraire</h3>
+        <p>
+          L'objectif de cet exercice est de mobiliser l'ensemble des balises de contenu étudiées dans cette partie
+          (<code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, <code>&lt;details&gt;</code>,
+          <code>&lt;summary&gt;</code>, <code>&lt;mark&gt;</code>, <code>&lt;cite&gt;</code> et
+          <code>&lt;address&gt;</code>) pour concevoir une chronique littéraire soignée et sémantique.
+        </p>
+
+        <h4>Énoncé et mise en situation</h4>
+        <p>
+          Vous disposez d'un extrait de page web consacré à une chronique littéraire sur le roman <em>Le Petit
+            Prince</em> d'Antoine de Saint-Exupéry. Actuellement, ce texte brut ne comporte que des balises génériques.
+          Votre mission consiste à <strong>enrichir la sémantique</strong> de ce document en intégrant les balises
+          appropriées selon les spécifications techniques ci-dessous.
+        </p>
+
+        <h4>Spécifications techniques à respecter</h4>
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-hover align-middle">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Élément visé</th>
+                <th style="width: 25%;">Balise(s) requise(s)</th>
+                <th>Travail demandé</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Titre de l'œuvre</strong></td>
+                <td><code class="text-primary fw-bold">&lt;cite&gt;</code></td>
+                <td>Baliser le titre <em>« Le Petit Prince »</em> dans l'en-tête <code>&lt;h1&gt;</code> et dans le
+                  corps du texte.</td>
+              </tr>
+              <tr>
+                <td><strong>Illustration et légende</strong></td>
+                <td><code class="text-primary fw-bold">&lt;figure&gt;</code> et <code
+                    class="text-primary fw-bold">&lt;figcaption&gt;</code></td>
+                <td>Encapsuler l'image de couverture avec son texte explicatif (<em>Fig 1. L'univers poétique...</em>).
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Citation philosophique</strong></td>
+                <td><code class="text-primary fw-bold">&lt;mark&gt;</code></td>
+                <td>Mettre en surbrillance la phrase clé du renard : <em>« On ne voit bien qu'avec le cœur. L'essentiel
+                    est
+                    invisible pour les yeux. »</em></td>
+              </tr>
+              <tr>
+                <td><strong>Thèmes du livre</strong></td>
+                <td><code class="text-primary fw-bold">&lt;details&gt;</code> et <code
+                    class="text-primary fw-bold">&lt;summary&gt;</code></td>
+                <td>Transformer la liste des thèmes majeurs en un bloc dépliable interactif, avec l'intitulé cliquable
+                  dans
+                  <code>&lt;summary&gt;</code>.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Coordonnées de l'auteur</strong></td>
+                <td><code class="text-primary fw-bold">&lt;address&gt;</code></td>
+                <td>Structurer les informations de contact de la journaliste dans le <code>&lt;footer&gt;</code> de la
+                  page.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Code source à compléter</h4>
+        <p>
+          Copiez le code HTML ci-dessous dans votre éditeur, puis complétez les <strong>6 sections signalées par les
+            commentaires <code>&lt;!-- TODO --&gt;</code></strong> sans modifier la mise en page de base :
+        </p>
+
+        <div class="my-3 d-flex align-items-center gap-3 flex-wrap">
+          <a href="miniprojets/MiniProjet-02/petit_prince-todo/prince.jpg" download="prince.jpg"
+            class="btn btn-primary shadow-sm">
+            🖼️ Télécharger l'image
+          </a>
+          <span class="text-muted small">Enregistrez l'image dans le même dossier que votre fichier HTML.</span>
+        </div>
+
+        <pre class="html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Chronique Littéraire : Le Petit Prince&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 650px; margin: 2rem auto; padding: 0 1rem; color: #333; }
+        img { max-width: 100%; border-radius: 8px; }
+        details { background: #f1f5f9; padding: 10px 14px; border-radius: 6px; margin: 15px 0; }
+        summary { font-weight: bold; cursor: pointer; color: #4338ca; }
+        mark { background-color: #fef08a; padding: 2px 4px; border-radius: 3px; }
+        address { margin-top: 30px; font-style: normal; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 10px; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- TODO 1 : Balisez le titre de l'œuvre avec &lt;cite&gt; --&gt;
+    &lt;h1&gt;Chronique du roman : Le Petit Prince&lt;/h1&gt;
+
+    &lt;!-- TODO 2 : Isolez l'image et sa légende avec &lt;figure&gt; et &lt;figcaption&gt; --&gt;
+    &lt;img src="prince.jpg" alt="Illustration du Petit Prince"&gt;
+    &lt;p&gt;Fig 1. L'univers poétique imaginé par Antoine de Saint-Exupéry en 1943.&lt;/p&gt;
+
+    &lt;!-- TODO 3 : Re-citez l'œuvre avec &lt;cite&gt; --&gt;
+    &lt;p&gt;Publié pour la première fois en 1943, Le Petit Prince est un conte philosophique intemporel.&lt;/p&gt;
+
+    &lt;!-- TODO 4 : Surlignez la citation philosophique avec &lt;mark&gt; --&gt;
+    &lt;blockquote&gt;
+        « Voici mon secret : on ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux. »
+    &lt;/blockquote&gt;
+
+    &lt;!-- TODO 5 : Encapsulez ce bloc thématique dans &lt;details&gt; avec son titre dans &lt;summary&gt; --&gt;
+    &lt;p&gt;Cliquez ici pour explorer les thèmes majeurs de l'œuvre&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;L'amitié et l'apprivoisement&lt;/li&gt;
+        &lt;li&gt;Le regard d'enfant face au monde adulte&lt;/li&gt;
+        &lt;li&gt;L'amour et la responsabilité&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;!-- TODO 6 : Indiquez les coordonnées de la journaliste avec &lt;address&gt; --&gt;
+    &lt;footer&gt;
+        Chronique rédigée par Julie Delorme.&lt;br&gt;
+        Email : julie@cahiers-litteraires.fr
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <figure class="my-3 text-center">
+          <a href="miniprojets/MiniProjet-02/chronique_petit_prince.png" target="_blank" rel="noopener noreferrer">
+            <img src="miniprojets/MiniProjet-02/chronique_petit_prince-thumb.png" alt="Chronique du petit prince"
+              class="img-fluid rounded border shadow-sm">
+          </a>
+          <figcaption class="mt-2 text-muted fst-italic">Résultat attendu de la chronique du petit prince</figcaption>
+        </figure>
+
+        <h4>Rappels méthodologiques</h4>
+        <div class="callout-box">
+          <ul class="mb-0">
+            <li>La balise <code>&lt;figcaption&gt;</code> doit être imbriquée directement à l'intérieur de
+              <code>&lt;figure&gt;</code> (en tant que premier ou dernier enfant direct).
+            </li>
+            <li>Dans <code>&lt;details&gt;</code>, le premier enfant direct doit obligatoirement être
+              <code>&lt;summary&gt;</code> pour servir de titre cliquable.
+            </li>
+            <li>La balise <code>&lt;cite&gt;</code> identifie le titre d'une œuvre (roman, livre, film), et non le nom
+              de son auteur.
+            </li>
+            <li>La balise <code>&lt;address&gt;</code> sert exclusivement à renseigner les informations de contact
+              (auteur, rédaction).
+            </li>
+          </ul>
         </div>
       </section>
     </article>

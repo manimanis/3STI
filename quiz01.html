@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz : HTML Sémantique, Box Model &amp; Float — 3STI</title>
+    <!-- Stylesheets from local assets -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/quiz01.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="app" class="quiz-wrapper" v-cloak>
+        <main class="quiz-card">
+            <!-- Header accent line -->
+            <div class="quiz-header-bar"></div>
+
+            <div class="quiz-body">
+
+                <!-- ================= START SCREEN ================= -->
+                <section v-if="screen === 'start'" class="text-center fade-in">
+                    <div class="quiz-icon-bubble primary mx-auto">
+                        <svg width="38" height="38" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                            </path>
+                        </svg>
+                    </div>
+
+                    <h1 class="h3 fw-bold text-dark mb-3">Exercice de Rappel : HTML &amp; CSS</h1>
+                    <p class="text-muted fs-6 mb-4 mx-auto" style="max-width: 540px; line-height: 1.6;">
+                        Testez vos connaissances sur les balises sémantiques de structuration, le modèle de boîte (Box Model) et les flottements (Float).
+                    </p>
+
+                    <!-- Badges infos -->
+                    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+                        <span class="feature-chip">
+                            <span>📋</span> {{ rawQuestions.length }} Questions
+                        </span>
+                        <span class="feature-chip">
+                            <span>🔀</span> Questions &amp; Choix mélangés
+                        </span>
+                        <span class="feature-chip">
+                            <span>🎯</span> Choix multiple
+                        </span>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="button" class="btn btn-quiz-primary d-inline-flex align-items-center gap-2" @click="startQuiz">
+                            <span>Commencer le quiz</span>
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- ================= QUIZ SCREEN ================= -->
+                <section v-if="screen === 'quiz' && currentQuestion" class="fade-in" :key="currentIndex">
+                    <!-- Progress & Counter -->
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-light text-secondary border px-3 py-2 rounded-pill fw-semibold">
+                                Question {{ currentIndex + 1 }} sur {{ questions.length }}
+                            </span>
+                            <span class="fw-bold" style="color: var(--quiz-primary);">
+                                Score : {{ score }} / {{ questions.length }}
+                            </span>
+                        </div>
+                        <div class="quiz-progress-track">
+                            <div class="quiz-progress-fill" :style="{ width: progressPercentage + '%' }"></div>
+                        </div>
+                    </div>
+
+                    <!-- Question Text -->
+                    <div class="mb-3 pt-1">
+                        <h2 class="h5 fw-bold text-dark lh-base mb-3" v-html="formatQuestion(currentQuestion.question)"></h2>
+                    </div>
+
+                    <!-- Question SVG Illustration -->
+                    <div v-if="currentQuestion.image" class="quiz-question-img-container mb-4 text-center">
+                        <img
+                            :src="currentQuestion.image"
+                            :alt="'Illustration question ' + (currentIndex + 1)"
+                            class="img-fluid quiz-question-img"
+                        >
+                    </div>
+
+                    <!-- Options Container -->
+                    <div class="mb-4">
+                        <button
+                            v-for="(option, idx) in currentQuestion.options"
+                            :key="idx"
+                            type="button"
+                            class="quiz-option"
+                            :class="getOptionClass(idx)"
+                            :disabled="isAnswered"
+                            @click="selectOption(idx)"
+                        >
+                            <span class="quiz-option-letter">
+                                <template v-if="!isAnswered">
+                                    {{ getLetter(idx) }}
+                                </template>
+                                <template v-else-if="option.isCorrect">
+                                    ✓
+                                </template>
+                                <template v-else-if="idx === selectedOptionIndex && !option.isCorrect">
+                                    ✗
+                                </template>
+                                <template v-else>
+                                    {{ getLetter(idx) }}
+                                </template>
+                            </span>
+                            <span class="quiz-option-content" v-html="formatOption(option.text)"></span>
+                            <span class="quiz-option-icon" v-if="isAnswered && (option.isCorrect || idx === selectedOptionIndex)">
+                                <span v-if="option.isCorrect" class="text-success fw-bold fs-5">✓</span>
+                                <span v-else-if="idx === selectedOptionIndex && !option.isCorrect" class="text-danger fw-bold fs-5">✗</span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- Bottom Navigation -->
+                    <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                        <div class="small">
+                            <span v-if="isAnswered && currentQuestion.options[selectedOptionIndex].isCorrect" class="text-success fw-semibold d-inline-flex align-items-center gap-1">
+                                <span>✓</span> Bonne réponse !
+                            </span>
+                            <span v-else-if="isAnswered" class="text-danger fw-semibold d-inline-flex align-items-center gap-1">
+                                <span>✗</span> Réponse incorrecte
+                            </span>
+                            <span v-else class="text-muted">
+                                Sélectionnez votre réponse
+                            </span>
+                        </div>
+
+                        <button
+                            v-if="isAnswered"
+                            type="button"
+                            class="btn btn-quiz-dark d-inline-flex align-items-center gap-2"
+                            @click="nextQuestion"
+                        >
+                            <span>{{ currentIndex === questions.length - 1 ? 'Voir les résultats' : 'Question suivante' }}</span>
+                            <svg v-if="currentIndex < questions.length - 1" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+                            </svg>
+                            <span v-else>🏆</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- ================= RESULTS SCREEN ================= -->
+                <section v-if="screen === 'results'" class="text-center fade-in">
+                    <div class="quiz-icon-bubble mx-auto" :class="resultEvaluation.iconClass">
+                        <!-- Success / Trophy -->
+                        <svg v-if="resultEvaluation.type === 'success'" width="42" height="42" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <!-- Warning / Smile -->
+                        <svg v-else-if="resultEvaluation.type === 'warning'" width="42" height="42" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <!-- Danger / Book -->
+                        <svg v-else width="42" height="42" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                        </svg>
+                    </div>
+
+                    <h2 class="h3 fw-bold text-dark mb-2">{{ resultEvaluation.title }}</h2>
+                    <p class="text-muted fs-6 mb-3">{{ resultEvaluation.description }}</p>
+
+                    <!-- Score Highlight Card -->
+                    <div class="bg-light rounded-4 p-3 mb-4 mx-auto border" style="max-width: 380px;">
+                        <div class="display-6 fw-bold text-dark">
+                            <span style="color: var(--quiz-primary);">{{ score }}</span> / {{ questions.length }}
+                        </div>
+                        <div class="mt-1">
+                            <span class="badge rounded-pill px-3 py-1" :class="resultEvaluation.badgeClass">
+                                {{ finalPercentage }}% de réussite
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Mistakes Review List -->
+                    <div v-if="userMistakes.length > 0" class="mb-4">
+                        <div class="text-start mb-2 d-flex align-items-center justify-content-between">
+                            <h3 class="h6 fw-bold text-secondary text-uppercase mb-0">
+                                Récapitulatif de vos erreurs ({{ userMistakes.length }}) :
+                            </h3>
+                        </div>
+                        <div class="rounded-3 p-3 bg-light border text-start" style="max-height: 260px; overflow-y: auto;">
+                            <div v-for="(mistake, mIdx) in userMistakes" :key="mIdx" class="mistake-card">
+                                <div class="d-flex align-items-start justify-content-between gap-3">
+                                    <div class="flex-grow-1">
+                                        <p class="fw-semibold text-dark mb-2" v-html="formatQuestion(mistake.question)"></p>
+                                        <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+                                            <span class="badge badge-subtle-danger rounded-pill">Votre choix</span>
+                                            <span class="text-danger" v-html="formatOption(mistake.givenAnswer)"></span>
+                                        </div>
+                                        <div class="d-flex flex-wrap align-items-center gap-2">
+                                            <span class="badge badge-subtle-success rounded-pill">Bonne réponse</span>
+                                            <span class="text-success fw-semibold" v-html="formatOption(mistake.correctAnswer)"></span>
+                                        </div>
+                                    </div>
+                                    <img v-if="mistake.image" :src="mistake.image" alt="Schéma" class="rounded border p-1 bg-white mistake-thumbnail d-none d-sm-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-else class="alert alert-success border-0 rounded-3 mb-4 d-inline-block px-4 py-3">
+                        <span class="fs-5 me-2">🌟</span> <strong>Score Parfait !</strong> Toutes vos réponses sont correctes. Félicitations !
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <button type="button" class="btn btn-quiz-primary d-inline-flex align-items-center gap-2" @click="startQuiz">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                            <span>Recommencer le quiz</span>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary rounded-3 px-4 fw-semibold" @click="goHome">
+                            Retour à l'accueil
+                        </button>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts from local assets -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+    <script src="assets/js/quiz01.js"></script>
+</body>
+
+</html>

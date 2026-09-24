@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier Pratique : Balises HTML Spécifiques</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-mono-code { font-family: 'Fira Code', monospace; }
+        .badge-check { transition: all 0.25s ease-in-out; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Top Navigation Header -->
+    <header class="bg-indigo-900 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center space-x-3">
+                <span class="p-2 bg-indigo-700 rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-indigo-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                </span>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight">Atelier Pratique : Balises HTML Spécifiques</h1>
+                    <p class="text-xs text-indigo-200">figure, figcaption, details, summary, mark, address, cite</p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="flex items-center space-x-1 sm:space-x-2 bg-indigo-950/60 p-1 rounded-xl text-sm font-medium">
+                <button onclick="switchTab('enonce')" id="tab-btn-enonce" class="tab-btn px-3 py-1.5 rounded-lg bg-indigo-600 text-white shadow">
+                    Énoncé & Sujet
+                </button>
+                <button onclick="switchTab('editeur')" id="tab-btn-editeur" class="tab-btn px-3 py-1.5 rounded-lg text-indigo-200 hover:text-white hover:bg-indigo-800/60 transition">
+                    Éditeur & Testeur
+                </button>
+                <button onclick="switchTab('memo')" id="tab-btn-memo" class="tab-btn px-3 py-1.5 rounded-lg text-indigo-200 hover:text-white hover:bg-indigo-800/60 transition">
+                    Aide-Mémoire
+                </button>
+                <button onclick="switchTab('solution')" id="tab-btn-solution" class="tab-btn px-3 py-1.5 rounded-lg text-indigo-200 hover:text-white hover:bg-indigo-800/60 transition">
+                    Solution Modèle
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+        
+        <!-- SECTION 1 : ÉNONCÉ DE L'EXERCICE -->
+        <section id="view-enonce" class="space-y-6">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-semibold rounded-full uppercase tracking-wider">Mission Pratique</span>
+                    <span class="text-xs text-slate-400">Durée recommandée : 20 - 30 minutes</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+                    Conception d'une Chronique Littéraire Interactive
+                </h2>
+                <p class="text-slate-600 leading-relaxed max-w-4xl text-base sm:text-lg mb-6">
+                    Votre mission consiste à transformer un extrait brut de texte en une page web sémantique et interactive consacrée au roman <em class="font-medium text-slate-800">Le Petit Prince</em> d'Antoine de Saint-Exupéry. Vous devez intégrer judicieusement les 7 balises étudiées.
+                </p>
+
+                <!-- Requirements Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+                        <h3 class="font-semibold text-slate-900 mb-3 flex items-center text-indigo-700">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Spécifications techniques à respecter :
+                        </h3>
+                        <ul class="space-y-2.5 text-sm text-slate-600">
+                            <li class="flex items-start">
+                                <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-slate-300 text-indigo-600 font-bold mr-2 text-xs">&lt;figure&gt;</code> & <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-slate-300 text-indigo-600 font-bold mr-2 text-xs">&lt;figcaption&gt;</code>
+                                <span>Encapsuler l'image de couverture avec sa légende explicative.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-slate-300 text-indigo-600 font-bold mr-2 text-xs">&lt;details&gt;</code> & <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-slate-300 text-indigo-600 font-bold mr-2 text-xs">&lt;summary&gt;</code>
+                                <span>Créer un accordéon cliquable masquant/affichant les thèmes majeurs du livre.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-slate-300 text-indigo-600 font-bold mr-2 text-xs">&lt;mark&gt;</code>
+                                <span>Mettre en évidence la phrase philosophique clé du renard.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-slate-300 text-indigo-600 font-bold mr-2 text-xs">&lt;cite&gt;</code>
+                                <span>Désigner correctement le titre du chef-d'œuvre et le recueil de citations.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-slate-300 text-indigo-600 font-bold mr-2 text-xs">&lt;address&gt;</code>
+                                <span>Structurer les coordonnées de contact de la rédaction littéraire en fin d'article.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-xl p-5 bg-indigo-50/40 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-semibold text-slate-900 mb-2 flex items-center text-indigo-900">
+                                <svg class="w-5 h-5 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                Consigne pour l'apprenant :
+                            </h3>
+                            <p class="text-sm text-slate-600 mb-3">
+                                Ouvrez l'onglet <strong>« Éditeur & Testeur »</strong>. Le texte brut y est déjà pré-chargé. Ajoutez les balises appropriées au bon endroit sans casser la mise en page. 
+                            </p>
+                            <p class="text-sm text-slate-600">
+                                Le système vérifiera automatiquement au fur et à mesure que les 7 balises requises sont correctement intégrées et fonctionnelles !
+                            </p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-indigo-100 flex gap-3">
+                            <button onclick="switchTab('editeur')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-xl text-sm transition shadow-sm flex items-center">
+                                Aller dans l'éditeur
+                                <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </button>
+                            <button onclick="switchTab('memo')" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-medium px-4 py-2 rounded-xl text-sm transition">
+                                Consulter l'aide-mémoire
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-editeur" class="hidden space-y-6">
+            <!-- Checklist of tags detected in live code -->
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Validation automatique des balises :</span>
+                    <span id="completion-status" class="text-xs font-semibold text-slate-600">0 sur 7 balises validées</span>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2" id="tag-badges">
+                    <div id="badge-figure" class="badge-check flex items-center justify-center py-1.5 px-2 rounded-lg border text-xs font-mono bg-slate-100 text-slate-400 border-slate-200">&lt;figure&gt;</div>
+                    <div id="badge-figcaption" class="badge-check flex items-center justify-center py-1.5 px-2 rounded-lg border text-xs font-mono bg-slate-100 text-slate-400 border-slate-200">&lt;figcaption&gt;</div>
+                    <div id="badge-details" class="badge-check flex items-center justify-center py-1.5 px-2 rounded-lg border text-xs font-mono bg-slate-100 text-slate-400 border-slate-200">&lt;details&gt;</div>
+                    <div id="badge-summary" class="badge-check flex items-center justify-center py-1.5 px-2 rounded-lg border text-xs font-mono bg-slate-100 text-slate-400 border-slate-200">&lt;summary&gt;</div>
+                    <div id="badge-mark" class="badge-check flex items-center justify-center py-1.5 px-2 rounded-lg border text-xs font-mono bg-slate-100 text-slate-400 border-slate-200">&lt;mark&gt;</div>
+                    <div id="badge-cite" class="badge-check flex items-center justify-center py-1.5 px-2 rounded-lg border text-xs font-mono bg-slate-100 text-slate-400 border-slate-200">&lt;cite&gt;</div>
+                    <div id="badge-address" class="badge-check flex items-center justify-center py-1.5 px-2 rounded-lg border text-xs font-mono bg-slate-100 text-slate-400 border-slate-200">&lt;address&gt;</div>
+                </div>
+            </div>
+
+            <!-- Workspace: Code Editor (Left) & Realtime Preview (Right) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                
+                <!-- Left: HTML Code Input -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col h-[650px] overflow-hidden">
+                    <div class="bg-slate-100 px-4 py-2.5 border-b border-slate-200 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+                            <span class="text-xs font-mono text-slate-600 font-semibold ml-2">index.html (Édition)</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="resetStarterCode()" class="text-xs px-2.5 py-1 text-slate-600 bg-white border border-slate-200 rounded hover:bg-slate-50 transition">
+                                Réinitialiser le code
+                            </button>
+                            <button onclick="injectSolution()" class="text-xs px-2.5 py-1 text-indigo-600 bg-indigo-50 border border-indigo-200 rounded hover:bg-indigo-100 transition">
+                                Charger la solution
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative flex-1 p-2 bg-slate-900">
+                        <textarea id="code-editor" spellcheck="false" class="w-full h-full bg-transparent text-emerald-400 font-mono-code text-xs sm:text-sm p-3 focus:outline-none resize-none leading-relaxed" oninput="updateLivePreview()"></textarea>
+                    </div>
+                </div>
+
+                <!-- Right: Rendered Output -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col h-[650px] overflow-hidden">
+                    <div class="bg-slate-100 px-4 py-2.5 border-b border-slate-200 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.264 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            <span class="text-xs font-semibold text-slate-700">Rendu du navigateur en direct</span>
+                        </div>
+                        <span class="text-xs text-slate-400">Mise à jour en temps réel</span>
+                    </div>
+                    <div class="flex-1 bg-white p-4 overflow-y-auto">
+                        <iframe id="live-preview-frame" class="w-full h-full border-0 rounded"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="view-memo" class="hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-900 mb-2">Fiche Récapitulative : 7 Balises Clés</h2>
+                <p class="text-slate-600 text-sm mb-6">Explications synthétiques, cas d'usage précis et pièges fréquents à éviter.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- figure & figcaption -->
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-mono font-bold px-2 py-0.5 rounded">&lt;figure&gt;</span>
+                            <span class="text-slate-400 font-bold">+</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-mono font-bold px-2 py-0.5 rounded">&lt;figcaption&gt;</span>
+                        </div>
+                        <p class="text-sm text-slate-700 mb-2">
+                            <strong>Rôle :</strong> Isole un contenu autonome (image, graphique, extrait de code, schéma) et lui adjoint une légende explicative grâce à <code>&lt;figcaption&gt;</code>.
+                        </p>
+                        <p class="text-xs text-slate-500 mb-2">
+                            <strong>Règle :</strong> <code>&lt;figcaption&gt;</code> doit être le premier ou le dernier enfant direct de <code>&lt;figure&gt;</code>.
+                        </p>
+                        <pre class="bg-slate-900 text-emerald-300 p-2.5 rounded-lg text-xs font-mono overflow-x-auto">&lt;figure&gt;
+  &lt;img src="cover.jpg" alt="Couverture"&gt;
+  &lt;figcaption&gt;Fig 1. Édition originale de 1943.&lt;/figcaption&gt;
+&lt;/figure&gt;</pre>
+                    </div>
+
+                    <!-- details & summary -->
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-mono font-bold px-2 py-0.5 rounded">&lt;details&gt;</span>
+                            <span class="text-slate-400 font-bold">+</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-mono font-bold px-2 py-0.5 rounded">&lt;summary&gt;</span>
+                        </div>
+                        <p class="text-sm text-slate-700 mb-2">
+                            <strong>Rôle :</strong> Crée un widget interactif de divulgation (accordéon) natif sans avoir besoin d'écrire une seule ligne de JavaScript !
+                        </p>
+                        <p class="text-xs text-slate-500 mb-2">
+                            <strong>Règle :</strong> <code>&lt;summary&gt;</code> définit le titre cliquable toujours visible. L'attribut optionnel <code>open</code> déplie l'accordéon par défaut.
+                        </p>
+                        <pre class="bg-slate-900 text-emerald-300 p-2.5 rounded-lg text-xs font-mono overflow-x-auto">&lt;details&gt;
+  &lt;summary&gt;Découvrir les thèmes clés&lt;/summary&gt;
+  &lt;p&gt;L'amitié, la solitude, le voyage...&lt;/p&gt;
+&lt;/details&gt;</pre>
+                    </div>
+
+                    <!-- mark -->
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-mono font-bold px-2 py-0.5 rounded">&lt;mark&gt;</span>
+                        </div>
+                        <p class="text-sm text-slate-700 mb-2">
+                            <strong>Rôle :</strong> Représente du texte surligné ou mis en exergue en raison de sa pertinence contextuelle (ex : résultat d'une recherche, passage clé).
+                        </p>
+                        <p class="text-xs text-slate-500 mb-2">
+                            <strong>Piège à éviter :</strong> Ne pas confondre avec <code>&lt;strong&gt;</code> (importance sémantique) ou <code>&lt;em&gt;</code> (insistance à l'oral).
+                        </p>
+                        <pre class="bg-slate-900 text-emerald-300 p-2.5 rounded-lg text-xs font-mono overflow-x-auto">&lt;p&gt;Retenez bien : &lt;mark&gt;L'essentiel est invisible pour les yeux.&lt;/mark&gt;&lt;/p&gt;</pre>
+                    </div>
+
+                    <!-- cite -->
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-mono font-bold px-2 py-0.5 rounded">&lt;cite&gt;</span>
+                        </div>
+                        <p class="text-sm text-slate-700 mb-2">
+                            <strong>Rôle :</strong> Sert à marquer le <em>titre d'une œuvre</em> (livre, film, tableau, chanson, essai, rapport, opéra, etc.).
+                        </p>
+                        <p class="text-xs text-slate-500 mb-2">
+                            <strong>Règle capitale HTML5 :</strong> La balise <code>&lt;cite&gt;</code> <strong>ne doit jamais</strong> contenir le nom d'une personne physique (l'auteur), uniquement le titre de l'œuvre.
+                        </p>
+                        <pre class="bg-slate-900 text-emerald-300 p-2.5 rounded-lg text-xs font-mono overflow-x-auto">&lt;p&gt;Selon le roman &lt;cite&gt;Le Petit Prince&lt;/cite&gt; écrit par Saint-Exupéry...&lt;/p&gt;</pre>
+                    </div>
+
+                    <!-- address -->
+                    <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 md:col-span-2">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-purple-100 text-purple-800 text-xs font-mono font-bold px-2 py-0.5 rounded">&lt;address&gt;</span>
+                        </div>
+                        <p class="text-sm text-slate-700 mb-2">
+                            <strong>Rôle :</strong> Fournit les informations de contact (e-mail, téléphone, adresse postale, lien réseau social) de l'auteur de l'article ou du propriétaire de la page.
+                        </p>
+                        <p class="text-xs text-slate-500 mb-2">
+                            <strong>Piège à éviter :</strong> Elle ne sert pas à formater n'importe quelle adresse géographique (ex: l'adresse d'un restaurant dont parle un blog), mais bien les coordonnées de l'auteur ou du responsable éditorial.
+                        </p>
+                        <pre class="bg-slate-900 text-emerald-300 p-2.5 rounded-lg text-xs font-mono overflow-x-auto">&lt;address&gt;
+  Chronique rédigée par &lt;a href="mailto:redaction@critique.fr"&gt;Sophie Martin&lt;/a&gt;.&lt;br&gt;
+  Éditions Culturelles, 12 rue des Lettres, Paris.
+&lt;/address&gt;</pre>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="view-solution" class="hidden space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Solution Modèle Commentée</h2>
+                        <p class="text-slate-600 text-sm">Code HTML propre, sémantique et respectant rigoureusement les normes W3C.</p>
+                    </div>
+                    <button onclick="copySolutionToClipboard()" id="copy-solution-btn" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium px-4 py-2 rounded-lg flex items-center transition">
+                        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        Copier la solution
+                    </button>
+                </div>
+
+                <div class="rounded-xl overflow-hidden border border-slate-800">
+                    <pre class="bg-slate-950 text-slate-200 p-4 text-xs sm:text-sm font-mono overflow-x-auto leading-relaxed"><code id="solution-code-block">&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Chronique Littéraire : Le Petit Prince&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 700px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+        figure { margin: 1.5rem 0; text-align: center; }
+        figure img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        figcaption { font-size: 0.85rem; color: #666; margin-top: 0.5rem; font-style: italic; }
+        details { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.75rem 1rem; margin: 1.5rem 0; cursor: pointer; }
+        summary { font-weight: bold; color: #3b82f6; outline: none; }
+        mark { background-color: #fef08a; padding: 0.1rem 0.3rem; border-radius: 3px; }
+        cite { font-style: italic; color: #1e3a8a; }
+        address { margin-top: 2.5rem; border-top: 1px solid #eee; padding-top: 1rem; font-size: 0.85rem; color: #64748b; font-style: normal; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Chronique du roman &lt;cite&gt;Le Petit Prince&lt;/cite&gt;&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;!-- Balises figure et figcaption --&gt;
+        &lt;figure&gt;
+            &lt;img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=700&amp;auto=format&amp;fit=crop&amp;q=80" alt="Illustration du Petit Prince"&gt;
+            &lt;figcaption&gt;Fig 1. L'univers poétique imaginé par Antoine de Saint-Exupéry en 1943.&lt;/figcaption&gt;
+        &lt;/figure&gt;
+
+        &lt;p&gt;
+            Publié pour la première fois à New York, &lt;cite&gt;Le Petit Prince&lt;/cite&gt; est un conte philosophique intemporel qui invite petits et grands à redécouvrir la valeur des liens humains.
+        &lt;/p&gt;
+
+        &lt;blockquote&gt;
+            &lt;p&gt;
+                « Voici mon secret. Il est très simple : &lt;mark&gt;on ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux.&lt;/mark&gt; »
+            &lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;!-- Balises details et summary --&gt;
+        &lt;details&gt;
+            &lt;summary&gt;Cliquez ici pour explorer les thèmes majeurs de l'œuvre&lt;/summary&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;L'amitié et l'apprivoisement :&lt;/strong&gt; symbolisé par la rencontre avec le renard.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Le regard d'enfant :&lt;/strong&gt; la critique de la rationalité excessive des adultes.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;L'amour et la responsabilité :&lt;/strong&gt; l'attachement à sa rose unique au monde.&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/details&gt;
+
+        &lt;p&gt;
+            Ce chef-d'œuvre figure également en bonne place dans l'anthologie littéraire &lt;cite&gt;Les Cent Livres du Siècle&lt;/cite&gt;.
+        &lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;!-- Balise address pour les coordonnées du rédacteur --&gt;
+        &lt;address&gt;
+            Chronique rédigée par &lt;strong&gt;Julie Delorme&lt;/strong&gt;&lt;br&gt;
+            Journaliste culturelle chez &lt;em&gt;Les Cahiers Littéraires&lt;/em&gt;&lt;br&gt;
+            Contact : &lt;a href="mailto:julie@cahiers-litteraires.fr"&gt;julie@cahiers-litteraires.fr&lt;/a&gt;
+        &lt;/address&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Starter raw template that the student must markup
+        const starterCode = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Chronique Littéraire : Le Petit Prince</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 650px; margin: 2rem auto; padding: 0 1rem; color: #333; }
+        img { max-width: 100%; border-radius: 8px; }
+        details { background: #f1f5f9; padding: 10px 14px; border-radius: 6px; margin: 15px 0; }
+        summary { font-weight: bold; cursor: pointer; color: #4338ca; }
+        mark { background-color: #fef08a; padding: 2px 4px; border-radius: 3px; }
+        address { margin-top: 30px; font-style: normal; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- TODO 1 : Balisez le titre de l'œuvre avec <cite> -->
+    <h1>Chronique du roman : Le Petit Prince</h1>
+
+    <!-- TODO 2 : Isolez l'image et sa légende avec <figure> et <figcaption> -->
+    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80" alt="Illustration du Petit Prince">
+    <p>Fig 1. L'univers poétique imaginé par Antoine de Saint-Exupéry en 1943.</p>
+
+    <!-- TODO 3 : Re-citez l'œuvre avec <cite> -->
+    <p>Publié pour la première fois en 1943, Le Petit Prince est un conte philosophique intemporel.</p>
+
+    <!-- TODO 4 : Surlignez la citation philosophique avec <mark> -->
+    <blockquote>
+        « Voici mon secret : on ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux. »
+    </blockquote>
+
+    <!-- TODO 5 : Encapsulez ce bloc thématique dans <details> avec son titre dans <summary> -->
+    <p>Cliquez ici pour explorer les thèmes majeurs de l'œuvre</p>
+    <ul>
+        <li>L'amitié et l'apprivoisement</li>
+        <li>Le regard d'enfant face au monde adulte</li>
+        <li>L'amour et la responsabilité</li>
+    </ul>
+
+    <!-- TODO 6 : Indiquez les coordonnées de la journaliste avec <address> -->
+    <footer>
+        Chronique rédigée par Julie Delorme.<br>
+        Email : julie@cahiers-litteraires.fr
+    </footer>
+
+</body>
+</html>`;
+
+        const solutionCode = document.getElementById('solution-code-block').innerText;
+        const editorTextarea = document.getElementById('code-editor');
+        const previewIframe = document.getElementById('live-preview-frame');
+
+        function initApp() {
+            editorTextarea.value = starterCode;
+            updateLivePreview();
+        }
+
+        // Tab Switching
+        function switchTab(tabId) {
+            const tabs = ['enonce', 'editeur', 'memo', 'solution'];
+            tabs.forEach(tab => {
+                const view = document.getElementById(`view-${tab}`);
+                const btn = document.getElementById(`tab-btn-${tab}`);
+                if (tab === tabId) {
+                    view.classList.remove('hidden');
+                    btn.className = 'tab-btn px-3 py-1.5 rounded-lg bg-indigo-600 text-white shadow';
+                } else {
+                    view.classList.add('hidden');
+                    btn.className = 'tab-btn px-3 py-1.5 rounded-lg text-indigo-200 hover:text-white hover:bg-indigo-800/60 transition';
+                }
+            });
+
+            if (tabId === 'editeur') {
+                updateLivePreview();
+            }
+        }
+
+        function updateLivePreview() {
+            const code = editorTextarea.value;
+            previewIframe.srcdoc = code;
+            checkTags(code);
+        }
+
+        function checkTags(code) {
+            // Target tags: figure, figcaption, details, summary, mark, address, cite
+            const targetTags = ['figure', 'figcaption', 'details', 'summary', 'mark', 'cite', 'address'];
+            let validatedCount = 0;
+
+            // Simple DOM parser for structural validation
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(code, 'text/html');
+
+            targetTags.forEach(tagName => {
+                const badge = document.getElementById(`badge-${tagName}`);
+                const elements = doc.querySelectorAll(tagName);
+
+                if (elements.length > 0) {
+                    validatedCount++;
+                    badge.className = 'badge-check flex items-center justify-center py-1.5 px-2 rounded-lg border text-xs font-mono font-bold bg-emerald-500 text-white border-emerald-600 shadow-sm';
+                    badge.innerHTML = `✓ &lt;${tagName}&gt;`;
+                } else {
+                    badge.className = 'badge-check flex items-center justify-center py-1.5 px-2 rounded-lg border text-xs font-mono bg-slate-100 text-slate-400 border-slate-200';
+                    badge.innerHTML = `&lt;${tagName}&gt;`;
+                }
+            });
+
+            // Update badge counter
+            const counterLabel = document.getElementById('completion-status');
+            counterLabel.textContent = `${validatedCount} sur 7 balises validées`;
+            if (validatedCount === 7) {
+                counterLabel.className = 'text-xs font-bold text-emerald-600 flex items-center';
+                counterLabel.innerHTML = '🎉 Bravo ! Toutes les balises ont été détectées !';
+            } else {
+                counterLabel.className = 'text-xs font-semibold text-slate-600';
+            }
+        }
+
+        // Reset to initial raw starter code
+        function resetStarterCode() {
+            editorTextarea.value = starterCode;
+            updateLivePreview();
+        }
+
+        // Inject pre-baked complete solution directly into the editor
+        function injectSolution() {
+            editorTextarea.value = solutionCode;
+            updateLivePreview();
+        }
+
+        // Copy solution code safely to clipboard
+        function copySolutionToClipboard() {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = solutionCode;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const btn = document.getElementById('copy-solution-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<svg class="w-4 h-4 mr-1.5 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Copié !`;
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+            }, 2000);
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
