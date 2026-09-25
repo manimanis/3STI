@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Images Adaptatives - MiniProjet 21 (&lt;picture&gt; &amp; &lt;source&gt;)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="page-header">
+      <div class="tag">HTML5 &bull; Conception Responsive</div>
+      <h1>Images adaptatives avec <code>&lt;picture&gt;</code></h1>
+      <p class="subtitle">
+        À vous de jouer : complétez les balises <code>&lt;picture&gt;</code> et <code>&lt;source&gt;</code> ci-dessous
+        pour charger dynamiquement les images appropriées.
+      </p>
+
+      <div class="resolution-indicator" id="resolution-indicator">
+        <span class="indicator-icon">📐</span>
+        <span>Largeur actuelle de la fenêtre : <strong id="current-width">...</strong> px</span>
+        <span class="breakpoint-badge" id="current-breakpoint">Calcul...</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- Exercice 1 : Direction artistique selon la largeur d'écran -->
+      <section class="card-demo">
+        <h2>1. Direction artistique selon la largeur d'écran (Paysage de montagne)</h2>
+        <p class="desc">
+          Complétez le conteneur <code>&lt;picture&gt;</code> pour charger :
+          <br>&bull; <code>images/banner-desktop.jpg</code> pour les écrans &ge; 1024px.
+          <br>&bull; <code>images/banner-tablet.jpg</code> pour les écrans &ge; 768px.
+          <br>&bull; <code>images/banner-mobile.jpg</code> comme image par défaut (&lt; 768px).
+        </p>
+
+        <div class="picture-wrapper">
+          <!-- TODO : Insérer l'élément <picture> avec les balises <source> appropriées -->
+          <picture>
+            <img src="images/banner-mobile.jpg" alt="Paysage de montagne adaptatif" class="responsive-img">
+          </picture>
+        </div>
+      </section>
+
+      <!-- Exercice 2 : Poste de travail informatique -->
+      <section class="card-demo">
+        <h2>2. Adaptation d'un poste de travail informatique (Thème STI)</h2>
+        <p class="desc">
+          Configurez le chargement adaptatif pour le thème technologique (<code>tech-desktop.jpg</code>,
+          <code>tech-tablet.jpg</code>, <code>tech-mobile.jpg</code>).
+        </p>
+
+        <div class="picture-wrapper">
+          <!-- TODO : Insérer l'élément <picture> -->
+          <picture>
+            <img src="images/tech-mobile.jpg" alt="Poste informatique" class="responsive-img">
+          </picture>
+        </div>
+      </section>
+
+      <!-- Exercice 3 : Adaptation selon l'orientation -->
+      <section class="card-demo">
+        <h2>3. Détection de l'orientation : <code>media="(orientation: landscape)"</code></h2>
+        <p class="desc">
+          Affichez <code>images/paysage.jpg</code> en mode paysage et <code>images/portrait.jpg</code> en mode portrait.
+        </p>
+
+        <div class="picture-wrapper max-centered">
+          <!-- TODO : Insérer <source media="(orientation: landscape)" ...> -->
+          <picture>
+            <img src="images/portrait.jpg" alt="Vue urbaine" class="responsive-img">
+          </picture>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>&copy; 3STI - Lycée &bull; MiniProjet 21 : Balise <code>&lt;picture&gt;</code> et attribut <code>media</code>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    function updateDimensions() {
+      const width = window.innerWidth;
+      const widthEl = document.getElementById('current-width');
+      const badgeEl = document.getElementById('current-breakpoint');
+      if (widthEl && badgeEl) {
+        widthEl.textContent = width;
+        if (width >= 1024) {
+          badgeEl.textContent = 'Desktop (>= 1024px)';
+          badgeEl.className = 'breakpoint-badge bp-desktop';
+        } else if (width >= 768) {
+          badgeEl.textContent = 'Tablette (768px - 1023px)';
+          badgeEl.className = 'breakpoint-badge bp-tablet';
+        } else {
+          badgeEl.textContent = 'Mobile (< 768px)';
+          badgeEl.className = 'breakpoint-badge bp-mobile';
+        }
+      }
+    }
+    window.addEventListener('resize', updateDimensions);
+    updateDimensions();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+/* ==========================================================================
+   Feuille de styles - MiniProjet 21 : Images Adaptatives (<picture>)
+   ========================================================================== */
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --bg-main: #f8fafc;
+  --card-bg: #ffffff;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  line-height: 1.6;
+  padding: 24px 16px;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* En-tête de la page */
+.page-header {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #ffffff;
+  padding: 32px 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.page-header .tag {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.page-header h1 {
+  font-size: 1.9rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.page-header h1 code {
+  color: #38bdf8;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.page-header .subtitle {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: 0 auto 20px auto;
+}
+
+/* Indicateur interactif de largeur de fenêtre */
+.resolution-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  color: #1e293b;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.indicator-icon {
+  font-size: 1.2rem;
+}
+
+.breakpoint-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bp-desktop {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+}
+
+.bp-tablet {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.bp-mobile {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+/* Cartes de démonstration */
+.card-demo {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.card-demo h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.card-demo .desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+/* Conteneur d'image responsive */
+.picture-wrapper {
+  background: #f1f5f9;
+  border-radius: var(--radius-md);
+  border: 1px solid #cbd5e1;
+  overflow: hidden;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture-wrapper.max-centered {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.responsive-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Code source syntaxique */
+.code-preview {
+  background: #0f172a;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.code-preview pre {
+  margin: 0;
+}
+
+.code-preview code {
+  font-family: 'Consolas', monospace;
+  font-size: 0.9rem;
+  color: #38bdf8;
+  line-height: 1.5;
+}
+
+/* Pied de page */
+.page-footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 32px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border-color);
+}

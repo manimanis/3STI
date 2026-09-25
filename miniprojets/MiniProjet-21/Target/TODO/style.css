@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f5f9;
+}
+
+.chapter-card {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.chapter-title {
+  font-size: 1.25rem;
+  color: #1e293b;
+}
+
+.chapter-tip {
+  background-color: #e0f2fe;
+  border-left: 4px solid #0284c7;
+  padding: 10px;
+}

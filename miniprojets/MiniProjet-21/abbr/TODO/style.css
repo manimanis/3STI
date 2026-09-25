@@ -1,0 +1,284 @@
+/* ==========================================================================
+   Feuille de styles - MiniProjet 21 : Glossaire & Éléments invisibles
+   (<abbr>, hidden, display: none, visibility: hidden) - 100% HTML & CSS
+   ========================================================================== */
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --bg-main: #f8fafc;
+  --card-bg: #ffffff;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  line-height: 1.6;
+  padding: 24px 16px;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* En-tête */
+.page-header {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #ffffff;
+  padding: 32px 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.page-header .tag {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.page-header h1 {
+  font-size: 1.9rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.page-header h1 code {
+  color: #38bdf8;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.page-header .subtitle {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Style des abréviations <abbr> */
+abbr {
+  text-decoration: underline dotted #2563eb 2px;
+  text-underline-offset: 4px;
+  cursor: help;
+  font-weight: 600;
+  color: #1d4ed8;
+  padding: 0 2px;
+  transition: all 0.2s ease;
+}
+
+abbr:hover {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-radius: 3px;
+}
+
+/* Cartes de sections */
+.card-section {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.card-section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-section .desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+/* Grille de fiches techniques */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.spec-item {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.spec-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.spec-icon {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.spec-title {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.spec-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Panneau diagnostic confidentiel */
+.confidential-box {
+  background: #fef2f2;
+  border: 1.5px solid #f87171;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-top: 12px;
+}
+
+.confidential-box h3 {
+  color: #991b1b;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.log-terminal {
+  background: #0f172a;
+  color: #38bdf8;
+  font-family: 'Consolas', monospace;
+  font-size: 0.85rem;
+  padding: 14px;
+  border-radius: 6px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.log-terminal .success { color: #34d399; }
+.log-terminal .warn { color: #facc15; }
+
+/* Grille de comparaison des techniques de masquage */
+.comparatif-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.comparatif-card {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comparatif-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-normal { background: #e2e8f0; color: #475569; }
+.badge-hidden { background: #dbeafe; color: #1e40af; }
+.badge-display { background: #e0e7ff; color: #3730a3; }
+.badge-visibility { background: #fef3c7; color: #92400e; }
+
+.nodes-row {
+  display: flex;
+  gap: 10px;
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  min-height: 64px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.node-box {
+  flex: 1;
+  background: #eff6ff;
+  border: 1.5px solid #93c5fd;
+  color: #1e40af;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 10px 6px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.node-box.target {
+  background: #fef3c7;
+  border-color: #f59e0b;
+  color: #92400e;
+}
+
+.card-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: auto;
+  line-height: 1.4;
+}
+
+/* Pied de page */
+.page-footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 32px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border-color);
+}

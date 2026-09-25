@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 220" width="100%" height="100%">
+  <defs>
+    <filter id="shadow10" x="-5%" y="-10%" width="110%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <rect x="15" y="10" width="510" height="200" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow10)" />
+  <path d="M 15 20 A 10 10 0 0 1 25 10 L 515 10 A 10 10 0 0 1 525 20 L 525 38 L 15 38 Z" fill="#f1f5f9" />
+  <circle cx="32" cy="24" r="4" fill="#f87171" />
+  <circle cx="44" cy="24" r="4" fill="#fbbf24" />
+  <circle cx="56" cy="24" r="4" fill="#34d399" />
+  <text x="75" y="27" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#64748b">Validation syntaxique et sémantique HTML5</text>
+
+  <!-- Left: Valid syntax -->
+  <rect x="35" y="52" width="225" height="142" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2" />
+  <text x="147" y="74" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#065f46" text-anchor="middle">✓ Structure Valide</text>
+  <rect x="47" y="86" width="201" height="96" rx="5" fill="#ffffff" stroke="#a7f3d0" />
+  <text x="55" y="106" font-family="monospace" font-size="10" fill="#047857">&lt;figure&gt;</text>
+  <text x="65" y="124" font-family="monospace" font-size="10" fill="#065f46">  &lt;img src="image.jpg"&gt;</text>
+  <text x="65" y="142" font-family="monospace" font-size="10" fill="#065f46">  &lt;figcaption&gt;Légende&lt;/figcaption&gt;</text>
+  <text x="55" y="160" font-family="monospace" font-size="10" fill="#047857">&lt;/figure&gt;</text>
+
+  <!-- Right: Invalid syntax -->
+  <rect x="280" y="52" width="225" height="142" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="2" />
+  <text x="392" y="74" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#991b1b" text-anchor="middle">✗ Structure Invalide</text>
+  <rect x="292" y="86" width="201" height="96" rx="5" fill="#ffffff" stroke="#fca5a5" />
+  <text x="300" y="106" font-family="monospace" font-size="10" fill="#991b1b">&lt;details&gt;</text>
+  <text x="310" y="124" font-family="monospace" font-size="10" fill="#b91c1c">  &lt;p&gt;Texte avant&lt;/p&gt; ⚠️</text>
+  <text x="310" y="142" font-family="monospace" font-size="10" fill="#b91c1c">  &lt;summary&gt;Titre&lt;/summary&gt;</text>
+  <text x="300" y="160" font-family="monospace" font-size="10" fill="#991b1b">&lt;/details&gt;</text>
+</svg>

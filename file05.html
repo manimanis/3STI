@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Séance n°5 : Notions avancées HTML5 & CSS3</title>
+  <title>Séance n°3 : Notions avancées HTML5 & CSS3</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/default.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* Styles dédiés aux démonstrations interactives de la Séance 5 */
+    /* Styles dédiés aux démonstrations interactives de la Séance 3 */
     .demo-frame {
       width: 100%;
       height: 200px;
@@ -288,7 +288,7 @@
   </aside>
 
   <main class="my-4 container">
-    <h1>Séance n°5 : Notions avancées HTML5 & CSS3</h1>
+    <h1>Séance n°3 : Notions avancées HTML5 & CSS3</h1>
 
     <!-- ====================================================================
          ARTICLE 1 : OBJECTIFS & PRÉSENTATION
@@ -300,7 +300,7 @@
       <section>
         <h3>Mise en situation & Objectifs</h3>
         <p>
-          Cette cinquième séance d'informatique en <strong>3<sup>ème</sup> SI</strong> approfondit la maîtrise des
+          Cette troisième séance d'informatique en <strong>3<sup>ème</sup> SI</strong> approfondit la maîtrise des
           langages <strong>HTML5</strong> et <strong>CSS3</strong> à travers des concepts avancés de structuration et de
           mise en page.
           Elle permet de consolider l'autonomie des élèves dans l'intégration modulaire, la manipulation du flux de
@@ -491,15 +491,15 @@
           <p class="text-muted small mb-2">Cliquez sur l'un des boutons de chapitres ci-dessous pour observer le
             chargement ciblé dans le cadre récepteur (Mini-Projet 21) :</p>
           <div class="mb-3 d-flex flex-wrap gap-2">
-            <a href="miniprojets/MiniProjet-21/Target/chapitre1.html" target="demo_frame_cours"
+            <a href="miniprojets/MiniProjet-21/Target/Complete/chapitre1.html" target="demo_frame_cours"
               class="btn btn-sm btn-outline-primary">📘 Chapitre 1 : Introduction</a>
-            <a href="miniprojets/MiniProjet-21/Target/chapitre2.html" target="demo_frame_cours"
+            <a href="miniprojets/MiniProjet-21/Target/Complete/chapitre2.html" target="demo_frame_cours"
               class="btn btn-sm btn-outline-success">📙 Chapitre 2 : Balises HTML5</a>
-            <a href="miniprojets/MiniProjet-21/Target/chapitre3.html" target="demo_frame_cours"
+            <a href="miniprojets/MiniProjet-21/Target/Complete/chapitre3.html" target="demo_frame_cours"
               class="btn btn-sm btn-outline-info">📕 Chapitre 3 : Feuilles CSS3</a>
           </div>
-          <iframe src="miniprojets/MiniProjet-21/Target/chapitre1.html" name="demo_frame_cours" class="demo-frame"
-            style="height: 240px;"></iframe>
+          <iframe src="miniprojets/MiniProjet-21/Target/Complete/chapitre1.html" name="demo_frame_cours"
+            class="demo-frame" style="height: 240px;"></iframe>
         </div>
 
         <div class="callout-box">
@@ -509,7 +509,124 @@
         </div>
       </section>
 
-      <!-- Section 2.2 : L'attribut media -->
+      <!-- Section 2.2 : Exercice 1 : Cadres intégrés -->
+      <section>
+        <h3>Exercice 1 : Cadres intégrés</h3>
+        <p>
+          L'objectif de cet exercice pratique est de concevoir un <em>Manuel Numérique</em> en combinant une barre de
+          navigation et un cadre intégré.
+        </p>
+
+        <div class="alert alert-primary mb-4">
+          <div class="d-flex align-items-center mb-2">
+            <span class="fs-4 me-2">🎯</span>
+            <strong class="fs-5">Objectif &amp; Travail demandé :</strong>
+          </div>
+          <p class="mb-2">
+            À partir du dossier de travail fourni contenant les chapitres du cours (fichiers HTML) et leur feuille de
+            styles CSS, vous devez réaliser la page d'accueil interactive <strong><code>index.html</code></strong> :
+          </p>
+          <ul class="mb-0">
+            <li><strong>Télécharger l'archive ZIP</strong> et décompresser son contenu.</li>
+            <li><strong>Créer le fichier <code>index.html</code></strong> structurant le portail avec son en-tête
+              <code>&lt;header&gt;</code> et sa zone de contenu <code>&lt;main&gt;</code>.
+            </li>
+            <li><strong>Insérer des liens de navigation</strong> pointant vers les trois chapitres
+              <code>chapitre1.html</code>, <code>chapitre2.html</code> et <code>chapitre3.html</code>.
+            </li>
+            <li><strong>Intégrer le cadre <code>&lt;iframe&gt;</code></strong> de manière à afficher le
+              contenu de chaque chapitre sans recharger la page. Le cadre affiche la page
+              <code>chapitre1.html</code> au chargement.
+            </li>
+          </ul>
+        </div>
+
+        <div class="my-3 text-center">
+          <a href="miniprojets/MiniProjet-21/Target/TODO.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger l'archive
+          </a>
+        </div>
+
+        <h4>Travail demandé :</h4>
+        <ol>
+          <li class="mb-3">
+            <strong>Étape 1 — Téléchargement et extraction des fichiers de base :</strong>
+            <p>
+              Téléchargez l'archive <code>TODO.zip</code> via le bouton ci-dessus et décompressez-la dans votre dossier
+              de travail.
+            </p>
+            <p>Vous obtiendrez les fichiers suivants :</p>
+            <ul>
+              <li><code>chapitre1.html</code> : <em>Introduction au Web &amp; Architecture Client-Serveur.</em></li>
+              <li><code>chapitre2.html</code> : <em>Balises fondamentales &amp; Sémantique HTML5.</em></li>
+              <li><code>chapitre3.html</code> : <em>Feuilles de style &amp; Effets visuels CSS3.</em></li>
+              <li><code>style.css</code> : Feuille de styles assurant la présentation visuelle des fiches.</li>
+            </ul>
+          </li>
+
+          <li class="mb-3">
+            <strong>Étape 2 — Création de la page principale <code>index.html</code> :</strong>
+            <p>
+              Dans le même dossier, créez le fichier <strong><code>index.html</code></strong>.
+            </p>
+          </li>
+
+          <li class="mb-3">
+            <strong>Étape 3 — Mise en place de la barre de navigation :</strong>
+            <p>
+              Dans le corps de la page, ajoutez un titre principal et trois liens hypertextes <code>&lt;a&gt;</code> :
+            </p>
+            <ul>
+              <li>Lien 1 : <em>« Chapitre 1 : Introduction »</em> pointant le fichier <code>chapitre1.html</code></li>
+              <li>Lien 2 : <em>« Chapitre 2 : Balises HTML5 »</em> pointant le fichier <code>chapitre2.html</code></li>
+              <li>Lien 3 : <em>« Chapitre 3 : Feuilles CSS3 »</em> pointant le fichier <code>chapitre3.html</code>
+              </li>
+            </ul>
+            <p>
+              Ajoutez à chacun de ces trois liens l'attribut <strong><code>target</code></strong> afin
+              d'indiquer que la cible d'affichage est le cadre intégré récepteur.
+            </p>
+          </li>
+
+          <li class="mb-3">
+            <strong>Étape 4 — Intégration et paramétrage du cadre <code>&lt;iframe&gt;</code> :</strong>
+            <p>
+              Dans la section principale (<code>&lt;main&gt;</code>), insérez un cadre intégré avec les
+              attributs suivants :
+            </p>
+            <ul>
+              <li><code>name</code> : nom du cadre identique à la valeur de<code>target</code> utilisé dans les
+                liens.
+              </li>
+              <li><code>src</code> : affiche le premier chapitre dès le chargement initial de la page.
+              </li>
+              <li><code>width</code> et <code>height</code> : largeur et hauteur confortables pour la lecture (ex.
+                <code>width="100%"</code> et <code>height="500"</code>).
+              </li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="callout-box">
+          <strong>Règle d'or du mécanisme de ciblage :</strong>
+          <p class="mb-2">
+            La valeur spécifiée dans l'attribut <code>target</code> de chaque lien doit correspondre
+            <strong>exactement</strong> (à la lettre près, en respectant les minuscules/majuscules) au nom défini dans
+            l'attribut <code>name</code> de l'élément <code>&lt;iframe&gt;</code>.
+          </p>
+
+          <figure class="my-3 text-center">
+            <img src="images/regle-ciblage-iframe.svg" alt="Règle d'or du ciblage : correspondance target vers name"
+              class="img-fluid rounded border shadow-sm" style="max-width: 820px; width: 100%;">
+            <figcaption class="mt-2 text-muted small fst-italic">
+              Illustration de la règle de correspondance exacte : l'attribut target du lien désigne précisément le name
+              du cadre récepteur.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Section 2.3 : L'attribut media -->
       <section>
         <h3>Images adaptatives : &lt;picture&gt; et &lt;source&gt;</h3>
         <p>
@@ -588,7 +705,132 @@
         </p>
       </section>
 
-      <!-- Section 2.3 : Abréviations -->
+      <!-- Section 2.4 : Exercice 2 : Conception Responsive -->
+      <section>
+        <h3>Exercice 2 : Conception Responsive</h3>
+        <p>
+          Mettez en pratique vos compétences sur la balise <strong><code>&lt;picture&gt;</code></strong>, les éléments
+          <strong><code>&lt;source&gt;</code></strong> et l'attribut <strong><code>media</code></strong> en réalisant
+          une interface web adaptative capable de charger dynamiquement les images en fonction de la résolution et de
+          l'orientation de l'écran.
+        </p>
+
+        <div class="alert alert-info shadow-sm">
+          <strong>🎯 Objectifs pédagogiques :</strong>
+          <ul class="mb-0 mt-2">
+            <li><strong>Comprendre la syntaxe</strong> du conteneur <code>&lt;picture&gt;</code> et l'ordre d'évaluation
+              des balises <code>&lt;source&gt;</code>.</li>
+            <li><strong>Conditionner les images</strong> selon la largeur d'écran (Media Queries :
+              <code>min-width: 1024px</code> et <code>min-width: 768px</code>).
+            </li>
+            <li><strong>Détecter l'orientation</strong> de l'appareil avec
+              <code>media="(orientation: landscape)"</code>.
+            </li>
+            <li><strong>Assurer la compatibilité descendante</strong> grâce à l'élément de repli obligatoire
+              <code>&lt;img&gt;</code>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="my-3 text-center">
+          <a href="miniprojets/MiniProjet-21/picture/TODO.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger l'archive
+          </a>
+        </div>
+
+        <h4>Travail demandé :</h4>
+        <ol>
+          <li class="mb-3">
+            <strong>Étape 1 — Téléchargement et extraction des fichiers de base :</strong>
+            <p>
+              Téléchargez puis décompressez l'archive <code>TODO.zip</code> via le bouton ci-dessus. Vous obtiendrez les
+              éléments suivants :
+            </p>
+            <ul>
+              <li><code>index.html</code> : le fichier HTML d'exercice à compléter.</li>
+              <li><code>style.css</code> : la feuille de styles intégrant la mise en page responsive et l'indicateur de
+                largeur en direct.</li>
+              <li><code>images/</code> : le dossier contenant les visuels optimisés pour chaque résolution et format
+                d'affichage.</li>
+            </ul>
+          </li>
+
+          <li class="mb-3">
+            <strong>Étape 2 — Direction artistique par largeur d'écran (Paysage de montagne) :</strong>
+            <p>
+              Dans la première section de <code>index.html</code>, complétez le conteneur <code>&lt;picture&gt;</code>
+              pour charger l'image adaptée à la largeur de la fenêtre :
+            </p>
+            <ul>
+              <li>Sur grand écran (largeur &ge; 1024px) : charger <code>images/banner-desktop.jpg</code> (1200&times;500
+                px).</li>
+              <li>Sur écran moyen (largeur &ge; 768px) : charger <code>images/banner-tablet.jpg</code> (800&times;450
+                px).</li>
+              <li>Par défaut et sur smartphone (&lt; 768px) : afficher <code>images/banner-mobile.jpg</code> via la
+                balise <code>&lt;img&gt;</code>.</li>
+            </ul>
+            <div class="callout-box my-2">
+              <strong>💡 Ordre d'évaluation des règles media :</strong>
+              <p class="mb-2">
+                Le navigateur évalue les balises <code>&lt;source&gt;</code> de haut en bas et retient la <em>première
+                  condition vérifiée</em>. Il faut donc toujours ordonner les règles <code>min-width</code> de la plus
+                grande à la plus petite (ex. <code>1024px</code> avant <code>768px</code>).
+              </p>
+
+              <figure class="my-3 text-center">
+                <img src="images/ordre-evaluation-picture.svg"
+                  alt="Ordre d'évaluation des balises source dans picture : ordre décroissant vs ordre croissant"
+                  class="img-fluid rounded border shadow-sm" style="max-width: 1400px; width: 100%;">
+                <figcaption class="mt-2 text-muted small fst-italic">
+                  Comparaison du mécanisme d'évaluation : le classement décroissant garantit que chaque écran reçoit sa
+                  version optimale sans masquer les règles suivantes.
+                </figcaption>
+              </figure>
+            </div>
+          </li>
+
+          <li class="mb-3">
+            <strong>Étape 3 — Adaptation d'un poste de travail informatique (Thème STI) :</strong>
+            <p>
+              Dans la deuxième section, configurez le chargement adaptatif pour le thème technologique :
+            </p>
+            <ul>
+              <li>Grand écran (&ge; 1024px) : <code>images/tech-desktop.jpg</code></li>
+              <li>Écran moyen (&ge; 768px) : <code>images/tech-tablet.jpg</code></li>
+              <li>Mobile (&lt; 768px) : <code>images/tech-mobile.jpg</code> (balise <code>&lt;img&gt;</code> de repli).
+              </li>
+            </ul>
+          </li>
+
+          <li class="mb-3">
+            <strong>Étape 4 — Détection de l'orientation de l'écran :</strong>
+            <p>
+              Dans la troisième section, utilisez le critère d'orientation :
+            </p>
+            <ul>
+              <li>En mode paysage (largeur &gt; hauteur) : condition <code>media="(orientation: landscape)"</code> pour
+                charger <code>images/paysage.jpg</code>.</li>
+              <li>En mode portrait (vertical) : balise de repli <code>&lt;img src="images/portrait.jpg" ...&gt;</code>.
+              </li>
+            </ul>
+          </li>
+
+          <li class="mb-3">
+            <strong>Étape 5 — Test et validation dans le navigateur :</strong>
+            <p>
+              Ouvrez votre fichier <code>index.html</code> dans un navigateur. Redimensionnez horizontalement la fenêtre
+              et observez :
+            </p>
+            <ul>
+              <li>L'indicateur interactif en haut de page affiche en temps réel la largeur en pixels et le palier actif
+                (<em>Desktop</em>, <em>Tablette</em> ou <em>Mobile</em>).</li>
+              <li>L'image bascule automatiquement avec le badge correspondant incrusté dans le visuel.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Section 2.5 : Abréviations -->
       <section>
         <h3>Abréviations : &lt;abbr&gt;</h3>
         <p>
@@ -648,7 +890,7 @@
         </div>
       </section>
 
-      <!-- Section 2.4 : Éléments invisibles -->
+      <!-- Section 2.6 : Éléments invisibles -->
       <section>
         <h3>Éléments invisibles</h3>
         <p>
@@ -829,6 +1071,128 @@
           la logique sémantique du contenu (ex. un panneau d'aide fermé par défaut), et réservez
           <code>display: none;</code> aux choix stylistiques et réactifs gérés dans les feuilles de styles CSS.
         </div>
+      </section>
+
+      <!-- Section 2.7 : Exercice 3 : Abréviations et Éléments invisibles -->
+      <section>
+        <h3>Exercice 3 : Abréviations et Éléments invisibles</h3>
+        <p>
+          Mettez en application la balise sémantique <strong><code>&lt;abbr&gt;</code></strong> (avec son attribut
+          <code>title</code>) ainsi que les différentes techniques de masquage d'éléments (l'attribut natif HTML5
+          <strong><code>hidden</code></strong>, et les propriétés CSS <code>display: none</code> et
+          <code>visibility: hidden</code>) en complétant une fiche technique de diagnostic système.
+        </p>
+
+        <div class="alert alert-info shadow-sm">
+          <strong>🎯 Objectifs pédagogiques :</strong>
+          <ul class="mb-0 mt-2">
+            <li><strong>Identifier et baliser</strong> les sigles et acronymes avec <code>&lt;abbr&gt;</code> pour
+              enrichir l'accessibilité et fournir des infobulles natives.</li>
+            <li><strong>Renseigner l'attribut <code>title</code></strong> avec la définition complète et explicite de
+              chaque abréviation.</li>
+            <li><strong>Appliquer l'attribut booléen <code>hidden</code></strong> pour masquer des données
+              confidentielles et libérer l'espace dans la page.</li>
+            <li><strong>Distinguer les effets spatiaux</strong> entre l'attribut <code>hidden</code>, la règle
+              <code>display: none</code> (espace libéré) et la règle <code>visibility: hidden</code> (espace réservé).
+            </li>
+          </ul>
+        </div>
+
+        <div class="my-3 text-center">
+          <a href="miniprojets/MiniProjet-21/abbr/TODO.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger l'archive
+          </a>
+        </div>
+
+        <h4>Travail demandé :</h4>
+        <ol>
+          <li class="mb-3">
+            <strong>Étape 1 — Téléchargement et extraction des fichiers :</strong>
+            <p>
+              Téléchargez puis décompressez l'archive <code>TODO.zip</code>. Vous obtiendrez les éléments suivants :
+            </p>
+            <ul>
+              <li><code>index.html</code> : la page de spécifications et de diagnostic à compléter.</li>
+              <li><code>style.css</code> : la feuille de styles définissant la présentation des cartes.</li>
+            </ul>
+          </li>
+
+          <li class="mb-3">
+            <strong>Étape 2 — Balisage sémantique des acronymes du texte :</strong>
+            <p>
+              Dans le premier paragraphe de <code>index.html</code>, encadrez les abréviations suivantes avec la balise
+              <code>&lt;abbr&gt;</code> et son attribut <code>title</code> :
+            </p>
+            <ul>
+              <li><code>IA</code> : <em>« Intelligence Artificielle »</em></li>
+              <li><code>IoT</code> : <em>« Internet of Things - Internet des Objets connectés »</em></li>
+              <li><code>W3C</code> : <em>« World Wide Web Consortium - Organisme de standardisation du Web »</em></li>
+              <li><code>HTML5</code> : <em>« HyperText Markup Language - Version 5 »</em></li>
+              <li><code>CSS3</code> : <em>« Cascading Style Sheets - Feuilles de style en cascade »</em></li>
+              <li><code>URL</code> : <em>« Uniform Resource Locator - Adresse Web normalisée »</em></li>
+            </ul>
+          </li>
+
+          <li class="mb-3">
+            <strong>Étape 3 — Fiches de spécifications matérielles :</strong>
+            <p>
+              Dans la grille des spécifications (<code>.specs-grid</code>), appliquez la balise
+              <code>&lt;abbr title="..."&gt;</code> aux quatre composants matériels :
+            </p>
+            <ul>
+              <li><code>CPU</code> : <em>« Central Processing Unit - Processeur principal à 16 cœurs »</em></li>
+              <li><code>GPU</code> : <em>« Graphics Processing Unit - Processeur graphique dédié au calcul intensif
+                  »</em></li>
+              <li><code>RAM</code> : <em>« Random Access Memory - Mémoire vive volatile haute vitesse DDR5 »</em></li>
+              <li><code>SSD</code> : <em>« Solid State Drive - Disque à mémoire flash ultra-rapide NVMe »</em></li>
+            </ul>
+          </li>
+
+          <li class="mb-3">
+            <strong>Étape 4 — Masquage sécurisé du journal avec l'attribut <code>hidden</code> :</strong>
+            <p>
+              Le conteneur <code>#diagnostic-box</code> contient des données confidentielles (journal d'audit, clés SHA256)
+              qui doivent être totalement masquées à l'affichage :
+            </p>
+            <ul>
+              <li>Ajoutez l'attribut booléen <strong><code>hidden</code></strong> à la balise
+                <code>&lt;div id="diagnostic-box" class="confidential-box"&gt;</code>.</li>
+              <li>Vérifiez dans votre navigateur que le bloc n'est plus visible et qu'aucun espace blanc n'est laissé dans la page.</li>
+            </ul>
+          </li>
+
+          <li class="mb-3">
+            <strong>Étape 5 — Implémentation des 3 techniques de masquage (HTML &amp; CSS) :</strong>
+            <p>
+              Dans la section 3 (<em>Comparatif</em>) de <code>index.html</code>, complétez le balisage des cartes
+              pour appliquer vous-même chaque technique sur le <strong>Nœud Bêta (2)</strong> :
+            </p>
+            <ul>
+              <li>
+                <strong>Cas 2 — Attribut HTML5 <code>hidden</code> :</strong>
+                ajoutez l'attribut booléen <code>hidden</code> sur le Nœud Bêta :
+                <br><code>&lt;div class="node-box target" hidden&gt;Nœud Bêta (hidden)&lt;/div&gt;</code>.
+              </li>
+              <li>
+                <strong>Cas 3 — Règle CSS <code>display: none;</code> :</strong>
+                appliquez le style en ligne <code>style="display: none;"</code> sur le Nœud Bêta :
+                <br><code>&lt;div class="node-box target" style="display: none;"&gt;Nœud Bêta (display: none)&lt;/div&gt;</code>.
+              </li>
+              <li>
+                <strong>Cas 4 — Règle CSS <code>visibility: hidden;</code> :</strong>
+                appliquez le style en ligne <code>style="visibility: hidden;"</code> sur le Nœud Bêta :
+                <br><code>&lt;div class="node-box target" style="visibility: hidden;"&gt;Nœud Bêta (visibility: hidden)&lt;/div&gt;</code>.
+              </li>
+            </ul>
+            <p>
+              Actualisez votre fichier dans un navigateur pour observer simultanément la différence d'occupation spatiale :
+            </p>
+            <ul>
+              <li><strong>Dans les cas 2 (<code>hidden</code>) et 3 (<code>display: none</code>) :</strong> le Nœud Bêta a disparu et son espace est libéré (le Nœud Gamma se colle contre le Nœud Alpha).</li>
+              <li><strong>Dans le cas 4 (<code>visibility: hidden</code>) :</strong> le Nœud Bêta est invisible, mais son espace physique reste réservé (un trou blanc est visible entre Alpha et Gamma).</li>
+            </ul>
+          </li>
+        </ol>
       </section>
     </article>
 
@@ -1286,7 +1650,7 @@ div.action-element {
         </p>
 
         <h4>1. Syntaxe de la propriété</h4>
-        <pre class="css"><code>box-shadow: décalage-x décalage-y flou [étalement] couleur;</code></pre>
+        <pre class="css"><code>box-shadow: decalage-x decalage-y flou [etalement] couleur;</code></pre>
 
         <ul>
           <li><strong>décalage-x :</strong> déplacement horizontal de l'ombre (positif vers la droite, négatif vers la
@@ -1799,7 +2163,7 @@ table.tableau-benchmark td {
 ├── vision.html          # Atelier Vision : galerie des 4 filtres graphiques CSS
 ├── regression.html      # Atelier Régression : indicateur flottant et attribut hidden
 ├── performances.html    # Atelier Benchmark : tableau table-layout: fixed et terminal logs
-├── style.css            # Feuille de style globale (charte Cyberpunk &amp; effets visuels)
+├── style.css            # Feuille de style globale (charte graphique moderne, vive &amp; attractive)
 └── images/
     ├── neurone-hd.svg       # Schéma HD pour grands écrans (&lt;source media="..."&gt;)
     ├── neurone-mobile.svg   # Schéma compact pour mobiles (&lt;img&gt;)
@@ -1815,7 +2179,7 @@ table.tableau-benchmark td {
           <li>
             <strong>Dans <code>index.html</code> (Hub principal) :</strong>
             <ul>
-              <li><strong>TODO 1 :</strong> Configurer l'attribut <code>media="(min-width: 768px)"</code> sur la balise
+              <li><strong>TODO 1 :</strong> Configurer l'attribut <code>media="(min-width: 800px)"</code> sur la balise
                 <code>&lt;source&gt;</code> pour l'image adaptative.
               </li>
               <li><strong>TODO 2 :</strong> Déclarer les infobulles explicatives sur les termes techniques avec

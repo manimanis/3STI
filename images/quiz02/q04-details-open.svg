@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 220" width="100%" height="100%">
+  <defs>
+    <filter id="shadow4" x="-5%" y="-10%" width="110%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <rect x="15" y="10" width="510" height="200" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow4)" />
+  <path d="M 15 20 A 10 10 0 0 1 25 10 L 515 10 A 10 10 0 0 1 525 20 L 525 38 L 15 38 Z" fill="#f1f5f9" />
+  <circle cx="32" cy="24" r="4" fill="#f87171" />
+  <circle cx="44" cy="24" r="4" fill="#fbbf24" />
+  <circle cx="56" cy="24" r="4" fill="#34d399" />
+  <text x="75" y="27" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="600" fill="#64748b">Attribut booléen : &lt;details open&gt;</text>
+
+  <!-- Left: Closed state -->
+  <rect x="35" y="52" width="220" height="142" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+  <text x="145" y="72" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#64748b" text-anchor="middle">État fermé (par défaut)</text>
+  <rect x="47" y="82" width="196" height="34" rx="5" fill="#ffffff" stroke="#94a3b8" />
+  <polygon points="62,94 62,104 70,99" fill="#64748b" />
+  <text x="78" y="103" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569">&lt;details&gt;</text>
+  <text x="145" y="148" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Contenu masqué</text>
+
+  <!-- Right: Open state -->
+  <rect x="285" y="52" width="220" height="142" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2" />
+  <text x="395" y="72" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#065f46" text-anchor="middle">État ouvert : &lt;details open&gt;</text>
+  <rect x="297" y="82" width="196" height="34" rx="5" fill="#ffffff" stroke="#10b981" stroke-width="1.5" />
+  <polygon points="310,96 322,96 316,104" fill="#10b981" />
+  <text x="328" y="103" font-family="monospace" font-size="11" font-weight="bold" fill="#047857">&lt;details open&gt;</text>
+  <rect x="297" y="122" width="196" height="60" rx="5" fill="#ffffff" stroke="#a7f3d0" />
+  <text x="395" y="145" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="bold" fill="#059669" text-anchor="middle">Contenu déplié &amp; visible</text>
+  <text x="395" y="165" font-family="'Segoe UI', sans-serif" font-size="10" fill="#047857" text-anchor="middle">dès le chargement de la page</text>
+</svg>

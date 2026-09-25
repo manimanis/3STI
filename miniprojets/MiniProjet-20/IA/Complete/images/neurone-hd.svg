@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="40" fill="#06b6d4" />
-  <text x="50" y="55" font-size="14" text-anchor="middle" fill="#000000" font-family="sans-serif">IA HD</text>
+  <defs>
+    <linearGradient id="gradHd" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="44" fill="url(#gradHd)" stroke="#0284c7" stroke-width="2" />
+  <text x="50" y="55" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif">IA HD</text>
 </svg>

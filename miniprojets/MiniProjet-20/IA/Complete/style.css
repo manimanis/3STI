@@ -1,6 +1,6 @@
 /* ==========================================================================
    FEUILLE DE STYLE PRINCIPALE - PROJET IA DÉCODÉE (3STI)
-   Thème : Cyberpunk Tech / Dark Mode (100% Conforme au programme STI 2024)
+   Thème : Couleurs Vives & Attractives (100% Conforme au programme STI 2024)
    ========================================================================== */
 
 * {
@@ -13,8 +13,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #0f172a;
-  color: #f8fafc;
+  background-color: #f8fafc;
+  background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 50%, #faf5ff 100%);
+  background-attachment: fixed;
+  color: #1e293b;
   line-height: 1.6;
 }
 
@@ -22,9 +24,10 @@ body {
    NOTION : display (block, inline-block, none) & float & element.class
    ========================================================================== */
 header.site-header {
-  padding: 1rem 2rem;
-  background-color: #1e293b;
-  border-bottom: 2px solid #06b6d4;
+  padding: 1.2rem 2rem;
+  background: linear-gradient(120deg, #4f46e5 0%, #7c3aed 50%, #ec4899 100%);
+  border-bottom: 3px solid #f43f5e;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.25);
   overflow: hidden;
 }
 
@@ -32,6 +35,8 @@ header.site-header h2.title-cyber {
   float: left;
   margin: 0;
   line-height: 2;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 nav.main-nav {
@@ -45,18 +50,22 @@ a.nav-link {
   display: inline-block;
   padding: 0.5rem 1rem;
   margin-left: 0.5rem;
-  color: #f8fafc;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   text-decoration: none;
   font-weight: bold;
-  border-radius: 6px;
+  border-radius: 8px;
   /* NOTION : transition */
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 a.nav-link:hover,
 a.nav-link.active {
-  background-color: #8b5cf6;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #4f46e5;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
 }
 
 main.main-content {
@@ -73,8 +82,11 @@ main.main-content {
 h1.title-cyber {
   /* NOTION : text-transform (uppercase) */
   text-transform: uppercase;
-  color: #06b6d4;
-  letter-spacing: 2px;
+  color: #4338ca;
+  background: linear-gradient(135deg, #3b82f6, #7c3aed, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
   margin-bottom: 0.5rem;
 }
 
@@ -84,11 +96,12 @@ span.badge-tag {
   text-transform: uppercase;
   font-size: 0.75rem;
   font-weight: bold;
-  padding: 0.25rem 0.6rem;
-  background-color: #8b5cf6;
+  padding: 0.3rem 0.8rem;
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
   color: #ffffff;
   border-radius: 20px;
   margin-bottom: 1rem;
+  box-shadow: 0 3px 10px rgba(244, 63, 94, 0.35);
 }
 
 /* NOTION : element.class & positionnement */
@@ -96,21 +109,22 @@ div.card-concept,
 section.card-concept {
   position: relative;
   top: 0;
-  background-color: #1e293b;
+  background-color: #ffffff;
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  border: 1px solid #334155;
+  border: 1px solid #e2e8f0;
   /* NOTION : box-shadow */
-  box-shadow: 0 8px 24px #000000;
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
   /* NOTION : transition */
-  transition: top 0.3s ease, box-shadow 0.3s ease;
+  transition: top 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 div.card-concept:hover,
 section.card-concept:hover {
   top: -4px;
-  box-shadow: 0 0 20px #06b6d4;
+  box-shadow: 0 18px 35px -5px rgba(99, 102, 241, 0.22);
+  border-color: #818cf8;
 }
 
 /* NOTION : element.class */
@@ -118,27 +132,29 @@ button.btn-ia,
 a.btn-ia {
   /* NOTION : display: inline-block */
   display: inline-block;
-  background-color: #06b6d4;
-  color: #000000;
+  background: linear-gradient(135deg, #06b6d4, #0284c7);
+  color: #ffffff;
   border: none;
-  padding: 0.6rem 1.2rem;
+  padding: 0.65rem 1.3rem;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 8px;
   /* NOTION : text-transform: uppercase */
   text-transform: uppercase;
   text-decoration: none;
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);
   /* NOTION : transition */
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 button.btn-ia:hover,
 a.btn-ia:hover {
-  background-color: #8b5cf6;
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
   color: #ffffff;
-  box-shadow: 0 0 15px #8b5cf6;
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.45);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -153,8 +169,9 @@ img.float-concept {
   height: 140px;
   margin-right: 1.5rem;
   margin-bottom: 1rem;
-  border-radius: 10px;
-  border: 2px solid #06b6d4;
+  border-radius: 12px;
+  border: 3px solid #6366f1;
+  box-shadow: 0 8px 18px rgba(99, 102, 241, 0.25);
 }
 
 /* Pour nettoyer le float */
@@ -167,7 +184,7 @@ img.float-concept {
 /* NOTION : opacity */
 .layer-inactive {
   /* NOTION : opacity (transparence) */
-  opacity: 0.35;
+  opacity: 0.45;
   transition: opacity 0.3s ease;
 }
 
@@ -178,13 +195,15 @@ img.float-concept {
 div.card-concept.layer-inactive {
   margin-top: 1rem;
   margin-bottom: 0;
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
 }
 
 /* Termes avec infobulle title (<abbr>) */
 abbr.terme-info {
-  color: #06b6d4;
+  color: #7c3aed;
   font-weight: bold;
-  text-decoration: underline dotted;
+  text-decoration: underline wavy #ec4899;
   cursor: help;
 }
 
@@ -201,9 +220,10 @@ div.hub-actions a.btn-ia {
 iframe.sandbox-frame {
   width: 100%;
   height: 480px;
-  border: 2px solid #334155;
-  border-radius: 8px;
-  background-color: #0b1120;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   display: block;
 }
 
@@ -222,19 +242,20 @@ figure.carte-filtre {
   width: 210px;
   margin: 0.6rem;
   padding: 0.8rem;
-  background-color: #020617;
-  border: 1px solid #334155;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   text-align: center;
-  box-shadow: 0 4px 12px #000000;
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.08);
   position: relative;
   top: 0;
-  transition: top 0.3s ease, box-shadow 0.3s ease;
+  transition: top 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 figure.carte-filtre:hover {
   top: -4px;
-  box-shadow: 0 0 15px #06b6d4;
+  box-shadow: 0 14px 28px rgba(236, 72, 153, 0.22);
+  border-color: #f472b6;
 }
 
 /* NOTION : element.class */
@@ -242,13 +263,13 @@ figure.carte-filtre img.filter-preview {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-bottom: 0.6rem;
 }
 
 figure.carte-filtre figcaption {
   font-size: 0.85rem;
-  color: #f8fafc;
+  color: #1e293b;
   font-weight: bold;
 }
 
@@ -256,27 +277,33 @@ figure.carte-filtre code {
   display: block;
   margin-top: 0.35rem;
   font-size: 0.78rem;
-  color: #06b6d4;
+  color: #db2777;
+  background-color: #fdf2f8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #fbcfe8;
   font-family: 'Courier New', Courier, monospace;
 }
 
 div.inference-result {
   margin-top: 1.5rem;
-  padding: 1rem;
-  background-color: #020617;
-  border-radius: 8px;
-  border-left: 4px solid #06b6d4;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+  border-radius: 10px;
+  border: 1px solid #a7f3d0;
+  border-left: 5px solid #10b981;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.15);
 }
 
 div.inference-result h3 {
   margin-bottom: 0.3rem;
   font-size: 1rem;
-  color: #06b6d4;
+  color: #047857;
 }
 
 div.inference-result p {
-  color: #94a3b8;
-  font-size: 0.9rem;
+  color: #065f46;
+  font-size: 0.95rem;
 }
 
 /* NOTION : Déclinaisons de prétraitements d'images avec filter */
@@ -307,12 +334,15 @@ table.benchmark-table {
   /* NOTION : table-layout */
   table-layout: fixed;
   margin-top: 1rem;
-  background-color: #1e293b;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 }
 
 table.benchmark-table th,
 table.benchmark-table td {
-  border: 1px solid #334155;
+  border: 1px solid #e2e8f0;
   padding: 0.85rem;
   text-align: left;
   /* Évite le débordement dans les cellules fixes */
@@ -320,9 +350,23 @@ table.benchmark-table td {
 }
 
 table.benchmark-table th {
-  background-color: #083344;
-  color: #06b6d4;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #ffffff;
   text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+table.benchmark-table td {
+  color: #334155;
+}
+
+table.benchmark-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+table.benchmark-table tbody tr:hover {
+  background-color: #f0fdf4;
 }
 
 table.benchmark-table th.col-arch {
@@ -346,16 +390,17 @@ table.benchmark-table th.col-lat {
    ========================================================================== */
 /* NOTION : element.class */
 pre.terminal-logs {
-  background-color: #020617;
-  color: #38bdf8;
+  background-color: #f8fafc;
+  color: #0369a1;
   padding: 1rem;
   border-radius: 8px;
   height: 120px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.85rem;
-  border: 1px solid #334155;
+  border: 2px solid #38bdf8;
   /* NOTION : overflow */
   overflow: auto;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 /* ==========================================================================
@@ -363,20 +408,25 @@ pre.terminal-logs {
    ========================================================================== */
 form.form-regression {
   margin: 2rem 0;
-  background-color: #020617;
+  background: linear-gradient(135deg, #faf5ff 0%, #f0fdf4 100%);
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 }
 
 form.form-regression label {
   display: block;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  color: #334155;
 }
 
 form.form-regression input[type="range"] {
   width: 100%;
   margin-bottom: 1.5rem;
+  accent-color: #ec4899;
+  cursor: pointer;
 }
 
 div.form-result-row {
@@ -388,6 +438,8 @@ div.form-result-row span {
   display: block;
   float: left;
   line-height: 2.2;
+  color: #334155;
+  font-weight: 500;
 }
 
 /* NOTION : element.class */
@@ -396,18 +448,30 @@ span.result-display {
   float: right;
   font-size: 1.4rem;
   font-weight: bold;
-  color: #06b6d4;
-  padding: 0.4rem 0.8rem;
-  background-color: #020617;
-  border-radius: 6px;
-  border: 1px solid #06b6d4;
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+  border-radius: 8px;
+  border: 1px solid #db2777;
+  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
 }
 
 div#bloc-formule {
   margin-top: 1.5rem;
-  border-color: #8b5cf6;
+  border: 2px solid #c084fc;
+  border-left: 6px solid #8b5cf6;
+  background: linear-gradient(135deg, #ffffff, #faf5ff);
 }
 
 div#bloc-formule h3 {
-  color: #8b5cf6;
+  color: #7c3aed;
+  margin-bottom: 0.5rem;
+}
+
+div#bloc-formule code {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #e9d5ff;
 }

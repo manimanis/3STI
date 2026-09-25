@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossaire Technique & Éléments Invisibles - MiniProjet 21 (&lt;abbr&gt; &amp; hidden)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <div class="tag">HTML5 &bull; MiniProjet 21</div>
+      <h1>Fiche Diagnostic &amp; Glossaire Technique</h1>
+      <p class="subtitle">
+        Mise en pratique de la balise sémantique <code>&lt;abbr&gt;</code> et des techniques de masquage
+        (attribut booléen <code>hidden</code>, propriétés CSS <code>display: none</code> et <code>visibility: hidden</code>).
+      </p>
+    </header>
+
+    <main>
+      <!-- Partie 1 : Glossaire et abréviations techniques (<abbr>) -->
+      <section class="card-section">
+        <h2>📖 1. Spécifications du Serveur &amp; Glossaire Technique (<code>&lt;abbr&gt;</code>)</h2>
+        <p class="desc">
+          Survolez avec le pointeur de la souris les termes techniques soulignés de pointillés pour faire apparaître leur infobulle explicative native :
+        </p>
+
+        <p class="mb-3">
+          Ce serveur de calcul est optimisé pour les charges de travail d'<abbr title="Intelligence Artificielle">IA</abbr> et d'<abbr title="Internet of Things - Internet des Objets connectés">IoT</abbr>.
+          Il héberge une plateforme Web conforme aux recommandations du <abbr title="World Wide Web Consortium - Organisme de standardisation du Web">W3C</abbr>,
+          propulsée par les technologies <abbr title="HyperText Markup Language - Version 5">HTML5</abbr> et <abbr title="Cascading Style Sheets - Feuilles de style en cascade">CSS3</abbr>.
+          Chaque ressource est accessible via une <abbr title="Uniform Resource Locator - Adresse Web normalisée">URL</abbr> sécurisée.
+        </p>
+
+        <div class="specs-grid">
+          <div class="spec-item">
+            <div class="spec-icon">⚡</div>
+            <div class="spec-title">Processeur</div>
+            <div class="spec-val"><abbr title="Central Processing Unit - Processeur principal à 16 cœurs">CPU</abbr> 3.8 GHz</div>
+          </div>
+
+          <div class="spec-item">
+            <div class="spec-icon">🎮</div>
+            <div class="spec-title">Accélérateur Graphique</div>
+            <div class="spec-val"><abbr title="Graphics Processing Unit - Processeur graphique dédié au calcul intensif">GPU</abbr> 24 Go</div>
+          </div>
+
+          <div class="spec-item">
+            <div class="spec-icon">🧠</div>
+            <div class="spec-title">Mémoire Vive</div>
+            <div class="spec-val">64 Go <abbr title="Random Access Memory - Mémoire vive volatile haute vitesse DDR5">RAM</abbr></div>
+          </div>
+
+          <div class="spec-item">
+            <div class="spec-icon">💾</div>
+            <div class="spec-title">Stockage Flash</div>
+            <div class="spec-val">2 To <abbr title="Solid State Drive - Disque à mémoire flash ultra-rapide NVMe">SSD</abbr></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partie 2 : Attribut booléen natif HTML5 hidden -->
+      <section class="card-section">
+        <h2>🔒 2. Données Confidentielles &amp; Attribut <code>hidden</code></h2>
+        <p class="desc">
+          L'attribut booléen <strong><code>hidden</code></strong> masque complètement l'élément et libère immédiatement l'espace dans la page (aucun espace blanc réservé).
+        </p>
+
+        <!-- Bloc confidentiel masqué nativement avec l'attribut hidden -->
+        <div id="diagnostic-box" class="confidential-box" hidden>
+          <h3>🛡️ Journal d'audit et clés de sécurité (Masqué avec hidden)</h3>
+          <p class="small text-muted">
+            Ce bloc n'occupe aucun espace dans la page lorsqu'il porte l'attribut booléen <code>hidden</code>.
+          </p>
+
+          <div class="log-terminal">
+            <div>[STATUS] <span class="success">✓ Système intègre - 0 vulnérabilité détectée</span></div>
+            <div>[KEY] <span class="warn">SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span></div>
+            <div>[AUDIT] Contrôle d'accès W3C validé pour l'administrateur STI</div>
+          </div>
+        </div>
+
+        <p class="card-note" style="margin-top: 10px;">
+          <em>ℹ️ Le bloc ci-dessus porte l'attribut <code>hidden</code> : il est donc totalement absent de l'affichage visuel à l'écran.</em>
+        </p>
+      </section>
+
+      <!-- Partie 3 : Comparatif des 3 techniques de masquage (HTML & CSS) -->
+      <section class="card-section">
+        <h2>🧪 3. Comparatif des 3 techniques de masquage (HTML &amp; CSS)</h2>
+        <p class="desc">
+          Comparaison directe de l'impact spatial de chaque technique sur le <strong>Nœud Bêta (2)</strong> au sein d'une rangée de trois serveurs :
+        </p>
+
+        <div class="comparatif-grid">
+          <!-- Cas 1 : État initial de référence (tous visibles) -->
+          <div class="comparatif-card">
+            <div class="comparatif-header">
+              <span class="fw-bold">1. État de référence</span>
+              <span class="badge badge-normal">Visible</span>
+            </div>
+            <div class="nodes-row">
+              <div class="node-box">Nœud Alpha</div>
+              <div class="node-box target">Nœud Bêta (Visible)</div>
+              <div class="node-box">Nœud Gamma</div>
+            </div>
+            <p class="card-note">Les 3 nœuds occupent normalement leur place dans la rangée.</p>
+          </div>
+
+          <!-- Cas 2 : Attribut HTML5 hidden -->
+          <div class="comparatif-card">
+            <div class="comparatif-header">
+              <span class="fw-bold">2. Attribut HTML5 <code>hidden</code></span>
+              <span class="badge badge-hidden">hidden</span>
+            </div>
+            <div class="nodes-row">
+              <div class="node-box">Nœud Alpha</div>
+              <!-- Masquage avec l'attribut booléen hidden -->
+              <div class="node-box target" hidden>Nœud Bêta (hidden)</div>
+              <div class="node-box">Nœud Gamma</div>
+            </div>
+            <p class="card-note">Nœud Bêta masqué et <strong>espace libéré</strong> : Gamma se colle contre Alpha.</p>
+          </div>
+
+          <!-- Cas 3 : CSS display: none -->
+          <div class="comparatif-card">
+            <div class="comparatif-header">
+              <span class="fw-bold">3. Propriété CSS <code>display: none;</code></span>
+              <span class="badge badge-display">display: none</span>
+            </div>
+            <div class="nodes-row">
+              <div class="node-box">Nœud Alpha</div>
+              <!-- Masquage avec display: none -->
+              <div class="node-box target" style="display: none;">Nœud Bêta (display: none)</div>
+              <div class="node-box">Nœud Gamma</div>
+            </div>
+            <p class="card-note">Nœud Bêta <strong>exclu de l'arbre de rendu</strong> : l'espace est libéré.</p>
+          </div>
+
+          <!-- Cas 4 : CSS visibility: hidden -->
+          <div class="comparatif-card">
+            <div class="comparatif-header">
+              <span class="fw-bold">4. Propriété CSS <code>visibility: hidden;</code></span>
+              <span class="badge badge-visibility">visibility: hidden</span>
+            </div>
+            <div class="nodes-row">
+              <div class="node-box">Nœud Alpha</div>
+              <!-- Masquage avec visibility: hidden -->
+              <div class="node-box target" style="visibility: hidden;">Nœud Bêta (visibility: hidden)</div>
+              <div class="node-box">Nœud Gamma</div>
+            </div>
+            <p class="card-note">Nœud Bêta invisible, mais son <strong>espace reste réservé</strong> (trou vide visible).</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>&copy; 3STI - Lycée &bull; MiniProjet 21 : Balise <code>&lt;abbr&gt;</code> et éléments invisibles (<code>hidden</code>)</p>
+    </footer>
+  </div>
+</body>
+</html>

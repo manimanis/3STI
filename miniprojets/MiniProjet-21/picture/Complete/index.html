@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Images Adaptatives - MiniProjet 21 (&lt;picture&gt; &amp; &lt;source&gt;)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="page-header">
+      <div class="tag">HTML5 &bull; Conception Responsive</div>
+      <h1>Images adaptatives avec <code>&lt;picture&gt;</code></h1>
+      <p class="subtitle">
+        Illustration du chargement dynamique d'images selon la résolution et la largeur d'écran du navigateur.
+      </p>
+
+      <!-- Indicateur en temps réel de la résolution du navigateur -->
+      <div class="resolution-indicator" id="resolution-indicator">
+        <span class="indicator-icon">📐</span>
+        <span>Largeur actuelle de la fenêtre : <strong id="current-width">...</strong> px</span>
+        <span class="breakpoint-badge" id="current-breakpoint">Calcul...</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- Exemple 1 : Direction artistique (Desktop / Tablette / Mobile) -->
+      <section class="card-demo">
+        <h2>1. Direction artistique selon la largeur d'écran (Paysage de montagne)</h2>
+        <p class="desc">
+          Redimensionnez votre fenêtre pour observer le basculement automatique entre les versions <strong>Desktop (&ge;
+            1024px)</strong>, <strong>Tablette (&ge; 768px)</strong> et <strong>Mobile (&lt; 768px)</strong>.
+        </p>
+
+        <div class="picture-wrapper">
+          <picture>
+            <!-- Version Grand Écran / Desktop -->
+            <source media="(min-width: 1024px)" srcset="images/banner-desktop.jpg">
+            <!-- Version Écran Moyen / Tablette -->
+            <source media="(min-width: 768px)" srcset="images/banner-tablet.jpg">
+            <!-- Version Petit Écran / Mobile (Balise de repli obligatoire) -->
+            <img src="images/banner-mobile.jpg" alt="Paysage de montagne adaptatif" class="responsive-img">
+          </picture>
+        </div>
+      </section>
+
+      <!-- Exemple 2 : Adaptation thématique High-Tech -->
+      <section class="card-demo">
+        <h2>2. Adaptation d'un poste de travail informatique (Thème STI)</h2>
+        <p class="desc">
+          Le cadrage et la définition s'ajustent pour garantir une lisibilité optimale sur chaque support sans gaspiller
+          la bande passante.
+        </p>
+
+        <div class="picture-wrapper">
+          <picture>
+            <source media="(min-width: 1024px)" srcset="images/tech-desktop.jpg">
+            <source media="(min-width: 768px)" srcset="images/tech-tablet.jpg">
+            <img src="images/tech-mobile.jpg" alt="Poste de travail informatique adaptatif" class="responsive-img">
+          </picture>
+        </div>
+      </section>
+
+      <!-- Exemple 3 : Adaptation selon l'orientation (Paysage vs Portrait) -->
+      <section class="card-demo">
+        <h2>3. Détection de l'orientation : <code>media="(orientation: landscape)"</code></h2>
+        <p class="desc">
+          Le navigateur charge une image panoramique en mode paysage et une image verticale en mode portrait.
+        </p>
+
+        <div class="picture-wrapper max-centered">
+          <picture>
+            <!-- Orientation paysage -->
+            <source media="(orientation: landscape)" srcset="images/paysage.jpg">
+            <!-- Orientation portrait par défaut -->
+            <img src="images/portrait.jpg" alt="Ville en mode portrait/paysage" class="responsive-img">
+          </picture>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>&copy; 3STI - Lycée &bull; MiniProjet 21 : Balise <code>&lt;picture&gt;</code> et attribut <code>media</code>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // Mise à jour dynamique de la largeur affichée en direct
+    function updateDimensions() {
+      const width = window.innerWidth;
+      const widthEl = document.getElementById('current-width');
+      const badgeEl = document.getElementById('current-breakpoint');
+
+      if (widthEl && badgeEl) {
+        widthEl.textContent = width;
+        if (width >= 1024) {
+          badgeEl.textContent = 'Desktop (>= 1024px)';
+          badgeEl.className = 'breakpoint-badge bp-desktop';
+        } else if (width >= 768) {
+          badgeEl.textContent = 'Tablette (768px - 1023px)';
+          badgeEl.className = 'breakpoint-badge bp-tablet';
+        } else {
+          badgeEl.textContent = 'Mobile (< 768px)';
+          badgeEl.className = 'breakpoint-badge bp-mobile';
+        }
+      }
+    }
+    window.addEventListener('resize', updateDimensions);
+    updateDimensions();
+  </script>
+</body>
+
+</html>
