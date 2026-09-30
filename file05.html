@@ -1151,13 +1151,16 @@
           <li class="mb-3">
             <strong>Étape 4 — Masquage sécurisé du journal avec l'attribut <code>hidden</code> :</strong>
             <p>
-              Le conteneur <code>#diagnostic-box</code> contient des données confidentielles (journal d'audit, clés SHA256)
+              Le conteneur <code>#diagnostic-box</code> contient des données confidentielles (journal d'audit, clés
+              SHA256)
               qui doivent être totalement masquées à l'affichage :
             </p>
             <ul>
               <li>Ajoutez l'attribut booléen <strong><code>hidden</code></strong> à la balise
-                <code>&lt;div id="diagnostic-box" class="confidential-box"&gt;</code>.</li>
-              <li>Vérifiez dans votre navigateur que le bloc n'est plus visible et qu'aucun espace blanc n'est laissé dans la page.</li>
+                <code>&lt;div id="diagnostic-box" class="confidential-box"&gt;</code>.
+              </li>
+              <li>Vérifiez dans votre navigateur que le bloc n'est plus visible et qu'aucun espace blanc n'est laissé
+                dans la page.</li>
             </ul>
           </li>
 
@@ -1185,11 +1188,14 @@
               </li>
             </ul>
             <p>
-              Actualisez votre fichier dans un navigateur pour observer simultanément la différence d'occupation spatiale :
+              Actualisez votre fichier dans un navigateur pour observer simultanément la différence d'occupation
+              spatiale :
             </p>
             <ul>
-              <li><strong>Dans les cas 2 (<code>hidden</code>) et 3 (<code>display: none</code>) :</strong> le Nœud Bêta a disparu et son espace est libéré (le Nœud Gamma se colle contre le Nœud Alpha).</li>
-              <li><strong>Dans le cas 4 (<code>visibility: hidden</code>) :</strong> le Nœud Bêta est invisible, mais son espace physique reste réservé (un trou blanc est visible entre Alpha et Gamma).</li>
+              <li><strong>Dans les cas 2 (<code>hidden</code>) et 3 (<code>display: none</code>) :</strong> le Nœud Bêta
+                a disparu et son espace est libéré (le Nœud Gamma se colle contre le Nœud Alpha).</li>
+              <li><strong>Dans le cas 4 (<code>visibility: hidden</code>) :</strong> le Nœud Bêta est invisible, mais
+                son espace physique reste réservé (un trou blanc est visible entre Alpha et Gamma).</li>
             </ul>
           </li>
         </ol>
@@ -1219,18 +1225,22 @@
         <pre class="css"><code>/* Cible uniquement les balises &lt;table&gt; ayant la classe benchmark-table */
 table.benchmark-table {
   width: 100%;
+  border-collapse: collapse;
 }
 
 /* Cible uniquement les balises &lt;img&gt; ayant la classe filter-preview */
 img.filter-preview {
+  width: 100%;
   display: block;
   border-radius: 8px;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Cible uniquement les balises &lt;figure&gt; ayant la classe carte-filtre */
 figure.carte-filtre {
-  display: inline-block;
-  width: 210px;
+  clear: both;
+  text-align: center;
 }
 
 /* Cible uniquement les balises &lt;span&gt; ayant la classe result-display */
@@ -2141,7 +2151,7 @@ table.tableau-benchmark td {
 
       <!-- Section 4.1 : Application 20 - Plateforme IA Décodée -->
       <section>
-        <h3>Application : Plateforme « IA Décodée »</h3>
+        <h3>Application 1 : Plateforme « IA Décodée »</h3>
 
         <div class="alert alert-primary mb-4">
           <strong>Mission :</strong> Réaliser et styliser la plateforme interactive « IA Décodée » en mobilisant les
@@ -2233,6 +2243,38 @@ table.tableau-benchmark td {
                 <code>filter</code> et <code>table-layout: fixed</code> avec <code>border-collapse: collapse</code>.
               </li>
             </ul>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Section 4.2 : Application - Graphic cards -->
+      <section>
+        <h3>Application 2 : Graphic cards</h3>
+
+        <ol>
+          <li class="mb-4">
+            <strong>Télécharger l'archive de l'application :</strong>
+            <div class="my-3 text-center">
+              <a href="miniprojets/MiniProjet-20/GraphicCards/TODO.zip" class="btn btn-primary btn-lg shadow-sm" download>
+                📥 Télécharger l'archive de l'application (TODO.zip)
+              </a>
+            </div>
+          </li>
+
+          <li class="mb-4">
+            <strong>Créer la page <code>index.html</code> qui ressemble à l'aperçu suivant :</strong>
+            <figure class="my-3 text-center">
+              <img src="miniprojets/MiniProjet-20/GraphicCards/TODO/index.jpg" alt="Aperçu de la page index.html"
+                class="img-fluid rounded border shadow-sm">
+            </figure>
+          </li>
+
+          <li class="mb-4">
+            <strong>Créer la page <code>effets.html</code> qui ressemble à l'aperçu suivant :</strong>
+            <figure class="my-3 text-center">
+              <img src="miniprojets/MiniProjet-20/GraphicCards/TODO/effets.jpg" alt="Aperçu de la page effets.html"
+                class="img-fluid rounded border shadow-sm">
+            </figure>
           </li>
         </ol>
       </section>

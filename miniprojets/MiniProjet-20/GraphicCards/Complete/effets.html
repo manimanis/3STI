@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Effets CSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="nav-bar">
+    <a href="index.html" class="nav-link">Benchmark</a>
+    <a href="effets.html" class="nav-link active">Effets CSS</a>
+  </nav>
+
+  <main class="page-container">
+    <!-- 1. text-transform -->
+    <section class="demo-section">
+      <h2>text-transform</h2>
+      <div class="demo-grid">
+        <div class="code-card">
+          <code>text-transform: uppercase;</code>
+          <p class="tt-uppercase">rtx 4070 ti super</p>
+        </div>
+        <div class="code-card">
+          <code>text-transform: lowercase;</code>
+          <p class="tt-lowercase">RADEON RX 7900 XT</p>
+        </div>
+        <div class="code-card">
+          <code>text-transform: capitalize;</code>
+          <p class="tt-capitalize">architecture graphique avancée</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. filter & transition -->
+    <section class="demo-section">
+      <h2>filter &amp; transition (survoler)</h2>
+      <div class="demo-grid">
+        <figure class="demo-filtre">
+          <img src="images/gpu-core.jpg" alt="Normal">
+          <figcaption><code>filter: none;</code></figcaption>
+        </figure>
+        <figure class="demo-filtre">
+          <img src="images/gpu-core.jpg" class="filter-grayscale" alt="Grayscale">
+          <figcaption><code>grayscale(100%)</code></figcaption>
+        </figure>
+        <figure class="demo-filtre">
+          <img src="images/gpu-core.jpg" class="filter-contrast" alt="Contrast">
+          <figcaption><code>contrast(200%)</code></figcaption>
+        </figure>
+        <figure class="demo-filtre">
+          <img src="images/gpu-core.jpg" class="filter-blur" alt="Blur">
+          <figcaption><code>blur(3px)</code></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 3. opacity & transition -->
+    <section class="demo-section">
+      <h2>opacity &amp; transition (survoler)</h2>
+      <div class="demo-grid">
+        <figure class="demo-filtre">
+          <img src="images/gpu-core.jpg" alt="100%">
+          <figcaption><code>opacity: 1;</code></figcaption>
+        </figure>
+        <figure class="demo-filtre">
+          <img src="images/gpu-core.jpg" class="opacity-50" alt="50%">
+          <figcaption><code>opacity: 0.5;</code></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 4. overflow -->
+    <section class="demo-section">
+      <h2>overflow</h2>
+      <div class="demo-grid">
+        <div class="code-card">
+          <code>overflow: hidden;</code>
+          <div class="box-overflow-hidden">
+            <img src="images/gpu-schematic.jpg" style="width: 600px; max-width: none; display: block;" alt="Schéma GPU">
+          </div>
+        </div>
+        <div class="code-card">
+          <code>overflow: auto;</code>
+          <div class="box-overflow-auto">
+            <img src="images/gpu-schematic.jpg" style="width: 600px; max-width: none; display: block;" alt="Schéma GPU">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
