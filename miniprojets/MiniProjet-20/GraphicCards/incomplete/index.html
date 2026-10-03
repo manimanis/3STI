@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sélecteur Combiné</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="nav-bar">
+    <a href="index.html" class="nav-link active">Benchmark</a>
+    <a href="effets.html" class="nav-link">Effets CSS</a>
+  </nav>
+  <main>
+    <section class="left">
+      <h1>Carte graphique Nvidia GeForce RTX 4070 Ti Super</h1>
+      <table class="benchmark-table">
+        <thead>
+          <tr>
+            <th>Spécification</th>
+            <th>Nvidia GeForce RTX 4070 Ti Super</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>VRAM</b></td>
+            <td>16 Go GDDR6X</td>
+          </tr>
+          <tr>
+            <td><b>Bus mémoire</b></td>
+            <td>256-bit (672 Go/s)</td>
+          </tr>
+          <tr>
+            <td><b>Cœurs</b></td>
+            <td>8 448 CUDA Cores</td>
+          </tr>
+          <tr>
+            <td><b>Consommation</b></td>
+            <td>285 W</td>
+          </tr>
+          <tr>
+            <td><b>Ray Tracing</b></td>
+            <td>Performances élevées</td>
+          </tr>
+          <tr>
+            <td><b>Upscaling / IA</b></td>
+            <td>DLSS 3.5 (Frame Gen, Ray Reconstruction)</td>
+          </tr>
+          <tr>
+            <td><b>IA / Calcul</b></td>
+            <td>Tensor Cores (OptiX, CUDA, PyTorch natif)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <picture>
+        <source media="(min-width: 1024px)" srcset="images/nvidia-4070.jpg">
+        <source media="(min-width: 768px)" srcset="images/nvidia-4070-1024.jpg">
+        <img class="filter-preview" src="images/nvidia-4070-768.jpg"
+          alt="Carte graphique Nvidia GeForce RTX 4070 Ti Super">
+      </picture>
+    </section>
+
+    <section class="right">
+      <h1>Carte graphique AMD Radeon RX 7900 XT</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Spécification</th>
+            <th>AMD Radeon RX 7900 XT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>VRAM</b></td>
+            <td>20 Go GDDR6</td>
+          </tr>
+          <tr>
+            <td><b>Bus mémoire</b></td>
+            <td>320-bit (800 Go/s)</td>
+          </tr>
+          <tr>
+            <td><b>Cœurs</b></td>
+            <td>5 376 Stream Processors (84 CU)</td>
+          </tr>
+          <tr>
+            <td><b>Consommation</b></td>
+            <td>315 W</td>
+          </tr>
+          <tr>
+            <td><b>Ray Tracing</b></td>
+            <td>Performances moyennes</td>
+          </tr>
+          <tr>
+            <td><b>Upscaling / IA</b></td>
+            <td>FSR 3.1 (Fluid Motion Frames)</td>
+          </tr>
+          <tr>
+            <td><b>IA / Calcul</b></td>
+            <td>Accélérateurs AI (ROCm, OpenCL)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <picture>
+        <source media="(min-width: 1024px)" srcset="images/radeon-7900.jpg">
+        <source media="(min-width: 768px)" srcset="images/radeon-7900-1024.jpg">
+        <img class="filter-preview" src="images/radeon-7900-768.jpg" alt="Carte graphique AMD Radeon RX 7900 XT">
+      </picture>
+    </section>
+
+    <figure class="carte-filtre">
+      <img src="images/comparaison-768.jpg" class="image-border"
+        alt="Comparaison des cartes graphiques Nvidia GeForce RTX 4070 Ti Super et AMD Radeon RX 7900 XT">
+      <figcaption>Comparaison des cartes graphiques <span class="result-display">Nvidia RTX 4070</span> et <span
+          class="result-display">AMD Radeon RX 7900</span></figcaption>
+    </figure>
+  </main>
+</body>
+
+</html>
