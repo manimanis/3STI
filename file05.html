@@ -342,6 +342,7 @@
                 <code>table-layout: fixed</code>.
               </li>
               <li>Concevoir et styliser une plateforme interactive complète : « IA Décodée » (Mini-projet 20).</li>
+              <li>Concevoir et mettre en page le site d'une association : « Sport Pour Tous » (Mini-projet 20).</li>
             </ul>
           </div>
         </div>
@@ -2255,7 +2256,8 @@ table.tableau-benchmark td {
           <li class="mb-4">
             <strong>Télécharger l'archive de l'application :</strong>
             <div class="my-3 text-center">
-              <a href="miniprojets/MiniProjet-20/GraphicCards/TODO.zip" class="btn btn-primary btn-lg shadow-sm" download>
+              <a href="miniprojets/MiniProjet-20/GraphicCards/TODO.zip" class="btn btn-primary btn-lg shadow-sm"
+                download>
                 📥 Télécharger l'archive de l'application (TODO.zip)
               </a>
             </div>
@@ -2277,6 +2279,277 @@ table.tableau-benchmark td {
             </figure>
           </li>
         </ol>
+      </section>
+
+      <!-- Section 4.3 : Application 3 - Sport Pour Tous -->
+      <section>
+        <h3>Application 3 : Association « Sport Pour Tous »</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Concevoir et styliser le site web complet d'une association sportive (« Sport Pour
+          Tous ») structuré en 4 pages interconnectées via un cadre intégré <code>&lt;iframe&gt;</code>, en mobilisant
+          la sémantique HTML5 (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>,
+          <code>&lt;footer&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;details&gt;</code>,
+          <code>&lt;summary&gt;</code>, <code>&lt;mark&gt;</code>, <code>&lt;address&gt;</code>,
+          <code>&lt;aside&gt;</code>, <code>&lt;cite&gt;</code>, <code>&lt;abbr&gt;</code> et l'attribut
+          <code>hidden</code>) ainsi que les règles avancées de mise en page CSS3 (mise en forme, transitions, tableaux
+          avec <code>rowspan</code> et <code>colspan</code>, et une palette de couleurs imposée en codes hexadécimaux).
+        </div>
+
+        <div class="my-3 text-center">
+          <a href="miniprojets/MiniProjet-20/SportPourTous/TODO.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger l'archive (TODO.zip)
+          </a>
+        </div>
+
+        <h4>Aperçus des maquettes à réaliser</h4>
+        <p>Les captures d'écran ci-dessous présentent le rendu visuel attendu pour chacune des quatre pages :</p>
+
+        <!-- 1. index.html -->
+        <h5 class="mt-4 text-primary">1. Page principale : <code>index.html</code></h5>
+        <p>Cette page constitue le cadre récepteur du site. Elle intègre l'en-tête, la navigation à trois liens, le
+          cadre <code>iframe</code> affichant par défaut la page d'accueil, et le pied de page :</p>
+        <figure class="my-3 text-center">
+          <img src="miniprojets/MiniProjet-20/SportPourTous/TODO/index.png" alt="Aperçu de la page index.html"
+            class="img-fluid rounded border shadow-sm">
+          <figcaption class="mt-2 text-muted fst-italic">Figure 1 : Rendu de la page principale index.html</figcaption>
+        </figure>
+
+        <!-- 2. accueil.html -->
+        <h5 class="mt-4 text-primary">2. Page d'accueil intégrée : <code>accueil.html</code></h5>
+        <p>Affichée par défaut dans l'iframe, elle présente le visuel principal et la mission de l'association :</p>
+        <figure class="my-3 text-center">
+          <img src="miniprojets/MiniProjet-20/SportPourTous/TODO/accueil.png" alt="Aperçu de la page accueil.html"
+            class="img-fluid rounded border shadow-sm">
+          <figcaption class="mt-2 text-muted fst-italic">Figure 2 : Rendu de la page d'accueil accueil.html</figcaption>
+        </figure>
+
+        <!-- 3. activite.html -->
+        <h5 class="mt-4 text-primary">3. Page des activités : <code>activite.html</code></h5>
+        <p>Contient un accordéon dépliable, le tableau des disciplines sportives avec fusion de cellules, la liste du
+          matériel et une galerie de 3 images :</p>
+        <figure class="my-3 text-center">
+          <img src="miniprojets/MiniProjet-20/SportPourTous/TODO/activite.png" alt="Aperçu de la page activite.html"
+            class="img-fluid rounded border shadow-sm">
+          <figcaption class="mt-2 text-muted fst-italic">Figure 3 : Rendu de la page des activités activite.html
+          </figcaption>
+        </figure>
+
+        <!-- 4. contact.html -->
+        <h5 class="mt-4 text-primary">4. Page de contact : <code>contact.html</code></h5>
+        <p>Affiche les coordonnées officielles, les permanences du secrétariat dans un encadré périphérique et une
+          citation :</p>
+        <figure class="my-3 text-center">
+          <img src="miniprojets/MiniProjet-20/SportPourTous/TODO/contact.png" alt="Aperçu de la page contact.html"
+            class="img-fluid rounded border shadow-sm">
+          <figcaption class="mt-2 text-muted fst-italic">Figure 4 : Rendu de la page de contact contact.html
+          </figcaption>
+        </figure>
+
+        <h4>Guide de réalisation pas à pas</h4>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light fw-bold">Étape 1 : Préparation de l'espace de travail</div>
+          <div class="card-body">
+            <p>1. Décompressez l'archive <code>TODO.zip</code>. Vous disposez d'un sous-dossier <code>images/</code>
+              contenant les ressources graphiques (<code>sport.png</code>, <code>football.jpg</code>,
+              <code>natation.jpg</code>, <code>volleyball.jpg</code>) et des 4 captures d'écran de référence.
+            </p>
+            <p>2. Créez à la racine les quatre fichiers HTML (<code>index.html</code>, <code>accueil.html</code>,
+              <code>activite.html</code>, <code>contact.html</code>) ainsi que la feuille de style
+              <code>style.css</code>.
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light fw-bold">Étape 2 : Structure HTML de <code>index.html</code> (Page
+            principale)</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>En-tête (<code>&lt;header&gt;</code>) :</strong> Un titre de niveau 1
+                <code>SPORT POUR TOUS</code> suivi d'un trait horizontal <code>hr</code>.
+              </li>
+              <li><strong>Barre de navigation (<code>&lt;nav&gt;</code>) :</strong> Trois liens hypertextes
+                <code>Accueil</code>, <code>Activités</code>, <code>Contact</code>. Chaque lien doit obligatoirement
+                posséder l'attribut <code>target</code> pour ouvrir la page cible dans le cadre intégré.
+              </li>
+              <li><strong>Zone principale (<code>&lt;main&gt;</code>) :</strong> Un cadre intégré
+                <code>iframe</code> affichant par défaut la page d'accueil.
+              </li>
+              <li><strong>Pied de page (<code>&lt;footer&gt;</code>) :</strong> Trois paragraphes
+                distincts pour afficher respectivement le nom de l'association, l'email de contact (avec lien
+                <code>mailto:</code>) et la date système.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light fw-bold">Étape 3 : Structure HTML de <code>accueil.html</code></div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Illustration :</strong> Une balise <code>figure</code> contenant l'image
+                <code>images/sport.png</code> et sa légende <code>SPORT</code>.
+              </li>
+              <li><strong>Section éditoriale :</strong> Une section <code>&lt;section&gt;</code> enveloppant un article
+                <code>&lt;article&gt;</code> avec un titre <code>Notre Mission</code> et un paragraphe explicatif.
+              </li>
+              <li>Une abréviation du mot &laquo; OMS &raquo; qui signifie &laquo; Organisation Mondiale de la&nbsp;Santé
+                &raquo;</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light fw-bold">Étape 4 : Structure HTML de <code>activite.html</code></div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Bloc repliable :</strong> Un élément interactif avec un intitulé
+                <code>Détails de nos activités</code> et un texte mettant en valeur <code>par Email</code>.
+              </li>
+              <li><strong>Tableau des activités (<code>&lt;table&gt;</code>) :</strong>
+                <ul>
+                  <li>Un titre de tableau <code>Nos Activités</code>.</li>
+                  <li>Une ligne d'en-tête avec les colonnes <em>Activité</em> et <em>Genre</em>.
+                  </li>
+                  <li>Le corps avec fusion verticale pour les sports collectifs (FootBall, Volly-Ball, Hand-Ball) et
+                    pour les sports individuels (Gymnastique, Natation), suivi d'une ligne fusionnée horizontalement
+                    pour le stage d'été.</li>
+                  <li>Le pied indiquant le total des disciplines.</li>
+                </ul>
+              </li>
+              <li><strong>Liste :</strong> Une section avec une liste à puces énumérant les équipements à prévoir.</li>
+              <li><strong>Galerie photos :</strong> Une section <code>&lt;section class="galerie"&gt;</code> contenant 3
+                figures (<code>images/football.jpg</code>, <code>images/natation.jpg</code>,
+                <code>images/volleyball.jpg</code>) avec leurs légendes respectives.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light fw-bold">Étape 5 : Structure HTML de <code>contact.html</code></div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Titre de niveau 2 :</strong> <code>Contact &amp; Informations</code>.</li>
+              <li><strong>Coordonnées :</strong> L'adresse physique et l'email structurés dans une balise
+                <code>address</code>.
+              </li>
+              <li><strong>Permanences :</strong> Un encadré périphérique <code>aside</code> contenant les horaires
+                d'ouverture.</li>
+              <li><strong>Citation :</strong> Une citation latine mise en valeur avec la balise <code>cite</code>.</li>
+              <li><strong>Information masquée :</strong> Un paragraphe d'alerte rendu invisible grâce à l'attribut
+                <code>hidden</code>.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light fw-bold">Étape 6 : Feuille de styles <code>style.css</code> (Organisation
+            &amp; Palette de couleurs)</div>
+          <div class="card-body">
+            <p>Structurer votre feuille de styles en classant les règles par page, après avoir défini les règles
+              communes en tête de fichier. Utiliser exclusivement des <strong>codes hexadécimaux purs</strong> selon
+              la charte suivante :
+            </p>
+
+            <div class="table-responsive my-3">
+              <table class="table table-bordered table-sm text-center align-middle">
+                <thead class="table-light">
+                  <tr>
+                    <th>Code Hexadécimal</th>
+                    <th>Échantillon</th>
+                    <th>Nuance</th>
+                    <th>Utilisation imposée</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>#2F3438</code></td>
+                    <td style="background-color: #2F3438; width: 60px;"></td>
+                    <td>Anthracite foncé</td>
+                    <td>Couleur du texte principal (<code>body</code>, paragraphes, liens).</td>
+                  </tr>
+                  <tr>
+                    <td><code>#495A5B</code></td>
+                    <td style="background-color: #495A5B; width: 60px;"></td>
+                    <td>Vert Pétrole / Ardoise</td>
+                    <td>Titres <code>&lt;h2&gt;</code>, bordures nav/iframe, en-têtes <code>&lt;th&gt;</code>, encadré
+                      <code>&lt;aside&gt;</code>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>#FDF7F4</code></td>
+                    <td style="background-color: #FDF7F4; border: 1px solid #ccc; width: 60px;"></td>
+                    <td>Pêche très claire</td>
+                    <td>Couleur d'arrière-plan de la page (<code>body</code>).</td>
+                  </tr>
+                  <tr>
+                    <td><code>#F7D6C8</code></td>
+                    <td style="background-color: #F7D6C8; width: 60px;"></td>
+                    <td>Pêche douce</td>
+                    <td>Bordures de cellules <code>&lt;td&gt;</code>, ligne <code>colspan</code> et dégradé du
+                      <code>footer</code>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>#F5B042</code></td>
+                    <td style="background-color: #F5B042; width: 60px;"></td>
+                    <td>Ambre doré</td>
+                    <td>Trait <code>&lt;hr&gt;</code>, surbrillance <code>&lt;mark&gt;</code>, ombre portée de l'iframe.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>#FDF3E3</code></td>
+                    <td style="background-color: #FDF3E3; width: 60px;"></td>
+                    <td>Ambre clair</td>
+                    <td>Arrière-plan du pied de tableau <code>&lt;tfoot&gt;</code>.</td>
+                  </tr>
+                  <tr>
+                    <td><code>#C73E4E</code></td>
+                    <td style="background-color: #C73E4E; width: 60px;"></td>
+                    <td>Rouge Carmin</td>
+                    <td>Titre principal <code>&lt;h1&gt;</code>, sous-titres <code>&lt;h3&gt;</code>, bordure principale
+                      du tableau.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h6>Spécifications de mise en forme clés :</h6>
+            <ul>
+              <li><strong>Règles communes :</strong> <code>text-align: center</code> sur le corps, typographie
+                <code>Arial, sans-serif</code>, couleurs de base.
+              </li>
+              <li><strong>Navigation (<code>nav a</code>) :</strong> Boutons en capsules
+                (<code>display: inline-block</code>, largeur <code>80px</code>, bordure arrondie <code>20px</code>, fond
+                blanc). Au survol (<code>:hover</code>) : fond vert pétrole <code>#495A5B</code>, texte blanc et largeur
+                <code>100px</code> avec <code>transition: all 0.3s ease</code>.
+              </li>
+              <li><strong>Cadre <code>iframe</code> :</strong> Largeur <code>90%</code>, hauteur <code>600px</code>,
+                bordure <code>2px solid #495A5B</code>, ombre portée dorée <code>box-shadow: 0 0 15px #F5B042</code>.
+              </li>
+              <li><strong>Pied de page (<code>footer</code>) :</strong> Dégradé linéaire ascendant
+                (<code>linear-gradient(to top, #F7D6C8, #FDF7F4)</code>), bordure supérieure
+                <code>2px solid #F5B042</code>, paragraphes en colonnes de largeur <code>20%</code> en
+                <code>display: inline-block</code> et gras.
+              </li>
+              <li><strong>Image principale (<code>accueil.html</code>) :</strong> Largeur et hauteur <code>30%</code>.
+                Au survol (<code>img:hover</code>) : rotation complète <code>transform: rotate(380deg)</code> avec une
+                transition débutant après 1s et durant 4s (<code>transition: transform 4s ease 1s</code>).</li>
+              <li><strong>Tableau (<code>activite.html</code>) :</strong> Centré (<code>margin: 20px auto</code>),
+                largeur <code>50%</code>, bordure rouge <code>#C73E4E</code>, <code>border-collapse: collapse</code> et
+                <code>table-layout: fixed</code>.
+              </li>
+              <li><strong>Galerie (<code>activite.html</code>) :</strong> Classe <code>.galerie figure</code> en
+                <code>display: inline-block; width: 28%; margin: 10px 1.5%;</code>. Au survol des images : léger
+                agrandissement fluide <code>transform: scale(1.05)</code>.
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
     </article>
   </main>

@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Feuille de styles CSS : Style.css
+   Série : Projet Web N°2 - M. Mohamed Kerkeni
+   Association : Sport Pour Tous
+
+   Palette de couleurs (Codes hexadécimaux purs) :
+   - #2F3438 : Anthracite / Ardoise foncée (Texte et contrastes)
+   - #495A5B : Vert Pétrole / Ardoise (Bordures nav, en-têtes)
+   - #FDF7F4 : Nuance pêche très claire (Fond de page)
+   - #F7D6C8 : Pêche douce (Fond de cellules et dégradé)
+   - #F5B042 : Ambre doré (Séparateur hr, surbrillance mark, ombre)
+   - #FDF3E3 : Nuance ambre claire (Pied de tableau)
+   - #C73E4E : Rouge Carmin / Crimson (Titre h1, bordures tableau)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. RÈGLES COMMUNES (Applicables à toutes les pages)
+   ========================================================================== */
+
+/* Corps de page */
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FDF7F4;
+    color: #2F3438;
+}
+
+/* Titres */
+h1 {
+    color: #C73E4E;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #495A5B;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+h3 {
+    color: #C73E4E;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+
+/* ==========================================================================
+   2. PAGE PRINCIPALE (index.html)
+   ========================================================================== */
+
+/* Trait de séparation sous le titre principal */
+hr {
+    width: 50%;
+    height: 2px;
+    background-color: #F5B042;
+    border: none;
+    margin: 10px auto 20px auto;
+}
+
+/* Liens de navigation (boutons capsules) */
+nav a {
+    display: inline-block;
+    width: 80px;
+    color: #2F3438;
+    background-color: #ffffff;
+    text-decoration: none;
+    border: 2px solid #495A5B;
+    border-radius: 20px;
+    padding: 4px 6px;
+    margin: 0 6px;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 1px 2px 5px #495A5B;
+}
+
+nav a:hover {
+    color: #ffffff;
+    background-color: #495A5B;
+    border-color: #495A5B;
+    width: 100px;
+}
+
+/* Cadre principal (iframe) */
+iframe {
+    width: 90%;
+    height: 600px;
+    box-shadow: 0 0 15px #F5B042;
+    border: 2px solid #495A5B;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Pied de page (footer) */
+footer {
+    margin-top: 30px;
+    padding: 15px 0;
+    background: linear-gradient(to top, #F7D6C8, #FDF7F4);
+    border-top: 2px solid #F5B042;
+}
+
+footer p {
+    width: 20%;
+    display: inline-block;
+    margin-top: 30px;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: center;
+    color: #2F3438;
+}
+
+footer a {
+    color: #C73E4E;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   3. PAGE D'ACCUEIL (accueil.html)
+   ========================================================================== */
+
+/* Illustration principale avec légende */
+figure {
+    text-align: center;
+    margin: 20px auto;
+}
+
+figcaption {
+    font-weight: bold;
+    color: #495A5B;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+/* Image principale avec transition de rotation */
+img {
+    width: 30%;
+    height: 30%;
+    border-radius: 6px;
+    transition: transform 4s ease 1s;
+}
+
+img:hover {
+    transform: rotate(380deg);
+}
+
+/* Abréviation */
+abbr {
+    color: #C73E4E;
+    text-decoration: underline dotted;
+    cursor: help;
+    font-weight: bold;
+}
+
+
+/* ==========================================================================
+   4. PAGE DES ACTIVITÉS (activite.html)
+   ========================================================================== */
+
+/* Composant interactif repliable (details / summary) */
+details {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #495A5B;
+    outline: none;
+    margin-bottom: 8px;
+}
+
+/* Texte en surbrillance */
+mark {
+    background-color: #F5B042;
+    color: #2F3438;
+    padding: 2px 6px;
+    font-weight: bold;
+}
+
+/* Tableau des activités */
+table {
+    width: 50%;
+    margin: 20px auto;
+    border: 2px solid #C73E4E;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background-color: #ffffff;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #C73E4E;
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+table th {
+    background-color: #495A5B;
+    color: #ffffff;
+    border: 1px solid #495A5B;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 12px;
+    letter-spacing: 0.5px;
+}
+
+table td {
+    border: 1px solid #F7D6C8;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px 12px;
+}
+
+/* Ligne fusionnée (colspan) */
+table td[colspan] {
+    background-color: #F7D6C8;
+    color: #2F3438;
+    font-weight: bold;
+}
+
+/* Pied de tableau (tfoot) */
+table tfoot th,
+table tfoot td {
+    background-color: #FDF3E3;
+    color: #2F3438;
+    font-weight: bold;
+    border-top: 2px solid #F5B042;
+}
+
+/* Liste des équipements */
+ul {
+    list-style-type: square;
+    display: inline-block;
+    text-align: left;
+    margin: 10px auto;
+    padding-left: 20px;
+    color: #2F3438;
+}
+
+/* Galerie des images des activités */
+.galerie {
+    margin: 25px auto 10px auto;
+}
+
+.galerie figure {
+    display: inline-block;
+    width: 28%;
+    margin: 10px 1.5%;
+    vertical-align: top;
+}
+
+.galerie img {
+    width: 100%;
+    border: 2px solid #495A5B;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+
+.galerie img:hover {
+    transform: scale(1.05);
+}
+
+
+/* ==========================================================================
+   5. PAGE DE CONTACT (contact.html)
+   ========================================================================== */
+
+/* Coordonnées postales et email */
+address {
+    font-style: normal;
+    line-height: 1.6;
+    margin: 15px auto;
+    color: #2F3438;
+}
+
+address a {
+    color: #C73E4E;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+address a:hover {
+    text-decoration: underline;
+}
+
+/* Encadré d'information latérale / permanences */
+aside {
+    display: inline-block;
+    border: 2px dashed #495A5B;
+    background-color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 10px;
+    margin: 15px auto;
+}
+
+/* Citation */
+cite {
+    font-style: italic;
+    color: #495A5B;
+    display: block;
+    margin-top: 15px;
+}
