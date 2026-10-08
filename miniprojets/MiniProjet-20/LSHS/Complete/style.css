@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 11pt;
+  width: 800px;
+  margin: auto;
+}
+
+header {
+  margin: 0 0 20px;
+  position: relative;
+}
+
+header img {
+  max-width: 100%;
+  border-radius: 0 0 10px 10px;
+}
+
+header h1 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  color: white;
+  font-size: 30pt;
+  text-align: center;
+  text-shadow: 0 0 15px #333;
+}
+
+nav a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: lightgreen;
+  color: darkgreen;
+  font-weight: bold;
+}
+
+nav a > span {
+  display: none;
+  position: relative;
+}
+
+nav a:hover > span {
+	display: block;
+	position: absolute;
+	top: 50px;
+	left: 0;
+	width: 200px;
+	color: green;
+	background-color: #efe;
+	padding: 5px;
+	border: green solid 1px;
+}
+
+nav {
+  position: sticky;
+  top: 10px;
+  background-color: #eeffee;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px green;
+}
+
+aside {
+  background-color: #eeeeff;
+  padding: 20px;
+  border-radius: 20px;
+  color: blue;
+  font-weight: bold;
+  text-align: center;
+  width: 200px;
+  position: fixed;
+  right: 10px;
+  bottom: 15px;
+  box-shadow: 0 0 15px blue;
+}
+
+.adv-card {
+  display: inline-block;
+  width: 23%;
+  background-color: lightgrey;
+  padding: 10px;
+  margin: 5px;
+  min-height: 200px;
+  vertical-align: top;
+  border-radius: 5px;
+}

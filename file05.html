@@ -342,7 +342,10 @@
                 <code>table-layout: fixed</code>.
               </li>
               <li>Concevoir et styliser une plateforme interactive complète : « IA Décodée » (Mini-projet 20).</li>
+              <li>Concevoir les pages d'une vitrine matériel informatique : « Graphic Cards » (Mini-projet 20).</li>
               <li>Concevoir et mettre en page le site d'une association : « Sport Pour Tous » (Mini-projet 20).</li>
+              <li>Reconstituer la mise en page d'un plan de classe en pur HTML/CSS à partir d'une capture visuelle : « Classe » (Mini-projet 20).</li>
+              <li>Styliser la page institutionnelle du lycée en intégrant positionnements sticky/fixed et effets au survol : « LSHS » (Mini-projet 20).</li>
             </ul>
           </div>
         </div>
@@ -2546,6 +2549,314 @@ table.tableau-benchmark td {
               <li><strong>Galerie (<code>activite.html</code>) :</strong> Classe <code>.galerie figure</code> en
                 <code>display: inline-block; width: 28%; margin: 10px 1.5%;</code>. Au survol des images : léger
                 agrandissement fluide <code>transform: scale(1.05)</code>.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4.4 : Application 4 - Classe -->
+      <section>
+        <h3>Application 4 : Disposition d'une salle de classe (« Classe »)</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Reconstituer intégralement la maquette géométrique d'un plan de salle de classe
+          en HTML5 et CSS3 à partir de l'unique capture d'écran du résultat final.
+          <br><br>
+          <strong>Consigne importante :</strong> Aucun fichier de départ ni code squelette n'est fourni pour cet
+          atelier. Vous disposez <strong>uniquement de la capture d'écran du résultat final attendu</strong>. Vous devez
+          analyser les formes, proportions, alignements et dégradés pour concevoir et développer par vous-mêmes les deux
+          fichiers :
+          <ul class="mb-0 mt-2">
+            <li><code>classe.html</code> : structure sémantique et arborescence des éléments (salle, titre, tables,
+              tabourets).</li>
+            <li><code>classe.css</code> : feuille de styles gérant le modèle de boîte, le positionnement relatif et
+              absolu, les dégradés linéaires CSS3, les bordures et les dimensions précises.</li>
+          </ul>
+        </div>
+
+        <h4>Aperçu du résultat final à reproduire</h4>
+        <p>Observez attentivement la capture d'écran ci-dessous pour identifier l'agencement, les dimensions relatives,
+          les bordures et les couleurs :</p>
+
+        <figure class="my-4 text-center">
+          <img src="miniprojets/MiniProjet-20/Classe/resultat.png" alt="Aperçu du résultat final - Mini-projet Classe"
+            class="img-fluid rounded border shadow-sm" style="max-height: 480px;">
+          <figcaption class="mt-2 text-muted fst-italic">Figure 1 : Rendu final attendu de la page classe.html
+          </figcaption>
+        </figure>
+
+        <div class="my-3 text-center">
+          <a href="miniprojets/MiniProjet-20/Classe/resultat.png" class="btn btn-outline-primary shadow-sm" download>
+            🖼️ Télécharger la capture de référence (resultat.png)
+          </a>
+        </div>
+
+        <h4>Cahier des charges &amp; Spécifications techniques</h4>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light fw-bold">Étape 1 : Conception de la structure <code>classe.html</code></div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Conteneur principal (<code>.classe</code>) :</strong> Une division principale représentant les
+                limites physiques de la salle de classe.</li>
+              <li><strong>Titre de la salle (<code>&lt;h1&gt;</code>) :</strong> Le texte <code>Classe</code> placé en
+                tête du conteneur.</li>
+              <li><strong>Les tables (<code>.table</code>) :</strong> Deux divisions identiques représentant chacune une
+                table de travail.</li>
+              <li><strong>Éléments internes de chaque table :</strong>
+                <ul>
+                  <li>Un titre de niveau 2 (<code>&lt;h2&gt;table&lt;/h2&gt;</code>) destiné à être affiché sous la
+                    table.</li>
+                  <li>Deux divisions pour les tabourets (<code>&lt;div class="tabouret-1"&gt;&lt;/div&gt;</code> et
+                    <code>&lt;div class="tabouret-2"&gt;&lt;/div&gt;</code>).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light fw-bold">Étape 2 : Feuille de styles <code>classe.css</code></div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Normalisation globale :</strong> Appliquer <code>box-sizing: border-box</code> à l'ensemble
+                des éléments via le sélecteur universel <code>*</code>.</li>
+              <li><strong>Enceinte de la classe (<code>.classe</code>) :</strong>
+                <ul>
+                  <li>Largeur fixe : <code>1000px</code>, Hauteur : <code>500px</code>.</li>
+                  <li>Centrage horizontal sur la page avec marges : <code>margin: 150px auto</code>.</li>
+                  <li>Bordure noire épaisse de <code>15px solid black</code>.</li>
+                  <li>Alignement du texte centré : <code>text-align: center</code>.</li>
+                </ul>
+              </li>
+              <li><strong>Titre principal (<code>.classe h1</code>) :</strong>
+                <ul>
+                  <li>Positionné en relatif (<code>position: relative</code>) et remonté vers le haut
+                    (<code>top: -65px</code>) pour venir chevaucher la bordure supérieure de la salle.</li>
+                </ul>
+              </li>
+              <li><strong>Tables (<code>.table</code>) :</strong>
+                <ul>
+                  <li>Affichage en bloc en-ligne pour les placer côte à côte : <code>display: inline-block</code>.</li>
+                  <li>Dimensions : Largeur <code>250px</code>, Hauteur <code>150px</code>.</li>
+                  <li>Bordure noire : <code>2px solid black</code>.</li>
+                  <li>Arrière-plan en dégradé linéaire horizontal moderne :
+                    <code>background: linear-gradient(90deg, #6366f1, #8b5cf6)</code>.</li>
+                  <li>Espacement latéral : <code>margin: 0 116px</code>.</li>
+                  <li>Positionnement relatif (<code>position: relative</code>) pour servir de repère au titre
+                    positionné en absolu.</li>
+                </ul>
+              </li>
+              <li><strong>Intitulé sous la table (<code>.table h2</code>) :</strong>
+                <ul>
+                  <li>Positionnement absolu fixé sous la table : <code>position: absolute; bottom: -60px;</code>.</li>
+                  <li>Largeur totale <code>width: 100%</code> et transformation en majuscules :
+                    <code>text-transform: uppercase</code>.</li>
+                </ul>
+              </li>
+              <li><strong>Tabourets (<code>.tabouret-1, .tabouret-2</code>) :</strong>
+                <ul>
+                  <li>Forme parfaitement circulaire : <code>border-radius: 50%</code>.</li>
+                  <li>Dimensions carrées : Largeur <code>75px</code>, Hauteur <code>75px</code>.</li>
+                  <li>Bordure noire fine : <code>2px solid black</code>.</li>
+                  <li>Même dégradé que la table :
+                    <code>background: linear-gradient(90deg, #6366f1, #8b5cf6)</code>.</li>
+                  <li>Affichage en ligne : <code>display: inline-block; margin: 0 23px;</code>.</li>
+                  <li>Décalage vers le haut en position relative (<code>position: relative; top: -80px;</code>) afin
+                    de se placer au-dessus de chaque table.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <details class="my-3">
+          <summary>💡 Indices de réalisation &amp; Notions CSS clés</summary>
+          <div class="mt-3">
+            <div class="callout-box">
+              <p><strong>Astuces d'observation :</strong></p>
+              <ul>
+                <li>Pour centrer un conteneur de largeur fixe, appliquez des marges automatiques à gauche et à droite :
+                  <code>margin: 150px auto;</code>.</li>
+                <li>Pour déplacer un élément par rapport à sa position normale dans le flux sans affecter les éléments
+                  voisins, utilisez <code>position: relative;</code> avec des valeurs de décalage négatives (ex.
+                  <code>top: -65px;</code>).</li>
+                <li>Pour afficher deux blocs rectangulaires sur la même ligne tout en leur fixant une largeur et une
+                  hauteur, déclarez <code>display: inline-block;</code>.</li>
+                <li>Pour obtenir un cercle parfait en CSS, appliquez une largeur et une hauteur égales ainsi que
+                  <code>border-radius: 50%;</code>.</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- Section 4.5 : Application 5 - LSHS -->
+      <section>
+        <h3>Application 5 : Page institutionnelle du Lycée Hammam-Sousse (« LSHS »)</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Concevoir la feuille de styles <code>style.css</code> pour styliser la page
+          institutionnelle de présentation de la section informatique du Lycée Hammam-Sousse (<code>info.html</code>).
+          <br><br>
+          <strong>Consigne :</strong> Vous disposez de l'ensemble des fichiers du dossier <code>TODO/</code> (archive
+          téléchargeable ci-dessous). Le document HTML (<code>info.html</code>) ainsi que les photographies vous sont
+          fournis. Vous disposez également d'une capture d'écran du résultat final attendu.
+          <br>
+          <strong>Votre travail consiste à développer intégralement le fichier <code>style.css</code> par vous-mêmes</strong>
+          à partir de la capture, sans modifier le code HTML.
+        </div>
+
+        <div class="my-3 text-center">
+          <a href="miniprojets/MiniProjet-20/LSHS/TODO.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger le dossier de travail (TODO.zip)
+          </a>
+        </div>
+
+        <h4>Architecture des fichiers du dossier <code>TODO</code></h4>
+        <pre class="html"><code>TODO/
+├── info.html         # Page HTML5 complète et structurée (textes, balises, classes et identifiants)
+├── labo-info.jpg     # Photographie du laboratoire informatique du lycée
+├── lshs.jpg          # Photographie de la façade du Lycée Hammam-Sousse
+├── resultat.png      # Capture d'écran de référence du résultat final attendu
+└── style.css         # Feuille de style CSS3 à créer et développer par l'élève</code></pre>
+
+        <h4>Aperçu de la maquette de référence</h4>
+        <p>Le document ci-dessous illustre le rendu visuel complet à reproduire dans votre navigateur :</p>
+
+        <figure class="my-4 text-center">
+          <img src="miniprojets/MiniProjet-20/LSHS/TODO/resultat.png"
+            alt="Aperçu du résultat final - Lycée Hammam-Sousse" class="img-fluid rounded border shadow-sm">
+          <figcaption class="mt-2 text-muted fst-italic">Figure 2 : Rendu attendu de la page info.html (Lycée
+            Hammam-Sousse)</figcaption>
+        </figure>
+
+        <h4>Spécifications techniques &amp; Guide de stylisation</h4>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light fw-bold">Zone 1 : Réinitialisation &amp; Gabarit global (<code>body</code>)
+          </div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Modèle de boîte :</strong> Appliquer <code>box-sizing: border-box</code> à tous les éléments
+                (<code>*</code>).</li>
+              <li><strong>Corps de la page (<code>body</code>) :</strong>
+                <ul>
+                  <li>Largeur fixe de <code>800px</code>, centré horizontalement sur la fenêtre :
+                    <code>margin: auto</code>.</li>
+                  <li>Typographie : famille <code>sans-serif</code>, corps de texte <code>font-size: 11pt</code>.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light fw-bold">Zone 2 : En-tête avec titre superposé (<code>&lt;header&gt;</code>)
+          </div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Conteneur de l'en-tête (<code>header</code>) :</strong>
+                <ul>
+                  <li>Marge basse : <code>margin: 0 0 20px</code>.</li>
+                  <li>Positionnement relatif (<code>position: relative</code>) afin de servir de référence au titre
+                    absolu.</li>
+                </ul>
+              </li>
+              <li><strong>Image de couverture (<code>header img</code>) :</strong>
+                <ul>
+                  <li>Largeur maximale adaptée : <code>max-width: 100%</code>.</li>
+                  <li>Coins inférieurs arrondis : <code>border-radius: 0 0 10px 10px</code>.</li>
+                </ul>
+              </li>
+              <li><strong>Titre principal (<code>header h1</code>) :</strong>
+                <ul>
+                  <li>Positionné au milieu de l'image : <code>position: absolute; top: 50%; left: 0; right: 0;</code>.
+                  </li>
+                  <li>Texte blanc (<code>color: white</code>), taille imposante <code>30pt</code> et centré
+                    (<code>text-align: center</code>).</li>
+                  <li>Ombre portée sur le texte pour assurer un contraste net sur la photo :
+                    <code>text-shadow: 0 0 15px #333</code>.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light fw-bold">Zone 3 : Barre de navigation collante &amp; Infobulles
+            (<code>&lt;nav&gt;</code>)</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Conteneur de navigation (<code>nav</code>) :</strong>
+                <ul>
+                  <li>Position collante au défilement vertical : <code>position: sticky; top: 10px;</code>.</li>
+                  <li>Arrière-plan vert très clair : <code>background-color: #eeffee</code>.</li>
+                  <li>Coins arrondis généreux : <code>border-radius: 20px</code> et marge interne
+                    <code>padding: 20px</code>.</li>
+                  <li>Ombre portée verte diffuse : <code>box-shadow: 0 0 15px green</code>.</li>
+                </ul>
+              </li>
+              <li><strong>Boutons de liens (<code>nav a</code>) :</strong>
+                <ul>
+                  <li>Affichage en ligne : <code>display: inline-block; position: relative;</code>.</li>
+                  <li>Suppression du soulignement : <code>text-decoration: none</code>.</li>
+                  <li>Fond vert pomme : <code>background-color: lightgreen; color: darkgreen; font-weight: bold;</code>.
+                  </li>
+                  <li>Espacement intérieur : <code>padding: 10px 20px</code>.</li>
+                </ul>
+              </li>
+              <li><strong>Sous-titres explicatifs / Infobulles déroulantes (<code>nav a &gt; span</code>) :</strong>
+                <ul>
+                  <li>Masqués par défaut dans le flux normal : <code>display: none; position: relative;</code>.</li>
+                  <li>Au survol du lien (<code>nav a:hover &gt; span</code>) : affichage en bloc positionné
+                    absolument sous le bouton :
+                    <code>display: block; position: absolute; top: 50px; left: 0; width: 200px;</code>.
+                  </li>
+                  <li>Habillage visuel : fond vert pâle <code>background-color: #efe</code>, texte vert
+                    <code>color: green</code>, bordure fine verte <code>border: green solid 1px</code> et espacement
+                    <code>padding: 5px</code>.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light fw-bold">Zone 4 : Badge d'information fixe (<code>&lt;aside&gt;</code>)</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Encadré latéral fixe (<code>aside</code>) :</strong>
+                <ul>
+                  <li>Épinglé de manière permanente à l'écran, insensible au défilement de la page :
+                    <code>position: fixed; right: 10px; bottom: 15px;</code>.</li>
+                  <li>Largeur fixe : <code>width: 200px</code> et texte centré en gras :
+                    <code>font-weight: bold; text-align: center;</code>.</li>
+                  <li>Arrière-plan bleu pastel : <code>background-color: #eeeeff</code>, texte bleu
+                    <code>color: blue</code>.</li>
+                  <li>Coins arrondis de <code>20px</code> et ombre portée bleutée :
+                    <code>box-shadow: 0 0 15px blue</code>.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light fw-bold">Zone 5 : Grille des 4 cartes d'atouts (<code>.adv-card</code>)</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Disposition en colonnes (<code>.adv-card</code>) :</strong>
+                <ul>
+                  <li>Affichage côte à côte : <code>display: inline-block</code>.</li>
+                  <li>Largeur relative pour répartir les 4 cartes sur la ligne : <code>width: 23%</code> avec marges
+                    <code>margin: 5px</code>.</li>
+                  <li>Alignement vertical des cartes par le haut : <code>vertical-align: top</code>.</li>
+                  <li>Hauteur minimale pour harmoniser les blocs : <code>min-height: 200px</code>.</li>
+                  <li>Arrière-plan gris clair : <code>background-color: lightgrey</code>, coins arrondis
+                    <code>border-radius: 5px</code> et marge interne <code>padding: 10px</code>.</li>
+                </ul>
               </li>
             </ul>
           </div>
