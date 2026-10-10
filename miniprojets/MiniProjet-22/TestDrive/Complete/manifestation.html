@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Évaluation d'une manifestation - Test Drive</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <img src="images/manifestation.jpg" alt="Paddock de la manifestation Test Drive" class="banner-img">
+
+    <form action="#" method="post" id="form-manifestation">
+      <fieldset>
+        <legend class="legend-manifestation">Évaluation d’une manifestation</legend>
+        <p>Donnez votre avis sur l'organisation et l'accueil du rassemblement.</p>
+
+        <table>
+          <tr>
+            <td><label for="manifestation">Manifestation :</label></td>
+            <td>
+              <select id="manifestation" name="manifestation" required>
+                <option value="">Choisir une manifestation</option>
+                <option value="track-day-vip">Journée VIP Test Drive - Circuit Belvédère</option>
+                <option value="salon-supercars">Salon Privé Supercars & Hypercars</option>
+                <option value="portes-ouvertes">Journées Portes Ouvertes Testeur Drive</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="date_visite">Date visite :</label></td>
+            <td><input type="date" id="date_visite" name="date_visite" required></td>
+          </tr>
+          <tr>
+            <td><label for="email_visiteur">E-mail :</label></td>
+            <td><input type="email" id="email_visiteur" name="email_visiteur" placeholder="visiteur@test.tn"></td>
+          </tr>
+        </table>
+
+        <div>
+          <h1 class="titre-colonne">Service</h1>
+          <h1 class="titre-colonne">Note</h1>
+        </div>
+
+        <table>
+          <tr>
+            <td><label>Accueil :</label></td>
+            <td><input type="range" min="0" max="5" value="4" id="note_accueil" oninput="updateScore()"></td>
+            <td class="stars" id="stars_accueil">★★★★☆</td>
+          </tr>
+          <tr>
+            <td><label>Confort :</label></td>
+            <td><input type="range" min="0" max="5" value="5" id="note_confort" oninput="updateScore()"></td>
+            <td class="stars" id="stars_confort">★★★★★</td>
+          </tr>
+          <tr>
+            <td><label>Signalétique :</label></td>
+            <td><input type="range" min="0" max="5" value="3" id="note_signal" oninput="updateScore()"></td>
+            <td class="stars" id="stars_signal">★★★☆☆</td>
+          </tr>
+          <tr>
+            <td><label>Logistique :</label></td>
+            <td><input type="range" min="0" max="5" value="4" id="note_logistique" oninput="updateScore()"></td>
+            <td class="stars" id="stars_logistique">★★★★☆</td>
+          </tr>
+        </table>
+
+        <div class="row-box">
+          <label>Note totale :</label>
+          <span class="total-box" id="note_totale">16 / 20</span>
+        </div>
+
+        <div class="row-box">
+          <label for="commentaires">Remarques & suggestions :</label>
+          <textarea id="commentaires" name="commentaires" rows="2" placeholder="Partagez vos impressions sur le stand ou les essais..."></textarea>
+        </div>
+
+        <div class="row-box">
+          <input type="checkbox" id="newsletter" name="newsletter" checked>
+          <label for="newsletter">Recevoir les invitations officielles aux prochains salons.</label>
+        </div>
+
+        <div class="form-actions">
+          <input type="submit" value="Valider">
+          <input type="reset" value="Annuler" onclick="setTimeout(updateScore, 50)">
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <script>
+    function updateScore() {
+      const a = parseInt(document.getElementById('note_accueil').value) || 0;
+      const c = parseInt(document.getElementById('note_confort').value) || 0;
+      const s = parseInt(document.getElementById('note_signal').value) || 0;
+      const l = parseInt(document.getElementById('note_logistique').value) || 0;
+      document.getElementById('note_totale').textContent = (a + c + s + l) + " / 20";
+      function renderStars(val) { return "★".repeat(val) + "☆".repeat(5 - val); }
+      document.getElementById('stars_accueil').textContent = renderStars(a);
+      document.getElementById('stars_confort').textContent = renderStars(c);
+      document.getElementById('stars_signal').textContent = renderStars(s);
+      document.getElementById('stars_logistique').textContent = renderStars(l);
+    }
+  </script>
+</body>
+</html>

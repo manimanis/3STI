@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enregistrement d'un testeur - Test Drive</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Enregistrement d'un testeur :</legend>
+        <p>Renseignez vos coordonnées pour valider votre inscription au centre d'essais.</p>
+
+        <table>
+          <tr>
+            <td><label for="permis">N° Permis :</label></td>
+            <td><input type="text" id="permis" name="permis" placeholder="Ex: 58/987654" required></td>
+          </tr>
+          <tr>
+            <td><label for="nom">Nom :</label></td>
+            <td><input type="text" id="nom" name="nom" placeholder="Votre nom" required></td>
+          </tr>
+          <tr>
+            <td><label for="prenom">Prénom :</label></td>
+            <td><input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required></td>
+          </tr>
+          <tr>
+            <td><label for="email">E-mail :</label></td>
+            <td><input type="email" id="email" name="email" placeholder="pilote@exemple.tn" required></td>
+          </tr>
+          <tr>
+            <td><label for="date_permis">Date permis :</label></td>
+            <td><input type="date" id="date_permis" name="date_permis" required></td>
+          </tr>
+          <tr>
+            <td><label for="couleur">Teinte préférée :</label></td>
+            <td><input type="color" id="couleur" name="couleur" value="#1e293b"></td>
+          </tr>
+          <tr>
+            <td><label>Genre :</label></td>
+            <td>
+              <input type="radio" id="feminin" name="genre" value="Féminin" required>
+              <label for="feminin">Féminin</label>
+              &nbsp;&nbsp;
+              <input type="radio" id="masculin" name="genre" value="Masculin">
+              <label for="masculin">Masculin</label>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="remarques">Expérience :</label></td>
+            <td><textarea id="remarques" name="remarques" rows="2" placeholder="Précisez votre expérience sur circuit..."></textarea></td>
+          </tr>
+        </table>
+
+        <div class="row-box">
+          <input type="checkbox" id="charte" name="charte" required>
+          <label for="charte">J'accepte la charte de sécurité du circuit.</label>
+        </div>
+
+        <div class="form-actions">
+          <input type="reset" value="Annuler">
+          <input type="submit" value="Ajouter">
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</body>
+</html>

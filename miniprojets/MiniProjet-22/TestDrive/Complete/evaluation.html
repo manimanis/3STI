@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Évaluation d'un modèle - Test Drive</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <img src="images/cockpit.jpg" alt="Cockpit de pilotage sur circuit - Test Drive" class="banner-img">
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Evaluation d'un modele</legend>
+        <p>Attribuez une note de 0 à 20 pour chaque critère technique.</p>
+
+        <table>
+          <tr>
+            <td><label for="permis">N° Permis :</label></td>
+            <td><input type="text" id="permis" name="permis" placeholder="N° permis" required></td>
+          </tr>
+          <tr>
+            <td><label for="modele">Modèle :</label></td>
+            <td>
+              <select id="modele" name="modele" required>
+                <option value="">Choisir un modèle</option>
+                <option value="bugatti-chiron">Bugatti Chiron Super Sport</option>
+                <option value="porsche-911">Porsche 911 GT3 RS</option>
+                <option value="ferrari-sf90">Ferrari SF90 Stradale</option>
+                <option value="mercedes-amg">Mercedes-AMG GT Black</option>
+                <option value="bmw-m8">BMW M8 Competition</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="date_test">Date essai :</label></td>
+            <td><input type="date" id="date_test" name="date_test" required></td>
+          </tr>
+          <tr>
+            <td><label for="teinte_test">Teinte testée :</label></td>
+            <td><input type="color" id="teinte_test" name="teinte_test" value="#dc2626"></td>
+          </tr>
+        </table>
+
+        <h3>Notes attribuées</h3>
+
+        <table>
+          <tr>
+            <td><label for="securite">Sécurité :</label></td>
+            <td><input type="number" id="securite" name="securite" min="0" max="20" placeholder="/20" required></td>
+            <td><label for="conduite">Conduite :</label></td>
+            <td><input type="number" id="conduite" name="conduite" min="0" max="20" placeholder="/20" required></td>
+            <td><label for="confort">Confort :</label></td>
+            <td><input type="number" id="confort" name="confort" min="0" max="20" placeholder="/20" required></td>
+          </tr>
+        </table>
+
+        <div class="row-box">
+          <label for="avis_pilote">Observations du pilote :</label>
+          <textarea id="avis_pilote" name="avis_pilote" rows="2" placeholder="Sensations au volant et tenue de route..."></textarea>
+        </div>
+
+        <div class="row-box">
+          <input type="checkbox" id="mode_sport" name="mode_sport">
+          <label for="mode_sport">Mode Sport activé sur piste</label>
+          &nbsp;&nbsp;
+          <input type="checkbox" id="robot" name="robot" required>
+          <label for="robot">Je ne suis pas un robot</label>
+        </div>
+
+        <div class="form-actions">
+          <input type="reset" value="Annuler">
+          <input type="submit" value="Valider">
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</body>
+</html>

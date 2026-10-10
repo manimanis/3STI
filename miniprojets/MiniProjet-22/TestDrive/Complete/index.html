@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Drive - Portail Automobile Officiel</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-container">
+    <!-- ZONE 1 : En-tête du site -->
+    <header>
+      <h1 class="titre-test-drive">Test drive</h1>
+      <p class="site-subtitle">Centre d'essais et d'évaluation de véhicules de prestige</p>
+    </header>
+
+    <div class="main-wrapper">
+      <!-- ZONE 2 : Volet de navigation -->
+      <nav>
+        <h3 class="nav-title">Menu Navigation</h3>
+        
+        <a href="acceuil.html" target="zone_affichage" class="active">Accueil</a>
+        <a href="enregistrement.html" target="zone_affichage">Enregistrement d'un testeur</a>
+        <a href="evaluation.html" target="zone_affichage">Evaluation d'un modèle</a>
+        <a href="manifestation.html" target="zone_affichage">Évaluation manifestation</a>
+      </nav>
+
+      <!-- ZONE 3 : Section avec cadre récepteur iframe -->
+      <section>
+        <iframe src="acceuil.html" name="zone_affichage" id="zone_affichage" title="Zone d'affichage du site Test Drive">
+          Votre navigateur ne prend pas en charge les cadres intégrés.
+        </iframe>
+      </section>
+    </div>
+
+    <!-- ZONE 4 : Pied de page -->
+    <footer>
+      Copyright &copy; 2026 - 3<sup>e</sup> Sciences de l'Informatique
+    </footer>
+  </div>
+
+  <script>
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
