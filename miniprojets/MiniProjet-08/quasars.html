@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Observation des Quasars</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <form action="quasars.php" method="post" enctype="multipart/form-data">
+      <h1>Observation des Quasars</h1>
+      <p class="intro">
+        Répondez aux questions ci-dessous pour enregistrer une séance d'observation astronomique d'un quasar.
+      </p>
+
+      <!-- Question 1 : readonly & password -->
+      <h2>Question 1 : Identification du télescope</h2>
+      <p>Voici le télescope spatial en charge du relevé astronomique.</p>
+      <div class="image-center">
+        <label for="cle"><img src="images/telescope.jpg" alt="Télescope de l'observatoire"></label>
+      </div>
+      <p>
+        <label for="telescope">Station active (lecture seule) :</label><br>
+        <input type="text" id="telescope" name="telescope" value="VLT Paranal - Télescope 4" readonly>
+      </p>
+      <p>
+        <label for="cle">Code d'accès de l'observateur * :</label><br>
+        <input type="password" id="cle" name="cle" placeholder="Code secret" minlength="4" required>
+      </p>
+
+      <!-- Question 2 : type="time" -->
+      <h2>Question 2 : Heure d'observation</h2>
+      <p>Indiquer l'heure exacte (UTC) du début de l'observation :</p>
+      <p>
+        <label for="heure">Heure de début (UTC) * :</label>
+        <input type="time" id="heure" name="heure" value="22:30" required>
+      </p>
+
+      <!-- Question 3 : type="range" & output -->
+      <h2>Question 3 : Décalage vers le rouge (Redshift z)</h2>
+      <p>Le décalage vers le rouge <em>z</em> mesure la vitesse d'éloignement et la distance du quasar.</p>
+      <div class="image-center">
+        <label for="redshift"><img src="images/quasar.jpg" alt="Quasar 3C 273"></label>
+      </div>
+      <p>
+        <label for="redshift">Ajuster la valeur du redshift <em>z</em> (entre 0 et 8) :</label><br>
+        <input type="range" id="redshift" name="redshift" min="0" max="8" step="0.5" value="2"
+          oninput="document.getElementById('z_val').value = this.value">
+        <output id="z_val">2</output>
+      </p>
+
+      <!-- Question 4 : type="color" -->
+      <h2>Question 4 : Raie spectrale dominante</h2>
+      <p>Observer le spectre ci-dessous et sélectionner la couleur de la raie d'émission H-alpha :</p>
+      <div class="image-center">
+        <label for="couleur"><img src="images/spectre.jpg" alt="Spectre d'émission"></label>
+      </div>
+      <p>
+        <label for="couleur">Couleur de la raie :</label>
+        <input type="color" id="couleur" name="couleur" value="#ff0000">
+      </p>
+
+      <!-- Question 5 : select multiple -->
+      <h2>Question 5 : Bandes spectrales observées</h2>
+      <p>Sélectionner les bandes de rayonnement étudiées (maintenir <strong>Ctrl</strong> pour plusieurs choix) :</p>
+      <p>
+        <select name="bandes[]" id="bandes" multiple size="4" required>
+          <option value="radio" selected>Ondes radio</option>
+          <option value="infrarouge">Infrarouge</option>
+          <option value="visible" selected>Spectre visible</option>
+          <option value="uv">Ultraviolet</option>
+          <option value="rayons_x">Rayons X</option>
+        </select>
+      </p>
+
+      <!-- Question 6 : file & button type="button" -->
+      <h2>Question 6 : Données brutes & Vérification</h2>
+      <p>
+        <label for="fichier">Joindre le fichier du spectre (.png, .jpg ou .fits) :</label><br>
+        <input type="file" id="fichier" name="fichier" accept=".png,.jpg,.fits">
+      </p>
+      <p>
+        <button type="button" onclick="alert('Connexion au télescope établie avec succès !')">
+          Tester la liaison avec le télescope
+        </button>
+      </p>
+
+      <!-- Boutons d'action -->
+      <p class="actions">
+        <button type="submit">Soumettre</button>
+        <button type="reset">Effacer</button>
+      </p>
+    </form>
+  </main>
+</body>
+
+</html>

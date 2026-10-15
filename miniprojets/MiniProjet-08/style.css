@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  margin: 0;
+  padding: 20px 10px;
+}
+
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 25px 30px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  color: #1e3a8a;
+  margin-top: 0;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 10px;
+  font-size: 1.6rem;
+}
+
+.intro {
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #1d4ed8;
+  font-size: 1.15rem;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  padding-left: 8px;
+  border-left: 4px solid #3b82f6;
+}
+
+p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+label {
+  font-weight: bold;
+  color: #334155;
+}
+
+.image-center {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.image-center img {
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="time"],
+select {
+  padding: 7px 10px;
+  font-size: 1rem;
+  border: 1px solid #94a3b8;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+input[readonly] {
+  background-color: #f1f5f9;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+input[type="range"] {
+  vertical-align: middle;
+  width: 240px;
+}
+
+output {
+  display: inline-block;
+  min-width: 30px;
+  font-weight: bold;
+  color: #1d4ed8;
+  font-size: 1.1rem;
+  padding-left: 8px;
+}
+
+input[type="color"] {
+  vertical-align: middle;
+  width: 45px;
+  height: 35px;
+  border: 1px solid #94a3b8;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 2px;
+}
+
+select[multiple] {
+  width: 100%;
+  max-width: 320px;
+}
+
+select[multiple] option {
+  padding: 4px 6px;
+}
+
+button {
+  padding: 8px 18px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #94a3b8;
+  background-color: #f8fafc;
+}
+
+button:hover {
+  background-color: #e2e8f0;
+}
+
+button[type="submit"] {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  background-color: #1d4ed8;
+}
+
+button[type="reset"] {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+}

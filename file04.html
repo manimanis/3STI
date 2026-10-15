@@ -179,8 +179,7 @@
                 <code>disabled</code>, <code>pattern</code>, <code>min</code>, <code>max</code>, <code>step</code>).
               </li>
               <li>Intégrer et styliser des formulaires web complets et esthétiques en CSS (Mini-projets : Formulaire de
-                contact
-                et Questionnaire BD).</li>
+                contact, Questionnaire BD et Fiche d'Observation des Quasars).</li>
             </ul>
           </div>
         </div>
@@ -912,7 +911,8 @@
               <tr>
                 <td>
                   <strong>Liste déroulante simple</strong><br>
-                  <small class="text-muted">Sélection unique standard sans regroupement (balises <code>&lt;select&gt;</code> et <code>&lt;option&gt;</code>)</small>
+                  <small class="text-muted">Sélection unique standard sans regroupement (balises
+                    <code>&lt;select&gt;</code> et <code>&lt;option&gt;</code>)</small>
                 </td>
                 <td>
                   <select name="fruit" class="form-select">
@@ -937,7 +937,8 @@
               <tr>
                 <td>
                   <strong>Liste avec groupes (&lt;optgroup&gt;)</strong><br>
-                  <small class="text-muted">Organisation hiérarchique. La balise <code>&lt;optgroup&gt;</code> structure les options en sous-catégories non sélectionnables.</small>
+                  <small class="text-muted">Organisation hiérarchique. La balise <code>&lt;optgroup&gt;</code> structure
+                    les options en sous-catégories non sélectionnables.</small>
                 </td>
                 <td>
                   <select name="fruit_cat" class="form-select">
@@ -974,7 +975,8 @@
               <tr>
                 <td>
                   <strong>Liste à choix multiples</strong><br>
-                  <small class="text-muted">Attributs <code>multiple</code> et <code>size</code>. Autorise la sélection de plusieurs éléments (<kbd>Ctrl</kbd> ou <kbd>Shift</kbd>).</small>
+                  <small class="text-muted">Attributs <code>multiple</code> et <code>size</code>. Autorise la sélection
+                    de plusieurs éléments (<kbd>Ctrl</kbd> ou <kbd>Shift</kbd>).</small>
                 </td>
                 <td>
                   <select name="fruits" size="5" multiple class="form-select">
@@ -1097,7 +1099,8 @@
               <tr>
                 <td>
                   <strong>Bouton neutre (button)</strong><br>
-                  <small class="text-muted">Bouton générique sans action native par défaut. Son comportement est programmé
+                  <small class="text-muted">Bouton générique sans action native par défaut. Son comportement est
+                    programmé
                     via JavaScript (attribut <code>onclick</code> ou écouteur d'événement)</small>
                 </td>
                 <td>
@@ -1121,7 +1124,8 @@
         <h4>Différence clé entre <code>&lt;button&gt;</code> et <code>&lt;input type="..."&gt;</code></h4>
         <p>
           Contrairement à <code>&lt;input&gt;</code> dont l'intitulé est restreint à une simple chaîne de texte brut
-          (attribut <code>value</code>), la balise <code>&lt;button&gt;...&lt;/button&gt;</code> est un conteneur qui peut
+          (attribut <code>value</code>), la balise <code>&lt;button&gt;...&lt;/button&gt;</code> est un conteneur qui
+          peut
           embarquer du contenu HTML riche (icônes, images, mise en gras, etc.) :
         </p>
         <pre class="html"><code>&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;
@@ -1359,10 +1363,96 @@
           <li>La réponse à cette question est obligatoire.</li>
         </ol>
 
-        <div class="alert alert-secondary my-3 text-center">
+        <div class="alert alert-info my-3 text-center">
           <strong>Boutons de fin de formulaire :</strong> Le formulaire doit comporter un bouton d'envoi
           <code>&lt;button type="submit"&gt;</code> et un bouton de réinitialisation
           <code>&lt;button type="reset"&gt;</code>.
+        </div>
+      </section>
+
+      <!-- Section 4.3 : Application 9 - Observation des Quasars -->
+      <section>
+        <h3>Application 9 : Observation des Quasars</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Réaliser un formulaire d'enregistrement astronomique structuré en six questions
+          permettant d'expérimenter l'ensemble des <strong>composants HTML5</strong> : champs temporels, curseur
+          d'intervalle <code>range</code>, sélecteur de couleur <code>color</code>, mot de passe, champ en lecture
+          seule <code>readonly</code>, liste à sélection multiple <code>multiple</code> et bouton d'action JavaScript
+          <code>button type="button"</code>.
+        </div>
+
+        <div class="my-3 text-center d-flex justify-content-center gap-3 flex-wrap">
+          <a href="assets/miniprojet08/quasars-todo.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger le dossier de travail (quasars-todo.zip)
+          </a>
+        </div>
+
+        <figure class="my-3 text-center">
+          <a href="miniprojets/MiniProjet-08/images/quasars-preview.png" target="_blank" rel="noopener noreferrer">
+            <img src="miniprojets/MiniProjet-08/images/quasars-preview-thumb.png" alt="Aperçu de l'application Quasars"
+              class="img-fluid rounded border shadow-sm">
+          </a>
+          <figcaption class="mt-2 text-muted fst-italic">Aperçu du résultat attendu pour l'observation des Quasars</figcaption>
+        </figure>
+
+        <h4>Question 1 : Identification du télescope (readonly &amp; password)</h4>
+        <ol>
+          <li>Un champ de texte en <strong>lecture seule</strong> affiche la station active :
+            <code>VLT Paranal - Télescope 4</code>. Sa valeur est transmise au serveur mais reste non
+            modifiable par l'élève.
+          </li>
+          <li>Un champ mot de passe permet de saisir le code de l'opérateur. Il est <strong>obligatoire</strong> et doit
+            comporter au moins 4 caractères (attribut <code>minlength="4"</code>).
+          </li>
+        </ol>
+
+        <h4>Question 2 : Heure d'observation (type="time")</h4>
+        <ol>
+          <li>Le champ de saisie temporelle (<code>type="time"</code>).</li>
+          <li>Le champ affiche l'heure <code>22:30</code> par défaut et sa saisie est obligatoire.</li>
+        </ol>
+
+        <h4>Question 3 : Décalage vers le rouge (type="range" &amp; output)</h4>
+        <ol>
+          <li>Le contrôle est un curseur d'intervalle.</li>
+          <li>Les bornes autorisées vont de <code>0</code> (minimum) à <code>8</code> (maximum) avec un incrément de
+            <code>0.5</code> (<code>step="0.5"</code>). La valeur par défaut est <code>2</code>.
+          </li>
+          <li>La valeur sélectionnée est affichée dynamiquement à côté du curseur dans une balise
+            <code>&lt;output&gt;</code> grâce à l'attribut <code>oninput</code>.
+          </li>
+        </ol>
+
+        <h4>Question 4 : Raie spectrale dominante (type="color")</h4>
+        <ol>
+          <li>Le champ permet de choisir visuellement une couleur grâce au type sélecteur chromatique
+            (<code>type="color"</code>).</li>
+          <li>La valeur initiale proposée est le rouge : <code>#ff0000</code>.</li>
+        </ol>
+
+        <h4>Question 5 : Bandes spectrales observées (select multiple)</h4>
+        <ol>
+          <li>La zone de liste est à choix multiples (attribut <code>multiple</code>).</li>
+          <li>Le nombre de lignes affichées simultanément est fixé à 4 (attribut <code>size="4"</code>).</li>
+          <li>La liste propose 5 bandes : <em>Ondes radio</em> (sélectionnée par défaut), <em>Infrarouge</em>,
+            <em>Spectre visible</em> (sélectionnée par défaut), <em>Ultraviolet</em> et <em>Rayons X</em>.
+          </li>
+          <li>La sélection d'au moins une bande est obligatoire.</li>
+        </ol>
+
+        <h4>Question 6 : Données brutes &amp; Bouton d'action (file &amp; button)</h4>
+        <ol>
+          <li>Un bouton d'action JavaScript (<code>&lt;button type="button"&gt;</code>) déclenche l'affichage d'un
+            message d'alerte lors du clic (événement <code>onclick="alert(...)"</code>) sans recharger la page ni
+            soumettre le formulaire.</li>
+        </ol>
+
+        <div class="alert alert-info my-3 text-center">
+          <strong>Boutons de fin de formulaire :</strong> Le formulaire doit comporter un bouton de soumission
+          <code>&lt;button type="submit"&gt;Soumettre&lt;/button&gt;</code> pour envoyer les données vers
+          <code>quasars.php</code>
+          et un bouton de remise à zéro <code>&lt;button type="reset"&gt;Effacer&lt;/button&gt;</code>.
         </div>
       </section>
     </article>
