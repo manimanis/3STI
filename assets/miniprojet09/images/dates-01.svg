@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" width="100%" height="100%" style="background:#ffffff; border-radius:8px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow-dt" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Browser Frame -->
+  <rect x="0" y="0" width="540" height="300" rx="8" fill="#ffffff" stroke="#dee2e6" stroke-width="1"/>
+  
+  <!-- Browser Header -->
+  <rect x="0" y="0" width="540" height="34" rx="8" fill="#f8f9fa"/>
+  <rect x="0" y="26" width="540" height="8" fill="#f8f9fa"/>
+  <line x1="0" y1="34" x2="540" y2="34" stroke="#dee2e6" stroke-width="1"/>
+
+  <circle cx="16" cy="17" r="5" fill="#ea4335"/>
+  <circle cx="32" cy="17" r="5" fill="#fbbc04"/>
+  <circle cx="48" cy="17" r="5" fill="#34a853"/>
+
+  <!-- Address Bar -->
+  <rect x="70" y="6" width="450" height="22" rx="4" fill="#ffffff" stroke="#ced4da"/>
+  <text x="80" y="21" font-size="11" fill="#6c757d">http://localhost/calcul-age.html</text>
+
+  <!-- Form in Webpage Canvas -->
+  <g transform="translate(25, 48)">
+    <text x="0" y="16" font-size="12" font-weight="600" fill="#495057">Formulaire de saisie :</text>
+
+    <!-- Form Container -->
+    <rect x="0" y="26" width="490" height="175" rx="6" fill="#f8fafc" stroke="#e2e8f0" filter="url(#shadow-dt)"/>
+
+    <!-- Field Label + Date Input + Button -->
+    <g transform="translate(16, 44)">
+      <text x="0" y="18" font-size="12" fill="#334155" font-weight="500">Date de naissance :</text>
+      
+      <!-- Date input box -->
+      <rect x="130" y="0" width="165" height="28" rx="4" fill="#ffffff" stroke="#0d6efd" stroke-width="1.2"/>
+      <text x="140" y="19" font-family="'Consolas', monospace" font-size="12" fill="#0f172a">2007-06-15</text>
+      <text x="272" y="19" font-size="12">📅</text>
+
+      <!-- Button -->
+      <rect x="310" y="0" width="130" height="28" rx="4" fill="#0d6efd"/>
+      <text x="375" y="18" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">Calculer l'âge</text>
+    </g>
+
+    <!-- Result Display Paragraph -->
+    <g transform="translate(16, 92)">
+      <rect width="458" height="50" rx="4" fill="#d1e7dd" stroke="#a3cfbb"/>
+      <text x="14" y="22" font-size="12" fill="#0f5132">Date de naissance : <tspan font-weight="bold">15/6/2007</tspan></text>
+      <text x="14" y="38" font-size="12" fill="#0f5132">Âge calculé : <tspan font-weight="bold" font-size="13">19 ans</tspan></text>
+      <rect x="370" y="12" width="75" height="26" rx="13" fill="#198754"/>
+      <text x="407" y="29" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">✓ Validé</text>
+    </g>
+
+    <!-- Extraction breakdown -->
+    <g transform="translate(16, 155)">
+      <text x="0" y="14" font-size="10.5" fill="#64748b">
+        Composantes extraites : getDate() &#8594; 15 | getMonth() + 1 &#8594; 6 | getFullYear() &#8594; 2007
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Explanatory Banner -->
+  <rect x="25" y="244" width="490" height="38" rx="4" fill="#fef3c7" stroke="#fde68a"/>
+  <text x="270" y="260" font-size="11" fill="#92400e" text-anchor="middle" font-weight="600">
+    💡 Les mois sont indexés de 0 à 11 (0 = Janvier) : toujours ajouter +1 pour le mois réel.
+  </text>
+  <text x="270" y="275" font-size="10.5" fill="#b45309" text-anchor="middle">
+    getFullYear() fournit l'année sur 4 chiffres nécessaires pour calculer la différence d'âge.
+  </text>
+</svg>

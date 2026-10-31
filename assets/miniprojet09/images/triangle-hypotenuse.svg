@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="triGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff" />
+      <stop offset="100%" stop-color="#dbeafe" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Card -->
+  <rect x="2" y="2" width="516" height="276" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Header -->
+  <rect x="2" y="2" width="516" height="38" rx="10" fill="#f8fafc" />
+  <path d="M 2 40 L 518 40" stroke="#e2e8f0" stroke-width="1" />
+  <circle cx="20" cy="21" r="5" fill="#ef4444" />
+  <circle cx="36" cy="21" r="5" fill="#f59e0b" />
+  <circle cx="52" cy="21" r="5" fill="#10b981" />
+  <text x="75" y="25" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#475569">Illustration : Triangle rectangle et calcul de l'hypoténuse</text>
+
+  <!-- Left: Triangle Visualisation -->
+  <!-- Triangle Coordinates:
+       C (Right Angle Vertex) = (70, 210)
+       A (Top Vertex)         = (70, 75)   -> height a = 135px (proportional to 3)
+       B (Right Vertex)       = (250, 210) -> base b = 180px   (proportional to 4)
+       Hypotenuse AB          = 225px     (proportional to 5)
+  -->
+  <polygon points="70,210 70,75 250,210" fill="url(#triGrad)" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" />
+
+  <!-- Right Angle Symbol at C(70, 210) -->
+  <path d="M 70 192 L 88 192 L 88 210" fill="none" stroke="#2563eb" stroke-width="1.5" />
+  <circle cx="79" cy="201" r="2" fill="#2563eb" />
+
+  <!-- Dimension line a (height) -->
+  <line x1="50" y1="75" x2="50" y2="210" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3,3" />
+  <line x1="44" y1="75" x2="56" y2="75" stroke="#64748b" stroke-width="1.5" />
+  <line x1="44" y1="210" x2="56" y2="210" stroke="#64748b" stroke-width="1.5" />
+  <rect x="20" y="130" width="46" height="24" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1" />
+  <text x="43" y="146" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#1d4ed8" text-anchor="middle">a = 3</text>
+
+  <!-- Dimension line b (base) -->
+  <line x1="70" y1="232" x2="250" y2="232" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3,3" />
+  <line x1="70" y1="226" x2="70" y2="238" stroke="#64748b" stroke-width="1.5" />
+  <line x1="250" y1="226" x2="250" y2="238" stroke="#64748b" stroke-width="1.5" />
+  <rect x="137" y="240" width="46" height="24" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1" />
+  <text x="160" y="256" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#1d4ed8" text-anchor="middle">b = 4</text>
+
+  <!-- Hypotenuse label c (diagonal) - SANS CADRE -->
+  <g transform="translate(160, 138) rotate(36.87)">
+    <text x="0" y="-8" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle">Hypoténuse c = ?</text>
+  </g>
+
+  <!-- Vertices labels -->
+  <text x="68" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="middle">A</text>
+  <text x="260" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#64748b">B</text>
+  <text x="58" y="222" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#64748b">C</text>
+
+  <!-- Right: Mathematical Formula & Solution Card -->
+  <g transform="translate(280, 52)">
+    <rect x="0" y="0" width="225" height="212" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+
+    <!-- Card title -->
+    <rect x="0" y="0" width="225" height="32" rx="8" fill="#e2e8f0" />
+    <text x="12" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#334155">Théorème de Pythagore</text>
+
+    <!-- Formula lines -->
+    <text x="16" y="58" font-family="Consolas, Monaco, monospace" font-size="13" font-weight="600" fill="#0f172a">c² = a² + b²</text>
+    <text x="16" y="86" font-family="Consolas, Monaco, monospace" font-size="13" font-weight="600" fill="#2563eb">c = √(a² + b²)</text>
+
+    <!-- Calculation with values -->
+    <line x1="16" y1="102" x2="209" y2="102" stroke="#e2e8f0" stroke-width="1" />
+
+    <text x="16" y="124" font-family="Consolas, Monaco, monospace" font-size="12" fill="#475569">c = √(3² + 4²)</text>
+    <text x="16" y="146" font-family="Consolas, Monaco, monospace" font-size="12" fill="#475569">c = √(9 + 16) = √25</text>
+
+    <!-- Result Pill -->
+    <rect x="16" y="162" width="193" height="36" rx="6" fill="#dcfce7" stroke="#22c55e" stroke-width="1.2" />
+    <text x="112" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#15803d" text-anchor="middle">Résultat attendu : c = 5</text>
+  </g>
+</svg>

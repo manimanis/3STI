@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="100%" height="100%" style="background:#ffffff; border-radius:8px; font-family:system-ui, -apple-system, sans-serif;">
+  <defs>
+    <filter id="fnameshadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Browser Frame -->
+  <rect x="2" y="2" width="496" height="296" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#fnameshadow)"/>
+  
+  <!-- Header Bar -->
+  <rect x="2" y="2" width="496" height="34" rx="8" fill="#f8fafc"/>
+  <circle cx="16" cy="18" r="4.5" fill="#ef4444"/>
+  <circle cx="28" cy="18" r="4.5" fill="#f59e0b"/>
+  <circle cx="40" cy="18" r="4.5" fill="#10b981"/>
+  <text x="60" y="22" font-size="11" fill="#64748b">Choix multiples (document.getElementsByName)</text>
+
+  <!-- Content -->
+  <g transform="translate(25, 48)">
+    <!-- Radio group -->
+    <text x="0" y="20" font-size="12" font-weight="700" fill="#334155">
+      Civilit&#233; : <tspan font-family="Consolas, monospace" font-size="11" font-weight="normal" fill="#2563eb">name=&#34;civilite&#34;</tspan>
+    </text>
+    
+    <!-- Radio 1: Checked -->
+    <circle cx="10" cy="38" r="6" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="10" cy="38" r="3" fill="#2563eb"/>
+    <text x="22" y="42" font-size="12" fill="#1e293b">M.</text>
+
+    <!-- Radio 2: Unchecked -->
+    <circle cx="70" cy="38" r="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="82" y="42" font-size="12" fill="#1e293b">Mme</text>
+
+    <!-- Checkbox group -->
+    <text x="0" y="74" font-size="12" font-weight="700" fill="#334155">
+      Centres d'int&#233;r&#234;t : <tspan font-family="Consolas, monospace" font-size="11" font-weight="normal" fill="#2563eb">name=&#34;interets&#34;</tspan>
+    </text>
+
+    <!-- Checkbox 1: Checked -->
+    <rect x="4" y="86" width="13" height="13" rx="2" fill="#2563eb"/>
+    <path d="M 6 92 L 9 96 L 15 88" stroke="#ffffff" stroke-width="1.8" fill="none"/>
+    <text x="22" y="97" font-size="12" fill="#1e293b">Web / Informatique</text>
+
+    <!-- Checkbox 2: Checked -->
+    <rect x="164" y="86" width="13" height="13" rx="2" fill="#2563eb"/>
+    <path d="M 166 92 L 169 96 L 175 88" stroke="#ffffff" stroke-width="1.8" fill="none"/>
+    <text x="182" y="97" font-size="12" fill="#1e293b">Robotique</text>
+
+    <!-- Checkbox 3: Unchecked -->
+    <rect x="274" y="86" width="13" height="13" rx="2" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2"/>
+    <text x="292" y="97" font-size="12" fill="#64748b">Multim&#233;dia</text>
+
+    <!-- Button -->
+    <rect x="0" y="118" width="140" height="26" rx="4" fill="#2563eb"/>
+    <text x="70" y="135" font-size="11.5" font-weight="600" fill="#ffffff" text-anchor="middle">Valider le profil</text>
+
+    <!-- JS Logic Pill -->
+    <rect x="155" y="118" width="295" height="26" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="165" y="135" font-size="10.5" font-family="Consolas, monospace" fill="#1d4ed8">if (radios[i].checked) | if (chks[j].checked)</text>
+
+    <!-- Output Box -->
+    <g transform="translate(0, 160)">
+      <rect x="0" y="0" width="450" height="74" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+      <rect x="0" y="0" width="450" height="22" rx="6" fill="#dcfce7"/>
+      <text x="10" y="15" font-size="10.5" font-family="Consolas, monospace" font-weight="bold" fill="#166534">R&#233;sultats extraits et inject&#233;s dans innerHTML :</text>
+      
+      <text x="12" y="40" font-size="12.5" fill="#1e293b">
+        Civilit&#233; s&#233;lectionn&#233;e : <tspan font-weight="bold" fill="#2563eb">M.</tspan>
+      </text>
+      <text x="12" y="60" font-size="12.5" fill="#1e293b">
+        Centres d'int&#233;r&#234;t coch&#233;s : <tspan font-weight="bold" fill="#166534">Web / Informatique, Robotique</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

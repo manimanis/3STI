@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 320" width="100%" height="100%" style="background:#ffffff; border-radius:8px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow-fn" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Browser Frame -->
+  <rect x="0" y="0" width="540" height="320" rx="8" fill="#ffffff" stroke="#dee2e6" stroke-width="1"/>
+  
+  <!-- Browser Header -->
+  <rect x="0" y="0" width="540" height="34" rx="8" fill="#f8f9fa"/>
+  <rect x="0" y="26" width="540" height="8" fill="#f8f9fa"/>
+  <line x1="0" y1="34" x2="540" y2="34" stroke="#dee2e6" stroke-width="1"/>
+
+  <circle cx="16" cy="17" r="5" fill="#ea4335"/>
+  <circle cx="32" cy="17" r="5" fill="#fbbc04"/>
+  <circle cx="48" cy="17" r="5" fill="#34a853"/>
+
+  <!-- Address Bar -->
+  <rect x="70" y="6" width="450" height="22" rx="4" fill="#ffffff" stroke="#ced4da"/>
+  <text x="80" y="21" font-size="11" fill="#6c757d">http://localhost/fonctions.html</text>
+
+  <!-- Rendered Webpage Content -->
+  <g transform="translate(25, 48)">
+    <text x="0" y="16" font-size="12" font-weight="600" fill="#64748b">Rendu produit dans la page HTML (a = 5, b = 10) :</text>
+
+    <!-- Box of outputs -->
+    <rect x="0" y="26" width="490" height="200" rx="6" fill="#f8fafc" stroke="#e2e8f0" filter="url(#shadow-fn)"/>
+
+    <!-- Line 1: somme -->
+    <g transform="translate(16, 42)">
+      <rect width="110" height="26" rx="4" fill="#e0f2fe"/>
+      <text x="10" y="18" font-family="'Consolas', monospace" font-size="12" font-weight="bold" fill="#0369a1">somme(5, 10)</text>
+      <text x="125" y="18" font-family="'Consolas', monospace" font-size="14" font-weight="bold" fill="#1e293b">&#8594; 5 + 10 = <tspan fill="#0d6efd">15</tspan></text>
+    </g>
+    <line x1="16" y1="78" x2="474" y2="78" stroke="#e2e8f0"/>
+
+    <!-- Line 2: produit -->
+    <g transform="translate(16, 88)">
+      <rect width="110" height="26" rx="4" fill="#dcfce7"/>
+      <text x="10" y="18" font-family="'Consolas', monospace" font-size="12" font-weight="bold" fill="#15803d">produit(5, 10)</text>
+      <text x="125" y="18" font-family="'Consolas', monospace" font-size="14" font-weight="bold" fill="#1e293b">&#8594; 5 * 10 = <tspan fill="#16a34a">50</tspan></text>
+    </g>
+    <line x1="16" y1="124" x2="474" y2="124" stroke="#e2e8f0"/>
+
+    <!-- Line 3: alea -->
+    <g transform="translate(16, 134)">
+      <rect width="110" height="26" rx="4" fill="#fef3c7"/>
+      <text x="10" y="18" font-family="'Consolas', monospace" font-size="12" font-weight="bold" fill="#b45309">alea(5, 10)</text>
+      <text x="125" y="18" font-family="'Consolas', monospace" font-size="14" font-weight="bold" fill="#1e293b">&#8594; alea(5, 10) = <tspan fill="#d97706">8</tspan></text>
+      <text x="310" y="17" font-size="11" fill="#64748b">(entier dans [5, 10[)</text>
+    </g>
+    <line x1="16" y1="170" x2="474" y2="170" stroke="#e2e8f0"/>
+
+    <!-- Line 4: calc (fonction en paramètre) -->
+    <g transform="translate(16, 180)">
+      <rect width="165" height="26" rx="4" fill="#f3e8ff"/>
+      <text x="8" y="18" font-family="'Consolas', monospace" font-size="11.5" font-weight="bold" fill="#7e22ce">calc(produit, 5, 10)</text>
+      <text x="180" y="18" font-family="'Consolas', monospace" font-size="14" font-weight="bold" fill="#1e293b">&#8594; 5 * 10 = <tspan fill="#7e22ce">50</tspan></text>
+    </g>
+  </g>
+
+  <!-- Bottom Explanatory Banner -->
+  <rect x="25" y="280" width="490" height="28" rx="4" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="270" y="298" font-size="11" fill="#1e40af" text-anchor="middle" font-weight="500">
+    💡 Les fonctions retournent un résultat via <tspan font-weight="bold">return</tspan> et peuvent être transmises en argument.
+  </text>
+</svg>

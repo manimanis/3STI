@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" width="100%" height="100%" style="background:#ffffff; border-radius:8px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow-in1" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Browser Window Frame -->
+  <rect x="0" y="0" width="520" height="220" rx="8" fill="#ffffff" stroke="#dee2e6" stroke-width="1"/>
+  
+  <!-- Browser Header -->
+  <rect x="0" y="0" width="520" height="36" rx="8" fill="#f8f9fa"/>
+  <rect x="0" y="28" width="520" height="8" fill="#f8f9fa"/>
+  <line x1="0" y1="36" x2="520" y2="36" stroke="#dee2e6" stroke-width="1"/>
+
+  <circle cx="16" cy="18" r="5" fill="#ea4335"/>
+  <circle cx="32" cy="18" r="5" fill="#fbbc04"/>
+  <circle cx="48" cy="18" r="5" fill="#34a853"/>
+
+  <!-- Address Bar -->
+  <rect x="70" y="7" width="430" height="22" rx="4" fill="#ffffff" stroke="#ced4da"/>
+  <text x="80" y="22" font-size="11" fill="#6c757d">http://localhost/page-formulaire.html</text>
+
+  <!-- Webpage Body Canvas -->
+  <g transform="translate(30, 55)">
+    <!-- Label -->
+    <text x="0" y="18" font-size="12" fill="#495057" font-weight="600">Champ de formulaire (&lt;input&gt;) :</text>
+
+    <!-- Input text element -->
+    <rect x="0" y="28" width="220" height="34" rx="4" fill="#ffffff" stroke="#0d6efd" stroke-width="1.5" filter="url(#shadow-in1)"/>
+    <text x="12" y="50" font-family="'Consolas', 'Courier New', monospace" font-size="14" fill="#212529">Salah</text>
+    <line x1="60" y1="35" x2="60" y2="55" stroke="#0d6efd" stroke-width="1.5"/>
+
+    <!-- Document.writeln rendering -->
+    <text x="0" y="95" font-size="12" fill="#495057" font-weight="600">Rendu produit par document.writeln :</text>
+    <rect x="0" y="105" width="460" height="38" rx="4" fill="#f8f9fa" stroke="#e9ecef"/>
+    <text x="15" y="129" font-size="15" fill="#212529">Bonjour Salah</text>
+  </g>
+
+  <!-- Explanatory Footer Pill -->
+  <rect x="25" y="188" width="470" height="22" rx="4" fill="#e7f1ff"/>
+  <text x="260" y="203" text-anchor="middle" font-size="10.5" fill="#084298" font-weight="500">
+    💡 <tspan font-weight="bold">np.value</tspan> extrait la saisie (&quot;Salah&quot;) et l'insère dans le flux HTML.
+  </text>
+</svg>

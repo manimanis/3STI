@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 170" width="100%" height="100%">
+  <defs>
+    <filter id="alertShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <!-- Background overlay (simulating browser page backdrop) -->
+  <rect width="100%" height="100%" fill="#f1f3f4" rx="8"/>
+
+  <!-- Modal Dialog Window -->
+  <g filter="url(#alertShadow)">
+    <rect x="30" y="20" width="460" height="130" rx="8" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+  </g>
+
+  <!-- Header: Origin with icon -->
+  <g transform="translate(50, 42)">
+    <!-- Globe icon -->
+    <circle cx="9" cy="9" r="8" fill="none" stroke="#5f6368" stroke-width="1.5"/>
+    <ellipse cx="9" cy="9" rx="3.5" ry="8" fill="none" stroke="#5f6368" stroke-width="1.2"/>
+    <line x1="1" y1="9" x2="17" y2="9" stroke="#5f6368" stroke-width="1.2"/>
+    <line x1="3" y1="4.5" x2="15" y2="4.5" stroke="#5f6368" stroke-width="1"/>
+    <line x1="3" y1="13.5" x2="15" y2="13.5" stroke="#5f6368" stroke-width="1"/>
+
+    <!-- Site origin title -->
+    <text x="26" y="13" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" font-weight="600" fill="#202124">127.0.0.1:5500 indique</text>
+  </g>
+
+  <!-- Alert Message Text -->
+  <text x="50" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" fill="#3c4043">
+    Les mots de passes sont différents !
+  </text>
+
+  <!-- OK Button -->
+  <g transform="translate(415, 105)">
+    <rect width="60" height="30" rx="4" fill="#1a73e8"/>
+    <text x="30" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" font-weight="500" fill="#ffffff" text-anchor="middle">OK</text>
+  </g>
+</svg>

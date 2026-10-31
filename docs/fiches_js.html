@@ -1,0 +1,2848 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours JavaScript • Manuel Interactif 3STI</title>
+  <meta name="description"
+    content="Guide et cours de référence JavaScript pour élèves de 3ème Sciences de l'Informatique (Taki Academy). Syntaxe, types, chaînes, tableaux, dates, conditions, boucles et manipulation du DOM.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="fiches_js.css">
+</head>
+
+<body>
+
+  <!-- Barre de progression supérieure -->
+  <div id="reading-progress"></div>
+
+  <!-- Entête Fixe -->
+  <header class="top-header">
+    <div style="display: flex; align-items: center; gap: 0.85rem;">
+      <button class="header-btn mobile-menu-btn" id="mobile-toggle" aria-label="Menu sommaire">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+        <span>Sommaire</span>
+      </button>
+      <a href="#intro" class="brand-section">
+        <span class="brand-badge">JS 3STI</span>
+        <span class="brand-title">JavaScript</span>
+      </a>
+      <span class="header-module-indicator" id="header-module-indicator">Module 01 / 14</span>
+    </div>
+
+    <div class="header-actions">
+      <!-- Ajusteur de taille de police -->
+      <button class="header-btn" id="btn-font-dec" title="Réduire la taille du texte">A-</button>
+      <button class="header-btn" id="btn-font-inc" title="Agrandir la taille du texte">A+</button>
+
+      <!-- Bouton d'impression -->
+      <button class="header-btn" onclick="window.print()" title="Imprimer ou enregistrer en PDF">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" />
+          <rect x="6" y="14" width="12" height="8" />
+        </svg>
+        <span style="display:none;" class="d-md-inline">Imprimer</span>
+      </button>
+
+      <!-- Bouton Mode Nuit / Jour -->
+      <button class="header-btn" id="theme-toggle" title="Basculer le thème clair / sombre">
+        <span id="theme-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+
+    <!-- SIDEBAR NAVIGATION GAUCHE -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-search-box">
+        <span class="sidebar-search-icon">🔍</span>
+        <input type="text" id="nav-search" class="sidebar-search-input" placeholder="Filtrer les modules..."
+          autocomplete="off">
+      </div>
+
+      <div>
+        <div class="sidebar-nav-title">TABLE DES MATIÈRES</div>
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="#intro">🏠 Vue d'ensemble</a></li>
+          <li class="nav-item active"><a href="#page1">01. Introduction</a></li>
+          <li class="nav-item"><a href="#page2">02. Intégration HTML</a></li>
+          <li class="nav-item"><a href="#page3">03. Variables & Constantes</a></li>
+          <li class="nav-item"><a href="#page4">04. Entrées & Sorties</a></li>
+          <li class="nav-item"><a href="#page5">05. Type Number & Math</a></li>
+          <li class="nav-item"><a href="#page6">06. Chaînes de caractères</a></li>
+          <li class="nav-item"><a href="#page7">07. Boolean & Array</a></li>
+          <li class="nav-item"><a href="#page8">08. L'objet Date</a></li>
+          <li class="nav-item"><a href="#page9">09. Conversion de Types</a></li>
+          <li class="nav-item"><a href="#page10">10. Conditions (if / switch)</a></li>
+          <li class="nav-item"><a href="#page11">11. Boucles (for / while)</a></li>
+          <li class="nav-item"><a href="#page12">12. Les Fonctions</a></li>
+          <li class="nav-item"><a href="#page13">13. Le DOM (Sélection)</a></li>
+          <li class="nav-item"><a href="#page14">14. Modification du DOM</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main class="main-content">
+
+      <!-- TOOLBAR SUPÉRIEURE DE NAVIGATION DYNAMIQUE -->
+      <div class="module-view-toolbar" id="module-view-toolbar">
+        <div class="toolbar-breadcrumb">
+          <a href="#intro" class="tb-link">🏠 Accueil</a>
+          <span class="tb-sep">/</span>
+          <span class="tb-current" id="tb-current-title">Module 01 • Introduction au Langage JavaScript</span>
+        </div>
+        <div class="toolbar-pagination">
+          <button class="tb-nav-btn" id="tb-prev-btn" title="Module précédent (Touche Gauche)">← Précédent</button>
+          <span class="tb-counter" id="tb-counter">1 / 13</span>
+          <button class="tb-nav-btn" id="tb-next-btn" title="Module suivant (Touche Droite)">Suivant →</button>
+        </div>
+      </div>
+
+      
+      <!-- HERO BANNER ACCUEIL & VUE D'ENSEMBLE -->
+      <section id="intro" class="hero-guide">
+        <div class="hero-badge-pill">🚀 Support Pédagogique Interactif • 3STI</div>
+        <h1 class="hero-title">Manuel de Référence JavaScript</h1>
+        <p class="hero-desc">
+          Guide complet et interactif du programme officiel JavaScript pour la 3ᵉ STI. Chaque module est accessible individuellement pour une concentration optimale.
+        </p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin: 1.5rem 0 2.5rem 0;">
+          <a href="#page1" class="module-nav-btn" style="background:var(--primary); color:white; font-size:1.05rem; padding:0.85rem 1.65rem; border-radius:var(--radius-md); text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; font-weight:700; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);">
+            🚀 Commencer le cours (Module 01) →
+          </a>
+          <span style="font-size:0.9rem; color:var(--text-muted); font-weight:600;">
+            14 Modules • Bacs à sable interactifs • Synthèses à retenir
+          </span>
+        </div>
+
+        <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text-primary); display:flex; align-items:center; gap:0.5rem;">
+          <span>📚</span> Sommaire général du cours
+        </h3>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.15rem;">
+
+          <a href="#page1" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 01</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 01</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Introduction au Langage JavaScript</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">Définition, ECMAScript, les 3 piliers du Web, console F12.</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page2" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 02</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 02</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Intégration dans une page HTML</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">Script interne &lt;script&gt;, script externe .js, emplacement optimal.</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page3" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 03</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 03</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Variables et Constantes</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">Déclarations let et const, portée de bloc, non-réaffectation.</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page4" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 04</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 04</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Entrées et Sorties de Base</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">prompt(), alert(), document.write(), boîte modale vs DOM.</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page5" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 05</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 05</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Le Type Number & l'Objet Math</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">Opérations arithmétiques, Math.random(), Math.trunc().</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page6" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 06</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 06</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Les Chaînes de Caractères (String)</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">length, indexOf, substring, toUpperCase, toLowerCase.</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page7" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 07</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 07</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Les types Boolean & Array</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">true/false, tableaux indexés [0], length, opérations.</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page8" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 08</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 08</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">L'objet Date</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">new Date(), getFullYear(), getMonth() (+1), getDate().</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page9" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 09</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 09</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Conversion de Types & Fonctions Globales</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">Number(), parseInt(), parseFloat(), isNaN().</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page10" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 10</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 10</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Les Structures Conditionnelles</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">if, if...else, if...else if, switch/case/break.</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page11" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 11</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 11</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Les Structures Itératives (Boucles)</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">for, while, do...while, compteurs, boucles infinies.</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page12" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 12</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 12</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Les Fonctions & Procédures</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">function, paramètres, return, portée locale/globale, événements.</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page13" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 13</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 13</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Le DOM (Sélection d'éléments)</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">document.getElementById(), arborescence, structure en arbre.</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+          <a href="#page14" style="text-decoration:none; background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.15s, border-color 0.15s; box-shadow:var(--shadow-sm);" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='none';">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                <span class="module-page-tag" style="margin:0;">Module 14</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Page 14</span>
+              </div>
+              <h4 style="margin:0.25rem 0 0.5rem 0; font-size:1rem; color:var(--text-primary); font-weight:700;">Modification Dynamique du DOM</h4>
+              <p style="margin:0; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">innerHTML, attributs HTML, style CSS en camelCase.</p>
+            </div>
+            <div style="margin-top:1rem; font-size:0.85rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
+              Ouvrir le module →
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+
+
+      
+      <!-- =====================================================================
+           MODULE 01 : INTRODUCTION À JAVASCRIPT
+           ===================================================================== -->
+      <section id="page1" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 01</span>
+            <h2 class="module-title">Introduction au Langage JavaScript</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">1</span> Qu'est-ce que JavaScript ?</h3>
+        <p>
+          <strong>JavaScript (JS)</strong> est un langage de programmation de scripts interprété, dynamique et orienté objet par prototype, principalement exécuté <strong>côté client</strong> au sein du navigateur web. Standardisé sous la norme internationale <strong>ECMAScript</strong> (abrégé en ES, ex: ES6+), il permet de rendre les pages web interactives, dynamiques et vivantes en réponse directe aux actions des utilisateurs.
+        </p>
+
+        <h3 class="section-h2"><span class="step-pill">2</span> Les trois piliers complémentaires du Web</h3>
+        <p>
+          Toute page web moderne repose sur la collaboration étroite de trois langages distincts :
+        </p>
+
+        <div class="cards-grid">
+          <div class="card-item">
+            <h4 class="card-title">🦴 HTML5 (Structure & Contenu)</h4>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0;">
+              Organise le contenu sémantique : paragraphes, titres, formulaires, tables, images et médias.
+            </p>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title">🎨 CSS3 (Présentation & Design)</h4>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0;">
+              Gère l'esthétique visuelle : couleurs, typographie, mise en page (Flexbox, Grid), animations et responsive design.
+            </p>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title">⚡ JavaScript (Logique & Dynamisme)</h4>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0;">
+              Apporte l'intelligence : calculs, validation de saisie, manipulation du DOM et réactivité aux événements.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">3</span> Moteur d'exécution & Console de développement</h3>
+        <p>
+          Le code JavaScript est exécuté par le <strong>moteur JavaScript</strong> intégré au navigateur de l'internaute (ex: <em>V8</em> dans Chrome et Edge, <em>SpiderMonkey</em> dans Firefox).
+        </p>
+        <p>
+          Pour tester des expressions en direct ou repérer les erreurs d'exécution, chaque navigateur dispose d'un outil fondamental pour le développeur : la <strong>Console de développement</strong>, accessible avec la touche <kbd style="background:var(--bg-code); border:1px solid var(--border-color); padding:0.15rem 0.45rem; border-radius:4px; font-weight:700;">F12</kbd> (ou clic droit &gt; <em>Inspecter &gt; Console</em>).
+        </p>
+
+        <!-- Bac à sable interactif : Console directe -->
+        <div class="code-container" style="margin: 1.5rem 0;">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">Console Interactive JavaScript (Test direct)</span>
+          </div>
+          <div style="padding: 1rem 1.25rem; background: var(--bg-surface); border-top: 1px solid var(--border-color);">
+            <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+              <span style="font-family: var(--font-code); color: var(--accent-sky); font-weight: 700; font-size: 1.1rem;">&gt;</span>
+              <input type="text" id="intro-console-input" value="console.log('Bienvenue dans le cours JavaScript 3STI !');" style="flex: 1; min-width: 280px; padding: 0.55rem 0.85rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: var(--font-code); background: var(--bg-code); color: var(--text-primary); font-size: 0.9rem;">
+              <button class="header-btn" onclick="runIntroConsole()" style="background: var(--primary); color: white; padding: 0.55rem 1.15rem; border-radius: var(--radius-sm); font-weight: 600; cursor: pointer;">⚡ Exécuter</button>
+            </div>
+            <div id="intro-console-output" style="margin-top: 0.75rem; padding: 0.75rem 1rem; background: var(--bg-code); border-radius: var(--radius-sm); font-family: var(--font-code); font-size: 0.88rem; color: var(--accent-emerald); min-height: 38px; display: flex; align-items: center;">
+              Sortie : Cliquez sur "Exécuter" pour tester la console.
+            </div>
+          </div>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Rôle clé :</strong> JavaScript dynamise la page côté client : validation immédiate des formulaires, modifications du DOM et calculs en temps réel sans devoir recharger la page.
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Attention :</strong> Ne confondez jamais <strong>JavaScript</strong> et <strong>Java</strong> ! Ce sont deux langages complètement différents, créés par des entités distinctes, avec des syntaxes et des usages séparés.
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li>Langage interprété côté client par le moteur du navigateur.</li>
+                <li>Standardisé sous le nom <strong>ECMAScript</strong> (ES6+).</li>
+                <li>La console (<kbd>F12</kbd>) est l'outil n°1 pour tester et déboguer.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#intro" class="module-nav-btn">← Accueil</a>
+          <a href="#page2" class="module-nav-btn">Suivant • Intégration HTML →</a>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MODULE 02 : INTÉGRATION DE JAVASCRIPT
+           ===================================================================== -->
+      <section id="page2" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 02</span>
+            <h2 class="module-title">Intégration de JavaScript dans une page HTML</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">1</span> Script interne dans une page HTML</h3>
+        <p>
+          Le code JavaScript est inséré directement entre les balises <code>&lt;script&gt;</code> et
+          <code>&lt;/script&gt;</code>. Le moteur JavaScript du navigateur l'exécute automatiquement au moment
+          du chargement du document.
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">HTML</span>
+            <button class="copy-btn" onclick="copyCode(this)">📋 Copier</button>
+          </div>
+          <pre class="code-body"><span class="token-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="token-tag">&lt;html</span> <span class="token-attr">lang</span>=<span class="token-str">"fr"</span><span class="token-tag">&gt;</span>
+<span class="token-tag">&lt;head&gt;</span>
+    <span class="token-tag">&lt;meta</span> <span class="token-attr">charset</span>=<span class="token-str">"UTF-8"</span><span class="token-tag">&gt;</span>
+    <span class="token-tag">&lt;title&gt;</span>Script interne<span class="token-tag">&lt;/title&gt;</span>
+<span class="token-tag">&lt;/head&gt;</span>
+<span class="token-tag">&lt;body&gt;</span>
+    <span class="token-tag">&lt;h1&gt;</span>Ma première page<span class="token-tag">&lt;/h1&gt;</span>
+
+    <span class="token-tag">&lt;script&gt;</span>
+        <span class="token-fn">alert</span>(<span class="token-str">"Bonjour depuis JavaScript !"</span>);
+    <span class="token-tag">&lt;/script&gt;</span>
+<span class="token-tag">&lt;/body&gt;</span>
+<span class="token-tag">&lt;/html&gt;</span></pre>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">2</span> Script dans un fichier externe</h3>
+        <p>
+          Le code JavaScript est placé dans un fichier séparé portant l'extension <code>.js</code>. La page
+          HTML fait ensuite référence à ce fichier grâce à l'attribut <code>src</code> de la balise
+          <code>&lt;script&gt;</code>.
+        </p>
+
+        <div class="cards-grid">
+          <div class="card-item">
+            <h4 class="card-title">📁 Arborescence du dossier</h4>
+            <div class="code-container" style="margin: 0;">
+              <pre class="code-body" style="padding: 0.75rem;">mon-site/
+├── index.html
+└── script.js</pre>
+            </div>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title">📄 script.js</h4>
+            <div class="code-container" style="margin: 0;">
+              <pre class="code-body"
+                style="padding: 0.75rem;"><span class="token-fn">alert</span>(<span class="token-str">"Bonjour depuis un fichier externe !"</span>);</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-container">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">index.html (Appel externe)</span>
+            <button class="copy-btn" onclick="copyCode(this)">📋 Copier</button>
+          </div>
+          <pre class="code-body"><span class="token-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="token-tag">&lt;html</span> <span class="token-attr">lang</span>=<span class="token-str">"fr"</span><span class="token-tag">&gt;</span>
+<span class="token-tag">&lt;head&gt;</span>
+    <span class="token-tag">&lt;meta</span> <span class="token-attr">charset</span>=<span class="token-str">"UTF-8"</span><span class="token-tag">&gt;</span>
+    <span class="token-tag">&lt;title&gt;</span>Script externe<span class="token-tag">&lt;/title&gt;</span>
+<span class="token-tag">&lt;/head&gt;</span>
+<span class="token-tag">&lt;body&gt;</span>
+    <span class="token-tag">&lt;h1&gt;</span>Ma page Web<span class="token-tag">&lt;/h1&gt;</span>
+    <span class="token-comment">&lt;!-- Inclusion du fichier externe à la fin du body --&gt;</span>
+    <span class="token-tag">&lt;script</span> <span class="token-attr">src</span>=<span class="token-str">"script.js"</span><span class="token-tag">&gt;&lt;/script&gt;</span>
+<span class="token-tag">&lt;/body&gt;</span>
+<span class="token-tag">&lt;/html&gt;</span></pre>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">3</span> Comparaison des deux approches</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Méthode</th>
+                <th>Emplacement du code</th>
+                <th>Avantages & Cas d'utilisation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Script interne</strong></td>
+                <td>Directement dans le fichier HTML</td>
+                <td>Pratique pour des tests rapides ou de tout petits scripts spécifiques à une seule
+                  page.</td>
+              </tr>
+              <tr>
+                <td><strong>Script externe</strong></td>
+                <td>Dans un fichier <code>.js</code> dédié</td>
+                <td>Réutilisable sur plusieurs pages, code plus propre et séparation nette du contenu et
+                  du comportement.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Emplacement optimal :</strong> La balise <code>&lt;script&gt;</code> peut être placée
+              dans le <code>&lt;head&gt;</code> ou le <code>&lt;body&gt;</code>. La placer juste avant la
+              fermeture <code>&lt;/body&gt;</code> permet au navigateur de charger et d'afficher tout le
+              contenu HTML avant d'exécuter le script.
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Attention :</strong> La balise fermante <code>&lt;/script&gt;</code> est
+              <strong>obligatoire</strong>, même lorsqu'on utilise l'attribut <code>src</code> pour un script
+              externe. Une balise auto-fermante <code>&lt;script src="..." /&gt;</code> n'est pas valide en
+              HTML5.
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li><strong>Script interne :</strong> écrit entre <code>&lt;script&gt;</code> et
+                  <code>&lt;/script&gt;</code>.
+                </li>
+                <li><strong>Script externe :</strong> utilise
+                  <code>&lt;script src="chemin.js"&gt;&lt;/script&gt;</code>.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page1" class="module-nav-btn">← Précédent • Introduction</a>
+          <a href="#page3" class="module-nav-btn">Suivant • Variables & Constantes →</a>
+        </div>
+      </section>
+
+
+      <!-- =====================================================================
+           PAGE 4 : VARIABLES ET CONSTANTES
+           ===================================================================== -->
+      <section id="page3" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 03</span>
+            <h2 class="module-title">Variables et Constantes</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">1</span> Différence entre Variable et Constante</h3>
+
+        <div class="cards-grid">
+          <div class="card-item featured-green">
+            <h4 class="card-title">📦 VARIABLE (<code>let</code>)</h4>
+            <p>Une zone mémoire nommée dont la valeur <strong>peut être modifiée</strong> au cours de
+              l'exécution du programme.</p>
+            <div class="code-container" style="margin: 0.5rem 0;">
+              <pre class="code-body"
+                style="padding: 0.75rem;"><span class="token-kw">let</span> <span class="token-var">age</span> = <span class="token-num">17</span>;
+<span class="token-var">age</span> = <span class="token-num">18</span>; <span class="token-comment">// Modification autorisée</span></pre>
+            </div>
+            <div class="badge-result">✅ Valeur modifiable</div>
+          </div>
+
+          <div class="card-item featured-red">
+            <h4 class="card-title">🔒 CONSTANTE (<code>const</code>)</h4>
+            <p>Une zone mémoire nommée dont la valeur <strong>ne peut plus changer</strong> après son
+              initialisation obligatoire.</p>
+            <div class="code-container" style="margin: 0.5rem 0;">
+              <pre class="code-body" style="padding: 0.75rem;"><span class="token-kw">const</span> <span class="token-var">PI</span> = <span class="token-num">3.14</span>;
+<span class="token-comment">// PI = 3.1416; -&gt; ERREUR fatale !</span></pre>
+            </div>
+            <div class="badge-result"
+              style="background:var(--accent-rose-bg); color:var(--accent-rose); border-color:var(--accent-rose-border);">
+              ❌ Valeur non réaffectable
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">2</span> Règles de nommage d'un identifiant</h3>
+        <ul class="styled-list">
+          <li>Doit obligatoirement commencer par une lettre, un souligné <code>_</code> ou un dollar
+            <code>$</code>.
+          </li>
+          <li>Peut ensuite contenir des lettres, des chiffres, <code>_</code> et <code>$</code>.</li>
+          <li><strong>Les espaces et caractères spéciaux sont interdits</strong> (ex: tiret <code>-</code>,
+            accents, ponctuation).</li>
+          <li>JavaScript est sensible à la casse (<em>case-sensitive</em>) : <code>age</code>,
+            <code>Age</code> et <code>AGE</code> sont 3 variables distinctes.
+          </li>
+        </ul>
+
+        <div class="cards-grid">
+          <div class="card-item">
+            <h4 class="card-title" style="color: var(--accent-emerald);">Identifiants Valides</h4>
+            <ul class="styled-list check-list">
+              <li><code>age</code> (simple)</li>
+              <li><code>_note</code> (commence par <code>_</code>)</li>
+              <li><code>$prix</code> (commence par <code>$</code>)</li>
+              <li><code>nom2</code> (chiffre à la fin)</li>
+            </ul>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title" style="color: var(--accent-rose);">Identifiants Invalides</h4>
+            <ul class="styled-list cross-list">
+              <li><code>2nom</code> (commence par un chiffre)</li>
+              <li><code>ma note</code> (contient un espace)</li>
+              <li><code>taux%</code> (caractère spécial interdit)</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <h3 class="section-h2"><span class="step-pill">3</span> Portée de bloc (Scope)</h3>
+        <p>Les variables déclarées avec <code>let</code> et les constantes <code>const</code> ont une portée
+          limitée au bloc <code>{ ... }</code> dans lequel elles sont créées.</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Lieu de Déclaration</th>
+                <th>Portée & Accessibilité</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>À l'intérieur d'un bloc <code>{ ... }</code></td>
+                <td>Accessible uniquement dans ce bloc.</td>
+              </tr>
+              <tr>
+                <td>À l'intérieur d'une fonction</td>
+                <td>Accessible uniquement dans cette fonction.</td>
+              </tr>
+              <tr>
+                <td>En dehors de tout bloc et fonction</td>
+                <td>Portée globale : accessible partout dans le script.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Remarque historique :</strong> Le mot-clé <code>var</code> est l'ancienne syntaxe JavaScript (antérieure à ES6). En programmation moderne, on privilégie systématiquement <code>let</code> et <code>const</code> qui évitent les effets de bord.
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Attention critique :</strong> Une constante doit impérativement recevoir une valeur dès sa déclaration, et toute tentative ultérieure de réaffectation lèvera une erreur :<br>
+              <code>const x = 20; x = 30; // Erreur !</code>
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li><code>let</code> pour une valeur variable.</li>
+                <li><code>const</code> pour une valeur fixe non réaffectable.</li>
+                <li>Sensible à la casse (majuscules ≠ minuscules).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page2" class="module-nav-btn">← Précédent • Intégration HTML</a>
+          <a href="#page4" class="module-nav-btn">Suivant • Entrées & Sorties →</a>
+        </div>
+      </section>
+
+
+      <!-- =====================================================================
+           PAGE 5 : ENTRÉES ET SORTIES
+           ===================================================================== -->
+      <section id="page4" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 04</span>
+            <h2 class="module-title">Entrées et Sorties de Base</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill emerald">1</span> Action d'entrée : <code>prompt()</code>
+        </h3>
+        <p>
+          La fonction <code>prompt()</code> affiche une boîte de dialogue modale permettant à l'utilisateur de
+          taper une valeur. Elle renvoie toujours la valeur saisie sous forme de <strong>chaîne de caractères
+            (String)</strong>.
+        </p>
+
+        <div class="code-container">
+          <pre
+            class="code-body"><span class="token-kw">let</span> <span class="token-var">nom</span> = <span class="token-fn">prompt</span>(<span class="token-str">"Donner votre nom :"</span>);</pre>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill emerald">2</span> Action de sortie : <code>alert()</code>
+        </h3>
+        <p>
+          La fonction <code>alert()</code> affiche un message dans une boîte de dialogue munie d'un bouton OK.
+          L'exécution du script est mise en pause tant que l'utilisateur n'a pas cliqué sur OK.
+        </p>
+
+        <div class="code-container">
+          <pre
+            class="code-body"><span class="token-fn">alert</span>(<span class="token-str">"Bienvenue "</span> + <span class="token-var">nom</span>);</pre>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill amber">3</span> Action de sortie :
+          <code>document.write()</code>
+        </h3>
+        <p>
+          <code>document.write()</code> écrit du texte ou du HTML directement dans le flux du document au
+          moment précis où le script est exécuté.
+        </p>
+
+        <!-- SIMULATEUR INTERACTIF EN DIRECT -->
+        <div class="interactive-widget">
+          <div class="widget-title">🧪 Simulateur Interactif : Testez prompt(), alert() & document.write()
+          </div>
+          <p style="font-size:0.85rem; margin-bottom:0.75rem;">Saisissez un prénom et testez les différentes
+            sorties en direct :</p>
+          <div class="widget-controls">
+            <input type="text" id="sim-prompt-input" class="widget-input" value="Sami" placeholder="Votre nom...">
+            <button class="widget-btn" onclick="testSimAlert()">Tester alert()</button>
+            <button class="widget-btn" style="background:#0284c7;" onclick="testSimWrite()">Tester
+              document.write()</button>
+          </div>
+          <div class="browser-frame" style="margin: 0.5rem 0 0 0;">
+            <div class="browser-toolbar">
+              <span style="color:#ef4444;">●</span>
+              <span style="color:#f59e0b;">●</span>
+              <span style="color:#10b981;">●</span>
+              <div class="browser-address">file:///index.html (Rendu simulé)</div>
+            </div>
+            <div class="browser-canvas" id="sim-browser-output">
+              <span style="color:var(--text-muted); font-style:italic;">Cliquez sur « Tester
+                document.write() » pour voir le résultat ici...</span>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill sky">4</span> Exemple Récapitulatif Complet</h3>
+        <div class="code-container">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn" onclick="copyCode(this)">📋 Copier</button>
+          </div>
+          <pre
+            class="code-body"><span class="token-comment">// 1. Saisie de la donnée</span>
+<span class="token-kw">let</span> <span class="token-var">nom</span> = <span class="token-fn">prompt</span>(<span class="token-str">"Donner votre nom :"</span>);
+
+<span class="token-comment">// 2. Affichage par dialogue</span>
+<span class="token-fn">alert</span>(<span class="token-str">"Bienvenue "</span> + <span class="token-var">nom</span>);
+
+<span class="token-comment">// 3. Écriture directe dans la page</span>
+<span class="token-var">document</span>.<span class="token-fn">write</span>(<span class="token-str">"Nom de l'élève : "</span> + <span class="token-var">nom</span>);</pre>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Type de retour :</strong> <code>prompt()</code> renvoie toujours la saisie sous forme de
+              <strong>chaîne de caractères (String)</strong>, même si l'utilisateur saisit des chiffres.
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Mise en garde :</strong> <code>alert()</code> bloque l'exécution jusqu'au clic sur OK, et <code>document.write()</code> après chargement peut remplacer toute la page.
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li><code>prompt()</code> : saisie d'une donnée.</li>
+                <li><code>alert()</code> : boîte de dialogue modale.</li>
+                <li><code>document.write()</code> : écriture dans le document.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page3" class="module-nav-btn">← Précédent • Variables & Constantes</a>
+          <a href="#page5" class="module-nav-btn">Suivant • Type Number & Math →</a>
+        </div>
+      </section>
+
+
+      <!-- =====================================================================
+           PAGE 6 : LE TYPE NUMBER ET MATH
+           ===================================================================== -->
+      <section id="page5" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 05</span>
+            <h2 class="module-title">Le Type Number & l'Objet Math</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">1</span> Définition du type Number</h3>
+        <p>
+          En JavaScript, il n'y a pas de distinction interne entre entiers et nombres à virgule : le type
+          <code>Number</code> gère les deux (format flottant 64 bits IEEE 754).
+        </p>
+
+        <div class="code-container">
+          <pre
+            class="code-body"><span class="token-kw">let</span> <span class="token-var">age</span> = <span class="token-num">18</span>;        <span class="token-comment">// Entier</span>
+<span class="token-kw">let</span> <span class="token-var">moyenne</span> = <span class="token-num">15.75</span>;  <span class="token-comment">// Nombre réel (attention : utiliser le point .)</span></pre>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">2</span> Opérateurs arithmétiques</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Opérateur</th>
+                <th>Opération</th>
+                <th>Exemple</th>
+                <th>Résultat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>+</code></td>
+                <td>Addition</td>
+                <td><code>8 + 2</code></td>
+                <td><code>10</code></td>
+              </tr>
+              <tr>
+                <td><code>-</code></td>
+                <td>Soustraction</td>
+                <td><code>8 - 2</code></td>
+                <td><code>6</code></td>
+              </tr>
+              <tr>
+                <td><code>*</code></td>
+                <td>Multiplication</td>
+                <td><code>8 * 2</code></td>
+                <td><code>16</code></td>
+              </tr>
+              <tr>
+                <td><code>/</code></td>
+                <td>Division</td>
+                <td><code>8 / 2</code></td>
+                <td><code>4</code></td>
+              </tr>
+              <tr>
+                <td><code>%</code></td>
+                <td>Modulo (reste de division entière)</td>
+                <td><code>8 % 3</code></td>
+                <td><code>2</code> (car 8 = 3×2 + 2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">3</span> Méthodes indispensables de l'objet
+          <code>Math</code>
+        </h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Méthode</th>
+                <th>Rôle</th>
+                <th>Exemple</th>
+                <th>Résultat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>Math.abs(x)</code></td>
+                <td>Valeur absolue (positive)</td>
+                <td><code>Math.abs(-8)</code></td>
+                <td><code>8</code></td>
+              </tr>
+              <tr>
+                <td><code>Math.sqrt(x)</code></td>
+                <td>Racine carrée (Square root)</td>
+                <td><code>Math.sqrt(81)</code></td>
+                <td><code>9</code></td>
+              </tr>
+              <tr>
+                <td><code>Math.round(x)</code></td>
+                <td>Arrondi à l'entier le plus proche</td>
+                <td><code>Math.round(4.6)</code></td>
+                <td><code>5</code></td>
+              </tr>
+              <tr>
+                <td><code>Math.trunc(x)</code></td>
+                <td>Troncature (supprime les décimales)</td>
+                <td><code>Math.trunc(4.9)</code></td>
+                <td><code>4</code></td>
+              </tr>
+              <tr>
+                <td><code>Math.random()</code></td>
+                <td>Nombre réel aléatoire dans [0, 1[</td>
+                <td><code>Math.random()</code></td>
+                <td>ex: <code>0.4285...</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill amber">4</span> Choisir un entier aléatoire dans
+          l'intervalle [a, b]</h3>
+        <p>
+          Pour simuler un tirage aléatoire uniforme entre deux entiers <code>a</code> et <code>b</code> inclus
+          (comme un dé de 1 à 6), on applique la formule :
+        </p>
+
+        <div class="code-container">
+          <pre
+            class="code-body"><span class="token-comment">// Formule générale :</span>
+<span class="token-kw">let</span> <span class="token-var">nb</span> = <span class="token-var">Math</span>.<span class="token-fn">trunc</span>(<span class="token-var">Math</span>.<span class="token-fn">random</span>() * (b - a + 1)) + a;
+
+<span class="token-comment">// Exemple : Lancer d'un dé à 6 faces (a = 1, b = 6) :</span>
+<span class="token-kw">let</span> <span class="token-var">de</span> = <span class="token-var">Math</span>.<span class="token-fn">trunc</span>(<span class="token-var">Math</span>.<span class="token-fn">random</span>() * 6) + 1;</pre>
+        </div>
+
+        <!-- SIMULATEUR DE TIRAGE ALÉATOIRE -->
+        <div class="interactive-widget">
+          <div class="widget-title">🎲 Simulateur Math.random() & Math.trunc()</div>
+          <div class="widget-controls">
+            <label style="font-size:0.85rem; font-weight:600;">Min (a) : <input type="number" id="dice-min"
+                class="widget-input" value="1" style="width:70px;"></label>
+            <label style="font-size:0.85rem; font-weight:600;">Max (b) : <input type="number" id="dice-max"
+                class="widget-input" value="6" style="width:70px;"></label>
+            <button class="widget-btn" onclick="rollRandomNumber()">Lancer le tirage 🎲</button>
+          </div>
+          <div class="widget-output" id="dice-output">Résultat : Cliquez sur « Lancer le tirage »</div>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Aléatoire :</strong> Le résultat de <code>Math.random()</code> est un nombre réel dans l'intervalle [0, 1[ qui change à chaque exécution du programme.
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Tirage uniforme :</strong> On utilise toujours <code>Math.trunc()</code> avec <code>(b - a + 1)</code>. <code>Math.round()</code> réduirait de moitié les chances d'obtenir <code>a</code> et <code>b</code>.
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li><code>Number</code> englobe tous les nombres entiers et décimaux.</li>
+                <li><code>Math.random()</code> retourne un nombre dans [0, 1[.</li>
+                <li><code>Math.trunc()</code> retire simplement la virgule sans arrondir.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page4" class="module-nav-btn">← Précédent • Entrées & Sorties</a>
+          <a href="#page6" class="module-nav-btn">Suivant • Chaînes de caractères →</a>
+        </div>
+      </section>
+
+
+      <!-- =====================================================================
+           PAGE 7 : LES CHAÎNES DE CARACTÈRES
+           ===================================================================== -->
+      <section id="page6" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 06</span>
+            <h2 class="module-title">Les Chaînes de Caractères (String)</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">1</span> Définition et Indexation</h3>
+        <p>
+          Une chaîne est une suite ordonnée de caractères délimitée par des guillemets doubles
+          <code>"..."</code> ou simples <code>'...'</code>.
+          <strong>Le tout premier caractère possède toujours l'indice 0.</strong>
+        </p>
+
+        <div class="table-container" style="max-width: 600px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Caractère</th>
+                <td>J</td>
+                <td>a</td>
+                <td>v</td>
+                <td>a</td>
+                <td>S</td>
+                <td>c</td>
+                <td>r</td>
+                <td>i</td>
+                <td>p</td>
+                <td>t</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Indice [i]</th>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-container">
+          <pre
+            class="code-body"><span class="token-kw">let</span> <span class="token-var">langage</span> = <span class="token-str">"JavaScript"</span>;
+<span class="token-var">langage</span>[<span class="token-num">0</span>] <span class="token-comment">// -&gt; "J"</span>
+<span class="token-var">langage</span>[<span class="token-num">4</span>] <span class="token-comment">// -&gt; "S"</span></pre>
+        </div>
+
+
+        <h3 class="section-h2"><span class="step-pill">2</span> Propriété et Méthodes Essentielles</h3>
+        <div class="cards-grid">
+          <div class="card-item">
+            <h4 class="card-title">📏 Propriété <code>.length</code></h4>
+            <p>Donne le nombre total de caractères (espaces compris). C'est une propriété : <strong>pas de
+                parenthèses !</strong></p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-str">"JavaScript"</span>.<span class="token-var">length</span>; <span class="token-comment">// -&gt; 10</span></pre>
+            </div>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title">🔍 <code>indexOf(sub)</code></h4>
+            <p>Renvoie l'indice de la 1<sup>ère</sup> occurrence de la sous-chaîne. Renvoie <code>-1</code>
+              si absente.</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-str">"JavaScript"</span>.<span class="token-fn">indexOf</span>(<span class="token-str">"a"</span>); <span class="token-comment">// -&gt; 1</span></pre>
+            </div>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title">🔎 <code>lastIndexOf(sub)</code></h4>
+            <p>Renvoie l'indice de la <strong>dernière</strong> occurrence trouvée. Renvoie <code>-1</code>
+              si absente.</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-str">"JavaScript"</span>.<span class="token-fn">lastIndexOf</span>(<span class="token-str">"a"</span>); <span class="token-comment">// -&gt; 3</span></pre>
+            </div>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title">🔄 <code>replace(a, b)</code></h4>
+            <p>Remplace la première occurrence de <code>a</code> par <code>b</code>.</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-str">"JavaScript"</span>.<span class="token-fn">replace</span>(<span class="token-str">"Java"</span>, <span class="token-str">"Type"</span>); <span class="token-comment">// -&gt; "TypeScript"</span></pre>
+            </div>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title">🔠 <code>toUpperCase()</code> & <code>toLowerCase()</code></h4>
+            <p>Convertit tout le texte en majuscules ou minuscules.</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-str">"Sami"</span>.<span class="token-fn">toUpperCase</span>(); <span class="token-comment">// -&gt; "SAMI"</span></pre>
+            </div>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title">✂️ <code>trim()</code></h4>
+            <p>Supprime uniquement les espaces superflus au début et à la fin.</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-str">"  bonjour  "</span>.<span class="token-fn">trim</span>(); <span class="token-comment">// -&gt; "bonjour"</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill sky">3</span> Astuce Pratique : Tester les doublons d'un
+          caractère</h3>
+        <p>
+          Pour savoir si un caractère apparaît <strong>plusieurs fois</strong> dans une chaîne, on compare son
+          premier indice avec son dernier indice :
+        </p>
+        <div class="code-container">
+          <pre class="code-body"><span class="token-kw">let</span> <span class="token-var">txt</span> = <span class="token-str">"JavaScript"</span>;
+<span class="token-kw">let</span> <span class="token-var">premier</span> = <span class="token-var">txt</span>.<span class="token-fn">indexOf</span>(<span class="token-str">"a"</span>);      <span class="token-comment">// 1</span>
+<span class="token-kw">let</span> <span class="token-var">dernier</span> = <span class="token-var">txt</span>.<span class="token-fn">lastIndexOf</span>(<span class="token-str">"a"</span>);  <span class="token-comment">// 3</span>
+
+<span class="token-comment">// Si premier !== dernier, alors "a" est présent au moins 2 fois !</span></pre>
+        </div>
+
+        <!-- SIMULATEUR INTERACTIF DE CHAÎNES -->
+        <div class="interactive-widget">
+          <div class="widget-title">🔤 Bac à Sable Interactif String</div>
+          <div class="widget-controls">
+            <input type="text" id="str-test-input" class="widget-input" style="flex:1; min-width:200px;"
+              value="JavaScript 3STI" placeholder="Tapez du texte...">
+            <button class="widget-btn" onclick="analyzeString()">Analyser la chaîne</button>
+          </div>
+          <div class="widget-output" id="str-test-output">
+            Cliquez sur « Analyser la chaîne » pour observer length, majuscules, minuscules et indices en
+            temps réel.
+          </div>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Immuabilité :</strong> Les chaînes sont immuables. Les méthodes ne modifient jamais la chaîne d'origine mais retournent toujours une nouvelle chaîne.
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Indexation :</strong> Le premier caractère possède l'indice <code>0</code>. <code>length</code> est une propriété (sans parenthèses) qui compte aussi les espaces.
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li>Indices de 0 à <code>length - 1</code>.</li>
+                <li><code>+</code> assemble plusieurs chaînes.</li>
+                <li><code>indexOf() !== lastIndexOf()</code> détecte les doublons.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page5" class="module-nav-btn">← Précédent • Type Number & Math</a>
+          <a href="#page7" class="module-nav-btn">Suivant • Boolean & Array →</a>
+        </div>
+      </section>
+
+
+      <!-- =====================================================================
+           PAGE 8 : LES TYPES BOOLEAN ET ARRAY
+           ===================================================================== -->
+      <section id="page7" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 07</span>
+            <h2 class="module-title">Les types Boolean & Array</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">1</span> Le type Boolean</h3>
+        <p>
+          Un booléen ne peut prendre que deux états logiques : <code>true</code> (vrai) ou <code>false</code>
+          (faux). Ils s'écrivent <strong>sans guillemets</strong> (sinon il s'agirait d'une chaîne de
+          caractères).
+        </p>
+
+        <div class="cards-grid">
+          <div class="card-item featured-green">
+            <code>let admis = true;</code>
+            <div class="badge-result">→ true ✅</div>
+          </div>
+          <div class="card-item featured-red">
+            <code>let absent = false;</code>
+            <div class="badge-result"
+              style="background:var(--accent-rose-bg); color:var(--accent-rose); border-color:var(--accent-rose-border);">
+              → false ❌</div>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">2</span> Opérateurs de comparaison et logiques</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Opérateur</th>
+                <th>Signification</th>
+                <th>Exemple</th>
+                <th>Résultat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>==</code></td>
+                <td>Égalité de valeur</td>
+                <td><code>5 == 5</code></td>
+                <td><code>true</code></td>
+              </tr>
+              <tr>
+                <td><code>!=</code></td>
+                <td>Différent de</td>
+                <td><code>5 != 5</code></td>
+                <td><code>false</code></td>
+              </tr>
+              <tr>
+                <td><code>&gt;</code> / <code>&gt;=</code></td>
+                <td>Supérieur / Supérieur ou égal</td>
+                <td><code>18 &gt;= 18</code></td>
+                <td><code>true</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;</code> / <code>&lt;=</code></td>
+                <td>Inférieur / Inférieur ou égal</td>
+                <td><code>12 &lt;= 10</code></td>
+                <td><code>false</code></td>
+              </tr>
+              <tr>
+                <td><code>&amp;&amp;</code></td>
+                <td><strong>ET logique :</strong> vrai si TOUTES les conditions sont vraies</td>
+                <td><code>(10 &gt; 5) &amp;&amp; (2 &lt; 4)</code></td>
+                <td><code>true</code></td>
+              </tr>
+              <tr>
+                <td><code>||</code></td>
+                <td><strong>OU logique :</strong> vrai si au moins UNE condition est vraie</td>
+                <td><code>(10 &lt; 5) || (2 &lt; 4)</code></td>
+                <td><code>true</code></td>
+              </tr>
+              <tr>
+                <td><code>!</code></td>
+                <td><strong>NON logique :</strong> inverse la valeur booléenne</td>
+                <td><code>!(5 == 5)</code></td>
+                <td><code>false</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill sky">3</span> Le type Array (Tableau)</h3>
+        <p>
+          Un tableau regroupe plusieurs valeurs dans une même variable. Chaque case est repérée par son indice
+          numérique débutant à <strong>0</strong>.
+        </p>
+
+        <div class="code-container">
+          <pre
+            class="code-body"><span class="token-comment">// Notation moderne recommandée entre crochets [ ] :</span>
+<span class="token-kw">let</span> <span class="token-var">notes</span> = [<span class="token-num">15</span>, <span class="token-num">18</span>, <span class="token-num">12</span>];
+<span class="token-kw">let</span> <span class="token-var">villes</span> = [<span class="token-str">"Tunis"</span>, <span class="token-str">"Sfax"</span>, <span class="token-str">"Sousse"</span>];</pre>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card-item">
+            <h4 class="card-title">📖 Accéder à un élément</h4>
+            <p><code>notes[1]</code> renvoie <code>18</code> (deuxième case).</p>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title">✏️ Modifier un élément</h4>
+            <p><code>notes[0] = 16;</code> remplace 15 par 16.</p>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title">📏 Taille du tableau</h4>
+            <p><code>notes.length</code> renvoie <code>3</code> (nombre d'éléments).</p>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill emerald">4</span> Exemple concret : Calcul de moyenne</h3>
+        <div class="code-container">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn" onclick="copyCode(this)">📋 Copier</button>
+          </div>
+          <pre
+            class="code-body"><span class="token-kw">let</span> <span class="token-var">notes</span> = [<span class="token-num">15</span>, <span class="token-num">18</span>, <span class="token-num">12</span>];
+<span class="token-kw">let</span> <span class="token-var">somme</span> = <span class="token-var">notes</span>[<span class="token-num">0</span>] + <span class="token-var">notes</span>[<span class="token-num">1</span>] + <span class="token-var">notes</span>[<span class="token-num">2</span>]; <span class="token-comment">// 45</span>
+<span class="token-kw">let</span> <span class="token-var">moyenne</span> = <span class="token-var">somme</span> / <span class="token-var">notes</span>.<span class="token-var">length</span>;         <span class="token-comment">// 45 / 3 = 15</span>
+<span class="token-fn">alert</span>(<span class="token-str">"Moyenne : "</span> + <span class="token-var">moyenne</span>);</pre>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Sans guillemets :</strong> <code>true</code> et <code>false</code> s'écrivent sans guillemets. <code>"true"</code> est une chaîne de caractères et non un booléen.
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Indice 0 & Undefined :</strong> Le 1<sup>er</sup> élément est à l'indice 0. Un indice inexistant (ex: <code>notes[10]</code>) renvoie <code>undefined</code>.
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li><code>Boolean</code> vaut <code>true</code> ou <code>false</code>.</li>
+                <li><code>Array</code> regroupe des éléments indexés.</li>
+                <li><code>length</code> donne la taille du tableau.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page6" class="module-nav-btn">← Précédent • Chaînes de caractères</a>
+          <a href="#page8" class="module-nav-btn">Suivant • L'objet Date →</a>
+        </div>
+      </section>
+
+
+      <!-- =====================================================================
+           PAGE 9 : L'OBJET DATE
+           ===================================================================== -->
+      <section id="page8" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 08</span>
+            <h2 class="module-title">L'objet Date</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">1</span> Création d'un objet Date</h3>
+        <p>L'objet <code>Date</code> gère les dates et heures du système.</p>
+
+        <div class="cards-grid">
+          <div class="card-item">
+            <h4 class="card-title">📅 Date et heure actuelles</h4>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-kw">let</span> <span class="token-var">maintenant</span> = <span class="token-kw">new</span> <span class="token-fn">Date</span>();</pre>
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Initialisé avec l'instant exact de
+              l'exécution.</p>
+          </div>
+          <div class="card-item">
+            <h4 class="card-title">🎯 Date personnalisée</h4>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-kw">let</span> <span class="token-var">d</span> = <span class="token-kw">new</span> <span class="token-fn">Date</span>(<span class="token-num">2025</span>, <span class="token-num">11</span>, <span class="token-num">31</span>, <span class="token-num">14</span>, <span class="token-num">30</span>);</pre>
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-muted);">(Année, Mois-1, Jour, Heure, Minute)</p>
+          </div>
+        </div>
+
+
+        <h3 class="section-h2"><span class="step-pill">2</span> Méthodes d'extraction de Date</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Méthode</th>
+                <th>Rôle</th>
+                <th>Plage de retour</th>
+                <th>Exemple (pour le 31/12/2025)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>getFullYear()</code></td>
+                <td>Année complète sur 4 chiffres</td>
+                <td>Année exacte</td>
+                <td><code>2025</code></td>
+              </tr>
+              <tr>
+                <td><code>getMonth()</code></td>
+                <td>Numéro du mois (indexé à zéro)</td>
+                <td>0 à 11</td>
+                <td><code>11</code> (Décembre)</td>
+              </tr>
+              <tr>
+                <td><code>getDate()</code></td>
+                <td>Numéro du jour du mois</td>
+                <td>1 à 31</td>
+                <td><code>31</code></td>
+              </tr>
+              <tr>
+                <td><code>toString()</code></td>
+                <td>Représentation textuelle complète</td>
+                <td>Chaîne</td>
+                <td>ex: <code>"Wed Dec 31 2025..."</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill emerald">3</span> Formatage d'une date en JJ/MM/AAAA</h3>
+        <div class="code-container">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn" onclick="copyCode(this)">📋 Copier</button>
+          </div>
+          <pre
+            class="code-body"><span class="token-kw">let</span> <span class="token-var">date1</span> = <span class="token-kw">new</span> <span class="token-fn">Date</span>(<span class="token-num">2025</span>, <span class="token-num">11</span>, <span class="token-num">31</span>);
+<span class="token-kw">let</span> <span class="token-var">jour</span> = <span class="token-var">date1</span>.<span class="token-fn">getDate</span>();          <span class="token-comment">// 31</span>
+<span class="token-kw">let</span> <span class="token-var">mois</span> = <span class="token-var">date1</span>.<span class="token-fn">getMonth</span>() + <span class="token-num">1</span>;      <span class="token-comment">// 11 + 1 = 12</span>
+<span class="token-kw">let</span> <span class="token-var">annee</span> = <span class="token-var">date1</span>.<span class="token-fn">getFullYear</span>();     <span class="token-comment">// 2025</span>
+
+<span class="token-var">document</span>.<span class="token-fn">write</span>(<span class="token-var">jour</span> + <span class="token-str">"/"</span> + <span class="token-var">mois</span> + <span class="token-str">"/"</span> + <span class="token-var">annee</span>); <span class="token-comment">// 31/12/2025</span></pre>
+        </div>
+
+        <!-- SIMULATEUR DATE DU JOUR -->
+        <div class="interactive-widget">
+          <div class="widget-title">🕒 Horloge & Décomposition Date en Temps Réel</div>
+          <div class="widget-controls">
+            <button class="widget-btn" onclick="inspectCurrentDate()">Lire l'instant actuel (new
+              Date())</button>
+          </div>
+          <div class="widget-output" id="date-inspect-output">
+            Cliquez sur le bouton pour inspecter l'instant présent via les méthodes de Date.
+          </div>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Horloge système :</strong> Le résultat de <code>new Date()</code> dépend de l'heure du système. Utilisez des variables explicites (<code>jour</code>, <code>mois</code>, <code>annee</code>).
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Mois de 0 à 11 :</strong> En JavaScript, 0 = Janvier et 11 = Décembre. Pour afficher le mois usuel, il faut impérativement faire <code>date.getMonth() + 1</code>.
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li><code>getFullYear()</code> : année sur 4 chiffres.</li>
+                <li><code>getDate()</code> : jour du mois (1 à 31).</li>
+                <li><code>toString()</code> : convertit la date en texte.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page7" class="module-nav-btn">← Précédent • Boolean & Array</a>
+          <a href="#page9" class="module-nav-btn">Suivant • Conversion de Types →</a>
+        </div>
+      </section>
+
+
+      <!-- =====================================================================
+           PAGE 10 : CONVERSION DE TYPES
+           ===================================================================== -->
+      <section id="page9" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 09</span>
+            <h2 class="module-title">Conversion de Types & Fonctions Globales</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill emerald">1</span> Tester avec <code>isNaN()</code></h3>
+        <p>
+          <code>isNaN(x)</code> (<em>Is Not a Number</em>) teste si une valeur <strong>ne peut pas</strong>
+          être convertie en nombre.
+        </p>
+        <ul class="styled-list">
+          <li><code>false</code> : la valeur EST déjà un nombre ou peut être convertie en nombre sans
+            problème.</li>
+          <li><code>true</code> : la valeur N'EST PAS un nombre valide.</li>
+        </ul>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Test</th>
+                <th>Résultat</th>
+                <th>Explication</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>isNaN("123")</code></td>
+                <td><strong style="color:var(--accent-emerald);">false</strong></td>
+                <td>Peut être converti en 123.</td>
+              </tr>
+              <tr>
+                <td><code>isNaN("10.5")</code></td>
+                <td><strong style="color:var(--accent-emerald);">false</strong></td>
+                <td>Décimal valide.</td>
+              </tr>
+              <tr>
+                <td><code>isNaN("Bonjour")</code></td>
+                <td><strong style="color:var(--accent-rose);">true</strong></td>
+                <td>Texte pur : ce n'est pas un nombre.</td>
+              </tr>
+              <tr>
+                <td><code>isNaN("12a")</code></td>
+                <td><strong style="color:var(--accent-rose);">true</strong></td>
+                <td>Contient une lettre non numérique.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">2</span> Les fonctions de conversion numérique</h3>
+        <div class="cards-grid">
+          <div class="card-item">
+            <h4 class="card-title"><code>Number(x)</code></h4>
+            <p>Convertit <strong>l'intégralité</strong> de la chaîne. Si un seul caractère n'est pas
+              numérique, renvoie <code>NaN</code>.</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-fn">Number</span>(<span class="token-str">"10.5"</span>) <span class="token-comment">// -&gt; 10.5</span>
+<span class="token-fn">Number</span>(<span class="token-str">"10px"</span>) <span class="token-comment">// -&gt; NaN</span></pre>
+            </div>
+          </div>
+
+          <div class="card-item">
+            <h4 class="card-title"><code>parseFloat(x)</code></h4>
+            <p>Lit le nombre décimal au <strong>début</strong> de la chaîne et s'arrête dès le premier
+              caractère non numérique.</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-fn">parseFloat</span>(<span class="token-str">"10.5px"</span>)   <span class="token-comment">// -&gt; 10.5</span>
+<span class="token-fn">parseFloat</span>(<span class="token-str">"2025année"</span>) <span class="token-comment">// -&gt; 2025</span></pre>
+            </div>
+          </div>
+
+          <div class="card-item">
+            <h4 class="card-title"><code>parseInt(x, base)</code></h4>
+            <p>Extrait uniquement la partie <strong>entière</strong> au début de la chaîne (ignore la
+              virgule sans arrondir).</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-fn">parseInt</span>(<span class="token-str">"100.9"</span>)     <span class="token-comment">// -&gt; 100</span>
+<span class="token-fn">parseInt</span>(<span class="token-str">"FF"</span>, <span class="token-num">16</span>)    <span class="token-comment">// -&gt; 255 (Hexa)</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill amber">3</span> Comparaison directe sur l'exemple
+          <code>"2025année"</code>
+        </h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Appel</th>
+                <th>Résultat</th>
+                <th>Comportement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>Number("2025année")</code></td>
+                <td><code>NaN</code></td>
+                <td>Échoue car "année" n'est pas numérique.</td>
+              </tr>
+              <tr>
+                <td><code>parseFloat("2025année")</code></td>
+                <td><code>2025</code></td>
+                <td>Extrait 2025 au début puis s'arrête.</td>
+              </tr>
+              <tr>
+                <td><code>parseInt("2025année")</code></td>
+                <td><code>2025</code></td>
+                <td>Extrait l'entier 2025 au début.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SIMULATEUR CONVERSION DE TYPES -->
+        <div class="interactive-widget">
+          <div class="widget-title">🧪 Testeur Interactif de Conversions</div>
+          <div class="widget-controls">
+            <input type="text" id="conv-input" class="widget-input" value="2025année"
+              placeholder="Entrez une valeur...">
+            <button class="widget-btn" onclick="testTypeConversions()">Tester les conversions</button>
+          </div>
+          <div class="widget-output" id="conv-output">
+            Entrez n'importe quel texte ou nombre pour comparer Number(), parseFloat(), parseInt() et
+            isNaN().
+          </div>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Différence clé :</strong> <code>Number()</code> analyse la chaîne complète, tandis que <code>parseFloat()</code> et <code>parseInt()</code> lisent le nombre placé au début.
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Points d'attention :</strong> Point décimal <code>.</code> obligatoire. <code>parseInt()</code> supprime les décimales sans arrondir.
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li><code>isNaN()</code> : teste si non-nombre.</li>
+                <li><code>Number()</code> : conversion globale.</li>
+                <li><code>String()</code> : transforme en texte.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page8" class="module-nav-btn">← Précédent • L'objet Date</a>
+          <a href="#page10" class="module-nav-btn">Suivant • Conditions (if / switch) →</a>
+        </div>
+      </section>
+
+
+      <!-- =====================================================================
+           PAGE 11 : STRUCTURES CONDITIONNELLES
+           ===================================================================== -->
+      <section id="page10" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 10</span>
+            <h2 class="module-title">Les Structures Conditionnelles</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">1</span> La forme simple : <code>if</code></h3>
+        <p>Exécute un bloc d'instructions <strong>uniquement si</strong> la condition est évaluée à
+          <code>true</code>.
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn" onclick="copyCode(this)">📋 Copier</button>
+          </div>
+          <pre class="code-body"><span class="token-kw">let</span> <span class="token-var">age</span> = <span class="token-num">20</span>;
+<span class="token-kw">if</span> (<span class="token-var">age</span> &gt;= <span class="token-num">18</span>) {
+    <span class="token-fn">alert</span>(<span class="token-str">"Majeur"</span>);
+}</pre>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">2</span> La forme généralisée :
+          <code>if...else if...else</code>
+        </h3>
+        <p>
+          Permet d'évaluer plusieurs alternatives exclusives l'une après l'autre.
+          <strong>Règle d'or :</strong> placer toujours les conditions les plus restrictives en premier !
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn" onclick="copyCode(this)">📋 Copier</button>
+          </div>
+          <pre class="code-body"><span class="token-kw">let</span> <span class="token-var">note</span> = <span class="token-num">14</span>;
+
+<span class="token-kw">if</span> (<span class="token-var">note</span> &gt;= <span class="token-num">16</span>) {
+    <span class="token-fn">alert</span>(<span class="token-str">"Très bien"</span>);
+} <span class="token-kw">else if</span> (<span class="token-var">note</span> &gt;= <span class="token-num">10</span>) {
+    <span class="token-fn">alert</span>(<span class="token-str">"Admis"</span>);     <span class="token-comment">// Exécuté pour note = 14</span>
+} <span class="token-kw">else</span> {
+    <span class="token-fn">alert</span>(<span class="token-str">"Ajourné"</span>);
+}</pre>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">3</span> L'instruction <code>switch</code></h3>
+        <p>
+          Idéale pour comparer une même variable à plusieurs <strong>valeurs fixes</strong> discrètes (ex:
+          jours de la semaine, options de menu).
+          L'instruction <code>break</code> est obligatoire pour éviter de tomber en cascade dans le cas
+          suivant.
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">JavaScript</span>
+            <button class="copy-btn" onclick="copyCode(this)">📋 Copier</button>
+          </div>
+          <pre class="code-body"><span class="token-kw">let</span> <span class="token-var">jour</span> = <span class="token-num">2</span>;
+
+<span class="token-kw">switch</span> (<span class="token-var">jour</span>) {
+    <span class="token-kw">case</span> <span class="token-num">1</span>:
+        <span class="token-fn">alert</span>(<span class="token-str">"Lundi"</span>);
+        <span class="token-kw">break</span>;
+    <span class="token-kw">case</span> <span class="token-num">2</span>:
+        <span class="token-fn">alert</span>(<span class="token-str">"Mardi"</span>); <span class="token-comment">// Cas sélectionné</span>
+        <span class="token-kw">break</span>;
+    <span class="token-kw">default</span>:
+        <span class="token-fn">alert</span>(<span class="token-str">"Jour invalide"</span>);
+}</pre>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Quelle structure ?</strong>
+              <ul class="styled-list">
+                <li><code>if</code> : action conditionnée.</li>
+                <li><code>if...else if</code> : intervalles.</li>
+                <li><code>switch</code> : valeurs fixes.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Break & Ordre :</strong> Ne pas oublier <code>break</code> dans <code>switch</code>. Tester toujours la condition la plus restrictive en premier.
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li>Condition entre parenthèses <code>( )</code>.</li>
+                <li>Blocs regroupés entre <code>{ }</code>.</li>
+                <li>Opérateur <code>==</code> et non <code>=</code>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page9" class="module-nav-btn">← Précédent • Conversion de Types</a>
+          <a href="#page11" class="module-nav-btn">Suivant • Boucles (for / while) →</a>
+        </div>
+      </section>
+
+
+      <!-- =====================================================================
+           PAGE 12 : LES BOUCLES
+           ===================================================================== -->
+      <section id="page11" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 11</span>
+            <h2 class="module-title">Les Structures Itératives (Boucles)</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">1</span> La boucle <code>for</code></h3>
+        <p>
+          Utilisée lorsque le <strong>nombre d'itérations est connu d'avance</strong>. Elle regroupe dans son
+          en-tête l'initialisation, la condition de poursuite et l'incrémentation.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 1.5rem; align-items: stretch; margin: 1.5rem 0;">
+          <div style="min-width: 0; display: flex; flex-direction: column;">
+            <h4 class="section-h3" style="margin: 0 0 0.75rem 0;">Code JavaScript :</h4>
+            <div class="code-container" style="margin: 0; flex: 1; display: flex; flex-direction: column;">
+              <div class="code-header">
+                <div class="code-dots">
+                  <div class="code-dot red"></div>
+                  <div class="code-dot yellow"></div>
+                  <div class="code-dot green"></div>
+                </div>
+                <span class="code-lang">JavaScript</span>
+                <button class="copy-btn" onclick="copyCode(this)">📋 Copier</button>
+              </div>
+              <pre class="code-body" style="flex: 1; margin: 0; padding: 1.35rem 1.25rem; line-height: 1.7;"><span class="token-kw">for</span> (<span class="token-kw">let</span> <span class="token-var">i</span> = <span class="token-num">1</span>; <span class="token-var">i</span> &lt;= <span class="token-num">5</span>; <span class="token-var">i</span>++) {
+    <span class="token-var">document</span>.<span class="token-fn">write</span>(<span class="token-var">i</span> + <span class="token-str">" "</span>);
+}
+<span class="token-comment">// Affichage final : 1 2 3 4 5</span></pre>
+            </div>
+          </div>
+
+          <div style="min-width: 0; display: flex; flex-direction: column;">
+            <h4 class="section-h3" style="margin: 0 0 0.75rem 0;">Tableau de trace de la boucle <code>for</code> :</h4>
+            <div class="table-container table-compact" style="margin: 0; flex: 1;">
+              <table style="white-space: nowrap;">
+                <thead>
+                  <tr>
+                    <th>Tour</th>
+                    <th>Valeur de <code>i</code></th>
+                    <th>Condition <code>i &lt;= 5</code></th>
+                    <th>Affichage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>true</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>true</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>true</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>true</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>true</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>false</td>
+                    <td><strong>Arrêt de la boucle</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">2</span> Les boucles <code>while</code> et
+          <code>do...while</code>
+        </h3>
+        <div class="cards-grid">
+          <div class="card-item">
+            <h4 class="card-title"><code>while (condition)</code></h4>
+            <p>La condition est testée <strong>avant</strong> d'entrer dans le corps de la boucle. Si elle
+              est fausse dès le départ, le bloc ne s'exécute <strong>jamais (0 fois)</strong>.</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body" style="padding:0.6rem;"><span class="token-kw">let</span> <span class="token-var">i</span> = <span class="token-num">1</span>;
+<span class="token-kw">while</span> (<span class="token-var">i</span> &lt;= <span class="token-num">3</span>) {
+    <span class="token-var">document</span>.<span class="token-fn">write</span>(<span class="token-var">i</span> + <span class="token-str">" "</span>);
+    <span class="token-var">i</span>++;
+}</pre>
+            </div>
+          </div>
+
+          <div class="card-item">
+            <h4 class="card-title"><code>do { ... } while (condition);</code></h4>
+            <p>La condition est testée <strong>après</strong> l'exécution du bloc. Le corps est donc garanti
+              d'être exécuté <strong>au moins une fois (1 fois)</strong>.</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body" style="padding:0.6rem;"><span class="token-kw">let</span> <span class="token-var">i</span> = <span class="token-num">5</span>;
+<span class="token-kw">do</span> {
+    <span class="token-var">document</span>.<span class="token-fn">write</span>(<span class="token-var">i</span>); <span class="token-comment">// Affiche 5</span>
+} <span class="token-kw">while</span> (<span class="token-var">i</span> &lt;= <span class="token-num">3</span>);</pre>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill emerald">3</span> Tableau Comparatif des Boucles</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Structure</th>
+                <th>Moment du test</th>
+                <th>Exécutions minimales</th>
+                <th>Usage idéal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>for</code></td>
+                <td>Avant le bloc</td>
+                <td>0</td>
+                <td>Nombre de répétitions prédéterminé / compteur.</td>
+              </tr>
+              <tr>
+                <td><code>while</code></td>
+                <td>Avant le bloc</td>
+                <td>0</td>
+                <td>Répétition tributaire d'une condition externe.</td>
+              </tr>
+              <tr>
+                <td><code>do...while</code></td>
+                <td>Après le bloc</td>
+                <td><strong>1</strong></td>
+                <td>Saisie de validation (au moins un essai nécessaire).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Moment du test :</strong> <code>for</code> et <code>while</code> testent la condition avant (0 exécution min). <code>do...while</code> teste après (1 exécution min).
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Boucle infinie :</strong> Si le compteur n'est jamais modifié (oubli de <code>i++</code>), la condition reste vraie et le programme ne s'arrête jamais.
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li><code>for</code> : répétition connue.</li>
+                <li><code>while</code> : selon condition.</li>
+                <li><code>do...while</code> : exécuté ≥ 1 fois.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page10" class="module-nav-btn">← Précédent • Conditions (if / switch)</a>
+          <a href="#page12" class="module-nav-btn">Suivant • Les Fonctions & Procédures →</a>
+        </div>
+      </section>
+
+
+      
+      <!-- =====================================================================
+           MODULE 12 : LES FONCTIONS ET PROCÉDURES
+           ===================================================================== -->
+      <section id="page12" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 12</span>
+            <h2 class="module-title">Les Fonctions & Procédures</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">1</span> Définition et rôle d'une fonction</h3>
+        <p>
+          Une <strong>fonction</strong> est un sous-programme autonome regroupant une série d'instructions sous un même nom. Elle permet de factoriser le code, d'éviter les répétitions (principe <strong>DRY</strong> : <em>Don't Repeat Yourself</em>) et de rendre les scripts plus lisibles, modulaires et faciles à maintenir.
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">JavaScript (Syntaxe de base)</span>
+            <button class="copy-btn" onclick="copyCode(this)">📋 Copier</button>
+          </div>
+          <pre class="code-body"><span class="token-comment">// 1. Déclaration de la fonction avec paramètres</span>
+<span class="token-kw">function</span> <span class="token-fn">calculerSurface</span>(<span class="token-var">largeur</span>, <span class="token-var">hauteur</span>) {
+    <span class="token-kw">let</span> <span class="token-var">surface</span> = <span class="token-var">largeur</span> * <span class="token-var">hauteur</span>;
+    <span class="token-kw">return</span> <span class="token-var">surface</span>; <span class="token-comment">// Valeur renvoyée à l'appelant</span>
+}
+
+<span class="token-comment">// 2. Appel de la fonction avec des arguments</span>
+<span class="token-kw">let</span> <span class="token-var">resultat</span> = <span class="token-fn">calculerSurface</span>(<span class="token-num">5</span>, <span class="token-num">8</span>); <span class="token-comment">// resultat vaut 40</span>
+<span class="token-fn">alert</span>(<span class="token-str">"La surface est : "</span> + <span class="token-var">resultat</span> + <span class="token-str">" m²"</span>);</pre>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">2</span> Fonctions avec valeur de retour vs Procédures</h3>
+        <div class="cards-grid">
+          <div class="card-item featured-blue">
+            <h4 class="card-title">🔁 Fonction (avec <code>return</code>)</h4>
+            <p>Effectue un calcul et <strong>retourne un résultat</strong> qui peut être stocké dans une variable ou utilisé dans une expression conditionnelle.</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body" style="padding:0.6rem;"><span class="token-kw">function</span> <span class="token-fn">estPair</span>(<span class="token-var">n</span>) {
+    <span class="token-kw">return</span> (<span class="token-var">n</span> % <span class="token-num">2</span> === <span class="token-num">0</span>);
+}</pre>
+            </div>
+            <div class="badge-result">Retourne : booléen (true / false)</div>
+          </div>
+
+          <div class="card-item">
+            <h4 class="card-title">⚡ Procédure (sans <code>return</code>)</h4>
+            <p>Exécute une série d'actions concrètes (affichage, modification du DOM, sonnette d'alarme) sans retourner de valeur (renvoie <code>undefined</code>).</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body" style="padding:0.6rem;"><span class="token-kw">function</span> <span class="token-fn">saluer</span>(<span class="token-var">prenom</span>) {
+    <span class="token-fn">alert</span>(<span class="token-str">"Bienvenue "</span> + <span class="token-var">prenom</span> + <span class="token-str">" !"</span>);
+}</pre>
+            </div>
+            <div class="badge-result">Effet : action directe dans la page</div>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">3</span> Portée des variables (Locale vs Globale)</h3>
+        <p>
+          La portée (<em>scope</em>) détermine où une variable est accessible dans le script :
+        </p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Type de variable</th>
+                <th>Lieu de déclaration</th>
+                <th>Portée & Accessibilité</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Variable Locale</strong></td>
+                <td>Déclarée avec <code>let</code> ou <code>const</code> <strong>à l'intérieur</strong> de la fonction.</td>
+                <td>Accessible <strong>uniquement dans la fonction</strong>. Détruite dès la fin de l'exécution.</td>
+              </tr>
+              <tr>
+                <td><strong>Variable Globale</strong></td>
+                <td>Déclarée <strong>hors</strong> de toute fonction (au début du script).</td>
+                <td>Accessible et modifiable par <strong>toutes les fonctions</strong> du script.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">4</span> Liaison des fonctions aux Événements HTML</h3>
+        <p>
+          En développement Web, les fonctions sont le lien direct entre les actions de l'utilisateur (clics, frappes au clavier, soumissions de formulaires) et la logique du site :
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">HTML & JavaScript (Déclenchement événementiel)</span>
+            <button class="copy-btn" onclick="copyCode(this)">📋 Copier</button>
+          </div>
+          <pre class="code-body"><span class="token-comment">&lt;!-- Le clic de l'utilisateur appelle la fonction validerFormulaire() --&gt;</span>
+<span class="token-tag">&lt;button</span> <span class="token-attr">onclick</span>=<span class="token-str">"validerFormulaire()"</span><span class="token-tag">&gt;</span>Valider l'inscription<span class="token-tag">&lt;/button&gt;</span>
+
+<span class="token-tag">&lt;script&gt;</span>
+<span class="token-kw">function</span> <span class="token-fn">validerFormulaire</span>() {
+    <span class="token-fn">alert</span>(<span class="token-str">"Vérification des champs en cours..."</span>);
+}
+<span class="token-tag">&lt;/script&gt;</span></pre>
+        </div>
+
+        <!-- Bac à sable interactif : Testeur de fonctions -->
+        <div class="code-container" style="margin: 1.5rem 0;">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot red"></div>
+              <div class="code-dot yellow"></div>
+              <div class="code-dot green"></div>
+            </div>
+            <span class="code-lang">Bac à Sable Interactif : Testeur de Fonction Réutilisable</span>
+          </div>
+          <div style="padding: 1.25rem; background: var(--bg-surface); border-top: 1px solid var(--border-color);">
+            <p style="font-size:0.9rem; margin-top:0; color:var(--text-secondary);">
+              Exécutez en direct la fonction : <code>function calculerTTC(prixHT, quantite, tauxTVA)</code>
+            </p>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
+              <div>
+                <label style="font-size:0.8rem; font-weight:700; display:block; margin-bottom:0.25rem;">Prix HT (DT) :</label>
+                <input type="number" id="fn-prix" value="50" style="padding:0.45rem 0.65rem; border:1px solid var(--border-color); border-radius:var(--radius-sm); width:100px; background:var(--bg-code); color:var(--text-primary); font-family:var(--font-code);">
+              </div>
+              <div>
+                <label style="font-size:0.8rem; font-weight:700; display:block; margin-bottom:0.25rem;">Quantité :</label>
+                <input type="number" id="fn-qte" value="3" style="padding:0.45rem 0.65rem; border:1px solid var(--border-color); border-radius:var(--radius-sm); width:80px; background:var(--bg-code); color:var(--text-primary); font-family:var(--font-code);">
+              </div>
+              <div>
+                <label style="font-size:0.8rem; font-weight:700; display:block; margin-bottom:0.25rem;">Taux TVA (%) :</label>
+                <select id="fn-tva" style="padding:0.45rem 0.65rem; border:1px solid var(--border-color); border-radius:var(--radius-sm); background:var(--bg-code); color:var(--text-primary); font-family:var(--font-code);">
+                  <option value="19" selected>19 %</option>
+                  <option value="7">7 %</option>
+                  <option value="0">0 %</option>
+                </select>
+              </div>
+              <div style="align-self:flex-end;">
+                <button class="header-btn" onclick="testInteractiveFunction()" style="background:var(--primary); color:white; padding:0.5rem 1.15rem; border-radius:var(--radius-sm); font-weight:700; cursor:pointer;">
+                  ▶ Appeler la fonction
+                </button>
+              </div>
+            </div>
+            <div id="fn-test-output" style="margin-top:1rem; padding:0.85rem 1rem; background:var(--bg-code); border-radius:var(--radius-sm); font-family:var(--font-code); font-size:0.9rem; color:var(--accent-emerald);">
+              Résultat de l'appel : Cliquez sur "Appeler la fonction" pour tester.
+            </div>
+          </div>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Modularité & DRY :</strong> Principe « Don't Repeat Yourself » : tout code répété plus d'une fois gagne à être factorisé dans une fonction dédiée, facilitant les tests et la maintenance.
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Arrêt immédiat par return :</strong> L'instruction <code>return</code> met fin immédiatement à l'exécution de la fonction. Toute ligne de code placée après <code>return</code> dans le même bloc ne sera jamais exécutée (code mort).
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li><code>function nom(p1, p2) { return val; }</code>.</li>
+                <li>Variables <code>let/const</code> internes = portée locale.</li>
+                <li>Déclenchées par événements HTML (ex: <code>onclick</code>).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page11" class="module-nav-btn">← Précédent • Boucles (for / while)</a>
+          <a href="#page13" class="module-nav-btn">Suivant • Le DOM (Sélection) →</a>
+        </div>
+      </section>
+
+
+      <!-- =====================================================================
+           PAGE 13 : LE DOM (DOCUMENT OBJECT MODEL)
+           ===================================================================== -->
+      <section id="page13" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 13</span>
+            <h2 class="module-title">Le DOM (Document Object Model)</h2>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill">1</span> Qu'est-ce que le DOM ?</h3>
+        <p>
+          Le <strong>DOM</strong> est la représentation hiérarchique en arbre d'objets que le navigateur
+          génère à partir du code HTML. Chaque élément HTML devient un « nœud » accessible et manipulable en
+          JavaScript via l'objet racine <code>document</code>.
+        </p>
+
+        <!-- SCHÉMA ARBORESCENT DU DOM -->
+        <div class="dom-visual-tree">
+          <div class="dom-tag-node doc">document</div>
+          <div class="dom-connector">↓</div>
+          <div class="dom-tag-node html">&lt;html&gt;</div>
+          <div class="dom-connector">↓</div>
+          <div class="dom-row-branches">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
+              <div class="dom-tag-node head">&lt;head&gt;</div>
+              <div class="dom-connector">↓</div>
+              <div class="dom-tag-node child">&lt;title&gt;</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
+              <div class="dom-tag-node body">&lt;body&gt;</div>
+              <div class="dom-connector">↓</div>
+              <div style="display: flex; gap: 0.75rem;">
+                <div class="dom-tag-node child">&lt;h1&gt;</div>
+                <div class="dom-tag-node child">&lt;input&gt;</div>
+                <div class="dom-tag-node child">&lt;p&gt;</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill sky">2</span> Méthodes de Sélection d'Éléments</h3>
+        <div class="cards-grid">
+          <div class="card-item featured-blue">
+            <h4 class="card-title"><code>document.getElementById("id")</code></h4>
+            <p>Sélectionne <strong>un unique élément</strong> grâce à son identifiant <code>id</code>.</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-comment">// &lt;h1 id="titre"&gt;Bonjour&lt;/h1&gt;</span>
+<span class="token-kw">let</span> <span class="token-var">titre</span> = <span class="token-var">document</span>.<span class="token-fn">getElementById</span>(<span class="token-str">"titre"</span>);</pre>
+            </div>
+            <div class="badge-result">Retourne : 1 seul élément HTML</div>
+          </div>
+
+          <div class="card-item">
+            <h4 class="card-title"><code>document.getElementsByName("name")</code></h4>
+            <p>Sélectionne <strong>tous les éléments</strong> partageant le même attribut <code>name</code>
+              (très utilisé pour les boutons radio).</p>
+            <div class="code-container" style="margin:0;">
+              <pre class="code-body"
+                style="padding:0.6rem;"><span class="token-comment">// &lt;input type="radio" name="genre"&gt;</span>
+<span class="token-kw">let</span> <span class="token-var">liste</span> = <span class="token-var">document</span>.<span class="token-fn">getElementsByName</span>(<span class="token-str">"genre"</span>);</pre>
+            </div>
+            <div class="badge-result"
+              style="background:var(--accent-sky-bg); color:var(--accent-sky); border-color:var(--accent-sky-border);">
+              Retourne : Une collection (NodeList)
+            </div>
+          </div>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Règle clé :</strong> L'attribut <code>id</code> doit impérativement être <strong>unique</strong> dans l'ensemble de la page HTML.
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> Retour de méthode :</strong> <code>getElementById()</code> renvoie un élément unique, alors que <code>getElementsByName()</code> renvoie une liste (NodeList).
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> À RETENIR :</strong>
+              <ul class="styled-list">
+                <li>DOM = structure d'arbre d'objets.</li>
+                <li><code>document</code> = point d'entrée.</li>
+                <li>Chaque élément peut être ciblé en JS.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page12" class="module-nav-btn">← Précédent • Les Fonctions & Procédures</a>
+          <a href="#page14" class="module-nav-btn">Suivant • Modification du DOM →</a>
+        </div>
+      </section>
+
+
+      <!-- =====================================================================
+           PAGE 14 : MODIFICATION DU DOM
+           ===================================================================== -->
+      <section id="page14" class="module-card">
+        <div class="module-header">
+          <div>
+            <span class="module-page-tag">Module 14</span>
+            <h2 class="module-title">Modification Dynamique du DOM</h2>
+          </div>
+        </div>
+
+        <p>
+          Pour modifier un élément, la démarche se fait toujours en 2 temps :
+          <strong>1. Sélectionner l'élément</strong> puis <strong>2. Modifier son contenu, ses attributs ou
+            son style</strong>.
+        </p>
+
+        <h3 class="section-h2"><span class="step-pill emerald">1</span> Modifier le contenu avec
+          <code>innerHTML</code>
+        </h3>
+        <p>La propriété <code>innerHTML</code> permet de lire ou remplacer tout le contenu (texte brut ou
+          balises HTML) situé à l'intérieur de l'élément.</p>
+
+        <div class="code-container">
+          <pre
+            class="code-body"><span class="token-kw">let</span> <span class="token-var">msg</span> = <span class="token-var">document</span>.<span class="token-fn">getElementById</span>(<span class="token-str">"message"</span>);
+<span class="token-var">msg</span>.<span class="token-prop">innerHTML</span> = <span class="token-str">"&lt;strong&gt;Bienvenue sur notre site !&lt;/strong&gt;"</span>;</pre>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill sky">2</span> Modifier les attributs HTML</h3>
+        <p>On peut modifier n'importe quel attribut standard (ex: <code>src</code>, <code>href</code>,
+          <code>value</code>, <code>disabled</code>) en accédant directement à <code>element.attribut</code> :
+        </p>
+
+        <div class="code-container">
+          <pre
+            class="code-body"><span class="token-kw">let</span> <span class="token-var">lien</span> = <span class="token-var">document</span>.<span class="token-fn">getElementById</span>(<span class="token-str">"monLien"</span>);
+<span class="token-var">lien</span>.<span class="token-prop">href</span> = <span class="token-str">"https://www.takiacademy.com"</span>;</pre>
+        </div>
+
+        <h3 class="section-h2"><span class="step-pill amber">3</span> Modifier le style CSS avec
+          <code>style</code>
+        </h3>
+        <p>
+          L'objet <code>element.style</code> donne accès aux styles CSS en ligne.
+          <strong>Attention à la notation CamelCase :</strong> les propriétés CSS avec tiret deviennent
+          camelCase en JavaScript (ex: <code>background-color</code> devient <code>backgroundColor</code>,
+          <code>font-size</code> devient <code>fontSize</code>).
+        </p>
+
+        <div class="code-container">
+          <pre
+            class="code-body"><span class="token-var">msg</span>.<span class="token-prop">style</span>.<span class="token-prop">color</span> = <span class="token-str">"red"</span>;
+<span class="token-var">msg</span>.<span class="token-prop">style</span>.<span class="token-prop">backgroundColor</span> = <span class="token-str">"#fef08a"</span>;
+<span class="token-var">msg</span>.<span class="token-prop">style</span>.<span class="token-prop">fontSize</span> = <span class="token-str">"22px"</span>;
+<span class="token-var">msg</span>.<span class="token-prop">style</span>.<span class="token-prop">borderRadius</span> = <span class="token-str">"8px"</span>;</pre>
+        </div>
+
+        <!-- ATELIER INTERACTIF MANIPULATION DU DOM -->
+        <div class="interactive-widget">
+          <div class="widget-title">🎨 Atelier Vivant : Manipulez le DOM en Direct</div>
+          <p style="font-size:0.85rem; margin-bottom:0.75rem;">Cliquez sur les boutons ci-dessous pour voir le
+            JavaScript modifier l'élément cible en temps réel :</p>
+          <div class="widget-controls">
+            <button class="widget-btn" onclick="domChangeText()">Changer innerHTML</button>
+            <button class="widget-btn" style="background:#059669;" onclick="domChangeColor()">Changer la
+              couleur</button>
+            <button class="widget-btn" style="background:#d97706;" onclick="domChangeBg()">Changer
+              l'arrière-plan</button>
+            <button class="widget-btn" style="background:#475569;" onclick="domReset()">Réinitialiser</button>
+          </div>
+
+          <div class="browser-frame" style="margin-top:0.75rem;">
+            <div class="browser-toolbar">
+              <span style="color:#ef4444;">●</span>
+              <span style="color:#f59e0b;">●</span>
+              <span style="color:#10b981;">●</span>
+              <div class="browser-address">Rendu DOM de l'élément #demo-target</div>
+            </div>
+            <div class="browser-canvas">
+              <div id="demo-target"
+                style="padding: 1.25rem; border: 2px dashed #94a3b8; border-radius: 8px; text-align: center; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease;">
+                Texte initial : Bonjour le monde !
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callouts-row">
+          <div class="callout callout-info">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">💡</span> Sélection préalable :</strong> Toujours sélectionner l'élément HTML avec <code>document.getElementById()</code> avant de pouvoir modifier son contenu ou son style.
+            </div>
+          </div>
+
+          <div class="callout callout-alert">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">⚠️</span> CamelCase en CSS :</strong> Les propriétés avec tiret deviennent camelCase en JS (ex: <code>backgroundColor</code>, <code>fontSize</code>, <code>borderRadius</code>).
+            </div>
+          </div>
+
+          <div class="callout callout-success">
+            <div class="callout-content">
+              <strong class="callout-title"><span class="callout-icon">📌</span> SYNTHÈSE DU COURS (À RETENIR) :</strong>
+              <ul class="styled-list">
+                <li><code>innerHTML</code> : modifie le contenu.</li>
+                <li><code>element.attribut</code> : modifie un attribut.</li>
+                <li><code>element.style.prop</code> : modifie le style.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-nav-footer">
+          <a href="#page13" class="module-nav-btn">← Précédent • Le DOM (Sélection)</a>
+          <a href="#intro" class="module-nav-btn">Haut de page ↑</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Bouton flottant Retour en Haut -->
+  <button class="back-to-top" id="back-to-top" title="Retourner en haut de page" aria-label="Retour en haut">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
+  <!-- ==========================================================================
+       SCRIPTS JAVASCRIPT : INTERACTIONS & ACCESSIBILITÉ
+       ========================================================================== -->
+  <script>
+    // 1. Barre de progression de lecture & Bouton Retour en Haut
+    const progressBar = document.getElementById('reading-progress');
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (windowHeight > 0) {
+        const scrollPercent = (totalScroll / windowHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+      }
+
+      if (totalScroll > 350) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 2. Gestion du Thème Sombre / Clair avec persistance localStorage
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const htmlElem = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme_preference') || 'light';
+    htmlElem.setAttribute('data-theme', savedTheme);
+    themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlElem.getAttribute('data-theme');
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlElem.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('theme_preference', nextTheme);
+      themeIcon.textContent = nextTheme === 'dark' ? '☀️' : '🌙';
+    });
+
+    // 3. Ajustement de la taille de police pour l'accessibilité
+    let currentFontSize = 16;
+    document.getElementById('btn-font-inc').addEventListener('click', () => {
+      if (currentFontSize < 22) {
+        currentFontSize += 1;
+        document.documentElement.style.setProperty('--font-scale', (currentFontSize / 16) + 'rem');
+      }
+    });
+    document.getElementById('btn-font-dec').addEventListener('click', () => {
+      if (currentFontSize > 13) {
+        currentFontSize -= 1;
+        document.documentElement.style.setProperty('--font-scale', (currentFontSize / 16) + 'rem');
+      }
+    });
+
+    // 4. Menu mobile
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const sidebar = document.getElementById('sidebar');
+    mobileToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+
+    // Fermer le menu mobile au clic sur un lien du sommaire
+    document.querySelectorAll('.nav-item a').forEach(link => {
+      link.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+      });
+    });
+
+    // =========================================================================
+    // 5. ROUTEUR : AFFICHAGE D'UN SEUL MODULE À LA FOIS (SPA)
+    // =========================================================================
+    const moduleSections = document.querySelectorAll('.main-content > .module-card');
+    const heroSection = document.getElementById('intro');
+    const navItems = document.querySelectorAll('.nav-item');
+    const headerIndicator = document.getElementById('header-module-indicator');
+    const tbCurrentTitle = document.getElementById('tb-current-title');
+    const tbCounter = document.getElementById('tb-counter');
+    const tbPrevBtn = document.getElementById('tb-prev-btn');
+    const tbNextBtn = document.getElementById('tb-next-btn');
+    const toolbar = document.getElementById('module-view-toolbar');
+
+    const moduleTitles = {
+      'page1': 'Introduction au Langage JavaScript',
+      'page2': 'Intégration de JavaScript dans une page HTML',
+      'page3': 'Variables et Constantes',
+      'page4': 'Entrées et Sorties de Base',
+      'page5': 'Le Type Number & l\'Objet Math',
+      'page6': 'Les Chaînes de Caractères (String)',
+      'page7': 'Les types Boolean & Array',
+      'page8': 'L\'objet Date',
+      'page9': 'Conversion de Types & Fonctions Globales',
+      'page10': 'Les Structures Conditionnelles',
+      'page11': 'Les Structures Itératives (Boucles)',
+      'page12': 'Les Fonctions & Procédures',
+      'page13': 'Le DOM (Sélection)',
+      'page14': 'Modification Dynamique du DOM'
+    };
+
+    function activateModule(targetHash) {
+      let id = (targetHash || window.location.hash || '').replace('#', '').trim();
+      
+      // Par défaut, afficher le premier module si aucun hash n'est présent
+      if (!id) {
+        id = 'page1';
+      }
+
+      // Masquer toutes les sections
+      moduleSections.forEach(sec => sec.classList.remove('active-module'));
+      if (heroSection) heroSection.classList.remove('active-module');
+
+      if (id === 'intro') {
+        if (heroSection) heroSection.classList.add('active-module');
+        if (toolbar) toolbar.style.display = 'none';
+        if (progressBar) progressBar.style.width = '0%';
+        if (headerIndicator) headerIndicator.textContent = 'Vue d\'ensemble';
+
+        // Mettre à jour l'élément actif dans la sidebar
+        navItems.forEach(li => {
+          const a = li.querySelector('a');
+          if (a && a.getAttribute('href') === '#intro') {
+            li.classList.add('active');
+          } else {
+            li.classList.remove('active');
+          }
+        });
+      } else {
+        const targetSection = document.getElementById(id);
+        if (targetSection && targetSection.classList.contains('module-card')) {
+          targetSection.classList.add('active-module');
+          if (toolbar) toolbar.style.display = 'flex';
+
+          const matchNum = id.match(/\d+/);
+          const modNum = matchNum ? parseInt(matchNum[0], 10) : 1;
+          const totalModules = 14;
+
+          // Mise à jour de la barre de progression
+          if (progressBar) {
+            progressBar.style.width = ((modNum / totalModules) * 100) + '%';
+          }
+
+          // Mise à jour des titres et compteurs
+          const title = moduleTitles[id] || targetSection.querySelector('.module-title')?.innerText || '';
+          if (headerIndicator) {
+            headerIndicator.textContent = `Module ${String(modNum).padStart(2, '0')} / ${totalModules}`;
+          }
+          if (tbCurrentTitle) {
+            tbCurrentTitle.textContent = `Module ${String(modNum).padStart(2, '0')} • ${title}`;
+          }
+          if (tbCounter) {
+            tbCounter.textContent = `${modNum} / ${totalModules}`;
+          }
+
+          // Bouton Précédent de la toolbar
+          if (tbPrevBtn) {
+            tbPrevBtn.disabled = false;
+            tbPrevBtn.onclick = () => {
+              if (modNum > 1) {
+                window.location.hash = `#page${modNum - 1}`;
+              } else {
+                window.location.hash = '#intro';
+              }
+            };
+          }
+
+          // Bouton Suivant de la toolbar
+          if (tbNextBtn) {
+            if (modNum < totalModules) {
+              tbNextBtn.disabled = false;
+              tbNextBtn.onclick = () => {
+                window.location.hash = `#page${modNum + 1}`;
+              };
+            } else {
+              tbNextBtn.disabled = true;
+            }
+          }
+
+          // Mettre à jour la sidebar active
+          navItems.forEach(li => {
+            const a = li.querySelector('a');
+            if (a && a.getAttribute('href') === '#' + id) {
+              li.classList.add('active');
+              li.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            } else {
+              li.classList.remove('active');
+            }
+          });
+        } else {
+          // Si l'ID est inconnu, afficher page1
+          activateModule('page1');
+          return;
+        }
+      }
+
+      // Remonter en haut de page instantanément
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    // Écouteur de changement d'ancre URL
+    window.addEventListener('hashchange', () => {
+      activateModule(window.location.hash);
+    });
+
+    // Activation initiale au chargement
+    activateModule(window.location.hash);
+
+    // Navigation au clavier : Flèches gauche / droite
+    window.addEventListener('keydown', (e) => {
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+
+      const currentId = (window.location.hash || '#page1').replace('#', '');
+      const matchNum = currentId.match(/\d+/);
+      if (!matchNum) {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+          window.location.hash = '#page1';
+        }
+        return;
+      }
+      const modNum = parseInt(matchNum[0], 10);
+
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        if (modNum < 14) {
+          window.location.hash = `#page${modNum + 1}`;
+        }
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        if (modNum > 1) {
+          window.location.hash = `#page${modNum - 1}`;
+        } else {
+          window.location.hash = '#intro';
+        }
+      }
+    });
+
+    // 6. Filtrage dynamique du sommaire dans la sidebar
+    const navSearch = document.getElementById('nav-search');
+    navSearch.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.nav-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+
+    // 7. Fonction Copier le code avec retour visuel
+    function copyCode(btn) {
+      const container = btn.closest('.code-container');
+      const codeText = container.querySelector('.code-body').innerText;
+      navigator.clipboard.writeText(codeText).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = '✅ Copié !';
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 1800);
+      });
+    }
+
+    // 8. Logique des widgets interactifs
+
+    // Module 12 : Testeur de fonction interactif
+    function testInteractiveFunction() {
+      const prix = parseFloat(document.getElementById('fn-prix').value) || 0;
+      const qte = parseInt(document.getElementById('fn-qte').value) || 1;
+      const tva = parseFloat(document.getElementById('fn-tva').value) || 0;
+
+      // Déclaration de la fonction pédagogique
+      function calculerTTC(p, q, t) {
+        let totalHT = p * q;
+        let montantTVA = totalHT * (t / 100);
+        let totalTTC = totalHT + montantTVA;
+        return {
+          ht: totalHT.toFixed(3),
+          tva: montantTVA.toFixed(3),
+          ttc: totalTTC.toFixed(3)
+        };
+      }
+
+      const res = calculerTTC(prix, qte, tva);
+      const out = document.getElementById('fn-test-output');
+      out.innerHTML = `
+        <div>• <strong>Appel :</strong> <code>calculerTTC(${prix}, ${qte}, ${tva})</code></div>
+        <div>• <strong>Total HT :</strong> ${res.ht} DT</div>
+        <div>• <strong>Montant TVA (${tva}%) :</strong> ${res.tva} DT</div>
+        <div>• <strong>Total TTC retourné :</strong> <span style="font-weight:700; color:var(--primary); font-size:1.1rem;">${res.ttc} DT</span></div>
+      `;
+    }
+
+
+    // Module 01 : Simulateur de console interactive
+    function runIntroConsole() {
+      const code = document.getElementById('intro-console-input').value;
+      const out = document.getElementById('intro-console-output');
+      try {
+        let logged = [];
+        const customConsole = {
+          log: (...args) => logged.push(args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ')),
+          warn: (...args) => logged.push('⚠️ ' + args.join(' ')),
+          error: (...args) => logged.push('❌ ' + args.join(' '))
+        };
+        const isConsoleLog = code.includes('console.');
+        const fn = new Function('console', isConsoleLog ? code : ('return (' + code + ');'));
+        const res = fn(customConsole);
+        if (logged.length > 0) {
+          out.style.color = '#10b981';
+          out.innerHTML = logged.map(l => '<div>&gt; ' + l + '</div>').join('');
+        } else if (res !== undefined) {
+          out.style.color = '#10b981';
+          out.innerHTML = '<div>&gt; Résultat : ' + res + '</div>';
+        } else {
+          out.style.color = '#10b981';
+          out.innerHTML = '<div>&gt; Instruction exécutée avec succès (undefined)</div>';
+        }
+      } catch (err) {
+        out.style.color = '#ef4444';
+        out.innerHTML = '<div>❌ Erreur : ' + err.message + '</div>';
+      }
+    }
+
+    // Page 5 : Test prompt/alert/document.write
+    function testSimAlert() {
+      const val = document.getElementById('sim-prompt-input').value || 'Élève';
+      alert('Bienvenue ' + val);
+    }
+    function testSimWrite() {
+      const val = document.getElementById('sim-prompt-input').value || 'Élève';
+      const output = document.getElementById('sim-browser-output');
+      output.innerHTML = '<p style="color:#059669; font-weight:700;">Nom de l\'élève : ' + val + '</p>';
+    }
+
+    // Page 6 : Lancer dé
+    function rollRandomNumber() {
+      const a = parseInt(document.getElementById('dice-min').value) || 1;
+      const b = parseInt(document.getElementById('dice-max').value) || 6;
+      if (a > b) {
+        document.getElementById('dice-output').innerHTML = '<span style="color:#ef4444;">Erreur : min doit être ≤ max</span>';
+        return;
+      }
+      const raw = Math.random();
+      const res = Math.trunc(raw * (b - a + 1)) + a;
+      document.getElementById('dice-output').innerHTML = `
+        <strong>Tirage obtenu : <span style="color:#4f46e5; font-size:1.2rem;">${res}</span></strong><br>
+        <small style="color:var(--text-muted);">Détail calcul : Math.trunc(${raw.toFixed(4)} × ${b - a + 1}) + ${a} = ${res}</small>
+      `;
+    }
+
+    // Page 7 : Bac à sable String
+    function analyzeString() {
+      const val = document.getElementById('str-test-input').value;
+      const out = document.getElementById('str-test-output');
+      out.innerHTML = `
+        <div>• <strong>Longueur (.length) :</strong> ${val.length} caractères</div>
+        <div>• <strong>Majuscules (.toUpperCase()) :</strong> "${val.toUpperCase()}"</div>
+        <div>• <strong>Minuscules (.toLowerCase()) :</strong> "${val.toLowerCase()}"</div>
+        <div>• <strong>Premier caractère [0] :</strong> "${val[0] || 'vide'}"</div>
+        <div>• <strong>Indice de "a" (.indexOf('a')) :</strong> ${val.indexOf('a')}</div>
+        <div>• <strong>Dernier indice de "a" (.lastIndexOf('a')) :</strong> ${val.lastIndexOf('a')}</div>
+      `;
+    }
+
+    // Page 9 : Horloge et décomposition Date
+    function inspectCurrentDate() {
+      const now = new Date();
+      const out = document.getElementById('date-inspect-output');
+      out.innerHTML = `
+        <div>• <strong>Date complète :</strong> ${now.toString()}</div>
+        <div>• <strong>getFullYear() :</strong> ${now.getFullYear()}</div>
+        <div>• <strong>getMonth() :</strong> ${now.getMonth()} <span style="color:#d97706;">(mois usuel = ${now.getMonth() + 1})</span></div>
+        <div>• <strong>getDate() :</strong> ${now.getDate()}</div>
+        <div>• <strong>Format JJ/MM/AAAA :</strong> ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}</div>
+      `;
+    }
+
+    // Page 10 : Testeur Conversions
+    function testTypeConversions() {
+      const val = document.getElementById('conv-input').value;
+      const out = document.getElementById('conv-output');
+      out.innerHTML = `
+        <div>• <strong>isNaN("${val}") :</strong> <span style="font-weight:700; color:${isNaN(val) ? '#ef4444' : '#10b981'};">${isNaN(val)}</span></div>
+        <div>• <strong>Number("${val}") :</strong> ${Number(val)}</div>
+        <div>• <strong>parseFloat("${val}") :</strong> ${parseFloat(val)}</div>
+        <div>• <strong>parseInt("${val}") :</strong> ${parseInt(val)}</div>
+      `;
+    }
+
+    // Page 14 : DOM live playground
+    const target = document.getElementById('demo-target');
+    function domChangeText() {
+      target.innerHTML = '✨ <strong>Nouveau contenu injecté par innerHTML !</strong>';
+    }
+    function domChangeColor() {
+      target.style.color = '#dc2626';
+    }
+    function domChangeBg() {
+      target.style.backgroundColor = '#ecfdf5';
+      target.style.borderColor = '#10b981';
+    }
+    function domReset() {
+      target.innerHTML = 'Texte initial : Bonjour le monde !';
+      target.style.color = '';
+      target.style.backgroundColor = '';
+      target.style.borderColor = '#94a3b8';
+    }
+  </script>
+</body>
+
+</html>

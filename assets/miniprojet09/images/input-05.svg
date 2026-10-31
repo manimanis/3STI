@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" width="100%" height="100%" style="background:#f1f3f4; border-radius:8px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow-c" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#16a34a"/>
+    </marker>
+    <marker id="arr-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Top Modal: confirm() dialog -->
+  <g transform="translate(60, 15)" filter="url(#shadow-c)">
+    <rect width="420" height="110" rx="6" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+    
+    <!-- Header -->
+    <circle cx="18" cy="18" r="7" fill="none" stroke="#5f6368" stroke-width="1.3"/>
+    <text x="32" y="22" font-size="12" font-weight="600" fill="#202124">127.0.0.1 indique (confirm)</text>
+    
+    <!-- Question Text -->
+    <text x="18" y="54" font-size="13" fill="#3c4043">Voulez-vous supprimer cet élément ?</text>
+    
+    <!-- Buttons: Annuler and OK -->
+    <rect x="270" y="74" width="68" height="26" rx="3" fill="#f1f3f4" stroke="#dadce0"/>
+    <text x="304" y="91" font-size="11.5" fill="#1a73e8" text-anchor="middle">Annuler</text>
+
+    <rect x="346" y="74" width="60" height="26" rx="3" fill="#1a73e8"/>
+    <text x="376" y="91" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">OK</text>
+  </g>
+
+  <!-- Branch Arrows -->
+  <path d="M 170 130 L 130 160" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-green)"/>
+  <rect x="110" y="132" width="55" height="18" rx="9" fill="#dcfce7" stroke="#16a34a" stroke-width="0.8"/>
+  <text x="137" y="145" font-size="10" font-weight="bold" fill="#15803d" text-anchor="middle">Si [OK]</text>
+
+  <path d="M 370 130 L 410 160" stroke="#64748b" stroke-width="2" marker-end="url(#arr-gray)"/>
+  <rect x="375" y="132" width="70" height="18" rx="9" fill="#f1f5f9" stroke="#64748b" stroke-width="0.8"/>
+  <text x="410" y="145" font-size="10" font-weight="bold" fill="#475569" text-anchor="middle">Si [Annuler]</text>
+
+  <!-- Outcome 1: Alert if confirmed (reponse === true) -->
+  <g transform="translate(15, 168)" filter="url(#shadow-c)">
+    <rect width="245" height="95" rx="6" fill="#ffffff" stroke="#86efac" stroke-width="1.2"/>
+    <circle cx="16" cy="18" r="6" fill="#22c55e"/>
+    <text x="16" y="21.5" font-size="9" fill="#ffffff" font-weight="bold" text-anchor="middle">✓</text>
+    <text x="28" y="22" font-size="11" font-weight="bold" fill="#15803d">reponse = true</text>
+    
+    <text x="16" y="48" font-size="11.5" fill="#1e293b">L'élément a été supprimé !</text>
+    
+    <rect x="180" y="62" width="50" height="22" rx="3" fill="#16a34a"/>
+    <text x="205" y="77" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">OK</text>
+  </g>
+
+  <!-- Outcome 2: Alert if cancelled (reponse === false) -->
+  <g transform="translate(280, 168)" filter="url(#shadow-c)">
+    <rect width="245" height="95" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+    <circle cx="16" cy="18" r="6" fill="#94a3b8"/>
+    <text x="16" y="21.5" font-size="9" fill="#ffffff" font-weight="bold" text-anchor="middle">✗</text>
+    <text x="28" y="22" font-size="11" font-weight="bold" fill="#475569">reponse = false</text>
+    
+    <text x="16" y="48" font-size="11.5" fill="#1e293b">Vous avez annulé l'opération !</text>
+    
+    <rect x="180" y="62" width="50" height="22" rx="3" fill="#64748b"/>
+    <text x="205" y="77" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">OK</text>
+  </g>
+</svg>

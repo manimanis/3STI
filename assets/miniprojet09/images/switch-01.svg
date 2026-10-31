@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 310" width="100%" height="100%" style="background:#f1f3f4; border-radius:8px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow-sw" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <!-- Top Title / Cases Representation -->
+  <g transform="translate(15, 15)">
+    <rect width="510" height="110" rx="6" fill="#ffffff" stroke="#dadce0" stroke-width="1" filter="url(#shadow-sw)"/>
+    <rect width="510" height="26" rx="6" fill="#f8fafc"/>
+    <rect y="18" width="510" height="8" fill="#f8fafc"/>
+    <line x1="0" y1="26" x2="510" y2="26" stroke="#e2e8f0"/>
+    <text x="14" y="18" font-size="11" font-weight="600" fill="#475569">Aiguillage switch (j2 = nombre aléatoire 0, 1 ou 2) :</text>
+
+    <!-- Case 0 -->
+    <rect x="15" y="38" width="150" height="58" rx="4" fill="#e0f2fe" stroke="#38bdf8"/>
+    <text x="25" y="56" font-family="'Consolas', monospace" font-size="11" font-weight="bold" fill="#0369a1">case 0:</text>
+    <text x="25" y="74" font-size="11" fill="#0f172a">&#8594; cj2 = &quot;Pierre&quot;</text>
+    <rect x="118" y="44" width="40" height="16" rx="3" fill="#0284c7"/>
+    <text x="138" y="56" font-size="9" fill="#ffffff" font-weight="bold" text-anchor="middle">tiré</text>
+
+    <!-- Case 1 -->
+    <rect x="180" y="38" width="150" height="58" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="190" y="56" font-family="'Consolas', monospace" font-size="11" font-weight="bold" fill="#64748b">case 1:</text>
+    <text x="190" y="74" font-size="11" fill="#64748b">&#8594; cj2 = &quot;Feuille&quot;</text>
+
+    <!-- Case 2 -->
+    <rect x="345" y="38" width="150" height="58" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="355" y="56" font-family="'Consolas', monospace" font-size="11" font-weight="bold" fill="#64748b">case 2:</text>
+    <text x="355" y="74" font-size="11" fill="#64748b">&#8594; cj2 = &quot;Ciseaux&quot;</text>
+  </g>
+
+  <!-- Bottom: Alert Dialog -->
+  <g transform="translate(60, 140)" filter="url(#shadow-sw)">
+    <rect width="420" height="120" rx="6" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+    <circle cx="18" cy="18" r="6" fill="none" stroke="#5f6368" stroke-width="1.2"/>
+    <text x="32" y="22" font-size="12" font-weight="600" fill="#202124">127.0.0.1 indique (alert)</text>
+    
+    <!-- Output string -->
+    <text x="18" y="60" font-family="'Consolas', monospace" font-size="13.5" font-weight="bold" fill="#1e293b">
+      Pierre contre Pierre =&gt; Partie nulle
+    </text>
+    
+    <!-- OK Button -->
+    <rect x="340" y="80" width="62" height="28" rx="3" fill="#1a73e8"/>
+    <text x="371" y="98" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">OK</text>
+  </g>
+
+  <!-- Explanatory Banner -->
+  <rect x="15" y="275" width="510" height="26" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="270" y="292" font-size="11" fill="#166534" text-anchor="middle" font-weight="500">
+    💡 L'instruction <tspan font-weight="bold">break</tspan> interrompt le switch dès que le cas correspondant est exécuté.
+  </text>
+</svg>

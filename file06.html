@@ -41,45 +41,197 @@
             <code>&lt;script&gt;/* Code JavaScript */&lt;/script&gt;</code>
             <p><strong>Code HTML</strong></p>
             <pre class="javascript"><code>&lt;!-- Exemple JavaScript --&gt;
-&lt;script&gt;console.log(&quot;Hello JavaScript!&quot;);&lt;/script&gt;</code></li>
-<li>En tapant le code dans un fichier à part, puis l'intégrer à l'aide de la balise : <code>&lt;script src=&quot;URL/fichier.js&quot;&gt;&lt;/script&gt;</code>
-<p><strong>Code HTML</strong></p>
-<pre class="html"><code>&lt;script src=&quot;welcome.js&quot;&gt;&lt;/script&gt;</code></pre>
+&lt;script&gt;console.log(&quot;Hello JavaScript!&quot;);&lt;/script&gt;</code></pre>
+          </li>
+          <li>En tapant le code dans un fichier à part, puis l'intégrer à l'aide de la balise :
+            <code>&lt;script src=&quot;URL/fichier.js&quot;&gt;&lt;/script&gt;</code>
+            <p><strong>Code HTML</strong></p>
+            <pre class="html"><code>&lt;script src=&quot;welcome.js&quot;&gt;&lt;/script&gt;</code></pre>
             <p><strong>Code JavaScript (dans le fichier <em>welcome.js</em>)</strong></p>
             <pre class="javascript"><code>// Exemple JavaScript
 console.log(&quot;Hello JavaScript!&quot;);</code></pre>
           </li>
         </ul>
 
-        <h4>Activité 1</h4>
+      </section>
+
+      <section>
+        <h3 class="p-break">Le Document Object Model (DOM)</h3>
+
+        <h4 class="h5 mt-4 mb-2">1. Qu'est-ce que le DOM ?</h4>
+        <p>
+          Lorsqu'un navigateur charge une page web, il analyse le code <strong>HTML</strong> et construit
+          automatiquement en mémoire vive une structure hiérarchique arborescente appelée le <strong>DOM</strong>
+          (<em>Document Object Model</em> ou <strong>Modèle Objet de Document</strong>).
+        </p>
+        <p>
+          Dans cet <strong>arbre du DOM</strong> :
+        </p>
         <ul>
-          <li>Créer un fichier HTML nommé <strong>javascript01.html</strong> contenant le code suivant :
-            <pre
-              class="html"><code>&lt;script&gt;console.log(&quot;Hello JavaScript!&quot;);&lt;/script&gt;</code></pre>
+          <li>La racine de l'arbre est l'objet <code>document</code> (accessible directement en JavaScript via
+            <code>window.document</code> ou <code>document</code>).
           </li>
-          <li>Ouvrir la page dans le navigateur. Puis ouvrir l'outil de développement (DevTools).
-            <figure>
-              <img src="assets/miniprojet09/images/javascript-console-01.png" alt="Résultat du code JavaScript">
-              <figcaption>Résultat du code JavaScript</figcaption>
-            </figure>
+          <li>Chaque balise HTML (<code>&lt;html&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;h1&gt;</code>,
+            <code>&lt;p&gt;</code>, <code>&lt;button&gt;</code>, etc.) devient un <strong>nœud élément</strong>
+            (<em>Element node</em>).
+          </li>
+          <li>Le texte contenu à l'intérieur des balises forme des <strong>nœuds de texte</strong> (<em>Text node</em>).
+          </li>
+          <li>Les attributs HTML (<code>id</code>, <code>class</code>, <code>src</code>, <code>href</code>,
+            <code>value</code>) constituent des propriétés directement accessibles et modifiables de ces objets.
           </li>
         </ul>
 
-        <h4>Activité 2</h4>
+        <div class="alert alert-primary shadow-sm my-3">
+          <strong>Rôle de JavaScript :</strong> Le DOM constitue l'<strong>interface de programmation (API)</strong> qui
+          relie la page web au code JavaScript. Grâce au DOM, JavaScript peut lire, ajouter, modifier ou supprimer
+          n'importe quel élément ou style de la page en temps réel, sans recharger la page.
+        </div>
+
+        <figure class="my-4 text-center">
+          <img src="assets/miniprojet09/images/dom-tree-concept.svg" alt="Représentation arborescente du DOM"
+            class="img-fluid rounded shadow-sm">
+          <figcaption class="text-muted small mt-2">Représentation de la page HTML sous forme d'arbre hiérarchique
+            d'objets (DOM)</figcaption>
+        </figure>
+
+        <h4 class="h5 mt-4 mb-2">2. Comment manipuler le DOM avec JavaScript ?</h4>
+        <p>
+          La manipulation du DOM avec JavaScript repose sur une démarche méthodique en <strong>3 étapes clés</strong> :
+        </p>
+
+        <figure class="my-4 text-center">
+          <img src="assets/miniprojet09/images/dom-manipulation-flow.svg" alt="Les 3 étapes de manipulation du DOM"
+            class="img-fluid rounded shadow-sm">
+          <figcaption class="text-muted small mt-2">Les 3 étapes clés pour manipuler un élément du DOM avec JavaScript
+          </figcaption>
+        </figure>
+
+        <p><strong>Ciblage des éléments HTML :</strong> Le ciblage des éléments se fait à l'aide de deux méthodes
+          complémentaires :</p>
         <ul>
-          <li>Créer un fichier JavaScript nommé <strong>jscript01.js</strong> contenant le code suivant :
-            <pre class="javascript"><code>console.log("Hello from console.log inside an external file");</code></pre>
-          </li>
-          <li>Intégrer ce code dans le fichier <strong>javascript01.html</strong> à l'aide de la balise :
-            <pre class="html"><code>&lt;script src=&quot;jscript01.js&quot;&gt;&lt;/script&gt;</code></pre>
-          </li>
-          <li>Recharger la page dans le navigateur, appuyer <kbd>F5</kbd>.
-            <figure>
-              <img src="assets/miniprojet09/images/javascript-console-02.png" alt="Résultat du code JavaScript">
-              <figcaption>Résultat du code JavaScript dans un fichier externe</figcaption>
-            </figure>
-          </li>
+          <li><code>document.getElementById("monId")</code> : retourne <strong>l'élément unique</strong> de la page
+            possédant cet identifiant <code>id</code>.</li>
+          <li><code>document.getElementsByName("monNom")</code> : retourne une <strong>collection (liste indexée à
+              partir de 0)</strong> de tous les éléments partageant l'attribut <code>name="monNom"</code>. C'est la
+            méthode de référence pour manipuler les groupes de boutons radio (<code>&lt;input type="radio"&gt;</code>)
+            ou de cases à cocher.</li>
         </ul>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-light">
+              <tr>
+                <th style="width: 25%;">Étape</th>
+                <th style="width: 35%;">Méthodes / Propriétés</th>
+                <th style="width: 40%;">Description &amp; Exemple</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Cibler (Sélectionner)</strong></td>
+                <td>
+                  <code>document.getElementById("monId")</code><br>
+                  <code>document.getElementsByName("monNom")</code>
+                </td>
+                <td>
+                  Recherche et retourne un élément unique (par son <code>id</code>) ou une collection d'éléments (par
+                  leur attribut <code>name</code>) :<br>
+                  <code>const titre = document.getElementById("titre");</code><br>
+                  <code>const radios = document.getElementsByName("genre");</code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>2. Modifier le contenu</strong></td>
+                <td>
+                  <code>element.innerHTML = ...</code><br>
+                  <code>element.value = ...</code>
+                </td>
+                <td>
+                  Modifie le texte brut, injecte du balisage HTML ou met à jour la valeur d'un champ de formulaire :<br>
+                  <code>titre.innerHTML = "Nouveau titre";</code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>3. Modifier styles / attributs</strong></td>
+                <td>
+                  <code>element.style.propriete = ...</code><br>
+                  <code>element.classList.add(...)</code><br>
+                  <code>element.src = ...</code>
+                </td>
+                <td>
+                  Change l'aspect visuel ou les attributs d'un élément :<br>
+                  <code>titre.style.color = "blue";</code><br>
+                  <code>titre.style.backgroundColor = "#e0f2fe";</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="h5 mt-4 mb-2">3. Exemple concret de manipulation</h4>
+        <p>
+          Voici un exemple interactif montrant comment cibler un paragraphe et un titre pour en modifier le contenu et
+          les styles au clic sur un bouton :
+        </p>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <p><strong>Code HTML :</strong></p>
+            <pre class="html"><code>&lt;div id=&quot;carte-info&quot;&gt;
+  &lt;h4 id=&quot;titre-info&quot;&gt;Message initial&lt;/h4&gt;
+  &lt;p id=&quot;texte-info&quot;&gt;Le contenu n'a pas encore &eacute;t&eacute; modifi&eacute; par JavaScript.&lt;/p&gt;
+  &lt;button id=&quot;btn-action&quot;&gt;Modifier le DOM&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            <p><strong>Code CSS :</strong></p>
+            <pre class="css"><code>#carte-info {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  width: 320px;
+}
+
+#btn-action {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}</code></pre>
+          </div>
+          <div class="col-lg-6">
+            <p><strong>Code JavaScript :</strong></p>
+            <pre class="javascript"><code>// 1. CIBLER les éléments du DOM par leur identifiant
+const titre = document.getElementById(&quot;titre-info&quot;);
+const texte = document.getElementById(&quot;texte-info&quot;);
+const bouton = document.getElementById(&quot;btn-action&quot;);
+
+// 2. RÉAGIR au clic utilisateur
+bouton.onclick = function() {
+  // 3. MODIFIER le contenu textuel et HTML
+  titre.innerHTML = &quot;DOM modifi&eacute; avec succ&egrave;s !&quot;;
+  texte.innerHTML = &quot;Le texte a &eacute;t&eacute; &lt;strong&gt;mis &agrave; jour&lt;/strong&gt; en temps r&eacute;el sans rechargement.&quot;;
+
+  // 4. MODIFIER les styles dynamiquement
+  titre.style.color = &quot;#198754&quot;;
+  texte.style.backgroundColor = &quot;#d1e7dd&quot;;
+  texte.style.color = &quot;#0f5132&quot;;
+  texte.style.padding = &quot;10px&quot;;
+  texte.style.borderRadius = &quot;4px&quot;;
+
+  bouton.innerHTML = &quot;&check; Action effectu&eacute;e&quot;;
+  bouton.style.backgroundColor = &quot;#198754&quot;;
+};</code></pre>
+          </div>
+        </div>
+
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet09/images/dom-example-preview.svg" alt="Aperçu dans le navigateur"
+            class="img-fluid rounded shadow-sm">
+          <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+        </figure>
       </section>
 
       <section>
@@ -128,104 +280,88 @@ console.log(&quot;Hello JavaScript!&quot;);</code></pre>
 
         <!-- 1. Console -->
         <h4>1. Affichage dans la console : <code>console.log()</code></h4>
-        <p>L'affichage dans la <strong>console</strong> sert à débugger les scripts JavaScript. Il sert principalement à
-          traquer les éventuelles erreurs dans un script.</p>
-        <p><strong>Exemple</strong></p>
+        <p>L'affichage dans la <strong>console</strong> des outils de développement (<kbd>F12</kbd>) permet au
+          développeur de tester des valeurs, de suivre le déroulement du script et de traquer d'éventuelles erreurs sans
+          perturber l'affichage destiné à l'utilisateur.</p>
+        <p><strong>Exemple</strong> : Afficher un message de bienvenue, des variables et un calcul</p>
         <pre class="javascript"><code>&lt;script&gt;
-  // Calcul de l&apos;hypot&eacute;nus d&apos;un triangle rectangle
-  let a = 3;
-  let b = 4;
-  // L&apos;hypot&eacute;nus est calcul&eacute; en utilisant la formule :
-  // c = racine(a^2+b^2)
-  let c = Math.sqrt(a + a);
-  // c doit &ecirc;tre &eacute;gal &agrave; 5
-  console.log(&quot;a = &quot;, a, &quot; - b = &quot;, b, &quot; - c = &quot;, c);
-&lt;/script&gt;</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/javascript-console-03.png"
-            alt="Débuggage d'un script qui contient des erreurs">
-          <figcaption>Débuggage d'un script qui contient des erreurs</figcaption>
-        </figure>
+  let prenom = &quot;Amine&quot;;
+  let classe = &quot;3STI&quot;;
 
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Créer un fichier HTML nommé <strong>javascript02.html</strong>.</li>
-          <li>Copier le code précédent puis le tester dans la console du navigateur.</li>
-          <li>Corriger l'erreur.</li>
-        </ol>
+  // 1. Afficher un message textuel simple
+  console.log(&quot;Bienvenue dans la console JavaScript !&quot;);
+
+  // 2. Afficher plusieurs valeurs et variables séparées par des virgules
+  console.log(&quot;Bonjour&quot;, prenom, &quot;de la classe&quot;, classe);
+
+  // 3. Afficher le résultat direct d'une opération
+  console.log(&quot;Calcul : 12 + 8 =&quot;, 12 + 8);
+&lt;/script&gt;</code></pre>
+        <div class="card bg-dark text-light p-3 my-3 shadow-sm border-0 font-monospace small">
+          <div class="text-secondary mb-1">Console DevTools (F12) &gt; Console</div>
+          <div class="text-info">&gt; Bienvenue dans la console JavaScript !</div>
+          <div class="text-white">&gt; Bonjour Amine de la classe 3STI</div>
+          <div class="text-warning">&gt; Calcul : 12 + 8 = 20</div>
+        </div>
 
         <hr class="my-4">
 
         <!-- 2. Boîte d'alerte -->
         <h4 class="p-break">2. Affichage dans une boîte d'alerte : <code>alert()</code></h4>
-        <p>La boîte d'alerte <strong>alert</strong> surgit afin d'attirer l'attention de l'utilisateur et de l'alerter
-          sur une exception dans le script.</p>
-        <p><strong>Exemple</strong></p>
-        <p>On suppose qu'un utilisateur a tapé deux mots de passes différents dans les champs suivants. La page doit
-          l'alerter de son erreur.</p>
-        <div class="row">
-          <div class="col-6">
-            <figure>
-              <img src="assets/miniprojet09/images/javascript-login-form.png" alt="Confirmation d'un mot de passe">
-              <figcaption>Confirmation d'un mot de passe</figcaption>
-            </figure>
+        <p>La fonction <code>alert()</code> ouvre une <strong>boîte de dialogue modale</strong> surgissante au centre du
+          navigateur pour transmettre une information essentielle ou un avertissement à l'utilisateur. L'exécution du
+          script est temporairement suspendue jusqu'à ce que l'utilisateur valide avec le bouton <strong>OK</strong>.
+        </p>
+        <p><strong>Exemple</strong> : Notification d'accueil et message personnalisé</p>
+        <pre class="javascript"><code>&lt;script&gt;
+  let score = 18;
+
+  // Affichage d'un message direct
+  alert(&quot;Bienvenue sur le portail Conception Web !&quot;);
+
+  // Affichage combinant texte et variable
+  alert(&quot;F&eacute;licitations ! Votre score est de &quot; + score + &quot; / 20.&quot;);
+&lt;/script&gt;</code></pre>
+        <figure class="my-3 text-center">
+          <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5 mb-2">
+              <img src="assets/miniprojet09/images/javascript-alert-bienvenue.svg"
+                alt="Première boîte d'alerte : Bienvenue" class="img-fluid rounded border shadow-sm">
+              <p class="small text-muted mt-1">1<sup>ère</sup> alerte : message textuel direct</p>
+            </div>
+            <div class="col-md-6 col-lg-5 mb-2">
+              <img src="assets/miniprojet09/images/javascript-alert-score.svg" alt="Deuxième boîte d'alerte : Score"
+                class="img-fluid rounded border shadow-sm">
+              <p class="small text-muted mt-1">2<sup>ème</sup> alerte : texte combiné avec variable</p>
+            </div>
           </div>
-          <div class="col-6">
-            <figure>
-              <img src="assets/miniprojet09/images/javascript-alert.png" alt="Message d'erreur">
-              <figcaption>Message d'erreur</figcaption>
-            </figure>
-          </div>
-        </div>
-        <p>Le message précédent est obtenu en utilisant la fonction <code>alert("Message")</code>.</p>
-        <pre class="javascript"><code>alert("Les mots de passes sont différents!");</code></pre>
-        <p><strong>Travail demandé</strong></p>
-        <p>Copier le code JavaScript précédent dans la console puis appuyer sur la touche <kbd>Enter</kbd>.</p>
-        <figure>
-          <img src="assets/miniprojet09/images/javascript-alert-02.png"
-            alt="Afficher une boîte d'alerte à l'aide de la console">
-          <figcaption>Afficher une boîte d'alerte à l'aide de la console</figcaption>
+          <figcaption class="text-muted small mt-1">Aperçu exact des boîtes d'alerte modales affichées successivement
+            par le navigateur</figcaption>
         </figure>
 
         <hr class="my-4">
 
         <!-- 3. Document HTML -->
-        <h4>3. Affichage dans le document HTML : <code>document.writeln()</code></h4>
-        <p>Il est possible d'afficher le résultat d'un traitement directement dans la page en utilisant la fonction
-          <code>document.writeln("message");</code>. Cette fonction permet aussi d'insérer un code HTML dans la page et
-          de
-          l'exécuter.
-        </p>
-        <p><strong>Exemple</strong></p>
-        <div class="row">
-          <div class="col-8">Code HTML
-            <pre class="javascript"><code>&lt;script&gt;
-  let a = 5;
-  let b = 6;
-  document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;+&quot;, b, &quot;=&quot;, a + b, &quot;&lt;/p&gt;&quot;);
-  document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;*&quot;, b, &quot;=&quot;, a * b, &quot;&lt;/p&gt;&quot;);
-  document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;-&quot;, b, &quot;=&quot;, a - b, &quot;&lt;/p&gt;&quot;);
-  document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;/&quot;, b, &quot;=&quot;, a / b, &quot;&lt;/p&gt;&quot;);
+        <h4>3. Affichage dans le document HTML : <code>document.write()</code> / <code>document.writeln()</code></h4>
+        <p>La méthode <code>document.writeln()</code> écrit directement du texte et du balisage HTML dans la page lors
+          du chargement initial du document.</p>
+        <p><strong>Exemple</strong> : Générer un en-tête et des informations de cours</p>
+        <pre class="html"><code>&lt;script&gt;
+  let matiere = &quot;Informatique&quot;;
+  let niveau = &quot;3&egrave;me Sciences de l'Informatique&quot;;
+
+  // Générer un titre HTML dans la page
+  document.writeln(&quot;&lt;h3&gt;Module : &quot; + matiere + &quot;&lt;/h3&gt;&quot;);
+
+  // Générer des paragraphes avec mise en valeur
+  document.writeln(&quot;&lt;p&gt;Niveau : &lt;strong&gt;&quot; + niveau + &quot;&lt;/strong&gt;&lt;/p&gt;&quot;);
+  document.writeln(&quot;&lt;p&gt;Ann&eacute;e scolaire : &lt;em&gt;2026 / 2027&lt;/em&gt;&lt;/p&gt;&quot;);
 &lt;/script&gt;</code></pre>
-          </div>
-          <div class="col-4">Code CSS
-            <pre class="css3"><code>p:nth-child(odd) { color: red; }
-p:nth-child(even) { color: blue; }</code></pre>
-          </div>
-        </div>
-        <p class="p-break"><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/document-writeln.png"
-            alt="Utilisation de la fonction document.writeln()">
-          <figcaption>Utilisation de la fonction document.writeln()</figcaption>
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet09/images/document-writeln-preview.svg" alt="Aperçu dans le navigateur"
+            class="img-fluid rounded shadow-sm">
+          <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
         </figure>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Créer un fichier HTML nommé <strong>javascript04.html</strong>.</li>
-          <li>Copier le code HTML et le code CSS ci-dessus.</li>
-          <li>Tester dans le navigateur.</li>
-        </ol>
 
         <hr class="my-4">
 
@@ -242,8 +378,6 @@ p:nth-child(even) { color: blue; }</code></pre>
             ayant l'attribut <code>name="nom"</code>. Cette méthode est indispensable pour accéder aux groupes de
             boutons radio (<code>&lt;input type="radio"&gt;</code>) partageant le même nom.
           </li>
-          <li><code>document.querySelector("css_selector")</code> : retourne une référence au premier élément de la page
-            en fonction du sélecteur CSS donné.</li>
         </ul>
         <p>L'obtention d'une référence à un élément permet d'agir sur son affichage selon deux techniques
           complémentaires :</p>
@@ -259,192 +393,121 @@ p:nth-child(even) { color: blue; }</code></pre>
         </ul>
 
         <h5 class="mt-4 mb-3">A. Affichage dans le contenu d'un élément avec <code>innerHTML</code></h5>
-        <p><strong>Exemple</strong> : Modification du contenu d'un conteneur</p>
+        <p>La propriété <code>innerHTML</code> permet d'injecter dynamiquement du texte enrichi ou des balises HTML à
+          l'intérieur d'un conteneur (tel qu'un <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code> ou
+          <code>&lt;span&gt;</code>) sans recharger la page.
+        </p>
+        <p><strong>Exemple</strong> : Mise à jour du message d'état d'un compte élève</p>
         <div class="row">
-          <div class="col-8">Code HTML
-            <pre class="html"><code>&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  // récupérer une référence du div
-  const msg = document.getElementById(&quot;message&quot;);
+          <div class="col-lg-7">
+            <p><strong>Code HTML / JavaScript :</strong></p>
+            <pre class="html"><code>&lt;!-- Balise conteneur dans la page HTML --&gt;
+&lt;div id=&quot;zone-statut&quot;&gt;Chargement en cours...&lt;/div&gt;
 
-  // ajouter un contenu à ce div
-  msg.innerHTML = &apos;&lt;p class=&quot;erreur&quot;&gt;Bienvenue dans JavaScript!&lt;/p&gt;&apos;;
+&lt;script&gt;
+  // 1. Récupérer l'élément cible par son id
+  const statut = document.getElementById(&quot;zone-statut&quot;);
+
+  // 2. Injecter du balisage HTML dans son contenu
+  statut.innerHTML = &quot;&lt;p class='succes'&gt;Compte actif &mdash; Connect&eacute;&lt;/p&gt;&quot;;
 &lt;/script&gt;</code></pre>
           </div>
-          <div class="col-4">Code CSS
-            <pre class="css"><code>#message { 
-  width: 500px; 
-  margin: 10px auto; }
-.erreur {
-  background-color: red; 
-  color: white;
+          <div class="col-lg-5">
+            <p><strong>Code CSS :</strong></p>
+            <pre class="css"><code>#zone-statut {
+  margin: 15px auto;
+  text-align: center;
+}
+
+.succes {
+  display: inline-block;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 8px 16px;
+  border-radius: 6px;
   font-weight: bold;
-  padding: 15px; }</code></pre>
+}</code></pre>
           </div>
         </div>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/inner-html-01.PNG" alt="Exemple d'utilisation de innerHTML">
-          <figcaption>Exemple d'utilisation de innerHTML</figcaption>
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet09/images/inner-html-preview.svg" alt="Aperçu dans le navigateur"
+            class="img-fluid rounded shadow-sm">
+          <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
         </figure>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Copier les codes HTML et CSS de l'exemple précédent dans un fichier HTML nommé :
-            <strong>javascript07.html</strong>
-          </li>
-          <li>Tester dans un navigateur.</li>
-          <li>Ajouter la balise suivante dans la partie HTML du document :
-            <code>&lt;div id=&quot;greeting&quot;&gt;&lt;/div&gt;</code>
-          </li>
-          <li>Ajouter le code JavaScript nécessaire pour obtenir l'affichage suivant :
-            <figure>
-              <img src="assets/miniprojet09/images/inner-html-02.png" alt="Résultat à obtenir">
-              <figcaption>Résultat à obtenir</figcaption>
-            </figure>
-          </li>
-        </ol>
 
         <h5 class="mt-4 mb-3">B. Affichage dans un composant de formulaire avec <code>value</code></h5>
-        <p>Un formulaire permet de recueillir les informations de l'utilisateur, pour les soumettre à un serveur ou pour
-          les manipuler localement à l'aide de JavaScript.</p>
-        <p>En récupérant la référence d'un composant du formulaire à l'aide de
-          <code>const elem = document.getElementById("elemid")</code>, il est possible de modifier sa valeur via
-          l'instruction : <code>elem.value = "Nouvelle valeur";</code>
+        <p>La propriété <code>value</code> permet d'accéder au texte saisi par l'utilisateur ou d'affecter un nouveau
+          résultat dans un champ de formulaire (<code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>,
+          <code>&lt;select&gt;</code>).
         </p>
-        <p><strong>Exemple 1</strong> : Calculatrice avec affichage du résultat dans un champ <code>&lt;input&gt;</code>
-        </p>
+        <p><strong>Exemple</strong> : Calculer un prix TTC à partir d'un prix HT saisi</p>
         <div class="row">
-          <div class="col-8">Code HTML
+          <div class="col-lg-7">
+            <p><strong>Code HTML / JavaScript :</strong></p>
             <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
-  &lt;div&gt;&lt;label for=&quot;a&quot;&gt;a&lt;/label&gt;
-      &lt;input type=&quot;number&quot; name=&quot;a&quot; id=&quot;a&quot; value=&quot;9&quot;&gt;&lt;/div&gt;
-  &lt;div&gt;&lt;label for=&quot;b&quot;&gt;b&lt;/label&gt;
-      &lt;input type=&quot;number&quot; name=&quot;b&quot; id=&quot;b&quot; value=&quot;8&quot;&gt;&lt;/div&gt;
-  &lt;div&gt;&lt;label for=&quot;op&quot;&gt;Op&eacute;ration&lt;/label&gt;
-      &lt;select id=&quot;op&quot; name=&quot;op&quot;&gt;
-        &lt;option value=&quot;+&quot;&gt;+&lt;/option&gt;&lt;option value=&quot;-&quot;&gt;-&lt;/option&gt;
-        &lt;option value=&quot;*&quot;&gt;*&lt;/option&gt;&lt;option value=&quot;/&quot;&gt;/&lt;/option&gt;
-      &lt;/select&gt;&lt;/div&gt;
-  &lt;div&gt;&lt;label for=&quot;res&quot;&gt;R&eacute;sultat&lt;/label&gt;
-      &lt;input type=&quot;number&quot; name=&quot;res&quot; id=&quot;res&quot; readonly&gt;&lt;/div&gt;
-  &lt;button type=&quot;submit&quot;&gt;Calculer&lt;/button&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;prix_ht&quot;&gt;Prix Hors Taxe (DT) :&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;prix_ht&quot; value=&quot;100&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;prix_ttc&quot;&gt;Prix TTC (TVA 19%) :&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;prix_ttc&quot; readonly&gt;
+  &lt;/div&gt;
 &lt;/form&gt;
+
 &lt;script&gt;
-  const a = document.getElementById(&quot;a&quot;);
-  const b = document.getElementById(&quot;b&quot;);
-  const op = document.getElementById(&quot;op&quot;);
-  const res = document.getElementById(&quot;res&quot;);
-  res.value = eval(a.value + op.value + b.value);
+  // 1. Récupérer les références des deux champs
+  const champHT = document.getElementById(&quot;prix_ht&quot;);
+  const champTTC = document.getElementById(&quot;prix_ttc&quot;);
+
+  // 2. Lire la valeur du prix HT (convertie en nombre)
+  let ht = Number(champHT.value);
+
+  // 3. Calculer et écrire le résultat dans le champ TTC
+  let ttc = ht * 1.19;
+  champTTC.value = ttc.toFixed(2) + &quot; DT&quot;;
 &lt;/script&gt;</code></pre>
           </div>
-          <div class="col-4">Code CSS
-            <pre class="css"><code>* {
+          <div class="col-lg-5">
+            <p><strong>Code CSS :</strong></p>
+            <pre class="css"><code>form {
+  width: 320px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #495057;
+}
+
+input {
+  width: 100%;
+  padding: 6px 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
   box-sizing: border-box;
 }
 
-form {
-  width: 300px;
-  background-color: #fffeb8;
-  margin: 50px auto;
-  border: #807d00 1px solid;
-  padding: 15px;
-}
-
-input[type="number"],
-select,
-button {
-  display: block;
-  width: 100%;
-  margin: 5px 0;
-  padding: 5px;
-  font-size: 12pt;
+#prix_ttc {
+  background-color: #e9ecef;
+  color: #0d6efd;
+  font-weight: bold;
 }</code></pre>
           </div>
         </div>
-        <p class="p-break"><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/forms-01.png" alt="Affichage dans le formulaire">
-          <figcaption>Affichage dans le formulaire</figcaption>
+        <figure class="my-3 text-center">
+          <img src="assets/miniprojet09/images/form-value-preview.svg" alt="Aperçu dans le navigateur"
+            class="img-fluid rounded shadow-sm">
+          <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
         </figure>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Créer un fichier HTML nommé <strong>javascript06.html</strong>.</li>
-          <li>Copier le code HTML et CSS ci-dessus.</li>
-          <li>Tester dans le navigateur.</li>
-          <li>Ajouter un troisième champ nombre nommé c.</li>
-          <li>Modifier le code précédent pour qu'il calcule : a + b + c, a - b - c, a * b * c ou a / b / c.
-            <figure>
-              <img src="assets/miniprojet09/images/forms-02.png" alt="Résultat à obtenir">
-              <figcaption>Résultat à obtenir</figcaption>
-            </figure>
-          </li>
-        </ol>
-
-        <p><strong>Exemple 2</strong> : Accès et lecture des propriétés d'un formulaire</p>
-        <div class="row">
-          <div class="col-8">Code HTML
-            <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
-  &lt;div&gt;
-    &lt;label for=&quot;np&quot;&gt;Nom &amp; Pr&eacute;nom&lt;/label&gt;
-    &lt;input type=&quot;text&quot; name=&quot;np&quot; id=&quot;np&quot; value=&quot;Yassine&quot;&gt;
-  &lt;/div&gt;
-  &lt;div&gt;
-    &lt;label for=&quot;dn&quot;&gt;Date de naissance&lt;/label&gt;
-    &lt;input type=&quot;date&quot; name=&quot;dn&quot; id=&quot;dn&quot; value=&quot;2022-10-08&quot;&gt;
-  &lt;/div&gt;
-
-  &lt;button type=&quot;submit&quot;&gt;Confirmer&lt;/button&gt;
-&lt;/form&gt;
-&lt;script&gt;
-  const np = document.getElementById(&quot;np&quot;);
-  const dn = document.getElementById(&quot;dn&quot;);
-
-  document.writeln(&quot;&lt;p&gt;Bonjour &quot;, np.value, &quot;&lt;/p&gt;&quot;);
-  document.writeln(&quot;&lt;p&gt;Vous &ecirc;tes n&eacute; le &quot;, dn.value, &quot;&lt;/p&gt;&quot;);
-&lt;/script&gt;</code></pre>
-          </div>
-          <div class="col-4">Code CSS
-            <pre class="css"><code>* { box-sizing: border-box; }
-
-form {
-  width: 300px;
-  background-color: #fffeb8;
-  margin: 50px auto;
-  border: #807d00 1px solid;
-  padding: 15px;
-}
-
-input[type="text"],
-input[type="date"],
-button {
-  display: block;
-  width: 100%;
-  margin: 5px 0;
-  padding: 5px;
-  font-size: 12pt;
-}</code></pre>
-          </div>
-        </div>
-        <p class="p-break"><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/dom-01.png" alt="Manipulation du DOM" class="im-h-8">
-          <figcaption>Manipulation du DOM</figcaption>
-        </figure>
-
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Créer un fichier HTML nommé <strong>javascript05.html</strong>.</li>
-          <li>Copier le code HTML et CSS précédents.</li>
-          <li>Tester dans le navigateur.</li>
-          <li>Ajouter un champ intervalle <strong>type="range"</strong> avec lequel l'utilisateur peut sélectionner le
-            nombre d'articles à acheter de 1 à 7. La valeur par défaut du champ est 3.</li>
-          <li>Ajouter un code JavaScript qui affiche la valeur de ce dernier champ.
-            <figure>
-              <img src="assets/miniprojet09/images/dom-02.png" alt="Résultat à obtenir" class="im-h-9">
-              <figcaption>Résultat à obtenir</figcaption>
-            </figure>
-          </li>
-        </ol>
       </section>
 
       <section>
@@ -461,31 +524,48 @@ button {
           <code>let</code>. Le mot clé <code>var</code> est à éviter.
         </p>
         <p class="text-danger"><strong>Remarque 2</strong> : JavaScript est sensible à la casse.</p>
+
         <p><strong>Exemple 1</strong> : Déclaration d'une variable</p>
-        <pre class="javascript"><code>// Déclaration de variables sans initialisation
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="javascript"><code>// Déclaration de variables sans initialisation
 var x;
 let y;
 // Déclaration de variables avec initialisation
-var nom = "Ahmed";
+var nom = &quot;Ahmed&quot;;
 let age = 16;
 console.log(x, y);
 console.log(nom, age);</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/variables-01.png" alt="Déclaration des variables">
-          <figcaption>Déclaration des variables</figcaption>
-        </figure>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/variables-01.svg" alt="Aperçu dans la console"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans la console</figcaption>
+            </figure>
+          </div>
+        </div>
+
         <p class="p-break"><strong>Exemple 2</strong> : Sensibilité à la casse</p>
-        <pre class="javascript"><code>let x = 6;
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="javascript"><code>let x = 6;
 console.log(X); // Affiche une erreur : X is not defined
 console.log(x);</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/variables-02.png" alt="Les noms des variables sont sensibles à la casse">
-          <figcaption>Les noms des variables sont sensibles à la casse</figcaption>
-        </figure>
-        <p><strong>Exemple 3 : Constantes vs Variables</strong></p>
-        <pre class="javascript"><code>// variable
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/variables-02.svg" alt="Aperçu dans la console"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans la console</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <p><strong>Exemple 3</strong> : Constantes vs Variables</p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="javascript"><code>// variable
 let x = 4;
 x = x + 2;
 x = x * 5;
@@ -494,13 +574,15 @@ console.log(x);
 const y = 5;
 y = y + 2;
 console.log(y);</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/variables-03.png" alt="Constante vs Variable" class="im-h-9">
-          <figcaption>Constante vs Variable</figcaption>
-        </figure>
-        <p><strong>Travail demandé</strong></p>
-        <p>Utiliser la console pour tester les trois exemples précédents.</p>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/variables-03.svg" alt="Aperçu dans la console"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans la console</figcaption>
+            </figure>
+          </div>
+        </div>
       </section>
 
       <section>
@@ -515,15 +597,17 @@ console.log(y);</code></pre>
           <li><code>undefined</code> : Pour les variables déclarées sans initialisation.</li>
         </ul>
         <p>Le mot clé <code>typeof v</code> retourne le type de v. v est soit une constante ou une variable.</p>
-        <div class="d-print-none">
-          <p><strong>Exemple</strong></p>
-          <pre class="javascript"><code>console.log(typeof 5.6); // 'number'
+
+        <p><strong>Exemple</strong> : Détermination du type avec <code>typeof</code></p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="javascript"><code>console.log(typeof 5.6); // 'number'
 console.log(typeof 17);
 console.log(typeof Number.NaN);
 
-console.log(typeof "ayoub"); // 'string'
+console.log(typeof &quot;ayoub&quot;); // 'string'
 
-console.log(typeof (5 > 6)); // 'boolean'
+console.log(typeof (5 &gt; 6)); // 'boolean'
 
 console.log(typeof [1, 2, 3]); // 'object'
 console.log(typeof null);
@@ -532,43 +616,15 @@ let x;
 console.log(typeof x); // 'undefined'
 
 console.log(typeof Math.abs); // 'function'</code></pre>
-          <p><strong>Résultat</strong></p>
-          <figure>
-            <img src="assets/miniprojet09/images/types-02.png" alt="Types prédéfinis">
-            <figcaption>Types prédéfinis</figcaption>
-          </figure>
-        </div>
-        <div class="d-none d-print-block">
-          <div class="row">
-            <div class="col-6">
-              <p><strong>Exemple</strong></p>
-              <pre class="javascript"><code>console.log(typeof 5.6); // 'number'
-console.log(typeof 17);
-console.log(typeof Number.NaN);
-
-console.log(typeof "ayoub"); // 'string'
-
-console.log(typeof (5 > 6)); // 'boolean'
-
-console.log(typeof [1, 2, 3]); // 'object'
-console.log(typeof null);
-
-let x;
-console.log(typeof x); // 'undefined'
-
-console.log(typeof Math.abs); // 'function'</code></pre>
-            </div>
-            <div class="col-6">
-              <p><strong>Résultat</strong></p>
-              <figure>
-                <img src="assets/miniprojet09/images/types-02.png" alt="Types prédéfinis">
-                <figcaption>Types prédéfinis</figcaption>
-              </figure>
-            </div>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/types-02.svg" alt="Aperçu dans la console"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans la console</figcaption>
+            </figure>
           </div>
         </div>
-        <p><strong>Travail demandé</strong></p>
-        <p>Tester les commandes précédentes dans la console du navigateur.</p>
       </section>
 
       <section>
@@ -761,132 +817,65 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
           <li>Depuis une <strong>boîte d'invite (prompt)</strong>.</li>
           <li>Depuis une <strong>boîte de confirmation</strong>.</li>
         </ul>
-        <div class="d-print-none">
-          <p><strong>Exemple 1</strong> : récupérer une donnée depuis un champ d'un formulaire</p>
-          <pre class="html"><code>&lt;input type=&quot;text&quot; id=&quot;np&quot; name=&quot;np&quot; value=&quot;Salah&quot;&gt;
+
+        <p><strong>Exemple 1</strong> : Récupérer une donnée depuis un champ de formulaire</p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="html"><code>&lt;input type=&quot;text&quot; id=&quot;np&quot; name=&quot;np&quot; value=&quot;Salah&quot;&gt;
 &lt;script&gt;
   const np = document.getElementById(&quot;np&quot;);
   document.writeln(&quot;Bonjour &quot;, np.value);
 &lt;/script&gt;</code></pre>
-          <p><strong>Résultat</strong></p>
-          <figure>
-            <img src="assets/miniprojet09/images/input-01.png"
-              alt="Récupération des données à partir d'un champ d'un formulaire">
-            <figcaption>Récupération des données à partir d'un champ d'un formulaire</figcaption>
-          </figure>
-        </div>
-        <div class="d-none d-print-block">
-          <div class="row">
-            <div class="col-6">
-              <p><strong>Exemple 1</strong> : récupérer une donnée depuis un champ d'un formulaire</p>
-              <pre class="html"><code>&lt;input type=&quot;text&quot; id=&quot;np&quot; name=&quot;np&quot; value=&quot;Salah&quot;&gt;
-&lt;script&gt;
-  const np = document.getElementById(&quot;np&quot;);
-  document.writeln(&quot;Bonjour &quot;, np.value);
-&lt;/script&gt;</code></pre>
-            </div>
-            <div class="col-6">
-              <p><strong>Résultat</strong></p>
-              <figure>
-                <img src="assets/miniprojet09/images/input-01.png"
-                  alt="Récupération des données à partir d'un champ d'un formulaire">
-                <figcaption>Récupération des données à partir d'un champ d'un formulaire</figcaption>
-              </figure>
-            </div>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/input-01.svg" alt="Aperçu dans le navigateur"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+            </figure>
           </div>
         </div>
 
-        <div class="d-print-none">
-          <p><strong>Exemple 2</strong> : récupérer une donnée à partir d'une boîte d'invite</p>
-          <pre class="html"><code>&lt;div id=&quot;operation&quot;&gt;&lt;/div&gt;
+        <p><strong>Exemple 2</strong> : Récupérer une donnée à partir d'une boîte d'invite</p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="html"><code>&lt;div id=&quot;operation&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   const op = document.getElementById(&quot;operation&quot;);
 
   let a = prompt(&quot;Donner a ?&quot;, &quot;5&quot;);
   let b = prompt(&quot;Donner b ?&quot;, &quot;7&quot;);
   let s = a + b;
-  op.textContent = a + &quot; + &quot; + b + &quot; = &quot; + s;
+  op.innerHTML = a + &quot; + &quot; + b + &quot; = &quot; + s;
 &lt;/script&gt;</code></pre>
-          <p><strong>Résultat</strong></p>
-          <figure>
-            <img src="assets/miniprojet09/images/input-02.png" alt="Boîte d'invite, demander la valeur de a"
-              class="im-h-4">
-            <img src="assets/miniprojet09/images/input-03.png" alt="Boîte d'invite, demander la valeur de b"
-              class="im-h-4">
-            <figcaption>Boîte d'invite, demander la valeur de a et b</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/miniprojet09/images/input-04.png" alt="Résultat du script">
-            <figcaption>Résultat du script</figcaption>
-          </figure>
-        </div>
-        <div class="d-none d-print-block">
-          <div class="row">
-            <div class="col-6">
-              <p><strong>Exemple 2</strong> : récupérer une donnée à partir d'une boîte d'invite</p>
-              <pre class="html"><code>&lt;div id=&quot;operation&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  const op = document.getElementById(&quot;operation&quot;);
-
-  let a = prompt(&quot;Donner a ?&quot;, &quot;5&quot;);
-  let b = prompt(&quot;Donner b ?&quot;, &quot;7&quot;);
-  let s = a + b;
-  op.textContent = a + &quot; + &quot; + b + &quot; = &quot; + s;
-&lt;/script&gt;</code></pre>
-            </div>
-            <div class="col-6">
-              <p><strong>Résultat</strong></p>
-              <figure>
-                <img src="assets/miniprojet09/images/input-02.png" alt="Boîte d'invite, demander la valeur de a"
-                  class="im-h-4">
-                <img src="assets/miniprojet09/images/input-03.png" alt="Boîte d'invite, demander la valeur de b"
-                  class="im-h-4">
-                <figcaption>Boîte d'invite, demander la valeur de a et b</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/miniprojet09/images/input-04.png" alt="Résultat du script">
-                <figcaption>Résultat du script</figcaption>
-              </figure>
-            </div>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/input-02.svg" alt="Aperçu dans le navigateur"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+            </figure>
           </div>
         </div>
-        <div class="d-print-none">
-          <p><strong>Exemple 3</strong> : récupérer une confirmation</p>
-          <pre class="html"><code>&lt;script&gt;
-  const reponse = confirm(&quot;Voulez-vous supprimer cet &eacute;l&eacute;ment ? &quot;);
+
+        <p><strong>Exemple 3</strong> : Récupérer une confirmation</p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="html"><code>&lt;script&gt;
+  const reponse = confirm(&quot;Voulez-vous supprimer cet &eacute;l&eacute;ment ?&quot;);
   if (reponse) {
     alert(&quot;L&apos;&eacute;l&eacute;ment a &eacute;t&eacute; supprim&eacute; !&quot;);
   } else {
     alert(&quot;Vous avez annul&eacute; l&apos;op&eacute;ration !&quot;);
   }
 &lt;/script&gt;</code></pre>
-          <p><strong>Résultat</strong></p>
-          <figure>
-            <img src="assets/miniprojet09/images/input-05.PNG" alt="Exemple d'utilisation d'une boîte de confirmation">
-            <figcaption>Exemple d'utilisation d'une boîte de confirmation</figcaption>
-          </figure>
-        </div>
-        <div class="d-none d-print-block">
-          <div class="row">
-            <div class="col-6">
-              <p><strong>Exemple 3</strong> : récupérer une confirmation</p>
-              <pre class="html"><code>&lt;script&gt;
-  const reponse = confirm(&quot;Supprimer cet &eacute;l&eacute;ment ? &quot;);
-  if (reponse) {
-    alert(&quot;L&apos;&eacute;l&eacute;ment a &eacute;t&eacute; supprim&eacute; !&quot;);
-  } else {
-    alert(&quot;Vous avez annul&eacute; l&apos;op&eacute;ration !&quot;);
-  }
-&lt;/script&gt;</code></pre>
-            </div>
-            <div class="col-6">
-              <p><strong>Résultat</strong></p>
-              <figure>
-                <img src="assets/miniprojet09/images/input-05.PNG"
-                  alt="Exemple d'utilisation d'une boîte de confirmation">
-                <figcaption>Exemple d'utilisation d'une boîte de confirmation</figcaption>
-              </figure>
-            </div>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/input-05.svg" alt="Aperçu dans le navigateur"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -908,9 +897,11 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
 } else {
   // autre traitement
 }</code></pre>
-        <div class="d-print-none">
-          <p><strong>Exemple</strong></p>
-          <pre class="html"><code>&lt;script&gt;
+
+        <p><strong>Exemple</strong> : Comparaison de deux nombres avec <code>if ... else if ... else</code></p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="html"><code>&lt;script&gt;
   let a = prompt(&quot;Donner a ? &quot;, &quot;0&quot;);
   let b = prompt(&quot;Donner b ? &quot;, &quot;0&quot;);
   let res = &quot;&quot;;
@@ -928,57 +919,15 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
 
   alert(res);
 &lt;/script&gt;</code></pre>
-          <p><strong>Résultat</strong></p>
-          <figure>
-            <img src="assets/miniprojet09/images/if-01.png" alt="Donner a ?">
-            <img src="assets/miniprojet09/images/if-02.png" alt="Donner b ?">
-            <img src="assets/miniprojet09/images/if-03.png" alt="Affichage du résultat">
-            <figcaption>Exemple d'exécution du script</figcaption>
-          </figure>
-        </div>
-        <div class="d-none d-print-block">
-          <div class="row">
-            <div class="col-6">
-              <p><strong>Exemple</strong></p>
-              <pre class="html"><code>&lt;script&gt;
-  let a = prompt(&quot;Donner a ? &quot;, &quot;0&quot;);
-  let b = prompt(&quot;Donner b ? &quot;, &quot;0&quot;);
-  let res = &quot;&quot;;
-
-  a = parseInt(a);
-  b = parseInt(b);
-
-  if (a &gt; b) {
-    res = a + &quot; &gt; &quot; + b;
-  } else if (a &lt; b) {
-    res = a + &quot; &lt; &quot; + b;
-  } else {
-    res = a + &quot; = &quot; + b;
-  }
-
-  alert(res);
-&lt;/script&gt;</code></pre>
-            </div>
-            <div class="col-6">
-              <p><strong>Résultat</strong></p>
-              <figure>
-                <img src="assets/miniprojet09/images/if-01.png" alt="Donner a ?">
-                <img src="assets/miniprojet09/images/if-02.png" alt="Donner b ?">
-                <img src="assets/miniprojet09/images/if-03.png" alt="Affichage du résultat">
-                <figcaption>Exemple d'exécution du script</figcaption>
-              </figure>
-            </div>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/if-01.svg" alt="Aperçu dans le navigateur"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+            </figure>
           </div>
         </div>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Copier le script précédent dans un fichier HTML nommé <strong>javascript09.html</strong>.</li>
-          <li>Tester dans le navigateur avec des valeurs valides.</li>
-          <li>Tester, maintenant, avec des valeurs invalides ou en cliquant sur <kbd>Annuler</kbd>. Quelle est la valeur
-            de <code>a</code> lorsque vous taper par exemple votre nom au lieu d'une valeur numérique ?</li>
-          <li>Corriger le comportement du script pour qu'il affiche <strong>"Données manquantes."</strong> lorsque
-            les données sont invalides.</li>
-        </ol>
 
         <h4 class="p-break">L'instruction switch</h4>
         <p><strong>Forme générale</strong></p>
@@ -992,9 +941,11 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
   default:
     // traitement par défaut
 }</code></pre>
-        <div class="d-print-none">
-          <p><strong>Exemple</strong></p>
-          <pre class="javascript"><code>let j2 = Math.floor(Math.random() * 3), cj2;
+
+        <p><strong>Exemple</strong> : Aiguillage avec <code>switch</code></p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="javascript"><code>let j2 = Math.floor(Math.random() * 3), cj2;
 let j1, cj1;
 let g, res;
 
@@ -1005,90 +956,47 @@ switch (j2) {
   default: cj2 = &quot;Aucun&quot;;
 }
 
-j1 = j2
+j1 = j2;
 cj1 = cj2;
 res = &quot;Partie nulle&quot;;
 
 alert(cj1 + &quot; contre &quot; + cj2 + &quot; =&gt; &quot; + res);</code></pre>
-          <p><strong>Résultat</strong></p>
-          <figure>
-            <img src="assets/miniprojet09/images/switch-01.png" alt="Résultat du script">
-            <figcaption>Résultat du script</figcaption>
-          </figure>
-        </div>
-        <div class="d-none d-print-block">
-          <div class="row">
-            <div class="col-6">
-              <p><strong>Exemple</strong></p>
-              <pre class="javascript"><code>let j2 = Math.floor(Math.random() * 3), cj2;
-let j1, cj1;
-let g, res;
-
-switch (j2) {
-  case 0: cj2 = &quot;Pierre&quot;; break;
-  case 1: cj2 = &quot;Feuille&quot;; break;
-  case 2: cj2 = &quot;Ciseaux&quot;; break;
-  default: cj2 = &quot;Aucun&quot;;
-}
-
-j1 = j2
-cj1 = cj2;
-res = &quot;Partie nulle&quot;;
-
-alert(cj1 + &quot; contre &quot; + cj2 + &quot; =&gt; &quot; + res);</code></pre>
-            </div>
-            <div class="col-6">
-              <figure>
-                <img src="assets/miniprojet09/images/switch-01.png" alt="Résultat du script">
-                <figcaption>Résultat du script</figcaption>
-              </figure>
-            </div>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/switch-01.svg" alt="Aperçu dans le navigateur"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+            </figure>
           </div>
         </div>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Copier le code précédent dans un fichier HTML nommé <strong>javascript01.html</strong>.</li>
-          <li>Tester dans le navigateur. Quel jeu essaie-t-on d'implémenter ?</li>
-          <li>Compléter ce jeu tout en utilisant l'instruction <code>switch</code>.
-            <p>Pour déterminer le gagnant sachant les choix des deux joueurs <code>j1</code> et <code>j2</code>, on peut
-              utiliser la formule : <code>g = (j1 - j2 + 3) % 3;</code> qui renvoie :</p>
-            <ul>
-              <li><code>0</code> : si la partie est nulle,</li>
-              <li><code>1</code> : si le premier joueur gagne,</li>
-              <li><code>2</code> : si le premier joueur perd.</li>
-            </ul>
-          </li>
-        </ol>
 
         <h4>L'opérateur ternaire</h4>
         <p><strong>Forme générale</strong></p>
         <pre class="javascript"><code>(condition) ? valeur1 : valeur2</code></pre>
-        <p><strong>Exemple</strong></p>
-        <pre class="javascript"><code>let v1 = Math.floor(Math.random() * 2);
-let v2 = Math.floor(Math.random() * 2);s
+
+        <p><strong>Exemple</strong> : Évaluation conditionnelle avec l'opérateur ternaire</p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="javascript"><code>let v1 = Math.floor(Math.random() * 2);
+let v2 = Math.floor(Math.random() * 2);
 let res = (v1 == v2) ? &quot;Egaux&quot; : &quot;Diff&eacute;rents&quot;;
 alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
-        <p><strong>Résultats</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/ternaire-01.png" alt="Deux nombres différents" class="im-h-3">
-          <img src="assets/miniprojet09/images/ternaire-02.png" alt="Deux nombres égaux" class="im-h-3">
-          <figcaption>Résultat de la comparaison de deux nombres choisis au hasard</figcaption>
-        </figure>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Copier le code précédent dans un fichier HTML nommé <strong>javascript11.html</strong>.</li>
-          <li>Tester dans le navigateur.</li>
-          <li>Modifier le script pour qu'il sélectionne deux nombres de deux chiffres, puis affiche s'ils possèdent le
-            même chiffre en utilisant l'opérateur ternaire.
-            <p>Exemple : 12 et 22 possèdent un même chiffre 2. 15 et 25 possèdent un même chiffre.</p>
-          </li>
-        </ol>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/ternaire-01.svg" alt="Aperçu dans le navigateur"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+            </figure>
+          </div>
+        </div>
       </section>
 
       <section>
         <h3>Boucles</h3>
         <p>On utilise les structures itératives lorsqu'on veut répéter un traitement plusieurs fois. JavaScript met à
-          notre disposition les strucures suivantes :</p>
+          notre disposition les structures suivantes :</p>
         <ul>
           <li><code>for</code> : lorsque le nombre de répétitions est connu à l'avance.</li>
           <li><code>while</code> et <code>do ... while</code> : lorsque le nombre de répétitions dépend d'une condition.
@@ -1100,10 +1008,11 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
         <pre class="javascript"><code>for (initialisation; condition; increment) {
   // traitement
 }</code></pre>
-        <div class="d-print-none">
-          <p><strong>Exemple</strong></p>
-          <p>Afficher les nombres pairs entre 0 et 15.</p>
-          <pre class="html"><code>&lt;p&gt;&lt;b&gt;Nombres pairs :&lt;/b&gt;
+
+        <p><strong>Exemple</strong> : Afficher les nombres pairs entre 0 et 15</p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="html"><code>&lt;p&gt;&lt;b&gt;Nombres pairs :&lt;/b&gt;
   &lt;script&gt;
     for (let i = 0; i &lt; 16; i++) {
       if (i % 2 == 0) {
@@ -1112,67 +1021,32 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
     }
   &lt;/script&gt;
 &lt;/p&gt;</code></pre>
-          <p><strong>Résultat</strong></p>
-          <figure>
-            <img src="assets/miniprojet09/images/for-01.png" alt="Affichage des nombres pairs dans l'intervalle 0 à 15">
-            <figcaption>Affichage des nombres pairs dans l'intervalle 0 à 15</figcaption>
-          </figure>
-        </div>
-        <div class="d-none d-print-block">
-          <div class="row">
-            <div class="col-6">
-              <p><strong>Exemple</strong></p>
-              <p>Afficher les nombres pairs entre 0 et 15.</p>
-              <pre class="html"><code>&lt;p&gt;&lt;b&gt;Nombres pairs :&lt;/b&gt;
-  &lt;script&gt;
-    for (let i = 0; i &lt; 16; i++) {
-      if (i % 2 == 0) {
-        document.writeln(i);
-      }
-    }
-  &lt;/script&gt;
-&lt;/p&gt;</code></pre>
-            </div>
-            <div class="col-6">
-              <p><strong>Résultat</strong></p>
-              <figure>
-                <img src="assets/miniprojet09/images/for-01.png"
-                  alt="Affichage des nombres pairs dans l'intervalle 0 à 15">
-                <figcaption>Affichage des nombres pairs dans l'intervalle 0 à 15</figcaption>
-              </figure>
-            </div>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/for-01.svg" alt="Aperçu dans le navigateur"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+            </figure>
           </div>
         </div>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Copier le code précédent dans un fichier HTML nommé : <strong>javascript13.html</strong>.</li>
-          <li>Tester dans le navigateur.</li>
-          <li>Insérer dans le code précédent un script qui a pour rôle d'afficher tous les nombres de deux chiffres dont
-            le chiffre des dizaines est multiple du chiffre des unités ou le contraire.
-            <figure>
-              <img src="assets/miniprojet09/images/for-02.PNG"
-                alt="Nombres dont le chiffres des dizaines est multiple ou diviseur du chiffre des unités">
-              <figcaption>Nombres dont le chiffres des dizaines est multiple ou diviseur du chiffre des unités
-              </figcaption>
-            </figure>
-          </li>
-        </ol>
 
         <h4>Boucle while</h4>
         <p><strong>Forme générale</strong></p>
         <pre class="javascript"><code>while (condition) {
   // traitement
 }</code></pre>
-        <div class="d-print-none">
-          <p><strong>Exemple</strong></p>
-          <p>Calculons le PGCD en utilisant la formule d'Euclide.</p>
-          <p>PGCD(a, b) = PGCD(b, a mod b); si b &ne; 0 <br> PGCD(a, b) = a; si b = 0</p>
-          <pre class="html"><code>&lt;p&gt;&lt;b&gt;Calcul du PGCD : &lt;/b&gt;
+
+        <p><strong>Exemple</strong> : Calcul du PGCD par l'algorithme d'Euclide</p>
+        <p class="text-muted small mb-2">PGCD(a, b) = PGCD(b, a mod b) si b &ne; 0 &mdash; PGCD(a, b) = a si b = 0</p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="html"><code>&lt;p&gt;&lt;b&gt;Calcul du PGCD : &lt;/b&gt;
   &lt;script&gt;
     let a = parseInt(prompt(&quot;Donner a ? &quot;));
     let b = parseInt(prompt(&quot;Donner b ? &quot;));
 
-    /* Calcul du PGCD : Algorithme d&apos;Euclide */
+    /* Algorithme d&apos;Euclide */
     let a1 = a, b1 = b;
     while (b1 != 0) {
       let r = a1 % b1;
@@ -1183,121 +1057,32 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
     document.writeln(&quot;PGCD(&quot;, a, &quot;, &quot;, b, &quot;) = &quot;, a1);
   &lt;/script&gt;
 &lt;/p&gt;</code></pre>
-          <p><strong>Résultat</strong></p>
-          <figure>
-            <img src="assets/miniprojet09/images/while-01.png" alt="Résultat du calcul de PGCD pour a = 25 et b = 35">
-            <figcaption>Résultat du calcul de PGCD pour a = 25 et b = 35</figcaption>
-          </figure>
-          <p><strong>Travail demandé</strong></p>
-          <ol>
-            <li>Copier le code précédent dans le fichier HTML nommé <strong>javascript13.html</strong>.</li>
-            <li>Tester dans le navigateur.</li>
-            <li>Ajouter le code qui permet de calculer le PPCM de a et b en utilisant la méthode des additions. Qui
-              consiste, comme le montre l'exemple dans le tableau suivant, à incrémenter la valeur de <code>a</code> de
-              <code>a</code> tant qu'elle n'est pas divisible par <code>b</code>.
-              <table class="w25 table-sm table-bordered border-dark n3-col-eq mx-auto">
-                <thead>
-                  <tr>
-                    <th>a</th>
-                    <th>b</th>
-                    <th>a mod b &ne; 0</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="text-center">
-                    <td>35<br>70<br>105</td>
-                    <td>15<br>15<br>15</td>
-                    <td>true<br>true<br>false</td>
-                  </tr>
-                </tbody>
-              </table>
-              <figure>
-                <img src="assets/miniprojet09/images/while-02.png" alt="Résultat du calcul du PPCM(35, 15)">
-                <figcaption>Résultat du calcul du PPCM(35, 15)</figcaption>
-              </figure>
-            </li>
-          </ol>
-        </div>
-        <div class="d-none d-print-block">
-          <div class="row">
-            <div class="col-6">
-              <p><strong>Exemple</strong></p>
-              <p>Calculons le PGCD en utilisant la formule d'Euclide.</p>
-              <p>PGCD(a, b) = PGCD(b, a mod b); si b &ne; 0 <br> PGCD(a, b) = a; si b = 0</p>
-              <pre class="html"><code>&lt;p&gt;&lt;b&gt;Calcul du PGCD : &lt;/b&gt;
-  &lt;script&gt;
-    let a = parseInt(prompt(&quot;Donner a ? &quot;));
-    let b = parseInt(prompt(&quot;Donner b ? &quot;));
-
-    /* Calcul du PGCD : Algorithme d&apos;Euclide */
-    let a1 = a, b1 = b;
-    while (b1 != 0) {
-      let r = a1 % b1;
-      a1 = b1;
-      b1 = r;
-    }
-
-    document.writeln(&quot;PGCD(&quot;, a, &quot;, &quot;, b, &quot;) = &quot;, a1);
-  &lt;/script&gt;
-&lt;/p&gt;</code></pre>
-            </div>
-            <div class="col-6">
-              <p><strong>Résultat</strong></p>
-              <figure>
-                <img src="assets/miniprojet09/images/while-01.png"
-                  alt="Résultat du calcul de PGCD pour a = 25 et b = 35">
-                <figcaption>Résultat du calcul de PGCD pour a = 25 et b = 35</figcaption>
-              </figure>
-              <p><strong>Travail demandé</strong></p>
-              <ol>
-                <li>Copier le code précédent dans le fichier HTML nommé <strong>javascript13.html</strong>.</li>
-                <li>Tester dans le navigateur.</li>
-                <li>Ajouter le code qui permet de calculer le PPCM de a et b en utilisant la méthode des additions. Qui
-                  consiste, comme le montre l'exemple dans le tableau suivant, à incrémenter la valeur de <code>a</code>
-                  de
-                  <code>a</code> tant qu'elle n'est pas divisible par <code>b</code>.
-                  <table class="w25 table-sm table-bordered border-dark n3-col-eq mx-auto">
-                    <thead>
-                      <tr>
-                        <th>a</th>
-                        <th>b</th>
-                        <th>a mod b &ne; 0</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr class="text-center">
-                        <td>35<br>70<br>105</td>
-                        <td>15<br>15<br>15</td>
-                        <td>true<br>true<br>false</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <figure>
-                    <img src="assets/miniprojet09/images/while-02.png" alt="Résultat du calcul du PPCM(35, 15)">
-                    <figcaption>Résultat du calcul du PPCM(35, 15)</figcaption>
-                  </figure>
-                </li>
-              </ol>
-            </div>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/while-01.svg" alt="Aperçu dans le navigateur"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+            </figure>
           </div>
         </div>
+
         <h4>Boucle do ... while</h4>
-        <p>Cette boucle est semblable à sa s&oelig;ur ainée <code>while</code>. La seule diffférence est que le
-          traitement est exécuté au moins une fois avant que la <code>condition</code> n'est évaluée.</p>
+        <p>Cette boucle est semblable à sa s&oelig;ur aînée <code>while</code>. La seule différence est que le
+          traitement est exécuté au moins une fois avant que la <code>condition</code> ne soit évaluée.</p>
         <p><strong>Forme générale</strong></p>
         <pre class="javascript"><code>do {
   // traitement
 } while (condition);</code></pre>
-        <div class="d-print-none">
-          <p><strong>Exemple</strong></p>
-          <p>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre
-            choisi.
-          </p>
-          <pre class="html"><code>&lt;script&gt;
+
+        <p><strong>Exemple</strong> : Tirage aléatoire jusqu'à trouver un chiffre d'unités donné</p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="html"><code>&lt;script&gt;
   let a = Math.floor(Math.random() * 10);
   let b, u;
 
-  document.writeln(&quot;&lt;p&gt;Cherchons un nombre ayant un chiffre d&apos;unit&eacute;s = &quot;, a, &quot;&lt;/p&gt;&quot;)
+  document.writeln(&quot;&lt;p&gt;Cherchons un nombre ayant un chiffre d&apos;unit&eacute;s = &quot;, a, &quot;&lt;/p&gt;&quot;);
 
   do {
     b = Math.floor(Math.random() * 90) + 10;
@@ -1310,69 +1095,15 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
     document.writeln(&quot;&lt;br&gt;&quot;);
   } while (u != a);
 &lt;/script&gt;</code></pre>
-          <p><strong>Résultat</strong></p>
-          <figure>
-            <img src="assets/miniprojet09/images/do-while-01.png"
-              alt="Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre choisi.">
-            <figcaption>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le
-              chiffre choisi.</figcaption>
-          </figure>
-        </div>
-        <div class="d-none d-print-block p-break">
-          <div class="row">
-            <div class="col-6">
-              <p><strong>Exemple</strong></p>
-              <p>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre
-                choisi.
-              </p>
-              <pre class="html"><code>&lt;script&gt;
-  let a = Math.floor(Math.random() * 10);
-  let b, u;
-
-  document.writeln(&quot;&lt;p&gt;Cherchons un nombre ayant un " +
-                   &quot;chiffre d&apos;unit&eacute;s = &quot;, a, &quot;&lt;/p&gt;&quot;)
-
-  do {
-    b = Math.floor(Math.random() * 90) + 10;
-    u = b % 10;
-    if (u == a) {
-      document.writeln(b, &quot; Accept&eacute;&quot;);
-    } else {
-      document.writeln(b, &quot; Rejet&eacute;&quot;);
-    }
-    document.writeln(&quot;&lt;br&gt;&quot;);
-  } while (u != a);
-&lt;/script&gt;</code></pre>
-            </div>
-            <div class="col-6">
-              <p><strong>Résultat</strong></p>
-              <figure>
-                <img src="assets/miniprojet09/images/do-while-01.png"
-                  alt="Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le chiffre choisi.">
-                <figcaption>Choisir un chiffre au hasard. Puis Chercher un nombre de deux chiffres qui se termine par le
-                  chiffre choisi.</figcaption>
-              </figure>
-            </div>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/do-while-01.svg" alt="Aperçu dans le navigateur"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+            </figure>
           </div>
         </div>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Copier le code précédent dans un fichier HTML nommé : <strong>javascript14.html</strong>.</li>
-          <li>Tester dans le navigateur.</li>
-          <li>Modifier le script comme suit :
-            <ul>
-              <li>On choisit deux chiffres au hasard <strong>a</strong> et <strong>b</strong>.</li>
-              <li>On cherche un nombre de quatre chiffres au hasard <strong>c</strong> contenant les deux chiffres
-                <strong>a</strong> et <strong>b</strong>.
-              </li>
-            </ul>
-          </li>
-        </ol>
-        <figure>
-          <img src="assets/miniprojet09/images/do-while-02.png" alt="Exemple de résultat">
-          <img src="assets/miniprojet09/images/do-while-03.png" alt="Exemple de résultat">
-          <figcaption>Exemple du résultat attendu</figcaption>
-        </figure>
       </section>
 
       <section>
@@ -1399,22 +1130,24 @@ function nom_fonction(par1, par2, ..., parN) {
 }</code></pre>
 
         <p><strong>Exemple</strong></p>
-        <p>L'exemple suivant présente plusieurs exemples de déclaration d'une fonction.</p>
-        <pre class="javascript"><code>let a = 5, b = 10;
+        <p>L'exemple suivant présente plusieurs déclarations et invocations de fonctions :</p>
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="javascript"><code>let a = 5, b = 10;
 
-/* D&eacute;claration d&apos;une fonction : somme */
+/* Déclaration d'une fonction : somme */
 function somme(a, b) {
   return a + b;
 }
 document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;+&quot;, b, &quot;=&quot;, somme(a, b), &quot;&lt;/p&gt;&quot;);
 
-/* D&eacute;claration d&apos;une fonction : produit */
+/* Déclaration d'une fonction : produit */
 function produit(a, b) {
   return a * b;
 }
 document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;*&quot;, b, &quot;=&quot;, produit(a, b), &quot;&lt;/p&gt;&quot;);
 
-/* D&eacute;claration d&apos;une fonction : alea */
+/* Déclaration d'une fonction : alea */
 function alea(a, b) {
   return Math.floor(Math.random() * (b - a)) + a;
 }
@@ -1425,22 +1158,18 @@ function calc(fn, a, b) {
   return fn(a, b);
 }
 
-/* Appel d&apos;une fonction : M&eacute;thode 4 */
+/* Appel d'une fonction : Méthode 4 */
 const res = calc(produit, a, b);
 document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;*&quot;, b, &quot;=&quot;, res, &quot;&lt;/p&gt;&quot;);</code></pre>
-        <p><strong>Résultat</strong></p>
-        <figure>
-          <img src="assets/miniprojet09/images/function-01.png" alt="Différentes méthodes pour déclarer une fonction">
-          <figcaption>Différentes méthodes pour déclarer une fonction</figcaption>
-        </figure>
-        <p><strong>Travail demandé</strong></p>
-        <ul>
-          <li>Copier le code précédent dans un fichier HTML nommé <strong>javascript15.html</strong>.</li>
-          <li>Tester dans un navigateur.</li>
-          <li>Ecrire une fonction <code>max(a, b)</code> qui calcule le maximum de deux nombres <code>a</code> et
-            <code>b</code>. Puis, l'appeler.
-          </li>
-        </ul>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/function-01.svg" alt="Aperçu dans le navigateur"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+            </figure>
+          </div>
+        </div>
       </section>
 
       <section>
@@ -1611,32 +1340,31 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;*&quot;, b, &quot;=&quot;, res,
           </table>
         </div>
 
-        <p><strong>Exemple d'application : Contrôle de saisie et conversion numérique</strong></p>
+        <p><strong>Exemple d'application</strong> : Contrôle de saisie et conversion numérique</p>
         <p>Dans un formulaire, la valeur retournée par un champ <code>&lt;input&gt;</code> est toujours de type texte.
           Pour calculer la moyenne de deux notes en toute sécurité :</p>
-        <pre class="javascript"><code>let note1 = "14.5"; // Récupéré via champ1.value
-let note2 = "abc";  // Saisie erronée d'un utilisateur
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="javascript"><code>let note1 = &quot;14.5&quot;; // Récupéré via champ1.value
+let note2 = &quot;abc&quot;;  // Saisie erronée d'un utilisateur
 
 // 1. Contrôle de validité avec isNaN()
 if (isNaN(note1) || isNaN(note2)) {
-  console.log("Erreur : Veuillez saisir des notes numériques valides !");
+  console.log(&quot;Erreur : Veuillez saisir des notes numériques valides !&quot;);
 } else {
   // 2. Conversion explicite avec parseFloat() ou Number()
   let moyenne = (parseFloat(note1) + parseFloat(note2)) / 2;
-  console.log("Moyenne =", moyenne);
+  console.log(&quot;Moyenne =&quot;, moyenne);
 }</code></pre>
-
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Ouvrir la console du navigateur (<kbd>F12</kbd>).</li>
-          <li>Tester l'instruction <code>isNaN("2024")</code> puis <code>isNaN("2024-STI")</code>. Noter la différence.
-          </li>
-          <li>Convertir le nombre entier <code>42</code> en binaire à l'aide de la méthode <code>toString(2)</code>.
-          </li>
-          <li>Comparer les résultats de <code>parseInt("30.75")</code>, <code>parseFloat("30.75")</code> et
-            <code>Number("30.75")</code>.
-          </li>
-        </ol>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/nombres-01.svg" alt="Aperçu dans la console"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans la console</figcaption>
+            </figure>
+          </div>
+        </div>
       </section>
 
       <section>
@@ -1771,7 +1499,9 @@ if (isNaN(note1) || isNaN(note2)) {
         <h4>3. Exemple d'application : Calcul de l'âge d'un utilisateur</h4>
         <p>Soit un formulaire permettant à un utilisateur de saisir sa date de naissance. Le script calcule
           automatiquement son âge en années à partir de l'année actuelle :</p>
-        <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
+        <div class="row align-items-center mb-4">
+          <div class="col-lg-6">
+            <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
   &lt;label for=&quot;dn&quot;&gt;Date de naissance :&lt;/label&gt;
   &lt;input type=&quot;date&quot; id=&quot;dn&quot; value=&quot;2007-06-15&quot;&gt;
   &lt;button type=&quot;button&quot; onclick=&quot;calculerAge()&quot;&gt;Calculer l&apos;&acirc;ge&lt;/button&gt;
@@ -1802,19 +1532,18 @@ function calculerAge() {
     age--;
   }
 
-  affichage.innerHTML = `Date de naissance : &lt;strong&gt;${dateNais.getDate()}/${dateNais.getMonth() + 1}/${anneeNais}&lt;/strong&gt; &mdash; &Acirc;ge : &lt;strong&gt;${age} ans&lt;/strong&gt;`;
+  affichage.innerHTML = &quot;Date de naissance : &lt;strong&gt;&quot; + dateNais.getDate() + &quot;/&quot; + (dateNais.getMonth() + 1) + &quot;/&quot; + anneeNais + &quot;&lt;/strong&gt; &mdash; &Acirc;ge : &lt;strong&gt;&quot; + age + &quot; ans&lt;/strong&gt;&quot;;
 }
 &lt;/script&gt;</code></pre>
-
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Dans la console du navigateur (<kbd>F12</kbd>), exécuter <code>let d = new Date();</code>.</li>
-          <li>Afficher la date d'aujourd'hui au format <code>JJ/MM/AAAA</code> en assemblant <code>d.getDate()</code>,
-            <code>d.getMonth() + 1</code> et <code>d.getFullYear()</code>.
-          </li>
-          <li>Créer un objet date pour le jour du baccalauréat <code>let bac = new Date("2025-06-02");</code> et
-            vérifier son année avec <code>bac.getFullYear()</code>.</li>
-        </ol>
+          </div>
+          <div class="col-lg-6">
+            <figure class="text-center my-0">
+              <img src="assets/miniprojet09/images/dates-01.svg" alt="Aperçu dans le navigateur"
+                class="img-fluid rounded shadow-sm">
+              <figcaption class="text-muted small mt-1">Aperçu dans le navigateur</figcaption>
+            </figure>
+          </div>
+        </div>
       </section>
     </article>
 
@@ -1934,13 +1663,6 @@ function calculerAge() {
     e.preventDefault();
   });
 &lt;/script&gt;</code></pre>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Copier le code précédent dans un fichier HTML nommé : <strong>javascript17.html</strong></li>
-          <li>Tester dans le navigateur.</li>
-          <li>Modifier le code pour qu'il retrouve son fonctionnement normal.</li>
-          <li>Modifier le code pour que le bouton soit coché au troisième clic.</li>
-        </ol>
       </section>
 
       <section>
@@ -2007,20 +1729,6 @@ function calculerAge() {
             </div>
           </div>
         </div>
-        <p><strong>Travail demandé</strong></p>
-        <ol>
-          <li>Copier le code précédent dans un fichier HTML nommé <strong>javascript18.html</strong></li>
-          <li>Tester dans le navigateur.</li>
-          <li>Créer un formulaire qui affiche la valeur maximale, la valeur minimale et la moyenne de deux nombres dès
-            que l'utilisateur finit de les taper.</li>
-          <figure>
-            <img src="assets/miniprojet09/images/on-change-05.png" alt="Formulaire vide">
-            <img src="assets/miniprojet09/images/on-change-04.png" alt="Formulaire un seul champ rempli">
-            <img src="assets/miniprojet09/images/on-change-03.png" alt="Formulaire un seul champ rempli">
-            <img src="assets/miniprojet09/images/on-change-02.png" alt="Formulaire les deux champs remplis">
-            <figcaption>Résultats attendus</figcaption>
-          </figure>
-        </ol>
       </section>
 
       <section>
@@ -2038,10 +1746,10 @@ function calculerAge() {
   const msg = document.getElementById(&quot;msg&quot;);
   const secret = Math.floor(Math.random() * 99) + 1;
   guess.addEventListener(&quot;focus&quot;, () =&gt; {
-    msg.textContent = &quot;Guess my number between 1 - 99&quot;;
+    msg.innerHTML = &quot;Guess my number between 1 - 99&quot;;
   });
   guess.addEventListener(&quot;blur&quot;, () =&gt; {
-    msg.textContent = &quot;Great! You guessed.!&quot;;
+    msg.innerHTML = &quot;Great! You guessed.!&quot;;
   });
 &lt;/script&gt;</code></pre>
           <p><strong>Résultat</strong></p>
@@ -2072,10 +1780,10 @@ function calculerAge() {
   const msg = document.getElementById(&quot;msg&quot;);
   const secret = Math.floor(Math.random() * 99) + 1;
   guess.addEventListener(&quot;focus&quot;, () =&gt; {
-    msg.textContent = &quot;Guess my number between 1 - 99&quot;;
+    msg.innerHTML = &quot;Guess my number between 1 - 99&quot;;
   });
   guess.addEventListener(&quot;blur&quot;, () =&gt; {
-    msg.textContent = &quot;Great! You guessed.!&quot;;
+    msg.innerHTML = &quot;Great! You guessed.!&quot;;
   });
 &lt;/script&gt;</code></pre>
             </div>
@@ -2098,19 +1806,6 @@ function calculerAge() {
             </div>
           </div>
         </div>
-        <p><strong>Travail demandé</strong></p>
-        <ul>
-          <li>Copier le code précédent dans un fichier HTML nommé <strong>javascript19.html</strong>.</li>
-          <li>Tester dans le navigateur.</li>
-          <li>La constante <code>secret</code> contient un nombre aléatoire de 1 à 99. Modifier le code précédent pour
-            qu'il affiche :
-            <ul>
-              <li><code>Lesser than xx</code> si le nombre <code>secret &lt; xx</code></li>
-              <li><code>Greater than xx</code> si le nombre <code>secret &gt; xx</code></li>
-              <li><code>Great! You guessed. It's xx!</code></li>
-            </ul>
-          </li>
-        </ul>
       </section>
 
       <section>
@@ -2211,12 +1906,12 @@ function calculerAge() {
   const msg2 = document.getElementById(&quot;msg2&quot;);
 
   function showVolume() {
-    msg.textContent = volume.value;
+    msg.innerHTML = volume.value;
   }
 
   function setVolume() {
     volume2.value = volume.value;
-    msg2.textContent = volume.value;
+    msg2.innerHTML = volume.value;
   }
 
   volume.addEventListener(&quot;input&quot;, showVolume);
@@ -2264,12 +1959,12 @@ function calculerAge() {
   const msg2 = document.getElementById(&quot;msg2&quot;);
 
   function showVolume() {
-    msg.textContent = volume.value;
+    msg.innerHTML = volume.value;
   }
 
   function setVolume() {
     volume2.value = volume.value;
-    msg2.textContent = volume.value;
+    msg2.innerHTML = volume.value;
   }
 
   volume.addEventListener(&quot;input&quot;, showVolume);
@@ -2396,14 +2091,1237 @@ function calculerAge() {
             </div>
           </div>
         </div>
-        <p><strong>Travail demandé</strong></p>
-        <ul>
-          <li>Copier le code ci-dessus dans un fichier HTML nommé <strong>javascript22.html</strong>.</li>
-          <li>Tester le code dans le navigateur.</li>
-          <li>Modifier le code pour qu'il transforme le nom et la classe en majuscules avant de soumettre le formulaire.
-          </li>
-          <li>Modifier le code pour que le bouton reset transforme le nom en miniscules.</li>
-        </ul>
+      </section>
+    </article>
+    <!-- ====================================================================
+         ARTICLE 3 : ATELIERS PRATIQUES & EXERCICES
+         ==================================================================== -->
+    <article>
+      <h2 class="p-break">Ateliers Pratiques &amp; Exercices</h2>
+
+      <!-- ====================================================================
+           Atelier 1 : Intégration
+           ==================================================================== -->
+      <section>
+        <h3>Atelier 1 : Intégration dans un document HTML</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Découvrir les modalités d'intégration de scripts JavaScript dans une page Web
+          (script direct et fichier externe <code>.js</code>) et maîtriser l'affichage des informations dans la console
+          des outils de développement (<kbd>F12</kbd>).
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Activité 1 : Premier script JavaScript direct</h4>
+          </div>
+          <div class="card-body">
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript01.html</code></strong> contenant le code suivant
+                :
+                <pre class="html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Initiation JavaScript&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Mon premier script&lt;/h1&gt;
+  &lt;script&gt;
+    console.log(&quot;Hello JavaScript!&quot;);
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              </li>
+              <li>Ouvrir la page dans le navigateur Web.</li>
+              <li>Ouvrir l'outil de développement (DevTools) en appuyant sur <kbd>F12</kbd> ou
+                <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>, puis basculer sur l'onglet <strong>Console</strong>.
+                <figure class="my-3 text-center">
+                  <img src="assets/miniprojet09/images/javascript-console-01.png" alt="Résultat du code JavaScript"
+                    class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Affichage du message dans la console DevTools</figcaption>
+                </figure>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Activité 2 : Intégration via un fichier JavaScript externe</h4>
+          </div>
+          <div class="card-body">
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier JavaScript nommé <strong><code>jscript01.js</code></strong> dans le même répertoire
+                de travail, contenant le code suivant :
+                <pre
+                  class="javascript"><code>console.log("Hello from console.log inside an external file");</code></pre>
+              </li>
+              <li>Intégrer ce fichier dans <strong><code>javascript01.html</code></strong> à l'aide de la balise :
+                <pre class="html"><code>&lt;script src=&quot;jscript01.js&quot;&gt;&lt;/script&gt;</code></pre>
+              </li>
+              <li>Recharger la page dans le navigateur (<kbd>F5</kbd> ou <kbd>Ctrl</kbd>+<kbd>R</kbd>) et vérifier la
+                console.
+                <figure class="my-3 text-center">
+                  <img src="assets/miniprojet09/images/javascript-console-02.png" alt="Résultat du script externe"
+                    class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Résultat de l'exécution du fichier JavaScript externe
+                  </figcaption>
+                </figure>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Atelier 2 : Variables, Constantes & Types
+           ==================================================================== -->
+      <section>
+        <h3>Atelier 2 : Variables, Constantes &amp; Types de Données</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Consolider la compréhension des variables locales (<code>let</code>), des
+          constantes non réassignables (<code>const</code>), de la sensibilité à la casse (Case Sensitivity) et explorer
+          les types primitifs avec l'opérateur <code>typeof</code>.
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 1 : Déclaration, réaffectation et sensibilité à la casse</h4>
+          </div>
+          <div class="card-body">
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Ouvrir la console du navigateur (<kbd>F12</kbd>).</li>
+              <li>Tester la déclaration de variables avec et sans initialisation :
+                <div class="row">
+                  <div class="col-6">
+                    <h4>Sans initilisation</h4>
+                    <pre class="javascript"><code>let nom;
+let age;
+console.log(nom, age); // undefined undefined</code></pre>
+                  </div>
+                  <div class="col-6">
+                    <h4>Avec initilisation</h4>
+                    <pre class="javascript"><code>let nom = "Ahmed";
+let age = 16;
+console.log(nom, age); // Ahmed 16</code></pre>
+                  </div>
+                </div>
+
+              </li>
+              <li>Tester l'effet de la casse sur une variable :
+                <pre class="javascript"><code>let x = 6;
+console.log(x); // Affiche 6
+console.log(X); // Erreur : X is not defined</code></pre>
+              </li>
+              <li>Tester la réaffectation d'une variable (<code>let</code>) versus une constante (<code>const</code>) :
+                <pre class="javascript"><code>let a = 4; 
+a = a + 2; 
+console.log(a); // Fonctionne : a = 6
+const b = 5; 
+b = b + 2; // Erreur : Assignment to constant variable</code></pre>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 2 : Typage dynamique et opérateur <code>typeof</code></h4>
+          </div>
+          <div class="card-body">
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Tester les commandes suivantes dans la console du navigateur et relever le type renvoyé :
+                <pre class="javascript"><code>console.log(typeof 5.6);         // 'number'
+console.log(typeof "3STI");        // 'string'
+console.log(typeof true);          // 'boolean'
+console.log(typeof undefined);     // 'undefined'
+console.log(typeof [10, 20, 30]);  // 'object'
+console.log(typeof alert);         // 'function'</code></pre>
+              </li>
+              <li>Expliquer pourquoi JavaScript est qualifié de <em>langage à typage dynamique</em> (Trois propositions
+                sont correctes).
+                <ol type="A">
+                  <li>Le type d'une variable n'a pas besoin d'être déclaré à l'avance ; il est déduit automatiquement à
+                    l'exécution à partir de la valeur qui lui est affectée.</li>
+                  <li>Une variable déclarée avec let conserve définitivement son type initial ; lui assigner une valeur
+                    d'un autre type déclenche une erreur.</li>
+                  <li>En JavaScript, ce sont les valeurs en mémoire qui possèdent un type et non les variables
+                    elles-mêmes.</li>
+                  <li>Le programmeur doit obligatoirement déclarer le type de chaque variable à l'aide de mots-clés
+                    spécifiques tels que int, float ou string.</li>
+                  <li>Une même variable peut changer de type au cours de l'exécution du programme si on lui affecte une
+                    nouvelle valeur d'un type différent.</li>
+                </ol>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Atelier 3 : Méthodes de Sortie et Affichage
+           ==================================================================== -->
+      <section>
+        <h3>Atelier 3 : Méthodes d'Affichage et Sorties (DOM &amp; Formulaires)</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Manipuler les quatre grands canaux d'affichage en JavaScript : la console de
+          débogage, les boîtes de dialogue modales, l'écriture dans le flux HTML, et l'injection dynamique dans le DOM
+          via <code>innerHTML</code> et <code>value</code>.
+        </div>
+
+        <!-- Exercice 1 : console.log -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 1 : Débogage dans la console avec <code>console.log()</code></h4>
+          </div>
+          <div class="card-body">
+            <p>On souhaite calculer la longueur de l'hypoténuse d'un triangle rectangle de côtés <code>a = 3</code> et
+              <code>b = 4</code> grâce à la formule mathématique <code>c = &radic;(a&sup2; + b&sup2;)</code> :
+            </p>
+
+            <figure class="my-3 text-center">
+              <img src="assets/miniprojet09/images/triangle-hypotenuse.svg"
+                alt="Illustration triangle rectangle et calcul de l'hypoténuse"
+                class="img-fluid rounded border shadow-sm" style="max-height: 250px;">
+              <figcaption class="text-muted small mt-1">Triangle rectangle de côtés a = 3, b = 4 et hypoténuse c = 5
+              </figcaption>
+            </figure>
+
+            <p>Le code initial comporte une erreur :</p>
+
+            <div class="row align-items-center mb-4">
+              <div class="col-lg-6">
+                <p><strong>Code JavaScript :</strong></p>
+                <pre class="javascript"><code>&lt;script&gt;
+  // Calcul de l'hypoténuse d'un triangle rectangle
+  let a = 3;
+  let b = 4;
+  // Formule : c = racine(a² + b²)
+  let c = Math.sqrt(a + a); // &lt;-- Erreur dans l'expression
+  // Affichage du résultat
+&lt;/script&gt;</code></pre>
+              </div>
+              <div class="col-lg-6">
+                <p><strong>Résultat dans la console :</strong></p>
+                <figure class="text-center mb-0">
+                  <img src="assets/miniprojet09/images/javascript-console-03.svg" alt="Débogage d'un script avec erreur"
+                    class="img-fluid rounded border shadow-sm" style="max-height: 250px;">
+                  <figcaption class="text-muted small mt-1">Débogage dans la console : repérage du résultat incorrect
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript02.html</code></strong>.</li>
+              <li>Copier le code précédent puis le tester dans la console du navigateur (<kbd>F12</kbd>).</li>
+              <li>Corriger l'erreur de calcul pour obtenir la valeur correcte <code>c = 5</code> (en remplaçant
+                <code>a + a</code> par <code>a * a + b * b</code> ou <code>a ** 2 + b ** 2</code>).
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 2 : alert -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 2 : Notification par boîte d'alerte avec <code>alert()</code></h4>
+          </div>
+          <div class="card-body">
+            <p>Lors de la confirmation d'un mot de passe dans un formulaire, si les deux saisies diffèrent, une alerte
+              immédiate doit être notifiée à l'utilisateur :</p>
+
+            <figure class="my-3 text-center">
+              <img src="assets/miniprojet09/images/javascript-alert.svg" alt="Boîte d'alerte"
+                class="img-fluid rounded border shadow-sm" style="max-height: 180px;">
+              <figcaption class="text-muted small mt-1">Boîte modale d'alerte surgissante</figcaption>
+            </figure>
+
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript03.html</code></strong>.</li>
+              <li>Compléter le code JavaScript suivant :
+                <pre class="javascript"><code>let pwd1 = "3INFO";
+let pwd2 = "3Info";
+if (pwd1 == pwd2) {
+  // Afficher mots de passes identiques dans une boite d'alerte
+} else {
+  // Afficher mots de passes différents dans une boite d'alerte
+}</code></pre>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 3 : document.writeln -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 3 : Écriture dans le document avec <code>document.writeln()</code></h4>
+          </div>
+          <div class="card-body">
+            <p>On désire générer dynamiquement des paragraphes de calculs mathématiques et leur appliquer une alternance
+              de couleurs via des sélecteurs CSS3.</p>
+            <figure class="my-3 text-center">
+              <img src="assets/miniprojet09/images/document-writeln.png" alt="Rendu document.writeln"
+                class="img-fluid rounded border shadow-sm">
+              <figcaption class="text-muted small mt-1">Rendu des paragraphes générés avec alternance de styles
+              </figcaption>
+            </figure>
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript04.html</code></strong>.</li>
+              <li>Copier le code suivant :
+                <pre><code class="html">&lt;script&gt;
+  let a = 5;
+  let b = 6;
+  let res = a + b;
+  // à compléter
+&lt;/script&gt;</code></pre>
+              </li>
+              <li>Compléter le code pour afficher l'alternance rouge / bleu des paragraphes, montrée ci-dessus.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 4 : innerHTML -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 4 : Modification dynamique du DOM avec <code>innerHTML</code></h4>
+          </div>
+          <div class="card-body">
+            <p>La propriété <code>innerHTML</code> permet d'injecter ou de modifier du balisage HTML à l'intérieur d'un
+              élément cible préalablement sélectionné via son identifiant.</p>
+            <pre class="html"><code>&lt;div id=&quot;message&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // Récupérer une référence du div
+  const msg = document.getElementById(&quot;message&quot;);
+  // Ajouter un contenu stylisé dans ce div
+  msg.innerHTML = '&lt;p class=&quot;erreur&quot;&gt;Bienvenue dans JavaScript!&lt;/p&gt;';
+&lt;/script&gt;</code></pre>
+            <pre class="css"><code>#message { width: 500px; margin: 10px auto; }
+.erreur { background-color: red; color: white; font-weight: bold; padding: 15px; }</code></pre>
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Copier les codes HTML et CSS ci-dessus dans un fichier HTML nommé
+                <strong><code>javascript05.html</code></strong>.
+              </li>
+              <li>Tester dans le navigateur pour observer le message stylisé.</li>
+              <li>Ajouter un conteneur supplémentaire dans le document :
+                <code>&lt;div id=&quot;greeting&quot;&gt;&lt;/div&gt;</code>.
+              </li>
+              <li>Ajouter le code JavaScript nécessaire pour obtenir l'affichage suivant :
+                <figure class="my-3 text-center">
+                  <img src="assets/miniprojet09/images/inner-html-02.png" alt="Résultat à obtenir"
+                    class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Résultat attendu avec deux zones de messages dynamiques
+                  </figcaption>
+                </figure>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 5 : value calculatrice -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 5 : Affichage dynamique dans un formulaire avec <code>value</code></h4>
+          </div>
+          <div class="card-body">
+            <p>On réalise une mini-calculatrice à l'aide d'un formulaire HTML dont le résultat est affecté dynamiquement
+              dans un champ désactivé :</p>
+
+            <div class="row align-items-center mb-4">
+              <div class="col-lg-6">
+                <p><strong>Code HTML / JavaScript :</strong></p>
+                <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
+  &lt;div&gt;&lt;label for=&quot;a&quot;&gt;a&lt;/label&gt;&lt;input type=&quot;number&quot; name=&quot;a&quot; id=&quot;a&quot; value=&quot;9&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;b&quot;&gt;b&lt;/label&gt;&lt;input type=&quot;number&quot; name=&quot;b&quot; id=&quot;b&quot; value=&quot;16&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;label for=&quot;res&quot;&gt;a + b =&lt;/label&gt;&lt;input type=&quot;number&quot; name=&quot;res&quot; id=&quot;res&quot; disabled&gt;&lt;/div&gt;
+&lt;/form&gt;
+&lt;script&gt;
+  const a = document.getElementById(&quot;a&quot;);
+  const b = document.getElementById(&quot;b&quot;);
+  const res = document.getElementById(&quot;res&quot;);
+  res.value = Number(a.value) + Number(b.value);
+&lt;/script&gt;</code></pre>
+              </div>
+              <div class="col-lg-6">
+                <p><strong>Résultat dans le navigateur :</strong></p>
+                <figure class="text-center mb-0">
+                  <img src="assets/miniprojet09/images/forms-01.svg" alt="Calculatrice de base"
+                    class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Formulaire de base avec deux opérandes et champ résultat
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript06.html</code></strong>.</li>
+              <li>Copier le code ci-dessus et tester dans le navigateur.</li>
+              <li>Ajouter un troisième champ numérique nommé <strong><code>c</code></strong>.</li>
+              <li>
+                <div class="row align-items-center my-2">
+                  <div class="col-lg-6">
+                    <p>Modifier le script pour calculer simultanément les opérations composées :</p>
+                    <ul>
+                      <li><code>a + b + c</code></li>
+                      <li><code>a - b - c</code></li>
+                      <li><code>a &times; b &times; c</code></li>
+                      <li><code>a / b / c</code></li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-6">
+                    <figure class="text-center mb-0">
+                      <img src="assets/miniprojet09/images/forms-02.svg" alt="Calculatrice à 3 opérandes"
+                        class="img-fluid rounded border shadow-sm">
+                      <figcaption class="text-muted small mt-1">Résultat attendu avec 3 opérandes</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 6 : composant range et DOM -->
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 6 : Composant intervalle (<code>range</code>) et lecture de formulaire</h4>
+          </div>
+          <div class="card-body">
+            <p>Soit le formulaire de commande initial :</p>
+
+            <div class="row align-items-center mb-4">
+              <div class="col-lg-6">
+                <p><strong>Code HTML / JavaScript initial :</strong></p>
+                <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;np&quot;&gt;Nom &amp; Pr&eacute;nom&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;np&quot; id=&quot;np&quot; value=&quot;Yassine&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;dn&quot;&gt;Date de naissance&lt;/label&gt;
+    &lt;input type=&quot;date&quot; name=&quot;dn&quot; id=&quot;dn&quot; value=&quot;2022-10-08&quot;&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot;&gt;Confirmer&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+  const np = document.getElementById(&quot;np&quot;);
+  const dn = document.getElementById(&quot;dn&quot;);
+  document.writeln(&quot;&lt;p&gt;Bonjour &quot;, np.value, &quot;&lt;/p&gt;&quot;);
+  document.writeln(&quot;&lt;p&gt;Vous &ecirc;tes n&eacute; le &quot;, dn.value, &quot;&lt;/p&gt;&quot;);
+&lt;/script&gt;</code></pre>
+              </div>
+              <div class="col-lg-6">
+                <p><strong>Rendu initial dans le navigateur :</strong></p>
+                <figure class="text-center mb-0">
+                  <img src="assets/miniprojet09/images/dom-01.svg" alt="Rendu formulaire initial"
+                    class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Formulaire initial et affichage dynamique avec
+                    document.writeln()</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript07.html</code></strong>.</li>
+              <li>Copier le code précédent et tester dans le navigateur.</li>
+              <li>Ajouter un champ de type curseur
+                <code>&lt;input type=&quot;range&quot; min=&quot;1&quot; max=&quot;7&quot; value=&quot;3&quot;&gt;</code>
+                permettant à l'utilisateur de choisir la quantité d'articles à commander.
+              </li>
+              <li>
+                <div class="row align-items-center my-2">
+                  <div class="col-lg-6">
+                    <p>Compléter le script JavaScript pour lire et afficher la quantité sélectionnée dans la page :</p>
+                    <pre class="javascript"><code>const qte = document.getElementById(&quot;qte&quot;);
+document.writeln(&quot;&lt;p&gt;Quantit&eacute; : &quot;, qte.value, &quot;&lt;/p&gt;&quot;);</code></pre>
+                  </div>
+                  <div class="col-lg-6">
+                    <figure class="text-center mb-0">
+                      <img src="assets/miniprojet09/images/dom-02.svg" alt="Résultat avec range"
+                        class="img-fluid rounded border shadow-sm">
+                      <figcaption class="text-muted small mt-1">Résultat attendu avec lecture dynamique du composant
+                        range
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Atelier 4 : Méthodes d'Entrées
+           ==================================================================== -->
+      <section>
+        <h3>Atelier 4 : Méthodes d'Entrées</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Maîtriser les différentes méthodes de saisie et d'acquisition de données en
+          JavaScript : les boîtes de dialogue modales interactives (<code>prompt()</code> et <code>confirm()</code>),
+          l'accès à la valeur d'un composant de formulaire individuel via <code>document.getElementById()</code>, et
+          l'exploitation des collections de choix multiples (boutons radio et cases à cocher) avec
+          <code>document.getElementsByName()</code>.
+        </div>
+
+        <!-- Exercice 1 : prompt() -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 1 : Saisie de données avec la boîte d'invite <code>prompt()</code></h4>
+          </div>
+          <div class="card-body">
+            <p>On désire calculer et afficher le périmètre et la surface d'un cercle à partir de son rayon
+              <code>r</code>
+              saisi par l'utilisateur :
+            </p>
+
+            <div class="row align-items-center mb-4">
+              <div class="col-lg-6">
+                <p><strong>Code HTML initial :</strong></p>
+                <pre class="html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Calculs sur un cercle&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Calculs g&eacute;om&eacute;triques sur un cercle&lt;/h1&gt;
+  &lt;div id=&quot;resCercle&quot;&gt;&lt;/div&gt;
+
+  &lt;script&gt;
+    // &Agrave; compl&eacute;ter par l'&eacute;l&egrave;ve :
+    // 1. Saisir le rayon r &agrave; l'aide de prompt()
+    // 2. Convertir la saisie en nombre
+    // 3. Calculer le p&eacute;rim&egrave;tre (2 * PI * r) et la surface (PI * r&sup2;)
+    // 4. Afficher le r&eacute;sultat dans #resCercle via innerHTML
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              </div>
+              <div class="col-lg-6">
+                <p><strong>Rendu attendu :</strong></p>
+                <figure class="text-center mb-0">
+                  <img src="assets/miniprojet09/images/atelier3-prompt.svg"
+                    alt="Boîte d'invite prompt et calcul du cercle" class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Boîte modale prompt() et affichage du résultat calculé
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript08a.html</code></strong> contenant le squelette
+                ci-contre.</li>
+              <li>Demander à l'utilisateur de saisir le rayon <code>r</code> à l'aide de l'instruction
+                <code>prompt(...)</code>.
+              </li>
+              <li>Convertir la valeur saisie en nombre (<code>Number()</code> ou <code>parseFloat()</code>).</li>
+              <li>Calculer le périmètre (<span class="text-monospace">2.&pi;.r</span>) et la surface
+                (<span class="text-monospace">&pi;.r&sup2;</span>). Arrondir les résultats à deux
+                décimales (<code>toFixed(2)</code>).</li>
+              <li>Afficher les résultats dans le conteneur <code>#resCercle</code>.</li>
+              <li>Tester en cliquant sur le bouton <strong>Annuler</strong> de la boîte d'invite. Quelle valeur est
+                renvoyée par <code>prompt()</code> dans ce cas ?</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 2 : confirm() -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 2 : Validation avec la boîte de confirmation <code>confirm()</code>
+            </h4>
+          </div>
+          <div class="card-body">
+            <p>Avant d'exécuter une action importante (comme vider un panier d'achats), une confirmation doit être
+              demandée à l'utilisateur à l'aide de <code>confirm()</code> :</p>
+
+            <div class="row align-items-center mb-4">
+              <div class="col-lg-6">
+                <p><strong>Code HTML initial :</strong></p>
+                <pre class="html"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Confirmation de panier&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Gestion du panier d'achats&lt;/h1&gt;
+  &lt;div id=&quot;messagePanier&quot;&gt;&lt;/div&gt;
+
+  &lt;script&gt;
+    // &Agrave; compl&eacute;ter par l'&eacute;l&egrave;ve :
+    // 1. D&eacute;clencher la bo&icirc;te de confirmation confirm()
+    // 2. Tester la valeur bool&eacute;enne re&ccedil;ue (true ou false)
+    // 3. Afficher le message appropri&eacute; dans #messagePanier
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              </div>
+              <div class="col-lg-6">
+                <p><strong>Rendu attendu :</strong></p>
+                <figure class="text-center mb-0">
+                  <img src="assets/miniprojet09/images/atelier3-confirm.svg" alt="Boîte de confirmation confirm"
+                    class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Boîte modale confirm() et embranchement conditionnel
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript08b.html</code></strong> contenant le code de
+                départ ci-contre.</li>
+              <li>Confirmer la suppression du contenu du panier
+                (<code>&laquo; Voulez-vous vraiment vider votre panier d'achats ? &raquo;</code>). Stocker la
+                réponse dans la variable <code>reponse</code>.
+              </li>
+              <li>À l'aide d'une structure conditionnelle <code>if ... else</code>, vérifier la valeur de
+                <code>reponse</code> :
+                <ul>
+                  <li>Si l'utilisateur a cliqué sur <strong>OK</strong> (valeur <code>true</code>) : afficher en vert :
+                    <em>« &#10003; Le panier a été vidé avec succès. »</em>.
+                  </li>
+                  <li>Si l'utilisateur a cliqué sur <strong>Annuler</strong> (valeur <code>false</code>) : afficher en
+                    rouge : <em>« &#10007; Opération annulée. Votre panier est conservé. »</em>.</li>
+                </ul>
+              </li>
+              <li>Vérifier le type de la donnée renvoyée par <code>confirm()</code> à l'aide de
+                l'opérateur <code>typeof</code> dans la console (console.log).</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 3 : getElementById -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 3 : Formulaire et lecture de composants uniques avec
+              <code>document.getElementById()</code>
+            </h4>
+          </div>
+          <div class="card-body">
+            <p>On désire calculer les totaux d'une facture en ligne :</p>
+
+            <div class="row align-items-center mb-4">
+              <div class="col-lg-6">
+                <p><strong>Formulaire HTML à intégrer :</strong></p>
+                <pre class="html"><code>&lt;form id=&quot;formFacture&quot;&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;prixHT&quot;&gt;Prix unitaire HT (DT) :&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;prixHT&quot; value=&quot;120&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;qte&quot;&gt;Quantit&eacute; :&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;qte&quot; value=&quot;2&quot;&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;tva&quot;&gt;Taux de TVA :&lt;/label&gt;
+    &lt;select id=&quot;tva&quot;&gt;
+      &lt;option value=&quot;0.07&quot;&gt;7 %&lt;/option&gt;
+      &lt;option value=&quot;0.13&quot;&gt;13 %&lt;/option&gt;
+      &lt;option value=&quot;0.19&quot; selected&gt;19 %&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;button&quot; id=&quot;btnCalculer&quot;&gt;Calculer TTC&lt;/button&gt;
+&lt;/form&gt;
+&lt;div id=&quot;resFacture&quot;&gt;&lt;/div&gt;</code></pre>
+              </div>
+              <div class="col-lg-6">
+                <p><strong>Rendu attendu :</strong></p>
+                <figure class="text-center mb-0">
+                  <img src="assets/miniprojet09/images/atelier3-form-id.svg" alt="Formulaire facture et calcul TTC"
+                    class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Lecture des champs du formulaire avec
+                    document.getElementById()</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript08c.html</code></strong> et y copier le formulaire
+                ci-contre.</li>
+              <li>Le clic sur le bouton permet de :
+                <ul>
+                  <li>Récupérer les valeurs du formulaire et de les convertir en nombres.</li>
+                  <li>Calculer le total HT (<span class="text-monospace">prixHT &times; qte</span>), le montant de la
+                    TVA (<span class="text-monospace">totalHT &times; tva</span>) et le montant total TTC (<span
+                      class="text-monospace">totalHT + montantTVA</span>).</li>
+                  <li>Afficher le détail de la facture dans la balise <code>&lt;div id=&quot;resFacture&quot;&gt;</code>
+                    en modifiant son contenu avec <code>innerHTML</code>.</li>
+                </ul>
+              </li>
+              <li>Tester avec différentes valeurs pour vérifier l'exactitude des calculs.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 4 : getElementsByName -->
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 4 : Choix multiples avec <code>document.getElementsByName()</code> (Boutons
+              radio &amp; Cases à cocher)</h4>
+          </div>
+          <div class="card-body">
+            <p>Dans un formulaire d'inscription, certains champs partagent le même attribut <code>name</code> afin de
+              constituer un groupe d'options : les <strong>boutons radio</strong> (sélection exclusive) et les
+              <strong>cases à cocher</strong> (sélection multiple) :
+            </p>
+
+            <div class="row align-items-center mb-4">
+              <div class="col-lg-6">
+                <p><strong>Formulaire HTML à intégrer :</strong></p>
+                <pre class="html"><code>&lt;form id=&quot;formProfil&quot;&gt;
+  &lt;p&gt;&lt;strong&gt;Civilit&eacute; (choix exclusif) :&lt;/strong&gt;&lt;br&gt;
+    &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;civilite&quot; value=&quot;M.&quot; checked&gt; M.&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;civilite&quot; value=&quot;Mme&quot;&gt; Mme&lt;/label&gt;
+  &lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Centres d'int&eacute;r&ecirc;t (choix multiples) :&lt;/strong&gt;&lt;br&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;interets&quot; value=&quot;Web / Informatique&quot; checked&gt; Web / Informatique&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;interets&quot; value=&quot;Robotique&quot; checked&gt; Robotique&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;interets&quot; value=&quot;Multim&eacute;dia&quot;&gt; Multim&eacute;dia&lt;/label&gt;
+  &lt;/p&gt;
+
+  &lt;button type=&quot;button&quot; id=&quot;btnProfil&quot;&gt;Valider le profil&lt;/button&gt;
+&lt;/form&gt;
+&lt;div id=&quot;resProfil&quot;&gt;&lt;/div&gt;</code></pre>
+              </div>
+              <div class="col-lg-6">
+                <p><strong>Rendu attendu :</strong></p>
+                <figure class="text-center mb-0">
+                  <img src="assets/miniprojet09/images/atelier3-form-name.svg"
+                    alt="Formulaire choix multiples getElementsByName" class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Sélection de collections avec document.getElementsByName()
+                    et propriété checked</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript08d.html</code></strong> et y intégrer le
+                formulaire ci-contre.</li>
+              <li>Expliquer pourquoi la méthode <code>document.getElementById()</code> ne permet pas de cibler l'option
+                sélectionnée parmi les boutons radio partageant le même attribut <code>name</code>.</li>
+              <li>Écrire le code JavaScript qui permet de :
+                <ul>
+                  <li>Déterminer la civilité de l'utilisateur.</li>
+                  <li>Collecter ses centres d'intérêts</li>
+                  <li>Afficher la civilité et la liste des centres d'intérêt choisis dans la balise
+                    <code>&lt;div id=&quot;resProfil&quot;&gt;</code> avec <code>innerHTML</code>.
+                  </li>
+                </ul>
+              </li>
+              <li>Tester en cochant différentes combinaisons pour valider le bon fonctionnement de votre script.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      
+
+      <!-- ====================================================================
+           Atelier 5 : Structures Conditionnelles
+           ==================================================================== -->
+      <section>
+        <h3>Atelier 5 : Structures Conditionnelles (if, switch)</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Mettre en œuvre les structures de contrôle décisionnelles : l'instruction
+          <code>if ... else</code> pour le filtrage et la validation des entrées, l'aiguillage <code>switch</code> pour
+          la gestion d'états multiples.
+        </div>
+
+        <!-- Exercice 1 : if else -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 1 : Contrôle de saisie et parité avec <code>if ... else</code></h4>
+          </div>
+          <div class="card-body">
+            <p>Soit le programme de saisie de deux entiers et de comparaison de leur parité :</p>
+            <pre class="html"><code>&lt;script&gt;
+  let a = parseInt(prompt(&quot;Donner a ? &quot;));
+  let b = parseInt(prompt(&quot;Donner b ? &quot;));
+
+  if (a % 2 == b % 2) {
+    document.writeln(&quot;&lt;p&gt;&quot;, a, &quot; et &quot;, b, &quot; ont la m&ecirc;me parit&eacute;.&lt;/p&gt;&quot;);
+  } else {
+    document.writeln(&quot;&lt;p&gt;&quot;, a, &quot; et &quot;, b, &quot; n&apos;ont pas la m&ecirc;me parit&eacute;.&lt;/p&gt;&quot;);
+  }
+&lt;/script&gt;</code></pre>
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Copier le script précédent dans un fichier HTML nommé <strong><code>javascript09.html</code></strong>.
+              </li>
+              <li>Tester dans le navigateur avec des valeurs valides (ex: 4 et 8, puis 3 et 6).</li>
+              <li>Tester maintenant avec des valeurs textuelles invalides ou en cliquant sur <kbd>Annuler</kbd>. Quelle
+                est la valeur de <code>a</code> lorsqu'une chaîne non numérique est saisie ?</li>
+              <li>Corriger le comportement du script à l'aide de <code>isNaN()</code> pour qu'il affiche <strong>&laquo;
+                  Données manquantes ou invalides &raquo;</strong> en cas de saisie incorrecte.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 2 : switch -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 2 : Jeu Pierre - Feuille - Ciseaux avec <code>switch</code></h4>
+          </div>
+          <div class="card-body">
+            <p>On simule le jeu <em>Pierre - Feuille - Ciseaux</em> entre deux joueurs, où chaque coup est représenté
+              par un entier : <code>0</code> (Pierre), <code>1</code> (Feuille), <code>2</code> (Ciseaux) :</p>
+            <pre class="javascript"><code>let j2 = Math.floor(Math.random() * 3), cj2;
+let j1, cj1;
+let g, res;
+
+switch (j2) {
+  case 0: cj2 = &quot;Pierre&quot;; break;
+  case 1: cj2 = &quot;Feuille&quot;; break;
+  case 2: cj2 = &quot;Ciseaux&quot;; break;
+  default: cj2 = &quot;Aucun&quot;;
+}
+
+j1 = Math.floor(Math.random() * 3);
+// Compléter pour j1...</code></pre>
+            <figure class="my-3 text-center">
+              <img src="assets/miniprojet09/images/switch-01.png" alt="Jeu Pierre Feuille Ciseaux"
+                class="img-fluid rounded border shadow-sm">
+              <figcaption class="text-muted small mt-1">Simulation d'une partie avec affichage du résultat</figcaption>
+            </figure>
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Copier la base du code dans un fichier HTML nommé <strong><code>javascript10.html</code></strong>.
+              </li>
+              <li>Compléter le jeu pour convertir également le coup du joueur 1 en texte via <code>switch</code>.</li>
+              <li>Déterminer le gagnant à l'aide de la formule mathématique :
+                <code>g = (j1 - j2 + 3) % 3;</code>
+                <ul>
+                  <li><code>g === 0</code> : Partie nulle,</li>
+                  <li><code>g === 1</code> : Le Joueur 1 l'emporte,</li>
+                  <li><code>g === 2</code> : Le Joueur 2 l'emporte.</li>
+                </ul>
+              </li>
+              <li>Afficher le verdict complet sous forme d'alerte ou dans la page Web.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Atelier 6 : Structures Itératives (Boucles)
+           ==================================================================== -->
+      <section>
+        <h3>Atelier 6 : Structures Itératives (for, while, do...while)</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Maîtriser les boucles à compteur déterminé (<code>for</code>) et à condition
+          d'arrêt préalable (<code>while</code>) ou postérieure (<code>do ... while</code>) pour implémenter des
+          algorithmes arithmétiques fondamentaux (multiples, PGCD, PPCM, recherche probabiliste).
+        </div>
+
+        <!-- Exercice 1 : Boucle for -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 1 : Filtrage arithmétique avec la boucle <code>for</code></h4>
+          </div>
+          <div class="card-body">
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript13.html</code></strong>.</li>
+              <li>Écrire une boucle <code>for</code> qui parcourt tous les entiers de deux chiffres (de 10 à 99).</li>
+              <li>Extraire pour chaque nombre son chiffre des dizaines <code>d</code> et son chiffre des unités
+                <code>u</code>.
+              </li>
+              <li>Afficher uniquement les nombres dont le chiffre des dizaines est un multiple du chiffre des unités ou
+                vice-versa (avec <code>u &ne; 0</code>) :
+                <figure class="my-3 text-center">
+                  <img src="assets/miniprojet09/images/for-02.PNG" alt="Nombres filtrés"
+                    class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Affichage des nombres satisfaisant la relation de
+                    divisibilité</figcaption>
+                </figure>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 2 : Boucle while (PGCD & PPCM) -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 2 : Algorithmes arithmétiques avec la boucle <code>while</code> (PGCD &amp;
+              PPCM)</h4>
+          </div>
+          <div class="card-body">
+            <p>On implémente l'algorithme d'Euclide pour calculer le PGCD de deux entiers <code>a</code> et
+              <code>b</code> :
+            </p>
+            <pre class="javascript"><code>let a = parseInt(prompt(&quot;Donner a ? &quot;));
+let b = parseInt(prompt(&quot;Donner b ? &quot;));
+
+/* Calcul du PGCD : Algorithme d'Euclide */
+let a1 = a, b1 = b;
+while (b1 != 0) {
+  let r = a1 % b1;
+  a1 = b1;
+  b1 = r;
+}
+document.writeln(&quot;PGCD(&quot;, a, &quot;, &quot;, b, &quot;) = &quot;, a1);</code></pre>
+            <figure class="my-3 text-center">
+              <img src="assets/miniprojet09/images/while-01.png" alt="PGCD(25, 35)"
+                class="img-fluid rounded border shadow-sm">
+              <figcaption class="text-muted small mt-1">Résultat du calcul du PGCD</figcaption>
+            </figure>
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Tester le calcul du PGCD dans une page HTML.</li>
+              <li>Compléter le script par le calcul du <strong>PPCM</strong> de <code>a</code> et <code>b</code> selon
+                la méthode des incréments successifs : incrémenter un multiple de <code>a</code> de sa propre valeur
+                tant qu'il n'est pas divisible par <code>b</code>.
+                <div class="table-responsive my-3">
+                  <table class="table table-sm table-bordered text-center align-middle mx-auto"
+                    style="max-width: 320px;">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Multiples de a</th>
+                        <th>b</th>
+                        <th>a mod b &ne; 0</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>35<br>70<br><strong>105</strong></td>
+                        <td>15<br>15<br><strong>15</strong></td>
+                        <td>true<br>true<br><strong class="text-success">false</strong> (Arrêt)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <figure class="my-3 text-center">
+                  <img src="assets/miniprojet09/images/while-02.png" alt="PPCM(35, 15)"
+                    class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Résultat du calcul du PPCM : 105</figcaption>
+                </figure>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 3 : Boucle do while -->
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 3 : Recherche probabiliste avec la boucle <code>do ... while</code></h4>
+          </div>
+          <div class="card-body">
+            <p>Soit le programme initial de recherche d'un nombre se terminant par un chiffre aléatoire donné :</p>
+            <pre class="javascript"><code>let a = Math.floor(Math.random() * 10);
+let b, u;
+
+document.writeln(&quot;&lt;p&gt;Cherchons un nombre ayant un chiffre d'unités = &quot;, a, &quot;&lt;/p&gt;&quot;);
+do {
+  b = Math.floor(Math.random() * 90) + 10;
+  u = b % 10;
+  if (u == a) {
+    document.writeln(b, &quot; Accepté&lt;br&gt;&quot;);
+  } else {
+    document.writeln(b, &quot; Rejeté&lt;br&gt;&quot;);
+  }
+} while (u != a);</code></pre>
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Copier le code dans un fichier HTML nommé <strong><code>javascript14.html</code></strong> et observer
+                le tirage dans le navigateur.</li>
+              <li>Modifier le programme pour la recherche avancée suivante :
+                <ul>
+                  <li>Choisir aléatoirement deux chiffres distincts <strong><code>a</code></strong> et
+                    <strong><code>b</code></strong> (entre 1 et 9).
+                  </li>
+                  <li>Tirer répétitivement un nombre aléatoire de quatre chiffres <strong><code>c</code></strong> (entre
+                    1000 et 9999).</li>
+                  <li>La boucle s'arrête dès que <strong><code>c</code></strong> contient simultanément les deux
+                    chiffres <code>a</code> et <code>b</code>.</li>
+                </ul>
+                <figure class="my-3 text-center">
+                  <img src="assets/miniprojet09/images/do-while-02.png" alt="Résultat do while"
+                    class="img-fluid rounded border shadow-sm me-2">
+                  <img src="assets/miniprojet09/images/do-while-03.png" alt="Résultat do while"
+                    class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Exemple d'exécution et d'acceptation du nombre à 4 chiffres
+                  </figcaption>
+                </figure>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Atelier 6 : Fonctions & Objets Standard
+           ==================================================================== -->
+      <section>
+        <h3>Atelier 7 : Fonctions &amp; Objets Prédéfinis (Nombres &amp; Dates)</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Structurer son code en fonctions réutilisables, manipuler les méthodes de l'objet
+          <code>Number</code> pour le typage et la conversion, et exploiter l'objet <code>Date</code> pour le calcul
+          d'intervalles chronologiques.
+        </div>
+
+        <!-- Exercice 1 : Fonctions -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 1 : Déclaration et appel d'une fonction <code>max(a, b)</code></h4>
+          </div>
+          <div class="card-body">
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript15.html</code></strong>.</li>
+              <li>Écrire une fonction nommée <code>max(a, b)</code> qui prend deux paramètres numériques et renvoie la
+                plus grande des deux valeurs :
+                <pre class="javascript"><code>function max(a, b) {
+  return (a &gt; b) ? a : b;
+}</code></pre>
+              </li>
+              <li>Tester la fonction avec différentes valeurs et afficher le résultat via <code>console.log()</code> et
+                <code>document.writeln()</code>.
+              </li>
+              <li>Réécrire la fonction sous forme de fonction fléchée : <code>const max = (a, b) =&gt; ...;</code>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 2 : Objet Number -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 2 : Méthodes de l'objet <code>Number</code> &amp; conversions</h4>
+          </div>
+          <div class="card-body">
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Ouvrir la console du navigateur (<kbd>F12</kbd>).</li>
+              <li>Tester la validation avec <code>isNaN()</code> :
+                <pre class="javascript"><code>console.log(isNaN("2024"));      // false (valeur convertible)
+console.log(isNaN("2024-STI"));  // true (valeur non convertible)</code></pre>
+              </li>
+              <li>Convertir un entier en sa représentation binaire et hexadécimale via <code>toString(base)</code> :
+                <pre class="javascript"><code>let n = 42;
+console.log(n.toString(2));  // '101010' (binaire)
+console.log(n.toString(16)); // '2a' (hexadécimal)</code></pre>
+              </li>
+              <li>Comparer les résultats et comportements de <code>parseInt("30.75px")</code>,
+                <code>parseFloat("30.75px")</code> et <code>Number("30.75")</code>.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 3 : Objet Date -->
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 3 : Manipulation temporelle avec l'objet <code>Date</code></h4>
+          </div>
+          <div class="card-body">
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Dans la console du navigateur, exécuter <code>let d = new Date();</code>.</li>
+              <li>Afficher la date courante au format francophone <code>JJ/MM/AAAA</code> en assemblant
+                <code>d.getDate()</code>, <code>d.getMonth() + 1</code> et <code>d.getFullYear()</code>.
+              </li>
+              <li>Créer une instance date pour le jour du baccalauréat :
+                <pre class="javascript"><code>let bac = new Date("2027-06-02");</code></pre>
+              </li>
+              <li>Calculer le nombre de jours restants jusqu'au baccalauréat grâce à la différence des horodatages en
+                millisecondes :
+                <pre class="javascript"><code>let diffJours = Math.ceil((bac - d) / (1000 * 60 * 60 * 24));
+console.log("Jours restants avant le bac :", diffJours);</code></pre>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           Atelier 7 : Événements et Formulaires
+           ==================================================================== -->
+      <section>
+        <h3>Atelier 8 : Événements &amp; Contrôle des Formulaires</h3>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mission :</strong> Rendre les pages web interactives en interceptant les événements déclenchés par
+          l'utilisateur : le clic de souris (<code>click</code>), le changement de valeur (<code>change</code>), la
+          prise et perte de focus (<code>focus</code> / <code>blur</code>), ainsi que le contrôle à la soumission
+          (<code>submit</code>) et réinitialisation (<code>reset</code>).
+        </div>
+
+        <!-- Exercice 1 : Click -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 1 : Interception et comptage de clics (<code>click</code>)</h4>
+          </div>
+          <div class="card-body">
+            <p>Soit une case à cocher protégée par un gestionnaire d'événement :</p>
+            <pre class="html"><code>&lt;form action=&quot;#&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; name=&quot;defi&quot; id=&quot;defi&quot;&gt;
+  &lt;label for=&quot;defi&quot;&gt;Cochez-moi si vous pouvez !&lt;/label&gt;
+&lt;/form&gt;
+&lt;script&gt;
+  const defi = document.getElementById(&quot;defi&quot;);
+  let clics = 0;
+  defi.addEventListener(&quot;click&quot;, (e) =&gt; {
+    clics++;
+    if (clics &lt; 3) {
+      alert(&quot;Désolé ! Cliquez encore &quot; + (3 - clics) + &quot; fois !&quot;);
+      e.preventDefault(); // Annule la coche
+    }
+  });
+&lt;/script&gt;</code></pre>
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Copier le code dans un fichier HTML nommé <strong><code>javascript17.html</code></strong>.</li>
+              <li>Tester dans le navigateur et vérifier que la case ne peut être cochée qu'au troisième clic.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 2 : Change -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 2 : Calcul dynamique instantané (<code>change</code>)</h4>
+          </div>
+          <div class="card-body">
+            <p>On désire concevoir un formulaire statistique qui affiche automatiquement la valeur maximale, la valeur
+              minimale et la moyenne dès que l'utilisateur renseigne les deux champs :</p>
+            <figure class="my-3 text-center">
+              <div class="row">
+                <div class="col-md-3 col-6 mb-2">
+                  <img src="assets/miniprojet09/images/on-change-05.png" alt="Formulaire vide"
+                    class="img-fluid rounded border shadow-sm">
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                  <img src="assets/miniprojet09/images/on-change-04.png" alt="Un seul champ"
+                    class="img-fluid rounded border shadow-sm">
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                  <img src="assets/miniprojet09/images/on-change-03.png" alt="Deuxième champ"
+                    class="img-fluid rounded border shadow-sm">
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                  <img src="assets/miniprojet09/images/on-change-02.png" alt="Résultats calculés"
+                    class="img-fluid rounded border shadow-sm">
+                </div>
+              </div>
+              <figcaption class="text-muted small mt-1">Étapes successives du calcul déclenché sur l'événement change
+              </figcaption>
+            </figure>
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript18.html</code></strong>.</li>
+              <li>Créer deux champs <code>&lt;input type=&quot;number&quot;&gt;</code> pour saisir deux nombres
+                <code>a</code> et <code>b</code>.
+              </li>
+              <li>Attacher un écouteur <code>change</code> sur chaque champ pour vérifier si les deux valeurs sont
+                saisies, puis calculer et afficher : <code>Math.max(a, b)</code>, <code>Math.min(a, b)</code> et la
+                moyenne <code>(a + b) / 2</code>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 3 : Focus / Blur -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 3 : Jeu du nombre secret (<code>focus</code> / <code>blur</code>)</h4>
+          </div>
+          <div class="card-body">
+            <p>On programme un jeu interactif où l'élève doit deviner un nombre secret choisi aléatoirement entre 1 et
+              99. Les indications sont fournies dès que l'utilisateur valide sa proposition (perte de focus avec
+              <code>blur</code>) :
+            </p>
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript19.html</code></strong>.</li>
+              <li>Générer un nombre aléatoire secret :
+                <pre class="javascript"><code>const secret = Math.floor(Math.random() * 99) + 1;</code></pre>
+              </li>
+              <li>Écouter l'événement <code>blur</code> ou <code>change</code> sur le champ de saisie pour comparer la
+                proposition au nombre secret :
+                <ul>
+                  <li>Si la saisie est plus petite : afficher
+                    <code>&laquo; Plus grand ! (Greater than ...) &raquo;</code>
+                  </li>
+                  <li>Si la saisie est plus grande : afficher
+                    <code>&laquo; Plus petit ! (Lesser than ...) &raquo;</code>
+                  </li>
+                  <li>Si la saisie est exacte : afficher
+                    <code>&laquo; Bravo ! Vous avez deviné. C'était bien ... ! &raquo;</code>
+                  </li>
+                </ul>
+              </li>
+              <li>À la prise de focus (<code>focus</code>), réinitialiser le champ pour faciliter la saisie suivante.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Exercice 4 : Submit / Reset -->
+        <div class="card mb-3 shadow-sm">
+          <div class="card-header bg-light">
+            <h4 class="h5 mb-0">Exercice 4 : Contrôle de saisie et réinitialisation (<code>submit</code> /
+              <code>reset</code>)
+            </h4>
+          </div>
+          <div class="card-body">
+            <p>Soit le formulaire d'inscription d'un élève :</p>
+            <div class="row my-3 align-items-center">
+              <div class="col-md-7">
+                <pre class="html"><code>&lt;form id=&quot;student&quot; action=&quot;#&quot;&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;np&quot;&gt;Nom &amp; Pr&eacute;nom&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;np&quot; required&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;cl&quot;&gt;Classe&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;cl&quot; required&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot;&gt;Envoyer&lt;/button&gt;
+  &lt;button type=&quot;reset&quot;&gt;Annuler&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+              </div>
+              <div class="col-md-5 text-center">
+                <figure>
+                  <img src="assets/miniprojet09/images/submit-reset-01.png" alt="Formulaire élève"
+                    class="img-fluid rounded border shadow-sm">
+                  <figcaption class="text-muted small mt-1">Formulaire élève avec boutons d'envoi et d'annulation
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <p><strong>Travail demandé :</strong></p>
+            <ol>
+              <li>Créer un fichier HTML nommé <strong><code>javascript22.html</code></strong>.</li>
+              <li>Ajouter un écouteur <code>submit</code> sur le formulaire : intercepter l'envoi pour convertir
+                automatiquement le nom et la classe en <strong>MAJUSCULES</strong> avant soumission.</li>
+              <li>Ajouter un écouteur <code>reset</code> sur le formulaire : vérifier si les champs sont déjà vides ; si
+                oui, empêcher l'action ; si non, convertir le texte en <strong>minuscules</strong> ou demander
+                confirmation avant effacement.</li>
+            </ol>
+          </div>
+        </div>
       </section>
     </article>
   </main>

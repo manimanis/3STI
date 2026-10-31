@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 210" width="100%" height="100%" style="background:#202124; border-radius:8px; font-family:'Consolas', 'Courier New', monospace;">
+  <!-- DevTools Header -->
+  <rect x="0" y="0" width="540" height="34" rx="8" fill="#2d2f34"/>
+  <rect x="0" y="26" width="540" height="8" fill="#2d2f34"/>
+  <line x1="0" y1="34" x2="540" y2="34" stroke="#3c4043" stroke-width="1"/>
+  
+  <circle cx="16" cy="17" r="5" fill="#ea4335"/>
+  <circle cx="32" cy="17" r="5" fill="#fbbc04"/>
+  <circle cx="48" cy="17" r="5" fill="#34a853"/>
+
+  <!-- Console Tab Indicator -->
+  <rect x="68" y="7" width="80" height="20" rx="3" fill="#3c4043"/>
+  <text x="108" y="21" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#e8eaed" text-anchor="middle">Console</text>
+  
+  <!-- Error count indicator -->
+  <rect x="160" y="8" width="52" height="18" rx="9" fill="#5c0000"/>
+  <circle cx="170" cy="17" r="4" fill="#f28b82"/>
+  <text x="180" y="21" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="bold" fill="#f28b82">1 error</text>
+
+  <text x="520" y="21" font-family="'Segoe UI', sans-serif" font-size="10" fill="#80868b" text-anchor="end">DevTools (F12)</text>
+
+  <!-- Line 1: Normal Output for x (let) -> 30 -->
+  <g transform="translate(15, 52)">
+    <path d="M 0 6 L 6 10 L 0 14 Z" fill="#80868b"/>
+    <text x="15" y="11" font-size="12" fill="#8ab4f8" font-weight="bold">30</text>
+    <text x="510" y="11" font-size="10" fill="#80868b" text-anchor="end">script.js:5</text>
+  </g>
+  <line x1="10" y1="72" x2="530" y2="72" stroke="#2d2f34" stroke-width="1"/>
+
+  <!-- Line 2: Error for y (const) -->
+  <rect x="0" y="75" width="540" height="66" fill="#290000" stroke="#5c0000" stroke-width="1"/>
+  <g transform="translate(15, 92)">
+    <!-- Red Error Cross Icon -->
+    <circle cx="6" cy="6" r="6" fill="#ea4335"/>
+    <text x="6" y="9.5" font-size="9" font-weight="bold" fill="#ffffff" text-anchor="middle">×</text>
+
+    <!-- Error Text -->
+    <text x="20" y="9" font-size="11.5" font-weight="bold" fill="#f28b82">Uncaught TypeError: Assignment to constant variable.</text>
+    <text x="510" y="9" font-size="10" fill="#f28b82" text-anchor="end">script.js:8</text>
+    
+    <!-- Stack trace line -->
+    <text x="32" y="28" font-size="10.5" fill="#e8eaed">at script.js:8:5</text>
+  </g>
+
+  <!-- Bottom Explanatory Banner -->
+  <rect x="10" y="152" width="520" height="46" rx="4" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
+  <text x="270" y="170" font-family="'Segoe UI', sans-serif" font-size="11" fill="#93c5fd" text-anchor="middle">
+    ✓ <tspan font-weight="bold" fill="#ffffff">let x</tspan> : modifiable ((4 + 2) × 5 = <tspan font-weight="bold" fill="#68d391">30</tspan>)
+  </text>
+  <text x="270" y="188" font-family="'Segoe UI', sans-serif" font-size="11" fill="#fca5a5" text-anchor="middle">
+    ✗ <tspan font-weight="bold" fill="#ffffff">const y</tspan> : valeur verrouillée, réassignation impossible (TypeError)
+  </text>
+</svg>

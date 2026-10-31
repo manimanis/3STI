@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 290" width="100%" height="100%" style="background:#ffffff; border-radius:8px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow-dw" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Browser Frame -->
+  <rect x="0" y="0" width="540" height="290" rx="8" fill="#ffffff" stroke="#dee2e6" stroke-width="1"/>
+  
+  <!-- Browser Header -->
+  <rect x="0" y="0" width="540" height="34" rx="8" fill="#f8f9fa"/>
+  <rect x="0" y="26" width="540" height="8" fill="#f8f9fa"/>
+  <line x1="0" y1="34" x2="540" y2="34" stroke="#dee2e6" stroke-width="1"/>
+
+  <circle cx="16" cy="17" r="5" fill="#ea4335"/>
+  <circle cx="32" cy="17" r="5" fill="#fbbc04"/>
+  <circle cx="48" cy="17" r="5" fill="#34a853"/>
+
+  <!-- Address Bar -->
+  <rect x="70" y="6" width="450" height="22" rx="4" fill="#ffffff" stroke="#ced4da"/>
+  <text x="80" y="21" font-size="11" fill="#6c757d">http://localhost/boucle-do-while.html</text>
+
+  <!-- Target Header in Webpage -->
+  <g transform="translate(25, 48)">
+    <rect width="490" height="34" rx="4" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="14" y="22" font-size="12" font-weight="bold" fill="#1e40af">
+      Cherchons un nombre ayant un chiffre d'unités = <tspan font-family="'Consolas', monospace" font-size="14" fill="#0d6efd">4</tspan>
+    </text>
+  </g>
+
+  <!-- Iterations in Page Canvas -->
+  <g transform="translate(25, 94)">
+    <rect width="490" height="142" rx="6" fill="#f8fafc" stroke="#e2e8f0" filter="url(#shadow-dw)"/>
+    
+    <!-- Iteration 1 -->
+    <g transform="translate(16, 16)">
+      <circle cx="8" cy="10" r="7" fill="#ef4444"/>
+      <text x="8" y="13.5" font-size="9" fill="#ffffff" font-weight="bold" text-anchor="middle">✕</text>
+      <text x="24" y="14" font-family="'Consolas', monospace" font-size="13" font-weight="bold" fill="#1e293b">72 Rejeté</text>
+      <text x="130" y="14" font-size="11" fill="#64748b">(unités = 2 &#8800; 4, on continue)</text>
+    </g>
+    <line x1="16" y1="46" x2="474" y2="46" stroke="#e2e8f0"/>
+
+    <!-- Iteration 2 -->
+    <g transform="translate(16, 56)">
+      <circle cx="8" cy="10" r="7" fill="#ef4444"/>
+      <text x="8" y="13.5" font-size="9" fill="#ffffff" font-weight="bold" text-anchor="middle">✕</text>
+      <text x="24" y="14" font-family="'Consolas', monospace" font-size="13" font-weight="bold" fill="#1e293b">39 Rejeté</text>
+      <text x="130" y="14" font-size="11" fill="#64748b">(unités = 9 &#8800; 4, on continue)</text>
+    </g>
+    <line x1="16" y1="86" x2="474" y2="86" stroke="#e2e8f0"/>
+
+    <!-- Iteration 3 -->
+    <g transform="translate(16, 96)">
+      <circle cx="8" cy="10" r="7" fill="#22c55e"/>
+      <text x="8" y="13.5" font-size="9" fill="#ffffff" font-weight="bold" text-anchor="middle">✓</text>
+      <text x="24" y="14" font-family="'Consolas', monospace" font-size="13" font-weight="bold" fill="#15803d">54 Accepté</text>
+      <text x="130" y="14" font-size="11" font-weight="bold" fill="#15803d">(unités = 4 == 4 &#8594; Arrêt de la boucle)</text>
+    </g>
+  </g>
+
+  <!-- Bottom Explanatory Banner -->
+  <rect x="25" y="248" width="490" height="28" rx="4" fill="#fef3c7" stroke="#fde68a"/>
+  <text x="270" y="266" font-size="11" fill="#92400e" text-anchor="middle" font-weight="500">
+    💡 <tspan font-weight="bold">do ... while</tspan> exécute le corps au moins une fois avant d'évaluer la condition.
+  </text>
+</svg>

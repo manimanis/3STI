@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 320" width="100%" height="100%" style="background:#f1f3f4; border-radius:8px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow-if" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 Z" fill="#0d6efd"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1: Prompt a -->
+  <g transform="translate(15, 12)" filter="url(#shadow-if)">
+    <rect width="245" height="125" rx="6" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+    <circle cx="16" cy="18" r="6" fill="none" stroke="#5f6368" stroke-width="1.2"/>
+    <text x="28" y="22" font-size="11" font-weight="600" fill="#202124">127.0.0.1 indique</text>
+    <text x="16" y="46" font-size="12" fill="#3c4043">Donner a ?</text>
+    
+    <rect x="16" y="56" width="213" height="26" rx="3" fill="#ffffff" stroke="#1a73e8" stroke-width="1.5"/>
+    <text x="26" y="73" font-family="'Consolas', monospace" font-size="13" fill="#202124">15</text>
+    
+    <rect x="110" y="90" width="58" height="22" rx="3" fill="#f1f3f4" stroke="#dadce0"/>
+    <text x="139" y="105" font-size="10.5" fill="#1a73e8" text-anchor="middle">Annuler</text>
+    <rect x="175" y="90" width="54" height="22" rx="3" fill="#1a73e8"/>
+    <text x="202" y="105" font-size="10.5" font-weight="bold" fill="#ffffff" text-anchor="middle">OK</text>
+  </g>
+
+  <!-- Step 2: Prompt b -->
+  <g transform="translate(280, 12)" filter="url(#shadow-if)">
+    <rect width="245" height="125" rx="6" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+    <circle cx="16" cy="18" r="6" fill="none" stroke="#5f6368" stroke-width="1.2"/>
+    <text x="28" y="22" font-size="11" font-weight="600" fill="#202124">127.0.0.1 indique</text>
+    <text x="16" y="46" font-size="12" fill="#3c4043">Donner b ?</text>
+    
+    <rect x="16" y="56" width="213" height="26" rx="3" fill="#ffffff" stroke="#1a73e8" stroke-width="1.5"/>
+    <text x="26" y="73" font-family="'Consolas', monospace" font-size="13" fill="#202124">8</text>
+    
+    <rect x="110" y="90" width="58" height="22" rx="3" fill="#f1f3f4" stroke="#dadce0"/>
+    <text x="139" y="105" font-size="10.5" fill="#1a73e8" text-anchor="middle">Annuler</text>
+    <rect x="175" y="90" width="54" height="22" rx="3" fill="#1a73e8"/>
+    <text x="202" y="105" font-size="10.5" font-weight="bold" fill="#ffffff" text-anchor="middle">OK</text>
+  </g>
+
+  <!-- Flow Connector -->
+  <path d="M 270 142 L 270 160" stroke="#0d6efd" stroke-width="2.5" marker-end="url(#arr-blue)"/>
+
+  <!-- Step 3: Resulting Alert Dialog -->
+  <g transform="translate(60, 168)" filter="url(#shadow-if)">
+    <rect width="420" height="105" rx="6" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+    <circle cx="18" cy="18" r="6" fill="none" stroke="#5f6368" stroke-width="1.2"/>
+    <text x="32" y="22" font-size="12" font-weight="600" fill="#202124">127.0.0.1 indique (alert)</text>
+    
+    <!-- Comparison result -->
+    <text x="18" y="56" font-family="'Consolas', monospace" font-size="16" font-weight="bold" fill="#0d6efd">15 &gt; 8</text>
+    
+    <!-- OK Button -->
+    <rect x="340" y="68" width="62" height="26" rx="3" fill="#1a73e8"/>
+    <text x="371" y="85" font-size="11.5" font-weight="bold" fill="#ffffff" text-anchor="middle">OK</text>
+  </g>
+
+  <!-- Explanatory Banner -->
+  <rect x="15" y="285" width="510" height="26" rx="4" fill="#e7f1ff" stroke="#bfdbfe"/>
+  <text x="270" y="302" font-size="11" fill="#1e40af" text-anchor="middle" font-weight="500">
+    ✓ Condition <tspan font-weight="bold">a &gt; b (15 &gt; 8)</tspan> vraie : exécution de la première branche.
+  </text>
+</svg>

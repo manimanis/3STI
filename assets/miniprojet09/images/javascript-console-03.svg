@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 200" width="100%" height="100%">
+  <defs>
+    <filter id="cshadow" x="-3%" y="-5%" width="106%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <!-- DevTools Window Container -->
+  <rect x="2" y="2" width="546" height="196" rx="8" fill="#1e1e1e" stroke="#333333" stroke-width="1.5" filter="url(#cshadow)" />
+
+  <!-- Window Header Tabs -->
+  <rect x="2" y="2" width="546" height="34" rx="8" fill="#2d2d2d" />
+  <path d="M 2 36 L 548 36" stroke="#1e1e1e" stroke-width="1" />
+
+  <!-- Mac / Window Controls -->
+  <circle cx="16" cy="18" r="4.5" fill="#ef4444" />
+  <circle cx="30" cy="18" r="4.5" fill="#f59e0b" />
+  <circle cx="44" cy="18" r="4.5" fill="#10b981" />
+
+  <!-- DevTools Tabs -->
+  <text x="68" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#858585">Elements</text>
+  
+  <!-- Active Tab: Console -->
+  <rect x="122" y="6" width="68" height="28" rx="4" fill="#1e1e1e" />
+  <text x="136" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#ffffff">Console</text>
+
+  <text x="206" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#858585">Sources</text>
+  <text x="264" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#858585">Network</text>
+
+  <!-- Filter bar -->
+  <line x1="2" y1="62" x2="548" y2="62" stroke="#2d2d2d" stroke-width="1" />
+  <text x="16" y="52" font-family="Consolas, Monaco, monospace" font-size="11" fill="#6e7681">&#8827; Filter</text>
+  <rect x="68" y="42" width="110" height="16" rx="3" fill="#252526" stroke="#3c3c3c" stroke-width="1" />
+  <text x="465" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#858585">Default levels &#9662;</text>
+
+  <!-- Console Log Output Row -->
+  <g transform="translate(16, 86)">
+    <!-- Blue prompt arrow -->
+    <path d="M 0 0 L 6 4 L 0 8 Z" fill="#3b82f6" />
+    
+    <!-- Code output text -->
+    <text x="16" y="8" font-family="Consolas, Monaco, 'Courier New', monospace" font-size="12" fill="#d4d4d4">
+      <tspan fill="#9cdcfe">a = </tspan><tspan fill="#b5cea8">3</tspan>
+      <tspan fill="#d4d4d4"> - </tspan>
+      <tspan fill="#9cdcfe">b = </tspan><tspan fill="#b5cea8">4</tspan>
+      <tspan fill="#d4d4d4"> - </tspan>
+      <tspan fill="#9cdcfe">c = </tspan><tspan fill="#f87171" font-weight="bold">2.449489742783178</tspan>
+    </text>
+
+    <!-- Source file reference on the right -->
+    <text x="515" y="8" font-family="Consolas, Monaco, monospace" font-size="10.5" fill="#6e7681" text-anchor="end">javascript02.html:7</text>
+  </g>
+
+  <!-- Callout Error Box -->
+  <g transform="translate(16, 114)">
+    <rect x="0" y="0" width="518" height="68" rx="6" fill="#451a1a" stroke="#dc2626" stroke-width="1.2" />
+    <text x="14" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#fca5a5">&#9888; R&#233;sultat incorrect : c = 2.449489742783178 &#8800; 5</text>
+    <text x="14" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" fill="#fecaca">
+      L'expression Math.sqrt(a + a) a calcul&#233; &#8730;(3 + 3) = &#8730;6 &#8776; 2.45.
+    </text>
+    <text x="14" y="60" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="600" fill="#86efac">
+      &#10140; Correction attendue : Math.sqrt(a * a + b * b) pour obtenir 5.
+    </text>
+  </g>
+</svg>

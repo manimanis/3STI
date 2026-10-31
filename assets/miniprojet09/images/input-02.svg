@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" width="100%" height="100%" style="background:#f1f3f4; border-radius:8px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="shadow-modal" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <!-- Modal 1: Prompt a -->
+  <g transform="translate(15, 15)" filter="url(#shadow-modal)">
+    <rect width="245" height="135" rx="6" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+    
+    <!-- Header -->
+    <circle cx="16" cy="18" r="6" fill="none" stroke="#5f6368" stroke-width="1.2"/>
+    <text x="28" y="22" font-size="11" font-weight="600" fill="#202124">127.0.0.1 indique</text>
+    
+    <!-- Question -->
+    <text x="16" y="48" font-size="12" fill="#3c4043">Donner a ?</text>
+    
+    <!-- Input Field -->
+    <rect x="16" y="60" width="213" height="28" rx="3" fill="#ffffff" stroke="#1a73e8" stroke-width="1.5"/>
+    <text x="26" y="79" font-family="'Consolas', monospace" font-size="13" fill="#202124">5</text>
+    
+    <!-- Buttons -->
+    <rect x="110" y="100" width="58" height="24" rx="3" fill="#f1f3f4" stroke="#dadce0"/>
+    <text x="139" y="116" font-size="11" fill="#1a73e8" text-anchor="middle">Annuler</text>
+
+    <rect x="175" y="100" width="54" height="24" rx="3" fill="#1a73e8"/>
+    <text x="202" y="116" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">OK</text>
+  </g>
+
+  <!-- Modal 2: Prompt b -->
+  <g transform="translate(280, 15)" filter="url(#shadow-modal)">
+    <rect width="245" height="135" rx="6" fill="#ffffff" stroke="#dadce0" stroke-width="1"/>
+    
+    <!-- Header -->
+    <circle cx="16" cy="18" r="6" fill="none" stroke="#5f6368" stroke-width="1.2"/>
+    <text x="28" y="22" font-size="11" font-weight="600" fill="#202124">127.0.0.1 indique</text>
+    
+    <!-- Question -->
+    <text x="16" y="48" font-size="12" fill="#3c4043">Donner b ?</text>
+    
+    <!-- Input Field -->
+    <rect x="16" y="60" width="213" height="28" rx="3" fill="#ffffff" stroke="#1a73e8" stroke-width="1.5"/>
+    <text x="26" y="79" font-family="'Consolas', monospace" font-size="13" fill="#202124">7</text>
+    
+    <!-- Buttons -->
+    <rect x="110" y="100" width="58" height="24" rx="3" fill="#f1f3f4" stroke="#dadce0"/>
+    <text x="139" y="116" font-size="11" fill="#1a73e8" text-anchor="middle">Annuler</text>
+
+    <rect x="175" y="100" width="54" height="24" rx="3" fill="#1a73e8"/>
+    <text x="202" y="116" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">OK</text>
+  </g>
+
+  <!-- Bottom: Result in Webpage -->
+  <g transform="translate(15, 165)">
+    <rect width="510" height="65" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="url(#shadow-modal)"/>
+    <rect width="510" height="22" rx="6" fill="#f8fafc"/>
+    <rect y="16" width="510" height="6" fill="#f8fafc"/>
+    <line x1="0" y1="22" x2="510" y2="22" stroke="#e2e8f0"/>
+    <text x="12" y="15" font-size="10.5" font-weight="600" fill="#64748b">Affichage dans la page web (&lt;div id=&quot;operation&quot;&gt;) :</text>
+    
+    <text x="20" y="48" font-family="'Consolas', monospace" font-size="16" font-weight="bold" fill="#1e293b">5 + 7 = <tspan fill="#e11d48">57</tspan></text>
+  </g>
+
+  <!-- Explanatory note on concatenation -->
+  <rect x="15" y="240" width="510" height="28" rx="4" fill="#fff1f2" stroke="#fecdd3"/>
+  <text x="270" y="258" font-size="11" fill="#9f1239" text-anchor="middle" font-weight="500">
+    ⚠️ <tspan font-weight="bold">prompt()</tspan> renvoie toujours des chaînes : &quot;5&quot; + &quot;7&quot; donne <tspan font-weight="bold">&quot;57&quot;</tspan> (concaténation).
+  </text>
+</svg>
