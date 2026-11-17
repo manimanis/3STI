@@ -74,7 +74,7 @@ $(() => {
     .each((index, art_elem) => {
       const article = $(art_elem);
       const artId = `article-${index + 1}`;
-      const artTitle = article.find('h2').text().trim() || `Partie ${index + 1}`;
+      const artTitle = article.find('h2').first().text().trim() || `Partie ${index + 1}`;
 
       const li = $('<li>')
         .addClass('nav-item dropdown')
@@ -150,8 +150,8 @@ $(() => {
 
   const updateBreadcrumb = (artIndex, sectIndex) => {
     if (!breadcrumbElem) return;
-    const pageMainTitle = $('main h1').text().trim();
-    const artTitle = articles.eq(artIndex).find('h2').text().trim();
+    const pageMainTitle = $('main h1').first().text().trim();
+    const artTitle = articles.eq(artIndex).find('h2').first().text().trim();
     const sectTitle = articles.eq(artIndex).find('section').eq(sectIndex).find('h3').first().text().trim();
 
     breadcrumbElem.empty();

@@ -1,0 +1,47 @@
+/* Ajouter à partir de la ligne suivante, les règles CSS demandées */
+
+
+
+
+
+
+
+/* Il est conseillé de ne pas modifier les règles CSS ci-après  */
+body {
+  background-color: #c6d6eb;
+}
+header {
+  background-color: #053860;
+}
+header h1 {
+  font-size: 30px;
+  color: #c6d6eb;
+}
+a {
+  border: 3px solid white;
+  background-color: #4da5e9;
+  color: white;
+}
+footer {
+  margin: -16px 0px 0px 0px;
+  text-align: center;
+  text-shadow: 3px 3px 3px #ffffff;
+}
+footer p {
+  padding-top: 10px;
+}
+footer img {
+  margin-right: 20px;
+}
+figure {
+  margin-top: 60px;
+  text-align: center;
+  font-weight: bold;
+}
+label {
+  font-weight: bold;
+}
+legend {
+  font-style: italic;
+}
+

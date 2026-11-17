@@ -1455,6 +1455,287 @@
           et un bouton de remise à zéro <code>&lt;button type="reset"&gt;Effacer&lt;/button&gt;</code>.
         </div>
       </section>
+
+      
+      <!-- Section 4.4 : Application 10 - Chaîne hôtelière El Mouradi (Devoir de Contrôle N°1) -->
+      <section>
+        <h3>Application 10 : Chaîne hôtelière El Mouradi (Devoir de Contrôle N°1)</h3>
+
+        <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+          <span class="badge bg-primary fs-6">Lycée Hammam Sousse 1</span>
+          <span class="badge bg-secondary fs-6">Devoir de Mme Hajer Ben Mahmoud</span>
+          <span class="badge bg-info text-dark fs-6">Classe : 3SI1</span>
+          <span class="badge bg-dark fs-6">Durée : 1h30</span>
+          <span class="badge bg-success fs-6">Barème : 20 points</span>
+        </div>
+
+        <div class="alert alert-primary mb-4">
+          <strong>Mise en situation &amp; Mission :</strong> La chaîne <strong>El Mouradi</strong> est un prestigieux groupe hôtelier tunisien. Pour promouvoir ses établissements touristiques et offrir un service de réservation moderne, elle souhaite concevoir un site Web multimédia responsive et structuré en quatre pages interconnectées (<strong>index.html</strong>, <strong>Présentation.html</strong>, <strong>photo.html</strong> et <strong>Réservation.html</strong>), intégrant une vidéo de promotion, une galerie dynamique avec zoom au survol et un formulaire de réservation complet.
+        </div>
+
+        <!-- Bouton de téléchargement des ressources élèves uniquement -->
+        <div class="my-3 text-center d-flex justify-content-center gap-3 flex-wrap">
+          <a href="miniprojets/MiniProjet-22/ElMouradi/Ressources-DC1-3S1.zip" class="btn btn-primary btn-lg shadow-sm" download>
+            📥 Télécharger le dossier de travail (Ressources-DC1-3S1.zip)
+          </a>
+        </div>
+
+        <!-- Consignes officielles -->
+        <div class="card mb-4 border-warning">
+          <div class="card-header bg-warning bg-opacity-25 fw-bold">
+            📌 Consignes Générales de Réalisation
+          </div>
+          <div class="card-body">
+            <ul class="mb-0">
+              <li>Toutes les ressources fournies (images, logo, vidéo, feuilles de styles de départ) se trouvent dans le dossier <code>Ressources-DC1-3SI1</code>.</li>
+              <li>Créer un dossier de travail nommé <code>DC1-NomPrenom</code> et y enregistrer au fur et à mesure tous les fichiers de votre solution.</li>
+              <li>Copier l'intégralité des ressources dans votre dossier de travail.</li>
+              <li>Toutes les règles CSS définissant des styles de mise en forme doivent être écrites dans le fichier unique <code>mesStyles.css</code>.</li>
+              <li>Toutes les pages HTML doivent être correctement reliées au fichier <code>mesStyles.css</code> via la balise <code>&lt;link rel="stylesheet" href="mesStyles.css"&gt;</code>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 1) Page Index -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 fs-5">1) La page d'accueil du site : index.html (10 points : 4 pts HTML + 6 pts CSS)</h4>
+            <span class="badge bg-light text-primary">Barème : 10 pts</span>
+          </div>
+          <div class="card-body">
+            <p><strong>a) Créer la page <code>index.html</code></strong> en respectant l'architecture sémantique suivante :</p>
+            <ul>
+              <li><strong>L'élément <code>&lt;header&gt;</code></strong> représente l'en-tête de la page et contient :
+                <ul>
+                  <li>L'image <code>logo.gif</code> se trouvant dans votre dossier de travail.</li>
+                  <li>Un titre principal de niveau 1 : <code>Bienvenue sur nos Hôtels El Mouradi</code>.</li>
+                </ul>
+              </li>
+              <li><strong>L'élément <code>&lt;nav&gt;</code></strong> représente le volet de navigation et contient trois liens hypertextes ciblant la zone de contenu (<code>target="contenu"</code>) :
+                <ul>
+                  <li><strong>Présentation</strong> : lien vers la page <code>Présentation.html</code>.</li>
+                  <li><strong>Album photo</strong> : lien vers la page <code>photo.html</code>.</li>
+                  <li><strong>Réservation</strong> : lien vers la page <code>Réservation.html</code>.</li>
+                </ul>
+              </li>
+              <li><strong>L'élément <code>&lt;main&gt;</code></strong> regroupe le contenu central divisé en deux volets :
+                <ul>
+                  <li><strong><code>&lt;section&gt;</code> (70% de largeur) :</strong> zone d'affichage des différentes pages via une balise <code>&lt;iframe&gt;</code> nommée <code>name="contenu"</code> et affichant par défaut la page <code>Présentation.html</code>.</li>
+                  <li><strong><code>&lt;aside&gt;</code> (30% de largeur) :</strong> contient la vidéo promotionnelle <code>vue.mp4</code> avec les contrôles de lecture.</li>
+                </ul>
+              </li>
+              <li><strong>L'élément <code>&lt;footer&gt;</code></strong> représente le pied de page et comporte :
+                <ul>
+                  <li>Le texte : <code>Copyright &copy; 2026-2027, EL MOURADI Hôtels. Tous droits réservés</code>.</li>
+                  <li>Les trois icônes des réseaux sociaux : <code>fb.png</code>, <code>ig.png</code> et <code>twitter.png</code>.</li>
+                </ul>
+              </li>
+            </ul>
+
+            <figure class="text-center my-3">
+              <img src="miniprojets/MiniProjet-22/ElMouradi/pdf_images/page_1_img_1.png" class="img-fluid border rounded shadow-sm" alt="Disposition structurelle de la page index.html" style="max-height: 280px;">
+              <figcaption class="mt-2 text-muted fst-italic">Figure 1 : Disposition spatiale et structure sémantique de la page index.html</figcaption>
+            </figure>
+
+            <p class="mt-3"><strong>b) Ajouter au fichier <code>mesStyles.css</code></strong> les règles de mise en forme CSS demandées :</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped align-middle">
+                <thead class="table-dark">
+                  <tr>
+                    <th style="width: 30%;">Objet</th>
+                    <th>Mise en forme CSS demandée</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>En-tête de la page (<code>&lt;header&gt;</code>)</strong></td>
+                    <td>Hauteur de <code>120px</code> ; Couleur d'arrière-plan <code>#053860</code>.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Titre <code>&lt;h1&gt;</code> de l'en-tête</strong></td>
+                    <td>Première lettre de chaque mot en majuscule (<code>text-transform: capitalize;</code>) ; Marge intérieure de <code>30px</code> en haut et à gauche ; Alignement centré.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>L'image <code>logo.gif</code></strong></td>
+                    <td>Marge extérieure de <code>30px</code> en haut et de <code>100px</code> à droite ; Flottement de l'élément à droite (<code>float: right;</code>).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Volet de navigation (<code>&lt;nav&gt;</code>)</strong></td>
+                    <td>Hauteur de <code>50px</code> ; Largeur de <code>100%</code> ; Centrer le contenu ; Marge intérieure de <code>15px</code>.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Les liens hypertextes (<code>nav a</code>)</strong></td>
+                    <td>Afficher les liens comme des éléments en ligne avec dimensions (<code>display: inline-block;</code>) ; Largeur de <code>150px</code> et hauteur de <code>30px</code> ; Supprimer le soulignement (<code>text-decoration: none;</code>) ; Marge intérieure haut de <code>15px</code> ; Marge extérieure droite de <code>20px</code>.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Contenu principal (<code>&lt;main&gt;</code>)</strong></td>
+                    <td>Fixer la largeur à <code>100%</code> et la hauteur à <code>480px</code>.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Zone d'affichage (<code>&lt;section&gt;</code>)</strong></td>
+                    <td>Fixer la largeur à <code>70%</code> et la hauteur à <code>100%</code> ; Flottement de l'élément à gauche (<code>float: left;</code>).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Volet latéral (<code>&lt;aside&gt;</code>)</strong></td>
+                    <td>Fixer la largeur à <code>30%</code> et la hauteur à <code>100%</code> ; Flottement de l'élément à droite (<code>float: right;</code>).</td>
+                  </tr>
+                  <tr>
+                    <td><strong><code>&lt;iframe&gt;</code> et <code>&lt;video&gt;</code></strong></td>
+                    <td>Fixer la largeur et la hauteur à <code>100%</code>.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Pied de page (<code>&lt;footer&gt;</code>)</strong></td>
+                    <td>Couleur d'arrière-plan <code>#053860</code> ; Fixer la largeur à <code>100%</code> et la hauteur à <code>80px</code> ; Afficher le texte en gras et italique de couleur <code>#c6d6eb</code>.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2) Page Photo -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 fs-5">2) La page album photos : Photo.html (2.5 points : 1 pt HTML + 1.5 pt CSS)</h4>
+            <span class="badge bg-light text-success">Barème : 2.5 pts</span>
+          </div>
+          <div class="card-body">
+            <p>La page <code>Photo.html</code> présente une galerie d'images publicitaires des hôtels El Mouradi (piscines, chambres, buffets, plages, etc.).</p>
+            <ul>
+              <li><strong>a) Balisage sémantique :</strong> Compléter la page <code>Photo.html</code> en englobant les images dans un conteneur <code>&lt;figure&gt;</code> et en ajoutant la légende <code>&lt;figcaption&gt;</code> suivante :<br>
+                <em class="fw-bold text-primary">« Avec la chaîne EL MOURADI, embarquez pour un séjour inoubliable ! »</em>.
+              </li>
+              <li><strong>b) Règles CSS dans <code>mesStyles.css</code> :</strong>
+                <ul>
+                  <li>Fixer la largeur et la hauteur de chaque image de la galerie à <code>140px</code>.</li>
+                  <li>Appliquer une marge extérieure droite de <code>10px</code>.</li>
+                  <li>Au survol de la souris (pseudo-classe <code>:hover</code>), agrandir visuellement l'image d'un facteur 1.5 grâce à la propriété <code>transform: scale(1.5);</code>.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3) Page Présentation -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-info text-dark d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 fs-5">3) La page présentation : Présentation.html (1 point)</h4>
+            <span class="badge bg-dark text-white">Barème : 1 pt</span>
+          </div>
+          <div class="card-body">
+            <p>Compléter la page <code>Présentation.html</code> en exploitant les balises HTML5 natives d'accordéon réductible : <code>&lt;details&gt;</code> et <code>&lt;summary&gt;</code> portant le libellé <strong>« En savoir plus »</strong> pour masquer et afficher interactivement le texte détaillé des prestations.</p>
+
+            <figure class="text-center my-3">
+              <img src="miniprojets/MiniProjet-22/ElMouradi/pdf_images/page_2_img_1.png" class="img-fluid border rounded shadow-sm" alt="Balises details et summary dans Presentation.html" style="max-height: 200px;">
+              <figcaption class="mt-2 text-muted fst-italic">Figure 2 : Utilisation des balises interactives &lt;details&gt; et &lt;summary&gt;</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- 4) Page Réservation -->
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+            <h4 class="mb-0 fs-5">4) La page formulaire de réservation : Réservation.html (6.5 points : 5 pts HTML + 1.5 pt CSS)</h4>
+            <span class="badge bg-dark text-white">Barème : 6.5 pts</span>
+          </div>
+          <div class="card-body">
+            <p><strong>a) Créer la page <code>Réservation.html</code></strong> permettant de rechercher la disponibilité des chambres selon la destination et les critères choisis :</p>
+
+            <figure class="text-center my-3">
+              <img src="miniprojets/MiniProjet-22/ElMouradi/pdf_images/page_3_img_1.png" class="img-fluid border rounded shadow-sm" alt="Modèle du formulaire de réservation El Mouradi" style="max-height: 380px;">
+              <figcaption class="mt-2 text-muted fst-italic">Figure 3 : Organisation par fieldset du formulaire de réservation</figcaption>
+            </figure>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="border p-3 rounded bg-white h-100">
+                  <h6 class="fw-bold text-primary">Structure des champs &amp; Contrôles :</h6>
+                  <ul>
+                    <li>Cadre global : <code>&lt;fieldset&gt;</code> avec légende <code>&lt;legend&gt;Rechercher un Hôtel&lt;/legend&gt;</code>.</li>
+                    <li>Champ <strong>Destination :</strong> Liste déroulante <code>&lt;select&gt;</code> proposant les options :
+                      <em>Choisir une destination</em>, <em>Sousse</em>, <em>Gammarth</em> et <em>Tabarka</em>.
+                    </li>
+                    <li>Sous-cadre <strong>Date entre :</strong> Deux champs de type date (<code>type="date"</code>) étiquetés <em>Date 1</em> et <em>Date 2</em>.</li>
+                    <li>Sous-cadre <strong>Client :</strong>
+                      <ul>
+                        <li>Boutons radio pour <em>Type identifiant</em> : <strong>Passeport</strong> (coché par défaut) et <strong>Cin</strong>.</li>
+                        <li>Champs texte pour <em>Identifiant</em>, <em>Nom et prenom</em> et <em>Telephone</em> (<code>type="tel"</code>).</li>
+                      </ul>
+                    </li>
+                    <li>Sous-cadre <strong>Réservation d'une chambre :</strong> Liste déroulante <code>&lt;select&gt;</code> proposant :
+                      <em>Choisir une chambre</em>, <em>chambre single</em>, <em>chambre double</em>, <em>chambre triple</em>, <em>chambre quadruple</em>.
+                    </li>
+                    <li>Sous-cadre <strong>Services supplémentaires :</strong> Cases à cocher (<code>type="checkbox"</code>) pour :
+                      <em>Lit bébé</em>, <em>Baby Sitting</em>, <em>Navette aéroport</em> et <em>Lave-linge</em>.
+                    </li>
+                    <li>Deux boutons d'action : <code>&lt;input type="reset" value="Annuler"&gt;</code> et <code>&lt;input type="submit" value="Chercher"&gt;</code>.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="border p-3 rounded bg-white h-100">
+                  <h6 class="fw-bold text-success">b) Mises en forme CSS (mesStyles.css) :</h6>
+                  <table class="table table-sm table-bordered">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Élément</th>
+                        <th>Règle CSS attendue</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>Étiquettes (<code>label</code>)</strong></td>
+                        <td>Éléments en ligne avec dimensions (<code>display: inline-block;</code>), largeur de <code>150px</code> et hauteur de <code>30px</code>.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Cadres (<code>fieldset</code>)</strong></td>
+                        <td>Bordure double de couleur <code>#8484ee</code> et d'épaisseur <code>3px</code> (<code>border: 3px double #8484ee;</code>).</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Les deux boutons</strong></td>
+                        <td>Ombre bleue décalée de <code>5px</code> horizontalement et verticalement (<code>box-shadow: 5px 5px blue;</code>) ; Marge extérieure gauche de <code>20px</code>.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Conteneur des boutons</strong></td>
+                        <td>Alignement horizontal à droite (<code>text-align: right;</code>).</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </section>
+
+      <!-- Section Quiz : Évaluation globale approfondie HTML5 & CSS3 -->
+      <section data-href="quiz03.html" data-target="_blank" class="quiz-section">
+        <h3>Quiz d'évaluation : HTML5 &amp; CSS3</h3>
+        <div class="card my-4 shadow-sm border-primary">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span class="fs-1">🎯</span>
+              <div>
+                <h4 class="card-title text-primary mb-1">Quiz d'auto-évaluation approfondi : HTML5 &amp; CSS3</h4>
+                <span class="badge bg-primary text-white">Bilan de synthèse — 3ᵉ SI</span>
+              </div>
+            </div>
+            <p>
+              Ce quiz interactif de 100 questions stimulantes teste votre maîtrise des notions fondamentales et avancées du programme : formulaires web, modèle de boîte (<strong>Box Model</strong>), sélecteurs combinés, balises sémantiques et animations CSS3 d'après les annexes officielles (tirage aléatoire de 20 questions par session).
+            </p>
+            <div class="d-flex flex-wrap align-items-center gap-3 mt-4">
+              <a href="quiz03.html" target="_blank" rel="noopener noreferrer"
+                class="btn btn-primary d-inline-flex align-items-center gap-2 px-4 py-2 fw-semibold shadow-sm">
+                <span>Accéder au Quiz 3</span>
+                <span aria-hidden="true" title="Lien externe vers un autre document">📄 ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </article>
   </main>
 

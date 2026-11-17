@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" font-family="Inter, sans-serif">
+  <rect x="5" y="5" width="390" height="90" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="200" y="22" text-anchor="middle" font-size="11" fill="#64748B" font-weight="600">animation-direction: alternate;</text>
+  <circle cx="50" cy="55" r="16" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="50" y="59" text-anchor="middle" font-size="10" fill="#1E40AF" font-weight="600">0%</text>
+  <path d="M 75 48 Q 200 25 320 48" fill="none" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4"/>
+  <text x="200" y="40" text-anchor="middle" font-size="9" fill="#3B82F6">Aller (0% → 100%)</text>
+  <path d="M 320 62 Q 200 85 75 62" fill="none" stroke="#EC4899" stroke-width="2" stroke-dasharray="4"/>
+  <text x="200" y="80" text-anchor="middle" font-size="9" fill="#EC4899">Retour (100% → 0%)</text>
+  <circle cx="345" cy="55" r="16" fill="#FCE7F3" stroke="#EC4899" stroke-width="2"/>
+  <text x="345" y="59" text-anchor="middle" font-size="10" fill="#9D174D" font-weight="600">100%</text>
+</svg>

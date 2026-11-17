@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 130" font-family="Inter, sans-serif">
+  <rect x="5" y="5" width="390" height="120" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="200" y="24" text-anchor="middle" font-size="11" fill="#64748B" font-weight="600">box-shadow: 5px 10px 15px rgba(0,0,0,0.3);</text>
+  <rect x="50" y="40" width="100" height="50" rx="6" fill="#fff" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="100" y="70" text-anchor="middle" font-size="11" fill="#1E40AF" font-weight="600">Boîte</text>
+  <rect x="58" y="52" width="100" height="50" rx="6" fill="#000" opacity="0.2"/>
+  <text x="230" y="52" font-size="10" fill="#334155">• <strong>5px</strong> : Décalage X (droite)</text>
+  <text x="230" y="70" font-size="10" fill="#334155">• <strong>10px</strong> : Décalage Y (bas)</text>
+  <text x="230" y="88" font-size="10" fill="#334155">• <strong>15px</strong> : Rayon de flou (blur)</text>
+  <text x="230" y="106" font-size="10" fill="#334155">• Couleur de l'ombre</text>
+</svg>

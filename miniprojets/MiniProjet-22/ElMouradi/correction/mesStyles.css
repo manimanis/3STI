@@ -1,0 +1,197 @@
+/* ==========================================================================
+   Correction Devoir de Contrôle N°1 (3SI1 - Lycée Hammam Sousse 1)
+   Mme MSOLLY HAJER - 2026/2027
+   Fichier de styles : mesStyles.css
+   ========================================================================== */
+
+/* 1-b) Mises en forme de l'entête (header) */
+header {
+  height: 120px;
+  background-color: #053860;
+  box-sizing: border-box;
+}
+
+header h1 {
+  text-transform: capitalize;
+  padding-top: 30px;
+  padding-left: 30px;
+  text-align: center;
+  font-size: 30px;
+  color: #c6d6eb;
+  margin: 0;
+}
+
+header img {
+  margin-top: 30px;
+  margin-right: 100px;
+  float: right;
+}
+
+/* 1-b) Mises en forme du volet de navigation (nav) et des liens */
+nav {
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+nav a {
+  display: inline-block;
+  width: 150px;
+  height: 30px;
+  text-decoration: none;
+  padding-top: 5px;
+  margin-right: 20px;
+  border: 3px solid white;
+  background-color: #4da5e9;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* 1-b) Mises en forme du contenu principal (main, section, aside, iframe, video) */
+main {
+  width: 100%;
+  height: 480px;
+  box-sizing: border-box;
+}
+
+section {
+  width: 70%;
+  height: 100%;
+  float: left;
+  box-sizing: border-box;
+}
+
+aside {
+  width: 30%;
+  height: 100%;
+  float: right;
+  box-sizing: border-box;
+}
+
+iframe, video {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+  display: block;
+}
+
+/* 1-b) Mises en forme du pied de page (footer) */
+footer {
+  width: 100%;
+  height: 80px;
+  background-color: #053860;
+  color: #c6d6eb;
+  font-weight: bold;
+  font-style: italic;
+  clear: both;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 5px;
+}
+
+footer p {
+  margin: 5px 0;
+  padding-top: 5px;
+}
+
+footer img {
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+/* 2-b) Mises en forme de la page Album photo (photo.html) */
+.photo, figure img {
+  width: 140px;
+  height: 140px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.photo:hover, figure img:hover {
+  transform: scale(1.5);
+  z-index: 10;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+figure {
+  margin-top: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+
+figcaption {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #053860;
+}
+
+/* 4-b) Mises en forme de la page Réservation (Réservation.html) */
+label {
+  display: inline-block;
+  width: 150px;
+  height: 30px;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+/* Libellés courts pour boutons radio et cases à cocher */
+label.radio-inline, label.checkbox-inline {
+  width: auto;
+  font-weight: normal;
+  margin-right: 15px;
+  margin-left: 4px;
+}
+
+fieldset {
+  border: 3px double #8484ee;
+  border-radius: 6px;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+}
+
+legend {
+  font-style: italic;
+  font-weight: bold;
+  color: #053860;
+  padding: 0 8px;
+}
+
+/* Boutons d'action */
+input[type="submit"], input[type="reset"], button.action-btn {
+  box-shadow: 5px 5px blue;
+  margin-left: 20px;
+  padding: 6px 18px;
+  font-weight: bold;
+  border: 1px solid #053860;
+  background-color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+  background-color: #053860;
+  color: #ffffff;
+}
+
+/* Conteneur pour les boutons */
+.boutons-container, .btn-container {
+  text-align: right;
+  margin-top: 15px;
+}
+
+/* Styles de base fournis dans le sujet initial */
+body {
+  background-color: #c6d6eb;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
