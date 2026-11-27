@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" width="760" height="250" role="img" aria-label="Exercice 3 — Un div qui change de couleur, de taille et de texte">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#1e293b"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#818cf8"/></marker>
+  </defs>
+  <rect width="760" height="250" rx="12" fill="url(#bg)" stroke="#334155" stroke-width="1.5"/>
+  <rect x="0" y="0" width="760" height="38" rx="12" fill="#1e1b4b"/><rect x="0" y="24" width="760" height="14" fill="#1e1b4b"/>
+  <text x="18" y="24" fill="#c7d2fe" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="14" font-weight="700">Exercice 3 — Un div qui change de couleur, de taille et de texte</text>
+
+  <rect x="16" y="52" width="320" height="182" rx="9" fill="#172554" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="16" y="52" width="320" height="26" rx="9" fill="#1d4ed8"/><rect x="16" y="66" width="320" height="12" fill="#1d4ed8"/>
+  <text x="176" y="70" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">RÉGLAGES DU FORMULAIRE</text>
+
+  <rect x="30" y="90" width="292" height="28" rx="5" fill="#0f172a" stroke="#60a5fa"/>
+  <text x="40" y="109" fill="#fbbf24" font-family="Consolas, monospace" font-size="12.5">texte : "Vive le JavaScript"</text>
+  <text x="30" y="138" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12.5">Couleur : ( ) Rouge  ( ) Vert  (•) Bleu</text>
+  <text x="30" y="160" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12.5">Taille :  ( ) Petit  ( ) Moyen (•) Grand (28px)</text>
+  <rect x="30" y="174" width="14" height="14" rx="3" fill="#3b82f6" stroke="#93c5fd"/><path d="M33 181 l3 3 l5 -6" stroke="#fff" stroke-width="2" fill="none"/>
+  <text x="52" y="185" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12.5">Texte en gras (coché)</text>
+  <rect x="30" y="198" width="100" height="26" rx="6" fill="#4f46e5"/><text x="80" y="215" text-anchor="middle" fill="#fff" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">Appliquer</text>
+
+  <line x1="342" y1="143" x2="384" y2="143" stroke="#818cf8" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="392" y="52" width="352" height="182" rx="9" fill="#1e1b4b" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="392" y="52" width="352" height="26" rx="9" fill="#059669"/><rect x="392" y="66" width="352" height="12" fill="#059669"/>
+  <text x="568" y="70" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">APERÇU (&lt;div id="apercu"&gt;)</text>
+
+  <rect x="414" y="102" width="308" height="72" rx="6" fill="#f2f2f2" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="430" y="146" fill="#0000ff" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">Vive le JavaScript</text>
+
+  <text x="414" y="200" fill="#a7f3d0" font-family="Consolas, monospace" font-size="11.5">color="blue", fontSize="28px", fontWeight="bold"</text>
+  <text x="414" y="218" fill="#a7f3d0" font-family="Consolas, monospace" font-size="11.5">backgroundColor="#f2f2f2", padding="12px"</text>
+</svg>

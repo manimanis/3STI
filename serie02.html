@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Série 2 JavaScript : Formulaires et div</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span
+            class="brand-text">Conception Web</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>JavaScript — Série d'exercices n°2 : Formulaires et &lt;div&gt;</h1>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 1 : PRÉSENTATION -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Présentation</h2>
+
+      <section>
+        <h3>Pourquoi cette séance ?</h3>
+
+        <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+          <span class="badge bg-primary fs-6">Classe : 3e info</span>
+          <span class="badge bg-info text-dark fs-6">Durée : 2 heures</span>
+          <span class="badge bg-secondary fs-6">Séance 3 — 6 exercices progressifs</span>
+        </div>
+
+        <p>
+          Jusqu'ici, vous entriez les données avec <code>prompt()</code> et vous répondiez avec <code>alert()</code>.
+          C'était une bonne première étape, mais ce n'est pas ainsi qu'une vraie page web fonctionne. Aujourd'hui, vous
+          franchissez un cap : l'utilisateur écrit <strong>dans la page</strong> (un formulaire :
+          <code>&lt;form&gt;</code>) et le résultat s'affiche <strong>dans la page</strong> (un
+          <code>&lt;div&gt;</code>).
+        </p>
+
+        <p>
+          Rassurez-vous : vous gardez tout ce que vous savez déjà — variables, <code>Number()</code>,
+          <code>if / else</code>, boucles, fonctions et <code>Math.trunc()</code>. Vous ajoutez une seule idée
+          nouvelle, en deux moitiés faciles à retenir :
+        </p>
+        <ul>
+          <li><strong>Lire :</strong> accéder à un composant de formulaire pour récupérer sa valeur.</li>
+          <li><strong>Écrire :</strong> accéder aux propriétés d'un <code>&lt;div&gt;</code> pour y afficher un texte
+            et changer son apparence.</li>
+        </ul>
+
+        <h4>Objectifs de la séance</h4>
+        <ul>
+          <li>Retrouver un élément de la page grâce à son <code>id</code> avec
+            <code>document.getElementById("...")</code>.</li>
+          <li>Créer un formulaire avec la balise <code>&lt;form&gt;</code>, puis lire la valeur de ses composants :
+            champ texte, nombre ou date, liste déroulante, bouton radio, case à cocher.</li>
+          <li>Convertir une valeur lue en nombre avec <code>Number()</code> avant tout calcul.</li>
+          <li>Afficher un résultat dans un <code>&lt;div&gt;</code> avec <code>innerHTML</code>, avec ou sans balises
+            comme <code>&lt;br&gt;</code>.</li>
+          <li>Modifier l'apparence d'un <code>&lt;div&gt;</code> : <code>style.color</code>,
+            <code>style.backgroundColor</code>, <code>style.fontSize</code>, <code>style.display</code>, et réagir au
+            clic sur un bouton avec une fonction.</li>
+        </ul>
+
+        <h4>Déroulé conseillé (2 heures)</h4>
+        <div class="table-responsive mb-3">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 18%;">Temps</th>
+                <th style="width: 28%;">Étape</th>
+                <th>Contenu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0 - 10 min</td>
+                <td>Rappel et démonstration</td>
+                <td>Un champ, un bouton, un div, un script.</td>
+              </tr>
+              <tr>
+                <td>10 - 30 min</td>
+                <td>Cours express</td>
+                <td>Les composants, la lecture des valeurs, les propriétés d'un div.</td>
+              </tr>
+              <tr>
+                <td>30 - 55 min</td>
+                <td>Exercice 1 — Calculatrice</td>
+                <td>Deux nombres, un opérateur en boutons radio, le résultat dans un div.</td>
+              </tr>
+              <tr>
+                <td>55 - 80 min</td>
+                <td>Exercices 2 et 3</td>
+                <td>Le formulaire nom et date de naissance, puis le div personnalisé.</td>
+              </tr>
+              <tr>
+                <td>80 - 105 min</td>
+                <td>Exercices 4 et 5</td>
+                <td>Convertisseur (liste déroulante) ; table générée dans un div.</td>
+              </tr>
+              <tr>
+                <td>105 - 120 min</td>
+                <td>Exercice 6 et bilan</td>
+                <td>Mini-projet d'inscription en binôme, puis erreurs fréquentes.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert alert-primary mb-0">
+          <strong>Suivez bien l'ordre de la séance :</strong> vous commencez par calculer (exercice 1), avec des nombres
+          que vous connaissez déjà. Vous passez ensuite aux personnes (nom et date de naissance, exercice 2), puis à
+          l'apparence de la page elle-même (exercice 3).
+        </div>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 2 : COURS EXPRESS -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Cours express</h2>
+
+      <!-- Section 2.1 -->
+      <section>
+        <h3>1. Structure d'une page et composants de formulaire</h3>
+
+        <p>
+          Toutes les pages de cette fiche suivent le même plan simple : d'abord les composants, regroupés dans un
+          formulaire <code>&lt;form&gt;</code>, ensuite le script qui lit, calcule et affiche.
+        </p>
+
+        <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;meta charset="utf-8"&gt;&lt;title&gt;Ma page&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- 1. Les composants : ce que l'utilisateur remplit --&gt;
+  &lt;form&gt;
+    &lt;input type="number" id="n1"&gt;
+    &lt;button onclick="traiter()"&gt;Valider&lt;/button&gt;
+    &lt;div id="resultat"&gt;&lt;/div&gt;
+  &lt;/form&gt;
+  &lt;script&gt;
+    // 2. Le script : il lit, il traite, il affiche
+    function traiter() {
+      let n = Number(document.getElementById("n1").value);
+      document.getElementById("resultat").innerHTML = "Le double : " + (n * 2);
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <div class="alert alert-warning my-3">
+          <strong>Le point clé de la séance :</strong> le lien entre le HTML et le JavaScript, c'est l'<code>id</code>.
+          Le nom écrit dans <code>getElementById("...")</code> doit être <strong>exactement</strong> celui de
+          l'attribut <code>id</code>.
+        </div>
+
+        <h4>Les composants de formulaire à connaître</h4>
+        <div class="table-responsive mb-3">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 20%;">Composant</th>
+                <th style="width: 40%;">Code HTML</th>
+                <th>À quoi il sert</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Formulaire</td>
+                <td><code>&lt;form&gt;...&lt;/form&gt;</code></td>
+                <td>Regroupe tous les composants de saisie.</td>
+              </tr>
+              <tr>
+                <td>Champ texte</td>
+                <td><code>&lt;input type="text" id="nom"&gt;</code></td>
+                <td>Saisir un texte libre (nom, ville...).</td>
+              </tr>
+              <tr>
+                <td>Champ nombre</td>
+                <td><code>&lt;input type="number" id="prix"&gt;</code></td>
+                <td>Saisir un nombre ; n'accepte que des chiffres.</td>
+              </tr>
+              <tr>
+                <td>Liste déroulante</td>
+                <td><code>&lt;select id="ville"&gt;...&lt;/select&gt;</code></td>
+                <td>Choisir une valeur dans une liste.</td>
+              </tr>
+              <tr>
+                <td>Bouton radio</td>
+                <td><code>&lt;input type="radio" name="g" id="g1" value="..."&gt;</code></td>
+                <td>Choisir une <strong>seule</strong> réponse parmi plusieurs ; chaque bouton a son <code>id</code>.</td>
+              </tr>
+              <tr>
+                <td>Case à cocher</td>
+                <td><code>&lt;input type="checkbox" id="accord"&gt;</code></td>
+                <td>Répondre oui ou non (coché / non coché).</td>
+              </tr>
+              <tr>
+                <td>Bouton</td>
+                <td><code>&lt;button onclick="f()"&gt;Clic&lt;/button&gt;</code></td>
+                <td>Déclencher la fonction <code>f()</code> au clic.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Les boutons radio : la règle du groupe</h4>
+        <p>
+          Tous les boutons d'un même groupe portent le <strong>même attribut <code>name</code></strong> : un seul peut
+          alors être coché à la fois. Chacun a son <code>value</code> et son propre <code>id</code> : c'est cet
+          <code>id</code> qui vous permettra de tester, avec <code>.checked</code>, quel bouton est coché. L'attribut
+          <code>checked</code> coche l'un d'eux dès l'ouverture.
+        </p>
+        <pre><code class="html">&lt;input type="radio" name="op" id="opPlus" value="+" checked&gt; Addition
+&lt;input type="radio" name="op" id="opMoins" value="-"&gt; Soustraction</code></pre>
+      </section>
+
+      <!-- Section 2.2 -->
+      <section>
+        <h3>2. Lire la valeur d'un composant</h3>
+
+        <p>
+          La forme générale est toujours la même : vous retrouvez le composant par son <code>id</code>, puis vous lisez
+          la propriété qui contient sa réponse.
+        </p>
+        <pre><code class="javascript">document.getElementById("idDuComposant").value</code></pre>
+
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 34%;">On veut lire...</th>
+                <th>On écrit...</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Un champ texte ou nombre</td>
+                <td><code>document.getElementById("nom").value</code></td>
+              </tr>
+              <tr>
+                <td>La valeur choisie dans une liste déroulante</td>
+                <td><code>document.getElementById("ville").value</code></td>
+              </tr>
+              <tr>
+                <td>Si une case est cochée (<code>true</code> / <code>false</code>)</td>
+                <td><code>document.getElementById("accord").checked</code></td>
+              </tr>
+              <tr>
+                <td>Quel bouton radio est coché dans un groupe</td>
+                <td>Testez chaque bouton par son <code>id</code> avec <code>.checked</code> :<br>
+                  <code>if (document.getElementById("g2").checked) { choix = document.getElementById("g2").value; }</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert alert-warning my-3">
+          <strong>Attention, piège n°1 :</strong> <code>.value</code> donne <strong>toujours une chaîne de
+            caractères</strong>, même pour un champ nombre. <code>"17" + "5"</code> donne <code>"175"</code>, pas
+          <code>22</code>. Avant tout calcul, convertissez toujours :
+          <code>let a = Number(document.getElementById("n1").value);</code>
+        </div>
+
+        <h4>La liste déroulante en détail</h4>
+        <pre><code class="html">&lt;form&gt;
+  &lt;select id="ville"&gt;
+    &lt;option value="Sousse"&gt;Sousse&lt;/option&gt;
+    &lt;option value="Tunis"&gt;Tunis&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/form&gt;</code></pre>
+        <p>
+          Ce que lit le script, c'est l'attribut <code>value</code> de l'option choisie. Le <code>value</code> et le
+          texte affiché peuvent être différents : <code>&lt;option value="TN"&gt;Tunisie&lt;/option&gt;</code> affiche
+          « Tunisie » et le script lit <code>"TN"</code>.
+        </p>
+
+        <h4>Le schéma complet d'un traitement</h4>
+        <div class="table-responsive my-3">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th>Étape</th>
+                <th>Question à se poser</th>
+                <th>Ligne type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1. Retrouver</td>
+                <td>Quel est l'<code>id</code> du composant ?</td>
+                <td><code>document.getElementById("naissance")</code></td>
+              </tr>
+              <tr>
+                <td>2. Lire</td>
+                <td>Texte, nombre ou case cochée ?</td>
+                <td><code>.value</code>, <code>Number(...)</code>, <code>.checked</code></td>
+              </tr>
+              <tr>
+                <td>3. Traiter</td>
+                <td>Calcul, test ou boucle ?</td>
+                <td><code>if</code>, <code>for</code>, opérations habituelles</td>
+              </tr>
+              <tr>
+                <td>4. Afficher</td>
+                <td>Où et comment afficher le résultat ?</td>
+                <td><code>innerHTML</code> dans le div, puis <code>style</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Le champ date en détail (pour l'exercice 2)</h4>
+        <pre><code class="html">&lt;form&gt;&lt;input type="date" id="naissance"&gt;&lt;/form&gt;
+&lt;script&gt;
+  let naissance = new Date(document.getElementById("naissance").value);
+  let auj = new Date(); // la date du jour
+&lt;/script&gt;</code></pre>
+        <p class="mb-0">
+          La valeur lue est une chaîne au format <code>« AAAA-MM-JJ »</code>, vide si aucune date n'a été choisie.
+          <code>new Date(...)</code> la transforme en vraie date, dont on extrait l'année par
+          <code>getFullYear()</code>, le mois par <code>getMonth()</code> et le jour par <code>getDate()</code>. Pour
+          calculer un âge, procédez en deux temps : faites d'abord la différence des années, puis retirez
+          <code>1</code> si l'anniversaire n'est pas encore passé cette année.
+        </p>
+      </section>
+
+      <!-- Section 2.3 -->
+      <section>
+        <h3>3. Accéder aux propriétés d'un &lt;div&gt;</h3>
+
+        <p>
+          Un <code>&lt;div&gt;</code> est une zone vide de la page, que votre script remplit et met en forme. Vous le
+          retrouvez par son <code>id</code>, puis vous modifiez ses propriétés. Dans les exemples, <code>d</code> désigne
+          ce div :
+        </p>
+        <pre><code class="javascript">let d = document.getElementById("resultat");</code></pre>
+
+        <h4>3.1 Afficher un contenu : la propriété <code>innerHTML</code></h4>
+        <div class="table-responsive mb-3">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 24%;">Propriété</th>
+                <th style="width: 38%;">Exemple</th>
+                <th>Effet</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>innerHTML</code></td>
+                <td><code>d.innerHTML = "Bonjour";</code></td>
+                <td>Un texte simple s'affiche tel quel.</td>
+              </tr>
+              <tr>
+                <td><code>innerHTML</code> (avec balises)</td>
+                <td><code>d.innerHTML = "&lt;b&gt;Bonjour&lt;/b&gt;";</code></td>
+                <td>Balises interprétées : gras, retour à la ligne. Toujours <code>innerHTML</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>3.2 Changer l'apparence : la propriété <code>style</code></h4>
+        <div class="table-responsive mb-3">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 24%;">Propriété</th>
+                <th style="width: 38%;">Exemple</th>
+                <th>Effet</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>style.color</code></td>
+                <td><code>d.style.color = "red";</code></td>
+                <td>Couleur du texte.</td>
+              </tr>
+              <tr>
+                <td><code>style.backgroundColor</code></td>
+                <td><code>d.style.backgroundColor = "#ffe9a8";</code></td>
+                <td>Couleur de fond de la zone.</td>
+              </tr>
+              <tr>
+                <td><code>style.fontSize</code></td>
+                <td><code>d.style.fontSize = "20px";</code></td>
+                <td>Taille du texte (ne pas oublier <code>px</code>).</td>
+              </tr>
+              <tr>
+                <td><code>style.fontWeight</code></td>
+                <td><code>d.style.fontWeight = "bold";</code></td>
+                <td>Texte en gras.</td>
+              </tr>
+              <tr>
+                <td><code>style.textAlign</code></td>
+                <td><code>d.style.textAlign = "center";</code></td>
+                <td>Alignement : <code>left</code>, <code>center</code>, <code>right</code>.</td>
+              </tr>
+              <tr>
+                <td><code>style.padding</code></td>
+                <td><code>d.style.padding = "10px";</code></td>
+                <td>Espace intérieur autour du texte.</td>
+              </tr>
+              <tr>
+                <td><code>style.border</code></td>
+                <td><code>d.style.border = "2px solid blue";</code></td>
+                <td>Bordure : épaisseur, style, couleur.</td>
+              </tr>
+              <tr>
+                <td><code>style.display</code></td>
+                <td><code>d.style.display = "none";</code></td>
+                <td><code>"none"</code> cache la zone ; <code>"block"</code> la réaffiche.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert alert-warning mb-3">
+          <strong>Attention, piège n°2 :</strong> les noms composés s'écrivent sans tiret et avec une majuscule :
+          <code>backgroundColor</code>, <code>fontSize</code>, <code>textAlign</code>. Écrire
+          <code>background-color</code> dans un script est une erreur.
+        </div>
+
+        <div class="alert alert-secondary mb-3">
+          <strong>Réflexe à garder pour tous les exercices :</strong> 1) retrouvez les composants par leur
+          <code>id</code> ; 2) lisez leurs valeurs (avec <code>Number()</code> si c'est un nombre) ; 3) calculez ou
+          testez ; 4) affichez dans le div et réglez son <code>style</code>.
+        </div>
+
+        <div class="card border-info">
+          <div class="card-header bg-info bg-opacity-25 fw-bold">Mini-test éclair (à l'oral, 2 minutes)</div>
+          <div class="card-body">
+            <ol class="mb-2">
+              <li>Quelle ligne lit le nombre écrit dans le champ d'id <code>taille</code> ?</li>
+              <li>Quelle propriété faut-il utiliser pour qu'un <code>&lt;br&gt;</code> crée vraiment une nouvelle ligne
+                dans le div ?</li>
+              <li>Comment cache-t-on le div d'id <code>msg</code>, puis comment le réaffiche-t-on ?</li>
+            </ol>
+            <p class="text-muted small mb-0">
+              <strong>Réponses :</strong> 1) <code>Number(document.getElementById("taille").value)</code> — 2)
+              <code>innerHTML</code> — 3) <code>style.display = "none"</code> puis <code>"block"</code>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 3 : EXERCICE 1 -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Exercice 1</h2>
+
+      <section>
+        <h3>Exercice 1 : La calculatrice à boutons radio</h3>
+
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <span class="badge bg-info text-dark">Découverte guidée</span>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              À vous de construire, pas à pas, une calculatrice complète dans la page. L'utilisateur saisit deux nombres,
+              choisit l'opération, clique, et le résultat s'affiche dans un div. Ce premier exercice est fait pour vous
+              rassurer : vous utilisez uniquement des nombres et des opérations déjà connus, avec deux nouveautés
+              seulement : trouver le bouton radio coché et écrire dans un div.
+            </p>
+
+            <h5>Les composants de la page, à placer entre <code>&lt;form&gt;</code> et <code>&lt;/form&gt;</code> :</h5>
+            <ul>
+              <li>deux champs nombre, d'<code>id</code> <code>n1</code> et <code>n2</code> ;</li>
+              <li>quatre boutons radio de <code>name</code> <code>op</code>, d'<code>id</code> <code>opPlus</code>,
+                <code>opMoins</code>, <code>opFois</code> et <code>opDiv</code>, de valeurs <code>+</code>,
+                <code>-</code>, <code>*</code> et <code>/</code>, affichés « Addition », « Soustraction », «
+                Multiplication », « Division » ; le bouton <code>+</code> porte l'attribut <code>checked</code> ;</li>
+              <li>un bouton « Calculer » qui appelle la fonction <code>calculer()</code> ;</li>
+              <li>un div d'<code>id</code> <code>resultat</code>.</li>
+            </ul>
+
+            <h5>Travail demandé — suivez les étapes dans l'ordre, chacune prépare la suivante :</h5>
+            <ol>
+              <li>Dans la fonction, commencez par lire les deux nombres avec <code>Number()</code>. Trouvez ensuite
+                l'opérateur choisi : testez <code>.checked</code> de chaque bouton radio par son <code>id</code>, un par
+                un — le bouton coché est celui que l'utilisateur a choisi, et son <code>value</code> vous donne
+                l'opérateur.</li>
+              <li>Calculer le résultat selon l'opérateur, avec un <code>if / else if</code> à quatre branches.</li>
+              <li>Affichez dans le div, avec <code>innerHTML</code>, l'opération complète et son résultat, par exemple :
+                <code>« 17 + 5 = 22 »</code>.</li>
+              <li>Mettre le div en gras, avec un <code>padding</code> de <code>10px</code> et un fond bleu clair.</li>
+              <li>Cas particulier : si l'opérateur est <code>/</code> et que le deuxième nombre vaut <code>0</code>,
+                afficher à la place, en rouge : <code>« Division par zéro impossible. »</code> (et remettre le fond du
+                div en rouge très clair).</li>
+            </ol>
+
+            <div class="alert alert-success mb-3">
+              <strong>Tests à réussir — vérifiez-les un par un :</strong> <code>17</code> et <code>5</code> donnent
+              <code>22</code> (addition), <code>12</code> (soustraction), <code>85</code> (multiplication) et
+              <code>3,4</code> (division). Avec <code>17</code>, <code>0</code> et la division choisie, le message rouge
+              s'affiche.
+            </div>
+
+            <div class="alert alert-info mb-3">
+              <strong>Ce que voit l'utilisateur :</strong> deux cases pour les nombres, quatre ronds pour choisir
+              l'opération, un bouton, puis la réponse écrite dans la page. Aucun <code>prompt()</code>, aucun
+              <code>alert()</code> : tout se passe dans la page, comme dans une vraie calculatrice en ligne.
+            </div>
+
+            <div class="alert alert-warning mb-0">
+              Si la somme affiche <code>175</code> au lieu de <code>22</code> : c'est le piège n°1. Les deux valeurs
+              sont restées des chaînes de caractères. Vérifiez d'abord les deux <code>Number()</code> avant de chercher
+              ailleurs : neuf fois sur dix, l'erreur est là.
+            </div>
+          </div>
+        </div>
+
+        <figure class="my-3 text-center">
+          <img src="images/serie02/ex01.svg" alt="Illustration Exercice 1 : La calculatrice à boutons radio"
+            class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de formulaire et résultat attendu — Exercice 1</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 4 : EXERCICES 2 ET 3 -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Exercices 2 &amp; 3</h2>
+
+      <!-- Exercice 2 -->
+      <section>
+        <h3>Exercice 2 : Le formulaire nom et date de naissance</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              Après les nombres, les personnes, en douceur : vous ne demandez plus l'âge, mais la <strong>date de
+                naissance</strong> : c'est votre script qui calcule l'âge. La page contient un formulaire
+              (<code>&lt;form&gt;...&lt;/form&gt;</code>) avec un champ texte d'<code>id</code> <code>nom</code>, un
+              champ date d'<code>id</code> <code>naissance</code>, un bouton « Présenter » et un div d'<code>id</code>
+              <code>presentation</code>.
+            </p>
+            <ol>
+              <li>Au clic, lire le nom (texte, sans conversion) et la date de naissance (chaîne « AAAA-MM-JJ », vide si
+                aucune date n'a été choisie).</li>
+              <li>Si le nom est vide ou si la date est vide, afficher uniquement, en rouge :
+                <code>« Écrivez votre nom et votre date de naissance. »</code></li>
+              <li>Sinon, calculer l'âge : transformer la chaîne en date avec <code>new Date(...)</code>, prendre la date
+                du jour avec <code>new Date()</code>, faire la différence des années (<code>getFullYear()</code>), puis
+                retirer <code>1</code> si l'anniversaire n'est pas encore passé cette année.</li>
+              <li>Afficher dans le div, sur trois lignes grâce à <code>innerHTML</code> et <code>&lt;br&gt;</code> :
+                <code>« Bonjour, je m'appelle [nom] et j'ai [âge] ans. »</code>, puis
+                <code>« L'an prochain, j'aurai [âge + 1] ans. »</code>, puis <code>« Je suis mineur. »</code> si l'âge
+                calculé est inférieur à <code>18</code>, <code>« Je suis majeur. »</code> sinon.</li>
+            </ol>
+
+            <div class="alert alert-success mb-0">
+              <strong>Le piège de l'anniversaire :</strong> né le 15 décembre 2012, on a encore 13 ans fin novembre
+              2026, et non 14 : <code>2026 - 2012 = 14</code> surestime l'âge tant que l'anniversaire n'est pas passé.
+              <br><strong>Tests (fin novembre 2026) :</strong> « Lina », née le 15 mars 2013, donne <code>13</code> ans,
+              <code>« Je suis mineur. »</code> et <code>« L'an prochain, j'aurai 14 ans. »</code>. Née le 10 janvier
+              2006, elle a <code>20</code> ans : <code>« Je suis majeur. »</code>.
+            </div>
+          </div>
+        </div>
+
+        <figure class="my-3 text-center">
+          <img src="images/serie02/ex02.svg" alt="Illustration Exercice 2 : Formulaire nom et date de naissance"
+            class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de saisie et résultat attendu — Exercice 2</figcaption>
+        </figure>
+      </section>
+
+      <!-- Exercice 3 -->
+      <section>
+        <h3>Exercice 3 : Un div qui change de couleur, de taille et de texte</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              Cette fois, le formulaire ne sert pas à calculer : il sert à commander l'apparence d'un div. La page
+              contient, dans un formulaire (<code>&lt;form&gt;...&lt;/form&gt;</code>) :
+            </p>
+            <ul>
+              <li>un champ texte d'<code>id</code> <code>texte</code> (le texte à afficher) ;</li>
+              <li>trois boutons radio de <code>name</code> <code>couleur</code>, de valeurs <code>red</code>,
+                <code>green</code> et <code>blue</code> ;</li>
+              <li>trois boutons radio de <code>name</code> <code>taille</code>, de valeurs <code>14px</code>,
+                <code>20px</code> et <code>28px</code>, affichés « Petit », « Moyen », « Grand » ;</li>
+              <li>une case à cocher d'<code>id</code> <code>gras</code> (« Texte en gras ») ;</li>
+              <li>un bouton « Appliquer » et un div d'<code>id</code> <code>apercu</code>.</li>
+            </ul>
+            <ol>
+              <li>Au clic, recopiez le texte saisi dans le div, avec <code>innerHTML</code>.</li>
+              <li>Testez <code>.checked</code> de chaque bouton, par son <code>id</code> (couleur : <code>rouge</code>,
+                <code>vert</code>, <code>bleu</code> ; taille : <code>petit</code>, <code>moyen</code>,
+                <code>grand</code>), puis appliquez la couleur (<code>style.color</code>) et la taille
+                (<code>style.fontSize</code>) au div.</li>
+              <li>Si la case est cochée, mettre le texte en gras ; sinon, le remettre en normal
+                (<code>fontWeight = "normal"</code>).</li>
+              <li>Donner au div, dans tous les cas, un fond gris très clair, un <code>padding</code> de
+                <code>12px</code> et une bordure fine.</li>
+              <li>Testez plusieurs combinaisons : changez un seul réglage à la fois et observez ce qui change dans le
+                div.</li>
+            </ol>
+
+            <div class="alert alert-success mb-0">
+              <strong>Test :</strong> texte <code>« Vive le JavaScript »</code>, couleur bleue, taille Grand, case
+              cochée : le div affiche le texte en bleu, en <code>28px</code>, en gras, sur fond gris clair.
+            </div>
+          </div>
+        </div>
+
+        <figure class="my-3 text-center">
+          <img src="images/serie02/ex03.svg" alt="Illustration Exercice 3 : Un div qui change de couleur, de taille et de texte"
+            class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de réglages et rendu du div — Exercice 3</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 5 : EXERCICES 4 ET 5 -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Exercices 4 &amp; 5</h2>
+
+      <!-- Exercice 4 -->
+      <section>
+        <h3>Exercice 4 : Convertisseur avec liste déroulante</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              La page contient, dans un formulaire (<code>&lt;form&gt;...&lt;/form&gt;</code>), un champ nombre
+              d'<code>id</code> <code>montant</code>, une liste déroulante d'<code>id</code> <code>sens</code> avec deux
+              options (<code>value="dt-eur"</code> : Dinars vers Euros ; <code>value="eur-dt"</code> : Euros vers
+              Dinars), un bouton « Convertir » et un div d'<code>id</code> <code>conv</code>. Taux fixe pour l'exercice :
+              <strong>1 euro = 3,4 dinars</strong>.
+            </p>
+            <ol>
+              <li>Lire le montant et le sens choisi, puis afficher le résultat tronqué à l'entier avec
+                <code>Math.trunc()</code> : par exemple <code>« 100 dinars = 29 euros. »</code></li>
+              <li>Centrer le texte du div, lui donner un fond bleu clair, un <code>padding</code> de <code>10px</code>
+                et une bordure bleue.</li>
+            </ol>
+            <div class="alert alert-success mb-0">
+              <strong>Tests :</strong> <code>100</code> dinars vers euros donne <code>29 euros</code>
+              (<code>100 / 3,4 = 29,41...</code> tronqué à <code>29</code>). <code>50</code> euros vers dinars donne
+              <code>170 dinars</code>.
+            </div>
+          </div>
+        </div>
+
+        <figure class="my-3 text-center">
+          <img src="images/serie02/ex04.svg" alt="Illustration Exercice 4 : Convertisseur avec liste déroulante"
+            class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de conversion et affichage — Exercice 4</figcaption>
+        </figure>
+      </section>
+
+      <!-- Exercice 5 -->
+      <section>
+        <h3>Exercice 5 : Générer une table de multiplication dans un div</h3>
+
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <span class="badge bg-warning text-dark">Approfondissement</span>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              La page contient, dans un formulaire (<code>&lt;form&gt;...&lt;/form&gt;</code>), un champ nombre
+              d'<code>id</code> <code>base</code>, un bouton « Générer » et un div d'<code>id</code> <code>table</code>.
+            </p>
+            <ol>
+              <li>Au clic, construire dans une variable chaîne la table de multiplication du nombre saisi, de
+                <code>1</code> à <code>10</code>, avec une boucle <code>for</code> : une ligne par multiplication,
+                séparées par <code>&lt;br&gt;</code>.</li>
+              <li>Commencer la chaîne par un titre en gras : <code>« Table de [base] »</code>, suivi d'un
+                <code>&lt;br&gt;</code>.</li>
+              <li>Affichez la chaîne dans le div avec <code>innerHTML</code>, et expliquez en commentaire dans le code
+                pourquoi <code>innerHTML</code> est indispensable ici : sans lui, les <code>&lt;br&gt;</code> et les
+                <code>&lt;b&gt;</code> ne créeraient ni retour à la ligne, ni gras.</li>
+              <li>Si le nombre saisi est inférieur à <code>1</code> ou supérieur à <code>20</code>, afficher uniquement,
+                en rouge : <code>« Choisissez un nombre entre 1 et 20. »</code></li>
+            </ol>
+            <div class="alert alert-success mb-0">
+              <strong>Tests :</strong> <code>base = 7</code> affiche « Table de 7 », puis <code>7 x 1 = 7</code> jusqu'à
+              <code>7 x 10 = 70</code>. <code>Base = 25</code> affiche le message rouge.
+            </div>
+          </div>
+        </div>
+
+        <figure class="my-3 text-center">
+          <img src="images/serie02/ex05.svg" alt="Illustration Exercice 5 : Générer une table de multiplication dans un div"
+            class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemples de sortie valide et d'erreur — Exercice 5</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 6 : EXERCICE 6 -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Exercice 6</h2>
+
+      <section>
+        <h3>Exercice 6 : Mini-projet — Inscription à un club</h3>
+
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <span class="badge bg-primary">Synthèse — en binôme</span>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              Dernier défi, en binôme : un club de l'établissement recrute. Vous avez déjà toutes les notions qu'il
+              faut ; ce projet les rassemble simplement. La page d'inscription contient un formulaire
+              (<code>&lt;form&gt;...&lt;/form&gt;</code>) avec :
+            </p>
+            <ul>
+              <li>un champ texte d'<code>id</code> <code>nomc</code> (nom complet) ;</li>
+              <li>un champ nombre d'<code>id</code> <code>agec</code> ;</li>
+              <li>une liste déroulante d'<code>id</code> <code>activite</code> avec trois options :
+                <code>Robotique</code>, <code>Théâtre</code>, <code>Échecs</code> ;</li>
+              <li>deux boutons radio de <code>name</code> <code>niveau</code>, d'<code>id</code> <code>niveauDeb</code>
+                et <code>niveauConf</code> : <code>Débutant</code> (coché par défaut) et <code>Confirmé</code> ;</li>
+              <li>une case à cocher d'<code>id</code> <code>reglement</code> (« J'accepte le règlement du club ») ;</li>
+              <li>un bouton « S'inscrire » et un div d'<code>id</code> <code>bilan</code>.</li>
+            </ul>
+
+            <h5>Travail demandé :</h5>
+            <ol>
+              <li>Si le nom est vide, ou si l'âge est inférieur à <code>11</code> ou supérieur à <code>19</code>, ou si
+                la case du règlement n'est pas cochée : afficher dans le div, en rouge sur fond rouge très clair, la
+                liste des problèmes détectés, un par ligne. Le script doit signaler <strong>tous</strong> les problèmes
+                présents, pas seulement le premier : utiliser trois <code>if</code> indépendants qui ajoutent chacun
+                leur ligne à une chaîne, pas un <code>else if</code>.</li>
+              <li>Sinon, afficher un résumé complet sur fond vert clair, en vert foncé, chaque information sur sa propre
+                ligne : <code>« Inscription enregistrée. / Nom : ... / Âge : ... ans. / Activité : ... / Niveau : ... »</code></li>
+              <li>Ajouter une ligne au résumé : <code>« Groupe : Junior »</code> si l'âge est inférieur à
+                <code>15</code>, <code>« Groupe : Senior »</code> sinon.</li>
+            </ol>
+
+            <div class="alert alert-success mb-3">
+              <strong>Tests :</strong> nom vide + âge <code>25</code> + case non cochée donne trois lignes de
+              problèmes. Nom <code>« Lina »</code>, âge <code>13</code>, activité <code>Échecs</code>, niveau
+              <code>Débutant</code>, case cochée donne le résumé vert avec <code>« Groupe : Junior »</code>. La même
+              inscription à <code>16</code> ans donne <code>« Groupe : Senior »</code>.
+            </div>
+
+            <div class="alert alert-warning mb-0">
+              <strong>Avant de commencer le projet :</strong> prenez deux minutes pour relire le schéma en quatre étapes
+              (retrouver, lire, traiter, afficher). Vous verrez : le projet n'utilise aucune notion nouvelle, il combine
+              simplement la calculatrice (lire et calculer), le formulaire nom et date de naissance (lire un texte et une
+              date, calculer un âge) et le div personnalisé (afficher avec un style).
+            </div>
+          </div>
+        </div>
+
+        <figure class="my-3 text-center">
+          <img src="images/serie02/ex06.svg" alt="Illustration Exercice 6 : Mini-projet Inscription à un club"
+            class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Cas d'erreur cumulée et cas d'inscription valide — Exercice 6</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 7 : AIDE & BILAN -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Aide &amp; Bilan</h2>
+
+      <section>
+        <h3>Erreurs fréquentes, aide-mémoire et bilan</h3>
+
+        <h4>Erreurs fréquentes — à vérifier par vous-même avant d'appeler le professeur</h4>
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 34%;">Symptôme</th>
+                <th>Cause probable et remède</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Les composants sont écrits en vrac dans la page</td>
+                <td>Il manque le formulaire : tout composant de saisie doit être placé entre <code>&lt;form&gt;</code> et
+                  <code>&lt;/form&gt;</code>.</td>
+              </tr>
+              <tr>
+                <td>Rien ne se passe au clic</td>
+                <td>Le nom dans <code>getElementById("...")</code> ne correspond pas à l'<code>id</code> du HTML, ou le
+                  nom de la fonction dans <code>onclick</code> est mal orthographié. Comparer lettre par lettre.</td>
+              </tr>
+              <tr>
+                <td>La somme colle les nombres (<code>17</code> et <code>5</code> donnent <code>175</code>)</td>
+                <td>Valeurs lues sans <code>Number()</code> : ce sont des chaînes. Convertir dès la lecture.</td>
+              </tr>
+              <tr>
+                <td>Le calcul se fait toujours avec le même opérateur</td>
+                <td>Un seul bouton radio a été testé, ou les boutons n'ont pas le même <code>name</code>. Testez
+                  <code>.checked</code> de chaque bouton du groupe, par son <code>id</code>, un par un.</td>
+              </tr>
+              <tr>
+                <td>Les deux boutons radio d'un groupe peuvent être cochés ensemble</td>
+                <td>Ils n'ont pas le même <code>name</code>. Le groupe se reconnaît au <code>name</code> commun.</td>
+              </tr>
+              <tr>
+                <td>Le résultat s'affiche sur une seule ligne, sans retour à la ligne</td>
+                <td>Les <code>&lt;br&gt;</code> manquent dans la chaîne affichée. Ajoutez un <code>&lt;br&gt;</code>
+                  entre chaque ligne et affichez la chaîne complète avec <code>innerHTML</code>.</td>
+              </tr>
+              <tr>
+                <td>Le style ne change pas</td>
+                <td>Nom de propriété écrit avec un tiret (<code>background-color</code>) ou valeur sans unité
+                  (<code>fontSize = "20"</code> au lieu de <code>"20px"</code>).</td>
+              </tr>
+              <tr>
+                <td>La taille du div ne change pas dans l'exercice 3</td>
+                <td>Les valeurs du groupe <code>taille</code> doivent contenir l'unité : <code>14px</code>,
+                  <code>20px</code>, <code>28px</code>. Un nombre seul ne suffit pas.</td>
+              </tr>
+              <tr>
+                <td>Le div reste invisible</td>
+                <td>Il était caché par <code>display:none</code> et le script n'a pas remis
+                  <code>display = "block"</code>.</td>
+              </tr>
+              <tr>
+                <td>Un seul problème s'affiche dans l'exercice 6</td>
+                <td>Les contrôles sont enchaînés avec <code>else if</code>. Les remplacer par des <code>if</code>
+                  indépendants qui accumulent les messages.</td>
+              </tr>
+              <tr>
+                <td>L'âge affiché a un an de trop dans l'exercice 2</td>
+                <td>L'anniversaire n'est pas encore passé cette année : la simple différence des années surestime l'âge.
+                  Retirer <code>1</code> dans ce cas.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Aide-mémoire de la séance</h4>
+        <pre><code class="javascript">&lt;form&gt; ...composants de saisie... &lt;/form&gt; // créer le formulaire qui regroupe les composants
+let x  = document.getElementById("champ").value;         // lire un champ (chaîne)
+let n  = Number(document.getElementById("champ").value); // lire un nombre
+let ok = document.getElementById("case").checked;        // lire une case (true/false)
+let r  = ""; // radio : on teste chaque bouton par son id
+if (document.getElementById("g1").checked) { r = document.getElementById("g1").value; }
+if (document.getElementById("g2").checked) { r = document.getElementById("g2").value; }
+
+let d = document.getElementById("resultat");
+d.innerHTML = "texte simple";
+d.innerHTML = "&lt;b&gt;texte&lt;/b&gt; avec &lt;br&gt; des balises";
+d.style.color = "red";
+d.style.backgroundColor = "#ffe9a8";
+d.style.fontSize = "20px";
+d.style.display = "block";</code></pre>
+
+        <h4 class="mt-4">Bilan : ce que vous savez faire maintenant</h4>
+        <ul>
+          <li>Construire une page complète : un <code>&lt;form&gt;</code> avec ses composants et son bouton, un div de
+            résultat, un script.</li>
+          <li>Lire n'importe quel composant de formulaire : champ texte, champ nombre, champ date, liste déroulante,
+            boutons radio, case à cocher.</li>
+          <li>Afficher dans un div, avec <code>innerHTML</code>, un texte simple comme un texte avec des balises
+            (<code>&lt;br&gt;</code>, <code>&lt;b&gt;</code>).</li>
+          <li>Commander l'apparence d'un div depuis un script : couleur, fond, taille, gras, alignement, bordure,
+            visibilité.</li>
+          <li>Combiner ces lectures avec ce que vous saviez déjà : <code>Number()</code>, <code>if / else</code>,
+            boucles <code>for</code>, fonctions et <code>Math.trunc()</code>.</li>
+        </ul>
+
+        <h4>Les trois gestes de la séance, dans l'ordre où vous les avez appris</h4>
+        <div class="table-responsive mb-0">
+          <table class="table table-bordered table-striped align-middle mb-0">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 24%;">Geste</th>
+                <th style="width: 26%;">Exercice</th>
+                <th>Ce qu'il prouve</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Calculer et afficher</td>
+                <td>1 — Calculatrice</td>
+                <td>Vous savez lire deux nombres et un choix radio, calculer, écrire le résultat dans un div.</td>
+              </tr>
+              <tr>
+                <td>Présenter une personne</td>
+                <td>2 — Nom et date de naissance</td>
+                <td>Vous savez lire une date, calculer un âge à partir d'elle et l'utiliser dans une phrase affichée
+                  sur plusieurs lignes.</td>
+              </tr>
+              <tr>
+                <td>Commander l'apparence</td>
+                <td>3 — Div personnalisé</td>
+                <td>Vous savez changer la couleur, la taille et le texte d'un div depuis un formulaire.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2026/2027</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
