@@ -8,7 +8,7 @@ const btnGen = document.getElementById("gen");
 const divPwd = document.getElementById("passwords");
 
 function randint(a, b) {
-  return Math.floor(a + Math.random() * (b - a + 1));
+  return Math.trunc(a + Math.random() * (b - a + 1));
 }
 
 function genPassword(chars, len) {

@@ -217,7 +217,7 @@
     for (let i = 0; i < 3; i++) {
       let g;
       do {
-        g = part.options[Math.floor(Math.random() * part.options.length)].value;
+        g = part.options[Math.trunc(Math.random() * part.options.length)].value;
       } while (ga.includes(g));
       ga.push(g);
       gagnants[i].textContent = g;

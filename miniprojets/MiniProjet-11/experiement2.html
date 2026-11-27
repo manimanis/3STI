@@ -26,7 +26,7 @@
         copieEleve['idEleve'] = idx;
         copieEleve["matiere"] = matieres[j];
         for (let k = 0; k < devoirs.length; k++) {
-          copieEleve[devoirs[k]] = Math.floor(Math.random() * 80) / 4;
+          copieEleve[devoirs[k]] = Math.trunc(Math.random() * 80) / 4;
         }
         eleves.push(copieEleve);
         idx++;

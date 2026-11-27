@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Série 1 JavaScript : Boucles, fonctions et saisie contrôlée</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span
+            class="brand-text">Conception Web</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="my-4 container">
+    <h1>JavaScript — Série d'exercices n°1 : Boucles, fonctions et saisie contrôlée</h1>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 1 : RAPPELS & OUTILS -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Rappels</h2>
+
+      <section>
+        <h3>Rappels — À lire avant de commencer</h3>
+
+        <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+          <span class="badge bg-primary fs-6">Classe : 3e info</span>
+          <span class="badge bg-info text-dark fs-6">Durée conseillée : 2 à 3 séances</span>
+          <span class="badge bg-secondary fs-6">12 exercices progressifs</span>
+        </div>
+
+        <p class="lead">
+          Les trois boucles (<code>for</code>, <code>while</code>, <code>do...while</code>), les fonctions, et les
+          fonctions <code>Number</code>, <code>prompt</code>, <code>alert</code> et <code>Math.trunc</code>.
+        </p>
+
+        <div class="alert alert-secondary mb-4">
+          Cette série se travaille dans l'ordre : chaque partie ajoute un outil, et le problème final (exercice 12) les
+          utilise tous. Pour chaque exercice, on écrit le programme complet, puis on le teste avec l'exemple donné
+          avant de passer au suivant.
+        </div>
+
+        <h4>Saisie et affichage</h4>
+        <p>
+          <code>prompt("message")</code> affiche une fenêtre de saisie et renvoie <strong>toujours une chaîne de
+            caractères</strong>, même si l'utilisateur tape un nombre. <code>Number(...)</code> convertit cette chaîne
+          en nombre. <code>alert("message")</code> affiche un message, sans rien renvoyer.
+        </p>
+
+        <div class="alert alert-danger shadow-sm mb-4">
+          <strong>Le piège classique :</strong> sans <code>Number()</code>, l'opération
+          <code>"3" + "4"</code> donne <code>"34"</code> (concaténation), et non <code>7</code>.
+        </div>
+
+        <h4>Tableau récapitulatif des outils</h4>
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th style="width: 28%;">Outil</th>
+                <th>Rôle et exemple</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>Math.trunc(x)</code></td>
+                <td>Renvoie la partie entière de <code>x</code>, en coupant vers zéro :
+                  <code>Math.trunc(12.75)</code> vaut <code>12</code> et <code>Math.trunc(-12.75)</code> vaut
+                  <code>-12</code>. La partie décimale s'obtient par <code>x - Math.trunc(x)</code>.
+                </td>
+              </tr>
+              <tr>
+                <td><code>for (let i = 1; i &lt;= n; i++)</code></td>
+                <td>Boucle à compteur : on l'utilise quand le nombre de répétitions est connu avant de commencer.</td>
+              </tr>
+              <tr>
+                <td><code>while (condition)</code></td>
+                <td>La condition est testée avant chaque tour : si elle est fausse dès le départ, le corps ne s'exécute
+                  jamais.</td>
+              </tr>
+              <tr>
+                <td><code>do { ... } while (condition);</code></td>
+                <td>La condition est testée après chaque tour : le corps s'exécute au moins une fois. C'est la boucle du
+                  contrôle de saisie.</td>
+              </tr>
+              <tr>
+                <td><code>function nom(a, b) { ... return ...; }</code></td>
+                <td>Une fonction reçoit des paramètres, fait un travail et renvoie un résultat avec <code>return</code>.
+                  Elle s'utilise ensuite autant de fois qu'on veut, sans recopier son code.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert alert-primary shadow-sm mb-4">
+          <strong>Règle de la série :</strong> dans tous les exercices, toute saisie numérique doit être convertie avec
+          <code>Number()</code> et, quand l'énoncé impose un domaine (par exemple un nombre strictement positif),
+          contrôlée avec une boucle <code>do...while</code> qui redemande la saisie tant qu'elle n'est pas valable.
+        </div>
+
+        <div class="card border-info">
+          <div class="card-header bg-info bg-opacity-25 fw-bold">Répartition des exercices</div>
+          <div class="card-body">
+            <ul class="mb-0">
+              <li><strong>Partie A :</strong> saisie et <code>Math.trunc</code> (ex. 1 à 3)</li>
+              <li><strong>Partie B :</strong> boucle <code>for</code> (ex. 4 et 5)</li>
+              <li><strong>Partie C :</strong> boucle <code>while</code> (ex. 6 et 7)</li>
+              <li><strong>Partie D :</strong> boucle <code>do...while</code> (ex. 8 et 9)</li>
+              <li><strong>Partie E :</strong> fonctions (ex. 10 et 11)</li>
+              <li><strong>Partie F :</strong> problème de synthèse (ex. 12)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 2 : PARTIE A - SAISIE, CONVERSION ET MATH.TRUNC -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Partie A : Saisie</h2>
+
+      <!-- Exercice 1 -->
+      <section>
+        <h3>Exercice 1 : Décomposer un nombre décimal</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>Écrire un programme qui :</p>
+            <ol>
+              <li>saisit un nombre décimal <code>x</code> (par exemple un prix) ;</li>
+              <li>calcule sa partie entière à l'aide de <code>Math.trunc()</code> et sa partie décimale ;</li>
+              <li>affiche les deux parties, puis le double de la partie entière.</li>
+            </ol>
+            <div class="alert alert-success mb-0">
+              <strong>Test :</strong> pour <code>x = 12.75</code>, le programme affiche une partie entière de
+              <code>12</code>, une partie décimale de <code>0.75</code> et un double de <code>24</code>.
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex01.svg" alt="Illustration Exercice 1 : Décomposer un nombre décimal" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 1</figcaption>
+        </figure>
+      </section>
+
+      <!-- Exercice 2 -->
+      <section>
+        <h3>Exercice 2 : Convertir une durée en heures et minutes</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              Écrire un programme qui saisit une durée totale en minutes (nombre entier strictement positif, saisie
+              contrôlée), puis calcule et affiche le nombre d'heures complètes — à l'aide de <code>Math.trunc()</code> —
+              et le nombre de minutes restantes, obtenu avec l'opérateur <code>%</code>.
+            </p>
+            <div class="alert alert-success mb-0">
+              <strong>Test :</strong> pour <code>135</code> minutes, le programme affiche :
+              <code>135 minutes = 2 h 15 min</code>.
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex02.svg" alt="Illustration Exercice 2 : Convertir une durée en heures et minutes" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 2</figcaption>
+        </figure>
+      </section>
+
+      <!-- Exercice 3 -->
+      <section>
+        <h3>Exercice 3 : Moyenne et moyenne tronquée</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              Écrire un programme qui saisit trois notes (chaque note est comprise entre <code>0</code> et
+              <code>20</code>, saisie contrôlée), calcule leur moyenne, puis affiche :
+            </p>
+            <ul>
+              <li>la moyenne exacte ;</li>
+              <li>la moyenne tronquée, obtenue avec <code>Math.trunc()</code> ;</li>
+              <li>le message <code>"Admis"</code> si la moyenne exacte est supérieure ou égale à <code>10</code>, et
+                <code>"Ajourné"</code> sinon.
+              </li>
+            </ul>
+            <div class="alert alert-success mb-0">
+              <strong>Test :</strong> pour les notes <code>12</code>, <code>15</code> et <code>9</code>, la moyenne
+              exacte vaut <code>12</code>, la moyenne tronquée vaut <code>12</code> et le message affiché est
+              <code>"Admis"</code>.
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex03.svg" alt="Illustration Exercice 3 : Moyenne et moyenne tronquée" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 3</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 3 : PARTIE B - LA BOUCLE FOR -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Partie B : for</h2>
+
+      <!-- Exercice 4 -->
+      <section>
+        <h3>Exercice 4 : Table de multiplication, somme et factorielle</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>Écrire un programme qui saisit un entier <code>n</code> strictement positif (saisie contrôlée), puis :
+            </p>
+            <ol>
+              <li>affiche la table de multiplication de <code>n</code>, de <code>1</code> à <code>10</code>, à l'aide
+                d'une boucle <code>for</code> ;</li>
+              <li>calcule, avec une deuxième boucle <code>for</code>, la somme des entiers de <code>1</code> à
+                <code>n</code> ;
+              </li>
+              <li>calcule, avec une troisième boucle <code>for</code>, la factorielle de <code>n</code> (rappel :
+                <code>5! = 1 × 2 × 3 × 4 × 5 = 120</code>) ;
+              </li>
+              <li>affiche la somme et la factorielle.</li>
+            </ol>
+            <div class="alert alert-success mb-0">
+              <strong>Test :</strong> pour <code>n = 5</code>, la somme vaut <code>15</code> et la factorielle vaut
+              <code>120</code>. Pour <code>n = 10</code>, la somme vaut <code>55</code>.
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex04.svg" alt="Illustration Exercice 4 : Table de multiplication, somme et factorielle" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 4</figcaption>
+        </figure>
+      </section>
+
+      <!-- Exercice 5 -->
+      <section>
+        <h3>Exercice 5 : Parcourir un intervalle et compter</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              Écrire un programme qui saisit un entier <code>n</code> strictement positif (saisie contrôlée), puis, avec
+              une seule boucle <code>for</code> parcourant les entiers de <code>1</code> à <code>n</code> :
+            </p>
+            <ul>
+              <li>affiche tous les nombres pairs de l'intervalle ;</li>
+              <li>compte combien il y en a ;</li>
+              <li>affiche à la fin ce nombre, ainsi que la somme des nombres pairs.</li>
+            </ul>
+            <div class="alert alert-success mb-0">
+              <strong>Test :</strong> pour <code>n = 20</code>, le programme compte <code>10</code> nombres pairs et
+              leur somme vaut <code>110</code>.
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex05.svg" alt="Illustration Exercice 5 : Parcourir un intervalle et compter" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 5</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 4 : PARTIE C - LA BOUCLE WHILE -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Partie C : while</h2>
+
+      <!-- Exercice 6 -->
+      <section>
+        <h3>Exercice 6 : Les chiffres d'un nombre</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              Écrire un programme qui saisit un entier <code>n</code> strictement positif (saisie contrôlée), puis, à
+              l'aide d'une boucle <code>while</code> qui extrait les chiffres un à un avec <code>% 10</code> et
+              <code>Math.trunc(n / 10)</code>, calcule et affiche :
+            </p>
+            <ul>
+              <li>le nombre de chiffres de <code>n</code> ;</li>
+              <li>la somme de ses chiffres ;</li>
+              <li>le nombre formé par les chiffres de <code>n</code> lus en sens inverse.</li>
+            </ul>
+            <div class="alert alert-warning">
+              <strong>Attention :</strong> la boucle détruit la valeur qu'elle traite. Penser à travailler sur une
+              <strong>copie</strong> de <code>n</code> pour pouvoir encore afficher le nombre de départ.
+            </div>
+            <div class="alert alert-success mb-0">
+              <strong>Test :</strong> pour <code>n = 4725</code>, le programme affiche <code>4</code> chiffres, une
+              somme
+              de <code>18</code> et le nombre inverse <code>5274</code>.
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex06.svg" alt="Illustration Exercice 6 : Les chiffres d'un nombre" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 6</figcaption>
+        </figure>
+      </section>
+
+      <!-- Exercice 7 -->
+      <section>
+        <h3>Exercice 7 : PGCD et puissance avec while</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <ol>
+              <li>
+                <strong>PGCD.</strong> Reprendre l'algorithme d'Euclide déjà vu : saisir deux entiers strictement
+                positifs
+                <code>a</code> et <code>b</code> (saisies contrôlées), puis calculer leur PGCD avec une boucle
+                <code>while</code> et l'opérateur <code>%</code>, et l'afficher.
+              </li>
+              <li>
+                <strong>Puissance.</strong> Dans le même programme, saisir un nombre <code>x</code> et un exposant
+                entier <code>e</code> (positif, nul ou négatif ; si <code>e &lt; 0</code>, imposer
+                <code>x != 0</code>), puis calculer <code>x</code> à la puissance <code>e</code> avec une boucle
+                <code>while</code>, sans utiliser <code>Math.pow()</code>, et afficher le résultat (pour
+                <code>e &lt; 0</code>, calculer <code>1 / x<sup>|e|</sup></code>).
+              </li>
+            </ol>
+            <div class="alert alert-success mb-0">
+              <strong>Tests :</strong> <code>PGCD(48, 18) = 6</code> ; <code>2</code> à la puissance <code>5</code>
+              vaut <code>32</code> ; tout nombre à la puissance <code>0</code> vaut <code>1</code> ;
+              <code>2</code> à la puissance <code>-3</code> vaut <code>0.125</code> (<code>1 / 8</code>).
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex07.svg" alt="Illustration Exercice 7 : PGCD et puissance avec while" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 7</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 5 : PARTIE D - LA BOUCLE DO...WHILE -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Partie D : do...while</h2>
+
+      <!-- Exercice 8 -->
+      <section>
+        <h3>Exercice 8 : Une note, sa mention, et rien d'autre</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              Écrire un programme qui demande une note tant qu'elle n'est pas comprise entre <code>0</code> et
+              <code>20</code> (boucle <code>do...while</code>), puis affiche sa mention :
+            </p>
+            <div class="table-responsive mb-3">
+              <table class="table table-bordered table-striped w-auto">
+                <thead class="table-dark">
+                  <tr>
+                    <th>Note</th>
+                    <th>Mention</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>de 0 à moins de 10</td>
+                    <td>Ajourné</td>
+                  </tr>
+                  <tr>
+                    <td>de 10 à moins de 12</td>
+                    <td>Passable</td>
+                  </tr>
+                  <tr>
+                    <td>de 12 à moins de 14</td>
+                    <td>Assez bien</td>
+                  </tr>
+                  <tr>
+                    <td>de 14 à moins de 16</td>
+                    <td>Bien</td>
+                  </tr>
+                  <tr>
+                    <td>de 16 à 20</td>
+                    <td>Très bien</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="alert alert-success mb-0">
+              <strong>Test :</strong> si l'utilisateur tape d'abord <code>25</code>, puis <code>-3</code>, puis
+              <code>13.5</code>, le programme redemande deux fois la note et affiche finalement
+              <code>"Assez bien"</code>.
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex08.svg" alt="Illustration Exercice 8 : Une note, sa mention, et rien d'autre" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 8</figcaption>
+        </figure>
+      </section>
+
+      <!-- Exercice 9 -->
+      <section>
+        <h3>Exercice 9 : Une calculatrice qui recommence</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>Écrire un programme qui, à chaque tour d'une boucle <code>do...while</code> :</p>
+            <ol>
+              <li>saisit deux nombres et un opérateur (<code>+</code>, <code>-</code>, <code>*</code> ou
+                <code>/</code>) ;
+              </li>
+              <li>affiche le résultat de l'opération — pour la division, on affichera un message d'erreur si le deuxième
+                nombre vaut <code>0</code>, au lieu du résultat ;</li>
+              <li>demande <code>"Encore un calcul ? (o/n)"</code> et recommence tant que la réponse est
+                <code>"o"</code>.
+              </li>
+            </ol>
+            <div class="alert alert-success mb-0">
+              <strong>Test :</strong> <code>7 + 3</code> affiche <code>10</code> ; répondre <code>"o"</code>, puis
+              <code>10 / 0</code> affiche le message d'erreur ; répondre <code>"n"</code> arrête le programme.
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex09.svg" alt="Illustration Exercice 9 : Une calculatrice qui recommence" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 9</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 6 : PARTIE E - LES FONCTIONS -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Partie E : Fonctions</h2>
+
+      <!-- Exercice 10 -->
+      <section>
+        <h3>Exercice 10 : Trois petites fonctions</h3>
+
+        <div class="alert alert-info mb-3">
+          Dans cette partie, le programme principal ne fait que saisir, appeler les fonctions et afficher. Tout le
+          travail se fait dans les fonctions.
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>Écrire les fonctions suivantes :</p>
+            <ul>
+              <li><code>estPair(n)</code> : renvoie <code>true</code> si <code>n</code> est pair, <code>false</code>
+                sinon ;</li>
+              <li><code>maximum(a, b)</code> : renvoie le plus grand des deux nombres, sans utiliser
+                <code>Math.max()</code> ;
+              </li>
+              <li><code>valeurAbsolue(x)</code> : renvoie la valeur absolue de <code>x</code>, sans utiliser
+                <code>Math.abs()</code>.
+              </li>
+            </ul>
+            <p>
+              Écrire ensuite le programme principal : il saisit deux nombres, affiche s'ils sont pairs ou impairs, leur
+              maximum et la valeur absolue de leur différence.
+            </p>
+            <div class="alert alert-success mb-0">
+              <strong>Test :</strong> pour <code>-8</code> et <code>5</code> : <code>-8</code> est pair,
+              <code>5</code> est impair, le maximum vaut <code>5</code> et la valeur absolue de la différence
+              (<code>-13</code>) vaut <code>13</code>.
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex10.svg" alt="Illustration Exercice 10 : Trois petites fonctions" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 10</figcaption>
+        </figure>
+      </section>
+
+      <!-- Exercice 11 -->
+      <section>
+        <h3>Exercice 11 : Un nombre est-il premier ?</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>
+              Écrire une fonction <code>estPremier(n)</code> qui renvoie <code>true</code> si <code>n</code> est un
+              nombre premier, <code>false</code> sinon.
+            </p>
+            <div class="alert alert-secondary">
+              <strong>Rappel :</strong> un nombre premier est un entier supérieur ou égal à <code>2</code> qui n'a aucun
+              diviseur autre que <code>1</code> et lui-même ; on le teste en cherchant un diviseur entre <code>2</code>
+              et <code>n - 1</code> avec une boucle <code>for</code>.
+            </div>
+            <p>
+              <strong>Programme principal :</strong> saisir un entier <code>N</code> supérieur ou égal à <code>2</code>
+              (saisie contrôlée), puis afficher tous les nombres premiers compris entre <code>2</code> et
+              <code>N</code>,
+              en appelant <code>estPremier()</code> pour chaque candidat, et afficher combien il y en a.
+            </p>
+            <div class="alert alert-success mb-0">
+              <strong>Test :</strong> pour <code>N = 20</code>, le programme affiche
+              <code>2, 3, 5, 7, 11, 13, 17, 19</code>,
+              soit <code>8</code> nombres premiers.
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex11.svg" alt="Illustration Exercice 11 : Un nombre est-il premier ?" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 11</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- ARTICLE 7 : PARTIE F - PROBLEME DE SYNTHESE & GUIDE -->
+    <!-- ================================================================= -->
+    <article>
+      <h2>Partie F : Synthèse</h2>
+
+      <!-- Exercice 12 -->
+      <section>
+        <h3>Exercice 12 : Les statistiques d'une classe</h3>
+
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <p>Un enseignant veut le bilan d'un devoir. Écrire un programme complet qui :</p>
+            <ol>
+              <li>définit une fonction <code>saisirNote()</code> qui demande une note avec une boucle
+                <code>do...while</code> tant qu'elle n'est pas entre <code>0</code> et <code>20</code>, puis la
+                renvoie ;
+              </li>
+              <li>définit une fonction <code>mention(note)</code> qui renvoie la mention selon le tableau suivant :
+                <div class="table-responsive my-2">
+                  <table class="table table-bordered table-striped w-auto mb-0">
+                    <thead class="table-dark">
+                      <tr>
+                        <th>Note</th>
+                        <th>Mention</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>de 0 à moins de 10</td>
+                        <td>Ajourné</td>
+                      </tr>
+                      <tr>
+                        <td>de 10 à moins de 12</td>
+                        <td>Passable</td>
+                      </tr>
+                      <tr>
+                        <td>de 12 à moins de 14</td>
+                        <td>Assez bien</td>
+                      </tr>
+                      <tr>
+                        <td>de 14 à moins de 16</td>
+                        <td>Bien</td>
+                      </tr>
+                      <tr>
+                        <td>de 16 à 20</td>
+                        <td>Très bien</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+              <li>saisit le nombre d'élèves <code>nb</code> (entier strictement positif, saisie contrôlée avec
+                <code>do...while</code>) ;
+              </li>
+              <li>pour chaque élève (boucle <code>for</code>), appelle <code>saisirNote()</code>, affiche sa mention, et
+                met à jour : la somme des notes, la meilleure note, la moins bonne note et le nombre d'élèves admis
+                (note supérieure ou égale à <code>10</code>) ;</li>
+              <li>à la fin, affiche la moyenne de la classe, sa valeur tronquée avec <code>Math.trunc()</code>, la
+                meilleure note, la moins bonne note, le nombre d'admis et le nombre d'ajournés.</li>
+            </ol>
+            <div class="alert alert-success mb-3">
+              <strong>Test :</strong> pour <code>5</code> élèves ayant obtenu <code>12, 8, 15.5, 10 et 4.5</code> :
+              moyenne <code>10</code>, moyenne tronquée <code>10</code>, meilleure note <code>15.5</code>, moins bonne
+              note <code>4.5</code>, <code>3</code> admis et <code>2</code> ajournés.
+            </div>
+            <div class="alert alert-warning mb-0">
+              <strong>Avant de rendre :</strong> vérifier chaque programme avec le test de son énoncé, puis avec une
+              valeur limite — <code>0</code>, <code>1</code>, une note égale à <code>10</code>, un exposant égal à
+              <code>0</code>. Un programme juste sur un seul exemple n'est pas forcément juste partout.
+            </div>
+          </div>
+        </div>
+        <figure class="my-3 text-center">
+          <img src="images/serie01/ex12.svg" alt="Illustration Exercice 12 : Les statistiques d'une classe" class="img-fluid rounded shadow-sm" style="max-width: 760px; width: 100%;">
+          <figcaption class="text-muted small mt-2">Exemple de données et résultat attendu — Exercice 12</figcaption>
+        </figure>
+      </section>
+    </article>
+  </main>
+
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée par Mohamed Anis MANI avec ♥</div>
+    <div class="text-center small">Année scolaire : 2026/2027</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

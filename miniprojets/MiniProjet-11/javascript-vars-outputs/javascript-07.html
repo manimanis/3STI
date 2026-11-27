@@ -12,9 +12,9 @@
   <script>
     // opérateur ternaire
     let s = Number(prompt("Nombre de secondes ? ", (9 * 3600 + 7 * 60 + 5)));
-    let hh = Math.floor(s / 3600);
-    let mm = Math.floor((s % 3600) / 60);
-    let ss = Math.floor(s % 60);
+    let hh = Math.trunc(s / 3600);
+    let mm = Math.trunc((s % 3600) / 60);
+    let ss = Math.trunc(s % 60);
     let heure = hh + ":" +
       (mm < 10 ? "0" : "") + mm + ":" +
       (mm < 10 ? "0" : "") + ss;

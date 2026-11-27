@@ -48,7 +48,7 @@
     val_rng.textContent = a;
 
     // choisir un nombre au hasard et l'affecter au champ "val_b"
-    const b = Math.floor(Math.random() * 51);
+    const b = Math.trunc(Math.random() * 51);
     document.f.val_b.value = b;
 
     // Afficher la valeur saisie par l'utilisateur dans l'élément "val_c"

@@ -31,8 +31,8 @@
     let timerHandle;
 
     function showTime(elapsedTime) {
-      const h = Math.floor(elapsedTime / 3600); 
-      const m = Math.floor((elapsedTime % 3600) / 60);
+      const h = Math.trunc(elapsedTime / 3600); 
+      const m = Math.trunc((elapsedTime % 3600) / 60);
       const s = elapsedTime % 60;
       hh.textContent = ((h < 10) ? "0" : "") + h;
       mm.textContent = ((m < 10) ? "0" : "") + m;
@@ -41,7 +41,7 @@
 
     function refreshTime() {
       if (!started) return;
-      elapsedTime = Math.floor((new Date().getTime() - startTime) / 1000);
+      elapsedTime = Math.trunc((new Date().getTime() - startTime) / 1000);
       showTime(elapsedTime);
     }
 

@@ -40,10 +40,10 @@ function substractDates(dt1, dt2) {
     nj += numberDays(dt1.getFullYear(), dt1.getMonth());
   }
 
-  let na = Math.floor(nm / 12);
+  let na = Math.trunc(nm / 12);
   nm = nm % 12;
 
-  const ntj = Math.floor(dt2.getTime() / (24 * 1000 * 3600)) - Math.floor(dt1.getTime() / (24 * 1000 * 3600)) + 1;
+  const ntj = Math.trunc(dt2.getTime() / (24 * 1000 * 3600)) - Math.trunc(dt1.getTime() / (24 * 1000 * 3600)) + 1;
 
   return [na, nm, nj, ntj];
 }

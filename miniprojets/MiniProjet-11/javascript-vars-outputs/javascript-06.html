@@ -36,7 +36,7 @@
 
     function toHexa(val) {
       const hexaChars = "0123456789ABCDEF";
-      return hexaChars[Math.floor(val / 16)] + hexaChars[val % 16];
+      return hexaChars[Math.trunc(val / 16)] + hexaChars[val % 16];
     }
 
     function decimalToHexa(r, g, b) {
@@ -48,9 +48,9 @@
       const col1 = hexaColorToDecimal(color1);
       const col2 = hexaColorToDecimal(color2);
       for (let i = 0; i < count; i++) {
-        const r = Math.floor((col2[0] - col1[0]) / (count - 1) * i + col1[0]);
-        const g = Math.floor((col2[1] - col1[1]) / (count - 1) * i + col1[1]);
-        const b = Math.floor((col2[2] - col1[2]) / (count - 1) * i + col1[2]);
+        const r = Math.trunc((col2[0] - col1[0]) / (count - 1) * i + col1[0]);
+        const g = Math.trunc((col2[1] - col1[1]) / (count - 1) * i + col1[1]);
+        const b = Math.trunc((col2[2] - col1[2]) / (count - 1) * i + col1[2]);
         grad.push([r, g, b]);
       }
       return grad;

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 315" width="760" height="315" role="img" aria-label="Exercice 7 — PGCD (algorithme d'Euclide) et puissance avec while">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#818cf8"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="315" rx="12" fill="url(#bg)" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="760" height="38" rx="12" fill="#1e1b4b"/>
+  <rect x="0" y="24" width="760" height="14" fill="#1e1b4b"/>
+  <text x="18" y="24" fill="#c7d2fe" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="14" font-weight="700">Exercice 7 — PGCD (algorithme d'Euclide) et puissance avec while</text>
+
+  <!-- PARTIE 1 : PGCD -->
+  <rect x="16" y="50" width="145" height="132" rx="9" fill="#172554" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="16" y="50" width="145" height="26" rx="9" fill="#1d4ed8"/>
+  <rect x="16" y="64" width="145" height="12" fill="#1d4ed8"/>
+  <text x="88" y="68" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11.5" font-weight="700">1. DONNÉES PGCD</text>
+  <text x="28" y="98" fill="#fbbf24" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="13.5" font-weight="700">a = 48, b = 18</text>
+  <text x="28" y="122" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">x = 48</text>
+  <text x="28" y="142" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">y = 18</text>
+  <text x="28" y="164" fill="#94a3b8" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11">(entiers &gt; 0)</text>
+
+  <line x1="165" y1="116" x2="185" y2="116" stroke="#818cf8" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="191" y="50" width="372" height="132" rx="9" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5"/>
+  <rect x="191" y="50" width="372" height="26" rx="9" fill="#4f46e5"/>
+  <rect x="191" y="64" width="372" height="12" fill="#4f46e5"/>
+  <text x="377" y="68" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11.5" font-weight="700">EUCLIDE : while (y != 0) → reste = x % y ; x = y ; y = reste</text>
+
+  <text x="203" y="94" fill="#a5b4fc" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11" font-weight="700">Tour</text>
+  <text x="242" y="94" fill="#a5b4fc" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11" font-weight="700">x, y</text>
+  <text x="315" y="94" fill="#a5b4fc" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11" font-weight="700">reste = x % y</text>
+  <text x="435" y="94" fill="#a5b4fc" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11" font-weight="700">nouveaux x, y</text>
+  <line x1="201" y1="100" x2="553" y2="100" stroke="#4338ca" stroke-width="1"/>
+
+  <text x="208" y="120" fill="#cbd5e1" font-family="Consolas, monospace" font-size="12">1</text>
+  <text x="242" y="120" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">48, 18</text>
+  <text x="315" y="120" fill="#fbbf24" font-family="Consolas, monospace" font-size="12">48 % 18 = 12</text>
+  <text x="435" y="120" fill="#34d399" font-family="Consolas, monospace" font-size="12">x=18, y=12</text>
+
+  <text x="208" y="143" fill="#cbd5e1" font-family="Consolas, monospace" font-size="12">2</text>
+  <text x="242" y="143" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">18, 12</text>
+  <text x="315" y="143" fill="#fbbf24" font-family="Consolas, monospace" font-size="12">18 % 12 = 6</text>
+  <text x="435" y="143" fill="#34d399" font-family="Consolas, monospace" font-size="12">x=12, y=6</text>
+
+  <text x="208" y="166" fill="#cbd5e1" font-family="Consolas, monospace" font-size="12">3</text>
+  <text x="242" y="166" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">12, 6</text>
+  <text x="315" y="166" fill="#fbbf24" font-family="Consolas, monospace" font-size="12">12 % 6  = 0</text>
+  <text x="435" y="166" fill="#f87171" font-family="Consolas, monospace" font-size="12">x=6,  y=0 (arrêt)</text>
+
+  <line x1="567" y1="116" x2="587" y2="116" stroke="#818cf8" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="593" y="50" width="151" height="132" rx="9" fill="#064e3b" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="593" y="50" width="151" height="26" rx="9" fill="#059669"/>
+  <rect x="593" y="64" width="151" height="12" fill="#059669"/>
+  <text x="668" y="68" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11.5" font-weight="700">RÉSULTAT PGCD</text>
+  <text x="605" y="106" fill="#34d399" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="13.5" font-weight="700">PGCD(48, 18)</text>
+  <text x="605" y="130" fill="#34d399" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="16" font-weight="700">= 6</text>
+  <text x="605" y="158" fill="#a7f3d0" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11.5">(dernier x avant y=0)</text>
+
+  <!-- PARTIE 2 : PUISSANCE -->
+  <rect x="16" y="196" width="145" height="104" rx="9" fill="#172554" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="28" y="218" fill="#93c5fd" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11.5" font-weight="700">2. PUISSANCE</text>
+  <text x="28" y="240" fill="#fbbf24" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="12.5" font-weight="700">base = 2, e = 5</text>
+  <text x="28" y="262" fill="#fbbf24" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="12.5" font-weight="700">base = 2, e = -3</text>
+  <text x="28" y="284" fill="#94a3b8" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11">(si e &lt; 0 : base != 0)</text>
+
+  <line x1="165" y1="248" x2="185" y2="248" stroke="#818cf8" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="191" y="196" width="372" height="104" rx="9" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="205" y="218" fill="#a5b4fc" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11.5" font-weight="700">while (k &gt; 0) → p = p * base ; k = k - 1 (avec k = |e|)</text>
+  <text x="205" y="240" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">e =  5 : 1 → 2 → 4 → 8 → 16 → 32</text>
+  <text x="205" y="262" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">e = -3 : k = 3 → p = 8, puis 1 / 8 = 0.125</text>
+  <text x="205" y="284" fill="#94a3b8" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="11">Si e == 0 : 0 tour de boucle → p reste 1</text>
+
+  <line x1="567" y1="248" x2="587" y2="248" stroke="#818cf8" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <rect x="593" y="196" width="151" height="104" rx="9" fill="#064e3b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="605" y="220" fill="#34d399" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="13" font-weight="700">2^5  = 32</text>
+  <text x="605" y="248" fill="#34d399" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="13" font-weight="700">2^-3 = 0.125</text>
+  <text x="605" y="276" fill="#a7f3d0" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="12">x^0  = 1</text>
+</svg>

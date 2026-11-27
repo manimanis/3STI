@@ -10,13 +10,13 @@
 
 <body>
   <script>
-    let a = Math.floor(Math.random() * 10);
+    let a = Math.trunc(Math.random() * 10);
     let b, u;
 
     document.writeln("<p>Cherchons un nombre ayant un chiffre d'unités = ", a, "</p>")
 
     do {
-      b = Math.floor(Math.random() * 90) + 10;
+      b = Math.trunc(Math.random() * 90) + 10;
       u = b % 10;
       if (u == a) {
         document.writeln(b, " Accepté");
@@ -27,14 +27,14 @@
     } while (u != a);
 
     {
-      let a = Math.floor(Math.random() * 10);
-      let b = Math.floor(Math.random() * 10);
+      let a = Math.trunc(Math.random() * 10);
+      let b = Math.trunc(Math.random() * 10);
       let c, sc, pa, pb;
 
       document.writeln("<p>Cherchons un nombre contenant les chiffres ", a, " et ", b, "</p>");
 
       do {
-        c = Math.floor(Math.random() * 9000) + 1000;
+        c = Math.trunc(Math.random() * 9000) + 1000;
         sc = c.toString();
         pa = sc.indexOf(a);
         pb = sc.indexOf(b);

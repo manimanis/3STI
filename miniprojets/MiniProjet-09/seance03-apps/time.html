@@ -11,8 +11,8 @@
 <script>
   const s = Number(prompt("Nombre de secondes ? ", "3661"));
 
-  const h = Math.floor(s / 3600);
-  const mm = Math.floor((s % 3600) / 60);
+  const h = Math.trunc(s / 3600);
+  const mm = Math.trunc((s % 3600) / 60);
   const ss = s % 60;
 
   const res = h + ":" +

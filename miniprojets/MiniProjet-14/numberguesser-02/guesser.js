@@ -3,7 +3,7 @@ const divMsg = document.getElementById("msg");
 const divNumGuess = document.getElementById("num-guess");
 const divLastGuess = document.getElementById("last-guess");
 
-const secret = Math.floor(Math.random() * 99) + 1;
+const secret = Math.trunc(Math.random() * 99) + 1;
 let lastGuesses = [];
 let guessCount = 0;
 let guessed = false;

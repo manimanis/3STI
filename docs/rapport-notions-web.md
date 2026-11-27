@@ -151,7 +151,7 @@ Au-delà des exigences spécifiques du programme de 3ᵉ SI, voici les notions f
 - [x] **3. Compléter [file05.html](file:///c:/xampp-school/htdocs/3STI/file05.html) (JavaScript)** — **Terminé**
   * **`document.getElementsByName("nom")`** : Ajout dans la liste des méthodes d'accès au DOM pour manipuler les collections de boutons radio.
   * **Méthodes de chaînes de caractères** : Ajout d'un tableau récapitulatif intégrant `ch.charAt(p)`, `ch.replace(ch1, ch2)`, `ch.lastIndexOf(ch1, p)`, `String.fromCharCode(code)`, `ch.toUpperCase()`, `ch.toLowerCase()` et `ch.trim()`.
-  * **Objet `Math` & arrondis** : Ajout d'une section dédiée explicitant `Math.round(N)`, `Math.trunc(N)`, `Math.floor(N)`, `Math.abs(N)` et `Math.random()`.
+  * **Objet `Math` & arrondis** : Ajout d'une section dédiée explicitant `Math.round(N)`, `Math.trunc(N)`, `Math.trunc(N)`, `Math.abs(N)` et `Math.random()`.
 
 - [x] **4. Mettre à jour les styles CSS dans [file01.html](file:///c:/xampp-school/htdocs/3STI/file01.html)** — **Terminé**
   * **Sélecteur universel `*`** : Explicitation de la syntaxe et de son utilité principale (CSS Reset des marges et remplissages).

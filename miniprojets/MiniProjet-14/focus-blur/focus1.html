@@ -15,7 +15,7 @@
 
     function getFocus() {
       divMsg.textContent = "J'ai reçu le focus!";
-      const code = Math.floor(97 + Math.random() * 26);
+      const code = Math.trunc(97 + Math.random() * 26);
       inpTxt.value += String.fromCharCode(code);
     }
 

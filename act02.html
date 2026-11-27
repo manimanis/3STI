@@ -62,7 +62,7 @@
           <pre><code class="html">&lt;script&gt;
   // G&eacute;n&egrave;re un nombre al&eacute;atoire dans l&apos;intervalle [a, b]
   function randint(a, b) {
-    return Math.floor(Math.random() * (b - a + 1)) + a;
+    return Math.trunc(Math.random() * (b - a + 1)) + a;
   }
   // G&eacute;n&eacute;rer un nombre puis l&apos;afficher
   let v = randint(5, 25);

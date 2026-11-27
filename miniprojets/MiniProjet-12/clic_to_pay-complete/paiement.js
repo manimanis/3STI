@@ -50,7 +50,7 @@ function validCardNumber(numCard) {
   for (let i = 0; i < numCard.length; i--) {
     if (numCard[i] >= "0" && numCard[i] <= "9") {
       const v = Number(numCard[i]) * (num % 2 == 0 ? 2 : 1);
-      sum += v % 10 + Math.floor(v / 10);
+      sum += v % 10 + Math.trunc(v / 10);
       num++;
     }
   }
@@ -71,7 +71,7 @@ function estAlphabetique(nom) {
 }
 
 function randint(a, b) {
-  return Math.floor(a + Math.random() * (b - a + 1));
+  return Math.trunc(a + Math.random() * (b - a + 1));
 }
 
 function genNumCommand() {

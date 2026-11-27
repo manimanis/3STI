@@ -78,7 +78,7 @@ console.log(randint(0, 9)); // 7.606718899286581</code></pre>
         </p>
         <p><strong>Comment corriger ce problème ?</strong></p>
         <div class="d-none d-print-block">
-          <pre><code class="javascript">return Math.floor(a + Math.random() * (b - a + 1));</code></pre>
+          <pre><code class="javascript">return Math.trunc(a + Math.random() * (b - a + 1));</code></pre>
         </div>
 
         <h4 class="p-break">Question 4</h4>

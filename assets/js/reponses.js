@@ -192,7 +192,7 @@ const app = new Vue({
       if (num < 0) {
         return;
       }
-      const npage = Math.floor(num / this.page_size);
+      const npage = Math.trunc(num / this.page_size);
       if (!this.pages.includes(npage)) {
         this.fetchAnswers(this.est_corrige, npage, this.page_size)
           .then(fetched => {

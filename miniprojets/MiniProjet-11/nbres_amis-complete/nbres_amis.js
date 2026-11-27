@@ -8,7 +8,7 @@ const radParfait = document.getElementById('nbre-parfait');
 
 function sommeDiv(n) {
     let sd = 1;
-    const maxDiv = Math.floor(1 + Math.sqrt(n));
+    const maxDiv = Math.trunc(1 + Math.sqrt(n));
     for (let i = 2; i <= maxDiv; i++) {
         if (n % i == 0) {
             sd += i;
@@ -73,7 +73,7 @@ function btnCalcClicked() {
 }
 
 function randint(a, b) {
-    return Math.floor(a + Math.random() * (b - a + 1));
+    return Math.trunc(a + Math.random() * (b - a + 1));
 }
 
 function selectNumbers() {

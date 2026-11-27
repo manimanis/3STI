@@ -116,9 +116,9 @@ let sup = a > b ? a : b;</code></pre>
         <div class="d-none d-print-block">
           <pre><code class="javascript">// 32825s = 9:07:05
 let s = Number(prompt(&quot;Nombre de secondes ? &quot;, 32825);
-let hh = Math.floor(s / 3600);
-let mm = Math.floor((s % 3600) / 60);
-let ss = Math.floor(s % 60);
+let hh = Math.trunc(s / 3600);
+let mm = Math.trunc((s % 3600) / 60);
+let ss = Math.trunc(s % 60);
 let heure = hh + &quot;:&quot; +
   (mm &lt; 10 ? &quot;0&quot; : &quot;&quot;) + mm + &quot;:&quot; +
   (mm &lt; 10 ? &quot;0&quot; : &quot;&quot;) + ss;

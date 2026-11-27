@@ -15,7 +15,8 @@
   <aside>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span class="brand-text">Conception Web</span></a>
+        <a class="navbar-brand" href="index.html"><span class="brand-badge">3STI</span><span
+            class="brand-text">Conception Web</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span> Menu
@@ -50,15 +51,7 @@ function nom_fonction(par1, par2, ..., parN) {
 
   /* La fonction peut retourner, ou non, un résultat à son appelant */
   [return résultat;]
-}
-
-/* fonctions anonymes */
-const nom_fct2 = function (par1, par2, ..., parM) {
-  // traitement
-  [return resultat;]
-};
-
-const nom_fct3 = (par1, par2, ..., parM) =&gt; résultat;</code></pre>
+}</code></pre>
         <h4>Exemples</h4>
         <p>On veut calculer la distance entre deux points A(x<sub>a</sub>, y<sub>a</sub>) et B(x<sub>b</sub>,
           y<sub>b</sub>) dans un plan munit d'un repère orthonormé. Il existe plusieurs méthodes de calculs :</p>
@@ -73,17 +66,19 @@ const nom_fct3 = (par1, par2, ..., parM) =&gt; résultat;</code></pre>
           <figcaption>Le chemin en vert indique la distance euclidienne, les autres chemins (rouge, bleu et jaune)
             indiquent la distance de Manhattan</figcaption>
         </figure>
-        <pre class="javascript"><code>/* fonction ordinaire */
+        <pre class="javascript"><code>/* distance euclidienne */
 function dist_euclidienne(xa, ya, xb, yb) {
   return Math.sqrt((xb - xa)**2 + (yb - ya)**2);
 }
 
-/* fonctions anonymes */
-const dist_manhattan = function (xa, ya, xb, yb) {
+/* distance de Manhattan */
+function dist_manhattan(xa, ya, xb, yb) {
   return Math.abs(xb - xa) + Math.abs(yb - ya);
-};
+}
 
-const dist = (fn, xa, ya, xb, yb) =&gt; fn(xa, ya, xb, yb);
+function dist(fn, xa, ya, xb, yb) { 
+  return fn(xa, ya, xb, yb);
+}
 
 /* Afficher la distance entre les deux points A(1, 2) et B(7, 8) */
 console.log(dist_euclidienne(1, 2, 7, 8));       // => 8.48528137423857
@@ -127,29 +122,6 @@ console.log(dist(dist_manhattan, 1, 2, 7, 8));   // => 12
     alert(&quot;Good luck!&quot;);
   }
 &lt;/script&gt;</code></pre>
-        <p class="p-break"><strong>Exemple 3</strong></p>
-        <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis attacher
-          l'évènement
-          <code>onclick</code> dans JavaScript.
-        </p>
-        <pre><code class="html">&lt;button id=&quot;bouton&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
-&lt;script&gt;
-  const bouton = document.getElementById(&quot;bouton&quot;);
-  bouton.onclick = () =&gt; {
-    alert(&quot;You are the best of the best!&quot;);
-  };
-&lt;/script&gt;</code></pre>
-        <p><strong>Exemple 4</strong></p>
-        <p>Récupérer la référence du bouton à l'aide de <code>document.getElementById</code>, puis utiliser la méthode
-          <code>addEventListener</code> pour attacher une fonction à l'évènement <code>click</code>.
-        </p>
-        <pre><code class="html">&lt;button id=&quot;btn-2&quot; type=&quot;button&quot;&gt;Cliquez-moi&lt;/button&gt;
-&lt;script&gt;
-  const btn2 = document.getElementById(&quot;btn-2&quot;);
-  btn2.addEventListener(&quot;click&quot;, () =&gt; {
-    alert(&quot;Wish you success and happiness!&quot;);
-  });
-&lt;/script&gt;</code></pre>
       </section>
 
       <section>
@@ -159,10 +131,10 @@ console.log(dist(dist_manhattan, 1, 2, 7, 8));   // => 12
 &lt;html&gt;
 &lt;head&gt;&lt;title&gt;TP sur les fonctions et les &eacute;v&egrave;nements&lt;/title&gt;&lt;/head&gt;
 &lt;body&gt;
-  &lt;button id=&quot;button1&quot;&gt;Afficher un message&lt;/button&gt;
-  &lt;button id=&quot;button2&quot;&gt;Afficher un autre message&lt;/button&gt;
+  &lt;button id=&quot;button1&quot; onclick=&quot;handleButton1Click()&quot;&gt;Afficher un message&lt;/button&gt;
+  &lt;button id=&quot;button2&quot; onclick=&quot;handleButton2Click()&quot;&gt;Afficher un autre message&lt;/button&gt;
   &lt;p id=&quot;message&quot;&gt;&lt;/p&gt;
-  &lt;form&gt;
+  &lt;form onsubmit=&quot;return handleFormSubmit()&quot;&gt;
     &lt;label for=&quot;input&quot;&gt;Entrez votre nom :&lt;/label&gt;&lt;br&gt;
     &lt;input type=&quot;text&quot; id=&quot;input&quot;&gt;&lt;br&gt;
     &lt;input type=&quot;submit&quot; value=&quot;Envoyer&quot;&gt;
@@ -193,18 +165,12 @@ function handleButton2Click() {
 }
 
 // La fonction qui g&egrave;re l&apos;&eacute;v&egrave;nement submit sur le formulaire
-function handleFormSubmit(event) {
-  event.preventDefault();              // Annuler l&apos;envoi du formulaire
+function handleFormSubmit() {
   const inputValue = nameInput.value;  // R&eacute;cup&eacute;rer la valeur du champ #input
 
   // Affichage de la valeur du champ de formulaire dans le paragraphe
   showMessage(&apos;Vous vous appelez &apos; + inputValue);
-}
-
-// Ajouts des écouteurs des &eacute;v&egrave;nements
-btn1.addEventListener(&apos;click&apos;, handleButton1Click);
-btn2.addEventListener(&apos;click&apos;, handleButton2Click);
-form.addEventListener(&apos;submit&apos;, handleFormSubmit);</code></pre>
+}</code></pre>
       </section>
     </article>
   </main>

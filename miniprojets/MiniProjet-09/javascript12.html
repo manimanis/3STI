@@ -37,7 +37,7 @@
   <div id="echiquier">
     <script>
       for (let i = 0; i < 16; i++) {
-        let x = Math.floor(i / 4);
+        let x = Math.trunc(i / 4);
         let y = i % 4;
         let cls = (x + y) % 2 == 0 ? "black" : "gray";
         document.writeln('<div id="carre-', i + 1, '" class="carre ', cls, '">',

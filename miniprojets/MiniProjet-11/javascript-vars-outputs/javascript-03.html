@@ -11,7 +11,7 @@
 <body>
   <script>
     function randint(a, b) {
-      return Math.floor(Math.random() * (b - a + 1)) + a;
+      return Math.trunc(Math.random() * (b - a + 1)) + a;
     }
 
     let v = randint(5, 25);
@@ -21,7 +21,7 @@
   <div id="des"></div>
   <script>
     function randint(a, b) {
-      return Math.floor(Math.random() * (b - a + 1)) + a;
+      return Math.trunc(Math.random() * (b - a + 1)) + a;
     }
 
     const des = document.getElementById("des");

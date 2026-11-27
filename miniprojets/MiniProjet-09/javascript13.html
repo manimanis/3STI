@@ -30,7 +30,7 @@
   <p><b>Nombres dont le chiffres des unités est multiple ou diviseur du chiffre des unités : </b>
     <script>
       for (let i = 10; i < 100; i++) {
-        let d = Math.floor(i / 10);
+        let d = Math.trunc(i / 10);
         let u = i % 10;
         if ((u != 0 && d % u == 0) || (d != 0 && u % d == 0)) {
           document.writeln(i);

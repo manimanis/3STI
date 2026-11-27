@@ -6,7 +6,7 @@ const divRes = document.getElementById("resultat");
 const divScore = document.getElementById("score");
 
 function randint(a, b) {
-  return Math.floor(Math.random() * (b - a + 1) + a);
+  return Math.trunc(Math.random() * (b - a + 1) + a);
 }
 
 function selectNumbers(choix) {

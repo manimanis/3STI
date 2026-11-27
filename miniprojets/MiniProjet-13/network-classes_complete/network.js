@@ -23,7 +23,7 @@ function convBin(n) {
   let ch = "";
   for (let i = 0; i < 8; i++) {
     ch = String(n % 2) + ch;
-    n = Math.floor(n / 2);
+    n = Math.trunc(n / 2);
   }
   return ch;
 }

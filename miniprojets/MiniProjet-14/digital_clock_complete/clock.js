@@ -20,11 +20,11 @@ function setDotsOn(on) {
 
 function displayTime() {
   const tm = new Date();
-  setDigit(0, Math.floor(tm.getHours() / 10));
+  setDigit(0, Math.trunc(tm.getHours() / 10));
   setDigit(1, tm.getHours() % 10);
-  setDigit(2, Math.floor(tm.getMinutes() / 10));
+  setDigit(2, Math.trunc(tm.getMinutes() / 10));
   setDigit(3, tm.getMinutes() % 10);
-  setDigit(4, Math.floor(tm.getSeconds() / 10));
+  setDigit(4, Math.trunc(tm.getSeconds() / 10));
   setDigit(5, tm.getSeconds() % 10);
   dotOn = !dotOn;
   setDotsOn(dotOn);
@@ -33,11 +33,11 @@ function displayTime() {
 
 function displayDate() {
   const tm = new Date();
-  setDigit(0, Math.floor(tm.getDate() / 10));
+  setDigit(0, Math.trunc(tm.getDate() / 10));
   setDigit(1, tm.getDate() % 10);
-  setDigit(2, Math.floor((tm.getMonth() + 1) / 10));
+  setDigit(2, Math.trunc((tm.getMonth() + 1) / 10));
   setDigit(3, (tm.getMonth() + 1) % 10);
-  setDigit(4, Math.floor((tm.getFullYear() % 100) / 10));
+  setDigit(4, Math.trunc((tm.getFullYear() % 100) / 10));
   setDigit(5, tm.getFullYear() % 10);
   setDotsOn(false);
 }

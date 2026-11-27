@@ -38,7 +38,7 @@ function toHexa(v) {
     } else {
       ch = String.fromCharCode(55 + r) + ch;
     }
-    v = Math.floor(v / 16);
+    v = Math.trunc(v / 16);
   }
   return ch;
 }

@@ -83,8 +83,8 @@
           <figcaption>Résultat de l'exercice</figcaption>
         </figure>
         <p><strong>Code JavaScript</strong></p>
-        <pre><code class="javascript">const a = Math.floor(Math.random() * 90 + 10);
-const b = Math.floor(Math.random() * 90 + 10);
+        <pre><code class="javascript">const a = Math.trunc(Math.random() * 90 + 10);
+const b = Math.trunc(Math.random() * 90 + 10);
 
 const s = a + b;
 const d = a - b;
@@ -144,7 +144,7 @@ document.writeln(&apos;&lt;p&gt;&lt;span class=&quot;color1&quot;&gt;&apos;, a,
           <pre><code class="html">&lt;script&gt;
   // G&eacute;n&egrave;re un nombre al&eacute;atoire dans l&apos;intervalle [a, b]
   function randint(a, b) {
-    return Math.floor(Math.random() * (b - a + 1)) + a;
+    return Math.trunc(Math.random() * (b - a + 1)) + a;
   }
   // G&eacute;n&eacute;rer un nombre puis l&apos;afficher
   let v = randint(5, 25);
@@ -347,9 +347,9 @@ let sup = a > b ? a : b;</code></pre>
         <div class="d-none d-print-block">
           <pre><code class="javascript">// 32825s = 9:07:05
 let s = Number(prompt(&quot;Nombre de secondes ? &quot;, 32825);
-let hh = Math.floor(s / 3600);
-let mm = Math.floor((s % 3600) / 60);
-let ss = Math.floor(s % 60);
+let hh = Math.trunc(s / 3600);
+let mm = Math.trunc((s % 3600) / 60);
+let ss = Math.trunc(s % 60);
 let heure = hh + &quot;:&quot; +
   (mm &lt; 10 ? &quot;0&quot; : &quot;&quot;) + mm + &quot;:&quot; +
   (mm &lt; 10 ? &quot;0&quot; : &quot;&quot;) + ss;

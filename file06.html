@@ -945,7 +945,7 @@ console.log("!(", a, "&gt;", b, ")", !(a &gt; b)) // false</code></pre>
         <p><strong>Exemple</strong> : Aiguillage avec <code>switch</code></p>
         <div class="row align-items-center mb-4">
           <div class="col-lg-6">
-            <pre class="javascript"><code>let j2 = Math.floor(Math.random() * 3), cj2;
+            <pre class="javascript"><code>let j2 = Math.trunc(Math.random() * 3), cj2;
 let j1, cj1;
 let g, res;
 
@@ -978,8 +978,8 @@ alert(cj1 + &quot; contre &quot; + cj2 + &quot; =&gt; &quot; + res);</code></pre
         <p><strong>Exemple</strong> : Évaluation conditionnelle avec l'opérateur ternaire</p>
         <div class="row align-items-center mb-4">
           <div class="col-lg-6">
-            <pre class="javascript"><code>let v1 = Math.floor(Math.random() * 2);
-let v2 = Math.floor(Math.random() * 2);
+            <pre class="javascript"><code>let v1 = Math.trunc(Math.random() * 2);
+let v2 = Math.trunc(Math.random() * 2);
 let res = (v1 == v2) ? &quot;Egaux&quot; : &quot;Diff&eacute;rents&quot;;
 alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
           </div>
@@ -1079,13 +1079,13 @@ alert(v1 + &quot; == &quot; + v2 + &quot; ? &quot; + res);</code></pre>
         <div class="row align-items-center mb-4">
           <div class="col-lg-6">
             <pre class="html"><code>&lt;script&gt;
-  let a = Math.floor(Math.random() * 10);
+  let a = Math.trunc(Math.random() * 10);
   let b, u;
 
   document.writeln(&quot;&lt;p&gt;Cherchons un nombre ayant un chiffre d&apos;unit&eacute;s = &quot;, a, &quot;&lt;/p&gt;&quot;);
 
   do {
-    b = Math.floor(Math.random() * 90) + 10;
+    b = Math.trunc(Math.random() * 90) + 10;
     u = b % 10;
     if (u == a) {
       document.writeln(b, &quot; Accept&eacute;&quot;);
@@ -1149,7 +1149,7 @@ document.writeln(&quot;&lt;p&gt;&quot;, a, &quot;*&quot;, b, &quot;=&quot;, prod
 
 /* Déclaration d'une fonction : alea */
 function alea(a, b) {
-  return Math.floor(Math.random() * (b - a)) + a;
+  return Math.trunc(Math.random() * (b - a)) + a;
 }
 document.writeln(&quot;&lt;p&gt;alea(&quot;, a, &quot;, &quot;, b, &quot;) = &quot;, alea(a, b), &quot;&lt;/p&gt;&quot;);
 
@@ -1401,16 +1401,16 @@ if (isNaN(note1) || isNaN(note2)) {
               </td>
             </tr>
             <tr>
-              <td><code>Math.floor(N)</code></td>
+              <td><code>Math.trunc(N)</code></td>
               <td>Retourne le plus grand entier inférieur ou égal à <code>N</code> (arrondi à l'inférieur).</td>
-              <td><code>Math.floor(4.9)</code> &rarr; <code>4</code><br><code>Math.floor(-4.1)</code> &rarr;
+              <td><code>Math.trunc(4.9)</code> &rarr; <code>4</code><br><code>Math.trunc(-4.1)</code> &rarr;
                 <code>-5</code>
               </td>
             </tr>
             <tr>
               <td><code>Math.random()</code></td>
               <td>Génère un nombre réel pseudo-aléatoire dans l'intervalle semi-ouvert <code>[0, 1[</code>.</td>
-              <td><code>Math.floor(Math.random() * 10) + 1</code> &rarr; Entier entre 1 et 10</td>
+              <td><code>Math.trunc(Math.random() * 10) + 1</code> &rarr; Entier entre 1 et 10</td>
             </tr>
           </tbody>
         </table>
@@ -1744,7 +1744,7 @@ function calculerAge() {
 &lt;script&gt;
   const guess = document.getElementById(&quot;guess&quot;);
   const msg = document.getElementById(&quot;msg&quot;);
-  const secret = Math.floor(Math.random() * 99) + 1;
+  const secret = Math.trunc(Math.random() * 99) + 1;
   guess.addEventListener(&quot;focus&quot;, () =&gt; {
     msg.innerHTML = &quot;Guess my number between 1 - 99&quot;;
   });
@@ -1778,7 +1778,7 @@ function calculerAge() {
 &lt;script&gt;
   const guess = document.getElementById(&quot;guess&quot;);
   const msg = document.getElementById(&quot;msg&quot;);
-  const secret = Math.floor(Math.random() * 99) + 1;
+  const secret = Math.trunc(Math.random() * 99) + 1;
   guess.addEventListener(&quot;focus&quot;, () =&gt; {
     msg.innerHTML = &quot;Guess my number between 1 - 99&quot;;
   });
@@ -2887,7 +2887,7 @@ document.writeln(&quot;&lt;p&gt;Quantit&eacute; : &quot;, qte.value, &quot;&lt;/
           <div class="card-body">
             <p>On simule le jeu <em>Pierre - Feuille - Ciseaux</em> entre deux joueurs, où chaque coup est représenté
               par un entier : <code>0</code> (Pierre), <code>1</code> (Feuille), <code>2</code> (Ciseaux) :</p>
-            <pre class="javascript"><code>let j2 = Math.floor(Math.random() * 3), cj2;
+            <pre class="javascript"><code>let j2 = Math.trunc(Math.random() * 3), cj2;
 let j1, cj1;
 let g, res;
 
@@ -2898,7 +2898,7 @@ switch (j2) {
   default: cj2 = &quot;Aucun&quot;;
 }
 
-j1 = Math.floor(Math.random() * 3);
+j1 = Math.trunc(Math.random() * 3);
 // Compléter pour j1...</code></pre>
             <figure class="my-3 text-center">
               <img src="assets/miniprojet09/images/switch-01.png" alt="Jeu Pierre Feuille Ciseaux"
@@ -3030,12 +3030,12 @@ document.writeln(&quot;PGCD(&quot;, a, &quot;, &quot;, b, &quot;) = &quot;, a1);
           </div>
           <div class="card-body">
             <p>Soit le programme initial de recherche d'un nombre se terminant par un chiffre aléatoire donné :</p>
-            <pre class="javascript"><code>let a = Math.floor(Math.random() * 10);
+            <pre class="javascript"><code>let a = Math.trunc(Math.random() * 10);
 let b, u;
 
 document.writeln(&quot;&lt;p&gt;Cherchons un nombre ayant un chiffre d'unités = &quot;, a, &quot;&lt;/p&gt;&quot;);
 do {
-  b = Math.floor(Math.random() * 90) + 10;
+  b = Math.trunc(Math.random() * 90) + 10;
   u = b % 10;
   if (u == a) {
     document.writeln(b, &quot; Accepté&lt;br&gt;&quot;);
@@ -3256,7 +3256,7 @@ console.log("Jours restants avant le bac :", diffJours);</code></pre>
             <ol>
               <li>Créer un fichier HTML nommé <strong><code>javascript19.html</code></strong>.</li>
               <li>Générer un nombre aléatoire secret :
-                <pre class="javascript"><code>const secret = Math.floor(Math.random() * 99) + 1;</code></pre>
+                <pre class="javascript"><code>const secret = Math.trunc(Math.random() * 99) + 1;</code></pre>
               </li>
               <li>Écouter l'événement <code>blur</code> ou <code>change</code> sur le champ de saisie pour comparer la
                 proposition au nombre secret :

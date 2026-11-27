@@ -22,7 +22,7 @@ function btnClicked(e) {
   }
 
   ntries++;
-  num = Math.floor((d + f) / 2);
+  num = Math.trunc((d + f) / 2);
   updateData();
 }
 
@@ -45,7 +45,7 @@ btn_equal.addEventListener("click", btnClicked);
 
 let d = 1;
 let f = 99;
-let num = Math.floor(Math.random() * 21 + 40);
+let num = Math.trunc(Math.random() * 21 + 40);
 let ntries = 1;
 let guessed = false;
 

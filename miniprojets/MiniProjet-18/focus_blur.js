@@ -1,7 +1,7 @@
 function textFocused() {
   const nbre = document.getElementById("nbre");
   if (nbre.value == "") {
-    nbre.value = Math.floor(Math.random() * 100 + 1);
+    nbre.value = Math.trunc(Math.random() * 100 + 1);
   } else {
     let v = Number(nbre.value);
     if (v % 2 == 0) {
